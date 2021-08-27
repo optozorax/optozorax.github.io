@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>optozorax.blog - рассуждения</title>
+        <link>https://testzorax.github.io/</link>
+        <description>Мои програмульки и результаты их работы</description>
+        <generator>Zola</generator>
+        <language>ru</language>
+        <atom:link href="https://testzorax.github.io/tags/rassuzhdeniia/rss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Sun, 06 Jun 2021 00:00:00 +0000</lastBuildDate>
+        <item>
+            <title>Двойки не существует</title>
+            <pubDate>Sun, 06 Jun 2021 00:00:00 +0000</pubDate>
+            <link>https://testzorax.github.io/p/two-doesnt-exists/</link>
+            <guid>https://testzorax.github.io/p/two-doesnt-exists/</guid>
+            <description>&lt;p&gt;У людей есть такое когнитивное искажение, которое мешает им принимать абстрактные концепции только из-за того что реализации этих концепций нет в реальном мире.&lt;&#x2F;p&gt;
+&lt;p&gt;Примеры фраз: &lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;4D не существует потому что мы живём в трёхмерном мире.&lt;&#x2F;li&gt;
+&lt;li&gt;Не может быть геометрического 4D пространства, потому что существует только пространство-время.&lt;&#x2F;li&gt;
+&lt;li&gt;Порталы не могут двигаться, потому что они обязательно червоточины, которые типо могут существовать.&lt;&#x2F;li&gt;
+&lt;li&gt;Отрицательных чисел не существует, потому что мы не можем насыпать в мешок -3 камня. (особо запущенный случай)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Самое интересное из этих утверждений это второе. Оно как бы показывает что собеседник осведомлён о текущем состоянии науки, но в то же время подвергается этому искажению. Потому что говорить что 4D — это исключительно пространство-время, такое же бессмысленное утверждение, как говорить что число 2 обозначает только те 2 камня, но не 2 джоуля, не 2 фотона, не 2 бита, не 2 икса. Число 2 — куда более широкое понятие, чем его конкретная реализация в виде двух конкретных объектов.&lt;&#x2F;p&gt;
+&lt;p&gt;А утверждать, что 4D не существует, настолько же бессмысленно, как и утверждать что числа 2 не существует. 4D — абстрактная концепция, которая не зависит от нашего мира.&lt;&#x2F;p&gt;
+&lt;p&gt;Надо принять что бывает полезно рассуждать об абстрактных вещах, которые никак не могут существовать в нашем мире.&lt;&#x2F;p&gt;
+&lt;p&gt;Тогда где граница существования абстрактных объектов, если они все и существуют и не существуют?&lt;&#x2F;p&gt;
+&lt;p&gt;Возьмём i² = -1. Оно существует? Нет, если мы хотим найти его в множестве ℝ. А если мы вводим его как новый объект, то вполне себе красиво и существует.&lt;&#x2F;p&gt;
+&lt;p&gt;А может ли новый объект не существовать в математике? Да, если они приводит к противоречиям. Например, машина из &lt;a href=&quot;https:&#x2F;&#x2F;ru.wikipedia.org&#x2F;wiki&#x2F;%D0%9F%D1%80%D0%BE%D0%B1%D0%BB%D0%B5%D0%BC%D0%B0_%D0%BE%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B8&quot;&gt;проблемы останова&lt;&#x2F;a&gt; не существует математически, потому что она сама себе противоречит. Аналогично с &lt;a href=&quot;https:&#x2F;&#x2F;ru.wikipedia.org&#x2F;wiki&#x2F;%D0%9F%D0%B0%D1%80%D0%B0%D0%B4%D0%BE%D0%BA%D1%81_%D0%A0%D0%B0%D1%81%D1%81%D0%B5%D0%BB%D0%B0#%D0%9F%D0%B0%D1%80%D0%B0%D0%B4%D0%BE%D0%BA%D1%81_%D0%B1%D1%80%D0%B0%D0%B4%D0%BE%D0%B1%D1%80%D0%B5%D1%8F.&quot;&gt;парадоксом Брадобрея&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Слово «существовать» можно определить следующим списком:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Либо имеет конкретную реализацию в физическом мире.&lt;&#x2F;li&gt;
+&lt;li&gt;Либо не противодит к противоречиям.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Так что если вам говорят что что-то абстрактное не существует, напомните им что и двойки тоже не существует.&lt;&#x2F;p&gt;
+&lt;div class=&quot;magnifier-container img-one&quot;&gt;
+&lt;img
+    class=&quot;not-default full-screen-img&quot;
+    width=&quot;720&quot;
+    height=&quot;720&quot;
+    src=&quot;&amp;#x2F;processed_images&amp;#x2F;616cbcd31c929d2100.webp&quot; 
+    onclick=&quot;full_screen(&#x27;two-doesnt-exists.png&#x27;)&quot;
+    onauxclick=&quot;full_screen_new_page(&#x27;two-doesnt-exists.png&#x27;)&quot;&gt;
+&lt;div class=&quot;magnifier-display&quot;&gt;
+&lt;img class=&quot;magnifier&quot; src=&quot;&#x2F;ico&#x2F;magnifier.svg&quot;&gt;&lt;div class=&quot;magnifier-info&quot;&gt;×1&lt;br&gt;png&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+</description>
+        </item>
+        <item>
+            <title>Мы не должны делать никаких выводов касательно своей бытовой жизни на основании генетических исследований</title>
+            <pubDate>Mon, 31 May 2021 00:00:00 +0000</pubDate>
+            <link>https://testzorax.github.io/p/genes/</link>
+            <guid>https://testzorax.github.io/p/genes/</guid>
+            <description>&lt;p&gt;Скажем, вы видите статью что наличие какого-то гена, который отвечает за то что вы раньше ложитесь, коррелирует с сниженным риском депрессии. Можно ли из этого сделать вывод что если вы будете раньше ложиться спать, то у вас тоже будет меньше вероятность депрессии? Нет.&lt;&#x2F;p&gt;
+&lt;p&gt;Если вы видите статью, которая говорит что интеллект сильно обусловлен генетикой, должны ли вы сдаться если вам кажется что у вас не получается? Или должны ли вы забить на образование своих детей? Нет.&lt;&#x2F;p&gt;
+&lt;p&gt;Все эти исследования, которые говорят что что-то зависит от генов, не должно оказывать никакое влияние на вашу обычную жизнь. Вы в первую очередь — универсальное вычислительное устройство, которое при желании может всё. А если не может, значит надо искать свой путь.&lt;&#x2F;p&gt;
+&lt;p&gt;Даже на кухонных посиделках не стоит упоминать зависимость чего-то от генов. Ибо тогда сразу разговор дойдёт до того кто на что способен, а на что не способен, и это без секвенирования ДНК! Даже гороскопы будут точнее таких посиделок.&lt;&#x2F;p&gt;
+&lt;p&gt;Единственная полезная генетическая вещь для вас — это знать предпрасположенность к некоторым болезням (например: наркомании или алкоголизм), или непереносимость лактозы.&lt;&#x2F;p&gt;
+&lt;p&gt;Оставьте остальную генетическую информацию социологам и генным инженерам, а обычным людям это знать не то что не нужно, а ещё и вредно.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;На эту тему есть хорошее видео, подтверждающее эту точку зрения: гены и окружение очень сильно влияют, но вы должны считать себя способным на всё, иначе успеха достичь невозможно:&lt;&#x2F;p&gt;
+&lt;center&gt;
+&lt;iframe src=&quot;https:&#x2F;&#x2F;www.youtube-nocookie.com&#x2F;embed&#x2F;3LopI4YeC4I&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen style=&quot;width: 560px; height: 315px;&quot;&gt;&lt;&#x2F;iframe&gt;
+&lt;&#x2F;center&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;Ещё, на самом деле генетическая информация может быть полезна в случае если девушка хочет родить особо хорошее потомство, и готова ради этого искать мужчину с конкретно нужными генами.&lt;&#x2F;p&gt;
+&lt;p&gt;Например, в одном подкасте с Асей Казанцевой, она говорила что хочет жениться на человеке, у которого есть PhD, ибо согласно генетическим исследованиям долгосрочный интеллект (ваша возможность дойти до PhD и защитить её, а не ваш интеллект в принципе) очень сильно зависит от генов.&lt;&#x2F;p&gt;
+&lt;p&gt;Поэтому она считает, что если найдёт мужчину с PhD, то её дети вероятно тоже смогут в долгосрочной перспективе быть более умными, чем если рожать от рандомного человека.&lt;&#x2F;p&gt;
+&lt;p&gt;Да, тут полезно знать и делать выводы, но это какой-то экстренный случай. Скорее мы доживём до официальной генной инженерии, чем до того момента, когда подобное поведение будет массовым.&lt;&#x2F;p&gt;
+</description>
+        </item>
+        <item>
+            <title>Папки «Спам» быть не должно</title>
+            <pubDate>Tue, 09 Feb 2021 00:00:00 +0000</pubDate>
+            <link>https://testzorax.github.io/p/spam/</link>
+            <guid>https://testzorax.github.io/p/spam/</guid>
+            <description>&lt;p&gt;При регистрации на каком-то сайте очень часто используется электронная почта в качестве способа активации. И практически на любом сайте после отправки письма пишут: «Проверьте папку &amp;quot;Спам&amp;quot;, письмо может случайно попасть туда». В этом главная проблема. Данную папку нам навязывает любой почтовый сервис, письма складываются туда по каким-то магическим алгоритмам, главное свойство которых в том, что они ошибаются.&lt;&#x2F;p&gt;
+&lt;p&gt;Из-за того алгоритмы определения спама всегда ошибаются и работают чёрт знает как, у нас развивается паранойя, из-за которой мы постоянно смотрим в эту папку, тратя драгоценные секунды. А если мы её не проверяем, можем иногда потерять важную почту.&lt;&#x2F;p&gt;
+&lt;p&gt;Я считаю что папка «Спам» должна отсутствовать по умолчанию. Всё должно делаться на основе фильтров, и для фильтров должны быть жирные кнопки и более удобный и доступный интерфейс.&lt;&#x2F;p&gt;
+&lt;p&gt;За всё время пользования почтой я понял самую главную вещь: если какая-то почта начала спамить вам один раз, и от этого нельзя отписаться, значит она вам будет спамить всегда. И аналогично, если какая-то почта присылает важные письма, значит она никогда не пришёт спам, а если и пришлёт, то там будет кнопочка «Отписаться». Этим свойством и будем пользоваться далее.&lt;&#x2F;p&gt;
+&lt;p&gt;Вот, например, пришло вам письмо во входящие, а вы видите что это спам. Как с ним бороться, если такой папки нет? Для этого придумана концепция фильтров. Можно вручную поставить фильтр на автоматическое удаление подобных писем. В обычных почтовых сервисах для этого надо заходить в настройки и разбираться в том как работают фильтры, и смотреть на кучу полей, поэтому так никто не делает, и всем лень. Поэтому нужно упрощать интерфейс, например вместо кнопки «Пометить как спам» можно поставить кнопку для самого частого кейса создания фильтра: «Удалять все письма от этой почты». Ну и конечно, после нажатия этой кнопки все письма от данной почты тоже должны автоматически удалиться, потому что никто не полезет в настройки чтобы сделать это вручную, и потому что вспоминаем свойство. Отлично, теперь 90% кейсов использования папки «Спам» уничтожено.&lt;&#x2F;p&gt;
+&lt;p&gt;Другой кейс спама — это когда человеку каждый день пишут самые разные почтовые ящики, и он просто физически не сможет фильтровать их все самостоятельно. Мне кажется только в таком случае должна быть кнопка «А давайте вы мне дадите папку спам, и заюзаете ваши магические алгоритмы». Хотя даже для этого случая я бы не стал доверять алгоритмам, и сделал по-другому. В данном случае можно создать концепцию «Доверенных почт&#x2F;доменов почт». При данной концепции должны быть две папки входящих: неизвестные и известные. Все письма от неизвестных почтовых ящиков должны складываться в соответствующую папку, аналогично известные. Должен быть список всех известных почт, который можно настроить и посмотреть в настройках. И снова, при встрече соответствующего письма, в настройки никто лезть не будет, поэтому чтобы сделать какую-то почту доверенной, в каждом письме просто должна быть кнопка «Сделать доверенной почту, отправившую это письмо», аналогично наоборот. И сразу после этого все письма от этой почты должны переместиться из папки неизвестных в папку известных, потому что свойство. Таким образом, человеку могут писать хоть тысячи разных спамовых почт ежедневно, но он никогда не пропустит важную почту, и никакие папки «Спам» не нужны.&lt;&#x2F;p&gt;
+&lt;p&gt;Вот и всё, теперь мы не только избавились от идиотской концепции папки со спамом, но ещё и создали в сотню раз более мощный, удобный и полезный интерфейс, который усиливает своего пользователя, а не ослабляет.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;Жаль, что в Gmail отключить эту папку невозможно. &lt;&#x2F;p&gt;
+&lt;p&gt;Недавно, кстати, у меня письмо для активации Твиттера улетело в спам, а я думал почему так долго не приходит письмо :).&lt;&#x2F;p&gt;
+</description>
+        </item>
+        <item>
+            <title>Проблема подписок</title>
+            <pubDate>Tue, 04 Aug 2020 00:00:00 +0000</pubDate>
+            <link>https://testzorax.github.io/p/subscription-problem/</link>
+            <guid>https://testzorax.github.io/p/subscription-problem/</guid>
+            <description>&lt;p&gt;Сейчас проблема подписок в том, что однажды подписавшись, ты скорее всего вряд ли отпишешься, потому что принимать такое решение очень сложно: «Ну зачем-то же я подписался», «Ну он же делал годноту». Обычно отписка происходит только если человек начал делать что-то очень плохое. Да и вообще отписываются очень сознательные люди, которые анализируют потребляемый контент.&lt;&#x2F;p&gt;
+&lt;p&gt;Из-за этого у среднего человека становится слишком много подписок и ему становятся необходимы всякие умные ленты.&lt;&#x2F;p&gt;
+&lt;p&gt;Другой вариант решения этой проблемы, который придумал я, — это предоставление статистики потребления контента на каждого автора, на которого ты подписан.&lt;&#x2F;p&gt;
+&lt;p&gt;Как может выглядеть такая статистика на примере ютуба: &lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;показывается как часто ты ставишь лайки, дизлайки этому каналу; &lt;&#x2F;li&gt;
+&lt;li&gt;сколько проходит времени с момента выпуска видео и как ты его посмотришь (заинтересованность); &lt;&#x2F;li&gt;
+&lt;li&gt;сколько видео ты не смотришь.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;И ещё эта статистика должна быть разделена на два периода: до подписки и после. Потому что может быть так, что ты подписался на человека за то что он делал раньше, а щас он делает фигню, которую ты не смотришь.&lt;&#x2F;p&gt;
+&lt;p&gt;Далее должна быть возможность ранжировать по этим критериям все каналы что у тебя есть и на основании этой статистики принимать решение об отписке, смотря в конец.&lt;&#x2F;p&gt;
+&lt;p&gt;Может пусть сам ютуб предлагает каналы от которых нужно отписаться (умная анти-лента).&lt;&#x2F;p&gt;
+&lt;p&gt;Конечно, эту идею надо распространить на всё: вк, твиттер, телега итд.&lt;&#x2F;p&gt;
+&lt;p&gt;С такими инструментами станет проще жить, и возможно число подписчиков действительно начнёт что-то значить.&lt;&#x2F;p&gt;
+</description>
+        </item>
+        <item>
+            <title>Float — это динамическая типизация на уровне процессора</title>
+            <pubDate>Sat, 20 Jun 2020 00:00:00 +0000</pubDate>
+            <link>https://testzorax.github.io/p/typed-float/</link>
+            <guid>https://testzorax.github.io/p/typed-float/</guid>
+            <description>&lt;h1 id=&quot;vvedenie&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#vvedenie&quot;&gt;#&lt;&#x2F;a&gt;Введение&lt;&#x2F;h1&gt;
+&lt;p&gt;В этой статье предполагается что вы знакомы с языком Rust, и знаете что такое алгебраические типы данных (ADT).&lt;&#x2F;p&gt;
+&lt;p&gt;Сравните эти два примера кода:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;js&quot; style=&quot;background-color:#f5f5f5;color:#1f1f1f;&quot; class=&quot;language-js &quot;&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;function &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c23f31;&quot;&gt;something&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;a&lt;&#x2F;span&gt;&lt;span&gt;) {
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;typeof &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;a &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;=== &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d07711;&quot;&gt;&amp;quot;number&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;) {
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;a&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;*&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;3 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;+ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    } &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;else if &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;typeof &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;a &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;=== &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d07711;&quot;&gt;&amp;quot;string&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;) {
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#f5f5f5;color:#1f1f1f;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c23f31;&quot;&gt;something&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;a&lt;&#x2F;span&gt;&lt;span&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;f64&lt;&#x2F;span&gt;&lt;span&gt;) -&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;f64 &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;if&lt;&#x2F;span&gt;&lt;span&gt; a.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b39f04;&quot;&gt;is_nan&lt;&#x2F;span&gt;&lt;span&gt;() {
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0.0
+&lt;&#x2F;span&gt;&lt;span&gt;    } &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;else if !&lt;&#x2F;span&gt;&lt;span&gt;a.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b39f04;&quot;&gt;is_finite&lt;&#x2F;span&gt;&lt;span&gt;() {
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1.0
+&lt;&#x2F;span&gt;&lt;span&gt;    } &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;else if&lt;&#x2F;span&gt;&lt;span&gt; a &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;== &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0.0 &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1.0
+&lt;&#x2F;span&gt;&lt;span&gt;    } &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;else &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span&gt; a.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b39f04;&quot;&gt;abs&lt;&#x2F;span&gt;&lt;span&gt;()
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Казалось, бы, два совершенно разных языка, а код выглядит так одинаково: всё &lt;strong&gt;валидируется&lt;&#x2F;strong&gt; (кто не в теме, надо &lt;a href=&quot;https:&#x2F;&#x2F;habr.com&#x2F;ru&#x2F;post&#x2F;498042&#x2F;&quot;&gt;парсить, а не валидировать&lt;&#x2F;a&gt;). Да, всё дело в том, что вещественные числа - это, по сути, динамическая типизация на уровне процессора. У нас в переменной вещественного числа может храниться множество состояний, которые мы должны проверять, если хотим узнать что там хранится. Так же там присутствует неявное приведение типов из &amp;quot;разных&amp;quot; категорий, например &lt;code&gt;1.0 + NaN = NaN&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Что люди сделали с динамической типизацией в JavaScript? Они придумали TypeScript. И стало хорошо. Получается то же самое можно сделать с вещественными числами?&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;nan&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#nan&quot;&gt;#&lt;&#x2F;a&gt;NaN&lt;&#x2F;h1&gt;
+&lt;p&gt;Самая базовая проблема вещественных чисел - это &lt;code&gt;NaN&lt;&#x2F;code&gt;. Он обладает очень противным свойством: не равен самому себе.&lt;&#x2F;p&gt;
+&lt;p&gt;Из-за этого мы в Rust&#x27;е не можем хранить вещественные числа в дереве, сортировать массив с ними, то есть реализовывать трейты &lt;code&gt;Eq&lt;&#x2F;code&gt;, &lt;code&gt;Ord&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Если вытащить из вещественного числа &lt;code&gt;NaN&lt;&#x2F;code&gt;, то оно сразу становится хорошим. Схематически это можно обозначить так:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#f5f5f5;color:#1f1f1f;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;enum &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c23f31;&quot;&gt;Float &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    NaN,
+&lt;&#x2F;span&gt;&lt;span&gt;    NotNanFloat(NotNanFloat),
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;enum &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c23f31;&quot;&gt;NotNanFloat &lt;&#x2F;span&gt;&lt;span&gt;{ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;&#x2F;* ... *&#x2F; &lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;impl &lt;&#x2F;span&gt;&lt;span&gt;Eq &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c23f31;&quot;&gt;NotNanFloat &lt;&#x2F;span&gt;&lt;span&gt;{ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;&#x2F;* ... *&#x2F; &lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;impl &lt;&#x2F;span&gt;&lt;span&gt;Ord &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c23f31;&quot;&gt;NotNanFloat &lt;&#x2F;span&gt;&lt;span&gt;{ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;&#x2F;* ... *&#x2F; &lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;И мы можем записать в массиве, что храним только &lt;code&gt;NotNanFloat&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Когда я писал &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;optozorax&#x2F;confidence&quot;&gt;github:confidence&lt;&#x2F;a&gt;, мне очень не хватало возможности матчиться по такой структуре данных, или говорить что я принимаю только &lt;code&gt;NotNanFloat&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Правда, появляется проблема, что некоторые операции над &lt;code&gt;NotNanFloat&lt;&#x2F;code&gt; позволяют прийти к &lt;code&gt;NaN&lt;&#x2F;code&gt;, например: умножение бесконечности на ноль, деление на ноль. Получается, нам после любых арифметических вычислений нужно приводить тип из более широкого &lt;code&gt;Float&lt;&#x2F;code&gt; обратно к &lt;code&gt;NotNanFloat&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#f5f5f5;color:#1f1f1f;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; a: NotNanFloat &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= ...&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; b: NotNanFloat &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= ...&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; c: Float &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; a &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;*&lt;&#x2F;span&gt;&lt;span&gt; b &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;&#x2F; &lt;&#x2F;span&gt;&lt;span&gt;(a &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;+&lt;&#x2F;span&gt;&lt;span&gt; b);
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; d: NotNanFloat &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; c.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b39f04;&quot;&gt;try_into&lt;&#x2F;span&gt;&lt;span&gt;().&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b39f04;&quot;&gt;unwrap&lt;&#x2F;span&gt;&lt;span&gt;();
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;С одной стороны это даже хорошо, потому что мы не будем хранить фигню у себя в массивах, и в конце не получим что у нас огромная матрица перемножалась 100 раз с &lt;code&gt;NaN&lt;&#x2F;code&gt;&#x27;ами, а получим ошибку намного раньше.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;prodolzhenie-bezumiia&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#prodolzhenie-bezumiia&quot;&gt;#&lt;&#x2F;a&gt;Продолжение безумия&lt;&#x2F;h1&gt;
+&lt;p&gt;Можно пойти дальше и ещё сильнее разделить вещественные числа:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#f5f5f5;color:#1f1f1f;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;enum &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c23f31;&quot;&gt;NotNanFloat &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    InfiniteFloat(InfiniteFloat),
+&lt;&#x2F;span&gt;&lt;span&gt;    FiniteFloat(FiniteFloat),
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;enum &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c23f31;&quot;&gt;InfiniteFloat &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    Negative,
+&lt;&#x2F;span&gt;&lt;span&gt;    Positive,
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;enum &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c23f31;&quot;&gt;FiniteFloat &lt;&#x2F;span&gt;&lt;span&gt;{ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;&#x2F;* ... *&#x2F; &lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Но в этом уже нет такой серьёзной причины как в отделении от &lt;code&gt;NaN&lt;&#x2F;code&gt;&#x27;а. Такое разделение можно использовать для более чёткого контроля типов данных на этапе компиляции.&lt;&#x2F;p&gt;
+&lt;p&gt;Например, можно создать тип &lt;code&gt;FloatFrom0ToInf&lt;&#x2F;code&gt;, который содержит все положительные числа и включая ноль. И затем сказать что &lt;code&gt;fn div_one(down: FloatFrom0ToInf) -&amp;gt; FloatFrom0ToInf&lt;&#x2F;code&gt;. Ну и вообще рассчитать все операции друг из друга, и записать это на системах типов.&lt;&#x2F;p&gt;
+&lt;p&gt;Либо же &lt;code&gt;NotNanFloat&lt;&#x2F;code&gt; можно расписать так:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#f5f5f5;color:#1f1f1f;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;enum &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c23f31;&quot;&gt;NotNanFloat &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    PositiveFloat(PositiveFloat),
+&lt;&#x2F;span&gt;&lt;span&gt;    NegativeFloat(NegativeFloat),
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;enum &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c23f31;&quot;&gt;PositiveFloat &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    Infinity,
+&lt;&#x2F;span&gt;&lt;span&gt;    FinitePositiveFloat(FinitePositiveFloat),
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;enum &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c23f31;&quot;&gt;FinitePositiveFloat &lt;&#x2F;span&gt;&lt;span&gt;{ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;&#x2F;* ... *&#x2F; &lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Здесь можно сделать метод: &lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#f5f5f5;color:#1f1f1f;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c23f31;&quot;&gt;mul&lt;&#x2F;span&gt;&lt;span&gt;(PositiveFiniteFloat, PositiveFiniteFloat) -&amp;gt; PositiveFloat;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Или надо отделить ноль от всего остального, и можно получить деление, которое не должно вызывать &lt;code&gt;NaN&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#f5f5f5;color:#1f1f1f;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c23f31;&quot;&gt;div&lt;&#x2F;span&gt;&lt;span&gt;(FiniteFloat, NonZeroFiniteFloat) -&amp;gt; NonZeroFiniteFloat;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;А ещё можно иметь крутые сообщения об ошибках, когда ты пытаешься преобразовать более широкий тип к более маленькому:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#f5f5f5;color:#1f1f1f;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; a: Float &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= -&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1.2&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; b: PositiveFiniteFloat &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; a.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b39f04;&quot;&gt;float_unwrap&lt;&#x2F;span&gt;&lt;span&gt;(); &lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;&#x2F;&#x2F; &amp;quot;Can&amp;#39;t convert negative float `-1.2` to positive number in line N&amp;quot;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Такие типы могли бы быть очень удобны во всяких библиотечных функциях. Например, функция расчёта площади треугольника по трём сторонам, которая принимает только конечные положительные числа, чтобы не &lt;strong&gt;валидировать&lt;&#x2F;strong&gt; их внутри:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#f5f5f5;color:#1f1f1f;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c23f31;&quot;&gt;triangle_area&lt;&#x2F;span&gt;&lt;span&gt;(
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;a&lt;&#x2F;span&gt;&lt;span&gt;: PositiveNonZeroFiniteFloat, 
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;b&lt;&#x2F;span&gt;&lt;span&gt;: PositiveNonZeroFiniteFloat, 
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;c&lt;&#x2F;span&gt;&lt;span&gt;: PositiveNonZeroFiniteFloat,
+&lt;&#x2F;span&gt;&lt;span&gt;) -&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a2a001;&quot;&gt;Option&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;PositiveNonZeroFiniteFloat&amp;gt; { &lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;&#x2F;* ... *&#x2F; &lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;&#x2F;&#x2F; В этой функции возвращается `Option&amp;lt;_&amp;gt;`, потому что в процессе вычислений может возникнуть бесконечность.
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;И таких способов расписать &lt;code&gt;NotNanFloat&lt;&#x2F;code&gt; существует очень много. Для этого, бы, наверное, в Rust пришлось создать целую языковую конструкцию &lt;code&gt;safe union&lt;&#x2F;code&gt;, которая позволяет переключаться между этими представлениями &lt;code&gt;Float&lt;&#x2F;code&gt;, потому что они абсолютно эквивалентны.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;to-zhe-samoe-no-na-tipakh&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#to-zhe-samoe-no-na-tipakh&quot;&gt;#&lt;&#x2F;a&gt;То же самое, но на типах&lt;&#x2F;h1&gt;
+&lt;p&gt;Или это разделение можно записывать по-другому:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#f5f5f5;color:#1f1f1f;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;struct &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c23f31;&quot;&gt;Yes&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;struct &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c23f31;&quot;&gt;No&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;trait &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c23f31;&quot;&gt;IsFloatParameter &lt;&#x2F;span&gt;&lt;span&gt;{}
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;impl &lt;&#x2F;span&gt;&lt;span&gt;IsFloatParameter &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c23f31;&quot;&gt;Yes&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c23f31;&quot;&gt;impl IsFloatParameter for No&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c23f31;&quot;&gt;struct Float&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;
+&lt;&#x2F;span&gt;&lt;span&gt;    HasNan: IsFloatParameter,
+&lt;&#x2F;span&gt;&lt;span&gt;    HasNegativeInfinity: IsFloatParameter,
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    HasNegativeFrom1: IsFloatParameter,
+&lt;&#x2F;span&gt;&lt;span&gt;    HasNegative1: IsFloatParameter,
+&lt;&#x2F;span&gt;&lt;span&gt;    HasNegativeFrom0To1: IsFloatParameter,
+&lt;&#x2F;span&gt;&lt;span&gt;    HasNegative0: IsFloatParameter,
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    HasPositive0: IsFloatParameter,
+&lt;&#x2F;span&gt;&lt;span&gt;    HasPositiveFrom0To1: IsFloatParameter,
+&lt;&#x2F;span&gt;&lt;span&gt;    HasPositive1: IsFloatParameter,
+&lt;&#x2F;span&gt;&lt;span&gt;    HasPositiveFrom1: IsFloatParameter,
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    HasPositiveInfinity: IsFloatParameter,
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c23f31;&quot;&gt;f64&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c23f31;&quot;&gt;type NotNanFloat&lt;&#x2F;span&gt;&lt;span&gt; = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c23f31;&quot;&gt;Float&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;
+&lt;&#x2F;span&gt;&lt;span&gt;    No, 
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    Yes, 
+&lt;&#x2F;span&gt;&lt;span&gt;    Yes, Yes, Yes, Yes, 
+&lt;&#x2F;span&gt;&lt;span&gt;    Yes, Yes, Yes, Yes, 
+&lt;&#x2F;span&gt;&lt;span&gt;    Yes,
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Но в таком случае теряется возможность матчиться по структуре данных, чтобы получить нужный промежуток. Не знаю что лучше.&lt;&#x2F;p&gt;
+&lt;p&gt;Для подобного представления очень пригодятся умения программировать сложные вычисления на типах данных, чтобы автоматически получать все возможные преобразования для всех возможных комбинаций вещественных чисел.&lt;&#x2F;p&gt;
+&lt;p&gt;Если же делать это вручную, то потребуется очень много кода. Вероятно, эту задачу было бы логичнее решать на зависимых типах? Или нужна новая, более сильная абстракция, чем ADT?&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;podderzhka-ot-kompiliatora&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#podderzhka-ot-kompiliatora&quot;&gt;#&lt;&#x2F;a&gt;Поддержка от компилятора&lt;&#x2F;h1&gt;
+&lt;p&gt;Ещё, если такая система будет существовать, например, на Rust, то она должна поддерживаться со стороны компилятора аналогично &lt;code&gt;NonNull&lt;&#x2F;code&gt;, чтобы паттерн-матчинг по флоату раскрывался в максимально эффективные ассемблерные команды проверки, и чтобы хранение такого флоата в enum&#x27;ах &lt;code&gt;PositiveFloat&lt;&#x2F;code&gt;, &lt;code&gt;NotNanFloat&lt;&#x2F;code&gt; не тратило лишней памяти.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;zakliuchenie&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#zakliuchenie&quot;&gt;#&lt;&#x2F;a&gt;Заключение&lt;&#x2F;h1&gt;
+&lt;p&gt;Наверное, поэтому даже в языках со статической типизацией, столько страданий приносят вещественные числа со своими бесконечностями и &lt;code&gt;NaN&lt;&#x2F;code&gt;&#x27;ами? Может быть, с этими типами данных, станет немного проще жить? Не знаю. Это лишь идея, возникающая на почве статической типизации головного мозга.&lt;&#x2F;p&gt;
+&lt;p&gt;Динамическая типизация в JS легко сводится к статической типизации, потому что с логической точки зрения никакие операции над &lt;code&gt;int&lt;&#x2F;code&gt; не должны приводить к случайному возникновению &lt;code&gt;string&lt;&#x2F;code&gt;, а в вещественных числах всё сложнее, там все значения между собой очень сильно связаны, и вот простое сложение двух конечных чисел может дать бесконечность, а отношение двух конечных чисел может дать &lt;code&gt;NaN&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Надеюсь эта идея вдохновила вас.&lt;&#x2F;p&gt;
+&lt;p&gt;А если хочется &lt;code&gt;NotNanFloat&lt;&#x2F;code&gt; иметь у себя в коде на Rust, то можно искать крейт по ключевым словам: &lt;code&gt;ordered float&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+</description>
+        </item>
+        <item>
+            <title>«В смысле?» — вопрос-лень</title>
+            <pubDate>Sat, 20 Apr 2019 00:00:00 +0000</pubDate>
+            <link>https://testzorax.github.io/p/sisle/</link>
+            <guid>https://testzorax.github.io/p/sisle/</guid>
+            <description>&lt;p&gt;Меня бесит вопрос &lt;code&gt;В смысле?&lt;&#x2F;code&gt;. Бесит тем, что когда мне его задают, я никогда не понимаю в чём проблема.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;В смысле?&lt;&#x2F;code&gt; - это вопрос-лень. Человек задает его когда ленится задать нормальный вопрос, перекладывая труд по определению своей проблемы на собеседника. И собеседнику приходится гадать что же человек не понял.&lt;&#x2F;p&gt;
+&lt;p&gt;Это раздражает.&lt;&#x2F;p&gt;
+&lt;p&gt;Вместо &lt;code&gt;В смысле?&lt;&#x2F;code&gt; всегда можно задать нормальный вопрос, например: &lt;code&gt;Что такое _____?&lt;&#x2F;code&gt;, &lt;code&gt;Когда такое было?&lt;&#x2F;code&gt;, &lt;code&gt;Почему?&lt;&#x2F;code&gt;. Тем самым переложив ответственность по определению своей проблемы на себя.&lt;&#x2F;p&gt;
+</description>
+        </item>
+        <item>
+            <title>У слова &#x27;ложь&#x27; слишком много значений.</title>
+            <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
+            <link>https://testzorax.github.io/p/lie/</link>
+            <guid>https://testzorax.github.io/p/lie/</guid>
+            <description>&lt;p&gt;Слово &lt;code&gt;ложь&lt;&#x2F;code&gt; выражает слишком много смыслов. В русском языке нельзя отличить одним словом когда человек говорит неправду осознанно, или просто говорит неверное утверждение. Хотелось бы, чтобы у нас было три слова для лжи, а именно: &lt;code&gt;false&lt;&#x2F;code&gt;, &lt;code&gt;lie&lt;&#x2F;code&gt;, &lt;code&gt;misinformation&lt;&#x2F;code&gt;. Я взял их в кавычки, чтобы кратко обозначать смысл, а как их называть по-русски я не знаю.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;false&lt;&#x2F;code&gt; - не истинная информация. Не важно произносится человеком, или написана на бумаге. А даже если и произносится человеком, не важно осознает он не истинность этой информации или нет.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;lie&lt;&#x2F;code&gt; - не истинная информация, причем произносится человеком, и он осознает её не истинность. Вот это реально &lt;code&gt;ложь&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;misinformation&lt;&#x2F;code&gt; - не истинная информация, которую произносит человек, не осознающий её не истинность. Очень жаль, что это называют &lt;code&gt;ложью&lt;&#x2F;code&gt;, в случае когда человек не знал что это &lt;code&gt;false&lt;&#x2F;code&gt;. При этом создается путаница, как будто человек обманул специально, когда он на самом деле не хотел.&lt;&#x2F;p&gt;
+&lt;p&gt;Можно сказать, что два последних слова являются подмножествами первого: &lt;code&gt;lie&lt;&#x2F;code&gt; ⊂ &lt;code&gt;false&lt;&#x2F;code&gt;, &lt;code&gt;misinformation&lt;&#x2F;code&gt; ⊂ &lt;code&gt;false&lt;&#x2F;code&gt;, при этом множества &lt;code&gt;lie&lt;&#x2F;code&gt; и &lt;code&gt;misinformation&lt;&#x2F;code&gt; не пересекаются.&lt;&#x2F;p&gt;
+&lt;div class=&quot;magnifier-container img-one&quot;&gt;
+&lt;img
+    class=&quot;not-default full-screen-img&quot;
+    width=&quot;241&quot;
+    height=&quot;241&quot;
+    src=&quot;&amp;#x2F;processed_images&amp;#x2F;d42f279b2f2d11ed00.webp&quot; 
+    onclick=&quot;full_screen(&#x27;lie.png&#x27;)&quot;
+    onauxclick=&quot;full_screen_new_page(&#x27;lie.png&#x27;)&quot;&gt;
+&lt;div class=&quot;magnifier-display&quot;&gt;
+&lt;img class=&quot;magnifier&quot; src=&quot;&#x2F;ico&#x2F;magnifier.svg&quot;&gt;&lt;div class=&quot;magnifier-info&quot;&gt;×1&lt;br&gt;png&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;</description>
+        </item>
+        <item>
+            <title>Оправдание своего поведения на примере хвастовства</title>
+            <pubDate>Mon, 25 Mar 2019 00:00:00 +0000</pubDate>
+            <link>https://testzorax.github.io/p/arrogance/</link>
+            <guid>https://testzorax.github.io/p/arrogance/</guid>
+            <description>&lt;p&gt;Пока занимаюсь рутиной, я люблю раскручивать в голове всякие диалоги, которые потенциально могут произойти. В частности этот я раскрутил, когда мыл посуду:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Я:&lt;&#x2F;strong&gt; *&lt;em&gt;Похвастался тем, что в школе делал какую-то сложную вещь.&lt;&#x2F;em&gt;*&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Некто:&lt;&#x2F;strong&gt; Почему ты всё время хвастаешься?&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Я:&lt;&#x2F;strong&gt; В конкретно этом случае я принял решение похвастаться не на основании каких-то логических умозаключений, а по воле моего подсознания. Поэтому объяснить своё поведение я не могу (вообще пытаться объяснить подсознание - тоже самое что пытаться объяснить как работает нейросеть, т. е. бесполезно. Она работает с каким-то процентом ошибок, и всё) Но я могу оправдать своё поведение! Например:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Оправдание 1:&lt;&#x2F;em&gt; я бы хотел, чтобы ты тоже хвастался своими достижениями, поэтому и сам позволяю себе хвастаться согласно золотому правилу нравственности.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Этим диалогом я хочу показать, что мы не всегда на самом деле объясняем своё поведение, а скорее оправдываем его. Ведь большинство наших действий делается на основании решений подсознательного, которое мы понимаем с трудом.&lt;&#x2F;p&gt;
+</description>
+        </item>
+        <item>
+            <title>Что произойдет, если Пиноккио скажет: &#x27;Мой нос сейчас вырастет&#x27;?</title>
+            <pubDate>Sat, 23 Mar 2019 00:00:00 +0000</pubDate>
+            <link>https://testzorax.github.io/p/pinoccio/</link>
+            <guid>https://testzorax.github.io/p/pinoccio/</guid>
+            <description>&lt;div class=&quot;magnifier-container img-two-three&quot;&gt;
+&lt;img
+    class=&quot;not-default full-screen-img&quot;
+    width=&quot;604&quot;
+    height=&quot;562&quot;
+    src=&quot;&amp;#x2F;processed_images&amp;#x2F;0877cc197a03b07400.webp&quot; 
+    onclick=&quot;full_screen(&#x27;pinocchio.jpg&#x27;)&quot;
+    onauxclick=&quot;full_screen_new_page(&#x27;pinocchio.jpg&#x27;)&quot;&gt;
+&lt;div class=&quot;magnifier-display&quot;&gt;
+&lt;img class=&quot;magnifier&quot; src=&quot;&#x2F;ico&#x2F;magnifier.svg&quot;&gt;&lt;div class=&quot;magnifier-info&quot;&gt;×1&lt;br&gt;jpg&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;Что произойдет, если Пиноккио скажет: &amp;quot;Мой нос сейчас вырастет&amp;quot;?&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Ответ:&lt;&#x2F;strong&gt; с большой вероятностью нос не вырастет, но с меньшей вероятностью может и вырасти. Сейчас поясню почему я так считаю.&lt;&#x2F;p&gt;
+&lt;p&gt;Нос Пиноккио растет только тогда, когда он сам знает врет он или нет. Его нос не может быть великим богом, который знает ответ на любой вопрос, он является лишь частью его организма. Так же нос Пиноккио не растет, если он говорит чушь или то, в чем не разбирается (но я в этом не так уверен, тут скорее неопределенное поведение).&lt;&#x2F;p&gt;
+&lt;p&gt;В случае же когда Пиноккио утверждает что его нос вырастет, это можно приравнять к чуши, либо к будущему, в котором он не может быть достаточно уверен.&lt;&#x2F;p&gt;
+&lt;p&gt;И далее всё зависит от подсознания, которое управляет его носом. Скорее всего оно прикажет носу не вырастать. Отсюда следует первая часть ответа.&lt;&#x2F;p&gt;
+&lt;p&gt;Но, конечно, как и любые процессы в организме, на рост носа можно как-то влиять. Наверняка Пиноккио может выучиться мастерски обманывать свое подсознание при помощи самовнушения, например ради удивления друзей. Из этого следует вторая часть ответа, про маленькую вероятность.&lt;&#x2F;p&gt;
+&lt;p&gt;Почему здесь нет парадокса, спросите вы?&lt;&#x2F;p&gt;
+&lt;p&gt;Потому что парадокс возникает тогда, когда люди считают нос Пиннокио - божественным провидцем и обладателем всех знаний. Но это не так. Логично считать Пиннокио - обысным малым, а его нос - обычной частью тела. Я всего-лишь экстраполировал знания об реальном мире на вымышленный &amp;quot;нос, растущий от лжи&amp;quot;.&lt;&#x2F;p&gt;
+&lt;p&gt;Если же вам интересна эта проблема именно с точки зрения на нос как на божественное создание, знающее ответ на любой вопрос, то для вас есть математика, теория множеств и т. д. Иначе же&lt;&#x2F;p&gt;
+&lt;center&gt;Будьте реалистами.&lt;&#x2F;center&gt;</description>
+        </item>
+    </channel>
+</rss>

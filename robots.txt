@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://testzorax.github.io/sitemap.xml

@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <!-- Yandex.Metrika counter -->
+  
+  <!-- --- -->
+
+  <!-- Non social metatags -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link rel="canonical" href="https://testzorax.github.io/">
+  <meta name="robots" content="noarchive">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml"> 
+  <!-- --- -->
+
+  <!-- Social metatags -->
+  
+<meta name="author" content="optozorax">
+<meta name="title" content="Один репозиторий = Один пост в блоге — Блог optozorax&#x27;а">
+<meta name="description" content="Делаем такое возможным с помощью `git submodules` на Jekyll + GitHub Pages.">
+<meta name="image" content="jekyll.png">
+
+<meta name="keywords" itemprop="tags" content="мета, блог, git">
+
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://testzorax.github.io/p/submodules-jekyll/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Один репозиторий = Один пост в блоге — Блог optozorax&#x27;а">
+<meta property="og:description" content="Делаем такое возможным с помощью `git submodules` на Jekyll + GitHub Pages.">
+<meta property="og:image" content="jekyll.png">
+<meta property="og:locale" content="ru">
+
+
+<meta property="article:published_time" content="2020-11-16">
+
+
+
+
+<meta property="article:tag" content="мета">
+
+<meta property="article:tag" content="блог">
+
+<meta property="article:tag" content="git">
+
+
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="optozorax.github.io">
+<meta property="twitter:url" content="https://testzorax.github.io/p/submodules-jekyll/">
+<meta name="twitter:title" content="Один репозиторий = Один пост в блоге — Блог optozorax&#x27;а">
+<meta name="twitter:description" content="Делаем такое возможным с помощью `git submodules` на Jekyll + GitHub Pages.">
+<meta name="twitter:image" content="jekyll.png">
+<meta name="twitter:creator" content="optozorax">
+
+  <!-- --- -->
+
+  <!-- Extra head declarations -->
+  
+
+<script type="text/javascript" src="/js/toc.js"></script>
+<script type="text/javascript" src="/js/gallery.js"></script>
+<script type="text/javascript" src="/js/full_screen.js"></script>
+<script type="text/javascript" src="/js/word_wrap.js"></script>
+
+  <!-- --- -->
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/main.css">
+  <!-- --- -->
+
+  <!-- JS -->
+  <script type="text/javascript" src="/js/hammer.min.js"></script>
+  <!-- --- -->
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+  <!-- --- -->
+
+  <title>Один репозиторий = Один пост в блоге — Блог optozorax&#x27;а</title>
+</head>
+
+<body>
+  <!-- FullScreen block -->
+  <div id="img_modal" class="modal" style="display: none;">
+      <img id="img_modal_01" src="/ico/loading.gif">
+      <span class="close" id="img_modal_close">&times;</span>
+  </div>
+  <!-- --- -->
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <header class="site-header" role="banner">
+  
+  <div class="wrapper">
+    <a class="site-title" href="/">optozorax.blog</a>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <img src="/ico/menu.svg" width="13px" height="15px">
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          <a class="page-link" href="/">Блог</a>
+        
+          <a class="page-link" href="/e">Систематизация</a>
+        
+          <a class="page-link" href="/tags">Теги</a>
+        
+          <a class="page-link" href="/about">Обо мне</a>
+        
+      </div>
+    </nav>
+  </div>
+  
+  </header>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+  
+  <section class="page-header">
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+<h1 class="project-name">Один репозиторий = Один пост в блоге</h1>
+
+<h2 class="project-tagline">Делаем такое возможным с помощью `git submodules` на Jekyll + GitHub Pages.</h2>
+
+
+
+<span style="margin-bottom: 10px;">
+  
+    <a href="/tags#meta"><code class="tag"><nobr>#мета</nobr></code></a>&nbsp;
+  
+    <a href="/tags#blog"><code class="tag"><nobr>#блог</nobr></code></a>&nbsp;
+  
+    <a href="/tags#git"><code class="tag"><nobr>#git</nobr></code></a>&nbsp;
+  
+</span>
+
+
+<center>
+<table style="margin-top: 8px;">
+<tr>
+
+
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+  <time datetime="2020-11-16" itemprop="datePublished">
+    
+    
+    
+    
+    <span class="post-date">16 ноября 2020</span>
+  </time>
+</h2>
+</td>
+
+
+
+<td style="padding-left: 10px;">
+  
+  
+  <a href="https:&#x2F;&#x2F;t.me&#x2F;optozorax_dev&#x2F;263">
+  <code class="tag">Пост в Telegram</code>
+  </a>
+  
+  
+  (3 💬)
+  
+</td>
+
+</tr>
+</table>
+
+
+</center>
+
+
+</td><td>
+</td></tr></table>
+
+
+
+  </section>
+  
+  
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <section class="main-content section">
+  
+<article itemscope itemtype="http://schema.org/BlogPosting">
+<div itemprop="articleBody" id="content">
+<h1 id="chto-ia-sdelal"><a class="anchor" href="#chto-ia-sdelal">#</a>Что я сделал?</h1>
+<p>Я сделал возможность отображать <code>.md</code> файлы в своих репозиториях как посты в блоге <code>username.github.io</code>. При этом:</p>
+<ul>
+<li>Данный блог написан на <a href="https://jekyllrb.com/">Jekyll</a>, и автоматически компилится <a href="https://pages.github.com/">GitHub Pages</a> в статический сайт.</li>
+<li>В одном репозитории может быть множество &quot;блогпостов&quot;.</li>
+<li>В <code>.md</code> файле с основным контентом не добавляется ничего лишнего. Все настройки отображения блогпоста (теги, дата, урл итд) производятся в соседнем <code>.md</code> файле под любым названием и в любом месте.</li>
+<li>Не нужно тупо дублировать информацию благодаря использованию <code>git submodules</code>.</li>
+<li>Есть немножко костылей.</li>
+</ul>
+<p><em>Пример:</em> у меня имеется такой репозиторий: <a href="https://github.com/optozorax/4D">@optozorax/4D</a>, и его <code>README.md</code> продублировано в моём блоге на этой странице: <a href="https://optozorax.github.io/4D">/4D</a>.</p>
+<p>Зачем я это сделал? Ну, мне в последнее время частенько приходят письма от Яндекса о том как они индексируют мой сайт, и даже полтора человека кликают на мой блог в поисковой выдаче. А у меня есть много репозиториев с крутыми ридмишками, которые могли бы очень хорошо гуглиться (4D например). Поэтому я решил сделать это таким образом. Плюс я очень давно хотел отделить статьи от блога, и вынести каждую статью в свою репошку, со своей историей и локальными файлами.</p>
+<h1 id="submodules"><a class="anchor" href="#submodules">#</a>Submodules</h1>
+<p>Чтобы рассказать как я это сделал, сначала надо ввести вас в контекст.</p>
+<p>В git есть такая интересная вещь под названием <code>submodules</code>. Воспользоваться ей можно так: <code>git submodule add &lt;path-to-repository&gt;</code>. С точки зрения вашей локальной копии она делает то же самое что и <code>git clone &lt;path-to-repository&gt;</code>, а с точки зрения git'а она добавляет особое отслеживание состояния данной склонированной папки. На удалённое хранилище вашего репозитория (eg Github) отправляется минимальная информация о том, что находится в этой папке: адрес к репозиторию и хэш коммита. В гитхабе это отображается папкой со стрелкой и ведёт на репозиторий куда ссылается данный сабмодуль:</p>
+<div class="magnifier-container img-one">
+<img
+    class="not-default full-screen-img"
+    width="214"
+    height="47"
+    src="&#x2F;processed_images&#x2F;47646a2d20bd938c00.webp" 
+    onclick="full_screen('submodule.png')"
+    onauxclick="full_screen_new_page('submodule.png')">
+<div class="magnifier-display">
+<img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1<br>png</div>
+</div>
+</div>
+<p>Довольно удобная фича для старых языков программирования без пакетных менеджеров.</p>
+<p>Что хорошо, GitHub Pages перед компиляцией сайта на Jekyll сначала клонирует локально себе все сабмодули, так что мы можем использовать это.</p>
+<p>Кстати обновить каждый репозиторий, который включён таким образом очень легко: <code>git submodule foreach git pull origin master</code>. Вообще после <code>foreach</code> выполняется любая bash-команда, так что так можно много чего делать массово.</p>
+<h1 id="step-to-step"><a class="anchor" href="#step-to-step">#</a>Step-to-step</h1>
+<h2 id="shag-0-nastroika-repozitoriia-kotoryi-budet-publikovat-sia-kak-stat-ia"><a class="anchor" href="#shag-0-nastroika-repozitoriia-kotoryi-budet-publikovat-sia-kak-stat-ia">#<sup>2</sup></a>Шаг 0: настройка репозитория, который будет публиковаться как статья</h2>
+<p>Необходимо в этом репозитории создать <code>blogpost.md</code> файл (назвать можно как угодно), со следующим содержимым:</p>
+<pre data-lang="md" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-md "><code class="language-md" data-lang="md"><span style="background-color:#234561;font-style:italic;color:#f8f8f8;">---
+</span><span>layout: post
+</span><span>title: &quot;4D&quot;
+</span><span>tags: [4D, систематизация]
+</span><span>permalink: 4D
+</span><span>description: &quot;Сборник информации о четвёртом измерении. Если вы изучете всё что здесь находится, то сможете понять четвёртое измерение.&quot;
+</span><span>image: submodules/4D/img/inside4D_2.png
+</span><span>submodule: true
+</span><span>thisname: submodules/4D
+</span><span>date: 2020-12-15
+</span><span>github: https://github.com/optozorax/4D
+</span><span style="color:#b82812;">---
+</span><span>
+</span><span>{% include_relative README.md %}
+</span></code></pre>
+<ul>
+<li>Тэги здесь должны перечисляться не через пробелы, как это делается в обычных постах, а внутри квадратных скобок и через запятые. Почему-то это работает только так, я хз почему.</li>
+<li><code>image</code> - это моя опция, позволяющая добавлять к посту картинку на главной странице. Здесь я указываю картинку из текущего репозитория, так что к ней надо прописать абсолютный путь (y jekyll огроооомные проблемы с локальными путями, но об этом потом). Видно, что текущий репозиторий называется 4D и он будет храниться по адресу <code>submodules/</code>.</li>
+<li><code>submodule: true</code> - это опция, показывающая что данная страница сделана через механизм описываемый в этой статье. Далее этот флаг будет использоваться чтобы определить что данную страницу надо отобразить вместе с остальными блогпостами.</li>
+<li><code>thisname: submodules/4D</code> - надо указать абсолютный путь к текущей папке внутри репозитория <code>username.github.io</code>. Это нужно для костыльного фикса картинок, но об этом позже.</li>
+<li><code>date</code> - дата &quot;публикации&quot; данного блогпоста.</li>
+<li><code>github</code> - показывает кнопочку <code>Эта страница на github</code>, которая перенаправляет на страницу репозитория где лежит данная ридмишка.</li>
+<li>Остальные параметры редактируются так же как и для обычного блогпоста.</li>
+<li>Контент в данном файле выглядит как <code>{% include_relative README.md %}</code>, потому что к счастью (или к сожалению) внутри <code>.md</code> файлов работает liquid синтаксис (язык (?), окружение (?) используемое jekyll). И данная команда позволяет заинклюдить нужный нам файл. Вместо <code>README.md</code> можно указать свой файл.</li>
+</ul>
+<h2 id="shag-1-nastroika-submodules"><a class="anchor" href="#shag-1-nastroika-submodules">#<sup>2</sup></a>ШАГ 1: настройка submodules</h2>
+<p>Заходим в репозиторий блога <code>username.github.io</code>, и создаём в корне папку <code>submodules</code>. Внутри этой папки добавляем все репозитории, которые мы настроили как в шаге 0.</p>
+<p>Вообще, даже без шага 0 все <code>.md</code> страницы на этом этапе уже как-то, где-то бы отображались. Шаг 0 просто позволяет это всё настроить и привести к нормальному виду.</p>
+<p>А теперь главный вопрос: почему мы создаём отдельную папку <code>submodules</code>, а не делаем это в папке <code>_posts</code>? Ну, проблема в том, что в итоговый статический сайт из папки <code>_posts</code> попадают только <code>.md</code> файлы, которые содержат <a href="https://jekyllrb.com/docs/front-matter/">Front Matter</a> - эту настройку вначале <code>.md</code> файла.</p>
+<p>Соответственно никакие картинки не попадут в итоговый файл. Плюс, у jekyll большие проблемы с локальными путями. Если мы в папку <code>_posts</code> положим папку, внутри которой лежат картинки и <code>.md</code> файл, и этот файл ссылается на картинки следующим образом: <code>![](./my_image.png)</code>, то jekyll скажет что он не знает такой картинки и нифига не нарисует. Поэтому во всех туториалах к jekyll говорят что надо создавать папку <code>assets</code>, где ты хранишь все картинки для всех постов. И моё ИМХО: это отвратительное и очень неудобное решение. Картинки удобно хранить локально. Каждый пост удобно хранить локально. Жаль что авторы jekyll решили захардкодить такую архитектуру.</p>
+<p>Ещё одна важная деталь: папки, начинающиеся с <code>_</code> не попадают в итоговый статический сайт, а папки без него вначале, попадают. Благодаря этому папка <code>assets</code> работает, а картинки внутри <code>_posts</code> - нет.</p>
+<p>Поэтому мы и создаём папку <code>submodules</code>, чтобы она полностью вошла в итоговый статический сайт, чтобы мы могли использовать картинки.</p>
+<p>Но как будут работать картинки, если в репозиториях мы указываем к ним локальный адрес: <code>/img/1.png</code>, а надо абсолютный: <code>/submodules/4D/img/1.png</code>?</p>
+<p>А об этом следующий шаг и первый костыль...</p>
+<h2 id="shag-2-zastavliaem-kartinki-rabotat"><a class="anchor" href="#shag-2-zastavliaem-kartinki-rabotat">#<sup>2</sup></a>Шаг 2: заставляем картинки работать</h2>
+<p>Открываем файл <code>_post.html</code> и чему-то, что оборачивает контент, задаём айдишник <code>content</code>. В моём случае было так:</p>
+<pre data-lang="diff" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-diff "><code class="language-diff" data-lang="diff"><span style="background-color:#6c1d15;color:#f8f8f8;">- &lt;div itemprop=&quot;articleBody&quot;&gt;
+</span><span style="background-color:#3b5a37;color:#f8f8f8;">+ &lt;div itemprop=&quot;articleBody&quot; id=&quot;content&quot;&gt;
+</span></code></pre>
+<p>Затем после этого <code>div</code> вставляем такой js код:</p>
+<pre data-lang="html" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-html "><code class="language-html" data-lang="html"><span>{% if page.submodule %}
+</span><span style="color:#6486ab;">&lt;script&gt;
+</span><span>  </span><span style="background-color:#b0b3ba14;color:#668f14;">function </span><span style="background-color:#b0b3ba14;color:#c23f31;">fixer</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">() {
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">    </span><span style="background-color:#b0b3ba14;color:#72ab00;">return </span><span style="background-color:#b0b3ba14;color:#668f14;">function</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#5597d6;">img</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">) {
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">      </span><span style="background-color:#b0b3ba14;color:#72ab00;">return </span><span style="background-color:#b0b3ba14;color:#668f14;">function</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">() {
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">        </span><span style="background-color:#b0b3ba14;color:#72ab00;">if </span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#5597d6;">img</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.trying_to_fix </span><span style="background-color:#b0b3ba14;color:#72ab00;">=== </span><span style="background-color:#b0b3ba14;color:#b3933a;">undefined</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">) {
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">          </span><span style="background-color:#b0b3ba14;color:#668f14;">var </span><span style="background-color:#b0b3ba14;color:#5597d6;">url </span><span style="background-color:#b0b3ba14;color:#72ab00;">= new </span><span style="background-color:#b0b3ba14;color:#5597d6;">URL</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#5597d6;">img</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.src);
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">          </span><span style="background-color:#b0b3ba14;color:#a2a001;">console</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.</span><span style="background-color:#b0b3ba14;color:#b39f04;">log</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#d07711;">&quot;[SUBMODULES FIXER] Trying to fix img: &quot; </span><span style="background-color:#b0b3ba14;color:#72ab00;">+ </span><span style="background-color:#b0b3ba14;color:#5597d6;">url</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">);
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">          </span><span style="background-color:#b0b3ba14;color:#5597d6;">img</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.src </span><span style="background-color:#b0b3ba14;color:#72ab00;">= </span><span style="background-color:#b0b3ba14;color:#d07711;">&quot;{{ page.thisname }}&quot; </span><span style="background-color:#b0b3ba14;color:#72ab00;">+ </span><span style="background-color:#b0b3ba14;color:#5597d6;">url</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.pathname;
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">          </span><span style="background-color:#b0b3ba14;color:#5597d6;">img</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.trying_to_fix </span><span style="background-color:#b0b3ba14;color:#72ab00;">= </span><span style="background-color:#b0b3ba14;color:#b3933a;">true</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">;
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">        } </span><span style="background-color:#b0b3ba14;color:#72ab00;">else </span><span style="background-color:#b0b3ba14;color:#1f1f1f;">{
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">          </span><span style="background-color:#b0b3ba14;color:#a2a001;">console</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.</span><span style="background-color:#b0b3ba14;color:#b39f04;">log</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#d07711;">&quot;[SUBMODULES FIXER] Unable to fix: &quot; </span><span style="background-color:#b0b3ba14;color:#72ab00;">+ </span><span style="background-color:#b0b3ba14;color:#5597d6;">img</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.src);
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">        }
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">      };
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">    };
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">  }
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">  </span><span style="background-color:#b0b3ba14;color:#668f14;">var </span><span style="background-color:#b0b3ba14;color:#5597d6;">collection </span><span style="background-color:#b0b3ba14;color:#72ab00;">= </span><span style="background-color:#b0b3ba14;color:#a2a001;">document</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.</span><span style="background-color:#b0b3ba14;color:#5597d6;">getElementById</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#d07711;">&quot;content&quot;</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">).</span><span style="background-color:#b0b3ba14;color:#5597d6;">getElementsByTagName</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#d07711;">&quot;img&quot;</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">);
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">  </span><span style="background-color:#b0b3ba14;color:#72ab00;">for </span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#668f14;">var </span><span style="background-color:#b0b3ba14;color:#5597d6;">i </span><span style="background-color:#b0b3ba14;color:#72ab00;">= </span><span style="background-color:#b0b3ba14;color:#b3933a;">0</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">; </span><span style="background-color:#b0b3ba14;color:#5597d6;">i </span><span style="background-color:#b0b3ba14;color:#72ab00;">&lt; </span><span style="background-color:#b0b3ba14;color:#5597d6;">collection</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.length; </span><span style="background-color:#b0b3ba14;color:#5597d6;">i</span><span style="background-color:#b0b3ba14;color:#72ab00;">++</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">) {
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">    </span><span style="background-color:#b0b3ba14;color:#668f14;">var </span><span style="background-color:#b0b3ba14;color:#5597d6;">item </span><span style="background-color:#b0b3ba14;color:#72ab00;">= </span><span style="background-color:#b0b3ba14;color:#5597d6;">collection</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.</span><span style="background-color:#b0b3ba14;color:#5597d6;">item</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#5597d6;">i</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">);
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">    </span><span style="background-color:#b0b3ba14;color:#668f14;">var </span><span style="background-color:#b0b3ba14;color:#5597d6;">url </span><span style="background-color:#b0b3ba14;color:#72ab00;">= new </span><span style="background-color:#b0b3ba14;color:#5597d6;">URL</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#5597d6;">item</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.src);
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">    </span><span style="background-color:#b0b3ba14;color:#72ab00;">if </span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#5597d6;">url</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.host </span><span style="background-color:#b0b3ba14;color:#72ab00;">=== </span><span style="background-color:#b0b3ba14;color:#a2a001;">window</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.location.host) {
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">      </span><span style="background-color:#b0b3ba14;color:#5597d6;">item</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.</span><span style="background-color:#b0b3ba14;color:#5597d6;">addEventListener</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#d07711;">&#39;error&#39;</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">, </span><span style="background-color:#b0b3ba14;color:#5597d6;">fixer</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">()(</span><span style="background-color:#b0b3ba14;color:#5597d6;">item</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">));
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">    }
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">  }
+</span><span style="color:#6486ab;">&lt;/script&gt;
+</span><span>{% endif %}
+</span></code></pre>
+<p>Во-первых данный код инклюдится только если данная страница устроена по механизму сабмодулей, тут нам пригождается <code>submodule: true</code>, что мы указали:</p>
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>{% if page.submodule %}
+</span></code></pre>
+<p>Во-вторых, данный код перебирает все картинки, и в случае неудачи пытается добавить к ним абсолютный адрес. Тут нам пригождается <code>thisname: submodules/4D</code> что мы указывали ранее.</p>
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>img.src = &quot;{{ page.thisname }}&quot; + url.pathname;
+</span></code></pre>
+<p>Хотел бы я картинки фиксить статически, но что поделать, нету доступа к коду jekyll. Захардкожено в нём всё. Поэтому фиксим такими костылями на фронтенде. Работает вполне незаметно, так что вроде даже норм.</p>
+<h2 id="shag-3-otobrazhaem-eti-stranitsy-v-toi-zhe-lente-chto-i-obychnye-blogposty"><a class="anchor" href="#shag-3-otobrazhaem-eti-stranitsy-v-toi-zhe-lente-chto-i-obychnye-blogposty">#<sup>2</sup></a>Шаг 3: отображаем эти страницы в той же ленте что и обычные блогпосты</h2>
+<p>Так, значит на данный момент наши страницы существуют, но они не отображаются в ленте на домашней странице. Исправляем это, редактируя файл <code>_layouts/home.html</code>:</p>
+<pre data-lang="diff" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-diff "><code class="language-diff" data-lang="diff"><span style="background-color:#6c1d15;color:#f8f8f8;">- {% for post in site.posts %}
+</span><span style="background-color:#3b5a37;color:#f8f8f8;">+ {% assign pages_posts = site.pages | where: &quot;submodule&quot;, true %}
+</span><span style="background-color:#3b5a37;color:#f8f8f8;">+ {% assign concatted_posts = site.posts | concat: pages_posts %}
+</span><span style="background-color:#3b5a37;color:#f8f8f8;">+ {% assign result_posts = concatted_posts | sort_natural: &quot;date&quot; | reverse %}
+</span><span style="background-color:#3b5a37;color:#f8f8f8;">+ {% for post in result_posts %}
+</span></code></pre>
+<p>По сути тут мы просто заменяем обращение к постам на обращение к постам, сконкатенированным с нашими страницами <code>submodule: true</code>.</p>
+<p>Кстати, тут есть такой код как <code>sort_natural: &quot;date&quot;</code>. Он сортирует посты в хронологическом порядке, используя сравнение строк дат (обычный <code>sort</code> здесь не будет работать). Для того чтобы это работало, надо ещё кое-что сделать...</p>
+<h2 id="shag-4-zastavliaem-stranitsy-sortirovat-sia-v-khronologicheskom-poriadke"><a class="anchor" href="#shag-4-zastavliaem-stranitsy-sortirovat-sia-v-khronologicheskom-poriadke">#<sup>2</sup></a>Шаг 4: заставляем страницы сортироваться в хронологическом порядке</h2>
+<p>Вспоминаем что на домашней странице у нас есть такая фича как:</p>
+<ul>
+<li>✨⭐️ Сортировка по дате публикации ⭐️✨</li>
+</ul>
+<p>Кажется запахло жареными костылями.</p>
+<p>Чтож. Скажу вам, что в liquid нету возможности сортировать по датам (простым <code>sort</code>), поэтому мы вставляем ещё один костыль: найдите где в настройках задаётся дата для всего блога, и поставьте там: <code>%Y-%M-%d</code>. Это чтобы дата отображалась в виде <code>YYYY-MM-DD</code>, чтобы при сортировке по строке, мы могли получить правильный хронологический порядок. Это работает, потому что при задании этой опции, где-то внутри jekyll для каждой страницы происходит преобразование даты в строку по этому формату...</p>
+<p>У меня надо было поменять в <code>_config.yml</code>:</p>
+<pre data-lang="yml" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-yml "><code class="language-yml" data-lang="yml"><span style="color:#7f902a;">cayman-blog</span><span>:
+</span><span>  </span><span style="color:#7f902a;">date_format</span><span>: </span><span style="color:#d07711;">&quot;%Y-%M-%d&quot;
+</span></code></pre>
+<p>Затем во всех местах где происходит обращение к этой дате по умолчанию <code>site.cayman-blog.date_format</code> замените на ту дату, которая у вас была до этого, и которая вам больше нравится. У меня надо было поменять лишь в двух местах:</p>
+<p><code>_layouts/home.html</code>, <code>_layouts/default.html</code>:</p>
+<pre data-lang="diff" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-diff "><code class="language-diff" data-lang="diff"><span style="background-color:#6c1d15;color:#f8f8f8;">- {% assign date_format = site.cayman-blog.date_format | default: &quot;%b %-d, %Y&quot; %}
+</span><span style="background-color:#3b5a37;color:#f8f8f8;">+ {% assign date_format = &quot;%d %b %Y&quot; %}
+</span></code></pre>
+<h2 id="shag-5-fiksim-bagi-v-ostal-noi-chasti-bloga-u-menia-eto-tegi"><a class="anchor" href="#shag-5-fiksim-bagi-v-ostal-noi-chasti-bloga-u-menia-eto-tegi">#<sup>2</sup></a>Шаг 5: фиксим баги в остальной части блога, у меня - это тэги</h2>
+<p>Я пишу эту статью-инструкцию для своего блога, а я свой блог персонализировал, поэтому у меня вылилось ещё пара мест где пришлось фиксить всё и вся. Ну и плюс надо где-то вставить новые фичи, чтобы такие статьи по особому отображались.</p>
+<p>Я вставил такой код в <code>_layouts/default.html</code>:</p>
+<pre data-lang="html" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-html "><code class="language-html" data-lang="html"><span>{% if page.github %}
+</span><span>    </span><span style="color:#7f902a;">&lt;br&gt;&lt;a href=</span><span style="color:#d07711;">&quot;{{ page.github }}&quot; </span><span style="color:#7f902a;">class=</span><span style="color:#d07711;">&quot;btn&quot; </span><span style="color:#7f902a;">style=</span><span style="color:#d07711;">&quot;</span><span style="background-color:#b0b3ba14;color:#c5af75;">margin</span><span style="background-color:#b0b3ba14;color:#7f902a;">: </span><span style="background-color:#b0b3ba14;color:#ca7840;">0</span><span style="background-color:#b0b3ba14;color:#72ab00;">px</span><span style="background-color:#b0b3ba14;color:#7f902a;">;</span><span style="color:#d07711;">&quot;</span><span style="color:#7f902a;">&gt;</span><span>Эта страница на GitHub</span><span style="color:#7f902a;">&lt;/a&gt;
+</span><span>{% endif %}
+</span></code></pre>
+<p>Чтобы у меня на статьях, которые взяты с репозитория на гитхабе отображалась такая кнопка:</p>
+<div class="magnifier-container img-one">
+<img
+    class="not-default full-screen-img"
+    width="336"
+    height="95"
+    src="&#x2F;processed_images&#x2F;0c95a0a6940f2f8200.webp" 
+    onclick="full_screen('open-in-github.png')"
+    onauxclick="full_screen_new_page('open-in-github.png')">
+<div class="magnifier-display">
+<img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1<br>png</div>
+</div>
+</div>
+<p>Следующее место, которое у меня сломалось - это тэги. Я откуда-то из глубинок интернета стащил код, который генерит страницу с тегами: <a href="/tags">/tags</a>. Ну, чтобы её починить пришлось тупо написать много кода. Вставлять я все эти изменения я не буду, просто скажу что ВСЕ изменения что здесь описаны можно посмотреть в этом коммите: <a href="https://github.com/optozorax/optozorax.github.io/commit/f1efe22917146e9c53cd0b99c3efa3ed2bb3afb3">@optozorax/optozorax.github.io@f1efe22</a></p>
+<p>В процессе я неоднократно обращался к этим двум страницам с документацией, может они тоже вам пригодятся:</p>
+<ul>
+<li>https://shopify.github.io/liquid/basics/introduction/</li>
+<li>https://jekyllrb.com/docs/</li>
+</ul>
+<p>Во время написания этого кода я заметил, что весь этот синтаксис jekyll выглядит как какое-то обрезанное функциональное программирование. Там даже сложение пишется через псевдофункциональный стиль: <code>{% assign size = size | plus: 1 %}</code>.</p>
+<p>Только к сожалению чего-то им не хватило чтобы привести это к полноценному функциональному коду, и в некоторых местах приходится вставлять for, и считать количество чего-то через мутабельную переменную 😑.</p>
+<p>Так же хочется поругать сообщения об ошибках. Они ужасные, непонятно что, где и почему сломалось.</p>
+<h1 id="konkretno-moi-blog"><a class="anchor" href="#konkretno-moi-blog">#</a>Конкретно мой блог</h1>
+<p>Вот список статей, которые сделаны таким образом:</p>
+<blockquote>
+<p>Раньше здесь был список статей сделанных таким образом, но теперь их нет, так как во-первых этот блог перехал на <a href="https://www.getzola.org/">zola</a>, а во-вторых я считаю такой подход плохим и просто скопировал все ридмишки в отдельное место вручную. Благо в золе можно для каждого поста иметь отдельную папку. Об этом будет будущая статья</p>
+</blockquote>
+<!-- todo вставить ссылку на статью когда напишу её -->
+<p>Если вы их ещё не читали, то welcome!</p>
+<p>Получил я этот список, кстати, довольно хитрым образом: =)</p>
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>{{ }}
+</span><span>{%- for item in site.pages -%}
+</span><span>{%- if item.submodule -%}
+</span><span>* [{{ item.title }}]({{ item.url }})
+</span><span>{{ }}
+</span><span>{%- endif -%}
+</span><span>{%- endfor -%}
+</span><span>{{ }}
+</span></code></pre>
+<h1 id="vyvody"><a class="anchor" href="#vyvody">#</a>Выводы</h1>
+<p>Не используйте Jekyll только потому что он по умолчанию поддерживается GitHub Pages. Это движок с неправильной архитектурой организации блогпостов (нельзя сделать картинки локально к посту!!!!!1111), и с слабым языком &quot;программирования&quot; то ли функциональным, то ли императивным. Вместо этого публикуйте свой блог на отдельную ветку, которая будет отправляться на ваш <code>username.github.io</code> сразу html-ками. Используйте для их генерации любой удобный для вас движок. Вы, наверное, даже можете настроить чтобы html-ки сами билдились при пуше в репозиторий с исходным кодом блога через всякие бесплатные CI/CD.</p>
+<p>Я остаюсь на Jekyll, потому что уход на другой блог-движок займёт слишком много времени, а результат этой статьи я получил за один день.</p>
+<p>Может быть этот пост вдохновит вас на своём блоге сделать всё аналогично через <code>git submodule</code>.</p>
+
+</div>
+</article>
+
+  </section>
+  
+
+</td><td>
+<!-- TOC -->
+<div class="side-button" onclick="toggle_toc()">❰</div>
+<nav class="section-nav">
+ <h2>Содержание</h2>
+ <ul class="first">
+ 
+ 
+  <li>
+   <a href="#chto-ia-sdelal">Что я сделал?</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#submodules">Submodules</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#step-to-step">Step-to-step</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#shag-0-nastroika-repozitoriia-kotoryi-budet-publikovat-sia-kak-stat-ia">Шаг 0: настройка репозитория, который будет публиковаться как статья</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#shag-1-nastroika-submodules">ШАГ 1: настройка submodules</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#shag-2-zastavliaem-kartinki-rabotat">Шаг 2: заставляем картинки работать</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#shag-3-otobrazhaem-eti-stranitsy-v-toi-zhe-lente-chto-i-obychnye-blogposty">Шаг 3: отображаем эти страницы в той же ленте что и обычные блогпосты</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#shag-4-zastavliaem-stranitsy-sortirovat-sia-v-khronologicheskom-poriadke">Шаг 4: заставляем страницы сортироваться в хронологическом порядке</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#shag-5-fiksim-bagi-v-ostal-noi-chasti-bloga-u-menia-eto-tegi">Шаг 5: фиксим баги в остальной части блога, у меня - это тэги</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#konkretno-moi-blog">Конкретно мой блог</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#vyvody">Выводы</a>
+   
+  </li>
+ 
+ </ul>
+</nav>
+</td></tr></table>
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="section second-section">
+Если вам нравится что я делаю, то подписывайтесь на меня в <a href="https://t.me/optozorax_dev">Telegram</a> и <a href="https://www.youtube.com/c/optozorax">YouTube</a>.
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="comments section second-section">
+
+<script src="https://utteranc.es/client.js"
+        repo="optozorax/optozorax.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+
+  <hr class="enabled-on-phone">
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <footer class="site-footer section second-section">
+  
+    <center>
+    <div style="margin-bottom: 10px;">© Шепрут Илья. Лицензия: <a href="https://creativecommons.org/licenses/by/3.0/deed.ru">CC-BY</a>.</div>
+    <table style="border: 0px; display: contents;">
+    <tr><td style="border: 0px; padding: 0.2rem;">
+    <!-- SVG icons from https://iconmonstr.com -->
+
+    
+<span class="my-span-icon">
+  <a 
+    href="https:&#x2F;&#x2F;github.com&#x2F;optozorax" 
+    aria-label="optozorax's GitHub" 
+    title="optozorax's GitHub">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/github.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's GitHub">
+  </a>
+</span>
+
+
+    
+<span class="my-span-icon">
+  <a 
+    href="https:&#x2F;&#x2F;t.me&#x2F;optozorax_dev" 
+    aria-label="optozorax's Telegram channel" 
+    title="optozorax's Telegram channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/tg.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Telegram channel">
+  </a>
+</span>
+
+
+    
+<span class="my-span-icon">
+  <a 
+    href="https:&#x2F;&#x2F;www.youtube.com&#x2F;c&#x2F;optozorax" 
+    aria-label="optozorax's YouTube channel" 
+    title="optozorax's YouTube channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/youtube.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's YouTube channel">
+  </a>
+</span>
+
+
+    
+<span class="my-span-icon">
+  <a 
+    href="&#x2F;rss.xml" 
+    aria-label="optozorax's RSS feed" 
+    title="optozorax's RSS feed">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/rss.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's RSS feed">
+  </a>
+</span>
+
+
+    
+<span class="my-span-icon">
+  <a 
+    href="mailto:optozorax@gmail.com" 
+    aria-label="optozorax's email" 
+    title="optozorax's email">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/contact.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's email">
+  </a>
+</span>
+
+
+    </td><td style="border: 0px; padding: 0.2rem;">
+    
+
+    </td></tr>
+    </table>
+    <div class="small-info">
+      Сделано с помощью <a href="https://www.getzola.org/">Zola</a> | База темы <a href="https://github.com/lorepirri/cayman-blog">Cayman Blog</a> | <a href="https://github.com/optozorax/optozorax.github.io">Исходники сайта</a>
+    </div>
+    </center>
+  
+  </footer>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+</body>
+</html>

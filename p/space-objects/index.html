@@ -1,0 +1,1721 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <!-- Yandex.Metrika counter -->
+  
+  <!-- --- -->
+
+  <!-- Non social metatags -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link rel="canonical" href="https://testzorax.github.io/">
+  <meta name="robots" content="noarchive">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml"> 
+  <!-- --- -->
+
+  <!-- Social metatags -->
+  
+<meta name="author" content="optozorax">
+<meta name="title" content="О моей библиотеке Space Objects и дереве Пифагора — Блог optozorax&#x27;а">
+<meta name="description" content="Статья о новой библиотеке, много красивых картинок, интересного кода, а так же повышение уровня абстракции!">
+<meta name="image" content="img&#x2F;logo.png">
+
+<meta name="keywords" itemprop="tags" content="программирование, фракталы, графика, дерево-пифагора">
+
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://testzorax.github.io/p/space-objects/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="О моей библиотеке Space Objects и дереве Пифагора — Блог optozorax&#x27;а">
+<meta property="og:description" content="Статья о новой библиотеке, много красивых картинок, интересного кода, а так же повышение уровня абстракции!">
+<meta property="og:image" content="img&#x2F;logo.png">
+<meta property="og:locale" content="ru">
+
+
+<meta property="article:published_time" content="2019-04-21">
+
+
+
+
+<meta property="article:tag" content="программирование">
+
+<meta property="article:tag" content="фракталы">
+
+<meta property="article:tag" content="графика">
+
+<meta property="article:tag" content="дерево-пифагора">
+
+
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="optozorax.github.io">
+<meta property="twitter:url" content="https://testzorax.github.io/p/space-objects/">
+<meta name="twitter:title" content="О моей библиотеке Space Objects и дереве Пифагора — Блог optozorax&#x27;а">
+<meta name="twitter:description" content="Статья о новой библиотеке, много красивых картинок, интересного кода, а так же повышение уровня абстракции!">
+<meta name="twitter:image" content="img&#x2F;logo.png">
+<meta name="twitter:creator" content="optozorax">
+
+  <!-- --- -->
+
+  <!-- Extra head declarations -->
+  
+
+<script type="text/javascript" src="/js/toc.js"></script>
+<script type="text/javascript" src="/js/gallery.js"></script>
+<script type="text/javascript" src="/js/full_screen.js"></script>
+<script type="text/javascript" src="/js/word_wrap.js"></script>
+
+  <!-- --- -->
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/main.css">
+  <!-- --- -->
+
+  <!-- JS -->
+  <script type="text/javascript" src="/js/hammer.min.js"></script>
+  <!-- --- -->
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+  <!-- --- -->
+
+  <title>О моей библиотеке Space Objects и дереве Пифагора — Блог optozorax&#x27;а</title>
+</head>
+
+<body>
+  <!-- FullScreen block -->
+  <div id="img_modal" class="modal" style="display: none;">
+      <img id="img_modal_01" src="/ico/loading.gif">
+      <span class="close" id="img_modal_close">&times;</span>
+  </div>
+  <!-- --- -->
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <header class="site-header" role="banner">
+  
+  <div class="wrapper">
+    <a class="site-title" href="/">optozorax.blog</a>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <img src="/ico/menu.svg" width="13px" height="15px">
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          <a class="page-link" href="/">Блог</a>
+        
+          <a class="page-link" href="/e">Систематизация</a>
+        
+          <a class="page-link" href="/tags">Теги</a>
+        
+          <a class="page-link" href="/about">Обо мне</a>
+        
+      </div>
+    </nav>
+  </div>
+  
+  </header>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+  
+  <section class="page-header">
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+<h1 class="project-name">О моей библиотеке Space Objects и дереве Пифагора</h1>
+
+<h2 class="project-tagline">Статья о новой библиотеке, много красивых картинок, интересного кода, а так же повышение уровня абстракции!</h2>
+
+
+
+<span style="margin-bottom: 10px;">
+  
+    <a href="/tags#programmirovanie"><code class="tag"><nobr>#программирование</nobr></code></a>&nbsp;
+  
+    <a href="/tags#fraktaly"><code class="tag"><nobr>#фракталы</nobr></code></a>&nbsp;
+  
+    <a href="/tags#grafika"><code class="tag"><nobr>#графика</nobr></code></a>&nbsp;
+  
+    <a href="/tags#derevo-pifagora"><code class="tag"><nobr>#дерево-пифагора</nobr></code></a>&nbsp;
+  
+</span>
+
+
+<center>
+<table style="margin-top: 8px;">
+<tr>
+
+
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+  <time datetime="2019-04-21" itemprop="datePublished">
+    
+    
+    
+    
+    <span class="post-date">21 апреля 2019</span>
+  </time>
+</h2>
+</td>
+
+
+
+<td style="padding-left: 10px;">
+  
+  <a href="https:&#x2F;&#x2F;vk.com&#x2F;optoblog?w=wall-169103586_12">
+  <code class="tag">Пост в ВК</code>
+  </a>
+  
+  
+  
+</td>
+
+</tr>
+</table>
+
+
+<br><a href="https:&#x2F;&#x2F;github.com&#x2F;optozorax&#x2F;space_objects" class="btn" style="margin: 0px;">Ссылка на библиотеку</a>
+
+</center>
+
+
+</td><td>
+</td></tr></table>
+
+
+
+  </section>
+  
+  
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <section class="main-content section">
+  
+<article itemscope itemtype="http://schema.org/BlogPosting">
+<div itemprop="articleBody" id="content">
+<h1 id="vvedenie"><a class="anchor" href="#vvedenie">#</a>Введение</h1>
+<p>Недавно я разработал и опубликовал библиотеку под названием Space Objects. Это библиотека для работы с векторами, прямыми, плоскостями; она реализует преобразования координат; нахождения пересечений этих объектов и т. д. Эта библиотека выросла из моего другого проекта.</p>
+<p>После того, как я её опубликовал и начал придумывать примеры использования, я осознал всю её мощь. Она является апогеем множества проектов, которыми я ранее занимался: 2D графика, фракталы, рендеринг 3D. Всё это в кратком виде имеется в примерах этой библиотеки на <a href="https://github.com/optozorax/space_objects">GitHub</a>.</p>
+<p>Лого библиотеки, на ней показаны все основные объекты и действия для двумерного пространства.</p>
+<div class="magnifier-container img-one">
+<img
+    class="not-default full-screen-img"
+    width="900"
+    height="450"
+    src="&#x2F;processed_images&#x2F;fffa763c65d843da00.webp" 
+    onclick="full_screen('img&#x2F;logo.png')"
+    onauxclick="full_screen_new_page('img&#x2F;logo.png')">
+<div class="magnifier-display">
+<img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1<br>png</div>
+</div>
+</div>
+<p>Я расскажу об особенностях этой библиотеки на основе задачи рисования фрактала <a href="https://ru.wikipedia.org/wiki/%D0%94%D0%B5%D1%80%D0%B5%D0%B2%D0%BE_%D0%9F%D0%B8%D1%84%D0%B0%D0%B3%D0%BE%D1%80%D0%B0">дерево Пифагора</a>.</p>
+<p>А для начала немного изучим логотип библиотеки. Здесь стандартной системой координат изображается та система, что находится в центре. Другие системы координат показаны без сетки, только с положением центра и направляющими векторами. </p>
+<p>Как можно увидеть, система координат может быть не только смещена относительно стандартной в любое место, но ещё наклонена, и повернута на любой угол, она даже может быть зеркально отраженной. </p>
+<p>Для каждой системы координат рисуется квадрат с координатами <code>(0, 0)</code>, <code>(0, 1)</code>, <code>(1, 1)</code>, <code>(1, 0)</code>, а так же буква <code>A</code>, чтобы показать возможность преобразования координат. Если говорить подробнее, то прежде чем нарисовать квадрат, его координаты преобразуются по текущей системе координат при помощи функции <code>from()</code> (&quot;из&quot; системы координат), и только преобразованные координаты рисуются отрезком.</p>
+<h1 id="risuem-derevo-pifagora"><a class="anchor" href="#risuem-derevo-pifagora">#</a>Рисуем дерево Пифагора</h1>
+<h2 id="kak-ego-stroit"><a class="anchor" href="#kak-ego-stroit">#<sup>2</sup></a>Как его строить</h2>
+<p>Пусть у нас есть начальные координаты самого первого квадрата. Далее, согласно определению этого фрактала, надо построить на его верхней стороне прямоугольный треугольник с координатами, затем же надо получить оба катета этого прямоугольного треугольника и рекурсивно проделать тоже самое на них.</p>
+<p>Наглядно этот процесс можно увидеть на следующей гифке.</p>
+<video class="img-one" autoplay loop muted inline>
+  <source src="explanation_4&#x2F;anim_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<p>Самое сложное в рисовании этого фрактала - вычисления координат каждого квадрата.</p>
+<p>Так же, очевидно, для рисования дерева Пифагора необходимо использовать рекурсию. И нам необходимо написать такую рекурсивную процедуру, которая будет строить дерево Пифагора на основании любого отрезка. Ведь каждая новая его часть все-же строится на основании стороны треугольника, то есть отрезка с произвольными координатами.</p>
+<h2 id="slozhnyi-i-plokhoi-put"><a class="anchor" href="#slozhnyi-i-plokhoi-put">#<sup>2</sup></a>Сложный и плохой путь</h2>
+<p>Когда я в 10 классе, ещё программируя на Паскале, задался задачей нарисовать этот фрактал, я пошел самым сложным путем, вычисляя громоздкие формулы, с использованием геометрии и тригонометрии. В итоге у меня вышел такой код:</p>
+<pre data-lang="pascal" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-pascal "><code class="language-pascal" data-lang="pascal"><span style="color:#72ab00;">var</span><span> alpha:real; </span><span style="color:#7f8989;">// Угол при основании прямоугольного треугольника
+</span><span style="color:#668f14;">procedure </span><span style="color:#c23f31;">recur</span><span>(x,y, x1,y1:real; g:integer);
+</span><span style="color:#72ab00;">var</span><span> dx,dy,lx,ly:real;
+</span><span>    x2,y2,x3,y3:real;
+</span><span style="color:#72ab00;">begin
+</span><span>     </span><span style="color:#72ab00;">if</span><span> (g=</span><span style="color:#b3933a;">1</span><span>) </span><span style="color:#72ab00;">or</span><span> ((sqr(x-x1)+sqr(y-y1))&lt;</span><span style="color:#b3933a;">1</span><span>) </span><span style="color:#72ab00;">then
+</span><span style="color:#7f8989;">     	// Выходим из рекурсии, если достигнута максимальная глубина или
+</span><span style="color:#7f8989;">     	// размер квадрата слишком мал
+</span><span>     </span><span style="color:#72ab00;">else
+</span><span>         </span><span style="color:#72ab00;">begin
+</span><span>           </span><span style="color:#7f8989;">{1)}</span><span>dx:=x1-x;
+</span><span>               dy:=y1-y;
+</span><span>           </span><span style="color:#7f8989;">{2)}</span><span>x2:=x-dy; </span><span style="color:#7f8989;">// Вычисляем две другие точки квадрата по имеющимся
+</span><span>               y2:=y+dx; </span><span style="color:#7f8989;">// точкам x,y, x1,y1.
+</span><span>               x3:=x1-dy;
+</span><span>               y3:=y1+dx;
+</span><span>           </span><span style="color:#7f8989;">{3)}</span><span>draw_Rect(x,y, x1,y1, x2,y2, x3,y3); </span><span style="color:#7f8989;">// Рисуем квадрат на экран
+</span><span>
+</span><span style="color:#7f8989;">           // Вычисляем координаты вершины прямоугольного треугольника
+</span><span>           </span><span style="color:#7f8989;">{4)}</span><span>lx:=sin(</span><span style="color:#b3933a;">2</span><span>*alpha)/</span><span style="color:#b3933a;">2</span><span>*dy-sqr(cos(alpha))*dx;
+</span><span>               ly:=sqr(cos(alpha))*dy+sin(</span><span style="color:#b3933a;">2</span><span>*alpha)/</span><span style="color:#b3933a;">2</span><span>*dx;
+</span><span>
+</span><span style="color:#7f8989;">           // Вызываем рекурсию для каждого катета прямоугольного треугольника
+</span><span>           </span><span style="color:#7f8989;">{5)}</span><span>recur(x2,y2, x2-lx,y2+ly, g-</span><span style="color:#b3933a;">1</span><span>);
+</span><span>               recur(x2-lx,y2+ly, x3,y3, g-</span><span style="color:#b3933a;">1</span><span>);
+</span><span>         </span><span style="color:#72ab00;">end</span><span>;
+</span><span style="color:#72ab00;">end</span><span>;
+</span></code></pre>
+<p>Если необходимо понять каждое действия, есть комментарии, да и вообще код довольно простой, даже если вы не знаете Паскаль, вы его наверняка поймете. Но разбираться в нём не нужно, он лишь служит демонстрацией сложного подхода.</p>
+<p>В функцию recur передаются координаты двух точек, на основе отрезка, на основании отрезка, образованного этими двумя точками, строится квадрат; этот квадрат рисуется; на стороне квадрата, которая параллельна данному отрезку, строится прямоугольный треугольник, и для его катетов вызывается эта же функция.</p>
+<p>Минусы этого кода: </p>
+<ul>
+<li>Здесь не используются классы векторов, которые бы позволили сократить часть кода, связанную с суммой по координате x и y, вычисления длины стороны квадрата и сокращения количества передаваемых параметров.</li>
+<li>Весь квадрат задается лишь одной стороной, и далее непонятными формулами вычисляются координаты других его вершин.</li>
+<li>Координаты прямоугольного треугольника на основе квадрата, заданного лишь одной стороной, вычисляются очень сложно, и непонятно как эти формулы работают.</li>
+<li>Код применим только для построения дерева на верхней стороне квадрата, если захочется построить на боковой, или чередовать это, то придется вычислять новые формулы.</li>
+<li>Данное решение применимо только к квадрату. Его нельзя использовать для произвольного многоугольника.</li>
+</ul>
+<p>Но, благо, здесь хотя бы можно менять угол при основании прямоугольного треугольника. И в то время я получил примерно следующую анимацию:</p>
+<video class="img-one" autoplay loop muted inline>
+  <source src="explanation_4&#x2F;angle_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<h2 id="put-poluchshe-i-s-ispol-zovaniem-biblioteki"><a class="anchor" href="#put-poluchshe-i-s-ispol-zovaniem-biblioteki">#<sup>2</sup></a>Путь получше и с использованием библиотеки</h2>
+<p>Библиотека предоставляет две вещи, которые нам сейчас пригодятся: </p>
+<ul>
+<li>Преобразование вектора из одной системы координат в другую.</li>
+<li>Создание системы координат из двух точек при помощи функции <code>makeLine2</code>.</li>
+</ul>
+<p><code>makeLine2(a, b)</code> работает следующим образом: создается система координат с центром в точке <code>a</code>, вектор первой оси направлен в сторону <code>b</code> и по длине равен <code>(b-a)</code>. Второй вектор оси равен первому, повернутому на 90 градусов против часовой стрелке. То есть такая система координат всегда ортогональна (оси перпендикулярны).</p>
+<p>Построение дерева Пифагора будет аналогично предыдущему пункту, только мы будем передавать в функцию не координаты отрезка, на основании которого строить дальше, а систему координат, в которой надо строить дальше.</p>
+<p>Так как мы можем легко преобразовывать координаты, то для любой фигуры, будь то квадрат, прямоугольный треугольник или дерево Пифагора, нам надо знать их координаты, когда они одной своей стороной полностью лежат на красной оси <code>X</code>, которая задается вектором <code>i</code>. Такое необходимо, потому что далее мы будем преобразовывать их координаты к некоторой системе, полученной с помощью функции <code>makeLine2</code>, и в итоге преобразованный многоугольник автоматически будет располагаться как бы прикрепленным к какой-то стороне, сразу масштабированный под размер этой стороны.</p>
+<p>Получившийся код:</p>
+<pre data-lang="c++" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#668f14;">void </span><span style="color:#c23f31;">draw_pythagoras_tree</span><span>(</span><span style="color:#668f14;">const</span><span> space2</span><span style="color:#72ab00;">&amp; </span><span style="color:#5597d6;">space</span><span>) {
+</span><span>	</span><span style="color:#7f8989;">// Выходим из рекурсии, если одна из осей (аналогично и сторона квадрата) имеет длину меньше, чем 2
+</span><span>	</span><span style="color:#72ab00;">if </span><span>(space.</span><span style="color:#5597d6;">i</span><span>.</span><span style="color:#5597d6;">length</span><span>() </span><span style="color:#72ab00;">&lt; </span><span style="color:#b3933a;">2</span><span>)
+</span><span>		</span><span style="color:#72ab00;">return</span><span>;
+</span><span>
+</span><span>	</span><span style="color:#7f8989;">// Задаем координаты квадрата
+</span><span>	vec2 </span><span style="color:#5597d6;">a</span><span>(</span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0</span><span>), </span><span style="color:#5597d6;">b</span><span>(</span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">1</span><span>), </span><span style="color:#5597d6;">c</span><span>(</span><span style="color:#b3933a;">1</span><span>, </span><span style="color:#b3933a;">1</span><span>), </span><span style="color:#5597d6;">d</span><span>(</span><span style="color:#b3933a;">1</span><span>, </span><span style="color:#b3933a;">0</span><span>);
+</span><span>
+</span><span>	</span><span style="color:#7f8989;">// Высчитываем координаты прямоугольного треугольника, который лежит своей гипотенузой на оси X, с углом alpha при основании
+</span><span>	</span><span style="color:#668f14;">double</span><span> alpha </span><span style="color:#72ab00;">= </span><span>spob::</span><span style="color:#5597d6;">deg2rad</span><span>(</span><span style="color:#b3933a;">10</span><span>);
+</span><span>	vec2 </span><span style="color:#5597d6;">tr_a</span><span>(</span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0</span><span>), </span><span style="color:#5597d6;">tr_b</span><span>(</span><span style="color:#b3933a;">1</span><span>, </span><span style="color:#b3933a;">0</span><span>), </span><span style="color:#5597d6;">tr_c</span><span>(</span><span style="color:#b39f04;">cos</span><span>(alpha), </span><span style="color:#b3933a;">0</span><span>);
+</span><span>	tr_c </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">rotate</span><span>(tr_c, </span><span style="color:#5597d6;">vec2</span><span>(</span><span style="color:#b3933a;">0</span><span>), alpha);
+</span><span>
+</span><span>	</span><span style="color:#7f8989;">// Преобразуем квадрат из текущих координат к координатам переданного пространства
+</span><span>	a </span><span style="color:#72ab00;">=</span><span> space.</span><span style="color:#5597d6;">from</span><span>(a);
+</span><span>	b </span><span style="color:#72ab00;">=</span><span> space.</span><span style="color:#5597d6;">from</span><span>(b);
+</span><span>	c </span><span style="color:#72ab00;">=</span><span> space.</span><span style="color:#5597d6;">from</span><span>(c);
+</span><span>	d </span><span style="color:#72ab00;">=</span><span> space.</span><span style="color:#5597d6;">from</span><span>(d);
+</span><span>
+</span><span>	</span><span style="color:#7f8989;">// Рисуем квадрат
+</span><span>	</span><span style="color:#5597d6;">draw_line</span><span>(a, b);
+</span><span>	</span><span style="color:#5597d6;">draw_line</span><span>(b, c);
+</span><span>	</span><span style="color:#5597d6;">draw_line</span><span>(c, d);
+</span><span>	</span><span style="color:#5597d6;">draw_line</span><span>(d, a);
+</span><span>	
+</span><span>	</span><span style="color:#7f8989;">// Строим пространство, которое находится на верхней стороне квадрата
+</span><span>	space2 tr_line </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">makeLine2</span><span>(b, c);
+</span><span>
+</span><span>	</span><span style="color:#7f8989;">// Переводим координаты треугольника к этому пространству
+</span><span>	tr_a </span><span style="color:#72ab00;">=</span><span> tr_line.</span><span style="color:#5597d6;">from</span><span>(tr_a);
+</span><span>	tr_b </span><span style="color:#72ab00;">=</span><span> tr_line.</span><span style="color:#5597d6;">from</span><span>(tr_b);
+</span><span>	tr_c </span><span style="color:#72ab00;">=</span><span> tr_line.</span><span style="color:#5597d6;">from</span><span>(tr_c);
+</span><span>
+</span><span>	</span><span style="color:#7f8989;">// Строим пространства, которые находятся на обоих катетах этого треугольника
+</span><span>	space2 l1 </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">makeLine2</span><span>(tr_a, tr_c);
+</span><span>	space2 l2 </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">makeLine2</span><span>(tr_c, tr_b);
+</span><span>
+</span><span>	</span><span style="color:#7f8989;">// Рекурсивно строим дерево в этих пространствах
+</span><span>	</span><span style="color:#5597d6;">draw_pythagoras_tree</span><span>(l1);
+</span><span>	</span><span style="color:#5597d6;">draw_pythagoras_tree</span><span>(l2);
+</span><span>}
+</span></code></pre>
+<p>Пошаговое описание действий с визуализацией вычислений:</p>
+<div class="magnifier-container img-one">
+<img
+    class="not-default full-screen-img"
+    width="1216"
+    height="828"
+    src="&#x2F;processed_images&#x2F;103f877dd94e418f00.webp" 
+    onclick="full_screen('explanation_4&#x2F;explanation.png')"
+    onauxclick="full_screen_new_page('explanation_4&#x2F;explanation.png')">
+<div class="magnifier-display">
+<img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1<br>png</div>
+</div>
+</div>
+<ol>
+<li>Создаем координаты квадрата.<pre data-lang="c++" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-c++ "><code class="language-c++" data-lang="c++"><span>vec2 </span><span style="color:#c23f31;">a</span><span>(</span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0</span><span>), </span><span style="color:#5597d6;">b</span><span>(</span><span style="color:#b3933a;">1</span><span>, </span><span style="color:#b3933a;">0</span><span>), </span><span style="color:#5597d6;">c</span><span>(</span><span style="color:#b3933a;">1</span><span>, </span><span style="color:#b3933a;">1</span><span>), </span><span style="color:#5597d6;">d</span><span>(</span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">1</span><span>);
+</span></code></pre>
+</li>
+<li>Высчитываем координаты прямоугольного треугольника. Здесь никаких сложных формул нет, только простейшая геометрия, и использование функции <code>rotate(что, вокруг чего, на какой угол)</code>.<pre data-lang="c++" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-c++ "><code class="language-c++" data-lang="c++"><span>vec2 </span><span style="color:#c23f31;">tr_a</span><span>(</span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0</span><span>), </span><span style="color:#5597d6;">tr_b</span><span>(</span><span style="color:#b3933a;">1</span><span>, </span><span style="color:#b3933a;">0</span><span>), </span><span style="color:#5597d6;">tr_c</span><span>(</span><span style="color:#b39f04;">cos</span><span>(alpha), </span><span style="color:#b3933a;">0</span><span>);
+</span><span>tr_c </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">rotate</span><span>(tr_c, </span><span style="color:#5597d6;">vec2</span><span>(</span><span style="color:#b3933a;">0</span><span>), alpha);
+</span></code></pre>
+</li>
+<li>Видно, что координаты квадрата заданы без привязки к какой-то системе координат, просто нули и единицы. Поэтому переводим его координаты из системы координат, которую нам предоставили в функции.<pre data-lang="c++" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-c++ "><code class="language-c++" data-lang="c++"><span>a </span><span style="color:#72ab00;">=</span><span> space.</span><span style="color:#5597d6;">from</span><span>(a);
+</span><span>b </span><span style="color:#72ab00;">=</span><span> space.</span><span style="color:#5597d6;">from</span><span>(b);
+</span><span>c </span><span style="color:#72ab00;">=</span><span> space.</span><span style="color:#5597d6;">from</span><span>(c);
+</span><span>d </span><span style="color:#72ab00;">=</span><span> space.</span><span style="color:#5597d6;">from</span><span>(d);
+</span></code></pre>
+Заодно сразу же рисуем этот квадрат.<pre data-lang="c++" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#5597d6;">draw_line</span><span>(a, b);
+</span><span style="color:#5597d6;">draw_line</span><span>(b, c);
+</span><span style="color:#5597d6;">draw_line</span><span>(c, d);
+</span><span style="color:#5597d6;">draw_line</span><span>(d, a);
+</span></code></pre>
+</li>
+<li>Создаем систему координат на верхней стороне квадрата с помощью функции <code>makeLine2</code>.<pre data-lang="c++" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-c++ "><code class="language-c++" data-lang="c++"><span>space2 tr_line </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">makeLine2</span><span>(d, c);
+</span></code></pre>
+</li>
+<li>Преобразуем координаты треугольника к координатам только что полученной системы координат.<pre data-lang="c++" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-c++ "><code class="language-c++" data-lang="c++"><span>tr_a </span><span style="color:#72ab00;">=</span><span> tr_line.</span><span style="color:#5597d6;">from</span><span>(tr_a);
+</span><span>tr_b </span><span style="color:#72ab00;">=</span><span> tr_line.</span><span style="color:#5597d6;">from</span><span>(tr_b);
+</span><span>tr_c </span><span style="color:#72ab00;">=</span><span> tr_line.</span><span style="color:#5597d6;">from</span><span>(tr_c);
+</span></code></pre>
+</li>
+<li>Строим новые системы координат на каждом катете полученного треугольника.<pre data-lang="c++" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-c++ "><code class="language-c++" data-lang="c++"><span>space2 l1 </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">makeLine2</span><span>(triangle[</span><span style="color:#b3933a;">0</span><span>], triangle[</span><span style="color:#b3933a;">2</span><span>]);
+</span><span>space2 l2 </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">makeLine2</span><span>(triangle[</span><span style="color:#b3933a;">2</span><span>], triangle[</span><span style="color:#b3933a;">1</span><span>]);
+</span></code></pre>
+</li>
+<li>Повторяем всю процедуру рекурсивно для каждой системы координат, предварительно преобразовав её из переданной системы координат. Вообще от этого преобразования можно было бы избавиться, если бы мы изначально преобразовали координаты квадрата, как это сделали с треугольником.<pre data-lang="c++" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#5597d6;">draw_pythagoras_tree</span><span>(space.</span><span style="color:#5597d6;">from</span><span>(l1));
+</span><span style="color:#5597d6;">draw_pythagoras_tree</span><span>(space.</span><span style="color:#5597d6;">from</span><span>(l2));
+</span></code></pre>
+</li>
+</ol>
+<p>Если для написания кода, из плохого пункта выше, я убил много времени на расчет формул на бумажке, на поиск багов и подбор параметров, то первичную версию данного решения я написал реально за полчаса, и занимала она, грубо говоря, 7 строк. Следующие версии модифицировались, чтобы быть более понятными для других людей.</p>
+<div class="pros">
+<span style="color: #090"><big><b>Плюсы:</b></big></span>
+<ul>
+<li>Здесь используются классы векторов и систем координат.</li>
+<li>Координаты квадрата вычисляются интуитивно понятным образом.</li>
+<li>Координаты прямоугольного треугольника вычисляются очень просто.</li>
+<li>Код применим для построения дерева Пифагора на любой стороне квадрата, надо лишь изменить параметры в строке <code>space2 tr_line = makeLine2(b, c);</code>.</li>
+<li>Данное решение можно применить к любому многоугольнику (главное, чтобы он своей стороной полностью лежал на оси Х).</li>
+</ul>
+</div>
+<p>И вот, например построение дерева Пифагора на 0 и 1 стороне квадрата:</p>
+<p><code>space2 tr_line = makeLine2(b, a);</code></p>
+<div class="container">
+<video class="img-one-two" autoplay loop muted inline>
+  <source src="explanation_4&#x2F;4_0_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<div class="magnifier-container img-one-two">
+<img
+    class="not-default full-screen-img"
+    width="639"
+    height="640"
+    src="&#x2F;processed_images&#x2F;7288181475b1419300.webp" 
+    onclick="full_screen('explanation_4&#x2F;pythagor_0.png')"
+    onauxclick="full_screen_new_page('explanation_4&#x2F;pythagor_0.png')">
+<div class="magnifier-display">
+<img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1.7<br>png</div>
+</div>
+</div>
+</div>
+<p><code>space2 tr_line = makeLine2(a, c);</code></p>
+<div class="container">
+<video class="img-one-two" autoplay loop muted inline>
+  <source src="explanation_4&#x2F;4_1_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<div class="magnifier-container img-one-two">
+<img
+    class="not-default full-screen-img"
+    width="640"
+    height="639"
+    src="&#x2F;processed_images&#x2F;7a82177313171f8500.webp" 
+    onclick="full_screen('explanation_4&#x2F;pythagor_1.png')"
+    onauxclick="full_screen_new_page('explanation_4&#x2F;pythagor_1.png')">
+<div class="magnifier-display">
+<img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1.7<br>png</div>
+</div>
+</div>
+</div>
+<p>Далее я немного изменил рисование, теперь вместо рисования лишь линий, рисуются многоугольники, в итоге картинка выглядит намного красивей. Так же из-за того, что размеры всё время меняются, я каждый раз вычисляю новые границы, где задано изображение, и смещаю фрактал так, чтобы он полностью помещался в изображении. Вот анимация для каждого дерева Пифагора на основе квадрата:</p>
+<video class="img-one" autoplay loop muted inline>
+  <source src="explanation_4&#x2F;pyth_0_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<video class="img-one" autoplay loop muted inline>
+  <source src="explanation_4&#x2F;pyth_1_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<video class="img-one" autoplay loop muted inline>
+  <source src="explanation_4&#x2F;pyth_2_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<h1 id="risuem-derevo-pifagora-na-osnove-proizvol-nogo-mnogougol-nika"><a class="anchor" href="#risuem-derevo-pifagora-na-osnove-proizvol-nogo-mnogougol-nika">#</a>Рисуем дерево Пифагора на основе произвольного многоугольника</h1>
+<p>Как уже упоминалось раннее, хорошее решение можно использовать для любого многоугольника в принципе, с небольшими модификациями. После написания той программы в 10 классе я не остановился, и захотел сделать решение для правильного многоугольника. Так получилось...</p>
+<h1 id="staroe-i-koshmarnoe-reshenie"><a class="anchor" href="#staroe-i-koshmarnoe-reshenie">#</a>Старое и кошмарное решение</h1>
+<pre data-lang="pascal" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-pascal "><code class="language-pascal" data-lang="pascal"><span style="color:#668f14;">procedure </span><span style="color:#c23f31;">mnogoug</span><span>(n,m:integer; x,y,x1,y1:real;</span><span style="color:#72ab00;">var</span><span> x2,y2,x3,y3:real);
+</span><span style="color:#7f8989;">{Очень универсальная процедура для построения правильных многоугольников!!!}
+</span><span>
+</span><span style="color:#7f8989;">{Процедура строит многоугольник с количеством сторон равным n, и причем строится он так,
+</span><span style="color:#7f8989;"> чтобы основанием была сторона с координатами x,y,x1,y1 , и когда его основание это
+</span><span style="color:#7f8989;"> данная сторона,то ещё надо вернуть координаты стороны с номером m, в x2,y2,x3,y3 ,
+</span><span style="color:#7f8989;"> и так как дается только количество сторон и координаты основания,то размер фигуры выбирается
+</span><span style="color:#7f8989;"> в соответствии с исходными данными, угол наклона,и координаты центра точно так же,причем,
+</span><span style="color:#7f8989;"> важную роль играет куда положить первую точку, в x,y или в x1,y1 , в зависимости
+</span><span style="color:#7f8989;"> от этого ваша фигура может быть перевернутой или нет}
+</span><span> </span><span style="color:#72ab00;">var</span><span> v:integer;
+</span><span style="color:#72ab00;">begin
+</span><span>  </span><span style="color:#7f8989;">{Находим координаты центра}
+</span><span>	rx:=(x1+x)/</span><span style="color:#b3933a;">2</span><span>+((cos(pi/n)/sin(pi/n))*(y1-y))/</span><span style="color:#b3933a;">2</span><span>;
+</span><span>	ry:=(y1+y)/</span><span style="color:#b3933a;">2</span><span>-(cos(pi/n)/sin(pi/n)*(x1-x))/</span><span style="color:#b3933a;">2</span><span>;
+</span><span>	
+</span><span>	</span><span style="color:#7f8989;">{Находим угол наклона многоугольника}
+</span><span>	</span><span style="color:#72ab00;">if</span><span> (y1=y) </span><span style="color:#72ab00;">or</span><span> (x1=x) </span><span style="color:#72ab00;">then</span><span> fi:=pi/n
+</span><span>	</span><span style="color:#72ab00;">else</span><span>                     fi:=-arctan((x1-x)/(y1-y))+pi/n;
+</span><span>    	
+</span><span>  </span><span style="color:#72ab00;">if</span><span> (y1&gt;y) </span><span style="color:#72ab00;">then</span><span> fi:=fi+pi;
+</span><span>
+</span><span>  </span><span style="color:#72ab00;">if</span><span> y1=y </span><span style="color:#72ab00;">then
+</span><span>    </span><span style="color:#72ab00;">if</span><span> x1&gt;x </span><span style="color:#72ab00;">then</span><span> fi:=fi+pi/</span><span style="color:#b3933a;">2
+</span><span>    </span><span style="color:#72ab00;">else</span><span>         fi:=fi+</span><span style="color:#b3933a;">3</span><span>*pi/</span><span style="color:#b3933a;">2
+</span><span>  </span><span style="color:#72ab00;">else</span><span>;
+</span><span>  
+</span><span>  </span><span style="color:#7f8989;">{Находим радиус многоугольника}
+</span><span>	r:=sqrt(sqr(x1-x)+sqr(y1-y))/(</span><span style="color:#b3933a;">2</span><span>*sin(pi/n));
+</span><span>
+</span><span>  </span><span style="color:#7f8989;">{Строим все стороны по очереди}
+</span><span>	</span><span style="color:#72ab00;">for</span><span> v:=</span><span style="color:#b3933a;">0 </span><span style="color:#72ab00;">to</span><span> n </span><span style="color:#72ab00;">do
+</span><span>	   </span><span style="color:#72ab00;">begin
+</span><span>         </span><span style="color:#7f8989;">{Формулы для нахождения координат точек вершин многоугольника, чтобы
+</span><span style="color:#7f8989;">          их найти надо знать координаты центра, радиус,и угол наклона, но так
+</span><span style="color:#7f8989;">          как мы их нашли,то можно спокойно строить многоугольник, формула взята
+</span><span style="color:#7f8989;">          с Википедии}
+</span><span>	       xi:=rx+r*cos(fi+</span><span style="color:#b3933a;">2</span><span>*v*pi/n);
+</span><span>	       yi:=ry+r*sin(fi+</span><span style="color:#b3933a;">2</span><span>*v*pi/n);
+</span><span>	       
+</span><span>	       </span><span style="color:#7f8989;">{Если мы дошли до нужной нам стороны, то возвращаем
+</span><span style="color:#7f8989;">          её координаты}
+</span><span>	       </span><span style="color:#72ab00;">if</span><span> (v=m) </span><span style="color:#72ab00;">then
+</span><span>	          </span><span style="color:#72ab00;">begin
+</span><span>	          	x2:=xb; y2:=yb;
+</span><span>	          	x3:=xi; y3:=yi;
+</span><span>	          </span><span style="color:#72ab00;">end
+</span><span>	       </span><span style="color:#72ab00;">else</span><span>;
+</span><span>	       
+</span><span>	       </span><span style="color:#7f8989;">{Рисуем линию одной стороны мнгоугольника}
+</span><span>	       </span><span style="color:#72ab00;">if</span><span> v&lt;&gt;</span><span style="color:#b3933a;">0 </span><span style="color:#72ab00;">then
+</span><span>	       </span><span style="color:#72ab00;">begin
+</span><span style="color:#7f8989;">         //line(trunc(xb),round(yb),trunc(xi),trunc(yi));
+</span><span>         line_m(trunc(xb),round(yb),trunc(xi),trunc(yi));
+</span><span>         </span><span style="color:#72ab00;">end</span><span>;
+</span><span>	       xb:=xi; yb:=yi;
+</span><span>	   </span><span style="color:#72ab00;">end</span><span>;
+</span><span style="color:#72ab00;">end</span><span>;
+</span><span>
+</span><span>
+</span><span style="color:#72ab00;">var</span><span> i,j:integer;
+</span><span>    alpha:real;
+</span><span>
+</span><span>    
+</span><span style="color:#668f14;">procedure </span><span style="color:#c23f31;">recur</span><span>(x,y,x1,y1:real; g:integer);
+</span><span style="color:#7f8989;">{Процедура строит на стороне x,y,x1,y1 многоугольник, с количеством сторон i ,
+</span><span style="color:#7f8989;"> и в этом многоугольнике на стороне j строит прямоугольный треугольник с углом alpha
+</span><span style="color:#7f8989;"> ,а на его катетах всё повторяется сначал, и так в итоге строится фрактал под названием
+</span><span style="color:#7f8989;"> &quot;Дерево Пифагора&quot;, и не обычное, квадратное, а на основании любого многоугольника}
+</span><span> </span><span style="color:#72ab00;">var
+</span><span>    lx,ly:real; x2,y2,x3,y3:real;
+</span><span style="color:#72ab00;">begin
+</span><span>     </span><span style="color:#72ab00;">if</span><span> (g=</span><span style="color:#b3933a;">0</span><span>) </span><span style="color:#72ab00;">or</span><span> ((sqr(x-x1)+sqr(y-y1))&lt;</span><span style="color:#b3933a;">0.1</span><span>) </span><span style="color:#72ab00;">then
+</span><span>        </span><span style="color:#7f8989;">{Когда радиус многоугольника уже меньше единицы, то строить дальше не стоит,
+</span><span style="color:#7f8989;">         и когда превышен лимит допустимой глубины}
+</span><span>     </span><span style="color:#72ab00;">else
+</span><span>         </span><span style="color:#72ab00;">begin
+</span><span>               </span><span style="color:#7f8989;">{Строим многоугольник с данным основанием, и данным количеством сторон}
+</span><span>         	     mnogoug(i,j,x,y,x1,y1,x3,y3,x2,y2);
+</span><span>         	     
+</span><span>         	     </span><span style="color:#7f8989;">{Так как мы нашли искомую сторону, то на ней находим вершину
+</span><span style="color:#7f8989;">                прямоугольного треугольника, гипотенузой которого является сторона
+</span><span style="color:#7f8989;">                которую мыы нашли в прошлом действии, и причем угол при основании
+</span><span style="color:#7f8989;">                этого треугольника равен alpha}
+</span><span>           </span><span style="color:#7f8989;">{1)}</span><span>dx:=x3-x2;
+</span><span>               dy:=y3-y2;
+</span><span>           </span><span style="color:#7f8989;">{4)}</span><span>lx:=sin(</span><span style="color:#b3933a;">2</span><span>*alpha)/</span><span style="color:#b3933a;">2</span><span>*dy-sqr(cos(alpha))*dx;
+</span><span>               ly:=sqr(cos(alpha))*dy+sin(</span><span style="color:#b3933a;">2</span><span>*alpha)/</span><span style="color:#b3933a;">2</span><span>*dx;
+</span><span>               
+</span><span>               </span><span style="color:#7f8989;">{А теперь на катетах этого прямоугольного треугольника и строим
+</span><span style="color:#7f8989;">                новые многоугольники, а на них опять треугольники ... это и называется
+</span><span style="color:#7f8989;">                фрактал &quot;Дерево Пифагора&quot;}
+</span><span>           </span><span style="color:#7f8989;">{5)}</span><span>recur(x2-lx,y2+ly,x2,y2,g-</span><span style="color:#b3933a;">1</span><span>);
+</span><span>               recur(x3,y3,x2-lx,y2+ly,g-</span><span style="color:#b3933a;">1</span><span>);
+</span><span>         </span><span style="color:#72ab00;">end</span><span>;
+</span><span style="color:#72ab00;">end</span><span>;
+</span></code></pre>
+<p>Вообще, мне страшно смотреть на этот код и вспоминать как я с ним возился... Я старался привести его к красивому виду как мог, но его суть остается в костылях и фиговых решениях. И данная картинка прекрасно его описывает:</p>
+<div class="magnifier-container img-one-two">
+<img
+    class="not-default full-screen-img"
+    width="369"
+    height="640"
+    src="&#x2F;processed_images&#x2F;8fc19cef614544d900.webp" 
+    onclick="full_screen('img&#x2F;code.jpg')"
+    onauxclick="full_screen_new_page('img&#x2F;code.jpg')">
+<div class="magnifier-display">
+<img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1.1<br>jpg</div>
+</div>
+</div>
+<p>Но я постараюсь это всё изложить, чтобы вы прочувствовали весь ужас.</p>
+<p>Главной проблемой в этом коде была часть с вычислением угла в функции <code>mnogoug</code>. Там много разных ифов, которые стоят черт знает зачем, и работают черт знает как. Вообще те строки с углом, были найдены эмпирическим путем, методом тыка. Именно на этой части, в процессе метода тыка, я убил n часов при дебаге. </p>
+<p>А потом, в процессе изучения языка <code>C</code> я узнал что существует, посланная с небес, функция <code>atan2</code>... Да, в тех строках написана моя костыльно-велосипедная реализация <code>atan2</code>. Это стало настоящим откровением! Обязательно почитайте об этой функции и используйте <strong>её</strong>!</p>
+<p>А так же я понял, что тот код мог бы написать намного проще, без танцев с бубном, если бы с самого начала выводил эти формулы с углом строго по математике.</p>
+<p>А теперь, что же здесь делается? Да всё по сути написано в комментариях. Главная идея в том, что для генерации правильного многоугольника есть формула, взятая с <a href="https://ru.wikipedia.org/wiki/%D0%9F%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE%D1%83%D0%B3%D0%BE%D0%BB%D1%8C%D0%BD%D0%B8%D0%BA">Википедии</a>:</p>
+<div class="magnifier-container img-one-two">
+<img
+    class="not-default full-screen-img"
+    width="208"
+    height="112"
+    src="&#x2F;processed_images&#x2F;01805f785303e1fb00.webp" 
+    onclick="full_screen('img&#x2F;polygon_f.png')"
+    onauxclick="full_screen_new_page('img&#x2F;polygon_f.png')">
+<div class="magnifier-display">
+<img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1<br>png</div>
+</div>
+</div>
+<p>Если изучить её, то можно понять, что у правильного многоугольника есть несколько параметров, которые определяют его однозначно: координаты центра <code>C</code>, радиус <code>R</code> и угол поворота <code>ф</code>. И можно вычислить эти параметры, зная <code>n</code>, и координаты одной стороны. </p>
+<p>Я выводил формулы для этого на бумажке, и заняло у меня это значительно больше времени, чем просто вывод формул для дерева Пифагора. Именно эти формулы можно видеть в функции <code>mnogoug</code> до цикла. Далее применяется эта формула, чтобы найти координаты стороны многоугольника, на которой будет строиться следующая итерация. Там же сразу рисуются все стороны.</p>
+<p>Если смотреть на функцию <code>recur</code>, то там мало чего изменилось, даже формулы для вычисления координат треугольника остались те же.</p>
+<p>Ну вот и результаты тех страданий:</p>
+<p><em>Пояснение:</em> тип <code>20_3</code> означает, что берется 20-угольник и на его третьей стороне строится остальной фрактал.</p>
+<!-- Calculate max height to have consistent size for each element -->
+
+
+  
+  
+  
+    
+  
+
+  
+  
+  
+    
+  
+
+  
+  
+  
+
+  
+  
+  
+    
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+
+
+<div class="gallery-container">
+
+
+
+
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+
+
+<!-- Images -->
+
+<div class="gallery-slide" id="slide_1_0" style="display:block;">
+  
+  
+
+  <div class="gallery-text">1 / 15<hr style="margin: 2px;">3_0</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.09202538104218194"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default" 
+    src="&#x2F;processed_images&#x2F;1f4d9e4e5c17a2a700.jpg" 
+    onclick="full_screen('explanation_5&#x2F;3_0.png')"
+    onauxclick="full_screen_new_page('explanation_5&#x2F;3_0.png')"
+    width="921" height="1040">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.09202538104218194"></svg>
+</div>
+
+<div class="gallery-slide" id="slide_1_1" >
+  
+  
+
+  <div class="gallery-text">2 / 15<hr style="margin: 2px;">3_1</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.052680176049880734"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default" 
+    src="&#x2F;processed_images&#x2F;dca572c52805d6e000.jpg" 
+    onclick="full_screen('explanation_5&#x2F;3_1.png')"
+    onauxclick="full_screen_new_page('explanation_5&#x2F;3_1.png')"
+    width="861" height="1040">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.052680176049880734"></svg>
+</div>
+
+<div class="gallery-slide" id="slide_1_2" >
+  
+  
+
+  <div class="gallery-text">3 / 15<hr style="margin: 2px;">5_1</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.218648303450935"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default" 
+    src="&#x2F;processed_images&#x2F;c76d284067d3d80400.jpg" 
+    onclick="full_screen('explanation_5&#x2F;5_1.png')"
+    onauxclick="full_screen_new_page('explanation_5&#x2F;5_1.png')"
+    width="1040" height="911">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.218648303450935"></svg>
+</div>
+
+<div class="gallery-slide" id="slide_1_3" >
+  
+  
+
+  <div class="gallery-text">4 / 15<hr style="margin: 2px;">5_2</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default" 
+    src="&#x2F;processed_images&#x2F;f27ed46b3fc095b900.jpg" 
+    onclick="full_screen('explanation_5&#x2F;5_2.png')"
+    onauxclick="full_screen_new_page('explanation_5&#x2F;5_2.png')"
+    width="798" height="1040">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+</div>
+
+<div class="gallery-slide" id="slide_1_4" >
+  
+  
+
+  <div class="gallery-text">5 / 15<hr style="margin: 2px;">6_1</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.22105214960478115"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default" 
+    src="&#x2F;processed_images&#x2F;f0dacfc3d12d1e3b00.jpg" 
+    onclick="full_screen('explanation_5&#x2F;6_1.png')"
+    onauxclick="full_screen_new_page('explanation_5&#x2F;6_1.png')"
+    width="1040" height="906">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.22105214960478115"></svg>
+</div>
+
+<div class="gallery-slide" id="slide_1_5" >
+  
+  
+
+  <div class="gallery-text">6 / 15<hr style="margin: 2px;">10_3</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.18932138037401192"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default" 
+    src="&#x2F;processed_images&#x2F;accfb2b9d7e4eef800.jpg" 
+    onclick="full_screen('explanation_5&#x2F;10_3.png')"
+    onauxclick="full_screen_new_page('explanation_5&#x2F;10_3.png')"
+    width="1040" height="972">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.18932138037401192"></svg>
+</div>
+
+<div class="gallery-slide" id="slide_1_6" >
+  
+  
+
+  <div class="gallery-text">7 / 15<hr style="margin: 2px;">20_1</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.04486436679935124"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default" 
+    src="&#x2F;processed_images&#x2F;94c02f59ceee766e00.jpg" 
+    onclick="full_screen('explanation_5&#x2F;20_1.png')"
+    onauxclick="full_screen_new_page('explanation_5&#x2F;20_1.png')"
+    width="850" height="1040">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.04486436679935124"></svg>
+</div>
+
+<div class="gallery-slide" id="slide_1_7" >
+  
+  
+
+  <div class="gallery-text">8 / 15<hr style="margin: 2px;">20_2</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.12219947350390359"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default" 
+    src="&#x2F;processed_images&#x2F;3c9d7dc671017c5300.jpg" 
+    onclick="full_screen('explanation_5&#x2F;20_2.png')"
+    onauxclick="full_screen_new_page('explanation_5&#x2F;20_2.png')"
+    width="973" height="1040">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.12219947350390359"></svg>
+</div>
+
+<div class="gallery-slide" id="slide_1_8" >
+  
+  
+
+  <div class="gallery-text">9 / 15<hr style="margin: 2px;">20_3</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.18499445729708885"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default" 
+    src="&#x2F;processed_images&#x2F;c191b8003099ada900.jpg" 
+    onclick="full_screen('explanation_5&#x2F;20_3.png')"
+    onauxclick="full_screen_new_page('explanation_5&#x2F;20_3.png')"
+    width="1040" height="981">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.18499445729708885"></svg>
+</div>
+
+<div class="gallery-slide" id="slide_1_9" >
+  
+  
+
+  <div class="gallery-text">10 / 15<hr style="margin: 2px;">20_4</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.23884061114324268"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default" 
+    src="&#x2F;processed_images&#x2F;e445e74ac808196400.jpg" 
+    onclick="full_screen('explanation_5&#x2F;20_4.png')"
+    onauxclick="full_screen_new_page('explanation_5&#x2F;20_4.png')"
+    width="1040" height="869">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.23884061114324268"></svg>
+</div>
+
+<div class="gallery-slide" id="slide_1_10" >
+  
+  
+
+  <div class="gallery-text">11 / 15<hr style="margin: 2px;">20_5</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.23547522652785807"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default" 
+    src="&#x2F;processed_images&#x2F;832dd49c3836d89300.jpg" 
+    onclick="full_screen('explanation_5&#x2F;20_5.png')"
+    onauxclick="full_screen_new_page('explanation_5&#x2F;20_5.png')"
+    width="1040" height="876">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.23547522652785807"></svg>
+</div>
+
+<div class="gallery-slide" id="slide_1_11" >
+  
+  
+
+  <div class="gallery-text">12 / 15<hr style="margin: 2px;">20_6</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.20374445729708884"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default" 
+    src="&#x2F;processed_images&#x2F;38aec41ca738afa700.jpg" 
+    onclick="full_screen('explanation_5&#x2F;20_6.png')"
+    onauxclick="full_screen_new_page('explanation_5&#x2F;20_6.png')"
+    width="1040" height="942">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.20374445729708884"></svg>
+</div>
+
+<div class="gallery-slide" id="slide_1_12" >
+  
+  
+
+  <div class="gallery-text">13 / 15<hr style="margin: 2px;">20_7</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.06437394739696622"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default" 
+    src="&#x2F;processed_images&#x2F;f3756185de0a286900.jpg" 
+    onclick="full_screen('explanation_5&#x2F;20_7.png')"
+    onauxclick="full_screen_new_page('explanation_5&#x2F;20_7.png')"
+    width="878" height="1040">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.06437394739696622"></svg>
+</div>
+
+<div class="gallery-slide" id="slide_1_13" >
+  
+  
+
+  <div class="gallery-text">14 / 15<hr style="margin: 2px;">20_8</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.016234984011753495"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default" 
+    src="&#x2F;processed_images&#x2F;295d57346cf8242c00.jpg" 
+    onclick="full_screen('explanation_5&#x2F;20_8.png')"
+    onauxclick="full_screen_new_page('explanation_5&#x2F;20_8.png')"
+    width="812" height="1040">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.016234984011753495"></svg>
+</div>
+
+<div class="gallery-slide" id="slide_1_14" >
+  
+  
+
+  <div class="gallery-text">15 / 15<hr style="margin: 2px;">20_9</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.21480214960478117"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default" 
+    src="&#x2F;processed_images&#x2F;e42a0dda73668e1300.jpg" 
+    onclick="full_screen('explanation_5&#x2F;20_9.png')"
+    onauxclick="full_screen_new_page('explanation_5&#x2F;20_9.png')"
+    width="1040" height="919">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.21480214960478117"></svg>
+</div>
+
+
+<!-- Next and previous buttons -->
+<a class="gallery-prev" onclick="gallery_plus(1, -1)">&#10094;</a>
+<a class="gallery-next" onclick="gallery_plus(1, 1)">&#10095;</a>
+</div>
+
+<!-- Thumbnail images -->
+<div class="gallery-row">
+
+  <div class="gallery-column" style="width: 6.666666666666667%;">
+    
+    
+    <svg class="gallery-svg" viewBox="0 0 1 0.09202538104218194"></svg>
+    <img class="gallery-demo gallery-active" src="&#x2F;processed_images&#x2F;1f4d9e4e5c17a2a700.jpg" 
+      id="demo_1_0" 
+      onclick="gallery_set(1, 0)"
+      width="921" height="1040">
+    <svg class="gallery-svg" viewBox="0 0 1 0.09202538104218194"></svg>
+  </div>
+
+  <div class="gallery-column" style="width: 6.666666666666667%;">
+    
+    
+    <svg class="gallery-svg" viewBox="0 0 1 0.052680176049880734"></svg>
+    <img class="gallery-demo" src="&#x2F;processed_images&#x2F;dca572c52805d6e000.jpg" 
+      id="demo_1_1" 
+      onclick="gallery_set(1, 1)"
+      width="861" height="1040">
+    <svg class="gallery-svg" viewBox="0 0 1 0.052680176049880734"></svg>
+  </div>
+
+  <div class="gallery-column" style="width: 6.666666666666667%;">
+    
+    
+    <svg class="gallery-svg" viewBox="0 0 1 0.218648303450935"></svg>
+    <img class="gallery-demo" src="&#x2F;processed_images&#x2F;c76d284067d3d80400.jpg" 
+      id="demo_1_2" 
+      onclick="gallery_set(1, 2)"
+      width="1040" height="911">
+    <svg class="gallery-svg" viewBox="0 0 1 0.218648303450935"></svg>
+  </div>
+
+  <div class="gallery-column" style="width: 6.666666666666667%;">
+    
+    
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+    <img class="gallery-demo" src="&#x2F;processed_images&#x2F;f27ed46b3fc095b900.jpg" 
+      id="demo_1_3" 
+      onclick="gallery_set(1, 3)"
+      width="798" height="1040">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  </div>
+
+  <div class="gallery-column" style="width: 6.666666666666667%;">
+    
+    
+    <svg class="gallery-svg" viewBox="0 0 1 0.22105214960478115"></svg>
+    <img class="gallery-demo" src="&#x2F;processed_images&#x2F;f0dacfc3d12d1e3b00.jpg" 
+      id="demo_1_4" 
+      onclick="gallery_set(1, 4)"
+      width="1040" height="906">
+    <svg class="gallery-svg" viewBox="0 0 1 0.22105214960478115"></svg>
+  </div>
+
+  <div class="gallery-column" style="width: 6.666666666666667%;">
+    
+    
+    <svg class="gallery-svg" viewBox="0 0 1 0.18932138037401192"></svg>
+    <img class="gallery-demo" src="&#x2F;processed_images&#x2F;accfb2b9d7e4eef800.jpg" 
+      id="demo_1_5" 
+      onclick="gallery_set(1, 5)"
+      width="1040" height="972">
+    <svg class="gallery-svg" viewBox="0 0 1 0.18932138037401192"></svg>
+  </div>
+
+  <div class="gallery-column" style="width: 6.666666666666667%;">
+    
+    
+    <svg class="gallery-svg" viewBox="0 0 1 0.04486436679935124"></svg>
+    <img class="gallery-demo" src="&#x2F;processed_images&#x2F;94c02f59ceee766e00.jpg" 
+      id="demo_1_6" 
+      onclick="gallery_set(1, 6)"
+      width="850" height="1040">
+    <svg class="gallery-svg" viewBox="0 0 1 0.04486436679935124"></svg>
+  </div>
+
+  <div class="gallery-column" style="width: 6.666666666666667%;">
+    
+    
+    <svg class="gallery-svg" viewBox="0 0 1 0.12219947350390359"></svg>
+    <img class="gallery-demo" src="&#x2F;processed_images&#x2F;3c9d7dc671017c5300.jpg" 
+      id="demo_1_7" 
+      onclick="gallery_set(1, 7)"
+      width="973" height="1040">
+    <svg class="gallery-svg" viewBox="0 0 1 0.12219947350390359"></svg>
+  </div>
+
+  <div class="gallery-column" style="width: 6.666666666666667%;">
+    
+    
+    <svg class="gallery-svg" viewBox="0 0 1 0.18499445729708885"></svg>
+    <img class="gallery-demo" src="&#x2F;processed_images&#x2F;c191b8003099ada900.jpg" 
+      id="demo_1_8" 
+      onclick="gallery_set(1, 8)"
+      width="1040" height="981">
+    <svg class="gallery-svg" viewBox="0 0 1 0.18499445729708885"></svg>
+  </div>
+
+  <div class="gallery-column" style="width: 6.666666666666667%;">
+    
+    
+    <svg class="gallery-svg" viewBox="0 0 1 0.23884061114324268"></svg>
+    <img class="gallery-demo" src="&#x2F;processed_images&#x2F;e445e74ac808196400.jpg" 
+      id="demo_1_9" 
+      onclick="gallery_set(1, 9)"
+      width="1040" height="869">
+    <svg class="gallery-svg" viewBox="0 0 1 0.23884061114324268"></svg>
+  </div>
+
+  <div class="gallery-column" style="width: 6.666666666666667%;">
+    
+    
+    <svg class="gallery-svg" viewBox="0 0 1 0.23547522652785807"></svg>
+    <img class="gallery-demo" src="&#x2F;processed_images&#x2F;832dd49c3836d89300.jpg" 
+      id="demo_1_10" 
+      onclick="gallery_set(1, 10)"
+      width="1040" height="876">
+    <svg class="gallery-svg" viewBox="0 0 1 0.23547522652785807"></svg>
+  </div>
+
+  <div class="gallery-column" style="width: 6.666666666666667%;">
+    
+    
+    <svg class="gallery-svg" viewBox="0 0 1 0.20374445729708884"></svg>
+    <img class="gallery-demo" src="&#x2F;processed_images&#x2F;38aec41ca738afa700.jpg" 
+      id="demo_1_11" 
+      onclick="gallery_set(1, 11)"
+      width="1040" height="942">
+    <svg class="gallery-svg" viewBox="0 0 1 0.20374445729708884"></svg>
+  </div>
+
+  <div class="gallery-column" style="width: 6.666666666666667%;">
+    
+    
+    <svg class="gallery-svg" viewBox="0 0 1 0.06437394739696622"></svg>
+    <img class="gallery-demo" src="&#x2F;processed_images&#x2F;f3756185de0a286900.jpg" 
+      id="demo_1_12" 
+      onclick="gallery_set(1, 12)"
+      width="878" height="1040">
+    <svg class="gallery-svg" viewBox="0 0 1 0.06437394739696622"></svg>
+  </div>
+
+  <div class="gallery-column" style="width: 6.666666666666667%;">
+    
+    
+    <svg class="gallery-svg" viewBox="0 0 1 0.016234984011753495"></svg>
+    <img class="gallery-demo" src="&#x2F;processed_images&#x2F;295d57346cf8242c00.jpg" 
+      id="demo_1_13" 
+      onclick="gallery_set(1, 13)"
+      width="812" height="1040">
+    <svg class="gallery-svg" viewBox="0 0 1 0.016234984011753495"></svg>
+  </div>
+
+  <div class="gallery-column" style="width: 6.666666666666667%;">
+    
+    
+    <svg class="gallery-svg" viewBox="0 0 1 0.21480214960478117"></svg>
+    <img class="gallery-demo" src="&#x2F;processed_images&#x2F;e42a0dda73668e1300.jpg" 
+      id="demo_1_14" 
+      onclick="gallery_set(1, 14)"
+      width="1040" height="919">
+    <svg class="gallery-svg" viewBox="0 0 1 0.21480214960478117"></svg>
+  </div>
+
+</div>
+
+<script>
+slide_index[1] = 0;
+slide_count[1] = 15;
+</script>
+<p>Минусы этого решения:</p>
+<ul>
+<li>Применимо только к правильным многоугольникам.</li>
+<li>Требует <strong>ещё более сложных</strong> вычислений формул.</li>
+<li>Большинство минусов плохого решения для простого дерева Пифагора.</li>
+</ul>
+<h2 id="khoroshii-put-s-ispol-zovaniem-biblioteki"><a class="anchor" href="#khoroshii-put-s-ispol-zovaniem-biblioteki">#<sup>2</sup></a>Хороший путь с использованием библиотеки</h2>
+<p>Это может показаться удивительным, но по сравнению с предыдущим хорошим решением, это совсем немного отличается. Главные отличия: координаты фигуры теперь пишутся не <code>a</code>, <code>b</code>, <code>c</code>, а пишутся в массив. Так же есть строчки для вычисления правильного многоугольника.</p>
+<pre data-lang="c++" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#668f14;">void </span><span style="color:#c23f31;">draw_pythagoras_tree</span><span>(</span><span style="color:#668f14;">const</span><span> space2</span><span style="color:#72ab00;">&amp; </span><span style="color:#5597d6;">space</span><span>) {
+</span><span>	</span><span style="color:#7f8989;">// Выходим из рекурсии, если одна из осей (аналогично и сторона квадрата) имеет длину меньше, чем 2
+</span><span>	</span><span style="color:#72ab00;">if </span><span>(space.</span><span style="color:#5597d6;">i</span><span>.</span><span style="color:#5597d6;">length</span><span>() </span><span style="color:#72ab00;">&lt; </span><span style="color:#b3933a;">2</span><span>)
+</span><span>		</span><span style="color:#72ab00;">return</span><span>;
+</span><span>
+</span><span>	</span><span style="color:#7f8989;">// Считаем правильный многоугольник
+</span><span>	</span><span style="color:#668f14;">const int</span><span> n </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">5</span><span>;
+</span><span>	</span><span style="color:#668f14;">const int</span><span> m </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">1</span><span>;
+</span><span>	std::vector&lt;vec2&gt; poly;
+</span><span>	</span><span style="color:#72ab00;">for </span><span>(</span><span style="color:#668f14;">int</span><span> i </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>; i </span><span style="color:#72ab00;">&lt;</span><span> n</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>; </span><span style="color:#72ab00;">++</span><span>i) {
+</span><span>		</span><span style="color:#668f14;">double</span><span> angle </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">deg2rad</span><span>(</span><span style="color:#b3933a;">360.0</span><span style="color:#72ab00;">/</span><span>n </span><span style="color:#72ab00;">*</span><span> i);
+</span><span>		poly.</span><span style="color:#5597d6;">push_back</span><span>(</span><span style="color:#5597d6;">vec2</span><span>(</span><span style="color:#b39f04;">cos</span><span>(angle), </span><span style="color:#b39f04;">sin</span><span>(angle)));
+</span><span>	}
+</span><span>
+</span><span>	</span><span style="color:#7f8989;">// Преобразуем координаты так, чтобы он своим первым ребром находится на оси X
+</span><span>	space2 poly_line </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">makeLine2</span><span>(poly[</span><span style="color:#b3933a;">0</span><span>], poly[</span><span style="color:#b3933a;">1</span><span>]);
+</span><span>	poly </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">toMas</span><span>(poly_line, poly);
+</span><span>
+</span><span>	</span><span style="color:#7f8989;">// Высчитываем координаты прямоугольного треугольника, который лежит своей гипотенузой на оси X, с углом alpha при основании
+</span><span>	</span><span style="color:#668f14;">double</span><span> alpha </span><span style="color:#72ab00;">= </span><span>spob::</span><span style="color:#5597d6;">deg2rad</span><span>(</span><span style="color:#b3933a;">45</span><span>);
+</span><span>	std::vector&lt;vec2&gt; triangle </span><span style="color:#72ab00;">= </span><span>{
+</span><span>		</span><span style="color:#5597d6;">vec2</span><span>(</span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0</span><span>), 
+</span><span>		</span><span style="color:#5597d6;">vec2</span><span>(</span><span style="color:#b3933a;">1</span><span>, </span><span style="color:#b3933a;">0</span><span>), 
+</span><span>		</span><span style="color:#5597d6;">rotate</span><span>(</span><span style="color:#5597d6;">vec2</span><span>(</span><span style="color:#b39f04;">cos</span><span>(alpha), </span><span style="color:#b3933a;">0</span><span>), </span><span style="color:#5597d6;">vec2</span><span>(</span><span style="color:#b3933a;">0</span><span>), alpha)
+</span><span>	};
+</span><span>
+</span><span>	</span><span style="color:#7f8989;">// Преобразуем многоугольник из текущих координат к координатам переданного пространства
+</span><span>	poly </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">fromMas</span><span>(space, poly);
+</span><span>
+</span><span>	</span><span style="color:#7f8989;">// Рисуем многоугольник
+</span><span>	</span><span style="color:#72ab00;">for </span><span>(</span><span style="color:#668f14;">int</span><span> i </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>; i </span><span style="color:#72ab00;">&lt;</span><span> poly.</span><span style="color:#5597d6;">size</span><span>() </span><span style="color:#72ab00;">- </span><span style="color:#b3933a;">1</span><span>; i</span><span style="color:#72ab00;">++</span><span>)
+</span><span>		</span><span style="color:#5597d6;">draw_line</span><span>(poly[i], poly[i</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>]);
+</span><span>	
+</span><span>	</span><span style="color:#7f8989;">// Строим пространство, которая находится на m-й стороне многоугольника
+</span><span>	space2 tr_line </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">makeLine2</span><span>(poly[m</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>], poly[m]);
+</span><span>
+</span><span>	</span><span style="color:#7f8989;">// Переводим координаты треугольника к этому пространству
+</span><span>	triangle </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">fromMas</span><span>(tr_line, triangle);
+</span><span>
+</span><span>	</span><span style="color:#7f8989;">// Строим пространства, которые находятся на обоих катетах этого треугольника
+</span><span>	space2 l1 </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">makeLine2</span><span>(triangle[</span><span style="color:#b3933a;">0</span><span>], triangle[</span><span style="color:#b3933a;">2</span><span>]);
+</span><span>	space2 l2 </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">makeLine2</span><span>(triangle[</span><span style="color:#b3933a;">2</span><span>], triangle[</span><span style="color:#b3933a;">1</span><span>]);
+</span><span>
+</span><span>	</span><span style="color:#7f8989;">// Рекурсивно строим дерево в этих пространствах
+</span><span>	</span><span style="color:#5597d6;">draw_pythagoras_tree</span><span>(l1);
+</span><span>	</span><span style="color:#5597d6;">draw_pythagoras_tree</span><span>(l2);
+</span><span>}
+</span></code></pre>
+<p>Пошаговое объяснение создания многоугольника:</p>
+<div class="magnifier-container img-one">
+<img
+    class="not-default full-screen-img"
+    width="1204"
+    height="366"
+    src="&#x2F;processed_images&#x2F;f52fb55b5344361400.webp" 
+    onclick="full_screen('explanation_5&#x2F;explanation_poly.png')"
+    onauxclick="full_screen_new_page('explanation_5&#x2F;explanation_poly.png')">
+<div class="magnifier-display">
+<img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1<br>png</div>
+</div>
+</div>
+<ol>
+<li>Для начала, самое главное, построение координат правильного многоугольника:<pre data-lang="c++" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#668f14;">const int</span><span> n </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">5</span><span>;
+</span><span style="color:#668f14;">const int</span><span> m </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">1</span><span>;
+</span><span>std::vector&lt;vec2&gt; poly;
+</span><span style="color:#72ab00;">for </span><span>(</span><span style="color:#668f14;">int</span><span> i </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>; i </span><span style="color:#72ab00;">&lt;</span><span> n; </span><span style="color:#72ab00;">++</span><span>i) {
+</span><span>	</span><span style="color:#668f14;">double</span><span> angle </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">deg2rad</span><span>(</span><span style="color:#b3933a;">360.0</span><span style="color:#72ab00;">/</span><span>n </span><span style="color:#72ab00;">*</span><span> i);
+</span><span>	poly.</span><span style="color:#5597d6;">push_back</span><span>(</span><span style="color:#5597d6;">vec2</span><span>(</span><span style="color:#b39f04;">cos</span><span>(angle), </span><span style="color:#b39f04;">sin</span><span>(angle)));
+</span><span>}
+</span></code></pre>
+Можно заметить, что это просто вышеописанная формула с Википедии, только максимально упрощенная, без радиуса, без угла смещения. Но к сожалению полученный многоугольник не обладает важным свойством полного нахождения на оси X.</li>
+<li>Поэтому сначала мы создаем систему координат из первой стороны многоугольника<pre data-lang="c++" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-c++ "><code class="language-c++" data-lang="c++"><span>space2 poly_line </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">makeLine2</span><span>(poly[</span><span style="color:#b3933a;">0</span><span>], poly[</span><span style="color:#b3933a;">1</span><span>]);
+</span></code></pre>
+</li>
+<li>А затем переводим каждую координату этого многоугольника к этой системе координат.<pre data-lang="c++" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-c++ "><code class="language-c++" data-lang="c++"><span>poly </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">toMas</span><span>(poly_line, poly);
+</span></code></pre>
+В итоге наш многоугольник полностью находится на оси X, и его можно использовать в построении.</li>
+</ol>
+<p>Кстати, абсолютно аналогичным образом можно было и создать треугольник:</p>
+<pre data-lang="c++" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-c++ "><code class="language-c++" data-lang="c++"><span>std::vector&lt;vec2&gt; triangle </span><span style="color:#72ab00;">= </span><span>{</span><span style="color:#5597d6;">vec2</span><span>(</span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0</span><span>), </span><span style="color:#5597d6;">vec2</span><span>(</span><span style="color:#b39f04;">cos</span><span>(alpha), </span><span style="color:#b3933a;">0</span><span>), </span><span style="color:#5597d6;">vec2</span><span>(</span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b39f04;">sin</span><span>(alpha))};
+</span><span>space2 triangle_line </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">makeLine2</span><span>(triangle[</span><span style="color:#b3933a;">1</span><span>], triangle[</span><span style="color:#b3933a;">2</span><span>]);
+</span><span>triangle </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">toMas</span><span>(triangle_line, triangle);
+</span></code></pre>
+<p>Ведь намного проще понять координаты треугольника заданного так, что прямой угол лежит в центре координат, и все его катеты сонаправлены осям.</p>
+<p>Здесь используется функция <code>toMas</code> для сокращения кода. Её действие аналогично следующему:</p>
+<pre data-lang="c++" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#72ab00;">for </span><span>(</span><span style="color:#668f14;">auto</span><span style="color:#72ab00;">&amp;</span><span> i </span><span style="color:#72ab00;">:</span><span> poly) i </span><span style="color:#72ab00;">=</span><span> poly_line.</span><span style="color:#5597d6;">to</span><span>(i);
+</span></code></pre>
+<p>Также есть небольшая хитрость: в цикле генерации правильного многоугольника цикл идёт не до <code>n</code>, а до <code>n+1</code>. Сделано это потому что мы не можем зациклить массив, чтобы нарисовать все стороны многоугольника. Поэтому последняя точка является как бы первой.</p>
+<p>Немного построения:</p>
+<div class="container">
+<video class="img-one-two" autoplay loop muted inline>
+  <source src="explanation_5&#x2F;post_3_1_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<video class="img-one-two" autoplay loop muted inline>
+  <source src="explanation_5&#x2F;post_5_2_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+</div>
+<p>А теперь наиболее интересные по моему мнению анимации изменения угла для разных многоугольников:</p>
+<video class="img-one" autoplay loop muted inline>
+  <source src="explanation_5&#x2F;3_1_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<video class="img-one" autoplay loop muted inline>
+  <source src="explanation_5&#x2F;5_1_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<video class="img-one" autoplay loop muted inline>
+  <source src="explanation_5&#x2F;5_2_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<h1 id="puti-dal-neishego-razvitiia"><a class="anchor" href="#puti-dal-neishego-razvitiia">#</a>Пути дальнейшего развития</h1>
+<h2 id="oboshchenie"><a class="anchor" href="#oboshchenie">#<sup>2</sup></a>Обощение</h2>
+<p>Вообще, все фракталы, что здесь были нарисованы, являются вариацией одного класса фракталов, которые строятся одинаково. Итак, пусть у нас есть некоторый многоугольник. Некоторая его сторона является основанием, так же задано на каких сторонах строить фрактал. Далее рекурсивно осуществляется следующий алгоритм:</p>
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>Нарисовать многоугольник так, чтобы он своим основанием стоял на заданной системе координат
+</span><span>Получить пространства всех сторон многоугольника, которые заданы
+</span><span>Применить рекурсию ко всем этим пространствам
+</span></code></pre>
+<p>Тогда для дерева Пифагора этим многоугольником является объединение квадрата и прямоугольного треугольника. Стороны, на которых надо рисовать - катеты треугольника.</p>
+<p>Все стороны, по которым надо строить фрактал, должны быть меньше по длине, чем основание. Если они будут больше или равны основанию, тогда фрактал получится бесконечно большим, и с каждой итерацией он может возрастать в размерах.</p>
+<h2 id="uluchshenie-effektivnosti"><a class="anchor" href="#uluchshenie-effektivnosti">#<sup>2</sup></a>Улучшение эффективности</h2>
+<p>Вообще данное решение является очень топорным, и работает недостаточно эффективно при маленьких углах. Вот мои старые замеры времени генерации кадра в зависимости от угла при основании прямоугольного треугольника для стандартного дерева Пифагора:</p>
+<div class="magnifier-container img-one">
+<img
+    class="not-default full-screen-img"
+    width="828"
+    height="661"
+    src="&#x2F;processed_images&#x2F;e888431497bc6b3800.webp" 
+    onclick="full_screen('img&#x2F;time.4.3.png')"
+    onauxclick="full_screen_new_page('img&#x2F;time.4.3.png')">
+<div class="magnifier-display">
+<img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1<br>png</div>
+</div>
+</div>
+<p>Вот такие повышения времени идут когда рисуется при очень маленьком угле, либо угле, близком к 90 градусов. В этом случае дерево выглядит как-то так:</p>
+<div class="magnifier-container img-one">
+<img
+    class="not-default full-screen-img"
+    width="540"
+    height="373"
+    src="&#x2F;processed_images&#x2F;0d9c2ff566d2331700.jpg" 
+    onclick="full_screen('img&#x2F;angle_2.png')"
+    onauxclick="full_screen_new_page('img&#x2F;angle_2.png')">
+<div class="magnifier-display">
+<img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1<br>png</div>
+</div>
+</div>
+<p>Хотя здесь максимальная глубина задана 1000. Такое долгое время вычислений получается из-за того что дерево слишком большое.</p>
+<p>Чтобы оптимизировать это, можно пользоваться свойством самоподобности этого фрактала: сначала рисуем его в одно изображение в маленьком разрешении, а затем просто перерисовываем эту картинку, вместо того, чтобы вычислять координаты для каждой ветки и рисовать отдельно каждый квадрат. Затем применяем это как-нибудь рекурсивно, чтобы на каждой итерации увеличивать степень точности изображения. </p>
+<p>Но это лишь идея в общих чертах. Она так же применима и к общему решению.</p>
+<h1 id="vyvody"><a class="anchor" href="#vyvody">#</a>Выводы</h1>
+<p>Можно заметить, что в моем коде задача каждый раз решается полностью с нуля, и считается, как будто не существует вообще ничего, кроме этой задачи; и задачу никак не планируется расширять. Вследствие этого, для задачи вычислялись сложные формулы, которые никак, кроме как для этой задачи, не могут быть применены. Это плохой метод, программирование никогда бы не развилось до такого уровня, на каком оно есть сейчас, пользуйся все таким грубым подходом. Так же ничего не было вынесено в какие-то функции для упрощения кода.</p>
+<p>А чем кардинально отличается новое решение задачи? Оно повышает уровень абстракции. Если при написании первого решения я думал строго в терминах координат, в терминах формул, которые используют эти координат (на низком уровне), то в новом решении я использую некоторые абстрактные объекты: &quot;системы координат&quot;, &quot;векторы&quot; и применяю абстрактную процедуру как &quot;преобразование координат&quot; (а это уже более высокий уровень абстракции). Как видно, код от этого стал намного проще, он не только пишется хорошо, но ещё его способен понять другой человек. Да и в нём вообще не используется каких-либо формул, только понятные человеку имена функций.</p>
+<p>Ещё в старом коде при незначительном усложнении задачи (перейти от квадрата к правильному многоугольнку), значительно сильно усложнялся код. В новом же решении понадобилось совсем немного строк для решения новой задачи.</p>
+<p>Это и есть суть более высокого уровня абстракции - мы не задумываемся над низкоуровневыми вещами, вроде формул, а мыслим более сложными абстрактными объектами, которые позволяют нам эффективней решать задачу.</p>
+<p>Конечно, эта эффективность ещё зависит от того, насколько хорошо написана библиотека. Для некоторых задач незначительное усложнение влечет за собой незначительные изменения, а иногда совсем наоборот.</p>
+<h1 id="kak-zarozhdalas-eta-biblioteka"><a class="anchor" href="#kak-zarozhdalas-eta-biblioteka">#</a>Как зарождалась эта библиотека</h1>
+<p>Поначалу, как вы можете видеть, я вообще не пользовался никакими абстракциями. Потом, в одном проекте графического интерфейса <code>GraphWinApi</code> я создал класс <code>Point</code>, который представлял собой обычный двумерный вектор. Я всего-лишь написал для него тривиальные методы, вроде <code>move</code>, <code>rotate</code>, <code>+</code>, <code>*</code> и т. д., но затем я удивился насколько просто можно рисовать повернутые объекты с использованием функции <code>rotate</code>. </p>
+<p>Далее, в библиотеке <code>TinyWindowsGraphics</code> я написал класс <code>PointBase</code> по сути с теми же методами, только немного лучше, плюс методы <code>toBasis</code>, <code>fromBasis</code>. И даже написал код для генерации фрактала на линии с помощью этих функций:</p>
+<pre data-lang="c++" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#668f14;">template</span><span>&lt;</span><span style="color:#668f14;">class</span><span> Draw&gt;
+</span><span style="color:#668f14;">void </span><span style="color:#c23f31;">drawFractal</span><span>(ImageDrawing_aa</span><span style="color:#72ab00;">&amp; </span><span style="color:#5597d6;">img</span><span>, 
+</span><span>				 Polygon_d</span><span style="color:#72ab00;">&amp; </span><span style="color:#5597d6;">poly</span><span>, </span><span style="color:#668f14;">const 
+</span><span>				 Draw</span><span style="color:#72ab00;">&amp; </span><span style="color:#5597d6;">draw</span><span>, 
+</span><span>				 int8u </span><span style="color:#5597d6;">maxDepth </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">30</span><span>, 
+</span><span>				 </span><span style="color:#668f14;">double </span><span style="color:#5597d6;">minRadius </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0.5</span><span>, 
+</span><span>				 int32u </span><span style="color:#5597d6;">depth </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>) {
+</span><span>	</span><span style="color:#72ab00;">if </span><span>(depth </span><span style="color:#72ab00;">&lt;</span><span> maxDepth </span><span style="color:#72ab00;">&amp;&amp; </span><span>(poly.</span><span style="color:#5597d6;">array</span><span>[</span><span style="color:#b3933a;">1</span><span>]</span><span style="color:#72ab00;">-</span><span>poly.</span><span style="color:#5597d6;">array</span><span>[</span><span style="color:#b3933a;">0</span><span>]).</span><span style="color:#5597d6;">getLength</span><span>() </span><span style="color:#72ab00;">&gt;</span><span> minRadius) {
+</span><span>		</span><span style="color:#5597d6;">draw</span><span>(poly, depth);
+</span><span>		</span><span style="color:#72ab00;">for </span><span>(int8u i </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>; i </span><span style="color:#72ab00;">&lt;</span><span> poly.</span><span style="color:#5597d6;">array</span><span>.</span><span style="color:#5597d6;">size</span><span>()</span><span style="color:#72ab00;">-</span><span style="color:#b3933a;">1</span><span>; </span><span style="color:#72ab00;">++</span><span>i) {
+</span><span>			Polygon_d poly1 </span><span style="color:#72ab00;">=</span><span> poly;
+</span><span>			poly1.</span><span style="color:#5597d6;">move</span><span>(</span><span style="color:#72ab00;">-</span><span>poly1.</span><span style="color:#5597d6;">array</span><span>[</span><span style="color:#b3933a;">0</span><span>]);
+</span><span>
+</span><span>			Point_d ox </span><span style="color:#72ab00;">=</span><span> poly.</span><span style="color:#5597d6;">array</span><span>[poly.</span><span style="color:#5597d6;">array</span><span>.</span><span style="color:#5597d6;">size</span><span>()</span><span style="color:#72ab00;">-</span><span style="color:#b3933a;">1</span><span>]</span><span style="color:#72ab00;">-</span><span>poly.</span><span style="color:#5597d6;">array</span><span>[</span><span style="color:#b3933a;">0</span><span>];
+</span><span>			ox </span><span style="color:#72ab00;">/=</span><span> ox.</span><span style="color:#5597d6;">getLength</span><span>();
+</span><span>			Point_d oy </span><span style="color:#72ab00;">=</span><span> ox;
+</span><span>			oy.</span><span style="color:#5597d6;">rotate</span><span>(pi</span><span style="color:#72ab00;">/</span><span style="color:#b3933a;">2.0</span><span>);
+</span><span>
+</span><span>			poly1.</span><span style="color:#5597d6;">toBasis</span><span>(ox, oy);
+</span><span>
+</span><span>			Point_d nx </span><span style="color:#72ab00;">=</span><span> poly.</span><span style="color:#5597d6;">array</span><span>[i</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>] </span><span style="color:#72ab00;">-</span><span> poly.</span><span style="color:#5597d6;">array</span><span>[i];
+</span><span>			nx </span><span style="color:#72ab00;">/= </span><span>(poly.</span><span style="color:#5597d6;">array</span><span>[poly.</span><span style="color:#5597d6;">array</span><span>.</span><span style="color:#5597d6;">size</span><span>()</span><span style="color:#72ab00;">-</span><span style="color:#b3933a;">1</span><span>]</span><span style="color:#72ab00;">-</span><span>poly.</span><span style="color:#5597d6;">array</span><span>[</span><span style="color:#b3933a;">0</span><span>]).</span><span style="color:#5597d6;">getLength</span><span>();
+</span><span>			Point_d ny </span><span style="color:#72ab00;">=</span><span> nx;
+</span><span>			ny.</span><span style="color:#5597d6;">rotate</span><span>(pi</span><span style="color:#72ab00;">/</span><span style="color:#b3933a;">2.0</span><span>);
+</span><span>			poly1.</span><span style="color:#5597d6;">fromBasis</span><span>(nx, ny);
+</span><span>			poly1.</span><span style="color:#5597d6;">move</span><span>(poly.</span><span style="color:#5597d6;">array</span><span>[i]);
+</span><span>
+</span><span>			</span><span style="color:#5597d6;">drawFractal</span><span>(img, poly1, draw, maxDepth, minRadius, depth</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>);
+</span><span>		}
+</span><span>	}
+</span><span>}
+</span></code></pre>
+<p>Вообще, я бы мог написать статью об этом решении, но оно не настолько красивое, да и тогда я не осознал всю суть.</p>
+<p>Где-то с этого момента я вспомнил линейную алгебру и у меня в голове засела идея, что системы координат неплохо так использовать во множестве задач.</p>
+<p>Далее в одном секретном проекте под действием этой идеи родилось понятие системы координат, там преобразование координат было самой основой. Поначалу это было в виде некрасивых функций <code>toCoordSystem()</code>, <code>fromCoordSystem()</code>, затем под множеством волн рефакторинга появилось то, что есть сейчас. Ввиду огромного удобства я начал использовать этот код во всех своих других проектах. И приходилось тащить везде весь код этого секретного проекта только ради преобразований координат. Тогда я и понял, что эта часть является настолько независимой от самого проекта, что должна быть вынесена в отдельную библиотеку.</p>
+<p>Ну, и как говорится вначале, когда я начал придумывать примеры для этой библиотеки, я осознал всю её мощь; насколько хорошо она применима к моим старым проектам.</p>
+<p>Именно поэтому я и показывал вам весь этот путь от кошмарного кода к коду, использующему абстракции на простом примере одного фрактала.</p>
+<p>Повышайте уровень абстракции. До встречи!</p>
+
+</div>
+</article>
+
+  </section>
+  
+
+</td><td>
+<!-- TOC -->
+<div class="side-button" onclick="toggle_toc()">❰</div>
+<nav class="section-nav">
+ <h2>Содержание</h2>
+ <ul class="first">
+ 
+ 
+  <li>
+   <a href="#vvedenie">Введение</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#risuem-derevo-pifagora">Рисуем дерево Пифагора</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#kak-ego-stroit">Как его строить</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#slozhnyi-i-plokhoi-put">Сложный и плохой путь</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#put-poluchshe-i-s-ispol-zovaniem-biblioteki">Путь получше и с использованием библиотеки</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#risuem-derevo-pifagora-na-osnove-proizvol-nogo-mnogougol-nika">Рисуем дерево Пифагора на основе произвольного многоугольника</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#staroe-i-koshmarnoe-reshenie">Старое и кошмарное решение</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#khoroshii-put-s-ispol-zovaniem-biblioteki">Хороший путь с использованием библиотеки</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#puti-dal-neishego-razvitiia">Пути дальнейшего развития</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#oboshchenie">Обощение</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#uluchshenie-effektivnosti">Улучшение эффективности</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#vyvody">Выводы</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#kak-zarozhdalas-eta-biblioteka">Как зарождалась эта библиотека</a>
+   
+  </li>
+ 
+ </ul>
+</nav>
+</td></tr></table>
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="section second-section">
+Если вам нравится что я делаю, то подписывайтесь на меня в <a href="https://t.me/optozorax_dev">Telegram</a> и <a href="https://www.youtube.com/c/optozorax">YouTube</a>.
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="comments section second-section">
+
+<script src="https://utteranc.es/client.js"
+        repo="optozorax/optozorax.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+
+  <hr class="enabled-on-phone">
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <footer class="site-footer section second-section">
+  
+    <center>
+    <div style="margin-bottom: 10px;">© Шепрут Илья. Лицензия: <a href="https://creativecommons.org/licenses/by/3.0/deed.ru">CC-BY</a>.</div>
+    <table style="border: 0px; display: contents;">
+    <tr><td style="border: 0px; padding: 0.2rem;">
+    <!-- SVG icons from https://iconmonstr.com -->
+
+    
+<span class="my-span-icon">
+  <a 
+    href="https:&#x2F;&#x2F;github.com&#x2F;optozorax" 
+    aria-label="optozorax's GitHub" 
+    title="optozorax's GitHub">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/github.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's GitHub">
+  </a>
+</span>
+
+
+    
+<span class="my-span-icon">
+  <a 
+    href="https:&#x2F;&#x2F;t.me&#x2F;optozorax_dev" 
+    aria-label="optozorax's Telegram channel" 
+    title="optozorax's Telegram channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/tg.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Telegram channel">
+  </a>
+</span>
+
+
+    
+<span class="my-span-icon">
+  <a 
+    href="https:&#x2F;&#x2F;www.youtube.com&#x2F;c&#x2F;optozorax" 
+    aria-label="optozorax's YouTube channel" 
+    title="optozorax's YouTube channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/youtube.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's YouTube channel">
+  </a>
+</span>
+
+
+    
+<span class="my-span-icon">
+  <a 
+    href="&#x2F;rss.xml" 
+    aria-label="optozorax's RSS feed" 
+    title="optozorax's RSS feed">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/rss.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's RSS feed">
+  </a>
+</span>
+
+
+    
+<span class="my-span-icon">
+  <a 
+    href="mailto:optozorax@gmail.com" 
+    aria-label="optozorax's email" 
+    title="optozorax's email">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/contact.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's email">
+  </a>
+</span>
+
+
+    </td><td style="border: 0px; padding: 0.2rem;">
+    
+
+    </td></tr>
+    </table>
+    <div class="small-info">
+      Сделано с помощью <a href="https://www.getzola.org/">Zola</a> | База темы <a href="https://github.com/lorepirri/cayman-blog">Cayman Blog</a> | <a href="https://github.com/optozorax/optozorax.github.io">Исходники сайта</a>
+    </div>
+    </center>
+  
+  </footer>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+</body>
+</html>

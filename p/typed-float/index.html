@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <!-- Yandex.Metrika counter -->
+  
+  <!-- --- -->
+
+  <!-- Non social metatags -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link rel="canonical" href="https://testzorax.github.io/">
+  <meta name="robots" content="noarchive">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml"> 
+  <!-- --- -->
+
+  <!-- Social metatags -->
+  
+<meta name="author" content="optozorax">
+<meta name="title" content="Float — это динамическая типизация на уровне процессора — Блог optozorax&#x27;а">
+<meta name="description" content="Почему работа с вещественными числами приносит столько страданий и безумная идея как это улучшить при помощи новых типов данных.">
+<meta name="image" content="typed-float.png">
+
+<meta name="keywords" itemprop="tags" content="rust, математика, рассуждения, типизация">
+
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://testzorax.github.io/p/typed-float/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Float — это динамическая типизация на уровне процессора — Блог optozorax&#x27;а">
+<meta property="og:description" content="Почему работа с вещественными числами приносит столько страданий и безумная идея как это улучшить при помощи новых типов данных.">
+<meta property="og:image" content="typed-float.png">
+<meta property="og:locale" content="ru">
+
+
+<meta property="article:published_time" content="2020-06-20">
+
+
+
+
+<meta property="article:tag" content="rust">
+
+<meta property="article:tag" content="математика">
+
+<meta property="article:tag" content="рассуждения">
+
+<meta property="article:tag" content="типизация">
+
+
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="optozorax.github.io">
+<meta property="twitter:url" content="https://testzorax.github.io/p/typed-float/">
+<meta name="twitter:title" content="Float — это динамическая типизация на уровне процессора — Блог optozorax&#x27;а">
+<meta name="twitter:description" content="Почему работа с вещественными числами приносит столько страданий и безумная идея как это улучшить при помощи новых типов данных.">
+<meta name="twitter:image" content="typed-float.png">
+<meta name="twitter:creator" content="optozorax">
+
+  <!-- --- -->
+
+  <!-- Extra head declarations -->
+  
+
+<script type="text/javascript" src="/js/toc.js"></script>
+<script type="text/javascript" src="/js/gallery.js"></script>
+<script type="text/javascript" src="/js/full_screen.js"></script>
+<script type="text/javascript" src="/js/word_wrap.js"></script>
+
+  <!-- --- -->
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/main.css">
+  <!-- --- -->
+
+  <!-- JS -->
+  <script type="text/javascript" src="/js/hammer.min.js"></script>
+  <!-- --- -->
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+  <!-- --- -->
+
+  <title>Float — это динамическая типизация на уровне процессора — Блог optozorax&#x27;а</title>
+</head>
+
+<body>
+  <!-- FullScreen block -->
+  <div id="img_modal" class="modal" style="display: none;">
+      <img id="img_modal_01" src="/ico/loading.gif">
+      <span class="close" id="img_modal_close">&times;</span>
+  </div>
+  <!-- --- -->
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <header class="site-header" role="banner">
+  
+  <div class="wrapper">
+    <a class="site-title" href="/">optozorax.blog</a>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <img src="/ico/menu.svg" width="13px" height="15px">
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          <a class="page-link" href="/">Блог</a>
+        
+          <a class="page-link" href="/e">Систематизация</a>
+        
+          <a class="page-link" href="/tags">Теги</a>
+        
+          <a class="page-link" href="/about">Обо мне</a>
+        
+      </div>
+    </nav>
+  </div>
+  
+  </header>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+  
+  <section class="page-header">
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+<h1 class="project-name">Float — это динамическая типизация на уровне процессора</h1>
+
+<h2 class="project-tagline">Почему работа с вещественными числами приносит столько страданий и безумная идея как это улучшить при помощи новых типов данных.</h2>
+
+
+
+<span style="margin-bottom: 10px;">
+  
+    <a href="/tags#rust"><code class="tag"><nobr>#rust</nobr></code></a>&nbsp;
+  
+    <a href="/tags#matematika"><code class="tag"><nobr>#математика</nobr></code></a>&nbsp;
+  
+    <a href="/tags#rassuzhdeniia"><code class="tag"><nobr>#рассуждения</nobr></code></a>&nbsp;
+  
+    <a href="/tags#tipizatsiia"><code class="tag"><nobr>#типизация</nobr></code></a>&nbsp;
+  
+</span>
+
+
+<center>
+<table style="margin-top: 8px;">
+<tr>
+
+
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+  <time datetime="2020-06-20" itemprop="datePublished">
+    
+    
+    
+    
+    <span class="post-date">20 июня 2020</span>
+  </time>
+</h2>
+</td>
+
+
+
+<td style="padding-left: 10px;">
+  
+  
+  <a href="https:&#x2F;&#x2F;t.me&#x2F;optozorax_dev&#x2F;226">
+  <code class="tag">Пост в Telegram</code>
+  </a>
+  
+  
+</td>
+
+</tr>
+</table>
+
+
+</center>
+
+
+</td><td>
+</td></tr></table>
+
+
+
+  </section>
+  
+  
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <section class="main-content section">
+  
+<article itemscope itemtype="http://schema.org/BlogPosting">
+<div itemprop="articleBody" id="content">
+<h1 id="vvedenie"><a class="anchor" href="#vvedenie">#</a>Введение</h1>
+<p>В этой статье предполагается что вы знакомы с языком Rust, и знаете что такое алгебраические типы данных (ADT).</p>
+<p>Сравните эти два примера кода:</p>
+<pre data-lang="js" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#668f14;">function </span><span style="color:#c23f31;">something</span><span>(</span><span style="color:#5597d6;">a</span><span>) {
+</span><span>    </span><span style="color:#72ab00;">if </span><span>(</span><span style="color:#72ab00;">typeof </span><span style="color:#5597d6;">a </span><span style="color:#72ab00;">=== </span><span style="color:#d07711;">&quot;number&quot;</span><span>) {
+</span><span>        </span><span style="color:#72ab00;">return </span><span style="color:#5597d6;">a</span><span style="color:#72ab00;">*</span><span style="color:#b3933a;">3 </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">2</span><span>;
+</span><span>    } </span><span style="color:#72ab00;">else if </span><span>(</span><span style="color:#72ab00;">typeof </span><span style="color:#5597d6;">a </span><span style="color:#72ab00;">=== </span><span style="color:#d07711;">&quot;string&quot;</span><span>) {
+</span><span>        </span><span style="color:#72ab00;">return </span><span style="color:#b3933a;">0</span><span>;
+</span><span>    }
+</span><span>}
+</span></code></pre>
+<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#668f14;">fn </span><span style="color:#c23f31;">something</span><span>(</span><span style="color:#5597d6;">a</span><span>: </span><span style="color:#668f14;">f64</span><span>) -&gt; </span><span style="color:#668f14;">f64 </span><span>{
+</span><span>    </span><span style="color:#72ab00;">if</span><span> a.</span><span style="color:#b39f04;">is_nan</span><span>() {
+</span><span>        </span><span style="color:#b3933a;">0.0
+</span><span>    } </span><span style="color:#72ab00;">else if !</span><span>a.</span><span style="color:#b39f04;">is_finite</span><span>() {
+</span><span>        </span><span style="color:#b3933a;">1.0
+</span><span>    } </span><span style="color:#72ab00;">else if</span><span> a </span><span style="color:#72ab00;">== </span><span style="color:#b3933a;">0.0 </span><span>{
+</span><span>        </span><span style="color:#b3933a;">1.0
+</span><span>    } </span><span style="color:#72ab00;">else </span><span>{
+</span><span>        </span><span style="color:#b3933a;">1 </span><span style="color:#72ab00;">/</span><span> a.</span><span style="color:#b39f04;">abs</span><span>()
+</span><span>    }
+</span><span>}
+</span></code></pre>
+<p>Казалось, бы, два совершенно разных языка, а код выглядит так одинаково: всё <strong>валидируется</strong> (кто не в теме, надо <a href="https://habr.com/ru/post/498042/">парсить, а не валидировать</a>). Да, всё дело в том, что вещественные числа - это, по сути, динамическая типизация на уровне процессора. У нас в переменной вещественного числа может храниться множество состояний, которые мы должны проверять, если хотим узнать что там хранится. Так же там присутствует неявное приведение типов из &quot;разных&quot; категорий, например <code>1.0 + NaN = NaN</code>.</p>
+<p>Что люди сделали с динамической типизацией в JavaScript? Они придумали TypeScript. И стало хорошо. Получается то же самое можно сделать с вещественными числами?</p>
+<h1 id="nan"><a class="anchor" href="#nan">#</a>NaN</h1>
+<p>Самая базовая проблема вещественных чисел - это <code>NaN</code>. Он обладает очень противным свойством: не равен самому себе.</p>
+<p>Из-за этого мы в Rust'е не можем хранить вещественные числа в дереве, сортировать массив с ними, то есть реализовывать трейты <code>Eq</code>, <code>Ord</code>.</p>
+<p>Если вытащить из вещественного числа <code>NaN</code>, то оно сразу становится хорошим. Схематически это можно обозначить так:</p>
+<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#668f14;">enum </span><span style="color:#c23f31;">Float </span><span>{
+</span><span>    NaN,
+</span><span>    NotNanFloat(NotNanFloat),
+</span><span>}
+</span><span>
+</span><span style="color:#668f14;">enum </span><span style="color:#c23f31;">NotNanFloat </span><span>{ </span><span style="color:#7f8989;">/* ... */ </span><span>}
+</span><span>
+</span><span style="color:#668f14;">impl </span><span>Eq </span><span style="color:#72ab00;">for </span><span style="color:#c23f31;">NotNanFloat </span><span>{ </span><span style="color:#7f8989;">/* ... */ </span><span>}
+</span><span style="color:#668f14;">impl </span><span>Ord </span><span style="color:#72ab00;">for </span><span style="color:#c23f31;">NotNanFloat </span><span>{ </span><span style="color:#7f8989;">/* ... */ </span><span>}
+</span></code></pre>
+<p>И мы можем записать в массиве, что храним только <code>NotNanFloat</code>.</p>
+<p>Когда я писал <a href="https://github.com/optozorax/confidence">github:confidence</a>, мне очень не хватало возможности матчиться по такой структуре данных, или говорить что я принимаю только <code>NotNanFloat</code>.</p>
+<p>Правда, появляется проблема, что некоторые операции над <code>NotNanFloat</code> позволяют прийти к <code>NaN</code>, например: умножение бесконечности на ноль, деление на ноль. Получается, нам после любых арифметических вычислений нужно приводить тип из более широкого <code>Float</code> обратно к <code>NotNanFloat</code>:</p>
+<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#668f14;">let</span><span> a: NotNanFloat </span><span style="color:#72ab00;">= ...</span><span>;
+</span><span style="color:#668f14;">let</span><span> b: NotNanFloat </span><span style="color:#72ab00;">= ...</span><span>;
+</span><span style="color:#668f14;">let</span><span> c: Float </span><span style="color:#72ab00;">=</span><span> a </span><span style="color:#72ab00;">*</span><span> b </span><span style="color:#72ab00;">/ </span><span>(a </span><span style="color:#72ab00;">+</span><span> b);
+</span><span style="color:#668f14;">let</span><span> d: NotNanFloat </span><span style="color:#72ab00;">=</span><span> c.</span><span style="color:#b39f04;">try_into</span><span>().</span><span style="color:#b39f04;">unwrap</span><span>();
+</span></code></pre>
+<p>С одной стороны это даже хорошо, потому что мы не будем хранить фигню у себя в массивах, и в конце не получим что у нас огромная матрица перемножалась 100 раз с <code>NaN</code>'ами, а получим ошибку намного раньше.</p>
+<h1 id="prodolzhenie-bezumiia"><a class="anchor" href="#prodolzhenie-bezumiia">#</a>Продолжение безумия</h1>
+<p>Можно пойти дальше и ещё сильнее разделить вещественные числа:</p>
+<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#668f14;">enum </span><span style="color:#c23f31;">NotNanFloat </span><span>{
+</span><span>    InfiniteFloat(InfiniteFloat),
+</span><span>    FiniteFloat(FiniteFloat),
+</span><span>}
+</span><span>
+</span><span style="color:#668f14;">enum </span><span style="color:#c23f31;">InfiniteFloat </span><span>{
+</span><span>    Negative,
+</span><span>    Positive,
+</span><span>}
+</span><span>
+</span><span style="color:#668f14;">enum </span><span style="color:#c23f31;">FiniteFloat </span><span>{ </span><span style="color:#7f8989;">/* ... */ </span><span>}
+</span></code></pre>
+<p>Но в этом уже нет такой серьёзной причины как в отделении от <code>NaN</code>'а. Такое разделение можно использовать для более чёткого контроля типов данных на этапе компиляции.</p>
+<p>Например, можно создать тип <code>FloatFrom0ToInf</code>, который содержит все положительные числа и включая ноль. И затем сказать что <code>fn div_one(down: FloatFrom0ToInf) -&gt; FloatFrom0ToInf</code>. Ну и вообще рассчитать все операции друг из друга, и записать это на системах типов.</p>
+<p>Либо же <code>NotNanFloat</code> можно расписать так:</p>
+<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#668f14;">enum </span><span style="color:#c23f31;">NotNanFloat </span><span>{
+</span><span>    PositiveFloat(PositiveFloat),
+</span><span>    NegativeFloat(NegativeFloat),
+</span><span>}
+</span><span>
+</span><span style="color:#668f14;">enum </span><span style="color:#c23f31;">PositiveFloat </span><span>{
+</span><span>    Infinity,
+</span><span>    FinitePositiveFloat(FinitePositiveFloat),
+</span><span>}
+</span><span>
+</span><span style="color:#668f14;">enum </span><span style="color:#c23f31;">FinitePositiveFloat </span><span>{ </span><span style="color:#7f8989;">/* ... */ </span><span>}
+</span></code></pre>
+<p>Здесь можно сделать метод: </p>
+<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#668f14;">fn </span><span style="color:#c23f31;">mul</span><span>(PositiveFiniteFloat, PositiveFiniteFloat) -&gt; PositiveFloat;
+</span></code></pre>
+<p>Или надо отделить ноль от всего остального, и можно получить деление, которое не должно вызывать <code>NaN</code>:</p>
+<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#668f14;">fn </span><span style="color:#c23f31;">div</span><span>(FiniteFloat, NonZeroFiniteFloat) -&gt; NonZeroFiniteFloat;
+</span></code></pre>
+<p>А ещё можно иметь крутые сообщения об ошибках, когда ты пытаешься преобразовать более широкий тип к более маленькому:</p>
+<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#668f14;">let</span><span> a: Float </span><span style="color:#72ab00;">= -</span><span style="color:#b3933a;">1.2</span><span>;
+</span><span style="color:#668f14;">let</span><span> b: PositiveFiniteFloat </span><span style="color:#72ab00;">=</span><span> a.</span><span style="color:#b39f04;">float_unwrap</span><span>(); </span><span style="color:#7f8989;">// &quot;Can&#39;t convert negative float `-1.2` to positive number in line N&quot;
+</span></code></pre>
+<p>Такие типы могли бы быть очень удобны во всяких библиотечных функциях. Например, функция расчёта площади треугольника по трём сторонам, которая принимает только конечные положительные числа, чтобы не <strong>валидировать</strong> их внутри:</p>
+<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#668f14;">fn </span><span style="color:#c23f31;">triangle_area</span><span>(
+</span><span>    </span><span style="color:#5597d6;">a</span><span>: PositiveNonZeroFiniteFloat, 
+</span><span>    </span><span style="color:#5597d6;">b</span><span>: PositiveNonZeroFiniteFloat, 
+</span><span>    </span><span style="color:#5597d6;">c</span><span>: PositiveNonZeroFiniteFloat,
+</span><span>) -&gt; </span><span style="color:#a2a001;">Option</span><span>&lt;PositiveNonZeroFiniteFloat&gt; { </span><span style="color:#7f8989;">/* ... */ </span><span>}
+</span><span style="color:#7f8989;">// В этой функции возвращается `Option&lt;_&gt;`, потому что в процессе вычислений может возникнуть бесконечность.
+</span></code></pre>
+<p>И таких способов расписать <code>NotNanFloat</code> существует очень много. Для этого, бы, наверное, в Rust пришлось создать целую языковую конструкцию <code>safe union</code>, которая позволяет переключаться между этими представлениями <code>Float</code>, потому что они абсолютно эквивалентны.</p>
+<h1 id="to-zhe-samoe-no-na-tipakh"><a class="anchor" href="#to-zhe-samoe-no-na-tipakh">#</a>То же самое, но на типах</h1>
+<p>Или это разделение можно записывать по-другому:</p>
+<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#668f14;">struct </span><span style="color:#c23f31;">Yes</span><span>;
+</span><span style="color:#668f14;">struct </span><span style="color:#c23f31;">No</span><span>;
+</span><span>
+</span><span style="color:#668f14;">trait </span><span style="color:#c23f31;">IsFloatParameter </span><span>{}
+</span><span style="color:#668f14;">impl </span><span>IsFloatParameter </span><span style="color:#72ab00;">for </span><span style="color:#c23f31;">Yes</span><span>;
+</span><span style="color:#c23f31;">impl IsFloatParameter for No</span><span>;
+</span><span>
+</span><span style="color:#c23f31;">struct Float</span><span>&lt;
+</span><span>    HasNan: IsFloatParameter,
+</span><span>    HasNegativeInfinity: IsFloatParameter,
+</span><span>
+</span><span>    HasNegativeFrom1: IsFloatParameter,
+</span><span>    HasNegative1: IsFloatParameter,
+</span><span>    HasNegativeFrom0To1: IsFloatParameter,
+</span><span>    HasNegative0: IsFloatParameter,
+</span><span>
+</span><span>    HasPositive0: IsFloatParameter,
+</span><span>    HasPositiveFrom0To1: IsFloatParameter,
+</span><span>    HasPositive1: IsFloatParameter,
+</span><span>    HasPositiveFrom1: IsFloatParameter,
+</span><span>
+</span><span>    HasPositiveInfinity: IsFloatParameter,
+</span><span>&gt;(</span><span style="color:#c23f31;">f64</span><span>);
+</span><span>
+</span><span style="color:#c23f31;">type NotNanFloat</span><span> = </span><span style="color:#c23f31;">Float</span><span>&lt;
+</span><span>    No, 
+</span><span>
+</span><span>    Yes, 
+</span><span>    Yes, Yes, Yes, Yes, 
+</span><span>    Yes, Yes, Yes, Yes, 
+</span><span>    Yes,
+</span><span>&gt;;
+</span></code></pre>
+<p>Но в таком случае теряется возможность матчиться по структуре данных, чтобы получить нужный промежуток. Не знаю что лучше.</p>
+<p>Для подобного представления очень пригодятся умения программировать сложные вычисления на типах данных, чтобы автоматически получать все возможные преобразования для всех возможных комбинаций вещественных чисел.</p>
+<p>Если же делать это вручную, то потребуется очень много кода. Вероятно, эту задачу было бы логичнее решать на зависимых типах? Или нужна новая, более сильная абстракция, чем ADT?</p>
+<h1 id="podderzhka-ot-kompiliatora"><a class="anchor" href="#podderzhka-ot-kompiliatora">#</a>Поддержка от компилятора</h1>
+<p>Ещё, если такая система будет существовать, например, на Rust, то она должна поддерживаться со стороны компилятора аналогично <code>NonNull</code>, чтобы паттерн-матчинг по флоату раскрывался в максимально эффективные ассемблерные команды проверки, и чтобы хранение такого флоата в enum'ах <code>PositiveFloat</code>, <code>NotNanFloat</code> не тратило лишней памяти.</p>
+<h1 id="zakliuchenie"><a class="anchor" href="#zakliuchenie">#</a>Заключение</h1>
+<p>Наверное, поэтому даже в языках со статической типизацией, столько страданий приносят вещественные числа со своими бесконечностями и <code>NaN</code>'ами? Может быть, с этими типами данных, станет немного проще жить? Не знаю. Это лишь идея, возникающая на почве статической типизации головного мозга.</p>
+<p>Динамическая типизация в JS легко сводится к статической типизации, потому что с логической точки зрения никакие операции над <code>int</code> не должны приводить к случайному возникновению <code>string</code>, а в вещественных числах всё сложнее, там все значения между собой очень сильно связаны, и вот простое сложение двух конечных чисел может дать бесконечность, а отношение двух конечных чисел может дать <code>NaN</code>.</p>
+<p>Надеюсь эта идея вдохновила вас.</p>
+<p>А если хочется <code>NotNanFloat</code> иметь у себя в коде на Rust, то можно искать крейт по ключевым словам: <code>ordered float</code>.</p>
+
+</div>
+</article>
+
+  </section>
+  
+
+</td><td>
+<!-- TOC -->
+<div class="side-button" onclick="toggle_toc()">❰</div>
+<nav class="section-nav">
+ <h2>Содержание</h2>
+ <ul class="first">
+ 
+ 
+  <li>
+   <a href="#vvedenie">Введение</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#nan">NaN</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#prodolzhenie-bezumiia">Продолжение безумия</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#to-zhe-samoe-no-na-tipakh">То же самое, но на типах</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#podderzhka-ot-kompiliatora">Поддержка от компилятора</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#zakliuchenie">Заключение</a>
+   
+  </li>
+ 
+ </ul>
+</nav>
+</td></tr></table>
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="section second-section">
+Если вам нравится что я делаю, то подписывайтесь на меня в <a href="https://t.me/optozorax_dev">Telegram</a> и <a href="https://www.youtube.com/c/optozorax">YouTube</a>.
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="comments section second-section">
+
+<script src="https://utteranc.es/client.js"
+        repo="optozorax/optozorax.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+
+  <hr class="enabled-on-phone">
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <footer class="site-footer section second-section">
+  
+    <center>
+    <div style="margin-bottom: 10px;">© Шепрут Илья. Лицензия: <a href="https://creativecommons.org/licenses/by/3.0/deed.ru">CC-BY</a>.</div>
+    <table style="border: 0px; display: contents;">
+    <tr><td style="border: 0px; padding: 0.2rem;">
+    <!-- SVG icons from https://iconmonstr.com -->
+
+    
+<span class="my-span-icon">
+  <a 
+    href="https:&#x2F;&#x2F;github.com&#x2F;optozorax" 
+    aria-label="optozorax's GitHub" 
+    title="optozorax's GitHub">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/github.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's GitHub">
+  </a>
+</span>
+
+
+    
+<span class="my-span-icon">
+  <a 
+    href="https:&#x2F;&#x2F;t.me&#x2F;optozorax_dev" 
+    aria-label="optozorax's Telegram channel" 
+    title="optozorax's Telegram channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/tg.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Telegram channel">
+  </a>
+</span>
+
+
+    
+<span class="my-span-icon">
+  <a 
+    href="https:&#x2F;&#x2F;www.youtube.com&#x2F;c&#x2F;optozorax" 
+    aria-label="optozorax's YouTube channel" 
+    title="optozorax's YouTube channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/youtube.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's YouTube channel">
+  </a>
+</span>
+
+
+    
+<span class="my-span-icon">
+  <a 
+    href="&#x2F;rss.xml" 
+    aria-label="optozorax's RSS feed" 
+    title="optozorax's RSS feed">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/rss.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's RSS feed">
+  </a>
+</span>
+
+
+    
+<span class="my-span-icon">
+  <a 
+    href="mailto:optozorax@gmail.com" 
+    aria-label="optozorax's email" 
+    title="optozorax's email">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/contact.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's email">
+  </a>
+</span>
+
+
+    </td><td style="border: 0px; padding: 0.2rem;">
+    
+
+    </td></tr>
+    </table>
+    <div class="small-info">
+      Сделано с помощью <a href="https://www.getzola.org/">Zola</a> | База темы <a href="https://github.com/lorepirri/cayman-blog">Cayman Blog</a> | <a href="https://github.com/optozorax/optozorax.github.io">Исходники сайта</a>
+    </div>
+    </center>
+  
+  </footer>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+</body>
+</html>

@@ -1,0 +1,1360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>optozorax.blog - фракталы</title>
+        <link>https://testzorax.github.io/</link>
+        <description>Мои програмульки и результаты их работы</description>
+        <generator>Zola</generator>
+        <language>ru</language>
+        <atom:link href="https://testzorax.github.io/tags/fraktaly/rss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Sun, 21 Apr 2019 00:00:00 +0000</lastBuildDate>
+        <item>
+            <title>О моей библиотеке Space Objects и дереве Пифагора</title>
+            <pubDate>Sun, 21 Apr 2019 00:00:00 +0000</pubDate>
+            <link>https://testzorax.github.io/p/space-objects/</link>
+            <guid>https://testzorax.github.io/p/space-objects/</guid>
+            <description>&lt;h1 id=&quot;vvedenie&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#vvedenie&quot;&gt;#&lt;&#x2F;a&gt;Введение&lt;&#x2F;h1&gt;
+&lt;p&gt;Недавно я разработал и опубликовал библиотеку под названием Space Objects. Это библиотека для работы с векторами, прямыми, плоскостями; она реализует преобразования координат; нахождения пересечений этих объектов и т. д. Эта библиотека выросла из моего другого проекта.&lt;&#x2F;p&gt;
+&lt;p&gt;После того, как я её опубликовал и начал придумывать примеры использования, я осознал всю её мощь. Она является апогеем множества проектов, которыми я ранее занимался: 2D графика, фракталы, рендеринг 3D. Всё это в кратком виде имеется в примерах этой библиотеки на &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;optozorax&#x2F;space_objects&quot;&gt;GitHub&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Лого библиотеки, на ней показаны все основные объекты и действия для двумерного пространства.&lt;&#x2F;p&gt;
+&lt;div class=&quot;magnifier-container img-one&quot;&gt;
+&lt;img
+    class=&quot;not-default full-screen-img&quot;
+    width=&quot;900&quot;
+    height=&quot;450&quot;
+    src=&quot;&amp;#x2F;processed_images&amp;#x2F;fffa763c65d843da00.webp&quot; 
+    onclick=&quot;full_screen(&#x27;img&amp;#x2F;logo.png&#x27;)&quot;
+    onauxclick=&quot;full_screen_new_page(&#x27;img&amp;#x2F;logo.png&#x27;)&quot;&gt;
+&lt;div class=&quot;magnifier-display&quot;&gt;
+&lt;img class=&quot;magnifier&quot; src=&quot;&#x2F;ico&#x2F;magnifier.svg&quot;&gt;&lt;div class=&quot;magnifier-info&quot;&gt;×1&lt;br&gt;png&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;Я расскажу об особенностях этой библиотеки на основе задачи рисования фрактала &lt;a href=&quot;https:&#x2F;&#x2F;ru.wikipedia.org&#x2F;wiki&#x2F;%D0%94%D0%B5%D1%80%D0%B5%D0%B2%D0%BE_%D0%9F%D0%B8%D1%84%D0%B0%D0%B3%D0%BE%D1%80%D0%B0&quot;&gt;дерево Пифагора&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;А для начала немного изучим логотип библиотеки. Здесь стандартной системой координат изображается та система, что находится в центре. Другие системы координат показаны без сетки, только с положением центра и направляющими векторами. &lt;&#x2F;p&gt;
+&lt;p&gt;Как можно увидеть, система координат может быть не только смещена относительно стандартной в любое место, но ещё наклонена, и повернута на любой угол, она даже может быть зеркально отраженной. &lt;&#x2F;p&gt;
+&lt;p&gt;Для каждой системы координат рисуется квадрат с координатами &lt;code&gt;(0, 0)&lt;&#x2F;code&gt;, &lt;code&gt;(0, 1)&lt;&#x2F;code&gt;, &lt;code&gt;(1, 1)&lt;&#x2F;code&gt;, &lt;code&gt;(1, 0)&lt;&#x2F;code&gt;, а так же буква &lt;code&gt;A&lt;&#x2F;code&gt;, чтобы показать возможность преобразования координат. Если говорить подробнее, то прежде чем нарисовать квадрат, его координаты преобразуются по текущей системе координат при помощи функции &lt;code&gt;from()&lt;&#x2F;code&gt; (&amp;quot;из&amp;quot; системы координат), и только преобразованные координаты рисуются отрезком.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;risuem-derevo-pifagora&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#risuem-derevo-pifagora&quot;&gt;#&lt;&#x2F;a&gt;Рисуем дерево Пифагора&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;kak-ego-stroit&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#kak-ego-stroit&quot;&gt;#&lt;sup&gt;2&lt;&#x2F;sup&gt;&lt;&#x2F;a&gt;Как его строить&lt;&#x2F;h2&gt;
+&lt;p&gt;Пусть у нас есть начальные координаты самого первого квадрата. Далее, согласно определению этого фрактала, надо построить на его верхней стороне прямоугольный треугольник с координатами, затем же надо получить оба катета этого прямоугольного треугольника и рекурсивно проделать тоже самое на них.&lt;&#x2F;p&gt;
+&lt;p&gt;Наглядно этот процесс можно увидеть на следующей гифке.&lt;&#x2F;p&gt;
+&lt;video class=&quot;img-one&quot; autoplay loop muted inline&gt;
+  &lt;source src=&quot;explanation_4&amp;#x2F;anim_web.mp4&quot; type=&quot;video&#x2F;mp4&quot;&gt;
+  Your browser is not supporting video.
+&lt;&#x2F;video&gt;
+&lt;p&gt;Самое сложное в рисовании этого фрактала - вычисления координат каждого квадрата.&lt;&#x2F;p&gt;
+&lt;p&gt;Так же, очевидно, для рисования дерева Пифагора необходимо использовать рекурсию. И нам необходимо написать такую рекурсивную процедуру, которая будет строить дерево Пифагора на основании любого отрезка. Ведь каждая новая его часть все-же строится на основании стороны треугольника, то есть отрезка с произвольными координатами.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;slozhnyi-i-plokhoi-put&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#slozhnyi-i-plokhoi-put&quot;&gt;#&lt;sup&gt;2&lt;&#x2F;sup&gt;&lt;&#x2F;a&gt;Сложный и плохой путь&lt;&#x2F;h2&gt;
+&lt;p&gt;Когда я в 10 классе, ещё программируя на Паскале, задался задачей нарисовать этот фрактал, я пошел самым сложным путем, вычисляя громоздкие формулы, с использованием геометрии и тригонометрии. В итоге у меня вышел такой код:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;pascal&quot; style=&quot;background-color:#f5f5f5;color:#1f1f1f;&quot; class=&quot;language-pascal &quot;&gt;&lt;code class=&quot;language-pascal&quot; data-lang=&quot;pascal&quot;&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;var&lt;&#x2F;span&gt;&lt;span&gt; alpha:real; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;&#x2F;&#x2F; Угол при основании прямоугольного треугольника
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;procedure &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c23f31;&quot;&gt;recur&lt;&#x2F;span&gt;&lt;span&gt;(x,y, x1,y1:real; g:integer);
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;var&lt;&#x2F;span&gt;&lt;span&gt; dx,dy,lx,ly:real;
+&lt;&#x2F;span&gt;&lt;span&gt;    x2,y2,x3,y3:real;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;begin
+&lt;&#x2F;span&gt;&lt;span&gt;     &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;if&lt;&#x2F;span&gt;&lt;span&gt; (g=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;or&lt;&#x2F;span&gt;&lt;span&gt; ((sqr(x-x1)+sqr(y-y1))&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;then
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;     	&#x2F;&#x2F; Выходим из рекурсии, если достигнута максимальная глубина или
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;     	&#x2F;&#x2F; размер квадрата слишком мал
+&lt;&#x2F;span&gt;&lt;span&gt;     &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;else
+&lt;&#x2F;span&gt;&lt;span&gt;         &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;begin
+&lt;&#x2F;span&gt;&lt;span&gt;           &lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;{1)}&lt;&#x2F;span&gt;&lt;span&gt;dx:=x1-x;
+&lt;&#x2F;span&gt;&lt;span&gt;               dy:=y1-y;
+&lt;&#x2F;span&gt;&lt;span&gt;           &lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;{2)}&lt;&#x2F;span&gt;&lt;span&gt;x2:=x-dy; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;&#x2F;&#x2F; Вычисляем две другие точки квадрата по имеющимся
+&lt;&#x2F;span&gt;&lt;span&gt;               y2:=y+dx; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;&#x2F;&#x2F; точкам x,y, x1,y1.
+&lt;&#x2F;span&gt;&lt;span&gt;               x3:=x1-dy;
+&lt;&#x2F;span&gt;&lt;span&gt;               y3:=y1+dx;
+&lt;&#x2F;span&gt;&lt;span&gt;           &lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;{3)}&lt;&#x2F;span&gt;&lt;span&gt;draw_Rect(x,y, x1,y1, x2,y2, x3,y3); &lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;&#x2F;&#x2F; Рисуем квадрат на экран
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;           &#x2F;&#x2F; Вычисляем координаты вершины прямоугольного треугольника
+&lt;&#x2F;span&gt;&lt;span&gt;           &lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;{4)}&lt;&#x2F;span&gt;&lt;span&gt;lx:=sin(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;*alpha)&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;*dy-sqr(cos(alpha))*dx;
+&lt;&#x2F;span&gt;&lt;span&gt;               ly:=sqr(cos(alpha))*dy+sin(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;*alpha)&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;*dx;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;           &#x2F;&#x2F; Вызываем рекурсию для каждого катета прямоугольного треугольника
+&lt;&#x2F;span&gt;&lt;span&gt;           &lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;{5)}&lt;&#x2F;span&gt;&lt;span&gt;recur(x2,y2, x2-lx,y2+ly, g-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;               recur(x2-lx,y2+ly, x3,y3, g-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;         &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;end&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;end&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Если необходимо понять каждое действия, есть комментарии, да и вообще код довольно простой, даже если вы не знаете Паскаль, вы его наверняка поймете. Но разбираться в нём не нужно, он лишь служит демонстрацией сложного подхода.&lt;&#x2F;p&gt;
+&lt;p&gt;В функцию recur передаются координаты двух точек, на основе отрезка, на основании отрезка, образованного этими двумя точками, строится квадрат; этот квадрат рисуется; на стороне квадрата, которая параллельна данному отрезку, строится прямоугольный треугольник, и для его катетов вызывается эта же функция.&lt;&#x2F;p&gt;
+&lt;p&gt;Минусы этого кода: &lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Здесь не используются классы векторов, которые бы позволили сократить часть кода, связанную с суммой по координате x и y, вычисления длины стороны квадрата и сокращения количества передаваемых параметров.&lt;&#x2F;li&gt;
+&lt;li&gt;Весь квадрат задается лишь одной стороной, и далее непонятными формулами вычисляются координаты других его вершин.&lt;&#x2F;li&gt;
+&lt;li&gt;Координаты прямоугольного треугольника на основе квадрата, заданного лишь одной стороной, вычисляются очень сложно, и непонятно как эти формулы работают.&lt;&#x2F;li&gt;
+&lt;li&gt;Код применим только для построения дерева на верхней стороне квадрата, если захочется построить на боковой, или чередовать это, то придется вычислять новые формулы.&lt;&#x2F;li&gt;
+&lt;li&gt;Данное решение применимо только к квадрату. Его нельзя использовать для произвольного многоугольника.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Но, благо, здесь хотя бы можно менять угол при основании прямоугольного треугольника. И в то время я получил примерно следующую анимацию:&lt;&#x2F;p&gt;
+&lt;video class=&quot;img-one&quot; autoplay loop muted inline&gt;
+  &lt;source src=&quot;explanation_4&amp;#x2F;angle_web.mp4&quot; type=&quot;video&#x2F;mp4&quot;&gt;
+  Your browser is not supporting video.
+&lt;&#x2F;video&gt;
+&lt;h2 id=&quot;put-poluchshe-i-s-ispol-zovaniem-biblioteki&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#put-poluchshe-i-s-ispol-zovaniem-biblioteki&quot;&gt;#&lt;sup&gt;2&lt;&#x2F;sup&gt;&lt;&#x2F;a&gt;Путь получше и с использованием библиотеки&lt;&#x2F;h2&gt;
+&lt;p&gt;Библиотека предоставляет две вещи, которые нам сейчас пригодятся: &lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Преобразование вектора из одной системы координат в другую.&lt;&#x2F;li&gt;
+&lt;li&gt;Создание системы координат из двух точек при помощи функции &lt;code&gt;makeLine2&lt;&#x2F;code&gt;.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;&lt;code&gt;makeLine2(a, b)&lt;&#x2F;code&gt; работает следующим образом: создается система координат с центром в точке &lt;code&gt;a&lt;&#x2F;code&gt;, вектор первой оси направлен в сторону &lt;code&gt;b&lt;&#x2F;code&gt; и по длине равен &lt;code&gt;(b-a)&lt;&#x2F;code&gt;. Второй вектор оси равен первому, повернутому на 90 градусов против часовой стрелке. То есть такая система координат всегда ортогональна (оси перпендикулярны).&lt;&#x2F;p&gt;
+&lt;p&gt;Построение дерева Пифагора будет аналогично предыдущему пункту, только мы будем передавать в функцию не координаты отрезка, на основании которого строить дальше, а систему координат, в которой надо строить дальше.&lt;&#x2F;p&gt;
+&lt;p&gt;Так как мы можем легко преобразовывать координаты, то для любой фигуры, будь то квадрат, прямоугольный треугольник или дерево Пифагора, нам надо знать их координаты, когда они одной своей стороной полностью лежат на красной оси &lt;code&gt;X&lt;&#x2F;code&gt;, которая задается вектором &lt;code&gt;i&lt;&#x2F;code&gt;. Такое необходимо, потому что далее мы будем преобразовывать их координаты к некоторой системе, полученной с помощью функции &lt;code&gt;makeLine2&lt;&#x2F;code&gt;, и в итоге преобразованный многоугольник автоматически будет располагаться как бы прикрепленным к какой-то стороне, сразу масштабированный под размер этой стороны.&lt;&#x2F;p&gt;
+&lt;p&gt;Получившийся код:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;c++&quot; style=&quot;background-color:#f5f5f5;color:#1f1f1f;&quot; class=&quot;language-c++ &quot;&gt;&lt;code class=&quot;language-c++&quot; data-lang=&quot;c++&quot;&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;void &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c23f31;&quot;&gt;draw_pythagoras_tree&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;const&lt;&#x2F;span&gt;&lt;span&gt; space2&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;&amp;amp; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;space&lt;&#x2F;span&gt;&lt;span&gt;) {
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;&#x2F;&#x2F; Выходим из рекурсии, если одна из осей (аналогично и сторона квадрата) имеет длину меньше, чем 2
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span&gt;(space.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;i&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;length&lt;&#x2F;span&gt;&lt;span&gt;() &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;&amp;lt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;		&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;return&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;&#x2F;&#x2F; Задаем координаты квадрата
+&lt;&#x2F;span&gt;&lt;span&gt;	vec2 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;a&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;), &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;b&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;), &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;c&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;), &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;d&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;&#x2F;&#x2F; Высчитываем координаты прямоугольного треугольника, который лежит своей гипотенузой на оси X, с углом alpha при основании
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;double&lt;&#x2F;span&gt;&lt;span&gt; alpha &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span&gt;spob::&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;deg2rad&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;10&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;	vec2 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;tr_a&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;), &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;tr_b&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;), &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;tr_c&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b39f04;&quot;&gt;cos&lt;&#x2F;span&gt;&lt;span&gt;(alpha), &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;	tr_c &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;rotate&lt;&#x2F;span&gt;&lt;span&gt;(tr_c, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;vec2&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;), alpha);
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;&#x2F;&#x2F; Преобразуем квадрат из текущих координат к координатам переданного пространства
+&lt;&#x2F;span&gt;&lt;span&gt;	a &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; space.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;from&lt;&#x2F;span&gt;&lt;span&gt;(a);
+&lt;&#x2F;span&gt;&lt;span&gt;	b &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; space.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;from&lt;&#x2F;span&gt;&lt;span&gt;(b);
+&lt;&#x2F;span&gt;&lt;span&gt;	c &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; space.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;from&lt;&#x2F;span&gt;&lt;span&gt;(c);
+&lt;&#x2F;span&gt;&lt;span&gt;	d &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; space.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;from&lt;&#x2F;span&gt;&lt;span&gt;(d);
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;&#x2F;&#x2F; Рисуем квадрат
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;draw_line&lt;&#x2F;span&gt;&lt;span&gt;(a, b);
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;draw_line&lt;&#x2F;span&gt;&lt;span&gt;(b, c);
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;draw_line&lt;&#x2F;span&gt;&lt;span&gt;(c, d);
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;draw_line&lt;&#x2F;span&gt;&lt;span&gt;(d, a);
+&lt;&#x2F;span&gt;&lt;span&gt;	
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;&#x2F;&#x2F; Строим пространство, которое находится на верхней стороне квадрата
+&lt;&#x2F;span&gt;&lt;span&gt;	space2 tr_line &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;makeLine2&lt;&#x2F;span&gt;&lt;span&gt;(b, c);
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;&#x2F;&#x2F; Переводим координаты треугольника к этому пространству
+&lt;&#x2F;span&gt;&lt;span&gt;	tr_a &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; tr_line.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;from&lt;&#x2F;span&gt;&lt;span&gt;(tr_a);
+&lt;&#x2F;span&gt;&lt;span&gt;	tr_b &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; tr_line.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;from&lt;&#x2F;span&gt;&lt;span&gt;(tr_b);
+&lt;&#x2F;span&gt;&lt;span&gt;	tr_c &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; tr_line.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;from&lt;&#x2F;span&gt;&lt;span&gt;(tr_c);
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;&#x2F;&#x2F; Строим пространства, которые находятся на обоих катетах этого треугольника
+&lt;&#x2F;span&gt;&lt;span&gt;	space2 l1 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;makeLine2&lt;&#x2F;span&gt;&lt;span&gt;(tr_a, tr_c);
+&lt;&#x2F;span&gt;&lt;span&gt;	space2 l2 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;makeLine2&lt;&#x2F;span&gt;&lt;span&gt;(tr_c, tr_b);
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;&#x2F;&#x2F; Рекурсивно строим дерево в этих пространствах
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;draw_pythagoras_tree&lt;&#x2F;span&gt;&lt;span&gt;(l1);
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;draw_pythagoras_tree&lt;&#x2F;span&gt;&lt;span&gt;(l2);
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Пошаговое описание действий с визуализацией вычислений:&lt;&#x2F;p&gt;
+&lt;div class=&quot;magnifier-container img-one&quot;&gt;
+&lt;img
+    class=&quot;not-default full-screen-img&quot;
+    width=&quot;1216&quot;
+    height=&quot;828&quot;
+    src=&quot;&amp;#x2F;processed_images&amp;#x2F;103f877dd94e418f00.webp&quot; 
+    onclick=&quot;full_screen(&#x27;explanation_4&amp;#x2F;explanation.png&#x27;)&quot;
+    onauxclick=&quot;full_screen_new_page(&#x27;explanation_4&amp;#x2F;explanation.png&#x27;)&quot;&gt;
+&lt;div class=&quot;magnifier-display&quot;&gt;
+&lt;img class=&quot;magnifier&quot; src=&quot;&#x2F;ico&#x2F;magnifier.svg&quot;&gt;&lt;div class=&quot;magnifier-info&quot;&gt;×1&lt;br&gt;png&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;ol&gt;
+&lt;li&gt;Создаем координаты квадрата.&lt;pre data-lang=&quot;c++&quot; style=&quot;background-color:#f5f5f5;color:#1f1f1f;&quot; class=&quot;language-c++ &quot;&gt;&lt;code class=&quot;language-c++&quot; data-lang=&quot;c++&quot;&gt;&lt;span&gt;vec2 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c23f31;&quot;&gt;a&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;), &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;b&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;), &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;c&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;), &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;d&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;Высчитываем координаты прямоугольного треугольника. Здесь никаких сложных формул нет, только простейшая геометрия, и использование функции &lt;code&gt;rotate(что, вокруг чего, на какой угол)&lt;&#x2F;code&gt;.&lt;pre data-lang=&quot;c++&quot; style=&quot;background-color:#f5f5f5;color:#1f1f1f;&quot; class=&quot;language-c++ &quot;&gt;&lt;code class=&quot;language-c++&quot; data-lang=&quot;c++&quot;&gt;&lt;span&gt;vec2 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c23f31;&quot;&gt;tr_a&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;), &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;tr_b&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;), &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;tr_c&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b39f04;&quot;&gt;cos&lt;&#x2F;span&gt;&lt;span&gt;(alpha), &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;tr_c &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;rotate&lt;&#x2F;span&gt;&lt;span&gt;(tr_c, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;vec2&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;), alpha);
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;Видно, что координаты квадрата заданы без привязки к какой-то системе координат, просто нули и единицы. Поэтому переводим его координаты из системы координат, которую нам предоставили в функции.&lt;pre data-lang=&quot;c++&quot; style=&quot;background-color:#f5f5f5;color:#1f1f1f;&quot; class=&quot;language-c++ &quot;&gt;&lt;code class=&quot;language-c++&quot; data-lang=&quot;c++&quot;&gt;&lt;span&gt;a &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; space.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;from&lt;&#x2F;span&gt;&lt;span&gt;(a);
+&lt;&#x2F;span&gt;&lt;span&gt;b &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; space.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;from&lt;&#x2F;span&gt;&lt;span&gt;(b);
+&lt;&#x2F;span&gt;&lt;span&gt;c &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; space.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;from&lt;&#x2F;span&gt;&lt;span&gt;(c);
+&lt;&#x2F;span&gt;&lt;span&gt;d &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; space.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;from&lt;&#x2F;span&gt;&lt;span&gt;(d);
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+Заодно сразу же рисуем этот квадрат.&lt;pre data-lang=&quot;c++&quot; style=&quot;background-color:#f5f5f5;color:#1f1f1f;&quot; class=&quot;language-c++ &quot;&gt;&lt;code class=&quot;language-c++&quot; data-lang=&quot;c++&quot;&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;draw_line&lt;&#x2F;span&gt;&lt;span&gt;(a, b);
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;draw_line&lt;&#x2F;span&gt;&lt;span&gt;(b, c);
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;draw_line&lt;&#x2F;span&gt;&lt;span&gt;(c, d);
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;draw_line&lt;&#x2F;span&gt;&lt;span&gt;(d, a);
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;Создаем систему координат на верхней стороне квадрата с помощью функции &lt;code&gt;makeLine2&lt;&#x2F;code&gt;.&lt;pre data-lang=&quot;c++&quot; style=&quot;background-color:#f5f5f5;color:#1f1f1f;&quot; class=&quot;language-c++ &quot;&gt;&lt;code class=&quot;language-c++&quot; data-lang=&quot;c++&quot;&gt;&lt;span&gt;space2 tr_line &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;makeLine2&lt;&#x2F;span&gt;&lt;span&gt;(d, c);
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;Преобразуем координаты треугольника к координатам только что полученной системы координат.&lt;pre data-lang=&quot;c++&quot; style=&quot;background-color:#f5f5f5;color:#1f1f1f;&quot; class=&quot;language-c++ &quot;&gt;&lt;code class=&quot;language-c++&quot; data-lang=&quot;c++&quot;&gt;&lt;span&gt;tr_a &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; tr_line.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;from&lt;&#x2F;span&gt;&lt;span&gt;(tr_a);
+&lt;&#x2F;span&gt;&lt;span&gt;tr_b &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; tr_line.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;from&lt;&#x2F;span&gt;&lt;span&gt;(tr_b);
+&lt;&#x2F;span&gt;&lt;span&gt;tr_c &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; tr_line.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;from&lt;&#x2F;span&gt;&lt;span&gt;(tr_c);
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;Строим новые системы координат на каждом катете полученного треугольника.&lt;pre data-lang=&quot;c++&quot; style=&quot;background-color:#f5f5f5;color:#1f1f1f;&quot; class=&quot;language-c++ &quot;&gt;&lt;code class=&quot;language-c++&quot; data-lang=&quot;c++&quot;&gt;&lt;span&gt;space2 l1 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;makeLine2&lt;&#x2F;span&gt;&lt;span&gt;(triangle[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;], triangle[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;]);
+&lt;&#x2F;span&gt;&lt;span&gt;space2 l2 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;makeLine2&lt;&#x2F;span&gt;&lt;span&gt;(triangle[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;], triangle[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;]);
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;Повторяем всю процедуру рекурсивно для каждой системы координат, предварительно преобразовав её из переданной системы координат. Вообще от этого преобразования можно было бы избавиться, если бы мы изначально преобразовали координаты квадрата, как это сделали с треугольником.&lt;pre data-lang=&quot;c++&quot; style=&quot;background-color:#f5f5f5;color:#1f1f1f;&quot; class=&quot;language-c++ &quot;&gt;&lt;code class=&quot;language-c++&quot; data-lang=&quot;c++&quot;&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;draw_pythagoras_tree&lt;&#x2F;span&gt;&lt;span&gt;(space.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;from&lt;&#x2F;span&gt;&lt;span&gt;(l1));
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;draw_pythagoras_tree&lt;&#x2F;span&gt;&lt;span&gt;(space.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;from&lt;&#x2F;span&gt;&lt;span&gt;(l2));
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Если для написания кода, из плохого пункта выше, я убил много времени на расчет формул на бумажке, на поиск багов и подбор параметров, то первичную версию данного решения я написал реально за полчаса, и занимала она, грубо говоря, 7 строк. Следующие версии модифицировались, чтобы быть более понятными для других людей.&lt;&#x2F;p&gt;
+&lt;div class=&quot;pros&quot;&gt;
+&lt;span style=&quot;color: #090&quot;&gt;&lt;big&gt;&lt;b&gt;Плюсы:&lt;&#x2F;b&gt;&lt;&#x2F;big&gt;&lt;&#x2F;span&gt;
+&lt;ul&gt;
+&lt;li&gt;Здесь используются классы векторов и систем координат.&lt;&#x2F;li&gt;
+&lt;li&gt;Координаты квадрата вычисляются интуитивно понятным образом.&lt;&#x2F;li&gt;
+&lt;li&gt;Координаты прямоугольного треугольника вычисляются очень просто.&lt;&#x2F;li&gt;
+&lt;li&gt;Код применим для построения дерева Пифагора на любой стороне квадрата, надо лишь изменить параметры в строке &lt;code&gt;space2 tr_line = makeLine2(b, c);&lt;&#x2F;code&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;Данное решение можно применить к любому многоугольнику (главное, чтобы он своей стороной полностью лежал на оси Х).&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;И вот, например построение дерева Пифагора на 0 и 1 стороне квадрата:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;space2 tr_line = makeLine2(b, a);&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;div class=&quot;container&quot;&gt;
+&lt;video class=&quot;img-one-two&quot; autoplay loop muted inline&gt;
+  &lt;source src=&quot;explanation_4&amp;#x2F;4_0_web.mp4&quot; type=&quot;video&#x2F;mp4&quot;&gt;
+  Your browser is not supporting video.
+&lt;&#x2F;video&gt;
+&lt;div class=&quot;magnifier-container img-one-two&quot;&gt;
+&lt;img
+    class=&quot;not-default full-screen-img&quot;
+    width=&quot;639&quot;
+    height=&quot;640&quot;
+    src=&quot;&amp;#x2F;processed_images&amp;#x2F;7288181475b1419300.webp&quot; 
+    onclick=&quot;full_screen(&#x27;explanation_4&amp;#x2F;pythagor_0.png&#x27;)&quot;
+    onauxclick=&quot;full_screen_new_page(&#x27;explanation_4&amp;#x2F;pythagor_0.png&#x27;)&quot;&gt;
+&lt;div class=&quot;magnifier-display&quot;&gt;
+&lt;img class=&quot;magnifier&quot; src=&quot;&#x2F;ico&#x2F;magnifier.svg&quot;&gt;&lt;div class=&quot;magnifier-info&quot;&gt;×1.7&lt;br&gt;png&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;&lt;code&gt;space2 tr_line = makeLine2(a, c);&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;div class=&quot;container&quot;&gt;
+&lt;video class=&quot;img-one-two&quot; autoplay loop muted inline&gt;
+  &lt;source src=&quot;explanation_4&amp;#x2F;4_1_web.mp4&quot; type=&quot;video&#x2F;mp4&quot;&gt;
+  Your browser is not supporting video.
+&lt;&#x2F;video&gt;
+&lt;div class=&quot;magnifier-container img-one-two&quot;&gt;
+&lt;img
+    class=&quot;not-default full-screen-img&quot;
+    width=&quot;640&quot;
+    height=&quot;639&quot;
+    src=&quot;&amp;#x2F;processed_images&amp;#x2F;7a82177313171f8500.webp&quot; 
+    onclick=&quot;full_screen(&#x27;explanation_4&amp;#x2F;pythagor_1.png&#x27;)&quot;
+    onauxclick=&quot;full_screen_new_page(&#x27;explanation_4&amp;#x2F;pythagor_1.png&#x27;)&quot;&gt;
+&lt;div class=&quot;magnifier-display&quot;&gt;
+&lt;img class=&quot;magnifier&quot; src=&quot;&#x2F;ico&#x2F;magnifier.svg&quot;&gt;&lt;div class=&quot;magnifier-info&quot;&gt;×1.7&lt;br&gt;png&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;Далее я немного изменил рисование, теперь вместо рисования лишь линий, рисуются многоугольники, в итоге картинка выглядит намного красивей. Так же из-за того, что размеры всё время меняются, я каждый раз вычисляю новые границы, где задано изображение, и смещаю фрактал так, чтобы он полностью помещался в изображении. Вот анимация для каждого дерева Пифагора на основе квадрата:&lt;&#x2F;p&gt;
+&lt;video class=&quot;img-one&quot; autoplay loop muted inline&gt;
+  &lt;source src=&quot;explanation_4&amp;#x2F;pyth_0_web.mp4&quot; type=&quot;video&#x2F;mp4&quot;&gt;
+  Your browser is not supporting video.
+&lt;&#x2F;video&gt;
+&lt;video class=&quot;img-one&quot; autoplay loop muted inline&gt;
+  &lt;source src=&quot;explanation_4&amp;#x2F;pyth_1_web.mp4&quot; type=&quot;video&#x2F;mp4&quot;&gt;
+  Your browser is not supporting video.
+&lt;&#x2F;video&gt;
+&lt;video class=&quot;img-one&quot; autoplay loop muted inline&gt;
+  &lt;source src=&quot;explanation_4&amp;#x2F;pyth_2_web.mp4&quot; type=&quot;video&#x2F;mp4&quot;&gt;
+  Your browser is not supporting video.
+&lt;&#x2F;video&gt;
+&lt;h1 id=&quot;risuem-derevo-pifagora-na-osnove-proizvol-nogo-mnogougol-nika&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#risuem-derevo-pifagora-na-osnove-proizvol-nogo-mnogougol-nika&quot;&gt;#&lt;&#x2F;a&gt;Рисуем дерево Пифагора на основе произвольного многоугольника&lt;&#x2F;h1&gt;
+&lt;p&gt;Как уже упоминалось раннее, хорошее решение можно использовать для любого многоугольника в принципе, с небольшими модификациями. После написания той программы в 10 классе я не остановился, и захотел сделать решение для правильного многоугольника. Так получилось...&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;staroe-i-koshmarnoe-reshenie&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#staroe-i-koshmarnoe-reshenie&quot;&gt;#&lt;&#x2F;a&gt;Старое и кошмарное решение&lt;&#x2F;h1&gt;
+&lt;pre data-lang=&quot;pascal&quot; style=&quot;background-color:#f5f5f5;color:#1f1f1f;&quot; class=&quot;language-pascal &quot;&gt;&lt;code class=&quot;language-pascal&quot; data-lang=&quot;pascal&quot;&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;procedure &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c23f31;&quot;&gt;mnogoug&lt;&#x2F;span&gt;&lt;span&gt;(n,m:integer; x,y,x1,y1:real;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;var&lt;&#x2F;span&gt;&lt;span&gt; x2,y2,x3,y3:real);
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;{Очень универсальная процедура для построения правильных многоугольников!!!}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;{Процедура строит многоугольник с количеством сторон равным n, и причем строится он так,
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt; чтобы основанием была сторона с координатами x,y,x1,y1 , и когда его основание это
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt; данная сторона,то ещё надо вернуть координаты стороны с номером m, в x2,y2,x3,y3 ,
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt; и так как дается только количество сторон и координаты основания,то размер фигуры выбирается
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt; в соответствии с исходными данными, угол наклона,и координаты центра точно так же,причем,
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt; важную роль играет куда положить первую точку, в x,y или в x1,y1 , в зависимости
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt; от этого ваша фигура может быть перевернутой или нет}
+&lt;&#x2F;span&gt;&lt;span&gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;var&lt;&#x2F;span&gt;&lt;span&gt; v:integer;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;begin
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;{Находим координаты центра}
+&lt;&#x2F;span&gt;&lt;span&gt;	rx:=(x1+x)&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;+((cos(pi&#x2F;n)&#x2F;sin(pi&#x2F;n))*(y1-y))&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;	ry:=(y1+y)&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;-(cos(pi&#x2F;n)&#x2F;sin(pi&#x2F;n)*(x1-x))&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;	
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;{Находим угол наклона многоугольника}
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;if&lt;&#x2F;span&gt;&lt;span&gt; (y1=y) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;or&lt;&#x2F;span&gt;&lt;span&gt; (x1=x) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;then&lt;&#x2F;span&gt;&lt;span&gt; fi:=pi&#x2F;n
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;else&lt;&#x2F;span&gt;&lt;span&gt;                     fi:=-arctan((x1-x)&#x2F;(y1-y))+pi&#x2F;n;
+&lt;&#x2F;span&gt;&lt;span&gt;    	
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;if&lt;&#x2F;span&gt;&lt;span&gt; (y1&amp;gt;y) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;then&lt;&#x2F;span&gt;&lt;span&gt; fi:=fi+pi;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;if&lt;&#x2F;span&gt;&lt;span&gt; y1=y &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;then
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;if&lt;&#x2F;span&gt;&lt;span&gt; x1&amp;gt;x &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;then&lt;&#x2F;span&gt;&lt;span&gt; fi:=fi+pi&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;2
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;else&lt;&#x2F;span&gt;&lt;span&gt;         fi:=fi+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;3&lt;&#x2F;span&gt;&lt;span&gt;*pi&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;2
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;else&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;  
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;{Находим радиус многоугольника}
+&lt;&#x2F;span&gt;&lt;span&gt;	r:=sqrt(sqr(x1-x)+sqr(y1-y))&#x2F;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;*sin(pi&#x2F;n));
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;{Строим все стороны по очереди}
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;for&lt;&#x2F;span&gt;&lt;span&gt; v:=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;to&lt;&#x2F;span&gt;&lt;span&gt; n &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;do
+&lt;&#x2F;span&gt;&lt;span&gt;	   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;begin
+&lt;&#x2F;span&gt;&lt;span&gt;         &lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;{Формулы для нахождения координат точек вершин многоугольника, чтобы
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;          их найти надо знать координаты центра, радиус,и угол наклона, но так
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;          как мы их нашли,то можно спокойно строить многоугольник, формула взята
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;          с Википедии}
+&lt;&#x2F;span&gt;&lt;span&gt;	       xi:=rx+r*cos(fi+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;*v*pi&#x2F;n);
+&lt;&#x2F;span&gt;&lt;span&gt;	       yi:=ry+r*sin(fi+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;*v*pi&#x2F;n);
+&lt;&#x2F;span&gt;&lt;span&gt;	       
+&lt;&#x2F;span&gt;&lt;span&gt;	       &lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;{Если мы дошли до нужной нам стороны, то возвращаем
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;          её координаты}
+&lt;&#x2F;span&gt;&lt;span&gt;	       &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;if&lt;&#x2F;span&gt;&lt;span&gt; (v=m) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;then
+&lt;&#x2F;span&gt;&lt;span&gt;	          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;begin
+&lt;&#x2F;span&gt;&lt;span&gt;	          	x2:=xb; y2:=yb;
+&lt;&#x2F;span&gt;&lt;span&gt;	          	x3:=xi; y3:=yi;
+&lt;&#x2F;span&gt;&lt;span&gt;	          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;end
+&lt;&#x2F;span&gt;&lt;span&gt;	       &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;else&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;	       
+&lt;&#x2F;span&gt;&lt;span&gt;	       &lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;{Рисуем линию одной стороны мнгоугольника}
+&lt;&#x2F;span&gt;&lt;span&gt;	       &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;if&lt;&#x2F;span&gt;&lt;span&gt; v&amp;lt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;then
+&lt;&#x2F;span&gt;&lt;span&gt;	       &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;begin
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;         &#x2F;&#x2F;line(trunc(xb),round(yb),trunc(xi),trunc(yi));
+&lt;&#x2F;span&gt;&lt;span&gt;         line_m(trunc(xb),round(yb),trunc(xi),trunc(yi));
+&lt;&#x2F;span&gt;&lt;span&gt;         &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;end&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;	       xb:=xi; yb:=yi;
+&lt;&#x2F;span&gt;&lt;span&gt;	   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;end&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;end&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;var&lt;&#x2F;span&gt;&lt;span&gt; i,j:integer;
+&lt;&#x2F;span&gt;&lt;span&gt;    alpha:real;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;procedure &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c23f31;&quot;&gt;recur&lt;&#x2F;span&gt;&lt;span&gt;(x,y,x1,y1:real; g:integer);
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;{Процедура строит на стороне x,y,x1,y1 многоугольник, с количеством сторон i ,
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt; и в этом многоугольнике на стороне j строит прямоугольный треугольник с углом alpha
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt; ,а на его катетах всё повторяется сначал, и так в итоге строится фрактал под названием
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt; &amp;quot;Дерево Пифагора&amp;quot;, и не обычное, квадратное, а на основании любого многоугольника}
+&lt;&#x2F;span&gt;&lt;span&gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;var
+&lt;&#x2F;span&gt;&lt;span&gt;    lx,ly:real; x2,y2,x3,y3:real;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;begin
+&lt;&#x2F;span&gt;&lt;span&gt;     &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;if&lt;&#x2F;span&gt;&lt;span&gt; (g=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;or&lt;&#x2F;span&gt;&lt;span&gt; ((sqr(x-x1)+sqr(y-y1))&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0.1&lt;&#x2F;span&gt;&lt;span&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;then
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;{Когда радиус многоугольника уже меньше единицы, то строить дальше не стоит,
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;         и когда превышен лимит допустимой глубины}
+&lt;&#x2F;span&gt;&lt;span&gt;     &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;else
+&lt;&#x2F;span&gt;&lt;span&gt;         &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;begin
+&lt;&#x2F;span&gt;&lt;span&gt;               &lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;{Строим многоугольник с данным основанием, и данным количеством сторон}
+&lt;&#x2F;span&gt;&lt;span&gt;         	     mnogoug(i,j,x,y,x1,y1,x3,y3,x2,y2);
+&lt;&#x2F;span&gt;&lt;span&gt;         	     
+&lt;&#x2F;span&gt;&lt;span&gt;         	     &lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;{Так как мы нашли искомую сторону, то на ней находим вершину
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;                прямоугольного треугольника, гипотенузой которого является сторона
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;                которую мыы нашли в прошлом действии, и причем угол при основании
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;                этого треугольника равен alpha}
+&lt;&#x2F;span&gt;&lt;span&gt;           &lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;{1)}&lt;&#x2F;span&gt;&lt;span&gt;dx:=x3-x2;
+&lt;&#x2F;span&gt;&lt;span&gt;               dy:=y3-y2;
+&lt;&#x2F;span&gt;&lt;span&gt;           &lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;{4)}&lt;&#x2F;span&gt;&lt;span&gt;lx:=sin(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;*alpha)&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;*dy-sqr(cos(alpha))*dx;
+&lt;&#x2F;span&gt;&lt;span&gt;               ly:=sqr(cos(alpha))*dy+sin(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;*alpha)&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;*dx;
+&lt;&#x2F;span&gt;&lt;span&gt;               
+&lt;&#x2F;span&gt;&lt;span&gt;               &lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;{А теперь на катетах этого прямоугольного треугольника и строим
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;                новые многоугольники, а на них опять треугольники ... это и называется
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;                фрактал &amp;quot;Дерево Пифагора&amp;quot;}
+&lt;&#x2F;span&gt;&lt;span&gt;           &lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;{5)}&lt;&#x2F;span&gt;&lt;span&gt;recur(x2-lx,y2+ly,x2,y2,g-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;               recur(x3,y3,x2-lx,y2+ly,g-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;         &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;end&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;end&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Вообще, мне страшно смотреть на этот код и вспоминать как я с ним возился... Я старался привести его к красивому виду как мог, но его суть остается в костылях и фиговых решениях. И данная картинка прекрасно его описывает:&lt;&#x2F;p&gt;
+&lt;div class=&quot;magnifier-container img-one-two&quot;&gt;
+&lt;img
+    class=&quot;not-default full-screen-img&quot;
+    width=&quot;369&quot;
+    height=&quot;640&quot;
+    src=&quot;&amp;#x2F;processed_images&amp;#x2F;8fc19cef614544d900.webp&quot; 
+    onclick=&quot;full_screen(&#x27;img&amp;#x2F;code.jpg&#x27;)&quot;
+    onauxclick=&quot;full_screen_new_page(&#x27;img&amp;#x2F;code.jpg&#x27;)&quot;&gt;
+&lt;div class=&quot;magnifier-display&quot;&gt;
+&lt;img class=&quot;magnifier&quot; src=&quot;&#x2F;ico&#x2F;magnifier.svg&quot;&gt;&lt;div class=&quot;magnifier-info&quot;&gt;×1.1&lt;br&gt;jpg&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;Но я постараюсь это всё изложить, чтобы вы прочувствовали весь ужас.&lt;&#x2F;p&gt;
+&lt;p&gt;Главной проблемой в этом коде была часть с вычислением угла в функции &lt;code&gt;mnogoug&lt;&#x2F;code&gt;. Там много разных ифов, которые стоят черт знает зачем, и работают черт знает как. Вообще те строки с углом, были найдены эмпирическим путем, методом тыка. Именно на этой части, в процессе метода тыка, я убил n часов при дебаге. &lt;&#x2F;p&gt;
+&lt;p&gt;А потом, в процессе изучения языка &lt;code&gt;C&lt;&#x2F;code&gt; я узнал что существует, посланная с небес, функция &lt;code&gt;atan2&lt;&#x2F;code&gt;... Да, в тех строках написана моя костыльно-велосипедная реализация &lt;code&gt;atan2&lt;&#x2F;code&gt;. Это стало настоящим откровением! Обязательно почитайте об этой функции и используйте &lt;strong&gt;её&lt;&#x2F;strong&gt;!&lt;&#x2F;p&gt;
+&lt;p&gt;А так же я понял, что тот код мог бы написать намного проще, без танцев с бубном, если бы с самого начала выводил эти формулы с углом строго по математике.&lt;&#x2F;p&gt;
+&lt;p&gt;А теперь, что же здесь делается? Да всё по сути написано в комментариях. Главная идея в том, что для генерации правильного многоугольника есть формула, взятая с &lt;a href=&quot;https:&#x2F;&#x2F;ru.wikipedia.org&#x2F;wiki&#x2F;%D0%9F%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE%D1%83%D0%B3%D0%BE%D0%BB%D1%8C%D0%BD%D0%B8%D0%BA&quot;&gt;Википедии&lt;&#x2F;a&gt;:&lt;&#x2F;p&gt;
+&lt;div class=&quot;magnifier-container img-one-two&quot;&gt;
+&lt;img
+    class=&quot;not-default full-screen-img&quot;
+    width=&quot;208&quot;
+    height=&quot;112&quot;
+    src=&quot;&amp;#x2F;processed_images&amp;#x2F;01805f785303e1fb00.webp&quot; 
+    onclick=&quot;full_screen(&#x27;img&amp;#x2F;polygon_f.png&#x27;)&quot;
+    onauxclick=&quot;full_screen_new_page(&#x27;img&amp;#x2F;polygon_f.png&#x27;)&quot;&gt;
+&lt;div class=&quot;magnifier-display&quot;&gt;
+&lt;img class=&quot;magnifier&quot; src=&quot;&#x2F;ico&#x2F;magnifier.svg&quot;&gt;&lt;div class=&quot;magnifier-info&quot;&gt;×1&lt;br&gt;png&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;Если изучить её, то можно понять, что у правильного многоугольника есть несколько параметров, которые определяют его однозначно: координаты центра &lt;code&gt;C&lt;&#x2F;code&gt;, радиус &lt;code&gt;R&lt;&#x2F;code&gt; и угол поворота &lt;code&gt;ф&lt;&#x2F;code&gt;. И можно вычислить эти параметры, зная &lt;code&gt;n&lt;&#x2F;code&gt;, и координаты одной стороны. &lt;&#x2F;p&gt;
+&lt;p&gt;Я выводил формулы для этого на бумажке, и заняло у меня это значительно больше времени, чем просто вывод формул для дерева Пифагора. Именно эти формулы можно видеть в функции &lt;code&gt;mnogoug&lt;&#x2F;code&gt; до цикла. Далее применяется эта формула, чтобы найти координаты стороны многоугольника, на которой будет строиться следующая итерация. Там же сразу рисуются все стороны.&lt;&#x2F;p&gt;
+&lt;p&gt;Если смотреть на функцию &lt;code&gt;recur&lt;&#x2F;code&gt;, то там мало чего изменилось, даже формулы для вычисления координат треугольника остались те же.&lt;&#x2F;p&gt;
+&lt;p&gt;Ну вот и результаты тех страданий:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Пояснение:&lt;&#x2F;em&gt; тип &lt;code&gt;20_3&lt;&#x2F;code&gt; означает, что берется 20-угольник и на его третьей стороне строится остальной фрактал.&lt;&#x2F;p&gt;
+&lt;!-- Calculate max height to have consistent size for each element --&gt;
+
+
+  
+  
+  
+    
+  
+
+  
+  
+  
+    
+  
+
+  
+  
+  
+
+  
+  
+  
+    
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+
+
+&lt;div class=&quot;gallery-container&quot;&gt;
+
+
+
+
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+
+
+&lt;!-- Images --&gt;
+
+&lt;div class=&quot;gallery-slide&quot; id=&quot;slide_1_0&quot; style=&quot;display:block;&quot;&gt;
+  
+  
+
+  &lt;div class=&quot;gallery-text&quot;&gt;1 &#x2F; 15&lt;hr style=&quot;margin: 2px;&quot;&gt;3_0&lt;&#x2F;div&gt;
+  &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.09202538104218194&quot;&gt;&lt;&#x2F;svg&gt;
+  &lt;div class=&quot;magnifier-container&quot;&gt;
+  &lt;img class=&quot;gallery-img full-screen-img not-default&quot; 
+    src=&quot;&amp;#x2F;processed_images&amp;#x2F;1f4d9e4e5c17a2a700.jpg&quot; 
+    onclick=&quot;full_screen(&#x27;explanation_5&amp;#x2F;3_0.png&#x27;)&quot;
+    onauxclick=&quot;full_screen_new_page(&#x27;explanation_5&amp;#x2F;3_0.png&#x27;)&quot;
+    width=&quot;921&quot; height=&quot;1040&quot;&gt;
+  &lt;div class=&quot;magnifier-display&quot;&gt;
+  &lt;img class=&quot;magnifier&quot; src=&quot;&#x2F;ico&#x2F;magnifier.svg&quot;&gt;&lt;div class=&quot;magnifier-info&quot;&gt;×1&lt;br&gt;png&lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+  &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.09202538104218194&quot;&gt;&lt;&#x2F;svg&gt;
+&lt;&#x2F;div&gt;
+
+&lt;div class=&quot;gallery-slide&quot; id=&quot;slide_1_1&quot; &gt;
+  
+  
+
+  &lt;div class=&quot;gallery-text&quot;&gt;2 &#x2F; 15&lt;hr style=&quot;margin: 2px;&quot;&gt;3_1&lt;&#x2F;div&gt;
+  &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.052680176049880734&quot;&gt;&lt;&#x2F;svg&gt;
+  &lt;div class=&quot;magnifier-container&quot;&gt;
+  &lt;img class=&quot;gallery-img full-screen-img not-default&quot; 
+    src=&quot;&amp;#x2F;processed_images&amp;#x2F;dca572c52805d6e000.jpg&quot; 
+    onclick=&quot;full_screen(&#x27;explanation_5&amp;#x2F;3_1.png&#x27;)&quot;
+    onauxclick=&quot;full_screen_new_page(&#x27;explanation_5&amp;#x2F;3_1.png&#x27;)&quot;
+    width=&quot;861&quot; height=&quot;1040&quot;&gt;
+  &lt;div class=&quot;magnifier-display&quot;&gt;
+  &lt;img class=&quot;magnifier&quot; src=&quot;&#x2F;ico&#x2F;magnifier.svg&quot;&gt;&lt;div class=&quot;magnifier-info&quot;&gt;×1&lt;br&gt;png&lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+  &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.052680176049880734&quot;&gt;&lt;&#x2F;svg&gt;
+&lt;&#x2F;div&gt;
+
+&lt;div class=&quot;gallery-slide&quot; id=&quot;slide_1_2&quot; &gt;
+  
+  
+
+  &lt;div class=&quot;gallery-text&quot;&gt;3 &#x2F; 15&lt;hr style=&quot;margin: 2px;&quot;&gt;5_1&lt;&#x2F;div&gt;
+  &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.218648303450935&quot;&gt;&lt;&#x2F;svg&gt;
+  &lt;div class=&quot;magnifier-container&quot;&gt;
+  &lt;img class=&quot;gallery-img full-screen-img not-default&quot; 
+    src=&quot;&amp;#x2F;processed_images&amp;#x2F;c76d284067d3d80400.jpg&quot; 
+    onclick=&quot;full_screen(&#x27;explanation_5&amp;#x2F;5_1.png&#x27;)&quot;
+    onauxclick=&quot;full_screen_new_page(&#x27;explanation_5&amp;#x2F;5_1.png&#x27;)&quot;
+    width=&quot;1040&quot; height=&quot;911&quot;&gt;
+  &lt;div class=&quot;magnifier-display&quot;&gt;
+  &lt;img class=&quot;magnifier&quot; src=&quot;&#x2F;ico&#x2F;magnifier.svg&quot;&gt;&lt;div class=&quot;magnifier-info&quot;&gt;×1&lt;br&gt;png&lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+  &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.218648303450935&quot;&gt;&lt;&#x2F;svg&gt;
+&lt;&#x2F;div&gt;
+
+&lt;div class=&quot;gallery-slide&quot; id=&quot;slide_1_3&quot; &gt;
+  
+  
+
+  &lt;div class=&quot;gallery-text&quot;&gt;4 &#x2F; 15&lt;hr style=&quot;margin: 2px;&quot;&gt;5_2&lt;&#x2F;div&gt;
+  &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.0050000000000000044&quot;&gt;&lt;&#x2F;svg&gt;
+  &lt;div class=&quot;magnifier-container&quot;&gt;
+  &lt;img class=&quot;gallery-img full-screen-img not-default&quot; 
+    src=&quot;&amp;#x2F;processed_images&amp;#x2F;f27ed46b3fc095b900.jpg&quot; 
+    onclick=&quot;full_screen(&#x27;explanation_5&amp;#x2F;5_2.png&#x27;)&quot;
+    onauxclick=&quot;full_screen_new_page(&#x27;explanation_5&amp;#x2F;5_2.png&#x27;)&quot;
+    width=&quot;798&quot; height=&quot;1040&quot;&gt;
+  &lt;div class=&quot;magnifier-display&quot;&gt;
+  &lt;img class=&quot;magnifier&quot; src=&quot;&#x2F;ico&#x2F;magnifier.svg&quot;&gt;&lt;div class=&quot;magnifier-info&quot;&gt;×1&lt;br&gt;png&lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+  &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.0050000000000000044&quot;&gt;&lt;&#x2F;svg&gt;
+&lt;&#x2F;div&gt;
+
+&lt;div class=&quot;gallery-slide&quot; id=&quot;slide_1_4&quot; &gt;
+  
+  
+
+  &lt;div class=&quot;gallery-text&quot;&gt;5 &#x2F; 15&lt;hr style=&quot;margin: 2px;&quot;&gt;6_1&lt;&#x2F;div&gt;
+  &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.22105214960478115&quot;&gt;&lt;&#x2F;svg&gt;
+  &lt;div class=&quot;magnifier-container&quot;&gt;
+  &lt;img class=&quot;gallery-img full-screen-img not-default&quot; 
+    src=&quot;&amp;#x2F;processed_images&amp;#x2F;f0dacfc3d12d1e3b00.jpg&quot; 
+    onclick=&quot;full_screen(&#x27;explanation_5&amp;#x2F;6_1.png&#x27;)&quot;
+    onauxclick=&quot;full_screen_new_page(&#x27;explanation_5&amp;#x2F;6_1.png&#x27;)&quot;
+    width=&quot;1040&quot; height=&quot;906&quot;&gt;
+  &lt;div class=&quot;magnifier-display&quot;&gt;
+  &lt;img class=&quot;magnifier&quot; src=&quot;&#x2F;ico&#x2F;magnifier.svg&quot;&gt;&lt;div class=&quot;magnifier-info&quot;&gt;×1&lt;br&gt;png&lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+  &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.22105214960478115&quot;&gt;&lt;&#x2F;svg&gt;
+&lt;&#x2F;div&gt;
+
+&lt;div class=&quot;gallery-slide&quot; id=&quot;slide_1_5&quot; &gt;
+  
+  
+
+  &lt;div class=&quot;gallery-text&quot;&gt;6 &#x2F; 15&lt;hr style=&quot;margin: 2px;&quot;&gt;10_3&lt;&#x2F;div&gt;
+  &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.18932138037401192&quot;&gt;&lt;&#x2F;svg&gt;
+  &lt;div class=&quot;magnifier-container&quot;&gt;
+  &lt;img class=&quot;gallery-img full-screen-img not-default&quot; 
+    src=&quot;&amp;#x2F;processed_images&amp;#x2F;accfb2b9d7e4eef800.jpg&quot; 
+    onclick=&quot;full_screen(&#x27;explanation_5&amp;#x2F;10_3.png&#x27;)&quot;
+    onauxclick=&quot;full_screen_new_page(&#x27;explanation_5&amp;#x2F;10_3.png&#x27;)&quot;
+    width=&quot;1040&quot; height=&quot;972&quot;&gt;
+  &lt;div class=&quot;magnifier-display&quot;&gt;
+  &lt;img class=&quot;magnifier&quot; src=&quot;&#x2F;ico&#x2F;magnifier.svg&quot;&gt;&lt;div class=&quot;magnifier-info&quot;&gt;×1&lt;br&gt;png&lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+  &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.18932138037401192&quot;&gt;&lt;&#x2F;svg&gt;
+&lt;&#x2F;div&gt;
+
+&lt;div class=&quot;gallery-slide&quot; id=&quot;slide_1_6&quot; &gt;
+  
+  
+
+  &lt;div class=&quot;gallery-text&quot;&gt;7 &#x2F; 15&lt;hr style=&quot;margin: 2px;&quot;&gt;20_1&lt;&#x2F;div&gt;
+  &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.04486436679935124&quot;&gt;&lt;&#x2F;svg&gt;
+  &lt;div class=&quot;magnifier-container&quot;&gt;
+  &lt;img class=&quot;gallery-img full-screen-img not-default&quot; 
+    src=&quot;&amp;#x2F;processed_images&amp;#x2F;94c02f59ceee766e00.jpg&quot; 
+    onclick=&quot;full_screen(&#x27;explanation_5&amp;#x2F;20_1.png&#x27;)&quot;
+    onauxclick=&quot;full_screen_new_page(&#x27;explanation_5&amp;#x2F;20_1.png&#x27;)&quot;
+    width=&quot;850&quot; height=&quot;1040&quot;&gt;
+  &lt;div class=&quot;magnifier-display&quot;&gt;
+  &lt;img class=&quot;magnifier&quot; src=&quot;&#x2F;ico&#x2F;magnifier.svg&quot;&gt;&lt;div class=&quot;magnifier-info&quot;&gt;×1&lt;br&gt;png&lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+  &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.04486436679935124&quot;&gt;&lt;&#x2F;svg&gt;
+&lt;&#x2F;div&gt;
+
+&lt;div class=&quot;gallery-slide&quot; id=&quot;slide_1_7&quot; &gt;
+  
+  
+
+  &lt;div class=&quot;gallery-text&quot;&gt;8 &#x2F; 15&lt;hr style=&quot;margin: 2px;&quot;&gt;20_2&lt;&#x2F;div&gt;
+  &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.12219947350390359&quot;&gt;&lt;&#x2F;svg&gt;
+  &lt;div class=&quot;magnifier-container&quot;&gt;
+  &lt;img class=&quot;gallery-img full-screen-img not-default&quot; 
+    src=&quot;&amp;#x2F;processed_images&amp;#x2F;3c9d7dc671017c5300.jpg&quot; 
+    onclick=&quot;full_screen(&#x27;explanation_5&amp;#x2F;20_2.png&#x27;)&quot;
+    onauxclick=&quot;full_screen_new_page(&#x27;explanation_5&amp;#x2F;20_2.png&#x27;)&quot;
+    width=&quot;973&quot; height=&quot;1040&quot;&gt;
+  &lt;div class=&quot;magnifier-display&quot;&gt;
+  &lt;img class=&quot;magnifier&quot; src=&quot;&#x2F;ico&#x2F;magnifier.svg&quot;&gt;&lt;div class=&quot;magnifier-info&quot;&gt;×1&lt;br&gt;png&lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+  &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.12219947350390359&quot;&gt;&lt;&#x2F;svg&gt;
+&lt;&#x2F;div&gt;
+
+&lt;div class=&quot;gallery-slide&quot; id=&quot;slide_1_8&quot; &gt;
+  
+  
+
+  &lt;div class=&quot;gallery-text&quot;&gt;9 &#x2F; 15&lt;hr style=&quot;margin: 2px;&quot;&gt;20_3&lt;&#x2F;div&gt;
+  &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.18499445729708885&quot;&gt;&lt;&#x2F;svg&gt;
+  &lt;div class=&quot;magnifier-container&quot;&gt;
+  &lt;img class=&quot;gallery-img full-screen-img not-default&quot; 
+    src=&quot;&amp;#x2F;processed_images&amp;#x2F;c191b8003099ada900.jpg&quot; 
+    onclick=&quot;full_screen(&#x27;explanation_5&amp;#x2F;20_3.png&#x27;)&quot;
+    onauxclick=&quot;full_screen_new_page(&#x27;explanation_5&amp;#x2F;20_3.png&#x27;)&quot;
+    width=&quot;1040&quot; height=&quot;981&quot;&gt;
+  &lt;div class=&quot;magnifier-display&quot;&gt;
+  &lt;img class=&quot;magnifier&quot; src=&quot;&#x2F;ico&#x2F;magnifier.svg&quot;&gt;&lt;div class=&quot;magnifier-info&quot;&gt;×1&lt;br&gt;png&lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+  &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.18499445729708885&quot;&gt;&lt;&#x2F;svg&gt;
+&lt;&#x2F;div&gt;
+
+&lt;div class=&quot;gallery-slide&quot; id=&quot;slide_1_9&quot; &gt;
+  
+  
+
+  &lt;div class=&quot;gallery-text&quot;&gt;10 &#x2F; 15&lt;hr style=&quot;margin: 2px;&quot;&gt;20_4&lt;&#x2F;div&gt;
+  &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.23884061114324268&quot;&gt;&lt;&#x2F;svg&gt;
+  &lt;div class=&quot;magnifier-container&quot;&gt;
+  &lt;img class=&quot;gallery-img full-screen-img not-default&quot; 
+    src=&quot;&amp;#x2F;processed_images&amp;#x2F;e445e74ac808196400.jpg&quot; 
+    onclick=&quot;full_screen(&#x27;explanation_5&amp;#x2F;20_4.png&#x27;)&quot;
+    onauxclick=&quot;full_screen_new_page(&#x27;explanation_5&amp;#x2F;20_4.png&#x27;)&quot;
+    width=&quot;1040&quot; height=&quot;869&quot;&gt;
+  &lt;div class=&quot;magnifier-display&quot;&gt;
+  &lt;img class=&quot;magnifier&quot; src=&quot;&#x2F;ico&#x2F;magnifier.svg&quot;&gt;&lt;div class=&quot;magnifier-info&quot;&gt;×1&lt;br&gt;png&lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+  &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.23884061114324268&quot;&gt;&lt;&#x2F;svg&gt;
+&lt;&#x2F;div&gt;
+
+&lt;div class=&quot;gallery-slide&quot; id=&quot;slide_1_10&quot; &gt;
+  
+  
+
+  &lt;div class=&quot;gallery-text&quot;&gt;11 &#x2F; 15&lt;hr style=&quot;margin: 2px;&quot;&gt;20_5&lt;&#x2F;div&gt;
+  &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.23547522652785807&quot;&gt;&lt;&#x2F;svg&gt;
+  &lt;div class=&quot;magnifier-container&quot;&gt;
+  &lt;img class=&quot;gallery-img full-screen-img not-default&quot; 
+    src=&quot;&amp;#x2F;processed_images&amp;#x2F;832dd49c3836d89300.jpg&quot; 
+    onclick=&quot;full_screen(&#x27;explanation_5&amp;#x2F;20_5.png&#x27;)&quot;
+    onauxclick=&quot;full_screen_new_page(&#x27;explanation_5&amp;#x2F;20_5.png&#x27;)&quot;
+    width=&quot;1040&quot; height=&quot;876&quot;&gt;
+  &lt;div class=&quot;magnifier-display&quot;&gt;
+  &lt;img class=&quot;magnifier&quot; src=&quot;&#x2F;ico&#x2F;magnifier.svg&quot;&gt;&lt;div class=&quot;magnifier-info&quot;&gt;×1&lt;br&gt;png&lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+  &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.23547522652785807&quot;&gt;&lt;&#x2F;svg&gt;
+&lt;&#x2F;div&gt;
+
+&lt;div class=&quot;gallery-slide&quot; id=&quot;slide_1_11&quot; &gt;
+  
+  
+
+  &lt;div class=&quot;gallery-text&quot;&gt;12 &#x2F; 15&lt;hr style=&quot;margin: 2px;&quot;&gt;20_6&lt;&#x2F;div&gt;
+  &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.20374445729708884&quot;&gt;&lt;&#x2F;svg&gt;
+  &lt;div class=&quot;magnifier-container&quot;&gt;
+  &lt;img class=&quot;gallery-img full-screen-img not-default&quot; 
+    src=&quot;&amp;#x2F;processed_images&amp;#x2F;38aec41ca738afa700.jpg&quot; 
+    onclick=&quot;full_screen(&#x27;explanation_5&amp;#x2F;20_6.png&#x27;)&quot;
+    onauxclick=&quot;full_screen_new_page(&#x27;explanation_5&amp;#x2F;20_6.png&#x27;)&quot;
+    width=&quot;1040&quot; height=&quot;942&quot;&gt;
+  &lt;div class=&quot;magnifier-display&quot;&gt;
+  &lt;img class=&quot;magnifier&quot; src=&quot;&#x2F;ico&#x2F;magnifier.svg&quot;&gt;&lt;div class=&quot;magnifier-info&quot;&gt;×1&lt;br&gt;png&lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+  &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.20374445729708884&quot;&gt;&lt;&#x2F;svg&gt;
+&lt;&#x2F;div&gt;
+
+&lt;div class=&quot;gallery-slide&quot; id=&quot;slide_1_12&quot; &gt;
+  
+  
+
+  &lt;div class=&quot;gallery-text&quot;&gt;13 &#x2F; 15&lt;hr style=&quot;margin: 2px;&quot;&gt;20_7&lt;&#x2F;div&gt;
+  &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.06437394739696622&quot;&gt;&lt;&#x2F;svg&gt;
+  &lt;div class=&quot;magnifier-container&quot;&gt;
+  &lt;img class=&quot;gallery-img full-screen-img not-default&quot; 
+    src=&quot;&amp;#x2F;processed_images&amp;#x2F;f3756185de0a286900.jpg&quot; 
+    onclick=&quot;full_screen(&#x27;explanation_5&amp;#x2F;20_7.png&#x27;)&quot;
+    onauxclick=&quot;full_screen_new_page(&#x27;explanation_5&amp;#x2F;20_7.png&#x27;)&quot;
+    width=&quot;878&quot; height=&quot;1040&quot;&gt;
+  &lt;div class=&quot;magnifier-display&quot;&gt;
+  &lt;img class=&quot;magnifier&quot; src=&quot;&#x2F;ico&#x2F;magnifier.svg&quot;&gt;&lt;div class=&quot;magnifier-info&quot;&gt;×1&lt;br&gt;png&lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+  &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.06437394739696622&quot;&gt;&lt;&#x2F;svg&gt;
+&lt;&#x2F;div&gt;
+
+&lt;div class=&quot;gallery-slide&quot; id=&quot;slide_1_13&quot; &gt;
+  
+  
+
+  &lt;div class=&quot;gallery-text&quot;&gt;14 &#x2F; 15&lt;hr style=&quot;margin: 2px;&quot;&gt;20_8&lt;&#x2F;div&gt;
+  &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.016234984011753495&quot;&gt;&lt;&#x2F;svg&gt;
+  &lt;div class=&quot;magnifier-container&quot;&gt;
+  &lt;img class=&quot;gallery-img full-screen-img not-default&quot; 
+    src=&quot;&amp;#x2F;processed_images&amp;#x2F;295d57346cf8242c00.jpg&quot; 
+    onclick=&quot;full_screen(&#x27;explanation_5&amp;#x2F;20_8.png&#x27;)&quot;
+    onauxclick=&quot;full_screen_new_page(&#x27;explanation_5&amp;#x2F;20_8.png&#x27;)&quot;
+    width=&quot;812&quot; height=&quot;1040&quot;&gt;
+  &lt;div class=&quot;magnifier-display&quot;&gt;
+  &lt;img class=&quot;magnifier&quot; src=&quot;&#x2F;ico&#x2F;magnifier.svg&quot;&gt;&lt;div class=&quot;magnifier-info&quot;&gt;×1&lt;br&gt;png&lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+  &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.016234984011753495&quot;&gt;&lt;&#x2F;svg&gt;
+&lt;&#x2F;div&gt;
+
+&lt;div class=&quot;gallery-slide&quot; id=&quot;slide_1_14&quot; &gt;
+  
+  
+
+  &lt;div class=&quot;gallery-text&quot;&gt;15 &#x2F; 15&lt;hr style=&quot;margin: 2px;&quot;&gt;20_9&lt;&#x2F;div&gt;
+  &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.21480214960478117&quot;&gt;&lt;&#x2F;svg&gt;
+  &lt;div class=&quot;magnifier-container&quot;&gt;
+  &lt;img class=&quot;gallery-img full-screen-img not-default&quot; 
+    src=&quot;&amp;#x2F;processed_images&amp;#x2F;e42a0dda73668e1300.jpg&quot; 
+    onclick=&quot;full_screen(&#x27;explanation_5&amp;#x2F;20_9.png&#x27;)&quot;
+    onauxclick=&quot;full_screen_new_page(&#x27;explanation_5&amp;#x2F;20_9.png&#x27;)&quot;
+    width=&quot;1040&quot; height=&quot;919&quot;&gt;
+  &lt;div class=&quot;magnifier-display&quot;&gt;
+  &lt;img class=&quot;magnifier&quot; src=&quot;&#x2F;ico&#x2F;magnifier.svg&quot;&gt;&lt;div class=&quot;magnifier-info&quot;&gt;×1&lt;br&gt;png&lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+  &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.21480214960478117&quot;&gt;&lt;&#x2F;svg&gt;
+&lt;&#x2F;div&gt;
+
+
+&lt;!-- Next and previous buttons --&gt;
+&lt;a class=&quot;gallery-prev&quot; onclick=&quot;gallery_plus(1, -1)&quot;&gt;&amp;#10094;&lt;&#x2F;a&gt;
+&lt;a class=&quot;gallery-next&quot; onclick=&quot;gallery_plus(1, 1)&quot;&gt;&amp;#10095;&lt;&#x2F;a&gt;
+&lt;&#x2F;div&gt;
+
+&lt;!-- Thumbnail images --&gt;
+&lt;div class=&quot;gallery-row&quot;&gt;
+
+  &lt;div class=&quot;gallery-column&quot; style=&quot;width: 6.666666666666667%;&quot;&gt;
+    
+    
+    &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.09202538104218194&quot;&gt;&lt;&#x2F;svg&gt;
+    &lt;img class=&quot;gallery-demo gallery-active&quot; src=&quot;&amp;#x2F;processed_images&amp;#x2F;1f4d9e4e5c17a2a700.jpg&quot; 
+      id=&quot;demo_1_0&quot; 
+      onclick=&quot;gallery_set(1, 0)&quot;
+      width=&quot;921&quot; height=&quot;1040&quot;&gt;
+    &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.09202538104218194&quot;&gt;&lt;&#x2F;svg&gt;
+  &lt;&#x2F;div&gt;
+
+  &lt;div class=&quot;gallery-column&quot; style=&quot;width: 6.666666666666667%;&quot;&gt;
+    
+    
+    &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.052680176049880734&quot;&gt;&lt;&#x2F;svg&gt;
+    &lt;img class=&quot;gallery-demo&quot; src=&quot;&amp;#x2F;processed_images&amp;#x2F;dca572c52805d6e000.jpg&quot; 
+      id=&quot;demo_1_1&quot; 
+      onclick=&quot;gallery_set(1, 1)&quot;
+      width=&quot;861&quot; height=&quot;1040&quot;&gt;
+    &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.052680176049880734&quot;&gt;&lt;&#x2F;svg&gt;
+  &lt;&#x2F;div&gt;
+
+  &lt;div class=&quot;gallery-column&quot; style=&quot;width: 6.666666666666667%;&quot;&gt;
+    
+    
+    &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.218648303450935&quot;&gt;&lt;&#x2F;svg&gt;
+    &lt;img class=&quot;gallery-demo&quot; src=&quot;&amp;#x2F;processed_images&amp;#x2F;c76d284067d3d80400.jpg&quot; 
+      id=&quot;demo_1_2&quot; 
+      onclick=&quot;gallery_set(1, 2)&quot;
+      width=&quot;1040&quot; height=&quot;911&quot;&gt;
+    &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.218648303450935&quot;&gt;&lt;&#x2F;svg&gt;
+  &lt;&#x2F;div&gt;
+
+  &lt;div class=&quot;gallery-column&quot; style=&quot;width: 6.666666666666667%;&quot;&gt;
+    
+    
+    &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.0050000000000000044&quot;&gt;&lt;&#x2F;svg&gt;
+    &lt;img class=&quot;gallery-demo&quot; src=&quot;&amp;#x2F;processed_images&amp;#x2F;f27ed46b3fc095b900.jpg&quot; 
+      id=&quot;demo_1_3&quot; 
+      onclick=&quot;gallery_set(1, 3)&quot;
+      width=&quot;798&quot; height=&quot;1040&quot;&gt;
+    &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.0050000000000000044&quot;&gt;&lt;&#x2F;svg&gt;
+  &lt;&#x2F;div&gt;
+
+  &lt;div class=&quot;gallery-column&quot; style=&quot;width: 6.666666666666667%;&quot;&gt;
+    
+    
+    &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.22105214960478115&quot;&gt;&lt;&#x2F;svg&gt;
+    &lt;img class=&quot;gallery-demo&quot; src=&quot;&amp;#x2F;processed_images&amp;#x2F;f0dacfc3d12d1e3b00.jpg&quot; 
+      id=&quot;demo_1_4&quot; 
+      onclick=&quot;gallery_set(1, 4)&quot;
+      width=&quot;1040&quot; height=&quot;906&quot;&gt;
+    &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.22105214960478115&quot;&gt;&lt;&#x2F;svg&gt;
+  &lt;&#x2F;div&gt;
+
+  &lt;div class=&quot;gallery-column&quot; style=&quot;width: 6.666666666666667%;&quot;&gt;
+    
+    
+    &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.18932138037401192&quot;&gt;&lt;&#x2F;svg&gt;
+    &lt;img class=&quot;gallery-demo&quot; src=&quot;&amp;#x2F;processed_images&amp;#x2F;accfb2b9d7e4eef800.jpg&quot; 
+      id=&quot;demo_1_5&quot; 
+      onclick=&quot;gallery_set(1, 5)&quot;
+      width=&quot;1040&quot; height=&quot;972&quot;&gt;
+    &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.18932138037401192&quot;&gt;&lt;&#x2F;svg&gt;
+  &lt;&#x2F;div&gt;
+
+  &lt;div class=&quot;gallery-column&quot; style=&quot;width: 6.666666666666667%;&quot;&gt;
+    
+    
+    &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.04486436679935124&quot;&gt;&lt;&#x2F;svg&gt;
+    &lt;img class=&quot;gallery-demo&quot; src=&quot;&amp;#x2F;processed_images&amp;#x2F;94c02f59ceee766e00.jpg&quot; 
+      id=&quot;demo_1_6&quot; 
+      onclick=&quot;gallery_set(1, 6)&quot;
+      width=&quot;850&quot; height=&quot;1040&quot;&gt;
+    &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.04486436679935124&quot;&gt;&lt;&#x2F;svg&gt;
+  &lt;&#x2F;div&gt;
+
+  &lt;div class=&quot;gallery-column&quot; style=&quot;width: 6.666666666666667%;&quot;&gt;
+    
+    
+    &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.12219947350390359&quot;&gt;&lt;&#x2F;svg&gt;
+    &lt;img class=&quot;gallery-demo&quot; src=&quot;&amp;#x2F;processed_images&amp;#x2F;3c9d7dc671017c5300.jpg&quot; 
+      id=&quot;demo_1_7&quot; 
+      onclick=&quot;gallery_set(1, 7)&quot;
+      width=&quot;973&quot; height=&quot;1040&quot;&gt;
+    &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.12219947350390359&quot;&gt;&lt;&#x2F;svg&gt;
+  &lt;&#x2F;div&gt;
+
+  &lt;div class=&quot;gallery-column&quot; style=&quot;width: 6.666666666666667%;&quot;&gt;
+    
+    
+    &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.18499445729708885&quot;&gt;&lt;&#x2F;svg&gt;
+    &lt;img class=&quot;gallery-demo&quot; src=&quot;&amp;#x2F;processed_images&amp;#x2F;c191b8003099ada900.jpg&quot; 
+      id=&quot;demo_1_8&quot; 
+      onclick=&quot;gallery_set(1, 8)&quot;
+      width=&quot;1040&quot; height=&quot;981&quot;&gt;
+    &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.18499445729708885&quot;&gt;&lt;&#x2F;svg&gt;
+  &lt;&#x2F;div&gt;
+
+  &lt;div class=&quot;gallery-column&quot; style=&quot;width: 6.666666666666667%;&quot;&gt;
+    
+    
+    &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.23884061114324268&quot;&gt;&lt;&#x2F;svg&gt;
+    &lt;img class=&quot;gallery-demo&quot; src=&quot;&amp;#x2F;processed_images&amp;#x2F;e445e74ac808196400.jpg&quot; 
+      id=&quot;demo_1_9&quot; 
+      onclick=&quot;gallery_set(1, 9)&quot;
+      width=&quot;1040&quot; height=&quot;869&quot;&gt;
+    &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.23884061114324268&quot;&gt;&lt;&#x2F;svg&gt;
+  &lt;&#x2F;div&gt;
+
+  &lt;div class=&quot;gallery-column&quot; style=&quot;width: 6.666666666666667%;&quot;&gt;
+    
+    
+    &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.23547522652785807&quot;&gt;&lt;&#x2F;svg&gt;
+    &lt;img class=&quot;gallery-demo&quot; src=&quot;&amp;#x2F;processed_images&amp;#x2F;832dd49c3836d89300.jpg&quot; 
+      id=&quot;demo_1_10&quot; 
+      onclick=&quot;gallery_set(1, 10)&quot;
+      width=&quot;1040&quot; height=&quot;876&quot;&gt;
+    &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.23547522652785807&quot;&gt;&lt;&#x2F;svg&gt;
+  &lt;&#x2F;div&gt;
+
+  &lt;div class=&quot;gallery-column&quot; style=&quot;width: 6.666666666666667%;&quot;&gt;
+    
+    
+    &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.20374445729708884&quot;&gt;&lt;&#x2F;svg&gt;
+    &lt;img class=&quot;gallery-demo&quot; src=&quot;&amp;#x2F;processed_images&amp;#x2F;38aec41ca738afa700.jpg&quot; 
+      id=&quot;demo_1_11&quot; 
+      onclick=&quot;gallery_set(1, 11)&quot;
+      width=&quot;1040&quot; height=&quot;942&quot;&gt;
+    &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.20374445729708884&quot;&gt;&lt;&#x2F;svg&gt;
+  &lt;&#x2F;div&gt;
+
+  &lt;div class=&quot;gallery-column&quot; style=&quot;width: 6.666666666666667%;&quot;&gt;
+    
+    
+    &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.06437394739696622&quot;&gt;&lt;&#x2F;svg&gt;
+    &lt;img class=&quot;gallery-demo&quot; src=&quot;&amp;#x2F;processed_images&amp;#x2F;f3756185de0a286900.jpg&quot; 
+      id=&quot;demo_1_12&quot; 
+      onclick=&quot;gallery_set(1, 12)&quot;
+      width=&quot;878&quot; height=&quot;1040&quot;&gt;
+    &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.06437394739696622&quot;&gt;&lt;&#x2F;svg&gt;
+  &lt;&#x2F;div&gt;
+
+  &lt;div class=&quot;gallery-column&quot; style=&quot;width: 6.666666666666667%;&quot;&gt;
+    
+    
+    &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.016234984011753495&quot;&gt;&lt;&#x2F;svg&gt;
+    &lt;img class=&quot;gallery-demo&quot; src=&quot;&amp;#x2F;processed_images&amp;#x2F;295d57346cf8242c00.jpg&quot; 
+      id=&quot;demo_1_13&quot; 
+      onclick=&quot;gallery_set(1, 13)&quot;
+      width=&quot;812&quot; height=&quot;1040&quot;&gt;
+    &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.016234984011753495&quot;&gt;&lt;&#x2F;svg&gt;
+  &lt;&#x2F;div&gt;
+
+  &lt;div class=&quot;gallery-column&quot; style=&quot;width: 6.666666666666667%;&quot;&gt;
+    
+    
+    &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.21480214960478117&quot;&gt;&lt;&#x2F;svg&gt;
+    &lt;img class=&quot;gallery-demo&quot; src=&quot;&amp;#x2F;processed_images&amp;#x2F;e42a0dda73668e1300.jpg&quot; 
+      id=&quot;demo_1_14&quot; 
+      onclick=&quot;gallery_set(1, 14)&quot;
+      width=&quot;1040&quot; height=&quot;919&quot;&gt;
+    &lt;svg class=&quot;gallery-svg&quot; viewBox=&quot;0 0 1 0.21480214960478117&quot;&gt;&lt;&#x2F;svg&gt;
+  &lt;&#x2F;div&gt;
+
+&lt;&#x2F;div&gt;
+
+&lt;script&gt;
+slide_index[1] = 0;
+slide_count[1] = 15;
+&lt;&#x2F;script&gt;
+&lt;p&gt;Минусы этого решения:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Применимо только к правильным многоугольникам.&lt;&#x2F;li&gt;
+&lt;li&gt;Требует &lt;strong&gt;ещё более сложных&lt;&#x2F;strong&gt; вычислений формул.&lt;&#x2F;li&gt;
+&lt;li&gt;Большинство минусов плохого решения для простого дерева Пифагора.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;khoroshii-put-s-ispol-zovaniem-biblioteki&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#khoroshii-put-s-ispol-zovaniem-biblioteki&quot;&gt;#&lt;sup&gt;2&lt;&#x2F;sup&gt;&lt;&#x2F;a&gt;Хороший путь с использованием библиотеки&lt;&#x2F;h2&gt;
+&lt;p&gt;Это может показаться удивительным, но по сравнению с предыдущим хорошим решением, это совсем немного отличается. Главные отличия: координаты фигуры теперь пишутся не &lt;code&gt;a&lt;&#x2F;code&gt;, &lt;code&gt;b&lt;&#x2F;code&gt;, &lt;code&gt;c&lt;&#x2F;code&gt;, а пишутся в массив. Так же есть строчки для вычисления правильного многоугольника.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;c++&quot; style=&quot;background-color:#f5f5f5;color:#1f1f1f;&quot; class=&quot;language-c++ &quot;&gt;&lt;code class=&quot;language-c++&quot; data-lang=&quot;c++&quot;&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;void &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c23f31;&quot;&gt;draw_pythagoras_tree&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;const&lt;&#x2F;span&gt;&lt;span&gt; space2&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;&amp;amp; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;space&lt;&#x2F;span&gt;&lt;span&gt;) {
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;&#x2F;&#x2F; Выходим из рекурсии, если одна из осей (аналогично и сторона квадрата) имеет длину меньше, чем 2
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span&gt;(space.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;i&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;length&lt;&#x2F;span&gt;&lt;span&gt;() &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;&amp;lt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;		&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;return&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;&#x2F;&#x2F; Считаем правильный многоугольник
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;const int&lt;&#x2F;span&gt;&lt;span&gt; n &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;const int&lt;&#x2F;span&gt;&lt;span&gt; m &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;	std::vector&amp;lt;vec2&amp;gt; poly;
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span&gt; i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;; i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt; n&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;++&lt;&#x2F;span&gt;&lt;span&gt;i) {
+&lt;&#x2F;span&gt;&lt;span&gt;		&lt;&#x2F;span&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;double&lt;&#x2F;span&gt;&lt;span&gt; angle &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;deg2rad&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;360.0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span&gt;n &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;*&lt;&#x2F;span&gt;&lt;span&gt; i);
+&lt;&#x2F;span&gt;&lt;span&gt;		poly.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;push_back&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;vec2&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b39f04;&quot;&gt;cos&lt;&#x2F;span&gt;&lt;span&gt;(angle), &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b39f04;&quot;&gt;sin&lt;&#x2F;span&gt;&lt;span&gt;(angle)));
+&lt;&#x2F;span&gt;&lt;span&gt;	}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;&#x2F;&#x2F; Преобразуем координаты так, чтобы он своим первым ребром находится на оси X
+&lt;&#x2F;span&gt;&lt;span&gt;	space2 poly_line &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;makeLine2&lt;&#x2F;span&gt;&lt;span&gt;(poly[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;], poly[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;]);
+&lt;&#x2F;span&gt;&lt;span&gt;	poly &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;toMas&lt;&#x2F;span&gt;&lt;span&gt;(poly_line, poly);
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;&#x2F;&#x2F; Высчитываем координаты прямоугольного треугольника, который лежит своей гипотенузой на оси X, с углом alpha при основании
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;double&lt;&#x2F;span&gt;&lt;span&gt; alpha &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span&gt;spob::&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;deg2rad&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;45&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;	std::vector&amp;lt;vec2&amp;gt; triangle &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;		&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;vec2&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;), 
+&lt;&#x2F;span&gt;&lt;span&gt;		&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;vec2&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;), 
+&lt;&#x2F;span&gt;&lt;span&gt;		&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;rotate&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;vec2&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b39f04;&quot;&gt;cos&lt;&#x2F;span&gt;&lt;span&gt;(alpha), &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;), &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;vec2&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;), alpha)
+&lt;&#x2F;span&gt;&lt;span&gt;	};
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;&#x2F;&#x2F; Преобразуем многоугольник из текущих координат к координатам переданного пространства
+&lt;&#x2F;span&gt;&lt;span&gt;	poly &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;fromMas&lt;&#x2F;span&gt;&lt;span&gt;(space, poly);
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;&#x2F;&#x2F; Рисуем многоугольник
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span&gt; i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;; i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt; poly.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;size&lt;&#x2F;span&gt;&lt;span&gt;() &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;; i&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;++&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;		&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;draw_line&lt;&#x2F;span&gt;&lt;span&gt;(poly[i], poly[i&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;]);
+&lt;&#x2F;span&gt;&lt;span&gt;	
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;&#x2F;&#x2F; Строим пространство, которая находится на m-й стороне многоугольника
+&lt;&#x2F;span&gt;&lt;span&gt;	space2 tr_line &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;makeLine2&lt;&#x2F;span&gt;&lt;span&gt;(poly[m&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;], poly[m]);
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;&#x2F;&#x2F; Переводим координаты треугольника к этому пространству
+&lt;&#x2F;span&gt;&lt;span&gt;	triangle &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;fromMas&lt;&#x2F;span&gt;&lt;span&gt;(tr_line, triangle);
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;&#x2F;&#x2F; Строим пространства, которые находятся на обоих катетах этого треугольника
+&lt;&#x2F;span&gt;&lt;span&gt;	space2 l1 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;makeLine2&lt;&#x2F;span&gt;&lt;span&gt;(triangle[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;], triangle[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;]);
+&lt;&#x2F;span&gt;&lt;span&gt;	space2 l2 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;makeLine2&lt;&#x2F;span&gt;&lt;span&gt;(triangle[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;], triangle[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;]);
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;&#x2F;&#x2F; Рекурсивно строим дерево в этих пространствах
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;draw_pythagoras_tree&lt;&#x2F;span&gt;&lt;span&gt;(l1);
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;draw_pythagoras_tree&lt;&#x2F;span&gt;&lt;span&gt;(l2);
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Пошаговое объяснение создания многоугольника:&lt;&#x2F;p&gt;
+&lt;div class=&quot;magnifier-container img-one&quot;&gt;
+&lt;img
+    class=&quot;not-default full-screen-img&quot;
+    width=&quot;1204&quot;
+    height=&quot;366&quot;
+    src=&quot;&amp;#x2F;processed_images&amp;#x2F;f52fb55b5344361400.webp&quot; 
+    onclick=&quot;full_screen(&#x27;explanation_5&amp;#x2F;explanation_poly.png&#x27;)&quot;
+    onauxclick=&quot;full_screen_new_page(&#x27;explanation_5&amp;#x2F;explanation_poly.png&#x27;)&quot;&gt;
+&lt;div class=&quot;magnifier-display&quot;&gt;
+&lt;img class=&quot;magnifier&quot; src=&quot;&#x2F;ico&#x2F;magnifier.svg&quot;&gt;&lt;div class=&quot;magnifier-info&quot;&gt;×1&lt;br&gt;png&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;ol&gt;
+&lt;li&gt;Для начала, самое главное, построение координат правильного многоугольника:&lt;pre data-lang=&quot;c++&quot; style=&quot;background-color:#f5f5f5;color:#1f1f1f;&quot; class=&quot;language-c++ &quot;&gt;&lt;code class=&quot;language-c++&quot; data-lang=&quot;c++&quot;&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;const int&lt;&#x2F;span&gt;&lt;span&gt; n &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;const int&lt;&#x2F;span&gt;&lt;span&gt; m &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;std::vector&amp;lt;vec2&amp;gt; poly;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span&gt; i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;; i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt; n; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;++&lt;&#x2F;span&gt;&lt;span&gt;i) {
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;double&lt;&#x2F;span&gt;&lt;span&gt; angle &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;deg2rad&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;360.0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span&gt;n &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;*&lt;&#x2F;span&gt;&lt;span&gt; i);
+&lt;&#x2F;span&gt;&lt;span&gt;	poly.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;push_back&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;vec2&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b39f04;&quot;&gt;cos&lt;&#x2F;span&gt;&lt;span&gt;(angle), &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b39f04;&quot;&gt;sin&lt;&#x2F;span&gt;&lt;span&gt;(angle)));
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+Можно заметить, что это просто вышеописанная формула с Википедии, только максимально упрощенная, без радиуса, без угла смещения. Но к сожалению полученный многоугольник не обладает важным свойством полного нахождения на оси X.&lt;&#x2F;li&gt;
+&lt;li&gt;Поэтому сначала мы создаем систему координат из первой стороны многоугольника&lt;pre data-lang=&quot;c++&quot; style=&quot;background-color:#f5f5f5;color:#1f1f1f;&quot; class=&quot;language-c++ &quot;&gt;&lt;code class=&quot;language-c++&quot; data-lang=&quot;c++&quot;&gt;&lt;span&gt;space2 poly_line &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;makeLine2&lt;&#x2F;span&gt;&lt;span&gt;(poly[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;], poly[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;]);
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;А затем переводим каждую координату этого многоугольника к этой системе координат.&lt;pre data-lang=&quot;c++&quot; style=&quot;background-color:#f5f5f5;color:#1f1f1f;&quot; class=&quot;language-c++ &quot;&gt;&lt;code class=&quot;language-c++&quot; data-lang=&quot;c++&quot;&gt;&lt;span&gt;poly &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;toMas&lt;&#x2F;span&gt;&lt;span&gt;(poly_line, poly);
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+В итоге наш многоугольник полностью находится на оси X, и его можно использовать в построении.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Кстати, абсолютно аналогичным образом можно было и создать треугольник:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;c++&quot; style=&quot;background-color:#f5f5f5;color:#1f1f1f;&quot; class=&quot;language-c++ &quot;&gt;&lt;code class=&quot;language-c++&quot; data-lang=&quot;c++&quot;&gt;&lt;span&gt;std::vector&amp;lt;vec2&amp;gt; triangle &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;vec2&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;), &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;vec2&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b39f04;&quot;&gt;cos&lt;&#x2F;span&gt;&lt;span&gt;(alpha), &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;), &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;vec2&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b39f04;&quot;&gt;sin&lt;&#x2F;span&gt;&lt;span&gt;(alpha))};
+&lt;&#x2F;span&gt;&lt;span&gt;space2 triangle_line &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;makeLine2&lt;&#x2F;span&gt;&lt;span&gt;(triangle[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;], triangle[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;]);
+&lt;&#x2F;span&gt;&lt;span&gt;triangle &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;toMas&lt;&#x2F;span&gt;&lt;span&gt;(triangle_line, triangle);
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Ведь намного проще понять координаты треугольника заданного так, что прямой угол лежит в центре координат, и все его катеты сонаправлены осям.&lt;&#x2F;p&gt;
+&lt;p&gt;Здесь используется функция &lt;code&gt;toMas&lt;&#x2F;code&gt; для сокращения кода. Её действие аналогично следующему:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;c++&quot; style=&quot;background-color:#f5f5f5;color:#1f1f1f;&quot; class=&quot;language-c++ &quot;&gt;&lt;code class=&quot;language-c++&quot; data-lang=&quot;c++&quot;&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;auto&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;&amp;amp;&lt;&#x2F;span&gt;&lt;span&gt; i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;:&lt;&#x2F;span&gt;&lt;span&gt; poly) i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; poly_line.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;to&lt;&#x2F;span&gt;&lt;span&gt;(i);
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Также есть небольшая хитрость: в цикле генерации правильного многоугольника цикл идёт не до &lt;code&gt;n&lt;&#x2F;code&gt;, а до &lt;code&gt;n+1&lt;&#x2F;code&gt;. Сделано это потому что мы не можем зациклить массив, чтобы нарисовать все стороны многоугольника. Поэтому последняя точка является как бы первой.&lt;&#x2F;p&gt;
+&lt;p&gt;Немного построения:&lt;&#x2F;p&gt;
+&lt;div class=&quot;container&quot;&gt;
+&lt;video class=&quot;img-one-two&quot; autoplay loop muted inline&gt;
+  &lt;source src=&quot;explanation_5&amp;#x2F;post_3_1_web.mp4&quot; type=&quot;video&#x2F;mp4&quot;&gt;
+  Your browser is not supporting video.
+&lt;&#x2F;video&gt;
+&lt;video class=&quot;img-one-two&quot; autoplay loop muted inline&gt;
+  &lt;source src=&quot;explanation_5&amp;#x2F;post_5_2_web.mp4&quot; type=&quot;video&#x2F;mp4&quot;&gt;
+  Your browser is not supporting video.
+&lt;&#x2F;video&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;А теперь наиболее интересные по моему мнению анимации изменения угла для разных многоугольников:&lt;&#x2F;p&gt;
+&lt;video class=&quot;img-one&quot; autoplay loop muted inline&gt;
+  &lt;source src=&quot;explanation_5&amp;#x2F;3_1_web.mp4&quot; type=&quot;video&#x2F;mp4&quot;&gt;
+  Your browser is not supporting video.
+&lt;&#x2F;video&gt;
+&lt;video class=&quot;img-one&quot; autoplay loop muted inline&gt;
+  &lt;source src=&quot;explanation_5&amp;#x2F;5_1_web.mp4&quot; type=&quot;video&#x2F;mp4&quot;&gt;
+  Your browser is not supporting video.
+&lt;&#x2F;video&gt;
+&lt;video class=&quot;img-one&quot; autoplay loop muted inline&gt;
+  &lt;source src=&quot;explanation_5&amp;#x2F;5_2_web.mp4&quot; type=&quot;video&#x2F;mp4&quot;&gt;
+  Your browser is not supporting video.
+&lt;&#x2F;video&gt;
+&lt;h1 id=&quot;puti-dal-neishego-razvitiia&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#puti-dal-neishego-razvitiia&quot;&gt;#&lt;&#x2F;a&gt;Пути дальнейшего развития&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;oboshchenie&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#oboshchenie&quot;&gt;#&lt;sup&gt;2&lt;&#x2F;sup&gt;&lt;&#x2F;a&gt;Обощение&lt;&#x2F;h2&gt;
+&lt;p&gt;Вообще, все фракталы, что здесь были нарисованы, являются вариацией одного класса фракталов, которые строятся одинаково. Итак, пусть у нас есть некоторый многоугольник. Некоторая его сторона является основанием, так же задано на каких сторонах строить фрактал. Далее рекурсивно осуществляется следующий алгоритм:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f5f5f5;color:#1f1f1f;&quot;&gt;&lt;code&gt;&lt;span&gt;Нарисовать многоугольник так, чтобы он своим основанием стоял на заданной системе координат
+&lt;&#x2F;span&gt;&lt;span&gt;Получить пространства всех сторон многоугольника, которые заданы
+&lt;&#x2F;span&gt;&lt;span&gt;Применить рекурсию ко всем этим пространствам
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Тогда для дерева Пифагора этим многоугольником является объединение квадрата и прямоугольного треугольника. Стороны, на которых надо рисовать - катеты треугольника.&lt;&#x2F;p&gt;
+&lt;p&gt;Все стороны, по которым надо строить фрактал, должны быть меньше по длине, чем основание. Если они будут больше или равны основанию, тогда фрактал получится бесконечно большим, и с каждой итерацией он может возрастать в размерах.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;uluchshenie-effektivnosti&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#uluchshenie-effektivnosti&quot;&gt;#&lt;sup&gt;2&lt;&#x2F;sup&gt;&lt;&#x2F;a&gt;Улучшение эффективности&lt;&#x2F;h2&gt;
+&lt;p&gt;Вообще данное решение является очень топорным, и работает недостаточно эффективно при маленьких углах. Вот мои старые замеры времени генерации кадра в зависимости от угла при основании прямоугольного треугольника для стандартного дерева Пифагора:&lt;&#x2F;p&gt;
+&lt;div class=&quot;magnifier-container img-one&quot;&gt;
+&lt;img
+    class=&quot;not-default full-screen-img&quot;
+    width=&quot;828&quot;
+    height=&quot;661&quot;
+    src=&quot;&amp;#x2F;processed_images&amp;#x2F;e888431497bc6b3800.webp&quot; 
+    onclick=&quot;full_screen(&#x27;img&amp;#x2F;time.4.3.png&#x27;)&quot;
+    onauxclick=&quot;full_screen_new_page(&#x27;img&amp;#x2F;time.4.3.png&#x27;)&quot;&gt;
+&lt;div class=&quot;magnifier-display&quot;&gt;
+&lt;img class=&quot;magnifier&quot; src=&quot;&#x2F;ico&#x2F;magnifier.svg&quot;&gt;&lt;div class=&quot;magnifier-info&quot;&gt;×1&lt;br&gt;png&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;Вот такие повышения времени идут когда рисуется при очень маленьком угле, либо угле, близком к 90 градусов. В этом случае дерево выглядит как-то так:&lt;&#x2F;p&gt;
+&lt;div class=&quot;magnifier-container img-one&quot;&gt;
+&lt;img
+    class=&quot;not-default full-screen-img&quot;
+    width=&quot;540&quot;
+    height=&quot;373&quot;
+    src=&quot;&amp;#x2F;processed_images&amp;#x2F;0d9c2ff566d2331700.jpg&quot; 
+    onclick=&quot;full_screen(&#x27;img&amp;#x2F;angle_2.png&#x27;)&quot;
+    onauxclick=&quot;full_screen_new_page(&#x27;img&amp;#x2F;angle_2.png&#x27;)&quot;&gt;
+&lt;div class=&quot;magnifier-display&quot;&gt;
+&lt;img class=&quot;magnifier&quot; src=&quot;&#x2F;ico&#x2F;magnifier.svg&quot;&gt;&lt;div class=&quot;magnifier-info&quot;&gt;×1&lt;br&gt;png&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;Хотя здесь максимальная глубина задана 1000. Такое долгое время вычислений получается из-за того что дерево слишком большое.&lt;&#x2F;p&gt;
+&lt;p&gt;Чтобы оптимизировать это, можно пользоваться свойством самоподобности этого фрактала: сначала рисуем его в одно изображение в маленьком разрешении, а затем просто перерисовываем эту картинку, вместо того, чтобы вычислять координаты для каждой ветки и рисовать отдельно каждый квадрат. Затем применяем это как-нибудь рекурсивно, чтобы на каждой итерации увеличивать степень точности изображения. &lt;&#x2F;p&gt;
+&lt;p&gt;Но это лишь идея в общих чертах. Она так же применима и к общему решению.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;vyvody&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#vyvody&quot;&gt;#&lt;&#x2F;a&gt;Выводы&lt;&#x2F;h1&gt;
+&lt;p&gt;Можно заметить, что в моем коде задача каждый раз решается полностью с нуля, и считается, как будто не существует вообще ничего, кроме этой задачи; и задачу никак не планируется расширять. Вследствие этого, для задачи вычислялись сложные формулы, которые никак, кроме как для этой задачи, не могут быть применены. Это плохой метод, программирование никогда бы не развилось до такого уровня, на каком оно есть сейчас, пользуйся все таким грубым подходом. Так же ничего не было вынесено в какие-то функции для упрощения кода.&lt;&#x2F;p&gt;
+&lt;p&gt;А чем кардинально отличается новое решение задачи? Оно повышает уровень абстракции. Если при написании первого решения я думал строго в терминах координат, в терминах формул, которые используют эти координат (на низком уровне), то в новом решении я использую некоторые абстрактные объекты: &amp;quot;системы координат&amp;quot;, &amp;quot;векторы&amp;quot; и применяю абстрактную процедуру как &amp;quot;преобразование координат&amp;quot; (а это уже более высокий уровень абстракции). Как видно, код от этого стал намного проще, он не только пишется хорошо, но ещё его способен понять другой человек. Да и в нём вообще не используется каких-либо формул, только понятные человеку имена функций.&lt;&#x2F;p&gt;
+&lt;p&gt;Ещё в старом коде при незначительном усложнении задачи (перейти от квадрата к правильному многоугольнку), значительно сильно усложнялся код. В новом же решении понадобилось совсем немного строк для решения новой задачи.&lt;&#x2F;p&gt;
+&lt;p&gt;Это и есть суть более высокого уровня абстракции - мы не задумываемся над низкоуровневыми вещами, вроде формул, а мыслим более сложными абстрактными объектами, которые позволяют нам эффективней решать задачу.&lt;&#x2F;p&gt;
+&lt;p&gt;Конечно, эта эффективность ещё зависит от того, насколько хорошо написана библиотека. Для некоторых задач незначительное усложнение влечет за собой незначительные изменения, а иногда совсем наоборот.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;kak-zarozhdalas-eta-biblioteka&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#kak-zarozhdalas-eta-biblioteka&quot;&gt;#&lt;&#x2F;a&gt;Как зарождалась эта библиотека&lt;&#x2F;h1&gt;
+&lt;p&gt;Поначалу, как вы можете видеть, я вообще не пользовался никакими абстракциями. Потом, в одном проекте графического интерфейса &lt;code&gt;GraphWinApi&lt;&#x2F;code&gt; я создал класс &lt;code&gt;Point&lt;&#x2F;code&gt;, который представлял собой обычный двумерный вектор. Я всего-лишь написал для него тривиальные методы, вроде &lt;code&gt;move&lt;&#x2F;code&gt;, &lt;code&gt;rotate&lt;&#x2F;code&gt;, &lt;code&gt;+&lt;&#x2F;code&gt;, &lt;code&gt;*&lt;&#x2F;code&gt; и т. д., но затем я удивился насколько просто можно рисовать повернутые объекты с использованием функции &lt;code&gt;rotate&lt;&#x2F;code&gt;. &lt;&#x2F;p&gt;
+&lt;p&gt;Далее, в библиотеке &lt;code&gt;TinyWindowsGraphics&lt;&#x2F;code&gt; я написал класс &lt;code&gt;PointBase&lt;&#x2F;code&gt; по сути с теми же методами, только немного лучше, плюс методы &lt;code&gt;toBasis&lt;&#x2F;code&gt;, &lt;code&gt;fromBasis&lt;&#x2F;code&gt;. И даже написал код для генерации фрактала на линии с помощью этих функций:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;c++&quot; style=&quot;background-color:#f5f5f5;color:#1f1f1f;&quot; class=&quot;language-c++ &quot;&gt;&lt;code class=&quot;language-c++&quot; data-lang=&quot;c++&quot;&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;template&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;class&lt;&#x2F;span&gt;&lt;span&gt; Draw&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;void &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c23f31;&quot;&gt;drawFractal&lt;&#x2F;span&gt;&lt;span&gt;(ImageDrawing_aa&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;&amp;amp; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;img&lt;&#x2F;span&gt;&lt;span&gt;, 
+&lt;&#x2F;span&gt;&lt;span&gt;				 Polygon_d&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;&amp;amp; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;poly&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;const 
+&lt;&#x2F;span&gt;&lt;span&gt;				 Draw&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;&amp;amp; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;draw&lt;&#x2F;span&gt;&lt;span&gt;, 
+&lt;&#x2F;span&gt;&lt;span&gt;				 int8u &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;maxDepth &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;30&lt;&#x2F;span&gt;&lt;span&gt;, 
+&lt;&#x2F;span&gt;&lt;span&gt;				 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#668f14;&quot;&gt;double &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;minRadius &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0.5&lt;&#x2F;span&gt;&lt;span&gt;, 
+&lt;&#x2F;span&gt;&lt;span&gt;				 int32u &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;depth &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;) {
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span&gt;(depth &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt; maxDepth &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;&amp;amp;&amp;amp; &lt;&#x2F;span&gt;&lt;span&gt;(poly.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;array&lt;&#x2F;span&gt;&lt;span&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;poly.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;array&lt;&#x2F;span&gt;&lt;span&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;]).&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;getLength&lt;&#x2F;span&gt;&lt;span&gt;() &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt; minRadius) {
+&lt;&#x2F;span&gt;&lt;span&gt;		&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;draw&lt;&#x2F;span&gt;&lt;span&gt;(poly, depth);
+&lt;&#x2F;span&gt;&lt;span&gt;		&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span&gt;(int8u i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;; i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt; poly.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;array&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;size&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;++&lt;&#x2F;span&gt;&lt;span&gt;i) {
+&lt;&#x2F;span&gt;&lt;span&gt;			Polygon_d poly1 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; poly;
+&lt;&#x2F;span&gt;&lt;span&gt;			poly1.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;move&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;poly1.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;array&lt;&#x2F;span&gt;&lt;span&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;]);
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;			Point_d ox &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; poly.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;array&lt;&#x2F;span&gt;&lt;span&gt;[poly.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;array&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;size&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;poly.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;array&lt;&#x2F;span&gt;&lt;span&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;];
+&lt;&#x2F;span&gt;&lt;span&gt;			ox &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;&#x2F;=&lt;&#x2F;span&gt;&lt;span&gt; ox.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;getLength&lt;&#x2F;span&gt;&lt;span&gt;();
+&lt;&#x2F;span&gt;&lt;span&gt;			Point_d oy &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; ox;
+&lt;&#x2F;span&gt;&lt;span&gt;			oy.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;rotate&lt;&#x2F;span&gt;&lt;span&gt;(pi&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;2.0&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;			poly1.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;toBasis&lt;&#x2F;span&gt;&lt;span&gt;(ox, oy);
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;			Point_d nx &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; poly.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;array&lt;&#x2F;span&gt;&lt;span&gt;[i&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt; poly.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;array&lt;&#x2F;span&gt;&lt;span&gt;[i];
+&lt;&#x2F;span&gt;&lt;span&gt;			nx &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;&#x2F;= &lt;&#x2F;span&gt;&lt;span&gt;(poly.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;array&lt;&#x2F;span&gt;&lt;span&gt;[poly.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;array&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;size&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;poly.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;array&lt;&#x2F;span&gt;&lt;span&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;]).&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;getLength&lt;&#x2F;span&gt;&lt;span&gt;();
+&lt;&#x2F;span&gt;&lt;span&gt;			Point_d ny &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; nx;
+&lt;&#x2F;span&gt;&lt;span&gt;			ny.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;rotate&lt;&#x2F;span&gt;&lt;span&gt;(pi&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;2.0&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;			poly1.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;fromBasis&lt;&#x2F;span&gt;&lt;span&gt;(nx, ny);
+&lt;&#x2F;span&gt;&lt;span&gt;			poly1.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;move&lt;&#x2F;span&gt;&lt;span&gt;(poly.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;array&lt;&#x2F;span&gt;&lt;span&gt;[i]);
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;			&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;drawFractal&lt;&#x2F;span&gt;&lt;span&gt;(img, poly1, draw, maxDepth, minRadius, depth&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;		}
+&lt;&#x2F;span&gt;&lt;span&gt;	}
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Вообще, я бы мог написать статью об этом решении, но оно не настолько красивое, да и тогда я не осознал всю суть.&lt;&#x2F;p&gt;
+&lt;p&gt;Где-то с этого момента я вспомнил линейную алгебру и у меня в голове засела идея, что системы координат неплохо так использовать во множестве задач.&lt;&#x2F;p&gt;
+&lt;p&gt;Далее в одном секретном проекте под действием этой идеи родилось понятие системы координат, там преобразование координат было самой основой. Поначалу это было в виде некрасивых функций &lt;code&gt;toCoordSystem()&lt;&#x2F;code&gt;, &lt;code&gt;fromCoordSystem()&lt;&#x2F;code&gt;, затем под множеством волн рефакторинга появилось то, что есть сейчас. Ввиду огромного удобства я начал использовать этот код во всех своих других проектах. И приходилось тащить везде весь код этого секретного проекта только ради преобразований координат. Тогда я и понял, что эта часть является настолько независимой от самого проекта, что должна быть вынесена в отдельную библиотеку.&lt;&#x2F;p&gt;
+&lt;p&gt;Ну, и как говорится вначале, когда я начал придумывать примеры для этой библиотеки, я осознал всю её мощь; насколько хорошо она применима к моим старым проектам.&lt;&#x2F;p&gt;
+&lt;p&gt;Именно поэтому я и показывал вам весь этот путь от кошмарного кода к коду, использующему абстракции на простом примере одного фрактала.&lt;&#x2F;p&gt;
+&lt;p&gt;Повышайте уровень абстракции. До встречи!&lt;&#x2F;p&gt;
+</description>
+        </item>
+        <item>
+            <title>Фрактал &#x27;Круги Аполлона&#x27;. Первые эксперименты.</title>
+            <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
+            <link>https://testzorax.github.io/p/apollon-circles/</link>
+            <guid>https://testzorax.github.io/p/apollon-circles/</guid>
+            <description>&lt;div class=&quot;magnifier-container img-two-three&quot;&gt;
+&lt;img
+    class=&quot;not-default full-screen-img&quot;
+    width=&quot;853&quot;
+    height=&quot;853&quot;
+    src=&quot;&amp;#x2F;processed_images&amp;#x2F;dca9f31ca768a44e00.jpg&quot; 
+    onclick=&quot;full_screen(&#x27;apollon_1.png&#x27;)&quot;
+    onauxclick=&quot;full_screen_new_page(&#x27;apollon_1.png&#x27;)&quot;&gt;
+&lt;div class=&quot;magnifier-display&quot;&gt;
+&lt;img class=&quot;magnifier&quot; src=&quot;&#x2F;ico&#x2F;magnifier.svg&quot;&gt;&lt;div class=&quot;magnifier-info&quot;&gt;×1.2&lt;br&gt;png&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;Этот фрактал основан на бесконечном построении касающихся окружностей.&lt;&#x2F;p&gt;
+&lt;p&gt;Суть этого фрактала заключается в следующем: изначально у нас есть минимальный набор окружностей (три), у которого мы знаем положение центров и радиусы. Далее необходимо строить касательную к каждой из них, и к каждой из образовавшихся, и так до бесконечности, чтобы пространство полностью заполнялось без пересечений окружностей.&lt;&#x2F;p&gt;
+&lt;div class=&quot;magnifier-container img-two-three&quot;&gt;
+&lt;img
+    class=&quot;not-default full-screen-img&quot;
+    width=&quot;851&quot;
+    height=&quot;853&quot;
+    src=&quot;&amp;#x2F;processed_images&amp;#x2F;079e9c99fb32c36500.webp&quot; 
+    onclick=&quot;full_screen(&#x27;apollon_2.png&#x27;)&quot;
+    onauxclick=&quot;full_screen_new_page(&#x27;apollon_2.png&#x27;)&quot;&gt;
+&lt;div class=&quot;magnifier-display&quot;&gt;
+&lt;img class=&quot;magnifier&quot; src=&quot;&#x2F;ico&#x2F;magnifier.svg&quot;&gt;&lt;div class=&quot;magnifier-info&quot;&gt;×1.4&lt;br&gt;png&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;Поэтому, для того, чтобы нарисовать при помощи программы такой фрактал, необходимо сначала решить простую задачу:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f5f5f5;color:#1f1f1f;&quot;&gt;&lt;code&gt;&lt;span&gt;Как, зная координаты центра и радиус трех окружностей, найти все касательные к ним? 
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Но для начала &lt;em&gt;свойство двух касательных окружностей:&lt;&#x2F;em&gt; если касание внешнее, то расстояние между центрами окружностей равно сумме их радиусов; если касание внутреннее, то расстояние между центрами равно разности их радиусов, взятое по модулю.&lt;&#x2F;p&gt;
+&lt;div class=&quot;magnifier-container img-two-three&quot;&gt;
+&lt;img
+    class=&quot;not-default full-screen-img&quot;
+    width=&quot;853&quot;
+    height=&quot;431&quot;
+    src=&quot;&amp;#x2F;processed_images&amp;#x2F;8dd0153a3e68544800.webp&quot; 
+    onclick=&quot;full_screen(&#x27;apollon_3.png&#x27;)&quot;
+    onauxclick=&quot;full_screen_new_page(&#x27;apollon_3.png&#x27;)&quot;&gt;
+&lt;div class=&quot;magnifier-display&quot;&gt;
+&lt;img class=&quot;magnifier&quot; src=&quot;&#x2F;ico&#x2F;magnifier.svg&quot;&gt;&lt;div class=&quot;magnifier-info&quot;&gt;×1.3&lt;br&gt;png&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;Учитывая, что окружностей три, а каждая может касаться четвертой двумя способами, получаем всего 2³=8 способов как могут касаться три окружности с четвертой, которую надо найти. &lt;&#x2F;p&gt;
+&lt;p&gt;Благодаря этому свойству можем составить систему из трех уравнений, где есть три неизвестных. За m&lt;sub&gt;1&lt;&#x2F;sub&gt;, m&lt;sub&gt;2&lt;&#x2F;sub&gt;, m&lt;sub&gt;3&lt;&#x2F;sub&gt; я обозначил параметры - внешнее или внутреннее касание для конкретной окружности: +1 означает внешнее касание, -1 внутреннее (рисунок 4).&lt;&#x2F;p&gt;
+&lt;p&gt;Благодаря этому свойству можем составить систему из трех уравнений, где есть три неизвестных. За m&lt;sub&gt;1&lt;&#x2F;sub&gt;, m&lt;sub&gt;2&lt;&#x2F;sub&gt;, m&lt;sub&gt;3&lt;&#x2F;sub&gt; я обозначил параметры - внешнее или внутреннее касание для конкретной окружности: +1 означает внешнее касание, -1 внутреннее.&lt;&#x2F;p&gt;
+&lt;div class=&quot;magnifier-container img-two-three&quot;&gt;
+&lt;img
+    class=&quot;not-default full-screen-img&quot;
+    width=&quot;785&quot;
+    height=&quot;210&quot;
+    src=&quot;&amp;#x2F;processed_images&amp;#x2F;317ad607fcc4b81100.webp&quot; 
+    onclick=&quot;full_screen(&#x27;formulas.png&#x27;)&quot;
+    onauxclick=&quot;full_screen_new_page(&#x27;formulas.png&#x27;)&quot;&gt;
+&lt;div class=&quot;magnifier-display&quot;&gt;
+&lt;img class=&quot;magnifier&quot; src=&quot;&#x2F;ico&#x2F;magnifier.svg&quot;&gt;&lt;div class=&quot;magnifier-info&quot;&gt;×1&lt;br&gt;png&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;Такую систему уравнений надо как-то решить. Поначалу она может показаться страшной, и на самом деле так и есть :) И проще её решить аналитически, чем при помощи всяких численных методов. Но это аналитическое решение не способна выдать ни одна система символьных вычислений, а если может, то ей не хватит памяти, либо формула выходит километровой, и ее невозможно использовать в программе (если вы найдете такую программу, которая сможет решить эту систему, и там не будет километровой формулы, то я скинусь вам на шаурму). Поэтому единственный доступный способ - решать на бумажке, делая огромное число замен.&lt;&#x2F;p&gt;
+&lt;div class=&quot;magnifier-container img-two-three&quot;&gt;
+&lt;img
+    class=&quot;not-default full-screen-img&quot;
+    width=&quot;853&quot;
+    height=&quot;312&quot;
+    src=&quot;&amp;#x2F;processed_images&amp;#x2F;3601259840ca2db000.webp&quot; 
+    onclick=&quot;full_screen(&#x27;apollon_4.png&#x27;)&quot;
+    onauxclick=&quot;full_screen_new_page(&#x27;apollon_4.png&#x27;)&quot;&gt;
+&lt;div class=&quot;magnifier-display&quot;&gt;
+&lt;img class=&quot;magnifier&quot; src=&quot;&#x2F;ico&#x2F;magnifier.svg&quot;&gt;&lt;div class=&quot;magnifier-info&quot;&gt;×2.1&lt;br&gt;png&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;&lt;em&gt;Пример решения системы уравнений для различных m&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;!-- TODO сделать надпись выше привязанной к картинке --&gt;
+&lt;p&gt;Я не буду здесь приводить решение, потому что это слишком сложно: я ещё в школе пытался решить эту систему, но так и не смог; лишь после двух курсов в университете, мои мозги достаточно подготовились, чтобы решить ее до конца. Если захотите повторить мой подвиг, то вот вам подсказка: делайте больше замен, заменяя некоторые части на новые переменные.&lt;&#x2F;p&gt;
+&lt;p&gt;Одна очень важная деталь, которую я выяснил насчет решения: оно численно неустойчиво даже для вещественных чисел двойной точности (это при том, что там вычисляются только формулы!), поэтому я использовал библиотеку для длинной арифметики &lt;code&gt;boost::multiprecision::cpp_bin_float&lt;&#x2F;code&gt;, где задал размер вещественного числа в 40 байт (320 бит).&lt;&#x2F;p&gt;
+&lt;p&gt;Далее, имея функцию нахождения касательных окружностей к трем данным, можно легко написать функцию, которая из изначального набора строит весь фрактал. В этой функции будет использоваться рекурсия, а так же там надо учесть, чтобы не возникали окружности, которые уже рисовались.&lt;&#x2F;p&gt;
+&lt;p&gt;Таким образом получается первая картинка.&lt;&#x2F;p&gt;
+&lt;p&gt;Ну а на следующей картинке показаны первые эксперименты: внутрь всех окружностей была вписана изначальная окружность. &lt;&#x2F;p&gt;
+&lt;div class=&quot;magnifier-container img-two-three&quot;&gt;
+&lt;img
+    class=&quot;not-default full-screen-img&quot;
+    width=&quot;853&quot;
+    height=&quot;853&quot;
+    src=&quot;&amp;#x2F;processed_images&amp;#x2F;7d7a9c8b0d6e1ee400.jpg&quot; 
+    onclick=&quot;full_screen(&#x27;apollon_5.png&#x27;)&quot;
+    onauxclick=&quot;full_screen_new_page(&#x27;apollon_5.png&#x27;)&quot;&gt;
+&lt;div class=&quot;magnifier-display&quot;&gt;
+&lt;img class=&quot;magnifier&quot; src=&quot;&#x2F;ico&#x2F;magnifier.svg&quot;&gt;&lt;div class=&quot;magnifier-info&quot;&gt;×1.2&lt;br&gt;png&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;А на следующей картинке такой процесс повторялся до бесконечности (причем, чтобы выглядело красиво, цвет более глубоких итераций ставился на более блёклый).&lt;&#x2F;p&gt;
+&lt;div class=&quot;magnifier-container img-two-three&quot;&gt;
+&lt;img
+    class=&quot;not-default full-screen-img&quot;
+    width=&quot;853&quot;
+    height=&quot;853&quot;
+    src=&quot;&amp;#x2F;processed_images&amp;#x2F;48adcc45418acfbb00.jpg&quot; 
+    onclick=&quot;full_screen(&#x27;apollon_6.png&#x27;)&quot;
+    onauxclick=&quot;full_screen_new_page(&#x27;apollon_6.png&#x27;)&quot;&gt;
+&lt;div class=&quot;magnifier-display&quot;&gt;
+&lt;img class=&quot;magnifier&quot; src=&quot;&#x2F;ico&#x2F;magnifier.svg&quot;&gt;&lt;div class=&quot;magnifier-info&quot;&gt;×1.8&lt;br&gt;png&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;Далее планируется переписать код, чтобы он стабильно работал для всех случаев, когда может происходить деление на ноль; вообще создать целую библиотеку вычислений касательных окружностей для разных случаев; создание различных анимаций; создание кругов Аполлона со случайными характеристиками на всех уровнях.&lt;&#x2F;p&gt;
+&lt;p&gt;Если у вас появятся идеи того, что ещё можно натворить с кругами Аполлона — предлагайте их в комментариях.&lt;&#x2F;p&gt;
+</description>
+        </item>
+    </channel>
+</rss>

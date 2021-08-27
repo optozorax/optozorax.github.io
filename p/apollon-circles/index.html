@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <!-- Yandex.Metrika counter -->
+  
+  <!-- --- -->
+
+  <!-- Non social metatags -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link rel="canonical" href="https://testzorax.github.io/">
+  <meta name="robots" content="noarchive">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml"> 
+  <!-- --- -->
+
+  <!-- Social metatags -->
+  
+<meta name="author" content="optozorax">
+<meta name="title" content="Фрактал &#x27;Круги Аполлона&#x27;. Первые эксперименты. — Блог optozorax&#x27;а">
+<meta name="description" content="Рисую фрактал, основанный на бесконечном построении касающихся окружностей.">
+<meta name="image" content="thumbnail.png">
+
+<meta name="keywords" itemprop="tags" content="программирование, фракталы, графика, круги-аполлона">
+
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://testzorax.github.io/p/apollon-circles/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Фрактал &#x27;Круги Аполлона&#x27;. Первые эксперименты. — Блог optozorax&#x27;а">
+<meta property="og:description" content="Рисую фрактал, основанный на бесконечном построении касающихся окружностей.">
+<meta property="og:image" content="thumbnail.png">
+<meta property="og:locale" content="ru">
+
+
+<meta property="article:published_time" content="2018-07-20">
+
+
+
+
+<meta property="article:tag" content="программирование">
+
+<meta property="article:tag" content="фракталы">
+
+<meta property="article:tag" content="графика">
+
+<meta property="article:tag" content="круги-аполлона">
+
+
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="optozorax.github.io">
+<meta property="twitter:url" content="https://testzorax.github.io/p/apollon-circles/">
+<meta name="twitter:title" content="Фрактал &#x27;Круги Аполлона&#x27;. Первые эксперименты. — Блог optozorax&#x27;а">
+<meta name="twitter:description" content="Рисую фрактал, основанный на бесконечном построении касающихся окружностей.">
+<meta name="twitter:image" content="thumbnail.png">
+<meta name="twitter:creator" content="optozorax">
+
+  <!-- --- -->
+
+  <!-- Extra head declarations -->
+  
+
+<script type="text/javascript" src="/js/toc.js"></script>
+<script type="text/javascript" src="/js/gallery.js"></script>
+<script type="text/javascript" src="/js/full_screen.js"></script>
+<script type="text/javascript" src="/js/word_wrap.js"></script>
+
+  <!-- --- -->
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/main.css">
+  <!-- --- -->
+
+  <!-- JS -->
+  <script type="text/javascript" src="/js/hammer.min.js"></script>
+  <!-- --- -->
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+  <!-- --- -->
+
+  <title>Фрактал &#x27;Круги Аполлона&#x27;. Первые эксперименты. — Блог optozorax&#x27;а</title>
+</head>
+
+<body>
+  <!-- FullScreen block -->
+  <div id="img_modal" class="modal" style="display: none;">
+      <img id="img_modal_01" src="/ico/loading.gif">
+      <span class="close" id="img_modal_close">&times;</span>
+  </div>
+  <!-- --- -->
+
+  
+
+
+  <header class="site-header" role="banner">
+  
+  <div class="wrapper">
+    <a class="site-title" href="/">optozorax.blog</a>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <img src="/ico/menu.svg" width="13px" height="15px">
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          <a class="page-link" href="/">Блог</a>
+        
+          <a class="page-link" href="/e">Систематизация</a>
+        
+          <a class="page-link" href="/tags">Теги</a>
+        
+          <a class="page-link" href="/about">Обо мне</a>
+        
+      </div>
+    </nav>
+  </div>
+  
+  </header>
+  
+
+
+
+  
+  
+  <section class="page-header">
+  
+
+
+<h1 class="project-name">Фрактал &#x27;Круги Аполлона&#x27;. Первые эксперименты.</h1>
+
+<h2 class="project-tagline">Рисую фрактал, основанный на бесконечном построении касающихся окружностей.</h2>
+
+
+
+<span style="margin-bottom: 10px;">
+  
+    <a href="/tags#programmirovanie"><code class="tag"><nobr>#программирование</nobr></code></a>&nbsp;
+  
+    <a href="/tags#fraktaly"><code class="tag"><nobr>#фракталы</nobr></code></a>&nbsp;
+  
+    <a href="/tags#grafika"><code class="tag"><nobr>#графика</nobr></code></a>&nbsp;
+  
+    <a href="/tags#krugi-apollona"><code class="tag"><nobr>#круги-аполлона</nobr></code></a>&nbsp;
+  
+</span>
+
+
+<center>
+<table style="margin-top: 8px;">
+<tr>
+
+
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+  <time datetime="2018-07-20" itemprop="datePublished">
+    
+    
+    
+    
+    <span class="post-date">20 июля 2018</span>
+  </time>
+</h2>
+</td>
+
+
+
+<td style="padding-left: 10px;">
+  
+  <a href="https:&#x2F;&#x2F;vk.com&#x2F;optoblog?w=wall-169103586_2">
+  <code class="tag">Пост в ВК</code>
+  </a>
+  
+  
+  
+</td>
+
+</tr>
+</table>
+
+
+</center>
+
+
+
+
+  </section>
+  
+  
+
+  
+
+
+  <section class="main-content section">
+  
+<article itemscope itemtype="http://schema.org/BlogPosting">
+<div itemprop="articleBody" id="content">
+<div class="magnifier-container img-two-three">
+<img
+    class="not-default full-screen-img"
+    width="853"
+    height="853"
+    src="&#x2F;processed_images&#x2F;dca9f31ca768a44e00.jpg" 
+    onclick="full_screen('apollon_1.png')"
+    onauxclick="full_screen_new_page('apollon_1.png')">
+<div class="magnifier-display">
+<img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1.2<br>png</div>
+</div>
+</div>
+<p>Этот фрактал основан на бесконечном построении касающихся окружностей.</p>
+<p>Суть этого фрактала заключается в следующем: изначально у нас есть минимальный набор окружностей (три), у которого мы знаем положение центров и радиусы. Далее необходимо строить касательную к каждой из них, и к каждой из образовавшихся, и так до бесконечности, чтобы пространство полностью заполнялось без пересечений окружностей.</p>
+<div class="magnifier-container img-two-three">
+<img
+    class="not-default full-screen-img"
+    width="851"
+    height="853"
+    src="&#x2F;processed_images&#x2F;079e9c99fb32c36500.webp" 
+    onclick="full_screen('apollon_2.png')"
+    onauxclick="full_screen_new_page('apollon_2.png')">
+<div class="magnifier-display">
+<img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1.4<br>png</div>
+</div>
+</div>
+<p>Поэтому, для того, чтобы нарисовать при помощи программы такой фрактал, необходимо сначала решить простую задачу:</p>
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>Как, зная координаты центра и радиус трех окружностей, найти все касательные к ним? 
+</span></code></pre>
+<p>Но для начала <em>свойство двух касательных окружностей:</em> если касание внешнее, то расстояние между центрами окружностей равно сумме их радиусов; если касание внутреннее, то расстояние между центрами равно разности их радиусов, взятое по модулю.</p>
+<div class="magnifier-container img-two-three">
+<img
+    class="not-default full-screen-img"
+    width="853"
+    height="431"
+    src="&#x2F;processed_images&#x2F;8dd0153a3e68544800.webp" 
+    onclick="full_screen('apollon_3.png')"
+    onauxclick="full_screen_new_page('apollon_3.png')">
+<div class="magnifier-display">
+<img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1.3<br>png</div>
+</div>
+</div>
+<p>Учитывая, что окружностей три, а каждая может касаться четвертой двумя способами, получаем всего 2³=8 способов как могут касаться три окружности с четвертой, которую надо найти. </p>
+<p>Благодаря этому свойству можем составить систему из трех уравнений, где есть три неизвестных. За m<sub>1</sub>, m<sub>2</sub>, m<sub>3</sub> я обозначил параметры - внешнее или внутреннее касание для конкретной окружности: +1 означает внешнее касание, -1 внутреннее (рисунок 4).</p>
+<p>Благодаря этому свойству можем составить систему из трех уравнений, где есть три неизвестных. За m<sub>1</sub>, m<sub>2</sub>, m<sub>3</sub> я обозначил параметры - внешнее или внутреннее касание для конкретной окружности: +1 означает внешнее касание, -1 внутреннее.</p>
+<div class="magnifier-container img-two-three">
+<img
+    class="not-default full-screen-img"
+    width="785"
+    height="210"
+    src="&#x2F;processed_images&#x2F;317ad607fcc4b81100.webp" 
+    onclick="full_screen('formulas.png')"
+    onauxclick="full_screen_new_page('formulas.png')">
+<div class="magnifier-display">
+<img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1<br>png</div>
+</div>
+</div>
+<p>Такую систему уравнений надо как-то решить. Поначалу она может показаться страшной, и на самом деле так и есть :) И проще её решить аналитически, чем при помощи всяких численных методов. Но это аналитическое решение не способна выдать ни одна система символьных вычислений, а если может, то ей не хватит памяти, либо формула выходит километровой, и ее невозможно использовать в программе (если вы найдете такую программу, которая сможет решить эту систему, и там не будет километровой формулы, то я скинусь вам на шаурму). Поэтому единственный доступный способ - решать на бумажке, делая огромное число замен.</p>
+<div class="magnifier-container img-two-three">
+<img
+    class="not-default full-screen-img"
+    width="853"
+    height="312"
+    src="&#x2F;processed_images&#x2F;3601259840ca2db000.webp" 
+    onclick="full_screen('apollon_4.png')"
+    onauxclick="full_screen_new_page('apollon_4.png')">
+<div class="magnifier-display">
+<img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×2.1<br>png</div>
+</div>
+</div>
+<p><em>Пример решения системы уравнений для различных m</em></p>
+<!-- TODO сделать надпись выше привязанной к картинке -->
+<p>Я не буду здесь приводить решение, потому что это слишком сложно: я ещё в школе пытался решить эту систему, но так и не смог; лишь после двух курсов в университете, мои мозги достаточно подготовились, чтобы решить ее до конца. Если захотите повторить мой подвиг, то вот вам подсказка: делайте больше замен, заменяя некоторые части на новые переменные.</p>
+<p>Одна очень важная деталь, которую я выяснил насчет решения: оно численно неустойчиво даже для вещественных чисел двойной точности (это при том, что там вычисляются только формулы!), поэтому я использовал библиотеку для длинной арифметики <code>boost::multiprecision::cpp_bin_float</code>, где задал размер вещественного числа в 40 байт (320 бит).</p>
+<p>Далее, имея функцию нахождения касательных окружностей к трем данным, можно легко написать функцию, которая из изначального набора строит весь фрактал. В этой функции будет использоваться рекурсия, а так же там надо учесть, чтобы не возникали окружности, которые уже рисовались.</p>
+<p>Таким образом получается первая картинка.</p>
+<p>Ну а на следующей картинке показаны первые эксперименты: внутрь всех окружностей была вписана изначальная окружность. </p>
+<div class="magnifier-container img-two-three">
+<img
+    class="not-default full-screen-img"
+    width="853"
+    height="853"
+    src="&#x2F;processed_images&#x2F;7d7a9c8b0d6e1ee400.jpg" 
+    onclick="full_screen('apollon_5.png')"
+    onauxclick="full_screen_new_page('apollon_5.png')">
+<div class="magnifier-display">
+<img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1.2<br>png</div>
+</div>
+</div>
+<p>А на следующей картинке такой процесс повторялся до бесконечности (причем, чтобы выглядело красиво, цвет более глубоких итераций ставился на более блёклый).</p>
+<div class="magnifier-container img-two-three">
+<img
+    class="not-default full-screen-img"
+    width="853"
+    height="853"
+    src="&#x2F;processed_images&#x2F;48adcc45418acfbb00.jpg" 
+    onclick="full_screen('apollon_6.png')"
+    onauxclick="full_screen_new_page('apollon_6.png')">
+<div class="magnifier-display">
+<img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1.8<br>png</div>
+</div>
+</div>
+<p>Далее планируется переписать код, чтобы он стабильно работал для всех случаев, когда может происходить деление на ноль; вообще создать целую библиотеку вычислений касательных окружностей для разных случаев; создание различных анимаций; создание кругов Аполлона со случайными характеристиками на всех уровнях.</p>
+<p>Если у вас появятся идеи того, что ещё можно натворить с кругами Аполлона — предлагайте их в комментариях.</p>
+
+</div>
+</article>
+
+  </section>
+  
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<section class="section second-section">
+Если вам нравится что я делаю, то подписывайтесь на меня в <a href="https://t.me/optozorax_dev">Telegram</a> и <a href="https://www.youtube.com/c/optozorax">YouTube</a>.
+</section>
+
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<section class="comments section second-section">
+
+<script src="https://utteranc.es/client.js"
+        repo="optozorax/optozorax.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</section>
+
+
+
+
+
+  <hr class="enabled-on-phone">
+
+  
+
+
+  <footer class="site-footer section second-section">
+  
+    <center>
+    <div style="margin-bottom: 10px;">© Шепрут Илья. Лицензия: <a href="https://creativecommons.org/licenses/by/3.0/deed.ru">CC-BY</a>.</div>
+    <table style="border: 0px; display: contents;">
+    <tr><td style="border: 0px; padding: 0.2rem;">
+    <!-- SVG icons from https://iconmonstr.com -->
+
+    
+<span class="my-span-icon">
+  <a 
+    href="https:&#x2F;&#x2F;github.com&#x2F;optozorax" 
+    aria-label="optozorax's GitHub" 
+    title="optozorax's GitHub">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/github.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's GitHub">
+  </a>
+</span>
+
+
+    
+<span class="my-span-icon">
+  <a 
+    href="https:&#x2F;&#x2F;t.me&#x2F;optozorax_dev" 
+    aria-label="optozorax's Telegram channel" 
+    title="optozorax's Telegram channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/tg.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Telegram channel">
+  </a>
+</span>
+
+
+    
+<span class="my-span-icon">
+  <a 
+    href="https:&#x2F;&#x2F;www.youtube.com&#x2F;c&#x2F;optozorax" 
+    aria-label="optozorax's YouTube channel" 
+    title="optozorax's YouTube channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/youtube.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's YouTube channel">
+  </a>
+</span>
+
+
+    
+<span class="my-span-icon">
+  <a 
+    href="&#x2F;rss.xml" 
+    aria-label="optozorax's RSS feed" 
+    title="optozorax's RSS feed">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/rss.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's RSS feed">
+  </a>
+</span>
+
+
+    
+<span class="my-span-icon">
+  <a 
+    href="mailto:optozorax@gmail.com" 
+    aria-label="optozorax's email" 
+    title="optozorax's email">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/contact.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's email">
+  </a>
+</span>
+
+
+    </td><td style="border: 0px; padding: 0.2rem;">
+    
+
+    </td></tr>
+    </table>
+    <div class="small-info">
+      Сделано с помощью <a href="https://www.getzola.org/">Zola</a> | База темы <a href="https://github.com/lorepirri/cayman-blog">Cayman Blog</a> | <a href="https://github.com/optozorax/optozorax.github.io">Исходники сайта</a>
+    </div>
+    </center>
+  
+  </footer>
+  
+
+
+
+  
+</body>
+</html>
