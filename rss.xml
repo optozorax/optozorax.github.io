@@ -26,9 +26,11 @@
 
 
 &lt;div class=&quot;yt-container&quot;&gt;
+&lt;a target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=PCx228KcOow&quot;&gt;
 &lt;div class=&quot;yt-image-wrapper&quot;&gt;
 &lt;img class=&quot;yt-image not-default&quot; src=&quot;&#x2F;youtube&amp;#x2F;PCx228KcOow.webp&quot; width=&quot;336&quot; height=&quot;188&quot;&gt;
 &lt;&#x2F;div&gt;
+&lt;&#x2F;a&gt;
 &lt;div class=&quot;yt-title-wrapper&quot;&gt;
 &lt;a class=&quot;yt-title&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=PCx228KcOow&quot;&gt;Искусственная жизнь. Генетический алгоритм. Мир №1&lt;&#x2F;a&gt;
 &lt;span class=&quot;yt-text&quot;&gt;Канал: &lt;&#x2F;span&gt;&lt;a target=&quot;_blank&quot; class=&quot;yt-channel&quot; href=&quot;https:&amp;#x2F;&amp;#x2F;www.youtube.com&amp;#x2F;channel&amp;#x2F;UCP1JsJgeNs86oqLGnjfGo9Q&quot;&gt;foo52ru ТехноШаман&lt;&#x2F;a&gt;
@@ -51,9 +53,11 @@
 
 
 &lt;div class=&quot;yt-container&quot;&gt;
+&lt;a target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=U5yVw4uQNDo&quot;&gt;
 &lt;div class=&quot;yt-image-wrapper&quot;&gt;
 &lt;img class=&quot;yt-image not-default&quot; src=&quot;&#x2F;youtube&amp;#x2F;U5yVw4uQNDo.jpeg&quot; width=&quot;1280&quot; height=&quot;720&quot;&gt;
 &lt;&#x2F;div&gt;
+&lt;&#x2F;a&gt;
 &lt;div class=&quot;yt-title-wrapper&quot;&gt;
 &lt;a class=&quot;yt-title&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=U5yVw4uQNDo&quot;&gt;Нейронная сеть.  Часть 8.  Переход между картинками.&lt;&#x2F;a&gt;
 &lt;span class=&quot;yt-text&quot;&gt;Канал: &lt;&#x2F;span&gt;&lt;a target=&quot;_blank&quot; class=&quot;yt-channel&quot; href=&quot;https:&amp;#x2F;&amp;#x2F;www.youtube.com&amp;#x2F;channel&amp;#x2F;UCP1JsJgeNs86oqLGnjfGo9Q&quot;&gt;foo52ru ТехноШаман&lt;&#x2F;a&gt;
@@ -724,9 +728,11 @@ slide_count[1] = 8;
 
 
 &lt;div class=&quot;yt-container&quot;&gt;
+&lt;a target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=fWkAfa96OmI&quot;&gt;
 &lt;div class=&quot;yt-image-wrapper&quot;&gt;
 &lt;img class=&quot;yt-image not-default&quot; src=&quot;&#x2F;youtube&amp;#x2F;fWkAfa96OmI.webp&quot; width=&quot;1280&quot; height=&quot;720&quot;&gt;
 &lt;&#x2F;div&gt;
+&lt;&#x2F;a&gt;
 &lt;div class=&quot;yt-title-wrapper&quot;&gt;
 &lt;a class=&quot;yt-title&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=fWkAfa96OmI&quot;&gt;This happens when you put one portal inside another&lt;&#x2F;a&gt;
 &lt;span class=&quot;yt-text&quot;&gt;Канал: &lt;&#x2F;span&gt;&lt;a target=&quot;_blank&quot; class=&quot;yt-channel&quot; href=&quot;https:&amp;#x2F;&amp;#x2F;www.youtube.com&amp;#x2F;channel&amp;#x2F;UCIsVwdLhYrrs3K8MOXEZdhQ&quot;&gt;optozorax&lt;&#x2F;a&gt;
@@ -3025,9 +3031,11 @@ slide_count[4] = 3;
 
 
 &lt;div class=&quot;yt-container&quot;&gt;
+&lt;a target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=1q0sHf_n_2Y&quot;&gt;
 &lt;div class=&quot;yt-image-wrapper&quot;&gt;
 &lt;img class=&quot;yt-image not-default&quot; src=&quot;&#x2F;youtube&amp;#x2F;1q0sHf_n_2Y.webp&quot; width=&quot;336&quot; height=&quot;188&quot;&gt;
 &lt;&#x2F;div&gt;
+&lt;&#x2F;a&gt;
 &lt;div class=&quot;yt-title-wrapper&quot;&gt;
 &lt;a class=&quot;yt-title&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=1q0sHf_n_2Y&quot;&gt;Решение главного парадокса порталов&lt;&#x2F;a&gt;
 &lt;span class=&quot;yt-text&quot;&gt;Канал: &lt;&#x2F;span&gt;&lt;a target=&quot;_blank&quot; class=&quot;yt-channel&quot; href=&quot;https:&amp;#x2F;&amp;#x2F;www.youtube.com&amp;#x2F;channel&amp;#x2F;UCIsVwdLhYrrs3K8MOXEZdhQ&quot;&gt;optozorax&lt;&#x2F;a&gt;
@@ -5164,9 +5172,11 @@ document.getElementById(&#x27;img_intermediate&#x27;).addEventListener(&#x27;cha
 
 
 &lt;div class=&quot;yt-container&quot;&gt;
+&lt;a target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=3LopI4YeC4I&quot;&gt;
 &lt;div class=&quot;yt-image-wrapper&quot;&gt;
 &lt;img class=&quot;yt-image not-default&quot; src=&quot;&#x2F;youtube&amp;#x2F;3LopI4YeC4I.webp&quot; width=&quot;1280&quot; height=&quot;720&quot;&gt;
 &lt;&#x2F;div&gt;
+&lt;&#x2F;a&gt;
 &lt;div class=&quot;yt-title-wrapper&quot;&gt;
 &lt;a class=&quot;yt-title&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=3LopI4YeC4I&quot;&gt;Is Success Luck or Hard Work?&lt;&#x2F;a&gt;
 &lt;span class=&quot;yt-text&quot;&gt;Канал: &lt;&#x2F;span&gt;&lt;a target=&quot;_blank&quot; class=&quot;yt-channel&quot; href=&quot;https:&amp;#x2F;&amp;#x2F;www.youtube.com&amp;#x2F;channel&amp;#x2F;UCHnyfMqiRRG1u-2MsSQLbXA&quot;&gt;Veritasium&lt;&#x2F;a&gt;
@@ -6495,9 +6505,11 @@ slide_count[1] = 12;
 
 
 &lt;div class=&quot;yt-container&quot;&gt;
+&lt;a target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=tRhdZPuxcyI&quot;&gt;
 &lt;div class=&quot;yt-image-wrapper&quot;&gt;
 &lt;img class=&quot;yt-image not-default&quot; src=&quot;&#x2F;youtube&amp;#x2F;tRhdZPuxcyI.webp&quot; width=&quot;1280&quot; height=&quot;720&quot;&gt;
 &lt;&#x2F;div&gt;
+&lt;&#x2F;a&gt;
 &lt;div class=&quot;yt-title-wrapper&quot;&gt;
 &lt;a class=&quot;yt-title&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=tRhdZPuxcyI&quot;&gt;Печать на Кладенце со скоростью 166 сим&amp;#x2F;мин&lt;&#x2F;a&gt;
 &lt;span class=&quot;yt-text&quot;&gt;Канал: &lt;&#x2F;span&gt;&lt;a target=&quot;_blank&quot; class=&quot;yt-channel&quot; href=&quot;https:&amp;#x2F;&amp;#x2F;www.youtube.com&amp;#x2F;channel&amp;#x2F;UCIsVwdLhYrrs3K8MOXEZdhQ&quot;&gt;optozorax&lt;&#x2F;a&gt;
@@ -6706,9 +6718,11 @@ slide_count[1] = 12;
 
 
 &lt;div class=&quot;yt-container&quot;&gt;
+&lt;a target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=AKGXZ1ReU54&quot;&gt;
 &lt;div class=&quot;yt-image-wrapper&quot;&gt;
 &lt;img class=&quot;yt-image not-default&quot; src=&quot;&#x2F;youtube&amp;#x2F;AKGXZ1ReU54.webp&quot; width=&quot;1280&quot; height=&quot;720&quot;&gt;
 &lt;&#x2F;div&gt;
+&lt;&#x2F;a&gt;
 &lt;div class=&quot;yt-title-wrapper&quot;&gt;
 &lt;a class=&quot;yt-title&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=AKGXZ1ReU54&quot;&gt;Tiny Keyboards: An Explanation&lt;&#x2F;a&gt;
 &lt;span class=&quot;yt-text&quot;&gt;Канал: &lt;&#x2F;span&gt;&lt;a target=&quot;_blank&quot; class=&quot;yt-channel&quot; href=&quot;https:&amp;#x2F;&amp;#x2F;www.youtube.com&amp;#x2F;channel&amp;#x2F;UCjtyO3ymIvrkz4ls_ro22fw&quot;&gt;Troy Fletcher&lt;&#x2F;a&gt;
@@ -6904,9 +6918,11 @@ slide_count[1] = 12;
 
 
 &lt;div class=&quot;yt-container&quot;&gt;
+&lt;a target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=Gs-kb3McXfU&quot;&gt;
 &lt;div class=&quot;yt-image-wrapper&quot;&gt;
 &lt;img class=&quot;yt-image not-default&quot; src=&quot;&#x2F;youtube&amp;#x2F;Gs-kb3McXfU.webp&quot; width=&quot;1280&quot; height=&quot;720&quot;&gt;
 &lt;&#x2F;div&gt;
+&lt;&#x2F;a&gt;
 &lt;div class=&quot;yt-title-wrapper&quot;&gt;
 &lt;a class=&quot;yt-title&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=Gs-kb3McXfU&quot;&gt;How to set up tilt&amp;#x2F;tent on ZSA Moonlander split keyboard&lt;&#x2F;a&gt;
 &lt;span class=&quot;yt-text&quot;&gt;Канал: &lt;&#x2F;span&gt;&lt;a target=&quot;_blank&quot; class=&quot;yt-channel&quot; href=&quot;https:&amp;#x2F;&amp;#x2F;www.youtube.com&amp;#x2F;channel&amp;#x2F;UC4NNPgQ9sOkBjw6GlkgCylg&quot;&gt;Ben Vallack&lt;&#x2F;a&gt;
@@ -7050,9 +7066,11 @@ slide_count[1] = 12;
 
 
 &lt;div class=&quot;yt-container&quot;&gt;
+&lt;a target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=ImsooykMguA&quot;&gt;
 &lt;div class=&quot;yt-image-wrapper&quot;&gt;
 &lt;img class=&quot;yt-image not-default&quot; src=&quot;&#x2F;youtube&amp;#x2F;ImsooykMguA.webp&quot; width=&quot;1280&quot; height=&quot;720&quot;&gt;
 &lt;&#x2F;div&gt;
+&lt;&#x2F;a&gt;
 &lt;div class=&quot;yt-title-wrapper&quot;&gt;
 &lt;a class=&quot;yt-title&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=ImsooykMguA&quot;&gt;Как работает моя прошивка на примере индикации слоёв&lt;&#x2F;a&gt;
 &lt;span class=&quot;yt-text&quot;&gt;Канал: &lt;&#x2F;span&gt;&lt;a target=&quot;_blank&quot; class=&quot;yt-channel&quot; href=&quot;https:&amp;#x2F;&amp;#x2F;www.youtube.com&amp;#x2F;channel&amp;#x2F;UCIsVwdLhYrrs3K8MOXEZdhQ&quot;&gt;optozorax&lt;&#x2F;a&gt;
@@ -10082,9 +10100,11 @@ slide_count[1] = 12;
 
 
 &lt;div class=&quot;yt-container&quot;&gt;
+&lt;a target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=5lJuEW-5vr8&quot;&gt;
 &lt;div class=&quot;yt-image-wrapper&quot;&gt;
 &lt;img class=&quot;yt-image not-default&quot; src=&quot;&#x2F;youtube&amp;#x2F;5lJuEW-5vr8.webp&quot; width=&quot;336&quot; height=&quot;188&quot;&gt;
 &lt;&#x2F;div&gt;
+&lt;&#x2F;a&gt;
 &lt;div class=&quot;yt-title-wrapper&quot;&gt;
 &lt;a class=&quot;yt-title&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=5lJuEW-5vr8&quot;&gt;Neuroevolution - Car learns to drive&lt;&#x2F;a&gt;
 &lt;span class=&quot;yt-text&quot;&gt;Канал: &lt;&#x2F;span&gt;&lt;a target=&quot;_blank&quot; class=&quot;yt-channel&quot; href=&quot;https:&amp;#x2F;&amp;#x2F;www.youtube.com&amp;#x2F;channel&amp;#x2F;UCNzV3u9NBUi8m1Q7qp77E2Q&quot;&gt;MiorSoft (reexre)&lt;&#x2F;a&gt;
@@ -10112,9 +10132,11 @@ slide_count[1] = 12;
 
 
 &lt;div class=&quot;yt-container&quot;&gt;
+&lt;a target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=ADcu9rWK_3I&quot;&gt;
 &lt;div class=&quot;yt-image-wrapper&quot;&gt;
 &lt;img class=&quot;yt-image not-default&quot; src=&quot;&#x2F;youtube&amp;#x2F;ADcu9rWK_3I.jpeg&quot; width=&quot;1280&quot; height=&quot;720&quot;&gt;
 &lt;&#x2F;div&gt;
+&lt;&#x2F;a&gt;
 &lt;div class=&quot;yt-title-wrapper&quot;&gt;
 &lt;a class=&quot;yt-title&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=ADcu9rWK_3I&quot;&gt;Лекция 9 - RNNs&lt;&#x2F;a&gt;
 &lt;span class=&quot;yt-text&quot;&gt;Канал: &lt;&#x2F;span&gt;&lt;a target=&quot;_blank&quot; class=&quot;yt-channel&quot; href=&quot;https:&amp;#x2F;&amp;#x2F;www.youtube.com&amp;#x2F;channel&amp;#x2F;UCQj_dwbIydi588xrfjWSL5g&quot;&gt;sim0nsays&lt;&#x2F;a&gt;
@@ -10362,9 +10384,11 @@ P_{𝕖𝕒} =
 
 
 &lt;div class=&quot;yt-container&quot;&gt;
+&lt;a target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=2ZJijzzJzWU&quot;&gt;
 &lt;div class=&quot;yt-image-wrapper&quot;&gt;
 &lt;img class=&quot;yt-image not-default&quot; src=&quot;&#x2F;youtube&amp;#x2F;2ZJijzzJzWU.webp&quot; width=&quot;1280&quot; height=&quot;720&quot;&gt;
 &lt;&#x2F;div&gt;
+&lt;&#x2F;a&gt;
 &lt;div class=&quot;yt-title-wrapper&quot;&gt;
 &lt;a class=&quot;yt-title&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=2ZJijzzJzWU&quot;&gt;Эволюция виртуальных существ (перевод)&lt;&#x2F;a&gt;
 &lt;span class=&quot;yt-text&quot;&gt;Канал: &lt;&#x2F;span&gt;&lt;a target=&quot;_blank&quot; class=&quot;yt-channel&quot; href=&quot;https:&amp;#x2F;&amp;#x2F;www.youtube.com&amp;#x2F;channel&amp;#x2F;UCIsVwdLhYrrs3K8MOXEZdhQ&quot;&gt;optozorax&lt;&#x2F;a&gt;
@@ -10407,9 +10431,11 @@ P_{𝕖𝕒} =
 
 
 &lt;div class=&quot;yt-container&quot;&gt;
+&lt;a target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=aUdCS1lLiYs&quot;&gt;
 &lt;div class=&quot;yt-image-wrapper&quot;&gt;
 &lt;img class=&quot;yt-image not-default&quot; src=&quot;&#x2F;youtube&amp;#x2F;aUdCS1lLiYs.webp&quot; width=&quot;336&quot; height=&quot;188&quot;&gt;
 &lt;&#x2F;div&gt;
+&lt;&#x2F;a&gt;
 &lt;div class=&quot;yt-title-wrapper&quot;&gt;
 &lt;a class=&quot;yt-title&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=aUdCS1lLiYs&quot;&gt;Locomotion Studies - MIT - Karl Sims (1987)&lt;&#x2F;a&gt;
 &lt;span class=&quot;yt-text&quot;&gt;Канал: &lt;&#x2F;span&gt;&lt;a target=&quot;_blank&quot; class=&quot;yt-channel&quot; href=&quot;https:&amp;#x2F;&amp;#x2F;www.youtube.com&amp;#x2F;channel&amp;#x2F;UCBGzCVpJFb-MPehbNoK173w&quot;&gt;VintageCG&lt;&#x2F;a&gt;
