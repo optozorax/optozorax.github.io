@@ -21,8 +21,9 @@ window.addEventListener('DOMContentLoaded', () => {
 		cloneAttributes(new_code, code);
 		new_code["data-lang"] = code["data-lang"];
 		code.querySelectorAll("span").forEach((span) => {
-			let string =  (' ' + span.innerHTML).slice(1);
+			let string = span.innerHTML;
 			let last_elem_in_line = string.endsWith("\n");
+
 			if (first_elem_in_line) {
 				table = document.createElement("span");
 				tr = document.createElement("span");
@@ -47,7 +48,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 				span1.innerHTML = matched[0];
 				span1_hidden.innerHTML = matched[0];
-				span2.innerHTML = string.trimStart();
+				span2.innerHTML = string.slice(matched[0].length);
 
 				td1.appendChild(span1);
 				td2.appendChild(span1_hidden);

@@ -21,10 +21,10 @@ function gallery_show(gallery_n, image_n) {
     let demo = document.getElementById(id_demo);
     if (i == image_n) {
       slide.style.display = "block";
-      demo.className = "gallery-demo gallery-active";
+      demo.className = "gallery-demo not-default gallery-active";
     } else {
       slide.style.display = "none";
-      demo.className = "gallery-demo";
+      demo.className = "gallery-demo not-default";
     }
   }
 }
