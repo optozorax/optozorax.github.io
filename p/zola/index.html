@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(53392057, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/53392057" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <meta name="yandex-verification" content="ec61b5ac4464201b" />
+  <!-- --- -->
+  
+
+  <!-- Non social metatags -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link rel="canonical" href="https://optozorax.github.io/">
+  <meta name="robots" content="noarchive">
+  <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/atom.xml"> 
+  <!-- --- -->
+
+  <!-- Fonts preload -->
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nFrXyi0A.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nBrXw.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxTcwhsk.woff2" crossOrigin="anonymous">
+  <!-- --- -->
+
+  <!-- Social metatags -->
+  
+<meta name="author" content="optozorax">
+<meta name="title" content="Переезд моего блога на Zola и чем она лучше Jekyll — Блог optozorax&#x27;а">
+<meta name="description" content="Zola — отличный генератор статических сайтов. Я перевёл свой блог на неё, и она сильно вдохновила меня на реализацию множества крутых фич и оптимизацию скорости блога. Данная статья фокусируется на плюсах и минусах золы как генератора статического сайта.">
+<meta name="image" content="preview.png">
+
+<meta name="keywords" itemprop="tags" content="мета, блог, обзор, zola">
+
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://optozorax.github.io/p/zola/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Переезд моего блога на Zola и чем она лучше Jekyll — Блог optozorax&#x27;а">
+<meta property="og:description" content="Zola — отличный генератор статических сайтов. Я перевёл свой блог на неё, и она сильно вдохновила меня на реализацию множества крутых фич и оптимизацию скорости блога. Данная статья фокусируется на плюсах и минусах золы как генератора статического сайта.">
+<meta property="og:image" content="preview.png">
+<meta property="og:locale" content="ru">
+
+
+<meta property="article:published_time" content="2021-08-30">
+
+
+
+
+<meta property="article:tag" content="мета">
+
+<meta property="article:tag" content="блог">
+
+<meta property="article:tag" content="обзор">
+
+<meta property="article:tag" content="zola">
+
+
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="optozorax.github.io">
+<meta property="twitter:url" content="https://optozorax.github.io/p/zola/">
+<meta name="twitter:title" content="Переезд моего блога на Zola и чем она лучше Jekyll — Блог optozorax&#x27;а">
+<meta name="twitter:description" content="Zola — отличный генератор статических сайтов. Я перевёл свой блог на неё, и она сильно вдохновила меня на реализацию множества крутых фич и оптимизацию скорости блога. Данная статья фокусируется на плюсах и минусах золы как генератора статического сайта.">
+<meta name="twitter:image" content="preview.png">
+<meta name="twitter:creator" content="optozorax">
+
+  <!-- --- -->
+
+  <!-- Extra head declarations -->
+  
+
+<script type="text/javascript" src="/js/hammer.min.js"></script>
+<script type="text/javascript" src="/js/toc.js"></script>
+<script type="text/javascript" src="/js/gallery.js"></script>
+<script type="text/javascript" src="/js/full_screen.js"></script>
+<script type="text/javascript" src="/js/word_wrap.js"></script>
+
+  <!-- --- -->
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/main.css">
+  <!-- --- -->
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+  <!-- --- -->
+
+  <title>Переезд моего блога на Zola и чем она лучше Jekyll — Блог optozorax&#x27;а</title>
+</head>
+
+<body>
+  <!-- FullScreen block -->
+  <div id="img_modal" class="modal" style="display: none;">
+      <img id="img_modal_01" src="/ico/loading.gif">
+      <span class="close" id="img_modal_close">&times;</span>
+  </div>
+  <!-- --- -->
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <header class="site-header" role="banner">
+  
+  <div class="wrapper">
+    <a class="site-title" href="/">optozorax.blog</a>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <img src="/ico/menu.svg" width="13px" height="15px">
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          <a class="page-link" href="/">Блог</a>
+        
+          <a class="page-link" href="/e">Систематизация</a>
+        
+          <a class="page-link" href="/tags">Теги</a>
+        
+          <a class="page-link" href="/about">Обо мне</a>
+        
+      </div>
+    </nav>
+  </div>
+  
+  </header>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+  
+  <section class="page-header">
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+<h1 class="project-name">Переезд моего блога на Zola и чем она лучше Jekyll</h1>
+
+<h2 class="project-tagline">Zola — отличный генератор статических сайтов. Я перевёл свой блог на неё, и она сильно вдохновила меня на реализацию множества крутых фич и оптимизацию скорости блога. Данная статья фокусируется на плюсах и минусах золы как генератора статического сайта.</h2>
+
+
+
+<span style="margin-bottom: 10px;">
+  
+    <a href="/tags#meta"><code class="tag"><nobr>#мета</nobr></code></a>&nbsp;
+  
+    <a href="/tags#blog"><code class="tag"><nobr>#блог</nobr></code></a>&nbsp;
+  
+    <a href="/tags#obzor"><code class="tag"><nobr>#обзор</nobr></code></a>&nbsp;
+  
+    <a href="/tags#zola"><code class="tag"><nobr>#zola</nobr></code></a>&nbsp;
+  
+</span>
+
+
+<center>
+<table style="margin-top: 8px;">
+<tr>
+
+
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+  <time datetime="2021-08-30" itemprop="datePublished">
+    
+    
+    
+    
+    <span class="post-date">30 августа 2021</span>
+  </time>
+</h2>
+</td>
+
+
+
+</tr>
+</table>
+
+
+</center>
+
+
+</td><td>
+</td></tr></table>
+
+
+
+  </section>
+  
+  
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <section class="main-content section">
+  
+<article itemscope itemtype="http://schema.org/BlogPosting">
+<div itemprop="articleBody" id="content">
+<h1 id="vvedenie"><a class="anchor" href="#vvedenie">#</a>Введение</h1>
+<div class="admonition gray-bg gray-border-left">
+<div class="admonition-title gray-bg gray-border">Контекст</div>
+<div class="admonition-content">
+<p><a href="https://www.getzola.org/"><strong>Zola</strong></a> — генератор статических сайтов, она из шаблонов и статей в markdown один раз генерирует веб-страницы, которые можно статически хостить, без всяких сложных бэкендов и фронтэндов.</p>
+</div></div>
+<p>Недавно я перевёл свой блог с <a href="https://jekyllrb.com/">Jekyll</a> на <a href="https://www.getzola.org/">Zola</a>. Поэтому данная статья сфокусируется на том как проходил этот переход, и в процессе вы узнаете зачем стоит или не стоит использовать золу для себя. В данной статье будет рассказно:</p>
+<ul>
+<li>Как я переехал на золу, с какими проблемами и удобствами столкнулся.</li>
+<li>Плюсы и минусы золы.</li>
+<li>Мысли по поводу этого статического генератора и как может быть лучше.</li>
+</ul>
+<p>В данной статье я не буду пересказывать документацию и объяснять вам как поднять блог. Это обзорная статья.</p>
+<h1 id="pereezd"><a class="anchor" href="#pereezd">#</a>Переезд</h1>
+<h2 id="pochemu"><a class="anchor" href="#pochemu">#<sup>2</sup></a>Почему</h2>
+<p>Всё началось с того что я начал играться с шорткодами в золе, и это вылилось в то, что я создал очень много новых фич, про которые написал большую статью: <a href="/p/new-features">Новые фичи данного блога</a>.</p>
+<p>Потом я начал играться с функцией <code>resize_image</code>, почувствовал силу оптимизаций, и оптимизировал весь сайт настолько хорошо и интересно, что это тоже пришлось писать отдельную статью: <a href="/p/blog-optimization">Оптимизация скорости статического сайта</a>.</p>
+<p>По конкретно этим вещам вы можете ознакомиться с соответствующими статьями. А далее я сфокусируюсь на вопросах конкретного использования золы.</p>
+<h2 id="podgotovka"><a class="anchor" href="#podgotovka">#<sup>2</sup></a>Подготовка</h2>
+<p>Прежде чем переезжать на золу, я сделал несколько вещей: </p>
+<ul>
+<li>Поигрался с ней на какой-то теме, попутно подглядывая в документацию с поиском. Сформировал нейронные связи и пул вопросов и непоняток.</li>
+<li>Прочитать <a href="https://tera.netlify.app/docs/">документацию языка шаблонов Tera</a>.</li>
+<li>Прочитать <a href="https://www.getzola.org/documentation/getting-started/overview/">документацию самой золы</a>.</li>
+</ul>
+<p>Тут хочется отметить огромный плюс золы в том, что она маленькая. Соответственно всю документацию можно прочитать от корки до корки за несколько часов, и узнать все мелкие детали которые только есть.</p>
+<p>В этом плане золу очень хвалят, ибо я читал в интернете, что если попробовать то же самое сделать с Hugo, то не получится. В нём невероятно большая документация.</p>
+<p>Правда если вы до этого не писали блоги и только хотите начать, то ни в коем случае не делайте как я, выбирайте любую готовую тему и используйте её, пишите контент как можно быстрее, а со всем остальным разберётесь когда-нибудь потом. Как говорит <a href="https://www.youtube.com/channel/UCKzffzoHBE1bmYs8tAuXTrw">Виталий Голованов</a>:</p>
+<blockquote>
+<p>Не звени яйцами.</p>
+</blockquote>
+<p>Благодаря тому что я прочитал всю документаци, нашлось очень много интересностей и дальше я смог сразу знать что делать для перевода нестандартных фич моего блога.</p>
+<h2 id="aliasy"><a class="anchor" href="#aliasy">#<sup>2</sup></a>Алиасы</h2>
+<p>Удобно что в золе можно для каждой страницы задать опцию <code>aliases</code>, в которой можно написать массив адресов, которые должны вести на текущую страницу. Это хорошо подходит когда ты мигрируешь свой блог на золу. Можно сделать так, чтобы старые ссылки сохранились.</p>
+<h2 id="perenos-kommentariev"><a class="anchor" href="#perenos-kommentariev">#<sup>2</sup></a>Перенос комментариев</h2>
+<p>У меня комментарии были реализованы через <a href="https://utteranc.es/">utterances</a>, так что отдельная проблема была — перенести их в новый репозиторий и под новые названия страниц. Но тут всё прекрасно, ишью можно <code>transfer</code>'нуть в любой репозиторий, а ещё если изменить адрес страницы в названии ишью, то комментарии переедут на эту страницу, так что все комментарии что были у меня остались на месте.</p>
+<h1 id="v-zole-vsio-sdelano-kak-nado"><a class="anchor" href="#v-zole-vsio-sdelano-kak-nado">#</a>В золе всё* сделано как надо</h1>
+<p>Есть множество фич, и зола знает что пользователю они нужны, поэтому они встроены в движок сразу! А то чо заставлять писать людей какие-то свои костыльные решения через язык-же, ну...</p>
+<h2 id="shortkody"><a class="anchor" href="#shortkody">#<sup>2</sup></a>Шорткоды</h2>
+<p>Это возможность в статье на markdown вставить какой-то кастомно-настроенный кусок html-я. Настолько великая возможность, что я написал <a href="/p/new-features">отдельную статью про новые фичи своего блога</a>, которые реализовал с помощью этого.</p>
+<p>В Jekyll можно что-то такое сделать костылями, но таким никто активно не пользуется, да и в документации про это ни слова, поэтому я тогда не знал что так можно...</p>
+<h2 id="odna-papka-odna-stat-ia"><a class="anchor" href="#odna-papka-odna-stat-ia">#<sup>2</sup></a>Одна папка — одна статья</h2>
+<p>Алилуйя! В Jekyll все картинки и прочие материалы хранятся в папке assets, а посты хранятся в одной папке <code>_posts</code>, и там нельзя создать папку внутри которой можно положить пост и картинки, эта папка сразу превратится в категорию. Да и картинки там положить нельзя. Я про это писал в <a href="/p/submodules-jekyll/">Один репозиторий = Один пост в блоге</a>, там я хранил картинки рядом с постом, да, но чтобы они работали добавил JS, который фиксит пути картинок при загрузке страницы...</p>
+<p>А здесь это из коробки нормально работает, каждый пост по умолчанию симулирует папку со своим названием и как будто там лежит файл <code>index.md</code>. В общем я щас все картинки и прочие штуки храню рядом с постами и очень кайфую от этого. А то создавать каждый раз папку в папке <code>assets</code> было неприятно.</p>
+<div class="admonition blue3-bg blue3-border-left">
+<div class="admonition-title blue3-bg blue3-border">Цитата документации <a href="https://www.getzola.org/documentation/content/page/">отсюда</a></div>
+<div class="admonition-content">
+<p>As you can see, creating an <code>about.md</code> file is equivalent to creating an <code>about/index.md</code> file. The only difference between the two methods is that creating the <code>about</code> directory allows you to use asset co-location, as discussed in the overview section.</p>
+</div></div>
+<h2 id="table-of-contents"><a class="anchor" href="#table-of-contents">#<sup>2</sup></a>Table Of Contents</h2>
+<p>Или по-русски «Содержание». </p>
+<p>Опять же, вспоминая Jekyll, что нужно чтобы сделать содержание? Нуу, надо либо плагин, либо костыль. Вот <a href="https://github.com/allejo/jekyll-toc/blob/master/_includes/toc.html">пример костыля</a>, который я тупо скопипастил себе в блог.</p>
+<p>А что тем временем в золе? А там парсинг содержания уже встроен в движок, и оно автоматически доступно для каждой страницы, и это содержание представляет собой удобный структурированный объект с прописанным типом</p>
+<div class="admonition blue3-bg blue3-border-left">
+<div class="admonition-title blue3-bg blue3-border">Цитата документации <a href="https://www.getzola.org/documentation/templates/pages-sections/#table-of-contents">отсюда</a></div>
+<div class="admonition-content">
+<p>Both page and section templates have a <code>toc</code> variable that corresponds to an array of <code>Header</code>. A <code>Header</code> has the following fields:</p>
+<pre data-lang="ts" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-ts "><code class="language-ts" data-lang="ts"><span style="color:#7f8989;">// The hX level
+</span><span style="color:#c23f31;">level</span><span>: </span><span style="color:#b3933a;">1 </span><span style="color:#72ab00;">| </span><span style="color:#b3933a;">2 </span><span style="color:#72ab00;">| </span><span style="color:#b3933a;">3 </span><span style="color:#72ab00;">| </span><span style="color:#b3933a;">4 </span><span style="color:#72ab00;">| </span><span style="color:#b3933a;">5 </span><span style="color:#72ab00;">| </span><span style="color:#b3933a;">6</span><span>;
+</span><span style="color:#7f8989;">// The generated slug id
+</span><span style="color:#c23f31;">id</span><span>: </span><span style="color:#a2a001;">String</span><span>;
+</span><span style="color:#7f8989;">// The text of the header
+</span><span style="color:#c23f31;">title</span><span>: </span><span style="color:#a2a001;">String</span><span>;
+</span><span style="color:#7f8989;">// A link pointing directly to the header, using the inserted anchor
+</span><span style="color:#c23f31;">permalink</span><span>: </span><span style="color:#a2a001;">String</span><span>;
+</span><span style="color:#7f8989;">// All lower level headers below this header
+</span><span style="color:#c23f31;">children</span><span>: </span><span style="color:#a2a001;">Array</span><span style="color:#72ab00;">&lt;</span><span style="color:#5597d6;">Header</span><span style="color:#72ab00;">&gt;</span><span>;
+</span></code></pre>
+</div></div>
+<p>То есть ты тупо берёшь и по <a href="https://www.getzola.org/documentation/content/table-of-contents/">этому примеру</a> генерируешь такое содержание как тебе нужно.</p>
+<h2 id="taksonomii"><a class="anchor" href="#taksonomii">#<sup>2</sup></a>Таксономии</h2>
+<p>Например, мы хотим чтобы у наших статей были тэги, и эти тэги потом можно было посмотреть где-нибудь.</p>
+<p>Что же мы делаем в Jekyll? Правильно, изобретаем всё с нуля, и гуглим как бы это сделать. Вот <a href="https://hyunyoung2.github.io/2016/12/17/Category_And_Tags_In_Jekyll/">результат</a>.</p>
+<p>А что тем временем в золе? А там есть такая концепция, как таксономии. Можно попробовать прочитать <a href="https://www.getzola.org/documentation/content/taxonomies/">в документации</a>, но там надо сосредоточиться, ибо концепция немного нетривиальная. С помощью этой концепции можно на уровне движка объявить что у вас есть тэги и писать именно их в своих статьях, а потом с удобным интерфейсом, и снова с удобным типом получать эти тэги и удобно их обрабатывать.</p>
+<p>Когда я переводил <a href="/tags">страницу с тэгами</a> на золу, то перевод был просто тривиальный, настолько просто и удобно там всё сделано.</p>
+<p>А с этой фичёй можно делать куда более сложные и интересные штуки, как например с фильмами.</p>
+<p>А ещё для таксономий можно автоматически генерировать RSS или Atom Feed! Что для того же Jekyll снова пришлось бы делать с большими костылями.</p>
+<h2 id="obrabotka-kartinok"><a class="anchor" href="#obrabotka-kartinok">#<sup>2</sup></a>Обработка картинок</h2>
+<p>Как я уже говорил, обработка картинок — это просто имба. Невероятно крутая фича, которая сильно повысит юзабельность вашего блога. Это уже подробно раскрыто в статье про <a href="/p/blog-optimization">оптимизацию блога</a>.</p>
+<p>Что я там не раскрыл — это возможность узнать размеры картинки прямо на этапе компиляции сайта, что отлично подходит для вставки атрибутов <code>width</code>, <code>height</code> или даже для <a href="/p/new-features/#vertikal-noe-tsentrirovanie">вертикального центрирования</a>!</p>
+<h2 id="bloki-i-nasledovanie-stranits"><a class="anchor" href="#bloki-i-nasledovanie-stranits">#<sup>2</sup></a>Блоки и наследование страниц</h2>
+<p>В золе имеется возможность в <code>html</code> странице написать что какие-то участки являются блоками, а затем в других страницах наследовать эту страницу и переопределять что делают блоки. Например у нас есть страница <code>base.html</code>:</p>
+<pre data-lang="html" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-html "><code class="language-html" data-lang="html"><span style="color:#7f902a;">&lt;title&gt;</span><span>{% block title %}My blog{% endblock title %}</span><span style="color:#7f902a;">&lt;/title&gt;
+</span></code></pre>
+<p>Затем мы хотим создать новую страницу <code>post.html</code> на основе <code>base.html</code> и сделать там другой заголовок, тогда можно написать следующее:</p>
+<pre data-lang="html" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-html "><code class="language-html" data-lang="html"><span>{% extends &quot;base.html&quot; %}
+</span><span>
+</span><span>{% block title %}My post{% endblock title %}
+</span></code></pre>
+<p>И теперь страница, сгенерированная по шаблону <code>post.html</code> будет во всём похожа на <code>base.html</code>, только заголовок будет <code>My post</code>.</p>
+<p>А если хочется иметь ещё и старый заголовок, то можно внутри блока просто использовать <code>{{ super() }}</code>.</p>
+<p>Ещё удобно создавать блоки, в которых изначально ничего нет, например <code>extra_head</code>, чтобы наследующий мог дополнительно определить что ему нужно в <code>&lt;head&gt;</code> секции.</p>
+<p>Хоть наследование и считается немного плохой практикой в программировании, но тут страниц очень мало, так что вполне можно. Так что это удобный механизм. В Jekyll я такого не видел, и там формирование страницы делается через какие-то костыли с <code>include</code>'ингом.</p>
+<h2 id="debag"><a class="anchor" href="#debag">#<sup>2</sup></a>Дебаг</h2>
+<div class="admonition blue3-bg blue3-border-left">
+<div class="admonition-title blue3-bg blue3-border">Цитата документации <a href="https://tera.netlify.app/docs/#variables">отсюда</a></div>
+<div class="admonition-content">
+<p>A magical variable is available in every template if you want to print the current context: <code>__tera_context</code>.</p>
+</div></div>
+<p>Это очень удобно при первичной разработке, чтобы постоянно не смотреть в документацию, а сразу видеть какие значения принимают какие переменные. Я использую дебаг следующим образом, чтобы прямо на странице получать результат в удобном виде:</p>
+<pre data-lang="html" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-html "><code class="language-html" data-lang="html"><span style="color:#6486ab;">&lt;pre&gt;</span><span style="color:#7f902a;">&lt;code&gt;
+</span><span>{{ __tera_context | escape_xml | safe }}
+</span><span style="color:#7f902a;">&lt;/code&gt;</span><span style="color:#6486ab;">&lt;/pre&gt;
+</span></code></pre>
+<p>А обычные переменные дебажу следующим образом:</p>
+<pre data-lang="html" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-html "><code class="language-html" data-lang="html"><span style="color:#6486ab;">&lt;pre&gt;</span><span style="color:#7f902a;">&lt;code&gt;
+</span><span>{{ variable | json_encode(pretty=true) | safe }}
+</span><span style="color:#7f902a;">&lt;/code&gt;</span><span style="color:#6486ab;">&lt;/pre&gt;
+</span></code></pre>
+<p>Правда тут есть одна проблема, что когда ваш блог наполняется контентом, то пользоваться дебагом через <code>__tera_context</code> уже невозможно из-за того что она содержит в себе весь контент, и страница начинает очень много весить и нагружать браузер. По этому поводу <a href="https://zola.discourse.group/t/add-analogue-of-tera-context-but-without-content/1023">попросил фичу</a> для новой переменной аналогичного действия, но без контента, так что заходите, ставьте лайки.</p>
+<h2 id="load-data"><a class="anchor" href="#load-data">#<sup>2</sup></a>load_data</h2>
+<p>Есть такая функция <a href="https://www.getzola.org/documentation/templates/overview/#load-data"><code>load_data</code></a>, которая позволяет считать данные в каком-нибудь структурированном формате и потом это использовать в рендеринге страниц</p>
+<h3 id="arewegameyet-rs"><a class="anchor" href="#arewegameyet-rs">#<sup>3</sup></a>arewegameyet.rs</h3>
+<p>На сайте <a href="https://arewegameyet.rs/">arewegameyet.rs</a> это используется для того чтобы в структурированном формате хранить все крейты и ссылки на игры, а потом рендерить это на сайте.</p>
+<p>Вот ссылка на <a href="https://github.com/rust-gamedev/arewegameyet/blob/master/content/games/data.toml"><code>data.toml</code></a>, а вот ссылка на то <a href="https://github.com/rust-gamedev/arewegameyet/blob/da72488bf9f8031c3345095bebbc272e538226c4/templates/categories/page.html#L46">как это используется</a>.</p>
+<p>Так что золу можно использовать не только для блогов, но и вот таких вот сайтов-списков с нетривиальным функционалом.</p>
+<h3 id="vneshnie-utility"><a class="anchor" href="#vneshnie-utility">#<sup>3</sup></a>Внешние утилиты</h3>
+<p>А ещё эта функция <code>load_data</code> умеет считывать данные по ссылке из интернета. Я это использовал для создания чего-то типо «плагина», которай может выполнять сложный код, который зависит от внешних утилит. Например, если вы хотите:</p>
+<ul>
+<li>Кодировать формулы в <code>svg</code> при помощи консольной утилиты <a href="https://tex.stackexchange.com/questions/255470/compile-tex-directly-into-svg-using-the-command-line">tex2svg</a>.</li>
+<li>Автоматически перекодировать видео при помощи <code>ffmpeg</code> аналогично тому как это делается с картинками.</li>
+</ul>
+<p>То для этого не нужны никакие фичи. Надо просто поднять локальный сервис, к которому зола будет обращаться с соответствующими запросами.</p>
+<p>О том как это можно сделать я <a href="https://zola.discourse.group/t/run-commands/1018/3?u=optozorax">написал небольшую инструкцию</a> на форуме золы.</p>
+<p>Я уже было сам хотел это использовать, но потом понял что для этого надо поднимать этот локальный сервис, а потмо ещё при переустановке системы снова устанавливать эту утилиту для конвертации и забил. Всё-таки идея «забудьте зависимости» подкупает.</p>
+<h2 id="paginatsiia"><a class="anchor" href="#paginatsiia">#<sup>2</sup></a>Пагинация</h2>
+<p>Если у вас очень много постов, то в золе из коробки поддерживается возможность разложить все посты по страницам чтобы реализовать 2-ю, 3-ю и остальные страницы с контентом.</p>
+<p>Я этим не пользуюсь из принципа, но для других может быть полезно.</p>
+<p>Я этим не пользуюсь, потому что считаю что:</p>
+<ul>
+<li>Я не напишу столько статей чтобы их было слишком много на одной странице чтобы приходилось пользоваться пагинацией.</li>
+<li>Я хочу чтобы все мои посты были на одной странице, потому что никто не смотрит дальше второй страницы. А если всё на одной странице и надо только листать вниз, то любой пользователь вам скажет: «почему бы и нет ¯\_(ツ)_/¯».</li>
+</ul>
+<p>Ещё меня дико бесит когда люди делают пагинацию, которая состоит только из кнопок «Следующая страница», «Предыдущая страница», <strong>без указания количества страниц</strong>!!! Просто к слову, раз уж поднял тему.</p>
+<h2 id="po-melochi"><a class="anchor" href="#po-melochi">#<sup>2</sup></a>По мелочи</h2>
+<ul>
+<li>Хорошие сообщения об ошибках, они показывают даже место где произошла ошибка. Но иногда они слабоваты, и конкретное место приходится искать самому с помощью дедукции.</li>
+<li>Работает очень быстро. На Rust написано же.</li>
+<li>Когда запускаешь в режиме <code>serve</code>, то на страницу добавляется скрипт, который автоматически обновляет страницу при изменении в золе.</li>
+<li>Один бинарник, никаких зависимостей. В отличие от Jekyll, для которого надо замусорить свою систему Ruby, потом ещё чем-то, потом ещё миллионом вещей, и только потом можешь запустить свой сайт.</li>
+</ul>
+<h1 id="a-chto-zhe-ne-tak-s-zoloi"><a class="anchor" href="#a-chto-zhe-ne-tak-s-zoloi">#</a>А что же не так с золой</h1>
+<p>Прошлый большой пункт не зря со звёздочкой, ибо в золе не всё так радужно как хотелось бы.</p>
+<h2 id="shortkody-s-telom"><a class="anchor" href="#shortkody-s-telom">#<sup>2</sup></a>Шорткоды с телом</h2>
+<p>В золе есть такая возможность:</p>
+<div class="admonition blue3-bg blue3-border-left">
+<div class="admonition-title blue3-bg blue3-border">Цитата документации <a href="https://www.getzola.org/documentation/content/shortcodes/#shortcodes-with-body">отсюда</a></div>
+<div class="admonition-content">
+<p>Let's imagine that we have the following shortcode <code>quote.html</code> template:</p>
+<pre data-lang="html" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-html "><code class="language-html" data-lang="html"><span style="color:#6486ab;">&lt;blockquote&gt;
+</span><span>    {{ body }} </span><span style="color:#7f902a;">&lt;br&gt;
+</span><span>    -- {{ author }}
+</span><span style="color:#6486ab;">&lt;/blockquote&gt;
+</span></code></pre>
+<p>We could use it in our Markdown file like so:</p>
+<pre data-lang="md" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-md "><code class="language-md" data-lang="md"><span>As someone said:
+</span><span>
+</span><span>{% quote(author=&quot;Vincent&quot;) %}
+</span><span>A quote
+</span><span>{% end %}
+</span></code></pre>
+<p>The body of the shortcode will be automatically passed down to the rendering context as the body variable and needs to be on a new line.</p>
+</div></div>
+<p>Проблема в том что <code>body</code> передаётся в виде текста. То есть если мы там напишем какой-то markdown или другой шорткод, то они передадутся в виде обычного текста. Окей, чтобы это распарсить надо написать всего-лишь:</p>
+<pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ body | markdown | safe }}
+</span></code></pre>
+<p>Только тут есть несколько проблем:</p>
+<ul>
+<li>Если там есть заголовки, то они не попадут в содержание.</li>
+<li>Шорткоды внутри этого вроде как работает.</li>
+<li>А вот функции <code>resize_image</code> уже нет.</li>
+</ul>
+<p>Из-за этого шорткоды с телом становятся абсолютно неюзабельны. Поэтому все <a href="p/new-features/">мои фичи</a> состоят из двух частей — начала и конца:</p>
+<pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ pros_start(text=&quot;Плюсы: (_фичи_)&quot;) }}
+</span><span>* плюс1
+</span><span>* плюс2
+</span><span>{{ pros_end() }}
+</span></code></pre>
+<p>Где <code>pros_start.html</code>:</p>
+<pre data-lang="html" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-html "><code class="language-html" data-lang="html"><span style="color:#6486ab;">&lt;div class=</span><span style="color:#d07711;">&quot;pros&quot;</span><span style="color:#6486ab;">&gt;
+</span><span style="color:#7f902a;">&lt;span style=</span><span style="color:#d07711;">&quot;</span><span style="background-color:#b0b3ba14;color:#c5af75;">color</span><span style="background-color:#b0b3ba14;color:#7f902a;">: </span><span style="background-color:#b0b3ba14;color:#ca7840;">#090</span><span style="color:#d07711;">&quot;</span><span style="color:#7f902a;">&gt;&lt;big&gt;&lt;b&gt;</span><span>{%/* if text*/ %}{{/*text | markdown(inline=true) | safe/*}}{%/* else */%}Плюсы:{%/* endif */%}</span><span style="color:#7f902a;">&lt;/b&gt;&lt;/big&gt;&lt;/span&gt;
+</span></code></pre>
+<p>а <code>pros_end.html</code>:</p>
+<pre data-lang="html" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-html "><code class="language-html" data-lang="html"><span style="color:#6486ab;">&lt;/div&gt;
+</span></code></pre>
+<p>Таким образом у меня «тело» шорткода <code>pros</code> парсится автоматически движком золы, а лишь вставляю инфу между ними. Я считаю что шорткоды с телом должны работать так по умолчанию.</p>
+<div class="cons">
+<span style="color: #c00"><big><b>Минусы моего подхода:</b></big></span>
+<ul>
+<li>Приходится создавать на один файлик больше</li>
+<li>Приходится использовать на одно имя больше</li>
+<li>Если я что-то не закрыл, зола не поругается на меня, потому что это два разных шорткода</li>
+</ul>
+</div>
+<p>Но что поделать, приходится делать так.</p>
+<h2 id="iazyk-opisaniia-shablonov"><a class="anchor" href="#iazyk-opisaniia-shablonov">#<sup>2</sup></a>Язык описания шаблонов</h2>
+<h3 id="fil-try"><a class="anchor" href="#fil-try">#<sup>3</sup></a>Фильтры</h3>
+<p>Есть небольшая проблема, что некоторые вещи можно получить только через механизм фильтров, например:</p>
+<pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ [1, 2, 3] | length }}
+</span></code></pre>
+<p>Вот только этот механизм нельзя засунуть в скобки. И если хочется добавить единицу к результату, то придётся писать в две строчки:</p>
+<pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{% set temp = [1, 2, 3] | length %}
+</span><span>{{ temp + 1 }}
+</span></code></pre>
+<p>И фильтры нельзя применять в виде <code>length(value=[1, 2, 3])</code>, что довольно печально. Я <a href="https://zola.discourse.group/t/allow-writing-filters-inside-parenthesis/1025">написал по этому поводу фич-реквест</a>, так что заходим, ставим лайки.</p>
+<h3 id="falsy"><a class="anchor" href="#falsy">#<sup>3</sup></a>Falsy</h3>
+<div class="admonition blue3-bg blue3-border-left">
+<div class="admonition-title blue3-bg blue3-border">Цитата документации <a href="https://tera.netlify.app/docs/#if">отсюда</a></div>
+<div class="admonition-content">
+<p>Undefined variables are considered falsy. This means that you can test for the presence of a variable in the current context by writing:</p>
+<pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{% if my_var %}
+</span><span>    {{ my_var }}
+</span><span>{% else %}
+</span><span>    Sorry, my_var isn&#39;t defined.
+</span><span>{% endif %}
+</span></code></pre>
+</div></div>
+<p>В этом проблема. Мне кажется было бы намного лучше если бы присутствие переменной проверялось через функцию, например: <code>exists(&quot;my_var&quot;)</code> и <code>exists_field(config.extra, &quot;variable&quot;)</code>; а обращение к несуществующему полю возвращало не <code>null</code>-подобную штуку, а сразу выкидывало сообщение об ошибке.</p>
+<p>Я так на этом прокололся, и опубликовал сайт без одно важной фичи, которую долго не мог найти, потому что в <code>{% if config.extra.enable_something %}</code> в <code>enable_something</code> допустил опечатку.</p>
+<p>Вообще весь язык создаёт впечатление такого расслабленного динамически-слабо-типизированного языка по типу JS, Pyhton. Лично мне хотелось бы чтобы порождение Rust'а была таким же строгим как и Rust. Но к сожалению имеем что имеем.</p>
+<h2 id="syrost"><a class="anchor" href="#syrost">#<sup>2</sup></a>Сырость</h2>
+<p>В данный момент в золе есть следующие проблемы с картинками:</p>
+<ul>
+<li>Нельзя ресайзить <code>webp</code> картинки.</li>
+<li>Нельзя ресайзить некоторые <code>png</code> картинки в <code>webp</code>, что-то там вылетает и не хочет работать.</li>
+</ul>
+<p>У всего этого одна ошибка в стороннем крейте работы с <code>webp</code>, я написал об этом <a href="https://github.com/jaredforth/webp/issues/7">issue</a>. Ждём когда исправят.</p>
+<p>Другой момент — в золе в рендеринг шорткодов в markdown даётся тяжело, с этим есть пара багов:</p>
+<ul>
+<li><a href="https://github.com/getzola/zola/issues/1600">Shortcodes are broken inside blockquotes</a></li>
+<li><a href="https://github.com/getzola/zola/issues/1601">Shortcodes with body containing code blocks are broken</a></li>
+</ul>
+<p>Ну и ещё вспомним мои предложения по фичам, а ещё есть много чего остального, что не поддерживается. Можно сказать что на данный момент зола довольно сыра. Как минимум в сравнении с каким-нибудь Hugo.</p>
+<h2 id="diff"><a class="anchor" href="#diff">#<sup>2</sup></a>diff</h2>
+<p>Подсветка синтаксиса для <code>diff</code> ужасна. Она вроде во всех темах такая плохая.</p>
+<pre data-lang="diff" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-diff "><code class="language-diff" data-lang="diff"><span style="background-color:#3b5a37;color:#f8f8f8;">+added line
+</span><span style="background-color:#6c1d15;color:#f8f8f8;">-removed line
+</span></code></pre>
+<h1 id="zakliuchenie"><a class="anchor" href="#zakliuchenie">#</a>Заключение</h1>
+<p>Так получилось что для меня переезд на золу — это не только про переезд, но и повод:</p>
+<ul>
+<li>переписать весь код, чтобы знать за что отвечает каждая строчка шаблона; </li>
+<li>выкинуть лишнее; </li>
+<li>сделать новые фичи, которые так долго откладывал; </li>
+<li>пофиксить проблемы которые так долго лежали в бэклоге.</li>
+</ul>
+<p>Как видите, мой блог очень похорошел при <del>Сергее Семёновиче</del> Золе.</p>
+<h2 id="pliusy-i-minusy"><a class="anchor" href="#pliusy-i-minusy">#<sup>2</sup></a>Плюсы и минусы</h2>
+<p>Давайте подведём итоги и соберём в одно место все аргументы «за» и «против» золы:</p>
+<div class="pros">
+<span style="color: #090"><big><b>Плюсы:</b></big></span>
+<ul>
+<li>Одна папка — одна статья, картинки можно хранить локально со статьёй.</li>
+<li>Содеражние парсится из коробки.</li>
+<li>Таксономии поддерживаются из коробки и позволяют легко сделать тэги.</li>
+<li>Ресайзинг картинок и получение их мета-данных из коробки.</li>
+<li>Страницы можно наследовать и концепция блоков.</li>
+<li>Хороший дебаг.</li>
+<li><code>load_data</code>.</li>
+<li>Сообщения об ошибках.</li>
+<li>Быстрая скорость работы.</li>
+<li>Лайв-релоадинг при изменениях в режиме <code>zola serve</code>.</li>
+<li>Не требуется никаких зависимостей, всё в одном бинаре.</li>
+</ul>
+</div>
+<div class="cons">
+<span style="color: #c00"><big><b>Минусы:</b></big></span>
+<ul>
+<li>Шорткоды с телом не удобны в использовании.</li>
+<li>Фильтры нельзя написать в скобках.</li>
+<li>Концепция <code>falsy</code> позволяет игнорировать ошибки.</li>
+<li>Довольно сыра.</li>
+</ul>
+</div>
+<h2 id="ssylka-na-vse-moi-fich-rekvesty-i-bag-reporty"><a class="anchor" href="#ssylka-na-vse-moi-fich-rekvesty-i-bag-reporty">#<sup>2</sup></a>Ссылка на все мои фич-реквесты и баг-репорты</h2>
+<p>Фич-реквесты:</p>
+<ul>
+<li><a href="https://zola.discourse.group/t/run-commands/1018/3">Run commands</a> — лучше эту фичу не реализовывать, а просто прочитать инструкцию о том как это сделать для себя.</li>
+<li><a href="https://zola.discourse.group/t/word-wrap-in-code-with-indent/1020">Word wrap in code with indent</a>.</li>
+<li><a href="https://zola.discourse.group/t/tag-to-disable-counting-of-words-and-reading-time/1021">Tag to disable counting of words and reading time</a></li>
+<li><a href="https://zola.discourse.group/t/add-analogue-of-tera-context-but-without-content/1023">Add analogue of <code>__tera_context</code> but without content</a></li>
+<li><a href="https://zola.discourse.group/t/allow-writing-filters-inside-parenthesis/1025">Allow writing filters inside parenthesis</a></li>
+</ul>
+<p>Баг-репорты:</p>
+<ul>
+<li><a href="https://github.com/getzola/zola/issues/1600">Shortcodes are broken inside blockquotes</a></li>
+<li><a href="https://github.com/getzola/zola/issues/1601">Shortcodes with body containing code blocks are broken</a></li>
+<li><a href="https://github.com/jaredforth/webp/issues/7">Encoder panic</a></li>
+</ul>
+
+</div>
+</article>
+
+  </section>
+  
+
+</td><td>
+<!-- TOC -->
+<div class="side-button" onclick="toggle_toc()">❰</div>
+<nav class="section-nav">
+ <h2>Содержание</h2>
+ <ul class="first">
+ 
+ 
+  <li>
+   <a href="#vvedenie">Введение</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#pereezd">Переезд</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#pochemu">Почему</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#podgotovka">Подготовка</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#aliasy">Алиасы</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#perenos-kommentariev">Перенос комментариев</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#v-zole-vsio-sdelano-kak-nado">В золе всё* сделано как надо</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#shortkody">Шорткоды</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#odna-papka-odna-stat-ia">Одна папка — одна статья</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#table-of-contents">Table Of Contents</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#taksonomii">Таксономии</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#obrabotka-kartinok">Обработка картинок</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#bloki-i-nasledovanie-stranits">Блоки и наследование страниц</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#debag">Дебаг</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#load-data">load_data</a>
+       
+       <ul class="third">
+        
+         
+         <li>
+          <a href="#arewegameyet-rs">arewegameyet.rs</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#vneshnie-utility">Внешние утилиты</a>
+          
+         </li>
+        
+       </ul>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#paginatsiia">Пагинация</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#po-melochi">По мелочи</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#a-chto-zhe-ne-tak-s-zoloi">А что же не так с золой</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#shortkody-s-telom">Шорткоды с телом</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#iazyk-opisaniia-shablonov">Язык описания шаблонов</a>
+       
+       <ul class="third">
+        
+         
+         <li>
+          <a href="#fil-try">Фильтры</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#falsy">Falsy</a>
+          
+         </li>
+        
+       </ul>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#syrost">Сырость</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#diff">diff</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#zakliuchenie">Заключение</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#pliusy-i-minusy">Плюсы и минусы</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#ssylka-na-vse-moi-fich-rekvesty-i-bag-reporty">Ссылка на все мои фич-реквесты и баг-репорты</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ </ul>
+</nav>
+</td></tr></table>
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="section second-section">
+Если вам нравится что я делаю, то подписывайтесь на меня в <a href="https://t.me/optozorax_dev">Telegram</a> и <a href="https://www.youtube.com/c/optozorax">YouTube</a>.
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="comments section second-section">
+
+<script src="https://utteranc.es/client.js"
+        repo="optozorax/optozorax.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+
+  <hr class="enabled-on-phone">
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <footer class="site-footer section second-section">
+  
+    <center>
+    <div style="margin-bottom: 10px;">© Шепрут Илья. Лицензия: <a href="https://creativecommons.org/licenses/by/3.0/deed.ru">CC-BY</a>.</div>
+    <table style="border: 0px; display: contents;">
+    <tr><td style="border: 0px; padding: 0.2rem;">
+    <!-- SVG icons from https://iconmonstr.com -->
+
+    
+<span class="my-span-icon">
+  <a 
+    href="https:&#x2F;&#x2F;github.com&#x2F;optozorax" 
+    aria-label="optozorax's GitHub" 
+    title="optozorax's GitHub">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/github.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's GitHub">
+  </a>
+</span>
+
+
+    
+<span class="my-span-icon">
+  <a 
+    href="https:&#x2F;&#x2F;t.me&#x2F;optozorax_dev" 
+    aria-label="optozorax's Telegram channel" 
+    title="optozorax's Telegram channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/tg.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Telegram channel">
+  </a>
+</span>
+
+
+    
+<span class="my-span-icon">
+  <a 
+    href="https:&#x2F;&#x2F;www.youtube.com&#x2F;c&#x2F;optozorax" 
+    aria-label="optozorax's YouTube channel" 
+    title="optozorax's YouTube channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/youtube.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's YouTube channel">
+  </a>
+</span>
+
+
+    
+<span class="my-span-icon">
+  <a 
+    href="&#x2F;atom.xml" 
+    aria-label="optozorax's Atom Feed" 
+    title="optozorax's Atom Feed">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/rss.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Atom Feed">
+  </a>
+</span>
+
+
+    
+<span class="my-span-icon">
+  <a 
+    href="mailto:optozorax@gmail.com" 
+    aria-label="optozorax's email" 
+    title="optozorax's email">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/contact.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's email">
+  </a>
+</span>
+
+
+    </td><td style="border: 0px; padding: 0.2rem;">
+    
+    <!-- Yandex.Metrika informer -->
+    <a href="https://metrika.yandex.ru/stat/?id=53392057&amp;from=informer" target="_blank" rel="nofollkw"><img src="https://informer.yandex.ru/informer/53392057/1_0_35B977FF_159957FF_1_pageviews" style="width:80px; height:15px; border:0; border-radius: 0px; margin-top: -4px; max-height: 100%; max-width: 100%;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры)" class="ym-advanced-informer" data-cid="53392057" data-lang="ru" /></a> 
+    <!-- /Yandex.Metrika informer -->
+    
+
+    </td></tr>
+    </table>
+    <div class="small-info">
+      Сделано с помощью <a href="https://www.getzola.org/">Zola</a> | База темы <a href="https://github.com/lorepirri/cayman-blog">Cayman Blog</a> | <a href="https://github.com/optozorax/blog_zola">Исходники сайта</a>
+    </div>
+    </center>
+  
+  </footer>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+</body>
+</html>

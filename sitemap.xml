@@ -1,294 +1,315 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://testzorax.github.io/</loc>
+        <loc>https://optozorax.github.io/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/about/</loc>
+        <loc>https://optozorax.github.io/about/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/e/</loc>
+        <loc>https://optozorax.github.io/e/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/e/4d/</loc>
+        <loc>https://optozorax.github.io/e/4d/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/e/4d/img/</loc>
+        <loc>https://optozorax.github.io/e/4d/img/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/e/emergevolution/</loc>
+        <loc>https://optozorax.github.io/e/emergevolution/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/e/emergevolution/img/</loc>
+        <loc>https://optozorax.github.io/e/emergevolution/img/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/e/hyperbolic/</loc>
+        <loc>https://optozorax.github.io/e/hyperbolic/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/e/hyperbolic/img/</loc>
+        <loc>https://optozorax.github.io/e/hyperbolic/img/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/e/ideas/</loc>
+        <loc>https://optozorax.github.io/e/ideas/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/e/ideas/img/</loc>
+        <loc>https://optozorax.github.io/e/ideas/img/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/e/repos/</loc>
+        <loc>https://optozorax.github.io/e/repos/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/old/</loc>
+        <loc>https://optozorax.github.io/old/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/old/fast-tree-point-in-polygon/</loc>
+        <loc>https://optozorax.github.io/old/fast-tree-point-in-polygon/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/old/keyboard-layout/</loc>
+        <loc>https://optozorax.github.io/old/keyboard-layout/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/old/math-formulas/</loc>
+        <loc>https://optozorax.github.io/old/math-formulas/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/old/net-creater/</loc>
+        <loc>https://optozorax.github.io/old/net-creater/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/old/portals-opengl/</loc>
+        <loc>https://optozorax.github.io/old/portals-opengl/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/old/portals-tracing/</loc>
+        <loc>https://optozorax.github.io/old/portals-tracing/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/old/ray-tracing/</loc>
+        <loc>https://optozorax.github.io/old/ray-tracing/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/old/sun-eclipses/</loc>
+        <loc>https://optozorax.github.io/old/sun-eclipses/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/old/university-latex-template/</loc>
+        <loc>https://optozorax.github.io/old/university-latex-template/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/p/</loc>
+        <loc>https://optozorax.github.io/p/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/p/5-point-ratings-are-wrong/</loc>
+        <loc>https://optozorax.github.io/p/5-point-ratings-are-wrong/</loc>
         <lastmod>2020-08-26</lastmod>
     </url>
     <url>
-        <loc>https://testzorax.github.io/p/apollon-circles/</loc>
+        <loc>https://optozorax.github.io/p/apollon-circles/</loc>
         <lastmod>2018-07-20</lastmod>
     </url>
     <url>
-        <loc>https://testzorax.github.io/p/arbitrary-nn/</loc>
+        <loc>https://optozorax.github.io/p/arbitrary-nn/</loc>
         <lastmod>2020-01-06</lastmod>
     </url>
     <url>
-        <loc>https://testzorax.github.io/p/arrogance/</loc>
+        <loc>https://optozorax.github.io/p/arrogance/</loc>
         <lastmod>2019-03-25</lastmod>
     </url>
     <url>
-        <loc>https://testzorax.github.io/p/critters/</loc>
+        <loc>https://optozorax.github.io/p/blog-optimization/</loc>
+        <lastmod>2021-08-30T00:00:01+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://optozorax.github.io/p/critters/</loc>
         <lastmod>2020-07-27</lastmod>
     </url>
     <url>
-        <loc>https://testzorax.github.io/p/evolution-virtual-creatures/</loc>
+        <loc>https://optozorax.github.io/p/evolution-virtual-creatures/</loc>
         <lastmod>2019-09-09</lastmod>
     </url>
     <url>
-        <loc>https://testzorax.github.io/p/genes/</loc>
+        <loc>https://optozorax.github.io/p/genes/</loc>
         <lastmod>2021-05-31</lastmod>
     </url>
     <url>
-        <loc>https://testzorax.github.io/p/how-i-write-programs/</loc>
+        <loc>https://optozorax.github.io/p/how-i-write-programs/</loc>
         <lastmod>2021-08-16</lastmod>
     </url>
     <url>
-        <loc>https://testzorax.github.io/p/imgui/</loc>
+        <loc>https://optozorax.github.io/p/imgui/</loc>
         <lastmod>2021-08-14</lastmod>
     </url>
     <url>
-        <loc>https://testzorax.github.io/p/invertible-1d-automata/</loc>
+        <loc>https://optozorax.github.io/p/invertible-1d-automata/</loc>
         <lastmod>2021-07-28</lastmod>
     </url>
     <url>
-        <loc>https://testzorax.github.io/p/invertible-1d-automata/img/</loc>
+        <loc>https://optozorax.github.io/p/invertible-1d-automata/img/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/p/invertible-1d-automata/svg/</loc>
+        <loc>https://optozorax.github.io/p/invertible-1d-automata/svg/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/p/learn-words-post/</loc>
+        <loc>https://optozorax.github.io/p/learn-words-post/</loc>
         <lastmod>2021-08-01</lastmod>
     </url>
     <url>
-        <loc>https://testzorax.github.io/p/lie/</loc>
+        <loc>https://optozorax.github.io/p/lie/</loc>
         <lastmod>2019-04-07</lastmod>
     </url>
     <url>
-        <loc>https://testzorax.github.io/p/linear-algebra/</loc>
+        <loc>https://optozorax.github.io/p/linear-algebra/</loc>
         <lastmod>2019-11-09</lastmod>
     </url>
     <url>
-        <loc>https://testzorax.github.io/p/my-keyboard-layout/</loc>
+        <loc>https://optozorax.github.io/p/my-keyboard-layout/</loc>
         <lastmod>2021-01-16</lastmod>
     </url>
     <url>
-        <loc>https://testzorax.github.io/p/permutation-into-number/</loc>
+        <loc>https://optozorax.github.io/p/new-features/</loc>
+        <lastmod>2021-08-30T00:00:00+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://optozorax.github.io/p/permutation-into-number/</loc>
         <lastmod>2020-11-08</lastmod>
     </url>
     <url>
-        <loc>https://testzorax.github.io/p/pinoccio/</loc>
+        <loc>https://optozorax.github.io/p/pinoccio/</loc>
         <lastmod>2019-03-23</lastmod>
     </url>
     <url>
-        <loc>https://testzorax.github.io/p/portals/</loc>
+        <loc>https://optozorax.github.io/p/portals/</loc>
         <lastmod>2021-08-18</lastmod>
     </url>
     <url>
-        <loc>https://testzorax.github.io/p/portals/optimized/</loc>
+        <loc>https://optozorax.github.io/p/portals/optimized/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/p/sisle/</loc>
+        <loc>https://optozorax.github.io/p/sisle/</loc>
         <lastmod>2019-04-20</lastmod>
     </url>
     <url>
-        <loc>https://testzorax.github.io/p/space-objects/</loc>
+        <loc>https://optozorax.github.io/p/space-objects/</loc>
         <lastmod>2019-04-21</lastmod>
     </url>
     <url>
-        <loc>https://testzorax.github.io/p/space-objects/explanation_4/</loc>
+        <loc>https://optozorax.github.io/p/space-objects/explanation_4/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/p/space-objects/explanation_5/</loc>
+        <loc>https://optozorax.github.io/p/space-objects/explanation_5/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/p/space-objects/img/</loc>
+        <loc>https://optozorax.github.io/p/space-objects/img/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/p/spam/</loc>
+        <loc>https://optozorax.github.io/p/spam/</loc>
         <lastmod>2021-02-09</lastmod>
     </url>
     <url>
-        <loc>https://testzorax.github.io/p/std-function/</loc>
+        <loc>https://optozorax.github.io/p/std-function/</loc>
         <lastmod>2019-01-30</lastmod>
     </url>
     <url>
-        <loc>https://testzorax.github.io/p/submodules-jekyll/</loc>
+        <loc>https://optozorax.github.io/p/submodules-jekyll/</loc>
         <lastmod>2020-11-16</lastmod>
     </url>
     <url>
-        <loc>https://testzorax.github.io/p/subscription-problem/</loc>
+        <loc>https://optozorax.github.io/p/subscription-problem/</loc>
         <lastmod>2020-08-04</lastmod>
     </url>
     <url>
-        <loc>https://testzorax.github.io/p/symmetric-probabilities/</loc>
+        <loc>https://optozorax.github.io/p/symmetric-probabilities/</loc>
         <lastmod>2020-06-18</lastmod>
     </url>
     <url>
-        <loc>https://testzorax.github.io/p/the-tenet-of-life/</loc>
+        <loc>https://optozorax.github.io/p/the-tenet-of-life/</loc>
         <lastmod>2020-10-29</lastmod>
     </url>
     <url>
-        <loc>https://testzorax.github.io/p/two-doesnt-exists/</loc>
+        <loc>https://optozorax.github.io/p/two-doesnt-exists/</loc>
         <lastmod>2021-06-06</lastmod>
     </url>
     <url>
-        <loc>https://testzorax.github.io/p/typed-float/</loc>
+        <loc>https://optozorax.github.io/p/typed-float/</loc>
         <lastmod>2020-06-20</lastmod>
     </url>
     <url>
-        <loc>https://testzorax.github.io/tags/</loc>
+        <loc>https://optozorax.github.io/p/zola/</loc>
+        <lastmod>2021-08-30T00:00:02+00:00</lastmod>
     </url>
     <url>
-        <loc>https://testzorax.github.io/tags/4d/</loc>
+        <loc>https://optozorax.github.io/tags/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/tags/blog/</loc>
+        <loc>https://optozorax.github.io/tags/4d/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/tags/c/</loc>
+        <loc>https://optozorax.github.io/tags/blog/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/tags/derevo-pifagora/</loc>
+        <loc>https://optozorax.github.io/tags/c/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/tags/evoliutsiia/</loc>
+        <loc>https://optozorax.github.io/tags/derevo-pifagora/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/tags/fraktaly/</loc>
+        <loc>https://optozorax.github.io/tags/evoliutsiia/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/tags/giperbolika/</loc>
+        <loc>https://optozorax.github.io/tags/fraktaly/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/tags/git/</loc>
+        <loc>https://optozorax.github.io/tags/giperbolika/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/tags/grafika/</loc>
+        <loc>https://optozorax.github.io/tags/git/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/tags/iazyk/</loc>
+        <loc>https://optozorax.github.io/tags/grafika/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/tags/idei/</loc>
+        <loc>https://optozorax.github.io/tags/iazyk/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/tags/interfeis/</loc>
+        <loc>https://optozorax.github.io/tags/idei/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/tags/iutub/</loc>
+        <loc>https://optozorax.github.io/tags/interfeis/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/tags/klaviatury/</loc>
+        <loc>https://optozorax.github.io/tags/iutub/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/tags/kletochnye-avtomaty/</loc>
+        <loc>https://optozorax.github.io/tags/klaviatury/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/tags/krugi-apollona/</loc>
+        <loc>https://optozorax.github.io/tags/kletochnye-avtomaty/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/tags/lineinaia-algebra/</loc>
+        <loc>https://optozorax.github.io/tags/krugi-apollona/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/tags/matematika/</loc>
+        <loc>https://optozorax.github.io/tags/lineinaia-algebra/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/tags/meta/</loc>
+        <loc>https://optozorax.github.io/tags/matematika/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/tags/neironnye-seti/</loc>
+        <loc>https://optozorax.github.io/tags/meta/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/tags/oboznacheniia/</loc>
+        <loc>https://optozorax.github.io/tags/neironnye-seti/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/tags/obratimye-avtomaty/</loc>
+        <loc>https://optozorax.github.io/tags/oboznacheniia/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/tags/portaly/</loc>
+        <loc>https://optozorax.github.io/tags/obratimye-avtomaty/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/tags/programma/</loc>
+        <loc>https://optozorax.github.io/tags/obzor/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/tags/programmirovanie/</loc>
+        <loc>https://optozorax.github.io/tags/optimizatsiia/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/tags/raskladka/</loc>
+        <loc>https://optozorax.github.io/tags/portaly/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/tags/rassuzhdeniia/</loc>
+        <loc>https://optozorax.github.io/tags/programma/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/tags/reitreising/</loc>
+        <loc>https://optozorax.github.io/tags/programmirovanie/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/tags/rust/</loc>
+        <loc>https://optozorax.github.io/tags/raskladka/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/tags/sistematizatsiia/</loc>
+        <loc>https://optozorax.github.io/tags/rassuzhdeniia/</loc>
     </url>
     <url>
-        <loc>https://testzorax.github.io/tags/tipizatsiia/</loc>
+        <loc>https://optozorax.github.io/tags/reitreising/</loc>
+    </url>
+    <url>
+        <loc>https://optozorax.github.io/tags/rust/</loc>
+    </url>
+    <url>
+        <loc>https://optozorax.github.io/tags/sistematizatsiia/</loc>
+    </url>
+    <url>
+        <loc>https://optozorax.github.io/tags/tipizatsiia/</loc>
+    </url>
+    <url>
+        <loc>https://optozorax.github.io/tags/zola/</loc>
     </url>
 </urlset>
