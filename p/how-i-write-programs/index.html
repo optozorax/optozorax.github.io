@@ -2,6 +2,17 @@
 <html lang="ru">
 
 <head>
+  <!-- Fonts preload -->
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nFrXyi0A.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nBrXw.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxTcwhsk.woff2" crossOrigin="anonymous">
+  <!-- --- -->
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/main.css">
+  <!-- --- -->
+
   
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(53392057, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/53392057" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
@@ -19,19 +30,13 @@
   <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/atom.xml"> 
   <!-- --- -->
 
-  <!-- Fonts preload -->
-  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nFrXyi0A.woff2" crossOrigin="anonymous">
-  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nBrXw.woff2" crossOrigin="anonymous">
-  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2" crossOrigin="anonymous">
-  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxTcwhsk.woff2" crossOrigin="anonymous">
-  <!-- --- -->
-
   <!-- Social metatags -->
   
+
 <meta name="author" content="optozorax">
 <meta name="title" content="Как я пишу программы — Блог optozorax&#x27;а">
 <meta name="description" content="Рассказываю об этом на двух примерах. Рассказано про всё: сбор идей, планирование, структуры данных, todo-списки, написание кода.">
-<meta name="image" content="preview.png">
+<meta name="image" content="https://optozorax.github.io/p/how-i-write-programs/preview.png">
 
 <meta name="keywords" itemprop="tags" content="программирование, идеи">
 
@@ -41,7 +46,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Как я пишу программы — Блог optozorax&#x27;а">
 <meta property="og:description" content="Рассказываю об этом на двух примерах. Рассказано про всё: сбор идей, планирование, структуры данных, todo-списки, написание кода.">
-<meta property="og:image" content="preview.png">
+<meta property="og:image" content="https://optozorax.github.io/p/how-i-write-programs/preview.png">
 <meta property="og:locale" content="ru">
 
 
@@ -62,7 +67,7 @@
 <meta property="twitter:url" content="https://optozorax.github.io/p/how-i-write-programs/">
 <meta name="twitter:title" content="Как я пишу программы — Блог optozorax&#x27;а">
 <meta name="twitter:description" content="Рассказываю об этом на двух примерах. Рассказано про всё: сбор идей, планирование, структуры данных, todo-списки, написание кода.">
-<meta name="twitter:image" content="preview.png">
+<meta name="twitter:image" content="https://optozorax.github.io/p/how-i-write-programs/preview.png">
 <meta name="twitter:creator" content="optozorax">
 
   <!-- --- -->
@@ -76,10 +81,6 @@
 <script type="text/javascript" src="/js/full_screen.js"></script>
 <script type="text/javascript" src="/js/word_wrap.js"></script>
 
-  <!-- --- -->
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="/main.css">
   <!-- --- -->
 
   <!-- Favicon -->
@@ -456,6 +457,48 @@
 </blockquote>
 <p>И я очень согласен с этим высказыванием, действительно то как ты будешь решать всю задачу зависит от того как выглядят твои типы, особенно важную роль играют enum'ы, которые прям очень хорошо описывают предметную область.</p>
 <p>И поэтому я не могу понять как можно программировать на языках с динамической типизацией, где никто типы никогда не пишет. Я вообще не понимаю какой профит даёт избавление от типов, ведь в долгую это огромный проигрыш, и в короткую тоже не вижу выигрыша.</p>
+<div class="admonition blue2-bg blue2-border-left">
+<div class="admonition-title blue2-bg blue2-border">Хорошая цитата из доклада</div>
+<div class="admonition-content">
+<p>Мой ответ на вопрос о том зачем нужны типы, отлично иллюстрируется цитатой Коннора МакБрайда, тоже очень известного теоретика в области ЯП. Он в трэде жалуется на то что последние 20-30 лет писали ЯП таким образом чтобы типы сами выводились из программы, тогда как можно было делать всё наоборот: можно было писать типы, из которых потом выводятся программы. Мне кажется что это очень глубокая мысль. И, честно говоря, когда я это осознал, то очень сильно поменял своё отношение к тому как пишу код. Потому что ведь на самом деле типы — это идеальная проекция вашей доменной модели приложения на код, которая всегда будет актуальней кода, потому что если она внезапно перестаётся быть актуальной, то код не тайп-чекается. И это с моей точки зрения самое главное — написать крутой, корректный, правильный тип, насколько хорошо позволяет ваш ЯП. Даже если у вас не очень мощные типы, всегда есть возможности спроектировать вашу систему так, чтобы типы там отражали вашу доменную область наилучшим образом. Тогда процесс имплементации становится делом техники. В Idris'е даже есть момент: если вы правильно написали тип, то код может вывестись сам. Но в реальной жизни, когда мы не используем такие ЯП, как правило, когда есть хороший тип, то вы просто пишите банальный код и всё очень просто и понятно. И это мой ответ на то зачем же нужны типы.</p>
+<!-- todo: wait for https://github.com/jaredforth/webp/issues/7 to be resolved -->
+
+
+
+
+<!-- --------------------- -->
+
+
+
+
+
+
+
+
+	
+
+
+<div class="yt-container">
+<a target="_blank" href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=19Iwkey4w8g&amp;t=2359">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube&#x2F;19Iwkey4w8g.jpeg" width="1280" height="720">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=19Iwkey4w8g&amp;t=2359">Системы типов в двух словах (Вячеслав Шебанов)</a>
+<span class="yt-text">Канал: </span><a target="_blank" class="yt-channel" href="https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UC1imMJYjwg_edTgwpdSDEag">RndTech</a>
+</div>
+<div class="yt-duration">41:18</div>
+
+
+
+<div class="yt-timecode">Таймкод 39:19</div>
+
+<a target="_blank" href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=19Iwkey4w8g&amp;t=2359">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+</div></div>
 <p>Ещё есть идея, что чтобы удобнее было писать код, надо подумать о том как представить данные в том виде, чтобы задача в них решалась максимально естественно, и перевести их в этот формат: </p>
 <figure>
 <div class="magnifier-container img-two-three">
