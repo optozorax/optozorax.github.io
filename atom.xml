@@ -5,13 +5,26 @@
 	<link href="https://optozorax.github.io/atom.xml" rel="self" type="application/atom+xml"/>
   	<link href="https://optozorax.github.io/"/>
 	<generator uri="https://www.getzola.org/">Zola</generator>
-	<updated>2021-08-30T00:00:02+00:00</updated>
+	<updated>2021-09-06T00:00:00+00:00</updated>
 	<author>
         <name>optozorax</name>
         <uri>https://optozorax.github.io/</uri>
     </author>
     <icon>https://optozorax.github.io/favicon/android-chrome-192x192.png</icon>
 	<id>https://optozorax.github.io/atom.xml</id>
+	<entry xml:lang="ru">
+		<title>fopply — моя программа для пошаговых алгебраических вычислений</title>
+		<published>2021-09-06T00:00:00+00:00</published>
+		<updated>2021-09-06T00:00:00+00:00</updated>
+		<link href="https://optozorax.github.io/p/fopply/" type="text/html"/>
+		<id>https://optozorax.github.io/p/fopply/</id>
+		<summary type="html">Эта программа позволяет производить алгебраические вычисления пошагово и управлять ими. Это достигается за счёт умного применения формул к исходному выражению. Здесь находится девлог разработки такой программы вместе с описанием реализованной идеи.</summary>
+		<category term="идеи"/>
+		<category term="математика"/>
+		<category term="fopply"/>
+		<category term="программирование"/>
+		<category term="rust"/>
+	</entry>
 	<entry xml:lang="ru">
 		<title>Переезд моего блога на Zola и чем она лучше Jekyll</title>
 		<published>2021-08-30T00:00:02+00:00</published>
@@ -53,7 +66,7 @@
 		<updated>2021-08-18T00:00:00+00:00</updated>
 		<link href="https://optozorax.github.io/p/portals/" type="text/html"/>
 		<id>https://optozorax.github.io/p/portals/</id>
-		<summary type="html">Сборник всех моих постов про порталы из телеграма.</summary>
+		<summary type="html">Вся информация о том какие открытия я совершил в области порталов; о том как разрабатывал софт для их визуализации; о том что будет если поместить портал в портал; монопорталы; тройной портал. При помощи порталов ломаю ваш мозг и пространство.</summary>
 		<category term="программирование"/>
 		<category term="rust"/>
 		<category term="графика"/>
