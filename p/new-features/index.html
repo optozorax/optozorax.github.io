@@ -198,6 +198,11 @@
   </time>
 </h2>
 </td>
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+    <span class="post-date" style="font-style: normal">| 🕑 30 мин</span>
+</h2>
+</td>
 
 
 
@@ -736,27 +741,33 @@ slide_count[1] = 4;
 
 
 
+	
+
 
 <div class="yt-container">
-<a target="_blank" href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=1q0sHf_n_2Y">
+<a target="_blank" href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=1q0sHf_n_2Y&amp;t=490">
 <div class="yt-image-wrapper">
 <img class="yt-image not-default" src="/youtube&#x2F;1q0sHf_n_2Y.webp" width="336" height="188">
 </div>
 </a>
 <div class="yt-title-wrapper">
-<a class="yt-title" target="_blank" href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=1q0sHf_n_2Y">Решение главного парадокса порталов</a>
+<a class="yt-title" target="_blank" href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=1q0sHf_n_2Y&amp;t=490">Решение главного парадокса порталов</a>
 <span class="yt-text">Канал: </span><a target="_blank" class="yt-channel" href="https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCIsVwdLhYrrs3K8MOXEZdhQ">optozorax</a>
 </div>
 <div class="yt-duration">23:59</div>
 
-<a target="_blank" href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=1q0sHf_n_2Y">
+
+
+<div class="yt-timecode">Таймкод 8:10</div>
+
+<a target="_blank" href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=1q0sHf_n_2Y&amp;t=490">
 <svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
 </a>
 </div>
 <div class="admonition blue-bg blue-border-left">
 <div class="admonition-title blue-bg blue-border">Использование</div>
 <div class="admonition-content">
-<pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ youtube(id=&quot;1q0sHf_n_2Y&quot;) }}
+<pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ youtube(id=&quot;1q0sHf_n_2Y&quot;, timecode=490) }}
 </span></code></pre>
 <div class="admonition blue2-bg blue2-border-left">
 <div class="admonition-title blue2-bg blue2-border">Дополнительные действия</div>
@@ -776,6 +787,7 @@ slide_count[1] = 4;
 <li>Выглядит почти как настоящий плеер ютуба.</li>
 <li>При нажатии просто открывает соответствующее видео в новой вкладке.</li>
 <li>Показывает длительность видео (что обычный плеер ютуба не умеет).</li>
+<li>Через параметр <code>timecode</code> можно передать таймкод с которого начинать видео. Он будет показан на видео и вставлен в ссылку.</li>
 </ul>
 </div></div>
 <div class="admonition gray-bg gray-border-left">
@@ -1132,6 +1144,7 @@ slide_count[1] = 4;
 <li>Автоматически генерируется для всех статей.</li>
 <li>Отключается если содержание пустое.</li>
 <li>Подсвечивается текущий пункт и его родители.</li>
+<li>Требует JS для подсветки текущей главы.</li>
 </ul>
 </li>
 <li>На десктопе
@@ -1142,13 +1155,14 @@ slide_count[1] = 4;
 <li>Если текущий пункт в содержании находится ниже, чем середина экрана, то оно автоматически пролистывается вверх.</li>
 <li>Можно вручную пролистывать содержание вверх-вниз колёсиком чтобы выбрать нужную главу для очень больших статей.</li>
 <li>Да, то что можно его пролистать выше основного контента — не баг, а фича.</li>
+<li>Требует JS для пролистывания вверх-вниз.</li>
 </ul>
 </li>
 <li>На телефоне
 <ul>
 <li>Кнопка для выдвижения содержания находится внизу сбоку, благодаря чему не сильно загораживает основной контент.</li>
 <li>Меню можно пролистывать вверх-вниз пальцами.</li>
-<li>Если содержание маленькое, то при открытии через нижню кнопку, автоматически прилипает вниз к ней.</li>
+<li>Работает без JS, на чистом CSS + HTML.</li>
 </ul>
 </li>
 </ul>
@@ -1158,7 +1172,7 @@ slide_count[1] = 4;
 <div class="admonition-content">
 <ul>
 <li>Стили: <a href="https://github.com/optozorax/blog_zola/blob/master/sass/_toc.scss"><code>_toc.scss</code></a>.</li>
-<li>Скрипты: <a href="https://github.com/optozorax/blog_zola/blob/master/static/js/toc.js"><code>toc.js</code></a>, <a href="https://github.com/optozorax/blog_zola/blob/master/static/js/hammer.min.js"><code>hammer.min.js</code></a> (<a href="https://hammerjs.github.io/">веб-сайт</a>).</li>
+<li>Скрипты: <a href="https://github.com/optozorax/blog_zola/blob/master/static/js/toc.js"><code>toc.js</code></a>.</li>
 </ul>
 </div></div>
 <h3 id="vyravnivanie-teksta-po-shirine"><a class="anchor" href="#vyravnivanie-teksta-po-shirine">#<sup>3</sup></a>Выравнивание текста по ширине</h3>
@@ -1525,7 +1539,13 @@ slide_count[1] = 4;
 
 </td><td>
 <!-- TOC -->
-<div class="side-button" onclick="toggle_toc()">❰</div>
+<input type="checkbox" id="toc-trigger" class="toc-trigger" />
+<label for="toc-trigger">
+  <span class="menu-icon">
+    <div class="side-button"><img src="/ico/right.svg"></div>
+  </span>
+</label>
+
 <nav class="section-nav">
  <h2>Содержание</h2>
  <ul class="first">

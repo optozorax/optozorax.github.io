@@ -8,30 +8,6 @@ let toc_element = null;
 let link_by_id = {};
 let current_id = null;
 
-function toggle_toc() {
-	let button = document.querySelector('.side-button');
-	toc_toggled = !toc_toggled;
-	if (toc_toggled) {
-		button.innerHTML = "❯";
-		button.classList.add('button-pressed')
-		toc_element.classList.add('showed-mobile');
-
-		if (scroll_user == 0) {
-			let rect = toc_element.getBoundingClientRect();
-			let offset = window.innerHeight - (rect.top + rect.height);
-			if (offset > 0) {
-				scroll_user = -offset + 20;
-				let top = -(previous_top + scroll_user);
-				toc_element.style["transform"] = `translateY(${top}px)`;
-			}
-		}
-	} else {
-		button.innerHTML = "❰";
-		button.classList.remove('button-pressed')
-		toc_element.classList.remove("showed-mobile");
-	}
-}
-
 function toc_update() {
 	let big_screen = window.matchMedia('(min-width: 75rem)').matches;
 
@@ -99,8 +75,6 @@ function toc_update() {
 	}
 }
 
-let hammertime = null;
-
 window.addEventListener('DOMContentLoaded', () => {
 	let toc_elements = {};
 	toc_element = document.querySelector('.section-nav');
@@ -112,28 +86,12 @@ window.addEventListener('DOMContentLoaded', () => {
 	});
 	all_elements = Array.from(document.querySelectorAll('h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]')).filter((x) => toc_elements["#" + x.getAttribute("id")]);
 
-	hammertime = new Hammer(toc_element, { touchAction: "none" });
-
-	hammertime.get('pan').set({ direction: Hammer.DIRECTION_VERTICAL, threshold: 10 });
-
-	hammertime.on('pan', ev => {
-		let big_screen = window.matchMedia('(min-width: 75rem)').matches;
-		if (big_screen) return;
-
-		if (ev.pointerType == "mouse") return;
-
-		ev.preventDefault();
-
-		let top = -(previous_top + scroll_user - ev.deltaY);
-		if (ev.isFinal) {
-			scroll_user = scroll_user - ev.deltaY;
-		}
-		toc_element.style["transform"] = `translateY(${top}px)`;
-	});
-
 	toc_update();
 
 	toc_element.addEventListener("wheel", (e) => {
+		let big_screen = window.matchMedia('(min-width: 75rem)').matches;
+		if (!big_screen) return;
+
 		e.preventDefault();
 		scroll_user = scroll_user + e.deltaY / 2;
 		let top = -(previous_top + scroll_user);
