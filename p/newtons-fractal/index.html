@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <!-- Fonts preload -->
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nFrXyi0A.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nBrXw.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxTcwhsk.woff2" crossOrigin="anonymous">
+  <!-- --- -->
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/main.css">
+  <!-- --- -->
+
+  
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(53392057, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/53392057" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <meta name="yandex-verification" content="ec61b5ac4464201b" />
+  <!-- --- -->
+  
+
+  <!-- Non social metatags -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link rel="canonical" href="https://optozorax.github.io/">
+  <meta name="robots" content="noarchive">
+  <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/atom.xml"> 
+  <!-- --- -->
+
+  <!-- Social metatags -->
+  
+
+<meta name="author" content="optozorax">
+<meta name="title" content="Фракталы в методе Ньютона — Блог optozorax&#x27;а">
+<meta name="description" content="Бассейны Ньютона можно нарисовать не только для комплексных чисел, но и для действительных тоже, показываю как это будет выглядеть.">
+<meta name="image" content="https://optozorax.github.io/p/newtons-fractal/3.1.png">
+
+<meta name="keywords" itemprop="tags" content="математика, фракталы, графика">
+
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://optozorax.github.io/p/newtons-fractal/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Фракталы в методе Ньютона — Блог optozorax&#x27;а">
+<meta property="og:description" content="Бассейны Ньютона можно нарисовать не только для комплексных чисел, но и для действительных тоже, показываю как это будет выглядеть.">
+<meta property="og:image" content="https://optozorax.github.io/p/newtons-fractal/3.1.png">
+<meta property="og:locale" content="ru">
+
+
+<meta property="article:published_time" content="2019-05-27">
+
+
+
+
+<meta property="article:tag" content="математика">
+
+<meta property="article:tag" content="фракталы">
+
+<meta property="article:tag" content="графика">
+
+
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="optozorax.github.io">
+<meta property="twitter:url" content="https://optozorax.github.io/p/newtons-fractal/">
+<meta name="twitter:title" content="Фракталы в методе Ньютона — Блог optozorax&#x27;а">
+<meta name="twitter:description" content="Бассейны Ньютона можно нарисовать не только для комплексных чисел, но и для действительных тоже, показываю как это будет выглядеть.">
+<meta name="twitter:image" content="https://optozorax.github.io/p/newtons-fractal/3.1.png">
+<meta name="twitter:creator" content="optozorax">
+
+  <!-- --- -->
+
+  <!-- Extra head declarations -->
+  
+
+<script type="text/javascript" src="/js/hammer.min.js"></script>
+<script type="text/javascript" src="/js/toc.js"></script>
+<script type="text/javascript" src="/js/gallery.js"></script>
+<script type="text/javascript" src="/js/full_screen.js"></script>
+<script type="text/javascript" src="/js/word_wrap.js"></script>
+
+  <!-- --- -->
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+  <!-- --- -->
+
+  <title>Фракталы в методе Ньютона — Блог optozorax&#x27;а</title>
+</head>
+
+<body>
+  <!-- FullScreen block -->
+  <div id="img_modal" class="modal" style="display: none;">
+      <img id="img_modal_01" src="/ico/loading.gif">
+      <span class="close" id="img_modal_close">&times;</span>
+  </div>
+  <!-- --- -->
+
+  
+
+
+  <header class="site-header" role="banner">
+  
+  <div class="wrapper">
+    <a class="site-title" href="/">optozorax.blog</a>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <img src="/ico/menu.svg" width="13px" height="15px">
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          <a class="page-link" href="/">Блог</a>
+        
+          <a class="page-link" href="/e">Систематизация</a>
+        
+          <a class="page-link" href="/tags">Теги</a>
+        
+          <a class="page-link" href="/about">Обо мне</a>
+        
+      </div>
+    </nav>
+  </div>
+  
+  </header>
+  
+
+
+
+  
+  
+  <section class="page-header">
+  
+
+
+<h1 class="project-name">Фракталы в методе Ньютона</h1>
+
+<h2 class="project-tagline">Бассейны Ньютона можно нарисовать не только для комплексных чисел, но и для действительных тоже, показываю как это будет выглядеть.</h2>
+
+
+
+<span style="margin-bottom: 10px;">
+  
+    <a href="/tags#matematika"><code class="tag"><nobr>#математика</nobr></code></a>&nbsp;
+  
+    <a href="/tags#fraktaly"><code class="tag"><nobr>#фракталы</nobr></code></a>&nbsp;
+  
+    <a href="/tags#grafika"><code class="tag"><nobr>#графика</nobr></code></a>&nbsp;
+  
+</span>
+
+
+<center>
+<table style="margin-top: 8px;">
+<tr>
+
+
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+  <time datetime="2019-05-27" itemprop="datePublished">
+    
+    
+    
+    
+    <span class="post-date">27 мая 2019</span>
+  </time>
+</h2>
+</td>
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+    <span class="post-date" style="font-style: normal">| 🕑 2 мин</span>
+</h2>
+</td>
+
+
+
+</tr>
+</table>
+
+
+</center>
+
+
+
+
+  </section>
+  
+  
+
+  
+
+
+  <section class="main-content section">
+  
+<article itemscope itemtype="http://schema.org/BlogPosting">
+<div itemprop="articleBody" id="content">
+<p>Есть такой алгоритм, называется «метод Ньютона». Предназначен он для численного решения уравнений вида f(x)=0. Так же есть фрактал под названием <a href="https://ru.wikipedia.org/wiki/%D0%91%D0%B0%D1%81%D1%81%D0%B5%D0%B9%D0%BD%D1%8B_%D0%9D%D1%8C%D1%8E%D1%82%D0%BE%D0%BD%D0%B0">«бассейны Ньютона»</a>, почитал я об этом и решил тоже нарисовать их, только не на комплексной плоскости, а для действительных чисел.</p>
+<p>Тогда возникает вопрос: как это нарисовать, если для действительных чисел будет 1D картинка? Ответ: использовать системы уравнений и многомерный метод Ньютона! Я даже как-то <a href="https://github.com/optozorax/newtons_method_article/raw/master/main.pdf">писал о нём статью</a> (<a href="https://github.com/optozorax/newtons_method_article">ссылка на репозиторий</a>).</p>
+<p>Как и обычный, так и многомерный метод Ньютона умеет находить только один корень, и к какому корню он сойдётся, зависит по большей части от начального приближения. Бассейны Ньютона визуализируют к какому корню придёт метод, если начать с этой точки, показывая это цветом.</p>
+<p>Вот так выглядят бассейны Ньютона для системы уравнений, которая находит точки пересечения двух окружностей:</p>
+<div class="magnifier-container img-one">
+<img
+    class="not-default full-screen-img"
+    width="520"
+    height="520"
+    src="&#x2F;processed_images&#x2F;1771fe68ed46fddc00.webp" 
+    onclick="full_screen('1.png')"
+    onauxclick="full_screen_new_page('1.png')">
+<div class="magnifier-display">
+<img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1<br>png</div>
+</div>
+</div>
+<p>Что-то очень скучно :D, никаких фракталов. Ладно, попробуем увеличить сложность:</p>
+<div class="magnifier-container img-one">
+<img
+    class="not-default full-screen-img"
+    width="520"
+    height="520"
+    src="&#x2F;processed_images&#x2F;91a952d1240a0b6f00.webp" 
+    onclick="full_screen('2.png')"
+    onauxclick="full_screen_new_page('2.png')">
+<div class="magnifier-display">
+<img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1<br>png</div>
+</div>
+</div>
+<p>Здесь система уравнений из трёх уравнений по нахождению касательной к трём окружностям. На картинке показана зависимость только от положения начального приближения, но на самом деле есть зависимость и от радиуса, но для неё надо 3D картинку рисовать. В целом, там ничего особенного не наблюдается.</p>
+<p>Это всё интересно, но я хочу увидеть фракталы! И я смог, на функциях с 3 степенью. Вблизи точки пересечения, то есть корня, всё хорошо, но на пограничных областях возникают фракталы, и без всяких комплексных чисел!</p>
+<!-- Calculate max height to have consistent size for each element -->
+
+
+  
+  
+  
+    
+  
+
+  
+  
+  
+
+  
+  
+  
+
+
+
+<div class="gallery-container">
+
+
+
+
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+  
+
+
+<!-- Images -->
+
+<div class="gallery-slide" id="slide_1_0" style="display:block;">
+  
+  
+
+  <div class="gallery-text">1 / 3</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default" 
+    src="&#x2F;processed_images&#x2F;e94f870859febe0f00.webp" 
+    onclick="full_screen('3.2.png')"
+    onauxclick="full_screen_new_page('3.2.png')"
+    width="582" 
+    height="582">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+</div>
+
+<div class="gallery-slide" id="slide_1_1" >
+  
+  
+
+  <div class="gallery-text">2 / 3</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default" 
+    src="&#x2F;processed_images&#x2F;5b7acc4f041b596000.webp" 
+    onclick="full_screen('3.1.png')"
+    onauxclick="full_screen_new_page('3.1.png')"
+    width="582" 
+    height="582">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+</div>
+
+<div class="gallery-slide" id="slide_1_2" >
+  
+  
+
+  <div class="gallery-text">3 / 3</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default" 
+    src="&#x2F;processed_images&#x2F;ac8ec709857ef82800.webp" 
+    onclick="full_screen('3.0.png')"
+    onauxclick="full_screen_new_page('3.0.png')"
+    width="1280" 
+    height="1280">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×4<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+</div>
+
+
+<!-- Next and previous buttons -->
+<a class="gallery-prev" onclick="gallery_plus(1, -1)">&#10094;</a>
+<a class="gallery-next" onclick="gallery_plus(1, 1)">&#10095;</a>
+</div>
+
+<!-- Thumbnail images -->
+<div class="gallery-row">
+
+  <div class="gallery-column" style="width: 33.333333333333336%;">
+    
+    
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+    <img class="gallery-demo not-default gallery-active" src="&#x2F;processed_images&#x2F;e94f870859febe0f00.webp" 
+      id="demo_1_0" 
+      onclick="gallery_set(1, 0)"
+      width="582" height="582">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  </div>
+
+  <div class="gallery-column" style="width: 33.333333333333336%;">
+    
+    
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+    <img class="gallery-demo not-default" src="&#x2F;processed_images&#x2F;5b7acc4f041b596000.webp" 
+      id="demo_1_1" 
+      onclick="gallery_set(1, 1)"
+      width="582" height="582">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  </div>
+
+  <div class="gallery-column" style="width: 33.333333333333336%;">
+    
+    
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+    <img class="gallery-demo not-default" src="&#x2F;processed_images&#x2F;ac8ec709857ef82800.webp" 
+      id="demo_1_2" 
+      onclick="gallery_set(1, 2)"
+      width="1280" height="1280">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  </div>
+
+</div>
+
+<script>
+slide_index[1] = 0;
+slide_count[1] = 3;
+</script>
+<p>Таким образом теперь вы знаете ещё одну область из реальной жизни, где возникают фракталы.</p>
+<hr />
+<p><strong>UPD:</strong> В 2021 вышло отличное видео от 3Blue1Brown по фракталам в методе Ньютона, советую заценить:</p>
+<!-- todo: wait for https://github.com/jaredforth/webp/issues/7 to be resolved -->
+
+
+
+
+<!-- --------------------- -->
+
+
+
+
+
+
+
+
+
+<div class="yt-container">
+<a target="_blank" href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=-RdOwhmqP5s">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube&#x2F;-RdOwhmqP5s.jpeg" width="1280" height="720">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=-RdOwhmqP5s">Newton&#x27;s Fractal (which Newton knew nothing about)</a>
+<span class="yt-text">Канал: </span><a target="_blank" class="yt-channel" href="https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCYO_jab_esuFRV4b17AJtAw">3Blue1Brown</a>
+</div>
+<div class="yt-duration">26:05</div>
+
+<a target="_blank" href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=-RdOwhmqP5s">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<hr />
+<p>Изначально данная статья была опубликована как <a href="https://twitter.com/optozorax/status/1133045414888738816">трэд в твиттере</a>.</p>
+
+</div>
+</article>
+
+  </section>
+  
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<section class="section second-section">
+Если вам нравится что я делаю, то подписывайтесь на меня в <a href="https://t.me/optozorax_dev">Telegram</a> и <a href="https://www.youtube.com/c/optozorax">YouTube</a>. Или поддержите рублём на <a href="https://boosty.to/optozorax">Boosty</a>.
+</section>
+
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<section class="comments section second-section">
+
+<script src="https://utteranc.es/client.js"
+        repo="optozorax/optozorax.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</section>
+
+
+
+
+
+  <hr class="enabled-on-phone">
+
+  
+
+
+  <footer class="site-footer section second-section">
+  
+    <center>
+    <div style="margin-bottom: 10px;">© Шепрут Илья. Лицензия: <a href="https://creativecommons.org/licenses/by/3.0/deed.ru">CC-BY</a>.</div>
+    <table style="border: 0px; display: contents;">
+    <tr><td style="border: 0px; padding: 0.2rem;">
+    <!-- SVG icons from https://iconmonstr.com -->
+
+    
+<span class="my-span-icon">
+  <a 
+    href="https:&#x2F;&#x2F;github.com&#x2F;optozorax" 
+    aria-label="optozorax's GitHub" 
+    title="optozorax's GitHub">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/github.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's GitHub">
+  </a>
+</span>
+
+
+    
+<span class="my-span-icon">
+  <a 
+    href="https:&#x2F;&#x2F;t.me&#x2F;optozorax_dev" 
+    aria-label="optozorax's Telegram channel" 
+    title="optozorax's Telegram channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/tg.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Telegram channel">
+  </a>
+</span>
+
+
+    
+<span class="my-span-icon">
+  <a 
+    href="https:&#x2F;&#x2F;www.youtube.com&#x2F;c&#x2F;optozorax" 
+    aria-label="optozorax's YouTube channel" 
+    title="optozorax's YouTube channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/youtube.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's YouTube channel">
+  </a>
+</span>
+
+
+    
+<span class="my-span-icon">
+  <a 
+    href="https:&#x2F;&#x2F;boosty.to&#x2F;optozorax" 
+    aria-label="optozorax's donate page" 
+    title="optozorax's donate page">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/donate.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's donate page">
+  </a>
+</span>
+
+
+    
+<span class="my-span-icon">
+  <a 
+    href="&#x2F;atom.xml" 
+    aria-label="optozorax's Atom Feed" 
+    title="optozorax's Atom Feed">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/rss.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Atom Feed">
+  </a>
+</span>
+
+
+    
+<span class="my-span-icon">
+  <a 
+    href="mailto:optozorax@gmail.com" 
+    aria-label="optozorax's email" 
+    title="optozorax's email">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/contact.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's email">
+  </a>
+</span>
+
+
+    </td><td style="border: 0px; padding: 0.2rem;">
+    
+    <!-- Yandex.Metrika informer -->
+    <a href="https://metrika.yandex.ru/stat/?id=53392057&amp;from=informer" target="_blank" rel="nofollkw"><img src="https://informer.yandex.ru/informer/53392057/1_0_35B977FF_159957FF_1_pageviews" style="width:80px; height:15px; border:0; border-radius: 0px; margin-top: -4px; max-height: 100%; max-width: 100%;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры)" class="ym-advanced-informer" data-cid="53392057" data-lang="ru" /></a> 
+    <!-- /Yandex.Metrika informer -->
+    
+
+    </td></tr>
+    </table>
+    <div class="small-info">
+      Сделано с помощью <a href="https://www.getzola.org/">Zola</a> | База темы <a href="https://github.com/lorepirri/cayman-blog">Cayman Blog</a> | <a href="https://github.com/optozorax/blog_zola">Исходники сайта</a>
+    </div>
+    </center>
+  
+  </footer>
+  
+
+
+
+  
+</body>
+</html>

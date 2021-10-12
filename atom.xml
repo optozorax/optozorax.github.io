@@ -278,6 +278,17 @@
 		<category term="идеи"/>
 	</entry>
 	<entry xml:lang="ru">
+		<title>Фракталы в методе Ньютона</title>
+		<published>2019-05-27T00:00:00+00:00</published>
+		<updated>2019-05-27T00:00:00+00:00</updated>
+		<link href="https://optozorax.github.io/p/newtons-fractal/" type="text/html"/>
+		<id>https://optozorax.github.io/p/newtons-fractal/</id>
+		<summary type="html">Бассейны Ньютона можно нарисовать не только для комплексных чисел, но и для действительных тоже, показываю как это будет выглядеть.</summary>
+		<category term="математика"/>
+		<category term="фракталы"/>
+		<category term="графика"/>
+	</entry>
+	<entry xml:lang="ru">
 		<title>О моей библиотеке Space Objects и дереве Пифагора</title>
 		<published>2019-04-21T00:00:00+00:00</published>
 		<updated>2019-04-21T00:00:00+00:00</updated>
