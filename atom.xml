@@ -301,32 +301,12 @@
 		<category term="дерево-пифагора"/>
 	</entry>
 	<entry xml:lang="ru">
-		<title>«В смысле?» — вопрос-лень</title>
-		<published>2019-04-20T00:00:00+00:00</published>
-		<updated>2019-04-20T00:00:00+00:00</updated>
-		<link href="https://optozorax.github.io/p/sisle/" type="text/html"/>
-		<id>https://optozorax.github.io/p/sisle/</id>
-		<summary type="html"></summary>
-		<category term="рассуждения"/>
-		<category term="язык"/>
-	</entry>
-	<entry xml:lang="ru">
 		<title>У слова &#x27;ложь&#x27; слишком много значений.</title>
 		<published>2019-04-07T00:00:00+00:00</published>
 		<updated>2019-04-07T00:00:00+00:00</updated>
 		<link href="https://optozorax.github.io/p/lie/" type="text/html"/>
 		<id>https://optozorax.github.io/p/lie/</id>
 		<summary type="html">Их как минимум три. Использование одного слова для таких разных значений создает путаницу.</summary>
-		<category term="рассуждения"/>
-		<category term="язык"/>
-	</entry>
-	<entry xml:lang="ru">
-		<title>Оправдание своего поведения на примере хвастовства</title>
-		<published>2019-03-25T00:00:00+00:00</published>
-		<updated>2019-03-25T00:00:00+00:00</updated>
-		<link href="https://optozorax.github.io/p/arrogance/" type="text/html"/>
-		<id>https://optozorax.github.io/p/arrogance/</id>
-		<summary type="html"></summary>
 		<category term="рассуждения"/>
 		<category term="язык"/>
 	</entry>
