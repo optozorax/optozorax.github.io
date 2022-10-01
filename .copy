@@ -1,1 +1,1 @@
-rm -rf *; mv ../zola_opto/docs/* .
+rm -rf *; mv ../blog_zola/docs/* .
