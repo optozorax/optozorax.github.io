@@ -257,16 +257,29 @@
 <li>как помогла зола.</li>
 </ul>
 <p>Желательно открыть статью на десктопе и на телефоне чтобы заценивать все фичи параллельно.</p>
-<div class="admonition red-bg red-border-left">
+<p><div class="admonition red-bg red-border-left">
 <div class="admonition-title red-bg red-border">❗️ Обратите внимание</div>
 <div class="admonition-content">
-<p>Я не гарантирую что для каждой фичи оставлена вся информация по тому как её надо внедрить в ваш блог. Если у вас что-то не будет получаться — смотрите в исходники или пишите мне в личку. Если запросов будет слишком много, напишу статьи по тому как внедрить самые нужные фичи.</p>
-</div></div>
+Я не гарантирую что для каждой фичи оставлена вся информация по тому как её надо внедрить в ваш блог. Если у вас что-то не будет получаться — смотрите в исходники или пишите мне в личку. Если запросов будет слишком много, напишу статьи по тому как внедрить самые нужные фичи.
+</div></div></p>
 <h1 id="fichi-kratko"><a class="anchor" href="#fichi-kratko">#</a>Фичи кратко</h1>
 <h2 id="shortkody"><a class="anchor" href="#shortkody">#<sup>2</sup></a>Шорткоды</h2>
 <p>Фичи из этого пункта можно использовать внутри статьи на markdown при помощи особого синтаксиса <a href="https://www.getzola.org/documentation/content/shortcodes/">шорткодов</a>, это возможность золы. То есть они являются кастомным расширением markdown.</p>
 <h3 id="image"><a class="anchor" href="#image">#<sup>3</sup></a>Изображения</h3>
 <p>Эта фича по вставке картинки с кучей дополнительных полезностей. Пример использования:</p>
+
+    
+
+
+    
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-one">
 <img
     class="not-default full-screen-img"
@@ -278,14 +291,11 @@
 <div class="magnifier-display">
 <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×2.3<br>png</div>
 </div>
-</div>
-<div class="admonition blue-bg blue-border-left">
+</div><div class="admonition blue-bg blue-border-left">
 <div class="admonition-title blue-bg blue-border">Использование</div>
-<div class="admonition-content">
-<pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ image(path=&quot;base.png&quot;) }}
+<div class="admonition-content"><pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ image(path=&quot;base.png&quot;) }}
 </span></code></pre>
-</div></div>
-<div class="admonition green2-bg green2-border-left">
+</div></div><div class="admonition green2-bg green2-border-left">
 <div class="admonition-title green2-bg green2-border">Фичи</div>
 <div class="admonition-content">
 <ul>
@@ -299,21 +309,25 @@
 <li>О следующих фичах будет сказано далее в статье:
 <ul>
 <li>Возможность <a href="https://optozorax.github.io/p/new-features/#full-screen">открывать картинку в полном разрешении</a>.</li>
-<li>Возможность <a href="https://optozorax.github.io/p/new-features/#scale">задавать масштаб картинки относительно страницы</a>.</li>
+<li>Возможность <a href="https://optozorax.github.io/p/new-features/#scale">задавать масштаб картинки относительно страницы</a>.
+</div></div></li>
 </ul>
 </li>
 </ul>
-</div></div>
 <div class="admonition gray-bg gray-border-left">
 <div class="admonition-title gray-bg gray-border">Техническая сторона</div>
 <div class="admonition-content">
 <ul>
 <li>Шорткоды: <a href="https://github.com/optozorax/blog_zola/blob/master/templates/shortcodes/image.html"><code>image.html</code></a>.</li>
-<li>Стили: <a href="https://github.com/optozorax/blog_zola/blob/master/sass/shortcodes/_image.scss"><code>_image.scss</code></a>.</li>
+<li>Стили: <a href="https://github.com/optozorax/blog_zola/blob/master/sass/shortcodes/_image.scss"><code>_image.scss</code></a>.
+</div></div></li>
 </ul>
-</div></div>
 <h3 id="gallery"><a class="anchor" href="#gallery">#<sup>3</sup></a>Галерея</h3>
 <p>Галерея имеет все фичи обычной картинки, но ещё позвлояет пролистывать картинки. Пример использования:</p>
+
+
+
+
 <!-- Calculate max height to have consistent size for each element -->
 
 
@@ -515,8 +529,7 @@ slide_count[1] = 4;
 </script>
 <div class="admonition blue-bg blue-border-left">
 <div class="admonition-title blue-bg blue-border">Использование</div>
-<div class="admonition-content">
-<pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ gallery(images=[
+<div class="admonition-content"><pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ gallery(images=[
 </span><span>	&quot;../portals/368.png&quot;, 
 </span><span>	&quot;../portals/369.png&quot;, 
 </span><span>	&quot;../portals/370.png&quot;, 
@@ -528,8 +541,7 @@ slide_count[1] = 4;
 </span><span>	&quot;Тройной портал собрался в совет перед важной игрой прямо как в фильмах. Образуется картинка рекурсии.&quot;,
 </span><span>]) }}
 </span></code></pre>
-</div></div>
-<div class="admonition green2-bg green2-border-left">
+</div></div><div class="admonition green2-bg green2-border-left">
 <div class="admonition-title green2-bg green2-border">Фичи</div>
 <div class="admonition-content">
 <ul>
@@ -540,21 +552,21 @@ slide_count[1] = 4;
 <li>Можно вставить подписи к картинкам с поддержкой <code>markdown</code>. Или подписи можно полностью опустить, не указывая поле <code>alts</code>.</li>
 <li>О следующих фичах будет сказано далее в статье:
 <ul>
-<li>Возможность <a href="https://optozorax.github.io/p/new-features/#full-screen">открывать картинку в полном разрешении</a>.</li>
+<li>Возможность <a href="https://optozorax.github.io/p/new-features/#full-screen">открывать картинку в полном разрешении</a>.
+</div></div></li>
 </ul>
 </li>
 </ul>
-</div></div>
-<div class="admonition gray-bg gray-border-left">
+<p><div class="admonition gray-bg gray-border-left">
 <div class="admonition-title gray-bg gray-border">Техническая сторона</div>
 <div class="admonition-content">
-<p>Основа взята из <a href="https://www.w3schools.com/howto/howto_js_slideshow_gallery.asp">этого урока</a>.</p>
+Основа взята из <a href="https://www.w3schools.com/howto/howto_js_slideshow_gallery.asp">этого урока</a>.</p>
 <ul>
 <li>Шорткоды: <a href="https://github.com/optozorax/blog_zola/blob/master/templates/shortcodes/gallery.html"><code>gallery.html</code></a>.</li>
 <li>Стили: <a href="https://github.com/optozorax/blog_zola/blob/master/sass/shortcodes/_gallery.scss"><code>_gallery.scss</code></a>.</li>
-<li>Скрипты: <a href="https://github.com/optozorax/blog_zola/blob/master/static/js/gallery.js"><code>gallery.js</code></a>.</li>
+<li>Скрипты: <a href="https://github.com/optozorax/blog_zola/blob/master/static/js/gallery.js"><code>gallery.js</code></a>.
+</div></div></li>
 </ul>
-</div></div>
 <h3 id="scale"><a class="anchor" href="#scale">#<sup>3</sup></a>Масштаб относительно страницы</h3>
 <p>Для фич <a href="https://optozorax.github.io/p/new-features/#image">«Изображение»</a>, <a href="https://optozorax.github.io/p/new-features/#other-image">«Другие картинки»</a>, <a href="https://optozorax.github.io/p/new-features/#video-gif">«Видео-гифка»</a>, <a href="https://optozorax.github.io/p/new-features/#video">«Видео»</a> имеется возможность задать масштаб. Этот масштаб будет задавать насколько объект должен быть меньше чем ширина контента, например масштаб <code>1/2</code> говорит что контент должен занимать половину от ширины статьи.</p>
 <div class="admonition green2-bg green2-border-left">
@@ -574,20 +586,33 @@ slide_count[1] = 4;
 </li>
 <li>Для десктопов они действительно занимают тот размер что тут написан.</li>
 <li>Но для экранов средних размеров уже побольше, некоторые вплоть до 100%.</li>
-<li>А для экранов телефонов ещё больше.</li>
+<li>А для экранов телефонов ещё больше.
+</div></div></li>
 </ul>
-</div></div>
 <div class="admonition gray-bg gray-border-left">
 <div class="admonition-title gray-bg gray-border">Техническая сторона</div>
 <div class="admonition-content">
 <ul>
 <li>Макросы: <a href="https://github.com/optozorax/blog_zola/blob/master/templates/macros.html"><code>scale_macros.html</code></a>.</li>
-<li>Стили: <a href="https://github.com/optozorax/blog_zola/blob/master/sass/shortcodes/_image.scss"><code>_image.scss</code></a>.</li>
+<li>Стили: <a href="https://github.com/optozorax/blog_zola/blob/master/sass/shortcodes/_image.scss"><code>_image.scss</code></a>.
+</div></div></li>
 </ul>
-</div></div>
 <h3 id="full-screen"><a class="anchor" href="#full-screen">#<sup>3</sup></a>Просмотр увеличенного изображения</h3>
 <p>Для фич <a href="https://optozorax.github.io/p/new-features/#image">«Изображения»</a> и <a href="https://optozorax.github.io/p/new-features/#gallery">«Галерея»</a> добавляется большая фича по возможности открытия картинок в полном разрешении.</p>
-<figure>
+<p><figure>
+
+    
+
+
+    
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-one">
 <img
     class="not-default full-screen-img"
@@ -601,8 +626,19 @@ slide_count[1] = 4;
 </div>
 </div>
 <figcaption>При наведении мышкой на картинку справа от неё показывается возможность увеличить изображения и мета-информация.</figcaption>
-</figure>
-<figure>
+</figure></p>
+<p><figure>
+
+
+    
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-one-two">
 <img
     class="not-default full-screen-img"
@@ -616,7 +652,7 @@ slide_count[1] = 4;
 </div>
 </div>
 <figcaption>Картинка в полном разрешении открывается на весь экран, если нажать по картинке левой кнопкой мыши.</figcaption>
-</figure>
+</figure></p>
 <div class="admonition green2-bg green2-border-left">
 <div class="admonition-title green2-bg green2-border">Фичи</div>
 <div class="admonition-content">
@@ -635,98 +671,96 @@ slide_count[1] = 4;
 <li>Можно закрыть это нажав на тёмный фон или кнопку закрытия (удобна когда картинка увеличена слишком сильно).</li>
 <li>Можно увеличивать и передвигать картинку мышью.</li>
 <li>Можно увеличивать и передвигать картинку пальцами!</li>
-<li>Пока картинка не загрузилась, висит анимация загрузки.</li>
+<li>Пока картинка не загрузилась, висит анимация загрузки.
+</div></div></li>
 </ul>
 </li>
 </ul>
-</div></div>
-<div class="admonition gray-bg gray-border-left">
+<p><div class="admonition gray-bg gray-border-left">
 <div class="admonition-title gray-bg gray-border">Техническая сторона</div>
 <div class="admonition-content">
-<p>Основа взята из <a href="https://www.w3schools.com/howto/howto_css_modal_images.asp">этого урока</a> и <a href="https://codepen.io/josephmaynard/pen/OjWvNP">этой демки</a>.</p>
+Основа взята из <a href="https://www.w3schools.com/howto/howto_css_modal_images.asp">этого урока</a> и <a href="https://codepen.io/josephmaynard/pen/OjWvNP">этой демки</a>.</p>
 <ul>
 <li>Стили: <a href="https://github.com/optozorax/blog_zola/blob/master/sass/shortcodes/_full_screen.scss"><code>_full_screen.scss</code></a>.</li>
 <li>Скрипты: <a href="https://github.com/optozorax/blog_zola/blob/master/static/js/full_screen.js"><code>full_screen.js</code></a> (<a href="https://codepen.io/josephmaynard/pen/OjWvNP">источник</a>), <a href="https://github.com/optozorax/blog_zola/blob/master/static/js/hammer.min.js"><code>hammer.min.js</code></a> (<a href="https://hammerjs.github.io/">веб-сайт</a>).</li>
-<li>Ресурсы: <a href="https://github.com/optozorax/blog_zola/blob/master/static/ico/loading.gif"><code>loading.gif</code></a> (<a href="https://icons8.com/preloaders/">источник</a>), <a href="https://github.com/optozorax/blog_zola/blob/master/static/ico/magnifier.svg"><code>magnifier.svg</code></a> (<a href="https://iconmonstr.com/magnifier-7-svg/">источник</a>)</li>
+<li>Ресурсы: <a href="https://github.com/optozorax/blog_zola/blob/master/static/ico/loading.gif"><code>loading.gif</code></a> (<a href="https://icons8.com/preloaders/">источник</a>), <a href="https://github.com/optozorax/blog_zola/blob/master/static/ico/magnifier.svg"><code>magnifier.svg</code></a> (<a href="https://iconmonstr.com/magnifier-7-svg/">источник</a>)
+</div></div></li>
 </ul>
-</div></div>
 <h3 id="other-image"><a class="anchor" href="#other-image">#<sup>3</sup></a>Другие картинки</h3>
 <p>Если вдруг надо вставить картинку без автоматического ресайзнига (например, если ресайзинг падает с ошибкой, или у вас <code>gif</code> или <code>svg</code>), то можно использовать следующий шорткод:</p>
 <div class="admonition blue-bg blue-border-left">
 <div class="admonition-title blue-bg blue-border">Использование</div>
-<div class="admonition-content">
-<pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ other_image(path=&quot;...&quot;, scale=&quot;1/2&quot;) }}
+<div class="admonition-content"><pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ other_image(path=&quot;...&quot;, scale=&quot;1/2&quot;) }}
 </span></code></pre>
-</div></div>
-<div class="admonition green2-bg green2-border-left">
+</div></div><div class="admonition green2-bg green2-border-left">
 <div class="admonition-title green2-bg green2-border">Фичи</div>
 <div class="admonition-content">
 <ul>
 <li>Записывает размеры картинки в атрибуты <code>width</code>, <code>height</code>.</li>
-<li><a href="https://optozorax.github.io/p/new-features/#scale">Возможность задавать масштаб</a>.</li>
+<li><a href="https://optozorax.github.io/p/new-features/#scale">Возможность задавать масштаб</a>.
+</div></div></li>
 </ul>
-</div></div>
 <div class="admonition gray-bg gray-border-left">
 <div class="admonition-title gray-bg gray-border">Техническая сторона</div>
 <div class="admonition-content">
 <ul>
-<li>Шорткоды: <a href="https://github.com/optozorax/blog_zola/blob/master/templates/shortcodes/other_image.html"><code>other_image.html</code></a>.</li>
+<li>Шорткоды: <a href="https://github.com/optozorax/blog_zola/blob/master/templates/shortcodes/other_image.html"><code>other_image.html</code></a>.
+</div></div></li>
 </ul>
-</div></div>
 <h3 id="video-gif"><a class="anchor" href="#video-gif">#<sup>3</sup></a>Видео-гифка</h3>
 <p>Я практически не пользуюсь гифками во имя экономии места и трафика. Поэтому почти все гифки у меня перекодированы в <code>mp4</code>, который затем вставляется на страницу с опцией автозапуска, ниже можно наблюдать пример такой гифки:</p>
+
+
 <video class="img-one-three" autoplay loop muted inline>
   <source src="..&#x2F;space-objects&#x2F;explanation_5&#x2F;post_3_1_web.mp4" type="video/mp4">
   Your browser is not supporting video.
-</video>
-<div class="admonition blue-bg blue-border-left">
+</video><div class="admonition blue-bg blue-border-left">
 <div class="admonition-title blue-bg blue-border">Использование</div>
-<div class="admonition-content">
-<pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ video_gif(path=&quot;../space-objects/explanation_5/post_3_1_web.mp4&quot;, scale=&quot;1/3&quot;) }}
+<div class="admonition-content"><pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ video_gif(path=&quot;../space-objects/explanation_5/post_3_1_web.mp4&quot;, scale=&quot;1/3&quot;) }}
 </span></code></pre>
-</div></div>
-<div class="admonition green2-bg green2-border-left">
+</div></div><div class="admonition green2-bg green2-border-left">
 <div class="admonition-title green2-bg green2-border">Фичи</div>
 <div class="admonition-content">
 <ul>
-<li>Поддерживает <code>scale</code> аналогично картинкам, но без автоматического ресайзинга.</li>
+<li>Поддерживает <code>scale</code> аналогично картинкам, но без автоматического ресайзинга.
+</div></div></li>
 </ul>
-</div></div>
 <div class="admonition gray-bg gray-border-left">
 <div class="admonition-title gray-bg gray-border">Техническая сторона</div>
 <div class="admonition-content">
 <ul>
-<li>Шорткоды: <a href="https://github.com/optozorax/blog_zola/blob/master/templates/shortcodes/video_gif.html"><code>video_gif.html</code></a>.</li>
+<li>Шорткоды: <a href="https://github.com/optozorax/blog_zola/blob/master/templates/shortcodes/video_gif.html"><code>video_gif.html</code></a>.
+</div></div></li>
 </ul>
-</div></div>
 <h3 id="video"><a class="anchor" href="#video">#<sup>3</sup></a>Видео</h3>
 <p>Аналогично можно вставить обычные видео и со звуками и управлением:</p>
+
+
 <video class="img-two-three" controls>
   <source src="..&#x2F;my-keyboard-layout&#x2F;startup_sound_web.mp4" type="video/mp4">
   Your browser is not supporting video.
-</video>
-<div class="admonition blue-bg blue-border-left">
+</video><div class="admonition blue-bg blue-border-left">
 <div class="admonition-title blue-bg blue-border">Использование</div>
-<div class="admonition-content">
-<pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ video(path=&quot;../my-keyboard-layout/startup_sound_web.mp4&quot;, scale=&quot;2/3&quot;) }}
+<div class="admonition-content"><pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ video(path=&quot;../my-keyboard-layout/startup_sound_web.mp4&quot;, scale=&quot;2/3&quot;) }}
 </span></code></pre>
-</div></div>
-<div class="admonition green2-bg green2-border-left">
+</div></div><div class="admonition green2-bg green2-border-left">
 <div class="admonition-title green2-bg green2-border">Фичи</div>
 <div class="admonition-content">
 <ul>
-<li>Поддерживает <code>scale</code> аналогично картинкам, но без автоматического ресайзинга.</li>
+<li>Поддерживает <code>scale</code> аналогично картинкам, но без автоматического ресайзинга.
+</div></div></li>
 </ul>
-</div></div>
 <div class="admonition gray-bg gray-border-left">
 <div class="admonition-title gray-bg gray-border">Техническая сторона</div>
 <div class="admonition-content">
 <ul>
-<li>Шорткоды: <a href="https://github.com/optozorax/blog_zola/blob/master/templates/shortcodes/video.html"><code>video.html</code></a>.</li>
+<li>Шорткоды: <a href="https://github.com/optozorax/blog_zola/blob/master/templates/shortcodes/video.html"><code>video.html</code></a>.
+</div></div></li>
 </ul>
-</div></div>
 <h3 id="embedding-youtube"><a class="anchor" href="#embedding-youtube">#<sup>3</sup></a>Эмбеддинг YouTube</h3>
 <p>Максимально производительная аналогия эмбеда ютуба. Не скачивает ничего с серверов ютуба во время скачивания страницы:</p>
+
+
 <!-- todo: wait for https://github.com/jaredforth/webp/issues/7 to be resolved -->
 
 
@@ -763,21 +797,19 @@ slide_count[1] = 4;
 <a target="_blank" href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=1q0sHf_n_2Y&amp;t=490">
 <svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
 </a>
-</div>
-<div class="admonition blue-bg blue-border-left">
+</div><div class="admonition blue-bg blue-border-left">
 <div class="admonition-title blue-bg blue-border">Использование</div>
-<div class="admonition-content">
-<pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ youtube(id=&quot;1q0sHf_n_2Y&quot;, timecode=490) }}
+<div class="admonition-content"><pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ youtube(id=&quot;1q0sHf_n_2Y&quot;, timecode=490) }}
 </span></code></pre>
-<div class="admonition blue2-bg blue2-border-left">
+<p><div class="admonition blue2-bg blue2-border-left">
 <div class="admonition-title blue2-bg blue2-border">Дополнительные действия</div>
 <div class="admonition-content">
-<p>Требуется установить мой скрипт <a href="https://github.com/optozorax/youtube-zola"><code>youtube-zola</code></a>, который в качестве зависимостей требует <a href="https://github.com/ytdl-org/youtube-dl"><code>youtube-dl</code></a>, и для каждого видео запустить его с айдишником, чтобы он локально скачал метаданные и превьюшку:</p>
+Требуется установить мой скрипт <a href="https://github.com/optozorax/youtube-zola"><code>youtube-zola</code></a>, который в качестве зависимостей требует <a href="https://github.com/ytdl-org/youtube-dl"><code>youtube-dl</code></a>, и для каждого видео запустить его с айдишником, чтобы он локально скачал метаданные и превьюшку:</p>
 <pre data-lang="bash" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#5597d6;">youtube-zola</span><span> 1q0sHf_n_2Y
 </span></code></pre>
-<p>В итоге скачивается метаинформация в <code>static/<wbr>youtube/<wbr>1q0sHf_n_2Y.<wbr>json</code> и превьюшка в <code>static/<wbr>youtube/<wbr>1q0sHf_n_2Y.<wbr>webp</code>.</p>
+<p>В итоге скачивается метаинформация в <code>static/<wbr>youtube/<wbr>1q0sHf_n_2Y.<wbr>json</code> и превьюшка в <code>static/<wbr>youtube/<wbr>1q0sHf_n_2Y.<wbr>webp</code>.
 </div></div>
-</div></div>
+</div></div></p>
 <div class="admonition green2-bg green2-border-left">
 <div class="admonition-title green2-bg green2-border">Фичи</div>
 <div class="admonition-content">
@@ -787,18 +819,18 @@ slide_count[1] = 4;
 <li>Выглядит почти как настоящий плеер ютуба.</li>
 <li>При нажатии просто открывает соответствующее видео в новой вкладке.</li>
 <li>Показывает длительность видео (что обычный плеер ютуба не умеет).</li>
-<li>Через параметр <code>timecode</code> можно передать таймкод с которого начинать видео. Он будет показан на видео и вставлен в ссылку.</li>
+<li>Через параметр <code>timecode</code> можно передать таймкод с которого начинать видео. Он будет показан на видео и вставлен в ссылку.
+</div></div></li>
 </ul>
-</div></div>
 <div class="admonition gray-bg gray-border-left">
 <div class="admonition-title gray-bg gray-border">Техническая сторона</div>
 <div class="admonition-content">
 <ul>
 <li>Шорткоды: <a href="https://github.com/optozorax/blog_zola/blob/master/templates/shortcodes/youtube.html"><code>youtube.html</code></a>.</li>
 <li>Стили: <a href="https://github.com/optozorax/blog_zola/blob/master/sass/shortcodes/_youtube.scss"><code>_youtube.scss</code></a>.</li>
-<li>Зависимости: <a href="https://github.com/optozorax/youtube-zola"><code>youtube-zola</code></a>, <a href="https://github.com/ytdl-org/youtube-dl"><code>youtube-dl</code></a>.</li>
+<li>Зависимости: <a href="https://github.com/optozorax/youtube-zola"><code>youtube-zola</code></a>, <a href="https://github.com/ytdl-org/youtube-dl"><code>youtube-dl</code></a>.
+</div></div></li>
 </ul>
-</div></div>
 <h3 id="matematicheskie-formuly"><a class="anchor" href="#matematicheskie-formuly">#<sup>3</sup></a>Математические формулы</h3>
 <p>Можно вставлять математические формулы:</p>
 <div style="font-size: 30px;">
@@ -806,27 +838,26 @@ slide_count[1] = 4;
 </div>
 <div class="admonition blue-bg blue-border-left">
 <div class="admonition-title blue-bg blue-border">Использование</div>
-<div class="admonition-content">
-<pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ katex(body=&quot;\infty^0 - 1 \neq \textrm{NaN}&quot;, block=true) }}
+<div class="admonition-content"><pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ katex(body=&quot;\infty^0 - 1 \neq \textrm{NaN}&quot;, block=true) }}
 </span></code></pre>
-<div class="admonition blue2-bg blue2-border-left">
+<p><div class="admonition blue2-bg blue2-border-left">
 <div class="admonition-title blue2-bg blue2-border">Дополнительные действия</div>
 <div class="admonition-content">
-<p>А ещё на странице с математическими формулами в frontmatter надо вставить следующие строчки. Это нужно чтобы в страницы где формулы не используются, не добавлялись ссылки на скрипты, стили и шрифты, чтобы не нагружать сеть почём зря.</p>
+А ещё на странице с математическими формулами в frontmatter надо вставить следующие строчки. Это нужно чтобы в страницы где формулы не используются, не добавлялись ссылки на скрипты, стили и шрифты, чтобы не нагружать сеть почём зря.</p>
 <pre data-lang="toml" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-toml "><code class="language-toml" data-lang="toml"><span>[</span><span style="color:#6486ab;">extra</span><span>]
 </span><span style="color:#7f902a;">use_katex </span><span>= </span><span style="color:#b3933a;">true
 </span></code></pre>
-</div></div>
-</div></div>
+<p></div></div>
+</div></div></p>
 <div class="admonition green2-bg green2-border-left">
 <div class="admonition-title green2-bg green2-border">Фичи</div>
 <div class="admonition-content">
 <ul>
 <li>Использует <a href="https://katex.org/">KaTeX</a>.</li>
 <li>Скрипты, стили и шрифты скачаны локально.</li>
-<li>Чтобы было по центру надо указать <code>block=true</code>, иначе это будет формула, которая может быть внутри текста.</li>
+<li>Чтобы было по центру надо указать <code>block=true</code>, иначе это будет формула, которая может быть внутри текста.
+</div></div></li>
 </ul>
-</div></div>
 <div class="admonition gray-bg gray-border-left">
 <div class="admonition-title gray-bg gray-border">Техническая сторона</div>
 <div class="admonition-content">
@@ -834,62 +865,61 @@ slide_count[1] = 4;
 <li>Шорткоды: <a href="https://github.com/optozorax/blog_zola/blob/master/templates/shortcodes/katex.html"><code>katex.html</code></a>.</li>
 <li>Стили: <a href="https://github.com/optozorax/blog_zola/blob/master/static/katex.min.css"><code>katex.min.css</code></a>.</li>
 <li>Шрифты: <a href="https://github.com/optozorax/blog_zola/tree/master/static/fonts/KaTeX"><code>fonts/KaTeX</code></a>.</li>
-<li>Скрипты: <a href="https://github.com/optozorax/blog_zola/blob/master/static/js/mathtex-script-type.min.js"><code>mathtex-script-type.min.js</code></a>, <a href="https://github.com/optozorax/blog_zola/blob/master/static/js/katex.min.js"><code>katex.js</code></a> (<a href="https://katex.org/">веб-сайт</a>).</li>
+<li>Скрипты: <a href="https://github.com/optozorax/blog_zola/blob/master/static/js/mathtex-script-type.min.js"><code>mathtex-script-type.min.js</code></a>, <a href="https://github.com/optozorax/blog_zola/blob/master/static/js/katex.min.js"><code>katex.js</code></a> (<a href="https://katex.org/">веб-сайт</a>).
+</div></div></li>
 </ul>
-</div></div>
 <h3 id="tsvetnye-bloki"><a class="anchor" href="#tsvetnye-bloki">#<sup>3</sup></a>Цветные блоки</h3>
-<div class="admonition red-bg red-border-left">
+<p><div class="admonition red-bg red-border-left">
 <div class="admonition-title red-bg red-border">❗️ Обратите внимание</div>
 <div class="admonition-content">
-<p>Эти блоки с текстом очень милые и красивые.</p>
-</div></div>
+Эти блоки с текстом очень милые и красивые.
+</div></div></p>
 <div class="admonition blue-bg blue-border-left">
 <div class="admonition-title blue-bg blue-border">Использование</div>
-<div class="admonition-content">
-<pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ admonition_start(color=&quot;red&quot;, title=&quot;❗️ Обратите внимание&quot;) }}
+<div class="admonition-content"><pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ admonition_start(color=&quot;red&quot;, title=&quot;❗️ Обратите внимание&quot;) }}
 </span><span>Эти блоки с текстом очень милые и красивые.
 </span><span>{{ admonition_end() }}
 </span></code></pre>
 </div></div>
-<div class="admonition gray-bg gray-border-left">
+<p><div class="admonition gray-bg gray-border-left">
 <div class="admonition-title gray-bg gray-border">Фичи</div>
 <div class="admonition-content">
 <div class="admonition red2-bg red2-border-left">
 <div class="admonition-title red2-bg red2-border">❗️ Тут цвет блока фич изменён</div>
 <div class="admonition-content">
-<p>Потому что эти блоки имеют прозрачный цвет, который накладывается друг на друга, поэтому здесь серый, чтобы лучше было видно.</p>
+Потому что эти блоки имеют прозрачный цвет, который накладывается друг на друга, поэтому здесь серый, чтобы лучше было видно.
 </div></div>
 <div class="admonition violet-bg violet-border-left">
 <div class="admonition-title violet-bg violet-border">Куча цветов</div>
-<div class="admonition-content">
+<div class="admonition-content"></p>
 <ul>
 <li><code>red</code>, <code>red2</code>, <code>red3</code></li>
 <li><code>gren</code>, <code>green2</code>, <code>green3</code></li>
 <li><code>blue</code>, <code>blue2</code>, <code>blue3</code></li>
 <li><code>orange</code></li>
 <li><code>violet</code></li>
-<li><code>gray</code></li>
-</ul>
+<li><code>gray</code>
 </div></div>
 <div class="admonition orange-bg orange-border-left">
 <div class="admonition-title orange-bg orange-border">Поддерживают <code>markdown</code> <em>внутри</em> заголовка</div>
 <div class="admonition-content">
-<p>А это цвет <code>orange</code>.</p>
+А это цвет <code>orange</code>.
 </div></div>
 <div class="admonition green-bg green-border-left">
 <div class="admonition-title green-bg green-border">Гордо украдены</div>
 <div class="admonition-content">
-<p>из темы <a href="https://hugoloveit.com/theme-documentation-extended-shortcodes/#4-admonition">LoveIt</a></p>
+из темы <a href="https://hugoloveit.com/theme-documentation-extended-shortcodes/#4-admonition">LoveIt</a>
 </div></div>
-</div></div>
+</div></div></li>
+</ul>
 <div class="admonition gray-bg gray-border-left">
 <div class="admonition-title gray-bg gray-border">Техническая сторона</div>
 <div class="admonition-content">
 <ul>
 <li>Шорткоды: <a href="https://github.com/optozorax/blog_zola/blob/master/templates/shortcodes/admonition_start.html"><code>admonition_start.html</code></a>, <a href="https://github.com/optozorax/blog_zola/blob/master/templates/shortcodes/admonition_end.html"><code>admonition_end.html</code></a>.</li>
-<li>Стили: <a href="https://github.com/optozorax/blog_zola/blob/master/sass/shortcodes/_admonition.scss"><code>_admonition.scss</code></a>.</li>
+<li>Стили: <a href="https://github.com/optozorax/blog_zola/blob/master/sass/shortcodes/_admonition.scss"><code>_admonition.scss</code></a>.
+</div></div></li>
 </ul>
-</div></div>
 <h3 id="pliusy-i-minusy"><a class="anchor" href="#pliusy-i-minusy">#<sup>3</sup></a>Плюсы и минусы</h3>
 <div class="pros">
 <span style="color: #090"><big><b>Плюсы: (<em>фичи</em>)</b></big></span>
@@ -903,23 +933,20 @@ slide_count[1] = 4;
 <li>Вторая строчка текста переносится с отступом так как в обычном списке.</li>
 <li>А ещё я сам такой шорткод придумал, нигде не видел подобного!
 <ul>
-<li>А ещё можно использовать вложенные списки.</li>
-</ul>
-</li>
-</ul>
+<li>А ещё можно использовать вложенные списки.
 </div>
 <div class="cons">
-<span style="color: #c00"><big><b>Минусы:</b></big></span>
-<ul>
+<span style="color: #c00"><big><b>Минусы:</b></big></span></li>
+</ul>
+</li>
 <li>SVG иконки плюса и минуса мне пришлось вручную рисовать через код: гугл не гуглит и редакторы svg в браузере тоже плохие.</li>
 <li>Нельзя использовать в виде шорткода с телом, ибо шорткоды с телом плохо сделаны в золе, но об этом в <a href="/p/zola/#shortkody-s-telom">следующей статье</a>.</li>
-<li>Иногда приходится высавывать плюсы и минусы из пальца, чтобы получилась такая красивая картинка.</li>
+<li>Иногда приходится высавывать плюсы и минусы из пальца, чтобы получилась такая красивая картинка.
+</div></li>
 </ul>
-</div>
 <div class="admonition blue-bg blue-border-left">
 <div class="admonition-title blue-bg blue-border">Использование</div>
-<div class="admonition-content">
-<pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ pros_start(text=&quot;Плюсы: (_фичи_)&quot;) }}
+<div class="admonition-content"><pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ pros_start(text=&quot;Плюсы: (_фичи_)&quot;) }}
 </span><span>* плюс1
 </span><span>* плюс2
 </span><span>{{ pros_end() }}
@@ -929,18 +956,30 @@ slide_count[1] = 4;
 </span><span>* минус2
 </span><span>{{ cons_end() }}
 </span></code></pre>
-</div></div>
-<div class="admonition gray-bg gray-border-left">
+</div></div><div class="admonition gray-bg gray-border-left">
 <div class="admonition-title gray-bg gray-border">Техническая сторона</div>
 <div class="admonition-content">
 <ul>
 <li>Шорткоды: <a href="https://github.com/optozorax/blog_zola/blob/master/templates/shortcodes/pros_start.html"><code>pros_start.html</code></a>, <a href="https://github.com/optozorax/blog_zola/blob/master/templates/shortcodes/pros_end.html"><code>pros_end.html</code></a>, <a href="https://github.com/optozorax/blog_zola/blob/master/templates/shortcodes/cons_start.html"><code>cons_start.html</code></a>, <a href="https://github.com/optozorax/blog_zola/blob/master/templates/shortcodes/cons_end.html"><code>cons_end.html</code></a>.</li>
 <li>Стили: <a href="https://github.com/optozorax/blog_zola/blob/master/sass/shortcodes/_pros_cons.scss"><code>_pros_cons.scss</code></a>.</li>
-<li>Ресурсы: <a href="https://github.com/optozorax/blog_zola/blob/master/static/ico/green_plus.svg"><code>green_plus.svg</code></a>, <a href="https://github.com/optozorax/blog_zola/blob/master/static/ico/red_minus.svg"><code>red_minus.svg</code></a>.</li>
+<li>Ресурсы: <a href="https://github.com/optozorax/blog_zola/blob/master/static/ico/green_plus.svg"><code>green_plus.svg</code></a>, <a href="https://github.com/optozorax/blog_zola/blob/master/static/ico/red_minus.svg"><code>red_minus.svg</code></a>.
+</div></div></li>
 </ul>
-</div></div>
 <h3 id="podpis-k-kartinke"><a class="anchor" href="#podpis-k-kartinke">#<sup>3</sup></a>Подпись к картинке</h3>
-<figure>
+<p><figure>
+
+    
+
+
+    
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-one">
 <img
     class="not-default full-screen-img"
@@ -954,26 +993,35 @@ slide_count[1] = 4;
 </div>
 </div>
 <figcaption>Шерстяной волчара хорош и его лапищи мощны. А ещё тут есть <code>markdown</code>.</figcaption>
-</figure>
+</figure></p>
 <div class="admonition blue-bg blue-border-left">
 <div class="admonition-title blue-bg blue-border">Использование</div>
-<div class="admonition-content">
-<pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ figure_start() }}
+<div class="admonition-content"><pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ figure_start() }}
 </span><span>{{ image(path=&quot;preview.jpeg&quot;) }}
 </span><span>{{ figure_end(caption=&quot;Шерстяной волчара хорош и его лапищи мощны. А ещё тут есть `markdown`.&quot;) }}
 </span></code></pre>
-</div></div>
-<div class="admonition gray-bg gray-border-left">
+</div></div><div class="admonition gray-bg gray-border-left">
 <div class="admonition-title gray-bg gray-border">Техническая сторона</div>
 <div class="admonition-content">
 <ul>
 <li>Шорткоды: <a href="https://github.com/optozorax/blog_zola/blob/master/templates/shortcodes/figure_start.html"><code>figure_start.html</code></a>, <a href="https://github.com/optozorax/blog_zola/blob/master/templates/shortcodes/figure_end.html"><code>figure_end.html</code></a>.</li>
-<li>Стили: <a href="https://github.com/optozorax/blog_zola/blob/master/sass/shortcodes/_figure.scss"><code>_figure.scss</code></a>.</li>
+<li>Стили: <a href="https://github.com/optozorax/blog_zola/blob/master/sass/shortcodes/_figure.scss"><code>_figure.scss</code></a>.
+</div></div></li>
 </ul>
-</div></div>
 <h3 id="konteiner-dlia-mnozhestva-kartinok"><a class="anchor" href="#konteiner-dlia-mnozhestva-kartinok">#<sup>3</sup></a>Контейнер для множества картинок</h3>
 <p>С десктопа вы должны увидеть здесь 3 шерстяных волчары в одной строке, а с телефона 2 волчары в одной строке:</p>
-<div class="container">
+<p><div class="container">
+
+
+    
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-one-three">
 <img
     class="not-default full-screen-img"
@@ -986,6 +1034,17 @@ slide_count[1] = 4;
 <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1<br>jpg</div>
 </div>
 </div>
+
+
+    
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-one-three">
 <img
     class="not-default full-screen-img"
@@ -998,6 +1057,17 @@ slide_count[1] = 4;
 <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1<br>jpg</div>
 </div>
 </div>
+
+
+    
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-one-three">
 <img
     class="not-default full-screen-img"
@@ -1010,88 +1080,96 @@ slide_count[1] = 4;
 <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1<br>jpg</div>
 </div>
 </div>
-</div>
+</div></p>
 <div class="admonition blue-bg blue-border-left">
 <div class="admonition-title blue-bg blue-border">Использование</div>
-<div class="admonition-content">
-<pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ container_start() }}
+<div class="admonition-content"><pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ container_start() }}
 </span><span>{{ image(path=&quot;preview.jpeg&quot;, scale=&quot;1/3&quot;) }}
 </span><span>{{ image(path=&quot;preview.jpeg&quot;, scale=&quot;1/3&quot;) }}
 </span><span>{{ image(path=&quot;preview.jpeg&quot;, scale=&quot;1/3&quot;) }}
 </span><span>{{ container_end() }}
 </span></code></pre>
-</div></div>
-<div class="admonition gray-bg gray-border-left">
+</div></div><div class="admonition gray-bg gray-border-left">
 <div class="admonition-title gray-bg gray-border">Техническая сторона</div>
 <div class="admonition-content">
 <ul>
 <li>Шорткоды: <a href="https://github.com/optozorax/blog_zola/blob/master/templates/shortcodes/container_start.html"><code>container_start.html</code></a>, <a href="https://github.com/optozorax/blog_zola/blob/master/templates/shortcodes/container_end.html"><code>container_end.html</code></a>.</li>
-<li>Стили: <a href="https://github.com/optozorax/blog_zola/blob/master/sass/shortcodes/_container.scss"><code>_container.scss</code></a>.</li>
+<li>Стили: <a href="https://github.com/optozorax/blog_zola/blob/master/sass/shortcodes/_container.scss"><code>_container.scss</code></a>.
+</div></div></li>
 </ul>
-</div></div>
 <h3 id="detali"><a class="anchor" href="#detali">#<sup>3</sup></a>Детали</h3>
-<details>
+<p><details>
 <summary>А подробности внутри</summary>
 <div class="details-content">
-<p>Позволяет делать такой элемент, который можно скрывать и раскрывать.</p>
+Позволяет делать такой элемент, который можно скрывать и раскрывать.
 </div>
-</details>
+</details></p>
 <div class="admonition blue-bg blue-border-left">
 <div class="admonition-title blue-bg blue-border">Использование</div>
-<div class="admonition-content">
-<pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ details_start(summary=&quot;А подробности внутри&quot;) }}
+<div class="admonition-content"><pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ details_start(summary=&quot;А подробности внутри&quot;) }}
 </span><span>Позволяет делать такой элемент, который можно скрывать и раскрывать.
 </span><span>{{ details_end() }}
 </span></code></pre>
-</div></div>
-<div class="admonition green2-bg green2-border-left">
+</div></div><div class="admonition green2-bg green2-border-left">
 <div class="admonition-title green2-bg green2-border">Фичи</div>
 <div class="admonition-content">
 <ul>
 <li>В <code>summary</code> можно использовать <code>markdown</code>.</li>
-<li>Играет анимацию вращения стрелки через CSS, но анимации открытия и закрытия самого элемента нет, ибо для этого надо JS, а мне лень и не хочу нагружать страницу.</li>
+<li>Играет анимацию вращения стрелки через CSS, но анимации открытия и закрытия самого элемента нет, ибо для этого надо JS, а мне лень и не хочу нагружать страницу.
+</div></div></li>
 </ul>
-</div></div>
 <div class="admonition gray-bg gray-border-left">
 <div class="admonition-title gray-bg gray-border">Техническая сторона</div>
 <div class="admonition-content">
 <ul>
 <li>Шорткоды: <a href="https://github.com/optozorax/blog_zola/blob/master/templates/shortcodes/details_start.html"><code>details_start.html</code></a>, <a href="https://github.com/optozorax/blog_zola/blob/master/templates/shortcodes/details_end.html"><code>details_end.html</code></a>.</li>
-<li>Стили: <a href="https://github.com/optozorax/blog_zola/blob/master/sass/shortcodes/_details.scss"><code>_details.scss</code></a>.</li>
+<li>Стили: <a href="https://github.com/optozorax/blog_zola/blob/master/sass/shortcodes/_details.scss"><code>_details.scss</code></a>.
+</div></div></li>
 </ul>
-</div></div>
 <h3 id="ubrat-iz-soderzhaniia"><a class="anchor" href="#ubrat-iz-soderzhaniia">#<sup>3</sup></a>Убрать из содержания</h3>
 <p>Данный шорткод используется чтобы убрать что-то из содержания. Это может быть полезно в шорткоде <code>details</code>. </p>
-<div class="admonition gray-bg gray-border-left">
+<p><div class="admonition gray-bg gray-border-left">
 <div class="admonition-title gray-bg gray-border">Использование фичи</div>
 <div class="admonition-content">
 <p>Например этот заголовок:</p>
 <h1 id="dannogo-zagolovka-net-v-soderzhanii">Данного заголовка нет в содержании</h1>
 <h2 id="i-ego-potomka-tozhe">И его потомка тоже</h2>
 <h3 id="a-eshchio-u-nikh-net-ssylki-na-samikh-sebia">А ещё у них нет ссылки на самих себя</h3>
-</div></div>
+
+</div></div></p>
 <div class="admonition blue-bg blue-border-left">
 <div class="admonition-title blue-bg blue-border">Использование</div>
-<div class="admonition-content">
-<pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{% not_in_toc() %}
+<div class="admonition-content"><pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{% not_in_toc() %}
 </span><span># Данного заголовка нет в содержании
 </span><span>## И его потомка тоже
 </span><span>### А ещё у них нет ссылки на самих себя
 </span><span>{% end %}
 </span></code></pre>
-</div></div>
-<div class="admonition gray-bg gray-border-left">
+</div></div><div class="admonition gray-bg gray-border-left">
 <div class="admonition-title gray-bg gray-border">Техническая сторона</div>
 <div class="admonition-content">
 <ul>
-<li>Шорткоды: <a href="https://github.com/optozorax/blog_zola/blob/master/templates/shortcodes/not_in_toc.html"><code>not_in_toc.html</code></a>.</li>
+<li>Шорткоды: <a href="https://github.com/optozorax/blog_zola/blob/master/templates/shortcodes/not_in_toc.html"><code>not_in_toc.html</code></a>.
+</div></div></li>
 </ul>
-</div></div>
 <h2 id="vsio-ostal-noe"><a class="anchor" href="#vsio-ostal-noe">#<sup>2</sup></a>Всё остальное</h2>
 <p>Этот тип фич не относится напрямую к написанию статей, а скорее ко всей остальной части блога.</p>
 <h3 id="soderzhanie"><a class="anchor" href="#soderzhanie">#<sup>3</sup></a>Содержание</h3>
 <p>Статьи имеют оглавление. Статьи большие. Значит можно взять это оглавление и показать где-нибудь. Я сделал это, и в зависимости от вашего устройства, содержание для вас может выглядеть по-разному:</p>
-<figure>
+<p><figure>
+
+    
+
+
+    
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-one">
 <img
     class="not-default full-screen-img"
@@ -1105,9 +1183,20 @@ slide_count[1] = 4;
 </div>
 </div>
 <figcaption>Содержание на десктопе. Находится справа от статьи.</figcaption>
-</figure>
-<figure>
+</figure></p>
+<p><figure>
 <div class="container">
+
+
+    
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-one-two">
 <img
     class="not-default full-screen-img"
@@ -1120,6 +1209,17 @@ slide_count[1] = 4;
 <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×2.9<br>jpg</div>
 </div>
 </div>
+
+
+    
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-one-two">
 <img
     class="not-default full-screen-img"
@@ -1134,7 +1234,7 @@ slide_count[1] = 4;
 </div>
 </div>
 <figcaption>Содержание на телефоне выдвигается через кнопку справа снизу.</figcaption>
-</figure>
+</figure></p>
 <div class="admonition green2-bg green2-border-left">
 <div class="admonition-title green2-bg green2-border">Фичи</div>
 <div class="admonition-content">
@@ -1162,19 +1262,19 @@ slide_count[1] = 4;
 <ul>
 <li>Кнопка для выдвижения содержания находится внизу сбоку, благодаря чему не сильно загораживает основной контент.</li>
 <li>Меню можно пролистывать вверх-вниз пальцами.</li>
-<li>Работает без JS, на чистом CSS + HTML.</li>
+<li>Работает без JS, на чистом CSS + HTML.
+</div></div></li>
 </ul>
 </li>
 </ul>
-</div></div>
 <div class="admonition gray-bg gray-border-left">
 <div class="admonition-title gray-bg gray-border">Техническая сторона</div>
 <div class="admonition-content">
 <ul>
 <li>Стили: <a href="https://github.com/optozorax/blog_zola/blob/master/sass/_toc.scss"><code>_toc.scss</code></a>.</li>
-<li>Скрипты: <a href="https://github.com/optozorax/blog_zola/blob/master/static/js/toc.js"><code>toc.js</code></a>.</li>
+<li>Скрипты: <a href="https://github.com/optozorax/blog_zola/blob/master/static/js/toc.js"><code>toc.js</code></a>.
+</div></div></li>
 </ul>
-</div></div>
 <h3 id="vyravnivanie-teksta-po-shirine"><a class="anchor" href="#vyravnivanie-teksta-po-shirine">#<sup>3</sup></a>Выравнивание текста по ширине</h3>
 <p>Выравнивание текста по ширине — это когда текст старается занимать всю ширину строки за счёт увеличения пробелов или добавления переносов словам.</p>
 <div class="admonition green2-bg green2-border-left">
@@ -1190,25 +1290,36 @@ slide_count[1] = 4;
 <li>Chrome и остальные — не поддерживают автоматическое вычисление переносов для русского языка.
 <ul>
 <li>Поэтому для больших и средних экранов включено обычное выравнивание по ширине с увеличением пробелов. Вы этого не заметите, потому что ширина строк довольно большая, и пробелы изменяются относительно не сильно.</li>
-<li>А для телефонов на хроме включено выравнивание по левому краю, к которому все так привыкли.</li>
+<li>А для телефонов на хроме включено выравнивание по левому краю, к которому все так привыкли.
+</div></div></li>
 </ul>
 </li>
 </ul>
-</div></div>
 <div class="admonition gray-bg gray-border-left">
 <div class="admonition-title gray-bg gray-border">Техническая сторона</div>
 <div class="admonition-content">
 <ul>
-<li>Стили: <a href="https://github.com/optozorax/blog_zola/blob/master/sass/_justify.scss"><code>_justify.scss</code></a>.</li>
+<li>Стили: <a href="https://github.com/optozorax/blog_zola/blob/master/sass/_justify.scss"><code>_justify.scss</code></a>.
+</div></div></li>
 </ul>
-</div></div>
 <h3 id="blok-koda"><a class="anchor" href="#blok-koda">#<sup>3</sup></a>Блок кода</h3>
 <p>В зависимости от устройства следующий блок кода для вас будет выглядеть по-разному:</p>
 <pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#668f14;">fn </span><span style="color:#c23f31;">main</span><span>() {
 </span><span>    </span><span style="color:#a2a001;">println!</span><span>(</span><span style="color:#d07711;">&quot;very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very long line, </span><span style="color:#aeb52b;">{}</span><span style="color:#d07711;">&quot;</span><span>, </span><span style="color:#d07711;">&quot;hello world&quot;</span><span>);
 </span><span>}
 </span></code></pre>
-<div class="container">
+<p><div class="container">
+
+
+    
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-one-four">
 <img
     class="not-default full-screen-img"
@@ -1221,6 +1332,17 @@ slide_count[1] = 4;
 <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1.1<br>png</div>
 </div>
 </div>
+
+
+    
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-one-four">
 <img
     class="not-default full-screen-img"
@@ -1233,6 +1355,17 @@ slide_count[1] = 4;
 <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1.1<br>png</div>
 </div>
 </div>
+
+
+    
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-one-four">
 <img
     class="not-default full-screen-img"
@@ -1245,6 +1378,17 @@ slide_count[1] = 4;
 <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1.2<br>png</div>
 </div>
 </div>
+
+
+    
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-one-four">
 <img
     class="not-default full-screen-img"
@@ -1257,7 +1401,7 @@ slide_count[1] = 4;
 <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1.1<br>png</div>
 </div>
 </div>
-</div>
+</div></p>
 <div class="admonition green2-bg green2-border-left">
 <div class="admonition-title green2-bg green2-border">Фичи</div>
 <div class="admonition-content">
@@ -1266,17 +1410,17 @@ slide_count[1] = 4;
 <li>Это не простой word-wrap, а с автоматическим индентом для вторых и следующих строк!</li>
 <li>Для вторых и следующих строк добавляется дополнительный отступ, прямо как в Sublime.</li>
 <li>На маленьких экранах телефонов включается обычный режим пролистывания кода вбок. Ибо там word-wrap выглядит плохо.</li>
-<li>А ещё теперь показываетс язык кода.</li>
+<li>А ещё теперь показываетс язык кода.
+</div></div></li>
 </ul>
-</div></div>
 <div class="admonition gray-bg gray-border-left">
 <div class="admonition-title gray-bg gray-border">Техническая сторона</div>
 <div class="admonition-content">
 <ul>
 <li>Стили: <a href="https://github.com/optozorax/blog_zola/blob/master/sass/_word_wrap.scss"><code>_word_wrap.scss</code></a>.</li>
-<li>Скрипты: <a href="https://github.com/optozorax/blog_zola/blob/master/static/js/word_wrap.js"><code>word_wrap.js</code></a>.</li>
+<li>Скрипты: <a href="https://github.com/optozorax/blog_zola/blob/master/static/js/word_wrap.js"><code>word_wrap.js</code></a>.
+</div></div></li>
 </ul>
-</div></div>
 <h3 id="novye-shrifty"><a class="anchor" href="#novye-shrifty">#<sup>3</sup></a>Новые шрифты</h3>
 <ul>
 <li>Теперь для основного текста используется шрифт <a href="https://fonts.google.com/specimen/Rubik">Rubik</a>. Мне очень нравится его форма, это просто любовь с первого взгляда.</li>
@@ -1293,9 +1437,9 @@ slide_count[1] = 4;
 </ul>
 </li>
 <li>Теперь есть <a href="/atom.xml">Atom Feed</a>.</li>
-<li>Теперь рядом со статьями на главной странице показывается примерное время чтения. Благодаря ему можно сравнивать длину разных статей.</li>
+<li>Теперь рядом со статьями на главной странице показывается примерное время чтения. Благодаря ему можно сравнивать длину разных статей.
+</div></div></li>
 </ul>
-</div></div>
 <h2 id="strukturnye"><a class="anchor" href="#strukturnye">#<sup>2</sup></a>Структурные</h2>
 <h3 id="sozdal-otdel-nuiu-kategoriiu-redaktiruemykh-stranits"><a class="anchor" href="#sozdal-otdel-nuiu-kategoriiu-redaktiruemykh-stranits">#<sup>3</sup></a>Создал отдельную категорию «Редактируемых страниц»</h3>
 <p>Теперь в заголовке есть ссылка <a href="/e">«Систематизация»</a>, которая ведёт на страницы, которые могут много редактироваться.</p>
@@ -1306,9 +1450,9 @@ slide_count[1] = 4;
 <li>Дата публикации отсутствует, так как это бессмысленно.</li>
 <li>Каждая страница является репозиторием и вставлена через <code>git sumbodule</code>.</li>
 <li>У каждой страницы есть обязательный Changelog отдельным файлом.</li>
-<li>Такие страницы не перемешиваются с обычными статьями и не вводят читателя в заблуждение.</li>
+<li>Такие страницы не перемешиваются с обычными статьями и не вводят читателя в заблуждение.
+</div></div></li>
 </ul>
-</div></div>
 <h3 id="ubral-stranitsy-repozitorii"><a class="anchor" href="#ubral-stranitsy-repozitorii">#<sup>3</sup></a>Убрал страницы-репозитории</h3>
 <p>Раньше некоторые страницы-статьи у меня были просто ридмишками из репозиториев, вставленные через <code>git submodule</code>, теперь я это убрал.</p>
 <div class="admonition green2-bg green2-border-left">
@@ -1331,11 +1475,11 @@ slide_count[1] = 4;
 </li>
 <li>То что раньше было в блоге теперь ведёт в соответствующий репозиторий, например: 
 <ul>
-<li><a href="/university_latex_template">/university_<wbr>latex_<wbr>template</a>.</li>
+<li><a href="/university_latex_template">/university_<wbr>latex_<wbr>template</a>.
+</div></div></li>
 </ul>
 </li>
 </ul>
-</div></div>
 <hr />
 <hr />
 <hr />
@@ -1368,14 +1512,23 @@ slide_count[1] = 4;
 <p>Заодно подумал что неплохо бы сразу показывать а зачем эта увеличенная картинка может быть нужна. Поэтмоу рядом приписал во сколько раз оригинал больше чем то что сейчас, и какой формат у оригинала. Вдруг, если вы хотите сохранить картинку из этой статьи, вам важно чтобы формат оригинала был <code>png</code>.</p>
 <h3 id="animatsiia-zagruzki"><a class="anchor" href="#animatsiia-zagruzki">#<sup>3</sup></a>Анимация загрузки</h3>
 <p>При открытии картинок в полном разрешении вы можете заметить что показывается анимация загрузки:</p>
-<figure>
+<p><figure>
+
+    
+
+
+
+
+
+
+
 <img
     class="not-default img-one"
     width="64"
     height="64"
     src="&#x2F;p&#x2F;new-features&#x2F;loading.gif">
 <figcaption>Это анимация загрузки. Она уже загружена.</figcaption>
-</figure>
+</figure></p>
 <p>На самом деле я через JS не отслеживаю никакие запросы к картинке, эта анимация просто по умолчанию стоит в <code>&lt;img&gt;</code>, я через JS только меняю поле <code>src</code>, а анимация сама пропадает когда браузер получает новую картинку.</p>
 <p>Кстати, найти эту анимацию для меня было <strong>очень сложно</strong>. Вот знаете, гуглю я «loading gif», и он выдаёт столько мусора, что просто невозможно. Большая часть гифок имеет размер 500×500 и пожата тысячу раз сначала через <code>mp4</code>, затем <code>gif</code>-форматом. Эту картинку я получил благодаря сайту <a href="https://icons8.com/preloaders/">icons8</a>, где можно <em>настроить</em> эту анимацию и потом скачать <code>gif</code> бесплатно. К сожалению у них в генераторе некоторая проблема с обработкой прозрачного фона, как видите по анимации сверху, так что я просто забил и вставил такую гифку.</p>
 <p>Если кто знает как такие вещи гуглить, типо анимации загрузки, то напишите пожалуйста в комментариях.</p>
@@ -1395,6 +1548,17 @@ slide_count[1] = 4;
 <p>Вообще главная заслуга того что это содержание такое хорошее в CSS+JS, а не в конкретно золе. Зола молодец только тем что предоставила качественные фичи для генерации содержания.</p>
 <p>Правда сейчас с содержанием есть небольшая проблема, что на телефоне при пролистывании его вверх-вниз, на Firefox вылезает дурацкая панель с ссылками и ломает рендеринг, обрезая содержание. Я у себя нафиг выключил автоматическое скрывание этого нижнего бара, и вам советую. А может вы знаете как сделать чтобы свайпы вверх-вниз не заставляли этот нижний бар скрываться? <code>preventDefault</code> не помогает :(.</p>
 <p>Вы только посмотрите, как моя самая большая статья <a href="/p/my-keyboard-layout">Раскладка Ильи Шепрута</a> теперь выглядит вместе с содержанием и галереей. Здесь сразу видно основной контент, который можно начать читать!</p>
+
+
+    
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-two-three">
 <img
     class="not-default full-screen-img"
@@ -1408,7 +1572,18 @@ slide_count[1] = 4;
 </div>
 </div>
 <p>А теперь что было в старой статье. Вы только посмотрите сколько надо пролистать до основной статьи, сколько экранов! Я, конечно, молодец что для своей главной статьи сделал такое огромное препятствие, но теперь всё в миллион раз лучше.</p>
-<div class="container">
+<p><div class="container">
+
+
+    
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-one-three">
 <img
     class="not-default full-screen-img"
@@ -1421,6 +1596,17 @@ slide_count[1] = 4;
 <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×3.1<br>jpg</div>
 </div>
 </div>
+
+
+    
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-one-three">
 <img
     class="not-default full-screen-img"
@@ -1433,7 +1619,7 @@ slide_count[1] = 4;
 <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×3.1<br>jpg</div>
 </div>
 </div>
-</div>
+</div></p>
 <p>И для такой огромной статьи иметь содержание сбоку, которое можно пролистать, крайне важно. Вдруг человек не хочет читать всё, а хочет увидеть лишь конкретные моменты. Он сможет это сделать.</p>
 <p>Кстати, если вы до сих пор не читали эту статью, то сейчас самое время, ибо сейчас она максимально улучшена.</p>
 <h2 id="vyravnivanie-teksta-po-shirine-1"><a class="anchor" href="#vyravnivanie-teksta-po-shirine-1">#<sup>2</sup></a>Выравнивание текста по ширине</h2>
@@ -1454,6 +1640,17 @@ slide_count[1] = 4;
 <p>Окей, и что делать? Оказывается если в таблице в одном столбце вообще выключить возможность выделять текст, то при копировании и вставке там не будет вставляться символ табуляции.</p>
 <p>Теперь можно сделать следующее: в первый столбец вставляем символ отступа чтобы он индентил код, затем во второй столбец вставляем всю строку с отступом, <strong>но</strong> отступ скрываем через <code>font-size: 0px</code>.</p>
 <p>В итоге выделение выглядит отвратительно, но при вставке всё окей:</p>
+
+
+    
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-one-four">
 <img
     class="not-default full-screen-img"
@@ -1516,7 +1713,18 @@ slide_count[1] = 4;
 <p>Очень много новых фич, и мне они нравятся! Они сильно улучшают User Experience и сильно упрощают для меня написание статей, добавляют цвета и формы. Крадите наздоровье! Если не получается что-то вставить в свой блог — пишите мне в личку, подскажу. </p>
 <p>Благодаря этим шорткодам мне удалось практически полностью избавиться от <code>html</code> в статьях. </p>
 <p>А во время создания всех этих прекрасных фич я чувствовал себя так:</p>
-<figure>
+<p><figure>
+
+
+    
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-two-three">
 <img
     class="not-default full-screen-img"
@@ -1530,7 +1738,8 @@ slide_count[1] = 4;
 </div>
 </div>
 <figcaption><a href="https://t.me/optozorax_dev_chat/6184">Это не я сказал</a></figcaption>
-</figure>
+</figure></p>
+
 </div>
 </article>
 

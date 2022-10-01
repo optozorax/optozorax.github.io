@@ -241,6 +241,19 @@
 <p>Недавно я разработал и опубликовал библиотеку под названием Space Objects. Это библиотека для работы с векторами, прямыми, плоскостями; она реализует преобразования координат; нахождения пересечений этих объектов и т. д. Эта библиотека выросла из моего другого проекта.</p>
 <p>После того, как я её опубликовал и начал придумывать примеры использования, я осознал всю её мощь. Она является апогеем множества проектов, которыми я ранее занимался: 2D графика, фракталы, рендеринг 3D. Всё это в кратком виде имеется в примерах этой библиотеки на <a href="https://github.com/optozorax/space_objects">GitHub</a>.</p>
 <p>Лого библиотеки, на ней показаны все основные объекты и действия для двумерного пространства.</p>
+
+    
+
+
+    
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-one">
 <img
     class="not-default full-screen-img"
@@ -261,6 +274,10 @@
 <h2 id="kak-ego-stroit"><a class="anchor" href="#kak-ego-stroit">#<sup>2</sup></a>Как его строить</h2>
 <p>Пусть у нас есть начальные координаты самого первого квадрата. Далее, согласно определению этого фрактала, надо построить на его верхней стороне прямоугольный треугольник с координатами, затем же надо получить оба катета этого прямоугольного треугольника и рекурсивно проделать тоже самое на них.</p>
 <p>Наглядно этот процесс можно увидеть на следующей гифке.</p>
+
+    
+
+
 <video class="img-one" autoplay loop muted inline>
   <source src="explanation_4&#x2F;anim_web.mp4" type="video/mp4">
   Your browser is not supporting video.
@@ -308,11 +325,14 @@
 <li>Данное решение применимо только к квадрату. Его нельзя использовать для произвольного многоугольника.</li>
 </ul>
 <p>Но, благо, здесь хотя бы можно менять угол при основании прямоугольного треугольника. И в то время я получил примерно следующую анимацию:</p>
+
+    
+
+
 <video class="img-one" autoplay loop muted inline>
   <source src="explanation_4&#x2F;angle_web.mp4" type="video/mp4">
   Your browser is not supporting video.
-</video>
-<h2 id="put-poluchshe-i-s-ispol-zovaniem-biblioteki"><a class="anchor" href="#put-poluchshe-i-s-ispol-zovaniem-biblioteki">#<sup>2</sup></a>Путь получше и с использованием библиотеки</h2>
+</video><h2 id="put-poluchshe-i-s-ispol-zovaniem-biblioteki"><a class="anchor" href="#put-poluchshe-i-s-ispol-zovaniem-biblioteki">#<sup>2</sup></a>Путь получше и с использованием библиотеки</h2>
 <p>Библиотека предоставляет две вещи, которые нам сейчас пригодятся: </p>
 <ul>
 <li>Преобразование вектора из одной системы координат в другую.</li>
@@ -365,6 +385,19 @@
 </span><span>}
 </span></code></pre>
 <p>Пошаговое описание действий с визуализацией вычислений:</p>
+
+    
+
+
+    
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-one">
 <img
     class="not-default full-screen-img"
@@ -421,16 +454,29 @@
 <li>Координаты квадрата вычисляются интуитивно понятным образом.</li>
 <li>Координаты прямоугольного треугольника вычисляются очень просто.</li>
 <li>Код применим для построения дерева Пифагора на любой стороне квадрата, надо лишь изменить параметры в строке <code>space2 tr_line = makeLine2(b, c);</code>.</li>
-<li>Данное решение можно применить к любому многоугольнику (главное, чтобы он своей стороной полностью лежал на оси Х).</li>
+<li>Данное решение можно применить к любому многоугольнику (главное, чтобы он своей стороной полностью лежал на оси Х).
+</div></li>
 </ul>
-</div>
 <p>И вот, например построение дерева Пифагора на 0 и 1 стороне квадрата:</p>
 <p><code>space2 tr_line = makeLine2(b, a);</code></p>
-<div class="container">
+<p><div class="container">
+
+
 <video class="img-one-two" autoplay loop muted inline>
   <source src="explanation_4&#x2F;4_0_web.mp4" type="video/mp4">
   Your browser is not supporting video.
 </video>
+
+
+    
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-one-two">
 <img
     class="not-default full-screen-img"
@@ -443,13 +489,26 @@
 <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1.7<br>png</div>
 </div>
 </div>
-</div>
+</div></p>
 <p><code>space2 tr_line = makeLine2(a, c);</code></p>
-<div class="container">
+<p><div class="container">
+
+
 <video class="img-one-two" autoplay loop muted inline>
   <source src="explanation_4&#x2F;4_1_web.mp4" type="video/mp4">
   Your browser is not supporting video.
 </video>
+
+
+    
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-one-two">
 <img
     class="not-default full-screen-img"
@@ -462,20 +521,32 @@
 <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1.7<br>png</div>
 </div>
 </div>
-</div>
+</div></p>
 <p>Далее я немного изменил рисование, теперь вместо рисования лишь линий, рисуются многоугольники, в итоге картинка выглядит намного красивей. Так же из-за того, что размеры всё время меняются, я каждый раз вычисляю новые границы, где задано изображение, и смещаю фрактал так, чтобы он полностью помещался в изображении. Вот анимация для каждого дерева Пифагора на основе квадрата:</p>
+<p>
+    
+
+
 <video class="img-one" autoplay loop muted inline>
   <source src="explanation_4&#x2F;pyth_0_web.mp4" type="video/mp4">
   Your browser is not supporting video.
 </video>
+
+    
+
+
 <video class="img-one" autoplay loop muted inline>
   <source src="explanation_4&#x2F;pyth_1_web.mp4" type="video/mp4">
   Your browser is not supporting video.
 </video>
+
+    
+
+
 <video class="img-one" autoplay loop muted inline>
   <source src="explanation_4&#x2F;pyth_2_web.mp4" type="video/mp4">
   Your browser is not supporting video.
-</video>
+</video></p>
 <h1 id="risuem-derevo-pifagora-na-osnove-proizvol-nogo-mnogougol-nika"><a class="anchor" href="#risuem-derevo-pifagora-na-osnove-proizvol-nogo-mnogougol-nika">#</a>Рисуем дерево Пифагора на основе произвольного многоугольника</h1>
 <p>Как уже упоминалось раннее, хорошее решение можно использовать для любого многоугольника в принципе, с небольшими модификациями. После написания той программы в 10 классе я не остановился, и захотел сделать решение для правильного многоугольника. Так получилось...</p>
 <h1 id="staroe-i-koshmarnoe-reshenie"><a class="anchor" href="#staroe-i-koshmarnoe-reshenie">#</a>Старое и кошмарное решение</h1>
@@ -577,6 +648,17 @@
 </span><span style="color:#72ab00;">end</span><span>;
 </span></code></pre>
 <p>Вообще, мне страшно смотреть на этот код и вспоминать как я с ним возился... Я старался привести его к красивому виду как мог, но его суть остается в костылях и фиговых решениях. И данная картинка прекрасно его описывает:</p>
+
+
+    
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-one-two">
 <img
     class="not-default full-screen-img"
@@ -594,6 +676,17 @@
 <p>А потом, в процессе изучения языка <code>C</code> я узнал что существует, посланная с небес, функция <code>atan2</code>... Да, в тех строках написана моя костыльно-велосипедная реализация <code>atan2</code>. Это стало настоящим откровением! Обязательно почитайте об этой функции и используйте <strong>её</strong>!</p>
 <p>А так же я понял, что тот код мог бы написать намного проще, без танцев с бубном, если бы с самого начала выводил эти формулы с углом строго по математике.</p>
 <p>А теперь, что же здесь делается? Да всё по сути написано в комментариях. Главная идея в том, что для генерации правильного многоугольника есть формула, взятая с <a href="https://ru.wikipedia.org/wiki/%D0%9F%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE%D1%83%D0%B3%D0%BE%D0%BB%D1%8C%D0%BD%D0%B8%D0%BA">Википедии</a>:</p>
+
+
+    
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-one-two">
 <img
     class="not-default full-screen-img"
@@ -611,6 +704,10 @@
 <p>Если смотреть на функцию <code>recur</code>, то там мало чего изменилось, даже формулы для вычисления координат треугольника остались те же.</p>
 <p>Ну вот и результаты тех страданий:</p>
 <p><em>Пояснение:</em> тип <code>20_3</code> означает, что берется 20-угольник и на его третьей стороне строится остальной фрактал.</p>
+
+
+
+
 <!-- Calculate max height to have consistent size for each element -->
 
 
@@ -1333,6 +1430,19 @@ slide_count[1] = 15;
 </span><span>}
 </span></code></pre>
 <p>Пошаговое объяснение создания многоугольника:</p>
+
+    
+
+
+    
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-one">
 <img
     class="not-default full-screen-img"
@@ -1373,29 +1483,45 @@ slide_count[1] = 15;
 </span></code></pre>
 <p>Также есть небольшая хитрость: в цикле генерации правильного многоугольника цикл идёт не до <code>n</code>, а до <code>n+1</code>. Сделано это потому что мы не можем зациклить массив, чтобы нарисовать все стороны многоугольника. Поэтому последняя точка является как бы первой.</p>
 <p>Немного построения:</p>
-<div class="container">
+<p><div class="container">
+
+
 <video class="img-one-two" autoplay loop muted inline>
   <source src="explanation_5&#x2F;post_3_1_web.mp4" type="video/mp4">
   Your browser is not supporting video.
 </video>
+
+
 <video class="img-one-two" autoplay loop muted inline>
   <source src="explanation_5&#x2F;post_5_2_web.mp4" type="video/mp4">
   Your browser is not supporting video.
 </video>
-</div>
+</div></p>
 <p>А теперь наиболее интересные по моему мнению анимации изменения угла для разных многоугольников:</p>
+<p>
+    
+
+
 <video class="img-one" autoplay loop muted inline>
   <source src="explanation_5&#x2F;3_1_web.mp4" type="video/mp4">
   Your browser is not supporting video.
 </video>
+
+    
+
+
 <video class="img-one" autoplay loop muted inline>
   <source src="explanation_5&#x2F;5_1_web.mp4" type="video/mp4">
   Your browser is not supporting video.
 </video>
+
+    
+
+
 <video class="img-one" autoplay loop muted inline>
   <source src="explanation_5&#x2F;5_2_web.mp4" type="video/mp4">
   Your browser is not supporting video.
-</video>
+</video></p>
 <h1 id="puti-dal-neishego-razvitiia"><a class="anchor" href="#puti-dal-neishego-razvitiia">#</a>Пути дальнейшего развития</h1>
 <h2 id="oboshchenie"><a class="anchor" href="#oboshchenie">#<sup>2</sup></a>Обощение</h2>
 <p>Вообще, все фракталы, что здесь были нарисованы, являются вариацией одного класса фракталов, которые строятся одинаково. Итак, пусть у нас есть некоторый многоугольник. Некоторая его сторона является основанием, так же задано на каких сторонах строить фрактал. Далее рекурсивно осуществляется следующий алгоритм:</p>
@@ -1407,6 +1533,19 @@ slide_count[1] = 15;
 <p>Все стороны, по которым надо строить фрактал, должны быть меньше по длине, чем основание. Если они будут больше или равны основанию, тогда фрактал получится бесконечно большим, и с каждой итерацией он может возрастать в размерах.</p>
 <h2 id="uluchshenie-effektivnosti"><a class="anchor" href="#uluchshenie-effektivnosti">#<sup>2</sup></a>Улучшение эффективности</h2>
 <p>Вообще данное решение является очень топорным, и работает недостаточно эффективно при маленьких углах. Вот мои старые замеры времени генерации кадра в зависимости от угла при основании прямоугольного треугольника для стандартного дерева Пифагора:</p>
+
+    
+
+
+    
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-one">
 <img
     class="not-default full-screen-img"
@@ -1420,6 +1559,17 @@ slide_count[1] = 15;
 </div>
 </div>
 <p>Вот такие повышения времени идут когда рисуется при очень маленьком угле, либо угле, близком к 90 градусов. В этом случае дерево выглядит как-то так:</p>
+
+    
+
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-one">
 <img
     class="not-default full-screen-img"

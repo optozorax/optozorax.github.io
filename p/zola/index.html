@@ -238,11 +238,11 @@
 <article itemscope itemtype="http://schema.org/BlogPosting">
 <div itemprop="articleBody" id="content">
 <h1 id="vvedenie"><a class="anchor" href="#vvedenie">#</a>Введение</h1>
-<div class="admonition gray-bg gray-border-left">
+<p><div class="admonition gray-bg gray-border-left">
 <div class="admonition-title gray-bg gray-border">Контекст</div>
 <div class="admonition-content">
-<p><a href="https://www.getzola.org/"><strong>Zola</strong></a> — генератор статических сайтов, она из шаблонов и статей в markdown один раз генерирует веб-страницы, которые можно статически хостить, без всяких сложных бэкендов и фронтэндов.</p>
-</div></div>
+<a href="https://www.getzola.org/"><strong>Zola</strong></a> — генератор статических сайтов, она из шаблонов и статей в markdown один раз генерирует веб-страницы, которые можно статически хостить, без всяких сложных бэкендов и фронтэндов.
+</div></div></p>
 <p>Недавно я перевёл свой блог с <a href="https://jekyllrb.com/">Jekyll</a> на <a href="https://www.getzola.org/">Zola</a>. Поэтому данная статья сфокусируется на том как проходил этот переход, и в процессе вы узнаете зачем стоит или не стоит использовать золу для себя. В данной статье будет рассказно:</p>
 <ul>
 <li>Как я переехал на золу, с какими проблемами и удобствами столкнулся.</li>
@@ -281,19 +281,19 @@
 <h2 id="odna-papka-odna-stat-ia"><a class="anchor" href="#odna-papka-odna-stat-ia">#<sup>2</sup></a>Одна папка — одна статья</h2>
 <p>Алилуйя! В Jekyll все картинки и прочие материалы хранятся в папке assets, а посты хранятся в одной папке <code>_posts</code>, и там нельзя создать папку внутри которой можно положить пост и картинки, эта папка сразу превратится в категорию. Да и картинки там положить нельзя. Я про это писал в <a href="/p/submodules-jekyll/">Один репозиторий = Один пост в блоге</a>, там я хранил картинки рядом с постом, да, но чтобы они работали добавил JS, который фиксит пути картинок при загрузке страницы...</p>
 <p>А здесь это из коробки нормально работает, каждый пост по умолчанию симулирует папку со своим названием и как будто там лежит файл <code>index.md</code>. В общем я щас все картинки и прочие штуки храню рядом с постами и очень кайфую от этого. А то создавать каждый раз папку в папке <code>assets</code> было неприятно.</p>
-<div class="admonition blue3-bg blue3-border-left">
+<p><div class="admonition blue3-bg blue3-border-left">
 <div class="admonition-title blue3-bg blue3-border">Цитата документации <a href="https://www.getzola.org/documentation/content/page/">отсюда</a></div>
 <div class="admonition-content">
-<p>As you can see, creating an <code>about.md</code> file is equivalent to creating an <code>about/index.md</code> file. The only difference between the two methods is that creating the <code>about</code> directory allows you to use asset co-location, as discussed in the overview section.</p>
-</div></div>
+As you can see, creating an <code>about.md</code> file is equivalent to creating an <code>about/index.md</code> file. The only difference between the two methods is that creating the <code>about</code> directory allows you to use asset co-location, as discussed in the overview section.
+</div></div></p>
 <h2 id="table-of-contents"><a class="anchor" href="#table-of-contents">#<sup>2</sup></a>Table Of Contents</h2>
 <p>Или по-русски «Содержание». </p>
 <p>Опять же, вспоминая Jekyll, что нужно чтобы сделать содержание? Нуу, надо либо плагин, либо костыль. Вот <a href="https://github.com/allejo/jekyll-toc/blob/master/_includes/toc.html">пример костыля</a>, который я тупо скопипастил себе в блог.</p>
 <p>А что тем временем в золе? А там парсинг содержания уже встроен в движок, и оно автоматически доступно для каждой страницы, и это содержание представляет собой удобный структурированный объект с прописанным типом</p>
-<div class="admonition blue3-bg blue3-border-left">
+<p><div class="admonition blue3-bg blue3-border-left">
 <div class="admonition-title blue3-bg blue3-border">Цитата документации <a href="https://www.getzola.org/documentation/templates/pages-sections/#table-of-contents">отсюда</a></div>
 <div class="admonition-content">
-<p>Both page and section templates have a <code>toc</code> variable that corresponds to an array of <code>Header</code>. A <code>Header</code> has the following fields:</p>
+Both page and section templates have a <code>toc</code> variable that corresponds to an array of <code>Header</code>. A <code>Header</code> has the following fields:</p>
 <pre data-lang="ts" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-ts "><code class="language-ts" data-lang="ts"><span style="color:#7f8989;">// The hX level
 </span><span style="color:#c23f31;">level</span><span>: </span><span style="color:#b3933a;">1 </span><span style="color:#72ab00;">| </span><span style="color:#b3933a;">2 </span><span style="color:#72ab00;">| </span><span style="color:#b3933a;">3 </span><span style="color:#72ab00;">| </span><span style="color:#b3933a;">4 </span><span style="color:#72ab00;">| </span><span style="color:#b3933a;">5 </span><span style="color:#72ab00;">| </span><span style="color:#b3933a;">6</span><span>;
 </span><span style="color:#7f8989;">// The generated slug id
@@ -331,11 +331,11 @@
 <p>Ещё удобно создавать блоки, в которых изначально ничего нет, например <code>extra_head</code>, чтобы наследующий мог дополнительно определить что ему нужно в <code>&lt;head&gt;</code> секции.</p>
 <p>Хоть наследование и считается немного плохой практикой в программировании, но тут страниц очень мало, так что вполне можно. Так что это удобный механизм. В Jekyll я такого не видел, и там формирование страницы делается через какие-то костыли с <code>include</code>'ингом.</p>
 <h2 id="debag"><a class="anchor" href="#debag">#<sup>2</sup></a>Дебаг</h2>
-<div class="admonition blue3-bg blue3-border-left">
+<p><div class="admonition blue3-bg blue3-border-left">
 <div class="admonition-title blue3-bg blue3-border">Цитата документации <a href="https://tera.netlify.app/docs/#variables">отсюда</a></div>
 <div class="admonition-content">
-<p>A magical variable is available in every template if you want to print the current context: <code>__tera_context</code>.</p>
-</div></div>
+A magical variable is available in every template if you want to print the current context: <code>__tera_context</code>.
+</div></div></p>
 <p>Это очень удобно при первичной разработке, чтобы постоянно не смотреть в документацию, а сразу видеть какие значения принимают какие переменные. Я использую дебаг следующим образом, чтобы прямо на странице получать результат в удобном виде:</p>
 <pre data-lang="html" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-html "><code class="language-html" data-lang="html"><span style="color:#6486ab;">&lt;pre&gt;</span><span style="color:#7f902a;">&lt;code&gt;
 </span><span>{{ __tera_context | escape_xml | safe }}
@@ -382,10 +382,10 @@
 <p>Прошлый большой пункт не зря со звёздочкой, ибо в золе не всё так радужно как хотелось бы.</p>
 <h2 id="shortkody-s-telom"><a class="anchor" href="#shortkody-s-telom">#<sup>2</sup></a>Шорткоды с телом</h2>
 <p>В золе есть такая возможность:</p>
-<div class="admonition blue3-bg blue3-border-left">
+<p><div class="admonition blue3-bg blue3-border-left">
 <div class="admonition-title blue3-bg blue3-border">Цитата документации <a href="https://www.getzola.org/documentation/content/shortcodes/#shortcodes-with-body">отсюда</a></div>
 <div class="admonition-content">
-<p>Let's imagine that we have the following shortcode <code>quote.html</code> template:</p>
+Let's imagine that we have the following shortcode <code>quote.html</code> template:</p>
 <pre data-lang="html" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-html "><code class="language-html" data-lang="html"><span style="color:#6486ab;">&lt;blockquote&gt;
 </span><span>    {{ body }} </span><span style="color:#7f902a;">&lt;br&gt;
 </span><span>    -- {{ author }}
@@ -398,8 +398,8 @@
 </span><span>A quote
 </span><span>{% end %}
 </span></code></pre>
-<p>The body of the shortcode will be automatically passed down to the rendering context as the body variable and needs to be on a new line.</p>
-</div></div>
+<p>The body of the shortcode will be automatically passed down to the rendering context as the body variable and needs to be on a new line.
+</div></div></p>
 <p>Проблема в том что <code>body</code> передаётся в виде текста. То есть если мы там напишем какой-то markdown или другой шорткод, то они передадутся в виде обычного текста. Окей, чтобы это распарсить надо написать всего-лишь:</p>
 <pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ body | markdown | safe }}
 </span></code></pre>
@@ -428,9 +428,9 @@
 <ul>
 <li>Приходится создавать на один файлик больше</li>
 <li>Приходится использовать на одно имя больше</li>
-<li>Если я что-то не закрыл, зола не поругается на меня, потому что это два разных шорткода</li>
+<li>Если я что-то не закрыл, зола не поругается на меня, потому что это два разных шорткода
+</div></li>
 </ul>
-</div>
 <p>Но что поделать, приходится делать так.</p>
 <h2 id="iazyk-opisaniia-shablonov"><a class="anchor" href="#iazyk-opisaniia-shablonov">#<sup>2</sup></a>Язык описания шаблонов</h2>
 <h3 id="fil-try"><a class="anchor" href="#fil-try">#<sup>3</sup></a>Фильтры</h3>
@@ -443,10 +443,10 @@
 </span></code></pre>
 <p>И фильтры нельзя применять в виде <code>length(value=[1, 2, 3])</code>, что довольно печально. Я <a href="https://zola.discourse.group/t/allow-writing-filters-inside-parenthesis/1025">написал по этому поводу фич-реквест</a>, так что заходим, ставим лайки.</p>
 <h3 id="falsy"><a class="anchor" href="#falsy">#<sup>3</sup></a>Falsy</h3>
-<div class="admonition blue3-bg blue3-border-left">
+<p><div class="admonition blue3-bg blue3-border-left">
 <div class="admonition-title blue3-bg blue3-border">Цитата документации <a href="https://tera.netlify.app/docs/#if">отсюда</a></div>
 <div class="admonition-content">
-<p>Undefined variables are considered falsy. This means that you can test for the presence of a variable in the current context by writing:</p>
+Undefined variables are considered falsy. This means that you can test for the presence of a variable in the current context by writing:</p>
 <pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{% if my_var %}
 </span><span>    {{ my_var }}
 </span><span>{% else %}
@@ -499,18 +499,16 @@
 <li>Сообщения об ошибках.</li>
 <li>Быстрая скорость работы.</li>
 <li>Лайв-релоадинг при изменениях в режиме <code>zola serve</code>.</li>
-<li>Не требуется никаких зависимостей, всё в одном бинаре.</li>
-</ul>
+<li>Не требуется никаких зависимостей, всё в одном бинаре.
 </div>
 <div class="cons">
-<span style="color: #c00"><big><b>Минусы:</b></big></span>
-<ul>
+<span style="color: #c00"><big><b>Минусы:</b></big></span></li>
 <li>Шорткоды с телом не удобны в использовании.</li>
 <li>Фильтры нельзя написать в скобках.</li>
 <li>Концепция <code>falsy</code> позволяет игнорировать ошибки.</li>
-<li>Довольно сыра.</li>
+<li>Довольно сыра.
+</div></li>
 </ul>
-</div>
 <h2 id="ssylka-na-vse-moi-fich-rekvesty-i-bag-reporty"><a class="anchor" href="#ssylka-na-vse-moi-fich-rekvesty-i-bag-reporty">#<sup>2</sup></a>Ссылка на все мои фич-реквесты и баг-репорты</h2>
 <p>Фич-реквесты:</p>
 <ul>

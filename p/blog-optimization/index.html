@@ -284,10 +284,10 @@
 <li>Качество <code>75/100</code></li>
 </ul>
 <p>Выбрал именно <code>webp</code>, потому что это более современный формат, созданный специально для веба, он сжимает лучше <code>jpg</code>, и не такой шакалистый. Ещё он поддерживает прозрачность, благодаря чему можно смело конвертировать <code>png</code> в него. Правда он <a href="https://caniuse.com/webp">не везде поддерживается</a>, но думаю можно пережить(?).</p>
-<div class="admonition violet-bg violet-border-left">
+<p><div class="admonition violet-bg violet-border-left">
 <div class="admonition-title violet-bg violet-border">Использование в Zola</div>
 <div class="admonition-content">
-<p>В статьях я вставляю картинки в markdown не через <code>![]()</code>, а через шорткод <code>image.html</code>:</p>
+В статьях я вставляю картинки в markdown не через <code>![]()</code>, а через шорткод <code>image.html</code>:</p>
 <pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ image(path=&quot;my_image.jpg&quot;) }}
 </span></code></pre>
 </div></div>
@@ -301,20 +301,20 @@
 </tbody></table>
 <p>Общий тренд видно: для больших картинок, которые больше 1280, экономия трафик колоссальна. Для <code>png</code> картинок тоже отлично получается. Иногда проходит не очень хорошо, как с фотографией улицы, но это редкость и не критично. И это всё для не очень критичных изменений в качестве.</p>
 <p>Любую картинку можно открыть в оригинальном размере и оригинальном формате если хочется увидеть больше деталей. Подробнее об этом в моей статье <a href="/p/new-features">про новые фичи блога</a>.</p>
-<div class="admonition green2-bg green2-border-left">
+<p><div class="admonition green2-bg green2-border-left">
 <div class="admonition-title green2-bg green2-border">Результат</div>
 <div class="admonition-content">
-<p>У меня в папках лежит 50мб <code>jpg</code> и <code>png</code> картинок, а обработанный результат в формате <code>webp</code> весит 11мб.</p>
-<p>Итого экономия в <strong>≈5 раз</strong>!</p>
-</div></div>
-<div class="admonition blue2-bg blue2-border-left">
+У меня в папках лежит 50мб <code>jpg</code> и <code>png</code> картинок, а обработанный результат в формате <code>webp</code> весит 11мб.</p>
+<p>Итого экономия в <strong>≈5 раз</strong>!
+</div></div></p>
+<p><div class="admonition blue2-bg blue2-border-left">
 <div class="admonition-title blue2-bg blue2-border">Кстати, </div>
 <div class="admonition-content">
-<p>на главной странице у каждой статьи сбоку есть картинка, чтобы не одними заголовками привлекать внимание. </p>
+на главной странице у каждой статьи сбоку есть картинка, чтобы не одними заголовками привлекать внимание. </p>
 <p>Раньше для этих маленьких картинок запрашивалось картинка в оригинальном огромном разрешении, поэтому главная страница могла загружаться долго и весить реально много.</p>
 <p>Сейчас же, с этой фичей оптимизаций картинок, специально для главной я ресайзю картинки до максимального разрешения 200×200, и теперь главная даже со всеми картинками загружается моментально.</p>
-<p>Без этой фичи в золе я бы точно не стал так заморачиваться с маленькими картинками.</p>
-</div></div>
+<p>Без этой фичи в золе я бы точно не стал так заморачиваться с маленькими картинками.
+</div></div></p>
 <h2 id="optimizatsiia-video"><a class="anchor" href="#optimizatsiia-video">#<sup>2</sup></a>Оптимизация видео</h2>
 <p>В HTML5 есть тэг <code>&lt;video&gt;</code> в который можно вставлять проигрывание видео без всяких хаков и JS. Через него я иногда вставляю видео в своих статьях.</p>
 <p>Видео тоже не должны иметь слишком большое разрешение. Например, на телефоне вы снимаете в 4к, зачем это качество иметь у себя на странице и зря нагружать трафик? Тем более если видео маленькое, демонстративное.</p>
@@ -362,33 +362,33 @@
 </span><span>       ${</span><span style="color:#5597d6;">path</span><span>}/${</span><span style="color:#5597d6;">filename</span><span>}_web.mp4
 </span></code></pre>
 <p>Аргументы и его источник написаны в комментариях к скрипту, так что пользуйтесь наздоровье. Итоговое видео оптмизировано для работы в браузере, а так же работает и с телефона. Наивный <code>mp4</code> просто так на телефоне не запустится.</p>
-<div class="admonition green2-bg green2-border-left">
+<p><div class="admonition green2-bg green2-border-left">
 <div class="admonition-title green2-bg green2-border">Результат</div>
 <div class="admonition-content">
-<p>Тут без конкретных замеров, но знайте что экономия тоже большая, а самое главное — видео будут запускаться везде.</p>
-</div></div>
-<div class="admonition orange-bg orange-border-left">
+Тут без конкретных замеров, но знайте что экономия тоже большая, а самое главное — видео будут запускаться везде.
+</div></div></p>
+<p><div class="admonition orange-bg orange-border-left">
 <div class="admonition-title orange-bg orange-border">Дополнительная информация</div>
 <div class="admonition-content">
-<p>Есть ещё возможность конвертировать видео в кодек AV1, ибо он современней, быстрей и лучше; но не везде поддерживается и нужно предоставлять фоллбэки в виде <code>mp4</code>, поэтому я не стал заморачиваться с ним.</p>
-<p>На эту тему можете почитать статью от Андрея Ситника: <a href="https://habr.com/ru/post/442020/">«Новый кодек AV1: ускоряем загрузку видео в браузере»</a>.</p>
-</div></div>
+Есть ещё возможность конвертировать видео в кодек AV1, ибо он современней, быстрей и лучше; но не везде поддерживается и нужно предоставлять фоллбэки в виде <code>mp4</code>, поэтому я не стал заморачиваться с ним.</p>
+<p>На эту тему можете почитать статью от Андрея Ситника: <a href="https://habr.com/ru/post/442020/">«Новый кодек AV1: ускоряем загрузку видео в браузере»</a>.
+</div></div></p>
 <h2 id="preobrazovanie-gif-v-video"><a class="anchor" href="#preobrazovanie-gif-v-video">#<sup>2</sup></a>Преобразование gif в видео</h2>
 <p><code>GIF</code> — ужасно устаревший формат. У него плохо всё: сжатие, скорость кодирования/декодирования и число цветов. Поэтому нельзя пользоваться <code>gif</code> напрямую, лучше перекодировать его в видео, и вставлять видео с соответствующими параметрами чтобы они проигрывались как гифки.</p>
 <p>Для преобразования я использую скрипт из предыдущей главы, он работает с гифками тоже.</p>
-<div class="admonition violet-bg violet-border-left">
+<p><div class="admonition violet-bg violet-border-left">
 <div class="admonition-title violet-bg violet-border">Использование в Zola</div>
 <div class="admonition-content">
-<p>Для вставки видео в формате гифок я использу шорткод <code>video_gif.html</code>:</p>
+Для вставки видео в формате гифок я использу шорткод <code>video_gif.html</code>:</p>
 <pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ video_gif(path=&quot;my_gif_web.mp4&quot;) }}
 </span></code></pre>
 </div></div>
-<div class="admonition green2-bg green2-border-left">
+<p><div class="admonition green2-bg green2-border-left">
 <div class="admonition-title green2-bg green2-border">Результат</div>
 <div class="admonition-content">
-<p>Все <code>gif</code> весят 84мб, а обработанный результат в формате <code>mp4</code> весит 10мб.</p>
-<p>Итого экономия в <strong>≈8.4 раз</strong>!!!</p>
-</div></div>
+Все <code>gif</code> весят 84мб, а обработанный результат в формате <code>mp4</code> весит 10мб.</p>
+<p>Итого экономия в <strong>≈8.4 раз</strong>!!!
+</div></div></p>
 <h1 id="optimizatsiia-vneshnikh-zaprosov"><a class="anchor" href="#optimizatsiia-vneshnikh-zaprosov">#</a>Оптимизация внешних запросов</h1>
 <p>Вся суть этого пункта в том чтобы сократить число запросов к внешним сайтам до нуля. Ибо запросы к внешним сайтам делаются не сразу, и могут занимать продолжительное время, поэтому их лучше оптимизировать настолько насколько возможно.</p>
 <h2 id="shrifty"><a class="anchor" href="#shrifty">#<sup>2</sup></a>Шрифты</h2>
@@ -412,6 +412,17 @@
 <h2 id="youtube"><a class="anchor" href="#youtube">#<sup>2</sup></a>YouTube</h2>
 <p>Ладно, шутки кончились, пора приступать к серьёзным вещам.</p>
 <p>Все мы знаем что YouTube-видео можно embed'ить следующим образом:</p>
+
+
+    
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-two-three">
 <img
     class="not-default full-screen-img"
@@ -440,29 +451,29 @@
 <ul>
 <li>Дёшево и сердито</li>
 <li>Быстро</li>
-<li>Мало трафика</li>
-</ul>
+<li>Мало трафика
 </div>
 <div class="cons">
-<span style="color: #c00"><big><b>Минусы:</b></big></span>
-<ul>
+<span style="color: #c00"><big><b>Минусы:</b></big></span></li>
 <li>Некрасиво</li>
 <li>Непонятно что эта картинка относится к видео</li>
 <li>Непонятно что на неё можно нажать и перейти в ютуб-видео</li>
-<li>Нет информации о названии видео и канале</li>
+<li>Нет информации о названии видео и канале
+</div></li>
 </ul>
-</div>
 <h3 id="moi-sposob"><a class="anchor" href="#moi-sposob">#<sup>3</sup></a>Мой способ</h3>
 <p>Поэтому я сделал свой эмбеддинг ютуба <del>с блэкджэком и...</del>, который работает в несколько этапов.</p>
-<div class="admonition violet-bg violet-border-left">
+<p><div class="admonition violet-bg violet-border-left">
 <div class="admonition-title violet-bg violet-border">Использование в Zola</div>
 <div class="admonition-content">
-<p>В статьях использую шорткод <code>youtube.html</code>:</p>
+В статьях использую шорткод <code>youtube.html</code>:</p>
 <pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ youtube(id=&quot;1q0sHf_n_2Y&quot;) }}
 </span></code></pre>
-<p>И дополнительно скачиваю мета-информацию и преьюшку локально. Об этом подробнее сказано в <a href="/p/new-features/#embedding-youtube">статье про фичи</a>.</p>
-</div></div>
+<p>И дополнительно скачиваю мета-информацию и преьюшку локально. Об этом подробнее сказано в <a href="/p/new-features/#embedding-youtube">статье про фичи</a>.
+</div></div></p>
 <p>И далее это выглядит вот так:</p>
+
+
 <!-- todo: wait for https://github.com/jaredforth/webp/issues/7 to be resolved -->
 
 
@@ -496,10 +507,10 @@
 </div>
 <p>Это просто кусок html'я со локально скачанной картинкой и мета-информацией. При нажатии происходит переход на соответствующее видео в новой вкладке. Ещё можно нажать на канал и попасть конкретно на него. К сожалению <code>youtube-dl</code> не умеет находить аватарку канала, поэтому канал здесь пишется просто текстом.</p>
 <p>Я решил здесь добавить продолжительность видео, что даже обычный ютуб-плеер не показывает! Считаю что это довольно честный размен с потерей аватарки автора.</p>
-<div class="admonition green2-bg green2-border-left">
+<p><div class="admonition green2-bg green2-border-left">
 <div class="admonition-title green2-bg green2-border">Результат</div>
 <div class="admonition-content">
-<p>Тут в качестве результатов представлю баллы из сервиса <a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a>.</p>
+Тут в качестве результатов представлю баллы из сервиса <a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a>.</p>
 <p>Столбец «До оптимизации» показывает результаты когда картинки, гифки и видео уже оптимизированы; шрифты и скрипты скачаны локально.</p>
 <p>Столбец «После оптимизации» показывает результаты после оптимизации ютуба этим образом и прелоадинга шрифтов (об этом будет далее).</p>
 <p>В графах таблицых будет написано соответственно: </p>
@@ -513,16 +524,27 @@
 <tr><td><a href="/emergevolution">Эмёрджеволюция</a></td><td>Эмбеднуто 37 ютуб-видео.</td><td>гугл ниасилил</td><td><span class="speed-good">97</span>; <span class="speed-good">99</span>; 2.8мб</td></tr>
 </tbody></table>
 <p>Теперь страница, которую сам гугл не осилил замерить, показывает невероятно высокие результаты. Я думаю это явно стоило того.</p>
-<p>Ну и тут видно что страница с порталами скинула <strong>2.1мб трафика</strong>.</p>
-</div></div>
-<div class="admonition blue2-bg blue2-border-left">
+<p>Ну и тут видно что страница с порталами скинула <strong>2.1мб трафика</strong>.
+</div></div></p>
+<p><div class="admonition blue2-bg blue2-border-left">
 <div class="admonition-title blue2-bg blue2-border">Fun fact</div>
 <div class="admonition-content">
-<p>Если вставить сам YouTube в <a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a>, то выдаются следующие оценки: <span class="speed-bad">32</span>; <span class="speed-bad">43</span>; 1.3мб.</p>
-</div></div>
+Если вставить сам YouTube в <a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a>, то выдаются следующие оценки: <span class="speed-bad">32</span>; <span class="speed-bad">43</span>; 1.3мб.
+</div></div></p>
 <h2 id="drugie-embeddingi"><a class="anchor" href="#drugie-embeddingi">#<sup>2</sup></a>Другие эмбеддинги</h2>
 <p>У себя в блоге я ещё немного использовал эмбеддинг сообщений из Telegram и Twitter. Тут изобретать что-то своё, как с ютубом, просто неразумно. Поэтому тут я просто вставляю скриншот эмбеддинга. Например, для твиттера:</p>
-<figure>
+<p><figure>
+
+
+    
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-two-three">
 <img
     class="not-default full-screen-img"
@@ -536,14 +558,14 @@
 </div>
 </div>
 <figcaption><a href="https://twitter.com/optozorax/status/1415392339586129928">Ссылка на твит</a></figcaption>
-</figure>
+</figure></p>
 <p>Решение тупое, но работает хорошо. Да и даже если оригинальный твит удалится, информация о нём будет лежать у меня в блоге!</p>
 <p>А стену текста можно вставить текстом, как например <a href="/p/how-i-write-programs/#vazhnee-chto-to-ne-delat">здесь</a>.</p>
-<div class="admonition blue2-bg blue2-border-left">
+<p><div class="admonition blue2-bg blue2-border-left">
 <div class="admonition-title blue2-bg blue2-border">Fun fact</div>
 <div class="admonition-content">
-<p>При эмбеддинге сообщения из телеграма, запрашивается не минифицированный скрипт.</p>
-</div></div>
+При эмбеддинге сообщения из телеграма, запрашивается не минифицированный скрипт.
+</div></div></p>
 <h1 id="optimizatsiia-glubiny-zaprosov"><a class="anchor" href="#optimizatsiia-glubiny-zaprosov">#</a>Оптимизация глубины запросов</h1>
 <p>Тут ничего особенного, просто <a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a> поругался на меня, что у меня сами шрифты формата <code>.woff2</code> скачиваются не сразу с загрузкой страницы, а только когда файл <code>main.css</code> скачается. То есть глубина шрифтов равна 2. Там же он предложил вставить такое у себя на страницу:</p>
 <pre data-lang="html" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-html "><code class="language-html" data-lang="html"><span style="color:#7f902a;">&lt;link rel=</span><span style="color:#d07711;">&quot;preload&quot; </span><span style="color:#7f902a;">as=</span><span style="color:#d07711;">&quot;font&quot; </span><span style="color:#7f902a;">href=</span><span style="color:#d07711;">&quot;/fonts/Rubik/iJWKBXyIfDnIV7nFrXyi0A.woff2&quot; </span><span style="color:#7f902a;">crossOrigin=</span><span style="color:#d07711;">&quot;anonymous&quot;</span><span style="color:#7f902a;">&gt;
@@ -582,20 +604,20 @@
 <h1 id="zakliuchenie"><a class="anchor" href="#zakliuchenie">#</a>Заключение</h1>
 <h2 id="itogovye-chisla"><a class="anchor" href="#itogovye-chisla">#<sup>2</sup></a>Итоговые числа</h2>
 <p>Итак, какие же профиты я получил от всей этой оптимизации?</p>
-<div class="admonition green2-bg green2-border-left">
+<p><div class="admonition green2-bg green2-border-left">
 <div class="admonition-title green2-bg green2-border">Результат</div>
 <div class="admonition-content">
-<p>Соберу сухие цифры из пунктов выше:</p>
+Соберу сухие цифры из пунктов выше:</p>
 <ul>
 <li>Сокращение размера картинок <strong>≈5 раз</strong>.</li>
 <li>Сокращение размера гифок в <strong>≈8.4 раз</strong>.</li>
-<li>Экономия на ютуб-видео <strong>2.1мб</strong> для одной страницы.</li>
+<li>Экономия на ютуб-видео <strong>2.1мб</strong> для одной страницы.
+</div></div></li>
 </ul>
-</div></div>
-<div class="admonition green2-bg green2-border-left">
+<p><div class="admonition green2-bg green2-border-left">
 <div class="admonition-title green2-bg green2-border">Результат</div>
 <div class="admonition-content">
-<p>И снова баллы из <a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a> и размер страницы.</p>
+И снова баллы из <a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a> и размер страницы.</p>
 <p>Сравнивать буду свой старый блог абсолютно без оптимизаций, где:</p>
 <ul>
 <li>Обычные видео были оптимизированы.</li>
@@ -620,15 +642,15 @@
 <li><code>2</code> — за счёт скачивания локально: шрифтов, стилей искриптов; теперь грузится намного лучше.</li>
 <li><code>3</code>, <code>4</code> — за счёт того что эмбеда ютуба теперь нет, статистика получше.</li>
 <li><code>5</code> — страница с 37 ютуб-видео выдаётся самые лучшие показатели после главной за счёт локального хранения метаданных и превьюшки.</li>
-<li><code>6</code> — оптимизация гифок приносит отличные плоды, серьёзное изменение размера, но итоговый размер всё ещё большой.</li>
+<li><code>6</code> — оптимизация гифок приносит отличные плоды, серьёзное изменение размера, но итоговый размер всё ещё большой.
+</div></div></li>
 </ul>
-</div></div>
-<div class="admonition red-bg red-border-left">
+<p><div class="admonition red-bg red-border-left">
 <div class="admonition-title red-bg red-border">❗️ Внимание</div>
 <div class="admonition-content">
-<p>Простите, я везде замерял страницы в новом блоге без Яндекс.Метрики, а в старом блоге с ней. Она немного ухудшает баллы. Например, для <code>4</code> пункта в новом блоге получается результат: <span class="speed-avg">50</span>, <span class="speed-avg">81</span>, 3.4мб.</p>
-<p>Поэтому результаты здесь не совсем честные. Сейчас проверять по-другому уже слишом трудоёмко. Да и учитывая что я в ближайшее время уйду с Яндекс.Метрики, эти результаты можно считать планируемыми.</p>
-</div></div>
+Простите, я везде замерял страницы в новом блоге без Яндекс.Метрики, а в старом блоге с ней. Она немного ухудшает баллы. Например, для <code>4</code> пункта в новом блоге получается результат: <span class="speed-avg">50</span>, <span class="speed-avg">81</span>, 3.4мб.</p>
+<p>Поэтому результаты здесь не совсем честные. Сейчас проверять по-другому уже слишом трудоёмко. Да и учитывая что я в ближайшее время уйду с Яндекс.Метрики, эти результаты можно считать планируемыми.
+</div></div></p>
 <h2 id="vyvody"><a class="anchor" href="#vyvody">#<sup>2</sup></a>Выводы</h2>
 <ul>
 <li>Я сделал свой блог максимально быстрым.</li>
@@ -639,7 +661,18 @@
 </ul>
 <p>В плане важности скорости ещё хочу сослаться на пост <a href="https://t.me/nikitonsky_pub/64">«Стой под стрелой»/64</a>, правда это не совсем релевантно, так как там говорится про софт, а у меня блог, но общая идея подходит.</p>
 <p>Ну и под конец мемчик:</p>
-<figure>
+<p><figure>
+
+
+    
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-two-three">
 <img
     class="not-default full-screen-img"
@@ -653,7 +686,7 @@
 </div>
 </div>
 <figcaption><a href="https://t.me/optozorax_dev_chat/6228">Это не я сказал</a></figcaption>
-</figure>
+</figure></p>
 
 </div>
 </article>

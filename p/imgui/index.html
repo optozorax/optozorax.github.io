@@ -275,6 +275,19 @@
 </span><span>ui.</span><span style="color:#b39f04;">label</span><span>(</span><span style="color:#a2a001;">format!</span><span>(</span><span style="color:#d07711;">&quot;Hello &#39;</span><span style="color:#aeb52b;">{}</span><span style="color:#d07711;">&#39;, age </span><span style="color:#aeb52b;">{}</span><span style="color:#d07711;">&quot;</span><span>, name, age));
 </span><span>
 </span></code></pre>
+
+    
+
+
+    
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-one">
 <img
     class="not-default full-screen-img"
@@ -314,16 +327,14 @@
 <span style="color: #090"><big><b>Плюсы:</b></big></span>
 <ul>
 <li>Писать интерфейс очень просто</li>
-<li>Идеально подходит для заимствований Rust </li>
-</ul>
+<li>Идеально подходит для заимствований Rust 
 </div>
 <div class="cons">
-<span style="color: #c00"><big><b>Минусы:</b></big></span>
-<ul>
+<span style="color: #c00"><big><b>Минусы:</b></big></span></li>
 <li>Жрёт ресурсы компьютера</li>
-<li>Невозможность автоматически вычислить layout</li>
+<li>Невозможность автоматически вычислить layout
+</div></li>
 </ul>
-</div>
 <p>Вообще на тему плюсов и минусов, советую почитать <a href="https://github.com/emilk/egui#why-immediate-mode">ридмишку egui</a>, там хорошо расписывается что и как. Некоторые пункты я лишь пересказываю.</p>
 <h2 id="pisat-interfeis-ochen-prosto"><a class="anchor" href="#pisat-interfeis-ochen-prosto">#<sup>2</sup></a>Писать интерфейс очень просто</h2>
 <ul>
@@ -391,6 +402,19 @@
 <h1 id="chto-ia-sdelal-na-imgui"><a class="anchor" href="#chto-ia-sdelal-na-imgui">#</a>Что я сделал на ImGui</h1>
 <h2 id="the-tenet-of-life"><a class="anchor" href="#the-tenet-of-life">#<sup>2</sup></a>The Tenet of Life</h2>
 <p>Самый первый проект где я познакомился с ImGui — симулятор обратимых клеточных автоматов. Здесь я просто заюзал ImGui, который шёл внутри библиотеки macroquad, для того чтобы написать текст и сделать пару кнопочек.</p>
+
+    
+
+
+    
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-one">
 <img
     class="not-default full-screen-img"
@@ -408,7 +432,18 @@
 <p>Я рисовал сцены с порталами через код при помощи рейтрейсинга. Чтобы подвинуть или повернуть что-то мне приходилось редактировать код и перекомпилировать проект. В один момент мне это надело и я захотел поворачивать вещи в реальном времени.</p>
 <p>Сделал чтобы через интерфейс можно было вращать матрицы и это отображалось в реальном времени.</p>
 <p>Это показалось слишком просто, я почувствовал силушку богатырскую, взял и напилил целый визуальный редактор на ImGui:</p>
-<figure>
+<p><figure>
+
+
+    
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-two-three">
 <img
     class="not-default full-screen-img"
@@ -422,12 +457,25 @@
 </div>
 </div>
 <figcaption><a href="https://twitter.com/optozorax/status/1369940146460762112">Ссылка на твит</a></figcaption>
-</figure>
+</figure></p>
 <p>Уже через него можно было редактировать матрицы, объекты и их код в шейдерах. Это на порядок упрощало процесс создания сцен, благодаря чему я стал эффективнее. Главный прикол что я сделал его просто за пару дней и он просто работал. Это самое приятное чувство при использовании ImGui.</p>
 <p>Более подробно об этом можно почитать в моём канале в телеграме, начиная отсюда: <a href="https://t.me/optozorax_dev/351">@optozorax_dev/351</a>.</p>
 <p>А уже потом я ударился во все тяжкие, начал делать сложные интерфейсы, <a href="https://t.me/optozorax_dev/398">inline элементы</a>, <a href="https://t.me/optozorax_dev/358">формулы</a>, и интерфейс который задаёт другой интерфейс.</p>
 <p>Вообще знаете, когда я всё это задумывал, я изначально думал: «Ну сделаю чтобы в структурках на расте можно было писать порталы, и чтобы это потом кодогенерилось. Но, блин, это такой гемор, столько всего надо сделать.», а тут я нафиг сделал не только это, но ещё и сделал ко всему этому интерфейс, я вообще даже не мечтал о таком результате, который есть сейчас.</p>
 <p>Настолько великую силу даёт ImGui. От абсолютного нуля до realtime sophisticated визуального редактора 3D сцен за один проект.</p>
+
+    
+
+
+    
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-one">
 <img
     class="not-default full-screen-img"
@@ -439,10 +487,22 @@
 <div class="magnifier-display">
 <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1.4<br>png</div>
 </div>
-</div>
-<h2 id="learn-words"><a class="anchor" href="#learn-words">#<sup>2</sup></a>Learn Words</h2>
+</div><h2 id="learn-words"><a class="anchor" href="#learn-words">#<sup>2</sup></a>Learn Words</h2>
 <p>Об этом проекте я написал <a href="/learn-words-post">статью</a>. Его особенность в том, что заодно с написанием продукта, я решил проверить гипотезу о том что с ImGui напишу программу очень быстро. И написал. Быстро. На минимально рабочий прототип ушло 6ч чистого времени, а чтобы полностью завершить проект, ушло 40ч чистого времени. И это при учёте того что программа полностью построена на графическом интерфейсе, и там есть довольно сложные элементы.</p>
 <p>Я бы такую программу с retained mode не написал бы никогда.</p>
+
+    
+
+
+    
+
+
+
+
+
+
+
+
 <div class="magnifier-container img-one">
 <img
     class="not-default full-screen-img"
@@ -454,8 +514,7 @@
 <div class="magnifier-display">
 <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1.6<br>png</div>
 </div>
-</div>
-<h1 id="skhozhest-s-konsol-nymi-utilitami"><a class="anchor" href="#skhozhest-s-konsol-nymi-utilitami">#</a>Схожесть с консольными утилитами</h1>
+</div><h1 id="skhozhest-s-konsol-nymi-utilitami"><a class="anchor" href="#skhozhest-s-konsol-nymi-utilitami">#</a>Схожесть с консольными утилитами</h1>
 <p>Обычно люди в качестве пет-проектов, или просто начинающие программисты пишут консольные утилиты, потому что они проще, потому что они не требуют слишком много разбираться и ломать голову.</p>
 <p>ImGui предоставляет точно такие же преимущества. И если раньше школьники начинали с консольных приложений, потому что они проще, то сейчас они могут начинать с ImGui.</p>
 <p>Я уверен, что если школьник сразу начнёт делать свои программы и видеть результат в ImGui, то весь процесс будет для него в 10 раз интересней, чем когда он вводит данные из файла или в консоли. Это увеличивает вовлечённость и потенциал обучения программированию.</p>
