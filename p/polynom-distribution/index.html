@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <!-- Fonts preload -->
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nFrXyi0A.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nBrXw.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxTcwhsk.woff2" crossOrigin="anonymous">
+  <!-- --- -->
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/main.css">
+  <!-- --- -->
+
+  
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(53392057, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/53392057" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <meta name="yandex-verification" content="ec61b5ac4464201b" />
+  <!-- --- -->
+  
+
+  <!-- Non social metatags -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link rel="canonical" href="https://optozorax.github.io/">
+  <meta name="robots" content="noarchive">
+  <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/atom.xml"> 
+  <!-- --- -->
+
+  <!-- Social metatags -->
+  
+
+<meta name="author" content="optozorax">
+<meta name="title" content="Аппроксимация распределения данных полиномом — Блог optozorax&#x27;а">
+<meta name="description" content="У меня была куча данных полётов на микродроне, и я захотел сделать красивый гладкий график... Готового решения в интернете не нашёл.">
+<meta name="image" content="https://optozorax.github.io/p/polynom-distribution/image.png">
+
+<meta name="keywords" itemprop="tags" content="математика, программирование, rust">
+
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://optozorax.github.io/p/polynom-distribution/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Аппроксимация распределения данных полиномом — Блог optozorax&#x27;а">
+<meta property="og:description" content="У меня была куча данных полётов на микродроне, и я захотел сделать красивый гладкий график... Готового решения в интернете не нашёл.">
+<meta property="og:image" content="https://optozorax.github.io/p/polynom-distribution/image.png">
+<meta property="og:locale" content="ru">
+
+
+<meta property="article:published_time" content="2023-06-07">
+
+
+
+
+<meta property="article:tag" content="математика">
+
+<meta property="article:tag" content="программирование">
+
+<meta property="article:tag" content="rust">
+
+
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="optozorax.github.io">
+<meta property="twitter:url" content="https://optozorax.github.io/p/polynom-distribution/">
+<meta name="twitter:title" content="Аппроксимация распределения данных полиномом — Блог optozorax&#x27;а">
+<meta name="twitter:description" content="У меня была куча данных полётов на микродроне, и я захотел сделать красивый гладкий график... Готового решения в интернете не нашёл.">
+<meta name="twitter:image" content="https://optozorax.github.io/p/polynom-distribution/image.png">
+<meta name="twitter:creator" content="optozorax">
+
+  <!-- --- -->
+
+  <!-- Extra head declarations -->
+  
+
+<link rel="preload" as="font" href="/fonts/KaTeX/KaTeX_Size4-Regular.woff2" crossOrigin="anonymous">
+<link rel="preload" as="font" href="/fonts/KaTeX/KaTeX_Math-Italic.woff2" crossOrigin="anonymous">
+<link rel="preload" as="font" href="/fonts/KaTeX/KaTeX_Main-Bold.woff2" crossOrigin="anonymous">
+<link rel="preload" as="font" href="/fonts/KaTeX/KaTeX_Main-Regular.woff2" crossOrigin="anonymous">
+<link rel="preload" as="font" href="/fonts/KaTeX/KaTeX_AMS-Regular.woff2" crossOrigin="anonymous">
+
+<link rel="stylesheet" href="/katex.min.css">
+<script defer src="/js/katex.min.js"></script>
+<script defer src="/js/mathtex-script-type.min.js"></script>
+
+<script type="text/javascript" src="/js/hammer.min.js"></script>
+<script type="text/javascript" src="/js/toc.js"></script>
+<script type="text/javascript" src="/js/gallery.js"></script>
+<script type="text/javascript" src="/js/full_screen.js"></script>
+<script type="text/javascript" src="/js/word_wrap.js"></script>
+
+  <!-- --- -->
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+  <!-- --- -->
+
+  <title>Аппроксимация распределения данных полиномом — Блог optozorax&#x27;а</title>
+</head>
+
+<body>
+  <!-- FullScreen block -->
+  <div id="img_modal" class="modal" style="display: none;">
+      <img id="img_modal_01" src="/ico/loading.gif">
+      <span class="close" id="img_modal_close">&times;</span>
+  </div>
+  <!-- --- -->
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <header class="site-header" role="banner">
+  
+  <div class="wrapper">
+    <a class="site-title" href="/">optozorax.blog</a>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <img src="/ico/menu.svg" width="13px" height="15px">
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          <a class="page-link" href="/">Блог</a>
+        
+          <a class="page-link" href="/e">Систематизация</a>
+        
+          <a class="page-link" href="/tags">Теги</a>
+        
+          <a class="page-link" href="/about">Обо мне</a>
+        
+      </div>
+    </nav>
+  </div>
+  
+  </header>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+  
+  <section class="page-header">
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+<h1 class="project-name">Аппроксимация распределения данных полиномом</h1>
+
+<h2 class="project-tagline">У меня была куча данных полётов на микродроне, и я захотел сделать красивый гладкий график... Готового решения в интернете не нашёл.</h2>
+
+
+
+<span style="margin-bottom: 10px;">
+  
+    <a href="/tags#matematika"><code class="tag"><nobr>#математика</nobr></code></a>&nbsp;
+  
+    <a href="/tags#programmirovanie"><code class="tag"><nobr>#программирование</nobr></code></a>&nbsp;
+  
+    <a href="/tags#rust"><code class="tag"><nobr>#rust</nobr></code></a>&nbsp;
+  
+</span>
+
+
+<center>
+<table style="margin-top: 8px;">
+<tr>
+
+
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+  <time datetime="2023-06-07" itemprop="datePublished">
+    
+    
+    
+    
+    <span class="post-date">07 июня 2023</span>
+  </time>
+</h2>
+</td>
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+    <span class="post-date" style="font-style: normal">| 🕑 5 мин</span>
+</h2>
+</td>
+
+
+
+</tr>
+</table>
+
+
+</center>
+
+
+</td><td>
+</td></tr></table>
+
+
+
+  </section>
+  
+  
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <section class="main-content section">
+  
+<article itemscope itemtype="http://schema.org/BlogPosting">
+<div itemprop="articleBody" id="content">
+<h1 id="vvedenie"><a class="anchor" href="#vvedenie">#</a>Введение</h1>
+<p>Я налётывал дома на дроне очень много кругов, и автоматически замерял их время, были круги по 8.5с, много кругов по 10с, и какое-то количество по 15с, и очень мало по 30с, 60с. Конечно, можно построить гистограммку, чтобы визуализировать эти результаты, но я хотел какую-то гладкую кривую, чтобы мне не приходилось подбирать длину ведра в гистограмме, и чтобы эта гладкая кривая учитывала насколько близко находятся результаты рядом друг с другом.</p>
+<p>Пытался нагуглить - не нашёл. Или находилось что-то, но я ничего не понял (как, например, <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0174573">эта статья</a> - начали <del>за здравие</del> хорошо, а потом ушли куда-то и я не понял). Поэтому пришлось изобретать всё самому. Посидел немного над тетрадкой, подумал, затем покодил и получил результат (не сразу, конечно же). В этой статье расскажу как аппроксимировать одномерное распределение полиномом N-ой степени. Итоговый алгоритм получился по сложности <script type="math/tex">O(m)</script>, где <script type="math/tex">m</script> - количество точек.</p>
+<h1 id="vyvod"><a class="anchor" href="#vyvod">#</a>Вывод</h1>
+<p>У нас есть много данных: <script type="math/tex">D_i</script>, всего их <script type="math/tex">M</script>. Мы хотим аппроксимировать их распределение полиномом <script type="math/tex">P(x) = \sum_{i = 0}^n c_i x^i</script>.</p>
+<p>Что значит аппроксимировать распределение? Это значит что на произвольном отрезке <script type="math/tex">[a_k, b_k]</script> интеграл данной функции стремится к плотности данных: (<script type="math/tex">count_{a_k}^{b_k} D</script> - количество точек <script type="math/tex">D</script>, попавших в отрезок <script type="math/tex">[a_k, b_k]</script>)</p>
+<script type="math/tex;mode=display">\int_{a_k}^{b_k} P(x) dx \approx \frac{count_{a_k}^{b_k} D}{M}</script><script type="math/tex;mode=display">\int_{a_k}^{b_k} \left[\sum_{i = 0}^n c_i x^i \right] dx - \frac{count_{a_k}^{b_k} D}{M} \approx 0</script><script type="math/tex;mode=display">\sum_{i = 0}^n c_i \cdot \frac{a_k^{i+1} - b_k^{i+1}}{i+1} - \frac{count_{a_k}^{b_k} D}{M} \approx 0</script>
+<p>И если взять все отрезки, количество которых K:</p>
+<script type="math/tex;mode=display">\sum_{k = 0}^K \left[ \sum_{i = 0}^n c_i \cdot \frac{a_k^{i+1} - b_k^{i+1}}{i+1} - \frac{count_{a_k}^{b_k} D}{M} \right]^2 \to \min</script>
+<p>Здесь я взял разницу в квадрат, чтобы она всегда была больше 0, и чтобы в сумме на разных отрезках получалось положительное число. И чтобы итоговая сумма по всем отрезкам не равнялась нулю, а стремилась к некоторому минимуму. В этом уравнении мы хотим найти неизвестные <script type="math/tex">c_i</script>.</p>
+<p>Если раскрыть скобки, и сложить слагаемые, то получится уравнение следующего вида:</p>
+<script type="math/tex;mode=display">a_{0,0} + a_{0,1} c_0 + \dots + a_{1, 1} c_0^2 + a_{1, 2} c_0 c_1 + \dots a_{n+1,n+1} c_n^2 \to min</script>
+<p>Видно что это уравнение второй степени с множеством неизвестных. А найти минимум такой функции можно напрямую: взяв производную и найдя её 0:</p>
+<script type="math/tex;mode=display">
+\left\{
+\begin{aligned}
+	&-a_{0, 1} = a_{1, 1} c_0 + a_{1, 2} c_1 + \ldots + a_{1, n+1} c_n \\
+	&-a_{0, 2} = a_{2, 1} c_0 + a_{2, 2} c_1 + \ldots + a_{2, n+1} c_n \\
+	
+	&\ldots \\
+	&-a_{0, n} = a_{n, 1} c_0 + a_{n, 2} c_1 + \ldots + a_{n+1, n+1} c_n \\
+\end{aligned}
+\right.
+</script>
+<p>Итого, надо просто посчитать какие-то коэффициенты <script type="math/tex">a_{i, j}</script> и затем решить СЛАУ, и у нас получятся коэффициенты полинома, который честным образом аппроксимирует данное распределение.</p>
+<h1 id="algoritm"><a class="anchor" href="#algoritm">#</a>Алгоритм</h1>
+<p>Входные данные:</p>
+<ul>
+<li><script type="math/tex">D_i</script> - массив значений размера M, распределение которых надо аппроксимировать.</li>
+<li><script type="math/tex">N</script> - степень итогового полинома.</li>
+<li><script type="math/tex">K</script> - количество отрезков.</li>
+</ul>
+<p>Степень полинома, очевидно, надо брать небольшую (5-10), чтобы не &quot;переобучаться&quot; на данных, и не делать график, который равен гистограмме или ещё чему-то такому.</p>
+<p>Количество отрезков нужно брать тоже не очень большое. Я прикинул, что <script type="math/tex">5\cdot M</script> вполне достаточно. В итоге на практике оказалось что оптимальным получается <script type="math/tex">N \cdot M</script>.</p>
+<p>Значит весь алгоритм состоит из двух этапов:</p>
+<ul>
+<li>Перебор <script type="math/tex">K</script> отрезков и получение матрицы и вектора.</li>
+<li>Решение СЛАУ размером <script type="math/tex">N</script>, то есть не очень большой.</li>
+</ul>
+<p>Перебирать отрезки можно двумя способами:</p>
+<ul>
+<li>Рандомно</li>
+<li>Организованно</li>
+</ul>
+<p>В рандомном случае самой ресурсоёмкой операцией получается подсчёт числа точек, попадающих на этот отрезок, что занимает <script type="math/tex">O(\ln n)</script>, если данные отсортированы.</p>
+<p>Если же пытаться перебирать отрезки организованно, от минимума к максимуму, то можно использовать метод двух указателей, и за <script type="math/tex">O(1)</script> знать количество точек, находящихся на данном отрезке. А так как количество отрезков равно <script type="math/tex">O(n)</script>, то это - оптимальный вариант.</p>
+<p>Итого весь алгоритм выглядит так в псевдокоде:</p>
+<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span>vec </span><span style="color:#72ab00;">= </span><span style="color:#7f8989;">/* одномерный вектор размера n+1 */
+</span><span>mat </span><span style="color:#72ab00;">= </span><span style="color:#7f8989;">/* двумерная матрица размера n+1 */
+</span><span>minv </span><span style="color:#72ab00;">=</span><span> D[</span><span style="color:#b3933a;">0</span><span>];
+</span><span>maxv </span><span style="color:#72ab00;">=</span><span> D[</span><span style="color:#72ab00;">-</span><span style="color:#b3933a;">1</span><span>];
+</span><span>seg_count </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">sqrt</span><span>(K);
+</span><span>step </span><span style="color:#72ab00;">= </span><span>(maxv </span><span style="color:#72ab00;">-</span><span> minv) </span><span style="color:#72ab00;">/</span><span> seg_count;
+</span><span>
+</span><span>apos </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>;
+</span><span style="color:#72ab00;">for</span><span> ai </span><span style="color:#72ab00;">in </span><span style="color:#b3933a;">0</span><span style="color:#72ab00;">..</span><span>seg_count</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1 </span><span>{
+</span><span>	a </span><span style="color:#72ab00;">=</span><span> minv </span><span style="color:#72ab00;">+</span><span> ai </span><span style="color:#72ab00;">*</span><span> step;
+</span><span>	</span><span style="color:#72ab00;">while</span><span> apos </span><span style="color:#72ab00;">&lt;</span><span> M </span><span style="color:#72ab00;">&amp;&amp;</span><span> a </span><span style="color:#72ab00;">&gt;</span><span> D[apos] { apos </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1</span><span>; }
+</span><span>
+</span><span>	bpos </span><span style="color:#72ab00;">=</span><span> apos;
+</span><span>	</span><span style="color:#72ab00;">for</span><span> bi </span><span style="color:#72ab00;">in</span><span> ai</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span style="color:#72ab00;">..</span><span>seg_count</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1 </span><span>{
+</span><span>		b </span><span style="color:#72ab00;">=</span><span> minv </span><span style="color:#72ab00;">+</span><span> bi </span><span style="color:#72ab00;">*</span><span> step;
+</span><span>		</span><span style="color:#72ab00;">while</span><span> bpos </span><span style="color:#72ab00;">&lt;</span><span> M </span><span style="color:#72ab00;">&amp;&amp;</span><span> b </span><span style="color:#72ab00;">&gt;</span><span> D[bpos] { bpos </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1</span><span>; }
+</span><span>
+</span><span>		count </span><span style="color:#72ab00;">= </span><span>(bpos </span><span style="color:#72ab00;">-</span><span> apos) </span><span style="color:#72ab00;">/</span><span> M;
+</span><span>
+</span><span>		</span><span style="color:#72ab00;">for</span><span> i </span><span style="color:#72ab00;">in </span><span style="color:#b3933a;">0</span><span style="color:#72ab00;">..</span><span>n</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1 </span><span>{
+</span><span>			vec[i] </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">2 </span><span style="color:#72ab00;">*</span><span> count </span><span style="color:#72ab00;">* </span><span>(b</span><span style="color:#72ab00;">^</span><span>(i</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>) </span><span style="color:#72ab00;">-</span><span> a</span><span style="color:#72ab00;">^</span><span>(i</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>))</span><span style="color:#72ab00;">/</span><span>(i</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>);
+</span><span>		}
+</span><span>
+</span><span>		</span><span style="color:#72ab00;">for</span><span> i </span><span style="color:#72ab00;">in </span><span style="color:#b3933a;">0</span><span style="color:#72ab00;">..</span><span>n</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1 </span><span>{
+</span><span>			</span><span style="color:#72ab00;">for</span><span> j </span><span style="color:#72ab00;">in </span><span style="color:#b3933a;">0</span><span style="color:#72ab00;">..</span><span>n</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1 </span><span>{
+</span><span>				to_add </span><span style="color:#72ab00;">= </span><span>(b</span><span style="color:#72ab00;">^</span><span>(i</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>) </span><span style="color:#72ab00;">-</span><span> a</span><span style="color:#72ab00;">^</span><span>(i</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>))</span><span style="color:#72ab00;">/</span><span>(i</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>) 
+</span><span>				       </span><span style="color:#72ab00;">* </span><span>(b</span><span style="color:#72ab00;">^</span><span>(j</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>) </span><span style="color:#72ab00;">-</span><span> a</span><span style="color:#72ab00;">^</span><span>(j</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>))</span><span style="color:#72ab00;">/</span><span>(j</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>);
+</span><span>
+</span><span>				mat[i, j] </span><span style="color:#72ab00;">+=</span><span> to_add;
+</span><span>				mat[j, i] </span><span style="color:#72ab00;">+=</span><span> to_add;
+</span><span>			}
+</span><span>		}
+</span><span>	}
+</span><span>}
+</span><span>
+</span><span>x </span><span style="color:#72ab00;">=</span><span> solve_SLE(vec, mat)
+</span></code></pre>
+<h1 id="veb-interfeis"><a class="anchor" href="#veb-interfeis">#</a>Веб-интерфейс</h1>
+<p>Ссылки:</p>
+<ul>
+<li><a href="https://optozorax.github.io/distribution_approximation/">Онлайн-интерфейс в отдельной вкладке</a></li>
+<li><a href="https://github.com/optozorax/distribution_approximation/blob/master/src/app.rs#L67-L129">Исходный код</a></li>
+</ul>
+<p>Я постарался и накодил веб-интерфейс где с этим алгоритмом можно поиграться. И вообще какой смысл выпускать говорить о том что ты придумал какой-то алгоритм, без кода? Вот если бы в той статье был хотя бы код, я не говорю про веб-интерфейс, может я бы сам ничего не придумывал бы...</p>
+<p>Там уже вставлены данные моих полётов на дроне. Да, я отлетал 300 кругов за день, и что вы мне сделаете 😁. Видно как сильно прокачался навык на данной трассе на следующий день, что более быстрые времена стали намного чаще.</p>
+<iframe src="https://optozorax.github.io/distribution_approximation/" width="100%" height="500px" style="border:0;"></iframe>
+
+</div>
+</article>
+
+  </section>
+  
+
+</td><td>
+<!-- TOC -->
+<input type="checkbox" id="toc-trigger" class="toc-trigger" />
+<label for="toc-trigger">
+  <span class="menu-icon">
+    <div class="side-button"><img src="/ico/right.svg"></div>
+  </span>
+</label>
+
+<nav class="section-nav">
+ <h2>Содержание</h2>
+ <ul class="first">
+ 
+ 
+  <li>
+   <a href="#vvedenie">Введение</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#vyvod">Вывод</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#algoritm">Алгоритм</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#veb-interfeis">Веб-интерфейс</a>
+   
+  </li>
+ 
+ </ul>
+</nav>
+</td></tr></table>
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="section second-section">
+Если вам нравится что я делаю, то подписывайтесь на меня в <a href="https://t.me/optozorax_dev">Telegram</a> и <a href="https://www.youtube.com/c/optozorax">YouTube</a>.
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="comments section second-section">
+
+<script src="https://utteranc.es/client.js"
+        repo="optozorax/optozorax.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+
+  <hr class="enabled-on-phone">
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <footer class="site-footer section second-section">
+  
+    <center>
+    <div style="margin-bottom: 10px;">© Шепрут Илья. Лицензия: <a href="https://creativecommons.org/licenses/by/3.0/deed.ru">CC-BY</a>.</div>
+    <table style="border: 0px; display: contents;">
+    <tr><td style="border: 0px; padding: 0.2rem;">
+    <!-- SVG icons from https://iconmonstr.com -->
+
+    
+<span class="my-span-icon">
+  <a 
+    href="https:&#x2F;&#x2F;github.com&#x2F;optozorax" 
+    aria-label="optozorax's GitHub" 
+    title="optozorax's GitHub">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/github.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's GitHub">
+  </a>
+</span>
+
+
+    
+<span class="my-span-icon">
+  <a 
+    href="https:&#x2F;&#x2F;t.me&#x2F;optozorax_dev" 
+    aria-label="optozorax's Telegram channel" 
+    title="optozorax's Telegram channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/tg.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Telegram channel">
+  </a>
+</span>
+
+
+    
+<span class="my-span-icon">
+  <a 
+    href="https:&#x2F;&#x2F;www.youtube.com&#x2F;c&#x2F;optozorax" 
+    aria-label="optozorax's YouTube channel" 
+    title="optozorax's YouTube channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/youtube.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's YouTube channel">
+  </a>
+</span>
+
+
+    
+<span class="my-span-icon">
+  <a 
+    href="https:&#x2F;&#x2F;boosty.to&#x2F;optozorax" 
+    aria-label="optozorax's donate page" 
+    title="optozorax's donate page">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/donate.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's donate page">
+  </a>
+</span>
+
+
+    
+<span class="my-span-icon">
+  <a 
+    href="&#x2F;atom.xml" 
+    aria-label="optozorax's Atom Feed" 
+    title="optozorax's Atom Feed">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/rss.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Atom Feed">
+  </a>
+</span>
+
+
+    
+<span class="my-span-icon">
+  <a 
+    href="mailto:optozorax@gmail.com" 
+    aria-label="optozorax's email" 
+    title="optozorax's email">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/contact.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's email">
+  </a>
+</span>
+
+
+    </td><td style="border: 0px; padding: 0.2rem;">
+    
+    <!-- Yandex.Metrika informer -->
+    <a href="https://metrika.yandex.ru/stat/?id=53392057&amp;from=informer" target="_blank" rel="nofollkw"><img src="https://informer.yandex.ru/informer/53392057/1_0_35B977FF_159957FF_1_pageviews" style="width:80px; height:15px; border:0; border-radius: 0px; margin-top: -4px; max-height: 100%; max-width: 100%;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры)" class="ym-advanced-informer" data-cid="53392057" data-lang="ru" /></a> 
+    <!-- /Yandex.Metrika informer -->
+    
+
+    </td></tr>
+    </table>
+    <div class="small-info">
+      Сделано с помощью <a href="https://www.getzola.org/">Zola</a> | База темы <a href="https://github.com/lorepirri/cayman-blog">Cayman Blog</a> | <a href="https://github.com/optozorax/blog_zola">Исходники сайта</a>
+      <a rel="me" href="https://mathstodon.xyz/@optozorax" style="display: none;">Mastodon</a>
+    </div>
+    </center>
+  
+  </footer>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+</body>
+</html>

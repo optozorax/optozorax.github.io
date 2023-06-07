@@ -5,13 +5,24 @@
 	<link href="https://optozorax.github.io/atom.xml" rel="self" type="application/atom+xml"/>
   	<link href="https://optozorax.github.io/"/>
 	<generator uri="https://www.getzola.org/">Zola</generator>
-	<updated>2023-05-12T00:00:02+00:00</updated>
+	<updated>2023-06-07T00:00:00+00:00</updated>
 	<author>
         <name>optozorax</name>
         <uri>https://optozorax.github.io/</uri>
     </author>
     <icon>https://optozorax.github.io/favicon/android-chrome-192x192.png</icon>
 	<id>https://optozorax.github.io/atom.xml</id>
+	<entry xml:lang="ru">
+		<title>Аппроксимация распределения данных полиномом</title>
+		<published>2023-06-07T00:00:00+00:00</published>
+		<updated>2023-06-07T00:00:00+00:00</updated>
+		<link href="https://optozorax.github.io/p/polynom-distribution/" type="text/html"/>
+		<id>https://optozorax.github.io/p/polynom-distribution/</id>
+		<summary type="html">У меня была куча данных полётов на микродроне, и я захотел сделать красивый гладкий график... Готового решения в интернете не нашёл.</summary>
+		<category term="математика"/>
+		<category term="программирование"/>
+		<category term="rust"/>
+	</entry>
 	<entry xml:lang="ru">
 		<title>Идея как научить GPT-4 мыслить на примере задач по программированию</title>
 		<published>2023-05-12T00:00:02+00:00</published>
