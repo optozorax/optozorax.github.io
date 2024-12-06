@@ -79,6 +79,16 @@
   <!-- Extra head declarations -->
   
 
+<link rel="preload" as="font" href="/fonts/KaTeX/KaTeX_Size4-Regular.woff2" crossOrigin="anonymous">
+<link rel="preload" as="font" href="/fonts/KaTeX/KaTeX_Math-Italic.woff2" crossOrigin="anonymous">
+<link rel="preload" as="font" href="/fonts/KaTeX/KaTeX_Main-Bold.woff2" crossOrigin="anonymous">
+<link rel="preload" as="font" href="/fonts/KaTeX/KaTeX_Main-Regular.woff2" crossOrigin="anonymous">
+<link rel="preload" as="font" href="/fonts/KaTeX/KaTeX_AMS-Regular.woff2" crossOrigin="anonymous">
+
+<link rel="stylesheet" href="/katex.min.css">
+<script defer src="/js/katex.min.js"></script>
+<script defer src="/js/mathtex-script-type.min.js"></script>
+
 <script type="text/javascript" src="/js/hammer.min.js"></script>
 <script type="text/javascript" src="/js/toc.js"></script>
 <script type="text/javascript" src="/js/gallery.js"></script>
@@ -194,7 +204,7 @@
 </td>
 <td style="padding-right: 10px; border-right: 0px solid #ffffff;">
 <h2 class="project-date" style="margin-top: 0px;">
-    <span class="post-date" style="font-style: normal">| 🕑 67 мин</span>
+    <span class="post-date" style="font-style: normal">| 🕑 73 мин</span>
 </h2>
 </td>
 
@@ -244,17 +254,17 @@
 <div class="details-content">
 <p>Это функция, которая принимает строку, а возвращает массив чисел такой же длины как и эта строка. Этот массив описывает сколько символов текущего суффикса совпадает с началом строки. Данный массив можно хитро посчитать за O(n). Z-функцию можно использовать для поиска подстроки в строке за O(n) и в множестве других задач на строки.</p>
 <p>Пример: строка <code>ABACABA</code>, её Z-функция равна <code>[0, 0, 1, 0, 3, 0, 1]</code>, потому что:</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>* 0 - первый элемент всегда равен          0 по определению
-</span><span>* 0 - строка BACABA совпадает с ABACABA на 0 начальных символов
-</span><span>* 1 - строка  ACABA совпадает с ABACABA на 1 начальных символов
-</span><span>* 0 - строка   CABA совпадает с ABACABA на 0 начальных символов
-</span><span>* 3 - строка    ABA совпадает с ABACABA на 3 начальных символов
-</span><span>* 0 - строка     BA совпадает с ABACABA на 0 начальных символов
-</span><span>* 1 - строка      A совпадает с ABACABA на 1 начальных символов
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>* 0 - первый элемент всегда равен          0 по определению</span><span>
+</span><span>* 0 - строка BACABA совпадает с ABACABA на 0 начальных символов</span><span>
+</span><span>* 1 - строка  ACABA совпадает с ABACABA на 1 начальных символов</span><span>
+</span><span>* 0 - строка   CABA совпадает с ABACABA на 0 начальных символов</span><span>
+</span><span>* 3 - строка    ABA совпадает с ABACABA на 3 начальных символов</span><span>
+</span><span>* 0 - строка     BA совпадает с ABACABA на 0 начальных символов</span><span>
+</span><span>* 1 - строка      A совпадает с ABACABA на 1 начальных символов</span><span>
 </span></code></pre>
 <p>Предположим мы хотим найти строку <code>ab</code> в строке <code>abacaba</code>, тогда мы можем их сконкатенировать через уникальный символ: <code>ab$abacaba</code>, далее посчитаем z-функцию:</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>a b $ a b a c a b a
-</span><span>0 0 0 2 0 1 0 2 0 1
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>a b $ a b a c a b a</span><span>
+</span><span>0 0 0 2 0 1 0 2 0 1</span><span>
 </span></code></pre>
 <p>Места где встречается 2 (длина искомой строки) - и есть места где строка <code>ab</code> является подстрокой <code>abacaba</code>.</p>
 </div>
@@ -270,25 +280,25 @@
 <summary>Суть решения</summary>
 <div class="details-content">
 <p>Все подстроки данной строки могут начинаться с какого-то места, давайте рассмотрим одно такое место:</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>abacababa
-</span><span>    a
-</span><span>    ab
-</span><span>    aba
-</span><span>    abab
-</span><span>    ababa
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>abacababa</span><span>
+</span><span>    a</span><span>
+</span><span>    ab</span><span>
+</span><span>    aba</span><span>
+</span><span>    abab</span><span>
+</span><span>    ababa</span><span>
 </span></code></pre>
 <p>Давайте рассчитаем Z-функцию этого суффикса, с которого начинаются все эти строки:</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>a b a b a
-</span><span>0 0 3 0 1
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>a b a b a</span><span>
+</span><span>0 0 3 0 1</span><span>
 </span></code></pre>
 <p>Здесь 3 означает, что строка aba совпадает с началом данной строки, так же как и все её подстроки: <code>a</code>, <code>ab</code>, <code>aba</code>.</p>
 <p>Поэтому если мы ищем уникальные строки, то мы можем зачеркнуть те, что встретятся дальше используя значение Z-функции:</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>abacababa
-</span><span>    a - - (посчитано дважды)
-</span><span>    ab -
-</span><span>    aba -
-</span><span>    abab
-</span><span>    ababa
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>abacababa</span><span>
+</span><span>    a - - (посчитано дважды)</span><span>
+</span><span>    ab -</span><span>
+</span><span>    aba -</span><span>
+</span><span>    abab</span><span>
+</span><span>    ababa</span><span>
 </span></code></pre>
 <p>Тогда в данном суффиксе у нас есть только 2 уникальные строки: <code>abab</code>, <code>ababa</code>, и мы можем посчитать сумму их длин. А строки <code>a</code>, <code>ab</code>, <code>aba</code> будут учтены при рассмотрении дальнейших суффиксов.</p>
 <p>Можно заметить что в Z-функции нам требуется только максимум, а посчитать сумму длин можно по формуле арифметической прогрессии, взяв сумму длин суффикса, и вычтя сумму длин повторяющихся строк в начале.</p>
@@ -319,64 +329,64 @@
 <p><strong><center>ChatGPT</center></strong></p>
 <p>One efficient solution to this problem is <span class="red-bg example">to use a data structure called a trie</span>. A trie is a tree-like data structure that is commonly used for efficiently storing and searching for strings. We can construct a trie for the given string S, and then traverse the trie to count the total length of all unique substrings.</p>
 <p>Here is the C++ code to solve this problem using a trie:</p>
-<pre data-lang="c++" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#72ab00;">#include </span><span style="color:#d07711;">&lt;bits/stdc++.h&gt;
-</span><span style="color:#72ab00;">using namespace</span><span> std;
+<pre data-lang="c++" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#72ab00;">#include </span><span style="color:#d07711;">&lt;bits/stdc++.h&gt;</span><span>
+</span><span style="color:#72ab00;">using namespace</span><span> std;</span><span>
 </span><span>
-</span><span style="color:#668f14;">const int</span><span> MAXN </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">1e6 </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">5</span><span>;
+</span><span style="color:#668f14;">const int</span><span> MAXN </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">1e6 </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">5</span><span>;</span><span>
 </span><span>
-</span><span style="color:#668f14;">struct </span><span style="color:#c23f31;">TrieNode </span><span>{
-</span><span>    </span><span style="color:#668f14;">int</span><span> child[</span><span style="color:#b3933a;">26</span><span>];
-</span><span>    </span><span style="color:#668f14;">bool</span><span> is_end;
-</span><span>    </span><span style="color:#c23f31;">TrieNode</span><span>() {
-</span><span>        </span><span style="color:#b39f04;">memset</span><span>(child, </span><span style="color:#72ab00;">-</span><span style="color:#b3933a;">1</span><span>, </span><span style="color:#72ab00;">sizeof</span><span>(child));
-</span><span>        is_end </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">false</span><span>;
-</span><span>    }
-</span><span>};
+</span><span style="color:#668f14;">struct </span><span style="color:#c23f31;">TrieNode </span><span>{</span><span>
+</span><span>    </span><span style="color:#668f14;">int</span><span> child[</span><span style="color:#b3933a;">26</span><span>];</span><span>
+</span><span>    </span><span style="color:#668f14;">bool</span><span> is_end;</span><span>
+</span><span>    </span><span style="color:#c23f31;">TrieNode</span><span>() {</span><span>
+</span><span>        </span><span style="color:#b39f04;">memset</span><span>(child, </span><span style="color:#72ab00;">-</span><span style="color:#b3933a;">1</span><span>, </span><span style="color:#72ab00;">sizeof</span><span>(child));</span><span>
+</span><span>        is_end </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">false</span><span>;</span><span>
+</span><span>    }</span><span>
+</span><span>};</span><span>
 </span><span>
-</span><span>TrieNode trie[MAXN];
-</span><span style="color:#668f14;">int</span><span> node_cnt </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">1</span><span>;
+</span><span>TrieNode trie[MAXN];</span><span>
+</span><span style="color:#668f14;">int</span><span> node_cnt </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">1</span><span>;</span><span>
 </span><span>
-</span><span style="color:#668f14;">void </span><span style="color:#c23f31;">insert</span><span>(string</span><span style="color:#72ab00;">&amp; </span><span style="color:#5597d6;">s</span><span>) {
-</span><span>    </span><span style="color:#668f14;">int</span><span> node </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>;
-</span><span>    </span><span style="color:#72ab00;">for </span><span>(</span><span style="color:#668f14;">char</span><span> c </span><span style="color:#72ab00;">:</span><span> s) {
-</span><span>        </span><span style="color:#668f14;">int</span><span> ch </span><span style="color:#72ab00;">=</span><span> c </span><span style="color:#72ab00;">- </span><span style="color:#d07711;">&#39;a&#39;</span><span>;
-</span><span>        </span><span style="color:#72ab00;">if </span><span>(trie[node].</span><span style="color:#5597d6;">child</span><span>[ch] </span><span style="color:#72ab00;">== -</span><span style="color:#b3933a;">1</span><span>) {
-</span><span>            trie[node].</span><span style="color:#5597d6;">child</span><span>[ch] </span><span style="color:#72ab00;">=</span><span> node_cnt</span><span style="color:#72ab00;">++</span><span>;
-</span><span>        }
-</span><span>        node </span><span style="color:#72ab00;">=</span><span> trie[node].</span><span style="color:#5597d6;">child</span><span>[ch];
-</span><span>    }
-</span><span>    trie[node].</span><span style="color:#5597d6;">is_end </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">true</span><span>;
-</span><span>}
+</span><span style="color:#668f14;">void </span><span style="color:#c23f31;">insert</span><span>(string</span><span style="color:#72ab00;">&amp; </span><span style="color:#5597d6;">s</span><span>) {</span><span>
+</span><span>    </span><span style="color:#668f14;">int</span><span> node </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>;</span><span>
+</span><span>    </span><span style="color:#72ab00;">for </span><span>(</span><span style="color:#668f14;">char</span><span> c </span><span style="color:#72ab00;">:</span><span> s) {</span><span>
+</span><span>        </span><span style="color:#668f14;">int</span><span> ch </span><span style="color:#72ab00;">=</span><span> c </span><span style="color:#72ab00;">- </span><span style="color:#d07711;">&#39;a&#39;</span><span>;</span><span>
+</span><span>        </span><span style="color:#72ab00;">if </span><span>(trie[node].</span><span style="color:#5597d6;">child</span><span>[ch] </span><span style="color:#72ab00;">== -</span><span style="color:#b3933a;">1</span><span>) {</span><span>
+</span><span>            trie[node].</span><span style="color:#5597d6;">child</span><span>[ch] </span><span style="color:#72ab00;">=</span><span> node_cnt</span><span style="color:#72ab00;">++</span><span>;</span><span>
+</span><span>        }</span><span>
+</span><span>        node </span><span style="color:#72ab00;">=</span><span> trie[node].</span><span style="color:#5597d6;">child</span><span>[ch];</span><span>
+</span><span>    }</span><span>
+</span><span>    trie[node].</span><span style="color:#5597d6;">is_end </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">true</span><span>;</span><span>
+</span><span>}</span><span>
 </span><span>
-</span><span style="color:#668f14;">int </span><span style="color:#c23f31;">dfs</span><span>(</span><span style="color:#668f14;">int </span><span style="color:#5597d6;">node</span><span>, </span><span style="color:#668f14;">int </span><span style="color:#5597d6;">depth</span><span>) {
-</span><span>    </span><span style="color:#668f14;">int</span><span> len </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>;
-</span><span>    </span><span style="color:#72ab00;">for </span><span>(</span><span style="color:#668f14;">int</span><span> i </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>; i </span><span style="color:#72ab00;">&lt; </span><span style="color:#b3933a;">26</span><span>; i</span><span style="color:#72ab00;">++</span><span>) {
-</span><span>        </span><span style="color:#668f14;">int</span><span> child </span><span style="color:#72ab00;">=</span><span> trie[node].</span><span style="color:#5597d6;">child</span><span>[i];
-</span><span>        </span><span style="color:#72ab00;">if </span><span>(child </span><span style="color:#72ab00;">!= -</span><span style="color:#b3933a;">1</span><span>) {
-</span><span>            len </span><span style="color:#72ab00;">+= </span><span style="color:#5597d6;">dfs</span><span>(child, depth </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>);
-</span><span>        }
-</span><span>    }
-</span><span>    </span><span style="color:#72ab00;">if </span><span>(trie[node].</span><span style="color:#5597d6;">is_end</span><span>) {
-</span><span>        len </span><span style="color:#72ab00;">+=</span><span> depth;
-</span><span>    }
-</span><span>    </span><span style="color:#72ab00;">return</span><span> len;
-</span><span>}
+</span><span style="color:#668f14;">int </span><span style="color:#c23f31;">dfs</span><span>(</span><span style="color:#668f14;">int </span><span style="color:#5597d6;">node</span><span>, </span><span style="color:#668f14;">int </span><span style="color:#5597d6;">depth</span><span>) {</span><span>
+</span><span>    </span><span style="color:#668f14;">int</span><span> len </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>;</span><span>
+</span><span>    </span><span style="color:#72ab00;">for </span><span>(</span><span style="color:#668f14;">int</span><span> i </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>; i </span><span style="color:#72ab00;">&lt; </span><span style="color:#b3933a;">26</span><span>; i</span><span style="color:#72ab00;">++</span><span>) {</span><span>
+</span><span>        </span><span style="color:#668f14;">int</span><span> child </span><span style="color:#72ab00;">=</span><span> trie[node].</span><span style="color:#5597d6;">child</span><span>[i];</span><span>
+</span><span>        </span><span style="color:#72ab00;">if </span><span>(child </span><span style="color:#72ab00;">!= -</span><span style="color:#b3933a;">1</span><span>) {</span><span>
+</span><span>            len </span><span style="color:#72ab00;">+= </span><span style="color:#5597d6;">dfs</span><span>(child, depth </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>);</span><span>
+</span><span>        }</span><span>
+</span><span>    }</span><span>
+</span><span>    </span><span style="color:#72ab00;">if </span><span>(trie[node].</span><span style="color:#5597d6;">is_end</span><span>) {</span><span>
+</span><span>        len </span><span style="color:#72ab00;">+=</span><span> depth;</span><span>
+</span><span>    }</span><span>
+</span><span>    </span><span style="color:#72ab00;">return</span><span> len;</span><span>
+</span><span>}</span><span>
 </span><span>
-</span><span style="color:#668f14;">int </span><span style="color:#c23f31;">main</span><span>() {
-</span><span>    string s;
-</span><span>    cin </span><span style="color:#72ab00;">&gt;&gt;</span><span> s;
-</span><span>    </span><span style="color:#668f14;">int</span><span> n </span><span style="color:#72ab00;">=</span><span> s.</span><span style="color:#5597d6;">size</span><span>();
-</span><span>    </span><span style="color:#72ab00;">for </span><span>(</span><span style="color:#668f14;">int</span><span> i </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>; i </span><span style="color:#72ab00;">&lt;</span><span> n; i</span><span style="color:#72ab00;">++</span><span>) {
-</span><span>        string sub </span><span style="color:#72ab00;">= </span><span style="color:#d07711;">&quot;&quot;</span><span>;
-</span><span>        </span><span style="color:#72ab00;">for </span><span>(</span><span style="color:#668f14;">int</span><span> j </span><span style="color:#72ab00;">=</span><span> i; j </span><span style="color:#72ab00;">&lt;</span><span> n; j</span><span style="color:#72ab00;">++</span><span>) {
-</span><span>            sub </span><span style="color:#72ab00;">+=</span><span> s[j];
-</span><span>            </span><span style="color:#5597d6;">insert</span><span>(sub);
-</span><span>        }
-</span><span>    }
-</span><span>    </span><span style="color:#668f14;">int</span><span> ans </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">dfs</span><span>(</span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0</span><span>);
-</span><span>    cout </span><span style="color:#72ab00;">&lt;&lt;</span><span> ans </span><span style="color:#72ab00;">&lt;&lt;</span><span> endl;
-</span><span>    </span><span style="color:#72ab00;">return </span><span style="color:#b3933a;">0</span><span>;
-</span><span>}
+</span><span style="color:#668f14;">int </span><span style="color:#c23f31;">main</span><span>() {</span><span>
+</span><span>    string s;</span><span>
+</span><span>    cin </span><span style="color:#72ab00;">&gt;&gt;</span><span> s;</span><span>
+</span><span>    </span><span style="color:#668f14;">int</span><span> n </span><span style="color:#72ab00;">=</span><span> s.</span><span style="color:#5597d6;">size</span><span>();</span><span>
+</span><span>    </span><span style="color:#72ab00;">for </span><span>(</span><span style="color:#668f14;">int</span><span> i </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>; i </span><span style="color:#72ab00;">&lt;</span><span> n; i</span><span style="color:#72ab00;">++</span><span>) {</span><span>
+</span><span>        string sub </span><span style="color:#72ab00;">= </span><span style="color:#d07711;">&quot;&quot;</span><span>;</span><span>
+</span><span>        </span><span style="color:#72ab00;">for </span><span>(</span><span style="color:#668f14;">int</span><span> j </span><span style="color:#72ab00;">=</span><span> i; j </span><span style="color:#72ab00;">&lt;</span><span> n; j</span><span style="color:#72ab00;">++</span><span>) {</span><span>
+</span><span>            sub </span><span style="color:#72ab00;">+=</span><span> s[j];</span><span>
+</span><span>            </span><span style="color:#5597d6;">insert</span><span>(sub);</span><span>
+</span><span>        }</span><span>
+</span><span>    }</span><span>
+</span><span>    </span><span style="color:#668f14;">int</span><span> ans </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">dfs</span><span>(</span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0</span><span>);</span><span>
+</span><span>    cout </span><span style="color:#72ab00;">&lt;&lt;</span><span> ans </span><span style="color:#72ab00;">&lt;&lt;</span><span> endl;</span><span>
+</span><span>    </span><span style="color:#72ab00;">return </span><span style="color:#b3933a;">0</span><span>;</span><span>
+</span><span>}</span><span>
 </span></code></pre>
 <p>In this solution, we first define a struct <code>TrieNode</code> to represent the nodes in the trie. Each node has an array <code>child</code> of size 26 (one for each possible lowercase letter) to store its children, and a boolean <code>is_end</code> to indicate whether the node represents the end of a word.</p>
 <p>We then define a function <code>insert</code> to insert a string into the trie. Starting from the root node (which has index 0), we traverse the trie by following the appropriate child for each character in the string. If a child node does not exist for a particular character, we create a new node and assign it a new index <code>node_cnt++</code>. Finally, we set the <code>is_end</code> flag of the last node in the string to true.</p>
@@ -389,74 +399,74 @@
 <hr />
 <p><strong><center>ChatGPT</center></strong></p>
 <p>Sure! Here's the modified code that uses dynamic allocation to create the trie, supports all possible characters, and uses a <code>long long</code> to store the result:</p>
-<pre data-lang="c++" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#72ab00;">#include </span><span style="color:#d07711;">&lt;bits/stdc++.h&gt;
-</span><span style="color:#72ab00;">using namespace</span><span> std;
+<pre data-lang="c++" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#72ab00;">#include </span><span style="color:#d07711;">&lt;bits/stdc++.h&gt;</span><span>
+</span><span style="color:#72ab00;">using namespace</span><span> std;</span><span>
 </span><span>
-</span><span style="color:#668f14;">const int</span><span> MAXN </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">1e6 </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">5</span><span>;
-</span><span style="color:#668f14;">const int</span><span> MAXCHAR </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">256</span><span>;
+</span><span style="color:#668f14;">const int</span><span> MAXN </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">1e6 </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">5</span><span>;</span><span>
+</span><span style="color:#668f14;">const int</span><span> MAXCHAR </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">256</span><span>;</span><span>
 </span><span>
-</span><span style="color:#668f14;">struct </span><span style="color:#c23f31;">TrieNode </span><span>{
-</span><span>    </span><span style="color:#668f14;">int</span><span style="color:#72ab00;">*</span><span> child;
-</span><span>    </span><span style="color:#668f14;">bool</span><span> is_end;
-</span><span>    </span><span style="color:#c23f31;">TrieNode</span><span>() {
-</span><span>        child </span><span style="color:#72ab00;">= new </span><span style="color:#668f14;">int</span><span>[MAXCHAR];
-</span><span>        </span><span style="color:#b39f04;">memset</span><span>(child, </span><span style="color:#72ab00;">-</span><span style="color:#b3933a;">1</span><span>, </span><span style="color:#72ab00;">sizeof</span><span>(</span><span style="color:#668f14;">int</span><span>) </span><span style="color:#72ab00;">*</span><span> MAXCHAR);
-</span><span>        is_end </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">false</span><span>;
-</span><span>    }
-</span><span>    </span><span style="color:#c23f31;">~TrieNode</span><span>() {
-</span><span>        </span><span style="color:#72ab00;">delete[]</span><span> child;
-</span><span>    }
-</span><span>};
+</span><span style="color:#668f14;">struct </span><span style="color:#c23f31;">TrieNode </span><span>{</span><span>
+</span><span>    </span><span style="color:#668f14;">int</span><span style="color:#72ab00;">*</span><span> child;</span><span>
+</span><span>    </span><span style="color:#668f14;">bool</span><span> is_end;</span><span>
+</span><span>    </span><span style="color:#c23f31;">TrieNode</span><span>() {</span><span>
+</span><span>        child </span><span style="color:#72ab00;">= new </span><span style="color:#668f14;">int</span><span>[MAXCHAR];</span><span>
+</span><span>        </span><span style="color:#b39f04;">memset</span><span>(child, </span><span style="color:#72ab00;">-</span><span style="color:#b3933a;">1</span><span>, </span><span style="color:#72ab00;">sizeof</span><span>(</span><span style="color:#668f14;">int</span><span>) </span><span style="color:#72ab00;">*</span><span> MAXCHAR);</span><span>
+</span><span>        is_end </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">false</span><span>;</span><span>
+</span><span>    }</span><span>
+</span><span>    </span><span style="color:#c23f31;">~TrieNode</span><span>() {</span><span>
+</span><span>        </span><span style="color:#72ab00;">delete[]</span><span> child;</span><span>
+</span><span>    }</span><span>
+</span><span>};</span><span>
 </span><span>
-</span><span>TrieNode</span><span style="color:#72ab00;">*</span><span> trie[MAXN];
-</span><span style="color:#668f14;">int</span><span> node_cnt </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">1</span><span>;
+</span><span>TrieNode</span><span style="color:#72ab00;">*</span><span> trie[MAXN];</span><span>
+</span><span style="color:#668f14;">int</span><span> node_cnt </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">1</span><span>;</span><span>
 </span><span>
-</span><span style="color:#668f14;">void </span><span style="color:#c23f31;">insert</span><span>(string</span><span style="color:#72ab00;">&amp; </span><span style="color:#5597d6;">s</span><span>) {
-</span><span>    </span><span style="color:#668f14;">int</span><span> node </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>;
-</span><span>    </span><span style="color:#72ab00;">for </span><span>(</span><span style="color:#668f14;">char</span><span> c </span><span style="color:#72ab00;">:</span><span> s) {
-</span><span>        </span><span style="color:#668f14;">int</span><span> ch </span><span style="color:#72ab00;">= </span><span>(</span><span style="color:#668f14;">int</span><span>)c;
-</span><span>        </span><span style="color:#72ab00;">if </span><span>(trie[node]-&gt;</span><span style="color:#5597d6;">child</span><span>[ch] </span><span style="color:#72ab00;">== -</span><span style="color:#b3933a;">1</span><span>) {
-</span><span>            trie[node]-&gt;</span><span style="color:#5597d6;">child</span><span>[ch] </span><span style="color:#72ab00;">=</span><span> node_cnt</span><span style="color:#72ab00;">++</span><span>;
-</span><span>            trie[node_cnt </span><span style="color:#72ab00;">- </span><span style="color:#b3933a;">1</span><span>] </span><span style="color:#72ab00;">= new </span><span style="color:#5597d6;">TrieNode</span><span>();
-</span><span>        }
-</span><span>        node </span><span style="color:#72ab00;">=</span><span> trie[node]-&gt;</span><span style="color:#5597d6;">child</span><span>[ch];
-</span><span>    }
-</span><span>    trie[node]-&gt;</span><span style="color:#5597d6;">is_end </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">true</span><span>;
-</span><span>}
+</span><span style="color:#668f14;">void </span><span style="color:#c23f31;">insert</span><span>(string</span><span style="color:#72ab00;">&amp; </span><span style="color:#5597d6;">s</span><span>) {</span><span>
+</span><span>    </span><span style="color:#668f14;">int</span><span> node </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>;</span><span>
+</span><span>    </span><span style="color:#72ab00;">for </span><span>(</span><span style="color:#668f14;">char</span><span> c </span><span style="color:#72ab00;">:</span><span> s) {</span><span>
+</span><span>        </span><span style="color:#668f14;">int</span><span> ch </span><span style="color:#72ab00;">= </span><span>(</span><span style="color:#668f14;">int</span><span>)c;</span><span>
+</span><span>        </span><span style="color:#72ab00;">if </span><span>(trie[node]-&gt;</span><span style="color:#5597d6;">child</span><span>[ch] </span><span style="color:#72ab00;">== -</span><span style="color:#b3933a;">1</span><span>) {</span><span>
+</span><span>            trie[node]-&gt;</span><span style="color:#5597d6;">child</span><span>[ch] </span><span style="color:#72ab00;">=</span><span> node_cnt</span><span style="color:#72ab00;">++</span><span>;</span><span>
+</span><span>            trie[node_cnt </span><span style="color:#72ab00;">- </span><span style="color:#b3933a;">1</span><span>] </span><span style="color:#72ab00;">= new </span><span style="color:#5597d6;">TrieNode</span><span>();</span><span>
+</span><span>        }</span><span>
+</span><span>        node </span><span style="color:#72ab00;">=</span><span> trie[node]-&gt;</span><span style="color:#5597d6;">child</span><span>[ch];</span><span>
+</span><span>    }</span><span>
+</span><span>    trie[node]-&gt;</span><span style="color:#5597d6;">is_end </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">true</span><span>;</span><span>
+</span><span>}</span><span>
 </span><span>
-</span><span style="color:#668f14;">long long </span><span style="color:#c23f31;">dfs</span><span>(</span><span style="color:#668f14;">int </span><span style="color:#5597d6;">node</span><span>, </span><span style="color:#668f14;">int </span><span style="color:#5597d6;">depth</span><span>) {
-</span><span>    </span><span style="color:#668f14;">long long</span><span> len </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>;
-</span><span>    </span><span style="color:#72ab00;">for </span><span>(</span><span style="color:#668f14;">int</span><span> i </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>; i </span><span style="color:#72ab00;">&lt;</span><span> MAXCHAR; i</span><span style="color:#72ab00;">++</span><span>) {
-</span><span>        </span><span style="color:#668f14;">int</span><span> child </span><span style="color:#72ab00;">=</span><span> trie[node]-&gt;</span><span style="color:#5597d6;">child</span><span>[i];
-</span><span>        </span><span style="color:#72ab00;">if </span><span>(child </span><span style="color:#72ab00;">!= -</span><span style="color:#b3933a;">1</span><span>) {
-</span><span>            len </span><span style="color:#72ab00;">+= </span><span style="color:#5597d6;">dfs</span><span>(child, depth </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>);
-</span><span>        }
-</span><span>    }
-</span><span>    </span><span style="color:#72ab00;">if </span><span>(trie[node]-&gt;</span><span style="color:#5597d6;">is_end</span><span>) {
-</span><span>        len </span><span style="color:#72ab00;">+= </span><span>(</span><span style="color:#668f14;">long long</span><span>)depth;
-</span><span>    }
-</span><span>    </span><span style="color:#72ab00;">return</span><span> len;
-</span><span>}
+</span><span style="color:#668f14;">long long </span><span style="color:#c23f31;">dfs</span><span>(</span><span style="color:#668f14;">int </span><span style="color:#5597d6;">node</span><span>, </span><span style="color:#668f14;">int </span><span style="color:#5597d6;">depth</span><span>) {</span><span>
+</span><span>    </span><span style="color:#668f14;">long long</span><span> len </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>;</span><span>
+</span><span>    </span><span style="color:#72ab00;">for </span><span>(</span><span style="color:#668f14;">int</span><span> i </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>; i </span><span style="color:#72ab00;">&lt;</span><span> MAXCHAR; i</span><span style="color:#72ab00;">++</span><span>) {</span><span>
+</span><span>        </span><span style="color:#668f14;">int</span><span> child </span><span style="color:#72ab00;">=</span><span> trie[node]-&gt;</span><span style="color:#5597d6;">child</span><span>[i];</span><span>
+</span><span>        </span><span style="color:#72ab00;">if </span><span>(child </span><span style="color:#72ab00;">!= -</span><span style="color:#b3933a;">1</span><span>) {</span><span>
+</span><span>            len </span><span style="color:#72ab00;">+= </span><span style="color:#5597d6;">dfs</span><span>(child, depth </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>);</span><span>
+</span><span>        }</span><span>
+</span><span>    }</span><span>
+</span><span>    </span><span style="color:#72ab00;">if </span><span>(trie[node]-&gt;</span><span style="color:#5597d6;">is_end</span><span>) {</span><span>
+</span><span>        len </span><span style="color:#72ab00;">+= </span><span>(</span><span style="color:#668f14;">long long</span><span>)depth;</span><span>
+</span><span>    }</span><span>
+</span><span>    </span><span style="color:#72ab00;">return</span><span> len;</span><span>
+</span><span>}</span><span>
 </span><span>
-</span><span style="color:#668f14;">int </span><span style="color:#c23f31;">main</span><span>() {
-</span><span>    string s;
-</span><span>    cin </span><span style="color:#72ab00;">&gt;&gt;</span><span> s;
-</span><span>    </span><span style="color:#668f14;">int</span><span> n </span><span style="color:#72ab00;">=</span><span> s.</span><span style="color:#5597d6;">size</span><span>();
-</span><span>    trie[</span><span style="color:#b3933a;">0</span><span>] </span><span style="color:#72ab00;">= new </span><span style="color:#5597d6;">TrieNode</span><span>();
-</span><span>    </span><span style="color:#72ab00;">for </span><span>(</span><span style="color:#668f14;">int</span><span> i </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>; i </span><span style="color:#72ab00;">&lt;</span><span> n; i</span><span style="color:#72ab00;">++</span><span>) {
-</span><span>        string sub </span><span style="color:#72ab00;">= </span><span style="color:#d07711;">&quot;&quot;</span><span>;
-</span><span>        </span><span style="color:#72ab00;">for </span><span>(</span><span style="color:#668f14;">int</span><span> j </span><span style="color:#72ab00;">=</span><span> i; j </span><span style="color:#72ab00;">&lt;</span><span> n; j</span><span style="color:#72ab00;">++</span><span>) {
-</span><span>            sub </span><span style="color:#72ab00;">+=</span><span> s[j];
-</span><span>            </span><span style="color:#5597d6;">insert</span><span>(sub);
-</span><span>        }
-</span><span>    }
-</span><span>    </span><span style="color:#668f14;">long long</span><span> ans </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">dfs</span><span>(</span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0</span><span>);
-</span><span>    cout </span><span style="color:#72ab00;">&lt;&lt;</span><span> ans </span><span style="color:#72ab00;">&lt;&lt;</span><span> endl;
-</span><span>    </span><span style="color:#72ab00;">for </span><span>(</span><span style="color:#668f14;">int</span><span> i </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>; i </span><span style="color:#72ab00;">&lt;</span><span> node_cnt; i</span><span style="color:#72ab00;">++</span><span>) {
-</span><span>        </span><span style="color:#72ab00;">delete</span><span> trie[i];
-</span><span>    }
-</span><span>    </span><span style="color:#72ab00;">return </span><span style="color:#b3933a;">0</span><span>;
-</span><span>}
+</span><span style="color:#668f14;">int </span><span style="color:#c23f31;">main</span><span>() {</span><span>
+</span><span>    string s;</span><span>
+</span><span>    cin </span><span style="color:#72ab00;">&gt;&gt;</span><span> s;</span><span>
+</span><span>    </span><span style="color:#668f14;">int</span><span> n </span><span style="color:#72ab00;">=</span><span> s.</span><span style="color:#5597d6;">size</span><span>();</span><span>
+</span><span>    trie[</span><span style="color:#b3933a;">0</span><span>] </span><span style="color:#72ab00;">= new </span><span style="color:#5597d6;">TrieNode</span><span>();</span><span>
+</span><span>    </span><span style="color:#72ab00;">for </span><span>(</span><span style="color:#668f14;">int</span><span> i </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>; i </span><span style="color:#72ab00;">&lt;</span><span> n; i</span><span style="color:#72ab00;">++</span><span>) {</span><span>
+</span><span>        string sub </span><span style="color:#72ab00;">= </span><span style="color:#d07711;">&quot;&quot;</span><span>;</span><span>
+</span><span>        </span><span style="color:#72ab00;">for </span><span>(</span><span style="color:#668f14;">int</span><span> j </span><span style="color:#72ab00;">=</span><span> i; j </span><span style="color:#72ab00;">&lt;</span><span> n; j</span><span style="color:#72ab00;">++</span><span>) {</span><span>
+</span><span>            sub </span><span style="color:#72ab00;">+=</span><span> s[j];</span><span>
+</span><span>            </span><span style="color:#5597d6;">insert</span><span>(sub);</span><span>
+</span><span>        }</span><span>
+</span><span>    }</span><span>
+</span><span>    </span><span style="color:#668f14;">long long</span><span> ans </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">dfs</span><span>(</span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0</span><span>);</span><span>
+</span><span>    cout </span><span style="color:#72ab00;">&lt;&lt;</span><span> ans </span><span style="color:#72ab00;">&lt;&lt;</span><span> endl;</span><span>
+</span><span>    </span><span style="color:#72ab00;">for </span><span>(</span><span style="color:#668f14;">int</span><span> i </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>; i </span><span style="color:#72ab00;">&lt;</span><span> node_cnt; i</span><span style="color:#72ab00;">++</span><span>) {</span><span>
+</span><span>        </span><span style="color:#72ab00;">delete</span><span> trie[i];</span><span>
+</span><span>    }</span><span>
+</span><span>    </span><span style="color:#72ab00;">return </span><span style="color:#b3933a;">0</span><span>;</span><span>
+</span><span>}</span><span>
 </span></code></pre>
 <p>In this modified solution, we define a struct <code>TrieNode</code> as before, but now the <code>child</code> array is dynamically allocated using the <code>new</code> operator, and its size is set to <code>MAXCHAR</code>. We also add a destructor to the <code>TrieNode</code> class to properly deallocate the <code>child</code> array using the <code>delete[]</code> operator.</p>
 <p>In the <code>insert</code> function, we use <code>(int)c</code> to convert the character <code>c</code> to an integer before indexing into the <code>child</code> array, since we now support all possible characters.</p>
@@ -467,25 +477,12 @@
 </details>
 <p>(Ну это не совсем сходу, мне пришлось несколько раз перегенирировать ответ, и менять промт, но на самом деле это решение нейронка выдаёт часто, поскольку я часто встречал что она хочет использовать именно его, и она говорит про него с разных углов.)</p>
 <p>ChatGPT сходу пишет решение на основе суффиксного дерева (trie), и оно кстати правильно работает, но требует некоторых доработок, которые я пишу в следующем промте. Правда это решение плохо тем, что оно не проходит по памяти, поскольку требует её O(n^2). Даже если заморочиться, 8000 символов в квадрате в 512МБ всё-равно не влезет.</p>
-
-    
-
-
-    
-
-
-
-
-
-
-
-
 <div class="magnifier-container img-one">
 <img
     class="not-default full-screen-img"
     width="1280"
     height="145"
-    src="&#x2F;processed_images&#x2F;397dd2db31d6393100.webp" 
+    src="\processed_images\397dd2db31d6393100.webp" 
     onclick="full_screen('cf.png')"
     onauxclick="full_screen_new_page('cf.png')">
 <div class="magnifier-display">
@@ -524,22 +521,22 @@
 </li>
 </ol>
 <p>Here's the Python code to implement this approach:</p>
-<pre data-lang="python" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#72ab00;">def </span><span style="color:#c23f31;">z_function</span><span>(</span><span style="color:#5597d6;">s</span><span>):
-</span><span>    n </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(s)
-</span><span>    z </span><span style="color:#72ab00;">= </span><span>[</span><span style="color:#b3933a;">0</span><span>] </span><span style="color:#72ab00;">* </span><span>n
-</span><span>    l, r </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0
-</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(</span><span style="color:#b3933a;">1</span><span>, n):
-</span><span>        </span><span style="color:#72ab00;">if </span><span>i </span><span style="color:#72ab00;">&lt;= </span><span>r:
-</span><span>            z[i] </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">min</span><span>(r </span><span style="color:#72ab00;">- </span><span>i </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>, z[i </span><span style="color:#72ab00;">- </span><span>l])
-</span><span>        </span><span style="color:#72ab00;">while </span><span>i </span><span style="color:#72ab00;">+ </span><span>z[i] </span><span style="color:#72ab00;">&lt; </span><span>n </span><span style="color:#72ab00;">and </span><span>s[z[i]] </span><span style="color:#72ab00;">== </span><span>s[i </span><span style="color:#72ab00;">+ </span><span>z[i]]:
-</span><span>            z[i] </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1
-</span><span>        </span><span style="color:#72ab00;">if </span><span>i </span><span style="color:#72ab00;">+ </span><span>z[i] </span><span style="color:#72ab00;">- </span><span style="color:#b3933a;">1 </span><span style="color:#72ab00;">&gt; </span><span>r:
-</span><span>            l, r </span><span style="color:#72ab00;">= </span><span>i, i </span><span style="color:#72ab00;">+ </span><span>z[i] </span><span style="color:#72ab00;">- </span><span style="color:#b3933a;">1
-</span><span>    </span><span style="color:#72ab00;">return </span><span>z
+<pre data-lang="python" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#72ab00;">def </span><span style="color:#c23f31;">z_function</span><span>(</span><span style="color:#5597d6;">s</span><span>):</span><span>
+</span><span>    n </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(s)</span><span>
+</span><span>    z </span><span style="color:#72ab00;">= </span><span>[</span><span style="color:#b3933a;">0</span><span>] </span><span style="color:#72ab00;">* </span><span>n</span><span>
+</span><span>    l, r </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0</span><span>
+</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(</span><span style="color:#b3933a;">1</span><span>, n):</span><span>
+</span><span>        </span><span style="color:#72ab00;">if </span><span>i </span><span style="color:#72ab00;">&lt;= </span><span>r:</span><span>
+</span><span>            z[i] </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">min</span><span>(r </span><span style="color:#72ab00;">- </span><span>i </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>, z[i </span><span style="color:#72ab00;">- </span><span>l])</span><span>
+</span><span>        </span><span style="color:#72ab00;">while </span><span>i </span><span style="color:#72ab00;">+ </span><span>z[i] </span><span style="color:#72ab00;">&lt; </span><span>n </span><span style="color:#72ab00;">and </span><span>s[z[i]] </span><span style="color:#72ab00;">== </span><span>s[i </span><span style="color:#72ab00;">+ </span><span>z[i]]:</span><span>
+</span><span>            z[i] </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1</span><span>
+</span><span>        </span><span style="color:#72ab00;">if </span><span>i </span><span style="color:#72ab00;">+ </span><span>z[i] </span><span style="color:#72ab00;">- </span><span style="color:#b3933a;">1 </span><span style="color:#72ab00;">&gt; </span><span>r:</span><span>
+</span><span>            l, r </span><span style="color:#72ab00;">= </span><span>i, i </span><span style="color:#72ab00;">+ </span><span>z[i] </span><span style="color:#72ab00;">- </span><span style="color:#b3933a;">1</span><span>
+</span><span>    </span><span style="color:#72ab00;">return </span><span>z</span><span>
 </span><span>
-</span><span style="color:#72ab00;">def </span><span style="color:#c23f31;">unique_substring_lengths</span><span>(</span><span style="color:#5597d6;">s</span><span>):
-</span><span>    z </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">z_function</span><span>(s)
-</span><span>    </span><span style="color:#72ab00;">return </span><span style="color:#b39f04;">sum</span><span>(z[</span><span style="color:#b3933a;">1</span><span>:]) </span><span style="color:#72ab00;">+ </span><span style="color:#b39f04;">len</span><span>(s)
+</span><span style="color:#72ab00;">def </span><span style="color:#c23f31;">unique_substring_lengths</span><span>(</span><span style="color:#5597d6;">s</span><span>):</span><span>
+</span><span>    z </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">z_function</span><span>(s)</span><span>
+</span><span>    </span><span style="color:#72ab00;">return </span><span style="color:#b39f04;">sum</span><span>(z[</span><span style="color:#b3933a;">1</span><span>:]) </span><span style="color:#72ab00;">+ </span><span style="color:#b39f04;">len</span><span>(s)</span><span>
 </span></code></pre>
 <p>In this implementation, the <code>z_function</code> function computes the Z-values for the input string <code>s</code>, and the <code>unique_substring_lengths</code> function computes the sum of lengths of unique substrings of <code>s</code>. The <code>z</code> array is used to keep track of the Z-values for each position in <code>s</code>. The sum of the Z-values for all positions in <code>z</code>, except for the first position, is the sum of lengths of all unique substrings of <code>s</code>. Adding the length of <code>s</code> itself gives us the total sum of lengths of all substrings of <code>s</code>.</p>
 </div>
@@ -590,44 +587,44 @@ Return the <code>sum_lengths</code> variable, which contains the sum of lengths 
 </li>
 </ol>
 <p>Here's a Python implementation of the approach described above:</p>
-<pre data-lang="python" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#72ab00;">def </span><span style="color:#c23f31;">calculate_z_array</span><span>(</span><span style="color:#5597d6;">s</span><span>):
-</span><span>    n </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(s)
-</span><span>    z </span><span style="color:#72ab00;">= </span><span>[</span><span style="color:#b3933a;">0</span><span>] </span><span style="color:#72ab00;">* </span><span>n
-</span><span>    l, r </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0
+<pre data-lang="python" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#72ab00;">def </span><span style="color:#c23f31;">calculate_z_array</span><span>(</span><span style="color:#5597d6;">s</span><span>):</span><span>
+</span><span>    n </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(s)</span><span>
+</span><span>    z </span><span style="color:#72ab00;">= </span><span>[</span><span style="color:#b3933a;">0</span><span>] </span><span style="color:#72ab00;">* </span><span>n</span><span>
+</span><span>    l, r </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0</span><span>
 </span><span>
-</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(</span><span style="color:#b3933a;">1</span><span>, n):
-</span><span>        </span><span style="color:#72ab00;">if </span><span>i </span><span style="color:#72ab00;">&gt; </span><span>r:
-</span><span>            l, r </span><span style="color:#72ab00;">= </span><span>i, i
-</span><span>            </span><span style="color:#72ab00;">while </span><span>r </span><span style="color:#72ab00;">&lt; </span><span>n </span><span style="color:#72ab00;">and </span><span>s[r </span><span style="color:#72ab00;">- </span><span>l] </span><span style="color:#72ab00;">== </span><span>s[r]:
-</span><span>                r </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1
-</span><span>            z[i] </span><span style="color:#72ab00;">= </span><span>r </span><span style="color:#72ab00;">- </span><span>l
-</span><span>            r </span><span style="color:#72ab00;">-= </span><span style="color:#b3933a;">1
-</span><span>        </span><span style="color:#72ab00;">else</span><span>:
-</span><span>            k </span><span style="color:#72ab00;">= </span><span>i </span><span style="color:#72ab00;">- </span><span>l
-</span><span>            </span><span style="color:#72ab00;">if </span><span>z[k] </span><span style="color:#72ab00;">&lt; </span><span>r </span><span style="color:#72ab00;">- </span><span>i </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>:
-</span><span>                z[i] </span><span style="color:#72ab00;">= </span><span>z[k]
-</span><span>            </span><span style="color:#72ab00;">else</span><span>:
-</span><span>                l </span><span style="color:#72ab00;">= </span><span>i
-</span><span>                </span><span style="color:#72ab00;">while </span><span>r </span><span style="color:#72ab00;">&lt; </span><span>n </span><span style="color:#72ab00;">and </span><span>s[r </span><span style="color:#72ab00;">- </span><span>l] </span><span style="color:#72ab00;">== </span><span>s[r]:
-</span><span>                    r </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1
-</span><span>                z[i] </span><span style="color:#72ab00;">= </span><span>r </span><span style="color:#72ab00;">- </span><span>l
-</span><span>                r </span><span style="color:#72ab00;">-= </span><span style="color:#b3933a;">1
+</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(</span><span style="color:#b3933a;">1</span><span>, n):</span><span>
+</span><span>        </span><span style="color:#72ab00;">if </span><span>i </span><span style="color:#72ab00;">&gt; </span><span>r:</span><span>
+</span><span>            l, r </span><span style="color:#72ab00;">= </span><span>i, i</span><span>
+</span><span>            </span><span style="color:#72ab00;">while </span><span>r </span><span style="color:#72ab00;">&lt; </span><span>n </span><span style="color:#72ab00;">and </span><span>s[r </span><span style="color:#72ab00;">- </span><span>l] </span><span style="color:#72ab00;">== </span><span>s[r]:</span><span>
+</span><span>                r </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1</span><span>
+</span><span>            z[i] </span><span style="color:#72ab00;">= </span><span>r </span><span style="color:#72ab00;">- </span><span>l</span><span>
+</span><span>            r </span><span style="color:#72ab00;">-= </span><span style="color:#b3933a;">1</span><span>
+</span><span>        </span><span style="color:#72ab00;">else</span><span>:</span><span>
+</span><span>            k </span><span style="color:#72ab00;">= </span><span>i </span><span style="color:#72ab00;">- </span><span>l</span><span>
+</span><span>            </span><span style="color:#72ab00;">if </span><span>z[k] </span><span style="color:#72ab00;">&lt; </span><span>r </span><span style="color:#72ab00;">- </span><span>i </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>:</span><span>
+</span><span>                z[i] </span><span style="color:#72ab00;">= </span><span>z[k]</span><span>
+</span><span>            </span><span style="color:#72ab00;">else</span><span>:</span><span>
+</span><span>                l </span><span style="color:#72ab00;">= </span><span>i</span><span>
+</span><span>                </span><span style="color:#72ab00;">while </span><span>r </span><span style="color:#72ab00;">&lt; </span><span>n </span><span style="color:#72ab00;">and </span><span>s[r </span><span style="color:#72ab00;">- </span><span>l] </span><span style="color:#72ab00;">== </span><span>s[r]:</span><span>
+</span><span>                    r </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1</span><span>
+</span><span>                z[i] </span><span style="color:#72ab00;">= </span><span>r </span><span style="color:#72ab00;">- </span><span>l</span><span>
+</span><span>                r </span><span style="color:#72ab00;">-= </span><span style="color:#b3933a;">1</span><span>
 </span><span>
-</span><span>    </span><span style="color:#72ab00;">return </span><span>z
+</span><span>    </span><span style="color:#72ab00;">return </span><span>z</span><span>
 </span><span>
-</span><span style="color:#72ab00;">def </span><span style="color:#c23f31;">sum_unique_substrings_lengths</span><span>(</span><span style="color:#5597d6;">s</span><span>):
-</span><span>    sum_lengths </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0
-</span><span>    n </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(s)
+</span><span style="color:#72ab00;">def </span><span style="color:#c23f31;">sum_unique_substrings_lengths</span><span>(</span><span style="color:#5597d6;">s</span><span>):</span><span>
+</span><span>    sum_lengths </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>
+</span><span>    n </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(s)</span><span>
 </span><span>
-</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(n):
-</span><span>        z_array </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">calculate_z_array</span><span>(s[i:])
-</span><span>        sum_lengths </span><span style="color:#72ab00;">+= </span><span style="color:#b39f04;">sum</span><span>(z_array[</span><span style="color:#b3933a;">1</span><span>:])
+</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(n):</span><span>
+</span><span>        z_array </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">calculate_z_array</span><span>(s[i:])</span><span>
+</span><span>        sum_lengths </span><span style="color:#72ab00;">+= </span><span style="color:#b39f04;">sum</span><span>(z_array[</span><span style="color:#b3933a;">1</span><span>:])</span><span>
 </span><span>
-</span><span>    </span><span style="color:#72ab00;">return </span><span>sum_lengths
+</span><span>    </span><span style="color:#72ab00;">return </span><span>sum_lengths</span><span>
 </span><span>
-</span><span style="color:#7f8989;"># Example usage
-</span><span>S </span><span style="color:#72ab00;">= </span><span style="color:#d07711;">&quot;ababa&quot;
-</span><span style="color:#b39f04;">print</span><span>(</span><span style="color:#5597d6;">sum_unique_substrings_lengths</span><span>(S))  </span><span style="color:#7f8989;"># Output: 14
+</span><span style="color:#7f8989;"># Example usage</span><span style="color:#7f8989;">
+</span><span>S </span><span style="color:#72ab00;">= </span><span style="color:#d07711;">&quot;ababa&quot;</span><span>
+</span><span style="color:#b39f04;">print</span><span>(</span><span style="color:#5597d6;">sum_unique_substrings_lengths</span><span>(S))  </span><span style="color:#7f8989;"># Output: 14</span><span style="color:#7f8989;">
 </span></code></pre>
 <p>This implementation has a time complexity of O(n^2), as we calculate the Z-array for each suffix of the string.</p>
 </div>
@@ -685,45 +682,45 @@ Return the sum of all elements in the set, which contains the unique lengths of 
 </li>
 </ol>
 <p>Here's the corrected Python implementation of the approach:</p>
-<pre data-lang="python" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#72ab00;">def </span><span style="color:#c23f31;">calculate_z_array</span><span>(</span><span style="color:#5597d6;">s</span><span>):
-</span><span>    n </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(s)
-</span><span>    z </span><span style="color:#72ab00;">= </span><span>[</span><span style="color:#b3933a;">0</span><span>] </span><span style="color:#72ab00;">* </span><span>n
-</span><span>    l, r </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0
+<pre data-lang="python" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#72ab00;">def </span><span style="color:#c23f31;">calculate_z_array</span><span>(</span><span style="color:#5597d6;">s</span><span>):</span><span>
+</span><span>    n </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(s)</span><span>
+</span><span>    z </span><span style="color:#72ab00;">= </span><span>[</span><span style="color:#b3933a;">0</span><span>] </span><span style="color:#72ab00;">* </span><span>n</span><span>
+</span><span>    l, r </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0</span><span>
 </span><span>
-</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(</span><span style="color:#b3933a;">1</span><span>, n):
-</span><span>        </span><span style="color:#72ab00;">if </span><span>i </span><span style="color:#72ab00;">&gt; </span><span>r:
-</span><span>            l, r </span><span style="color:#72ab00;">= </span><span>i, i
-</span><span>            </span><span style="color:#72ab00;">while </span><span>r </span><span style="color:#72ab00;">&lt; </span><span>n </span><span style="color:#72ab00;">and </span><span>s[r </span><span style="color:#72ab00;">- </span><span>l] </span><span style="color:#72ab00;">== </span><span>s[r]:
-</span><span>                r </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1
-</span><span>            z[i] </span><span style="color:#72ab00;">= </span><span>r </span><span style="color:#72ab00;">- </span><span>l
-</span><span>            r </span><span style="color:#72ab00;">-= </span><span style="color:#b3933a;">1
-</span><span>        </span><span style="color:#72ab00;">else</span><span>:
-</span><span>            k </span><span style="color:#72ab00;">= </span><span>i </span><span style="color:#72ab00;">- </span><span>l
-</span><span>            </span><span style="color:#72ab00;">if </span><span>z[k] </span><span style="color:#72ab00;">&lt; </span><span>r </span><span style="color:#72ab00;">- </span><span>i </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>:
-</span><span>                z[i] </span><span style="color:#72ab00;">= </span><span>z[k]
-</span><span>            </span><span style="color:#72ab00;">else</span><span>:
-</span><span>                l </span><span style="color:#72ab00;">= </span><span>i
-</span><span>                </span><span style="color:#72ab00;">while </span><span>r </span><span style="color:#72ab00;">&lt; </span><span>n </span><span style="color:#72ab00;">and </span><span>s[r </span><span style="color:#72ab00;">- </span><span>l] </span><span style="color:#72ab00;">== </span><span>s[r]:
-</span><span>                    r </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1
-</span><span>                z[i] </span><span style="color:#72ab00;">= </span><span>r </span><span style="color:#72ab00;">- </span><span>l
-</span><span>                r </span><span style="color:#72ab00;">-= </span><span style="color:#b3933a;">1
+</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(</span><span style="color:#b3933a;">1</span><span>, n):</span><span>
+</span><span>        </span><span style="color:#72ab00;">if </span><span>i </span><span style="color:#72ab00;">&gt; </span><span>r:</span><span>
+</span><span>            l, r </span><span style="color:#72ab00;">= </span><span>i, i</span><span>
+</span><span>            </span><span style="color:#72ab00;">while </span><span>r </span><span style="color:#72ab00;">&lt; </span><span>n </span><span style="color:#72ab00;">and </span><span>s[r </span><span style="color:#72ab00;">- </span><span>l] </span><span style="color:#72ab00;">== </span><span>s[r]:</span><span>
+</span><span>                r </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1</span><span>
+</span><span>            z[i] </span><span style="color:#72ab00;">= </span><span>r </span><span style="color:#72ab00;">- </span><span>l</span><span>
+</span><span>            r </span><span style="color:#72ab00;">-= </span><span style="color:#b3933a;">1</span><span>
+</span><span>        </span><span style="color:#72ab00;">else</span><span>:</span><span>
+</span><span>            k </span><span style="color:#72ab00;">= </span><span>i </span><span style="color:#72ab00;">- </span><span>l</span><span>
+</span><span>            </span><span style="color:#72ab00;">if </span><span>z[k] </span><span style="color:#72ab00;">&lt; </span><span>r </span><span style="color:#72ab00;">- </span><span>i </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>:</span><span>
+</span><span>                z[i] </span><span style="color:#72ab00;">= </span><span>z[k]</span><span>
+</span><span>            </span><span style="color:#72ab00;">else</span><span>:</span><span>
+</span><span>                l </span><span style="color:#72ab00;">= </span><span>i</span><span>
+</span><span>                </span><span style="color:#72ab00;">while </span><span>r </span><span style="color:#72ab00;">&lt; </span><span>n </span><span style="color:#72ab00;">and </span><span>s[r </span><span style="color:#72ab00;">- </span><span>l] </span><span style="color:#72ab00;">== </span><span>s[r]:</span><span>
+</span><span>                    r </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1</span><span>
+</span><span>                z[i] </span><span style="color:#72ab00;">= </span><span>r </span><span style="color:#72ab00;">- </span><span>l</span><span>
+</span><span>                r </span><span style="color:#72ab00;">-= </span><span style="color:#b3933a;">1</span><span>
 </span><span>
-</span><span>    </span><span style="color:#72ab00;">return </span><span>z
+</span><span>    </span><span style="color:#72ab00;">return </span><span>z</span><span>
 </span><span>
-</span><span style="color:#72ab00;">def </span><span style="color:#c23f31;">sum_unique_substrings_lengths</span><span>(</span><span style="color:#5597d6;">s</span><span>):
-</span><span>    sum_lengths </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0
-</span><span>    n </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(s)
+</span><span style="color:#72ab00;">def </span><span style="color:#c23f31;">sum_unique_substrings_lengths</span><span>(</span><span style="color:#5597d6;">s</span><span>):</span><span>
+</span><span>    sum_lengths </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>
+</span><span>    n </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(s)</span><span>
 </span><span>
-</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(n):
-</span><span>        z_array </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">calculate_z_array</span><span>(s[i:])
-</span><span>        unique_lengths </span><span style="color:#72ab00;">= </span><span style="color:#a2a001;">set</span><span>(z_array[</span><span style="color:#b3933a;">1</span><span>:])
-</span><span>        sum_lengths </span><span style="color:#72ab00;">+= </span><span style="color:#b39f04;">sum</span><span>(unique_lengths)
+</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(n):</span><span>
+</span><span>        z_array </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">calculate_z_array</span><span>(s[i:])</span><span>
+</span><span>        unique_lengths </span><span style="color:#72ab00;">= </span><span style="color:#a2a001;">set</span><span>(z_array[</span><span style="color:#b3933a;">1</span><span>:])</span><span>
+</span><span>        sum_lengths </span><span style="color:#72ab00;">+= </span><span style="color:#b39f04;">sum</span><span>(unique_lengths)</span><span>
 </span><span>
-</span><span>    </span><span style="color:#72ab00;">return </span><span>sum_lengths
+</span><span>    </span><span style="color:#72ab00;">return </span><span>sum_lengths</span><span>
 </span><span>
-</span><span style="color:#7f8989;"># Example usage
-</span><span>S </span><span style="color:#72ab00;">= </span><span style="color:#d07711;">&quot;BOBR&quot;
-</span><span style="color:#b39f04;">print</span><span>(</span><span style="color:#5597d6;">sum_unique_substrings_lengths</span><span>(S))  </span><span style="color:#7f8989;"># Output: 19
+</span><span style="color:#7f8989;"># Example usage</span><span style="color:#7f8989;">
+</span><span>S </span><span style="color:#72ab00;">= </span><span style="color:#d07711;">&quot;BOBR&quot;</span><span>
+</span><span style="color:#b39f04;">print</span><span>(</span><span style="color:#5597d6;">sum_unique_substrings_lengths</span><span>(S))  </span><span style="color:#7f8989;"># Output: 19</span><span style="color:#7f8989;">
 </span></code></pre>
 <p>This implementation still has a time complexity of O(n^2), but now it should provide the correct output for the given input strings.</p>
 <hr />
@@ -750,48 +747,48 @@ Return the <code>sum_lengths</code> variable, which contains the sum of lengths 
 </li>
 </ol>
 <p>Here's the Python implementation for this approach:</p>
-<pre data-lang="python" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#72ab00;">def </span><span style="color:#c23f31;">calculate_z_array</span><span>(</span><span style="color:#5597d6;">s</span><span>):
-</span><span>    n </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(s)
-</span><span>    z </span><span style="color:#72ab00;">= </span><span>[</span><span style="color:#b3933a;">0</span><span>] </span><span style="color:#72ab00;">* </span><span>n
-</span><span>    l, r </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0
+<pre data-lang="python" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#72ab00;">def </span><span style="color:#c23f31;">calculate_z_array</span><span>(</span><span style="color:#5597d6;">s</span><span>):</span><span>
+</span><span>    n </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(s)</span><span>
+</span><span>    z </span><span style="color:#72ab00;">= </span><span>[</span><span style="color:#b3933a;">0</span><span>] </span><span style="color:#72ab00;">* </span><span>n</span><span>
+</span><span>    l, r </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0</span><span>
 </span><span>
-</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(</span><span style="color:#b3933a;">1</span><span>, n):
-</span><span>        </span><span style="color:#72ab00;">if </span><span>i </span><span style="color:#72ab00;">&gt; </span><span>r:
-</span><span>            l, r </span><span style="color:#72ab00;">= </span><span>i, i
-</span><span>            </span><span style="color:#72ab00;">while </span><span>r </span><span style="color:#72ab00;">&lt; </span><span>n </span><span style="color:#72ab00;">and </span><span>s[r </span><span style="color:#72ab00;">- </span><span>l] </span><span style="color:#72ab00;">== </span><span>s[r]:
-</span><span>                r </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1
-</span><span>            z[i] </span><span style="color:#72ab00;">= </span><span>r </span><span style="color:#72ab00;">- </span><span>l
-</span><span>            r </span><span style="color:#72ab00;">-= </span><span style="color:#b3933a;">1
-</span><span>        </span><span style="color:#72ab00;">else</span><span>:
-</span><span>            k </span><span style="color:#72ab00;">= </span><span>i </span><span style="color:#72ab00;">- </span><span>l
-</span><span>            </span><span style="color:#72ab00;">if </span><span>z[k] </span><span style="color:#72ab00;">&lt; </span><span>r </span><span style="color:#72ab00;">- </span><span>i </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>:
-</span><span>                z[i] </span><span style="color:#72ab00;">= </span><span>z[k]
-</span><span>            </span><span style="color:#72ab00;">else</span><span>:
-</span><span>                l </span><span style="color:#72ab00;">= </span><span>i
-</span><span>                </span><span style="color:#72ab00;">while </span><span>r </span><span style="color:#72ab00;">&lt; </span><span>n </span><span style="color:#72ab00;">and </span><span>s[r </span><span style="color:#72ab00;">- </span><span>l] </span><span style="color:#72ab00;">== </span><span>s[r]:
-</span><span>                    r </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1
-</span><span>                z[i] </span><span style="color:#72ab00;">= </span><span>r </span><span style="color:#72ab00;">- </span><span>l
-</span><span>                r </span><span style="color:#72ab00;">-= </span><span style="color:#b3933a;">1
+</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(</span><span style="color:#b3933a;">1</span><span>, n):</span><span>
+</span><span>        </span><span style="color:#72ab00;">if </span><span>i </span><span style="color:#72ab00;">&gt; </span><span>r:</span><span>
+</span><span>            l, r </span><span style="color:#72ab00;">= </span><span>i, i</span><span>
+</span><span>            </span><span style="color:#72ab00;">while </span><span>r </span><span style="color:#72ab00;">&lt; </span><span>n </span><span style="color:#72ab00;">and </span><span>s[r </span><span style="color:#72ab00;">- </span><span>l] </span><span style="color:#72ab00;">== </span><span>s[r]:</span><span>
+</span><span>                r </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1</span><span>
+</span><span>            z[i] </span><span style="color:#72ab00;">= </span><span>r </span><span style="color:#72ab00;">- </span><span>l</span><span>
+</span><span>            r </span><span style="color:#72ab00;">-= </span><span style="color:#b3933a;">1</span><span>
+</span><span>        </span><span style="color:#72ab00;">else</span><span>:</span><span>
+</span><span>            k </span><span style="color:#72ab00;">= </span><span>i </span><span style="color:#72ab00;">- </span><span>l</span><span>
+</span><span>            </span><span style="color:#72ab00;">if </span><span>z[k] </span><span style="color:#72ab00;">&lt; </span><span>r </span><span style="color:#72ab00;">- </span><span>i </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>:</span><span>
+</span><span>                z[i] </span><span style="color:#72ab00;">= </span><span>z[k]</span><span>
+</span><span>            </span><span style="color:#72ab00;">else</span><span>:</span><span>
+</span><span>                l </span><span style="color:#72ab00;">= </span><span>i</span><span>
+</span><span>                </span><span style="color:#72ab00;">while </span><span>r </span><span style="color:#72ab00;">&lt; </span><span>n </span><span style="color:#72ab00;">and </span><span>s[r </span><span style="color:#72ab00;">- </span><span>l] </span><span style="color:#72ab00;">== </span><span>s[r]:</span><span>
+</span><span>                    r </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1</span><span>
+</span><span>                z[i] </span><span style="color:#72ab00;">= </span><span>r </span><span style="color:#72ab00;">- </span><span>l</span><span>
+</span><span>                r </span><span style="color:#72ab00;">-= </span><span style="color:#b3933a;">1</span><span>
 </span><span>
-</span><span>    </span><span style="color:#72ab00;">return </span><span>z
+</span><span>    </span><span style="color:#72ab00;">return </span><span>z</span><span>
 </span><span>
-</span><span style="color:#72ab00;">def </span><span style="color:#c23f31;">sum_unique_substrings_lengths</span><span>(</span><span style="color:#5597d6;">s</span><span>):
-</span><span>    sum_lengths </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0
-</span><span>    n </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(s)
+</span><span style="color:#72ab00;">def </span><span style="color:#c23f31;">sum_unique_substrings_lengths</span><span>(</span><span style="color:#5597d6;">s</span><span>):</span><span>
+</span><span>    sum_lengths </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>
+</span><span>    n </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(s)</span><span>
 </span><span>
-</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(n):
-</span><span>        temp </span><span style="color:#72ab00;">= </span><span>s </span><span style="color:#72ab00;">+ </span><span style="color:#d07711;">&#39;$&#39; </span><span style="color:#72ab00;">+ </span><span>s[i:]
-</span><span>        z_array </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">calculate_z_array</span><span>(temp)
+</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(n):</span><span>
+</span><span>        temp </span><span style="color:#72ab00;">= </span><span>s </span><span style="color:#72ab00;">+ </span><span style="color:#d07711;">&#39;$&#39; </span><span style="color:#72ab00;">+ </span><span>s[i:]</span><span>
+</span><span>        z_array </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">calculate_z_array</span><span>(temp)</span><span>
 </span><span>
-</span><span>        </span><span style="color:#72ab00;">for </span><span>j </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(</span><span style="color:#b39f04;">len</span><span>(z_array)):
-</span><span>            </span><span style="color:#72ab00;">if </span><span>z_array[j] </span><span style="color:#72ab00;">+ </span><span>j </span><span style="color:#72ab00;">&lt;= </span><span>n:
-</span><span>                sum_lengths </span><span style="color:#72ab00;">+= </span><span>z_array[j]
+</span><span>        </span><span style="color:#72ab00;">for </span><span>j </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(</span><span style="color:#b39f04;">len</span><span>(z_array)):</span><span>
+</span><span>            </span><span style="color:#72ab00;">if </span><span>z_array[j] </span><span style="color:#72ab00;">+ </span><span>j </span><span style="color:#72ab00;">&lt;= </span><span>n:</span><span>
+</span><span>                sum_lengths </span><span style="color:#72ab00;">+= </span><span>z_array[j]</span><span>
 </span><span>
-</span><span>    </span><span style="color:#72ab00;">return </span><span>sum_lengths
+</span><span>    </span><span style="color:#72ab00;">return </span><span>sum_lengths</span><span>
 </span><span>
-</span><span style="color:#7f8989;"># Example usage
-</span><span>S </span><span style="color:#72ab00;">= </span><span style="color:#d07711;">&quot;BOBR&quot;
-</span><span style="color:#b39f04;">print</span><span>(</span><span style="color:#5597d6;">sum_unique_substrings_lengths</span><span>(S))  </span><span style="color:#7f8989;"># Output: 19
+</span><span style="color:#7f8989;"># Example usage</span><span style="color:#7f8989;">
+</span><span>S </span><span style="color:#72ab00;">= </span><span style="color:#d07711;">&quot;BOBR&quot;</span><span>
+</span><span style="color:#b39f04;">print</span><span>(</span><span style="color:#5597d6;">sum_unique_substrings_lengths</span><span>(S))  </span><span style="color:#7f8989;"># Output: 19</span><span style="color:#7f8989;">
 </span></code></pre>
 <p>This implementation has a time complexity of O(n^2) and should provide the correct output for the given input strings.</p>
 <hr />
@@ -820,48 +817,48 @@ Return the <code>sum_lengths</code> variable, which contains the sum of lengths 
 </li>
 </ol>
 <p>Here's the Python implementation for this approach:</p>
-<pre data-lang="python" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#72ab00;">def </span><span style="color:#c23f31;">calculate_z_array</span><span>(</span><span style="color:#5597d6;">s</span><span>):
-</span><span>    n </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(s)
-</span><span>    z </span><span style="color:#72ab00;">= </span><span>[</span><span style="color:#b3933a;">0</span><span>] </span><span style="color:#72ab00;">* </span><span>n
-</span><span>    l, r </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0
+<pre data-lang="python" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#72ab00;">def </span><span style="color:#c23f31;">calculate_z_array</span><span>(</span><span style="color:#5597d6;">s</span><span>):</span><span>
+</span><span>    n </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(s)</span><span>
+</span><span>    z </span><span style="color:#72ab00;">= </span><span>[</span><span style="color:#b3933a;">0</span><span>] </span><span style="color:#72ab00;">* </span><span>n</span><span>
+</span><span>    l, r </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0</span><span>
 </span><span>
-</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(</span><span style="color:#b3933a;">1</span><span>, n):
-</span><span>        </span><span style="color:#72ab00;">if </span><span>i </span><span style="color:#72ab00;">&gt; </span><span>r:
-</span><span>            l, r </span><span style="color:#72ab00;">= </span><span>i, i
-</span><span>            </span><span style="color:#72ab00;">while </span><span>r </span><span style="color:#72ab00;">&lt; </span><span>n </span><span style="color:#72ab00;">and </span><span>s[r </span><span style="color:#72ab00;">- </span><span>l] </span><span style="color:#72ab00;">== </span><span>s[r]:
-</span><span>                r </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1
-</span><span>            z[i] </span><span style="color:#72ab00;">= </span><span>r </span><span style="color:#72ab00;">- </span><span>l
-</span><span>            r </span><span style="color:#72ab00;">-= </span><span style="color:#b3933a;">1
-</span><span>        </span><span style="color:#72ab00;">else</span><span>:
-</span><span>            k </span><span style="color:#72ab00;">= </span><span>i </span><span style="color:#72ab00;">- </span><span>l
-</span><span>            </span><span style="color:#72ab00;">if </span><span>z[k] </span><span style="color:#72ab00;">&lt; </span><span>r </span><span style="color:#72ab00;">- </span><span>i </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>:
-</span><span>                z[i] </span><span style="color:#72ab00;">= </span><span>z[k]
-</span><span>            </span><span style="color:#72ab00;">else</span><span>:
-</span><span>                l </span><span style="color:#72ab00;">= </span><span>i
-</span><span>                </span><span style="color:#72ab00;">while </span><span>r </span><span style="color:#72ab00;">&lt; </span><span>n </span><span style="color:#72ab00;">and </span><span>s[r </span><span style="color:#72ab00;">- </span><span>l] </span><span style="color:#72ab00;">== </span><span>s[r]:
-</span><span>                    r </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1
-</span><span>                z[i] </span><span style="color:#72ab00;">= </span><span>r </span><span style="color:#72ab00;">- </span><span>l
-</span><span>                r </span><span style="color:#72ab00;">-= </span><span style="color:#b3933a;">1
+</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(</span><span style="color:#b3933a;">1</span><span>, n):</span><span>
+</span><span>        </span><span style="color:#72ab00;">if </span><span>i </span><span style="color:#72ab00;">&gt; </span><span>r:</span><span>
+</span><span>            l, r </span><span style="color:#72ab00;">= </span><span>i, i</span><span>
+</span><span>            </span><span style="color:#72ab00;">while </span><span>r </span><span style="color:#72ab00;">&lt; </span><span>n </span><span style="color:#72ab00;">and </span><span>s[r </span><span style="color:#72ab00;">- </span><span>l] </span><span style="color:#72ab00;">== </span><span>s[r]:</span><span>
+</span><span>                r </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1</span><span>
+</span><span>            z[i] </span><span style="color:#72ab00;">= </span><span>r </span><span style="color:#72ab00;">- </span><span>l</span><span>
+</span><span>            r </span><span style="color:#72ab00;">-= </span><span style="color:#b3933a;">1</span><span>
+</span><span>        </span><span style="color:#72ab00;">else</span><span>:</span><span>
+</span><span>            k </span><span style="color:#72ab00;">= </span><span>i </span><span style="color:#72ab00;">- </span><span>l</span><span>
+</span><span>            </span><span style="color:#72ab00;">if </span><span>z[k] </span><span style="color:#72ab00;">&lt; </span><span>r </span><span style="color:#72ab00;">- </span><span>i </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>:</span><span>
+</span><span>                z[i] </span><span style="color:#72ab00;">= </span><span>z[k]</span><span>
+</span><span>            </span><span style="color:#72ab00;">else</span><span>:</span><span>
+</span><span>                l </span><span style="color:#72ab00;">= </span><span>i</span><span>
+</span><span>                </span><span style="color:#72ab00;">while </span><span>r </span><span style="color:#72ab00;">&lt; </span><span>n </span><span style="color:#72ab00;">and </span><span>s[r </span><span style="color:#72ab00;">- </span><span>l] </span><span style="color:#72ab00;">== </span><span>s[r]:</span><span>
+</span><span>                    r </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1</span><span>
+</span><span>                z[i] </span><span style="color:#72ab00;">= </span><span>r </span><span style="color:#72ab00;">- </span><span>l</span><span>
+</span><span>                r </span><span style="color:#72ab00;">-= </span><span style="color:#b3933a;">1</span><span>
 </span><span>
-</span><span>    </span><span style="color:#72ab00;">return </span><span>z
+</span><span>    </span><span style="color:#72ab00;">return </span><span>z</span><span>
 </span><span>
-</span><span style="color:#72ab00;">def </span><span style="color:#c23f31;">sum_unique_substrings_lengths</span><span>(</span><span style="color:#5597d6;">s</span><span>):
-</span><span>    n </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(s)
-</span><span>    sum_lengths </span><span style="color:#72ab00;">= </span><span>(n </span><span style="color:#72ab00;">* </span><span>(n </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>)) </span><span style="color:#72ab00;">// </span><span style="color:#b3933a;">2
+</span><span style="color:#72ab00;">def </span><span style="color:#c23f31;">sum_unique_substrings_lengths</span><span>(</span><span style="color:#5597d6;">s</span><span>):</span><span>
+</span><span>    n </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(s)</span><span>
+</span><span>    sum_lengths </span><span style="color:#72ab00;">= </span><span>(n </span><span style="color:#72ab00;">* </span><span>(n </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>)) </span><span style="color:#72ab00;">// </span><span style="color:#b3933a;">2</span><span>
 </span><span>
-</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(n):
-</span><span>        temp </span><span style="color:#72ab00;">= </span><span>s </span><span style="color:#72ab00;">+ </span><span style="color:#d07711;">&#39;$&#39; </span><span style="color:#72ab00;">+ </span><span>s[i:]
-</span><span>        z_array </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">calculate_z_array</span><span>(temp)
+</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(n):</span><span>
+</span><span>        temp </span><span style="color:#72ab00;">= </span><span>s </span><span style="color:#72ab00;">+ </span><span style="color:#d07711;">&#39;$&#39; </span><span style="color:#72ab00;">+ </span><span>s[i:]</span><span>
+</span><span>        z_array </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">calculate_z_array</span><span>(temp)</span><span>
 </span><span>
-</span><span>        </span><span style="color:#72ab00;">for </span><span>j </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(</span><span style="color:#b39f04;">len</span><span>(z_array)):
-</span><span>            </span><span style="color:#72ab00;">if </span><span>z_array[j] </span><span style="color:#72ab00;">+ </span><span>j </span><span style="color:#72ab00;">&lt;= </span><span>n:
-</span><span>                sum_lengths </span><span style="color:#72ab00;">-= </span><span>z_array[j]
+</span><span>        </span><span style="color:#72ab00;">for </span><span>j </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(</span><span style="color:#b39f04;">len</span><span>(z_array)):</span><span>
+</span><span>            </span><span style="color:#72ab00;">if </span><span>z_array[j] </span><span style="color:#72ab00;">+ </span><span>j </span><span style="color:#72ab00;">&lt;= </span><span>n:</span><span>
+</span><span>                sum_lengths </span><span style="color:#72ab00;">-= </span><span>z_array[j]</span><span>
 </span><span>
-</span><span>    </span><span style="color:#72ab00;">return </span><span>sum_lengths
+</span><span>    </span><span style="color:#72ab00;">return </span><span>sum_lengths</span><span>
 </span><span>
-</span><span style="color:#7f8989;"># Example usage
-</span><span>S </span><span style="color:#72ab00;">= </span><span style="color:#d07711;">&quot;BOBR&quot;
-</span><span style="color:#b39f04;">print</span><span>(</span><span style="color:#5597d6;">sum_unique_substrings_lengths</span><span>(S))  </span><span style="color:#7f8989;"># Output: 19
+</span><span style="color:#7f8989;"># Example usage</span><span style="color:#7f8989;">
+</span><span>S </span><span style="color:#72ab00;">= </span><span style="color:#d07711;">&quot;BOBR&quot;</span><span>
+</span><span style="color:#b39f04;">print</span><span>(</span><span style="color:#5597d6;">sum_unique_substrings_lengths</span><span>(S))  </span><span style="color:#7f8989;"># Output: 19</span><span style="color:#7f8989;">
 </span></code></pre>
 <p>This implementation has a time complexity of O(n^2) and should now provide the correct output for the given input strings.</p>
 </div>
@@ -907,45 +904,45 @@ Return the <code>sum_lengths</code> variable, which contains the sum of lengths 
 </li>
 </ol>
 <p>Here's the Python implementation for this approach:</p>
-<pre data-lang="python" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#72ab00;">def </span><span style="color:#c23f31;">calculate_z_array</span><span>(</span><span style="color:#5597d6;">s</span><span>):
-</span><span>    n </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(s)
-</span><span>    z </span><span style="color:#72ab00;">= </span><span>[</span><span style="color:#b3933a;">0</span><span>] </span><span style="color:#72ab00;">* </span><span>n
-</span><span>    l, r </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0
+<pre data-lang="python" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#72ab00;">def </span><span style="color:#c23f31;">calculate_z_array</span><span>(</span><span style="color:#5597d6;">s</span><span>):</span><span>
+</span><span>    n </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(s)</span><span>
+</span><span>    z </span><span style="color:#72ab00;">= </span><span>[</span><span style="color:#b3933a;">0</span><span>] </span><span style="color:#72ab00;">* </span><span>n</span><span>
+</span><span>    l, r </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0</span><span>
 </span><span>
-</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(</span><span style="color:#b3933a;">1</span><span>, n):
-</span><span>        </span><span style="color:#72ab00;">if </span><span>i </span><span style="color:#72ab00;">&gt; </span><span>r:
-</span><span>            l, r </span><span style="color:#72ab00;">= </span><span>i, i
-</span><span>            </span><span style="color:#72ab00;">while </span><span>r </span><span style="color:#72ab00;">&lt; </span><span>n </span><span style="color:#72ab00;">and </span><span>s[r </span><span style="color:#72ab00;">- </span><span>l] </span><span style="color:#72ab00;">== </span><span>s[r]:
-</span><span>                r </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1
-</span><span>            z[i] </span><span style="color:#72ab00;">= </span><span>r </span><span style="color:#72ab00;">- </span><span>l
-</span><span>            r </span><span style="color:#72ab00;">-= </span><span style="color:#b3933a;">1
-</span><span>        </span><span style="color:#72ab00;">else</span><span>:
-</span><span>            k </span><span style="color:#72ab00;">= </span><span>i </span><span style="color:#72ab00;">- </span><span>l
-</span><span>            </span><span style="color:#72ab00;">if </span><span>z[k] </span><span style="color:#72ab00;">&lt; </span><span>r </span><span style="color:#72ab00;">- </span><span>i </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>:
-</span><span>                z[i] </span><span style="color:#72ab00;">= </span><span>z[k]
-</span><span>            </span><span style="color:#72ab00;">else</span><span>:
-</span><span>                l </span><span style="color:#72ab00;">= </span><span>i
-</span><span>                </span><span style="color:#72ab00;">while </span><span>r </span><span style="color:#72ab00;">&lt; </span><span>n </span><span style="color:#72ab00;">and </span><span>s[r </span><span style="color:#72ab00;">- </span><span>l] </span><span style="color:#72ab00;">== </span><span>s[r]:
-</span><span>                    r </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1
-</span><span>                z[i] </span><span style="color:#72ab00;">= </span><span>r </span><span style="color:#72ab00;">- </span><span>l
-</span><span>                r </span><span style="color:#72ab00;">-= </span><span style="color:#b3933a;">1
+</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(</span><span style="color:#b3933a;">1</span><span>, n):</span><span>
+</span><span>        </span><span style="color:#72ab00;">if </span><span>i </span><span style="color:#72ab00;">&gt; </span><span>r:</span><span>
+</span><span>            l, r </span><span style="color:#72ab00;">= </span><span>i, i</span><span>
+</span><span>            </span><span style="color:#72ab00;">while </span><span>r </span><span style="color:#72ab00;">&lt; </span><span>n </span><span style="color:#72ab00;">and </span><span>s[r </span><span style="color:#72ab00;">- </span><span>l] </span><span style="color:#72ab00;">== </span><span>s[r]:</span><span>
+</span><span>                r </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1</span><span>
+</span><span>            z[i] </span><span style="color:#72ab00;">= </span><span>r </span><span style="color:#72ab00;">- </span><span>l</span><span>
+</span><span>            r </span><span style="color:#72ab00;">-= </span><span style="color:#b3933a;">1</span><span>
+</span><span>        </span><span style="color:#72ab00;">else</span><span>:</span><span>
+</span><span>            k </span><span style="color:#72ab00;">= </span><span>i </span><span style="color:#72ab00;">- </span><span>l</span><span>
+</span><span>            </span><span style="color:#72ab00;">if </span><span>z[k] </span><span style="color:#72ab00;">&lt; </span><span>r </span><span style="color:#72ab00;">- </span><span>i </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>:</span><span>
+</span><span>                z[i] </span><span style="color:#72ab00;">= </span><span>z[k]</span><span>
+</span><span>            </span><span style="color:#72ab00;">else</span><span>:</span><span>
+</span><span>                l </span><span style="color:#72ab00;">= </span><span>i</span><span>
+</span><span>                </span><span style="color:#72ab00;">while </span><span>r </span><span style="color:#72ab00;">&lt; </span><span>n </span><span style="color:#72ab00;">and </span><span>s[r </span><span style="color:#72ab00;">- </span><span>l] </span><span style="color:#72ab00;">== </span><span>s[r]:</span><span>
+</span><span>                    r </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1</span><span>
+</span><span>                z[i] </span><span style="color:#72ab00;">= </span><span>r </span><span style="color:#72ab00;">- </span><span>l</span><span>
+</span><span>                r </span><span style="color:#72ab00;">-= </span><span style="color:#b3933a;">1</span><span>
 </span><span>
-</span><span>    </span><span style="color:#72ab00;">return </span><span>z
+</span><span>    </span><span style="color:#72ab00;">return </span><span>z</span><span>
 </span><span>
-</span><span style="color:#72ab00;">def </span><span style="color:#c23f31;">sum_unique_substrings_lengths</span><span>(</span><span style="color:#5597d6;">s</span><span>):
-</span><span>    n </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(s)
-</span><span>    sum_lengths </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0
+</span><span style="color:#72ab00;">def </span><span style="color:#c23f31;">sum_unique_substrings_lengths</span><span>(</span><span style="color:#5597d6;">s</span><span>):</span><span>
+</span><span>    n </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(s)</span><span>
+</span><span>    sum_lengths </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>
 </span><span>
-</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(n):
-</span><span>        z_array </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">calculate_z_array</span><span>(s[i:])
-</span><span>        max_z </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">max</span><span>(z_array[</span><span style="color:#b3933a;">1</span><span>:])
-</span><span>        sum_lengths </span><span style="color:#72ab00;">+= </span><span>(n </span><span style="color:#72ab00;">- </span><span>i) </span><span style="color:#72ab00;">- </span><span>max_z
+</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(n):</span><span>
+</span><span>        z_array </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">calculate_z_array</span><span>(s[i:])</span><span>
+</span><span>        max_z </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">max</span><span>(z_array[</span><span style="color:#b3933a;">1</span><span>:])</span><span>
+</span><span>        sum_lengths </span><span style="color:#72ab00;">+= </span><span>(n </span><span style="color:#72ab00;">- </span><span>i) </span><span style="color:#72ab00;">- </span><span>max_z</span><span>
 </span><span>
-</span><span>    </span><span style="color:#72ab00;">return </span><span>sum_lengths
+</span><span>    </span><span style="color:#72ab00;">return </span><span>sum_lengths</span><span>
 </span><span>
-</span><span style="color:#7f8989;"># Example usage
-</span><span>S </span><span style="color:#72ab00;">= </span><span style="color:#d07711;">&quot;BOBR&quot;
-</span><span style="color:#b39f04;">print</span><span>(</span><span style="color:#5597d6;">sum_unique_substrings_lengths</span><span>(S))  </span><span style="color:#7f8989;"># Output: 19
+</span><span style="color:#7f8989;"># Example usage</span><span style="color:#7f8989;">
+</span><span>S </span><span style="color:#72ab00;">= </span><span style="color:#d07711;">&quot;BOBR&quot;</span><span>
+</span><span style="color:#b39f04;">print</span><span>(</span><span style="color:#5597d6;">sum_unique_substrings_lengths</span><span>(S))  </span><span style="color:#7f8989;"># Output: 19</span><span style="color:#7f8989;">
 </span></code></pre>
 <p>This implementation has a time complexity of O(n^2) and memory complexity of O(n), which should be suitable for the given programming competition constraints.</p>
 </div>
@@ -964,95 +961,95 @@ Return the <code>sum_lengths</code> variable, which contains the sum of lengths 
 <hr />
 <p><strong><center>GPT-4</center></strong></p>
 <p>I apologize for the confusion earlier. You are correct, the formula you provided accounts for the lengths of unique substrings more accurately. Here's the corrected implementation using the Z-function and the formula you provided:</p>
-<pre data-lang="python" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#72ab00;">def </span><span style="color:#c23f31;">calculate_z_array</span><span>(</span><span style="color:#5597d6;">s</span><span>):
-</span><span>    n </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(s)
-</span><span>    z </span><span style="color:#72ab00;">= </span><span>[</span><span style="color:#b3933a;">0</span><span>] </span><span style="color:#72ab00;">* </span><span>n
-</span><span>    l, r </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0
+<pre data-lang="python" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#72ab00;">def </span><span style="color:#c23f31;">calculate_z_array</span><span>(</span><span style="color:#5597d6;">s</span><span>):</span><span>
+</span><span>    n </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(s)</span><span>
+</span><span>    z </span><span style="color:#72ab00;">= </span><span>[</span><span style="color:#b3933a;">0</span><span>] </span><span style="color:#72ab00;">* </span><span>n</span><span>
+</span><span>    l, r </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0</span><span>
 </span><span>
-</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(</span><span style="color:#b3933a;">1</span><span>, n):
-</span><span>        </span><span style="color:#72ab00;">if </span><span>i </span><span style="color:#72ab00;">&gt; </span><span>r:
-</span><span>            l, r </span><span style="color:#72ab00;">= </span><span>i, i
-</span><span>            </span><span style="color:#72ab00;">while </span><span>r </span><span style="color:#72ab00;">&lt; </span><span>n </span><span style="color:#72ab00;">and </span><span>s[r </span><span style="color:#72ab00;">- </span><span>l] </span><span style="color:#72ab00;">== </span><span>s[r]:
-</span><span>                r </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1
-</span><span>            z[i] </span><span style="color:#72ab00;">= </span><span>r </span><span style="color:#72ab00;">- </span><span>l
-</span><span>            r </span><span style="color:#72ab00;">-= </span><span style="color:#b3933a;">1
-</span><span>        </span><span style="color:#72ab00;">else</span><span>:
-</span><span>            k </span><span style="color:#72ab00;">= </span><span>i </span><span style="color:#72ab00;">- </span><span>l
-</span><span>            </span><span style="color:#72ab00;">if </span><span>z[k] </span><span style="color:#72ab00;">&lt; </span><span>r </span><span style="color:#72ab00;">- </span><span>i </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>:
-</span><span>                z[i] </span><span style="color:#72ab00;">= </span><span>z[k]
-</span><span>            </span><span style="color:#72ab00;">else</span><span>:
-</span><span>                l </span><span style="color:#72ab00;">= </span><span>i
-</span><span>                </span><span style="color:#72ab00;">while </span><span>r </span><span style="color:#72ab00;">&lt; </span><span>n </span><span style="color:#72ab00;">and </span><span>s[r </span><span style="color:#72ab00;">- </span><span>l] </span><span style="color:#72ab00;">== </span><span>s[r]:
-</span><span>                    r </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1
-</span><span>                z[i] </span><span style="color:#72ab00;">= </span><span>r </span><span style="color:#72ab00;">- </span><span>l
-</span><span>                r </span><span style="color:#72ab00;">-= </span><span style="color:#b3933a;">1
+</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(</span><span style="color:#b3933a;">1</span><span>, n):</span><span>
+</span><span>        </span><span style="color:#72ab00;">if </span><span>i </span><span style="color:#72ab00;">&gt; </span><span>r:</span><span>
+</span><span>            l, r </span><span style="color:#72ab00;">= </span><span>i, i</span><span>
+</span><span>            </span><span style="color:#72ab00;">while </span><span>r </span><span style="color:#72ab00;">&lt; </span><span>n </span><span style="color:#72ab00;">and </span><span>s[r </span><span style="color:#72ab00;">- </span><span>l] </span><span style="color:#72ab00;">== </span><span>s[r]:</span><span>
+</span><span>                r </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1</span><span>
+</span><span>            z[i] </span><span style="color:#72ab00;">= </span><span>r </span><span style="color:#72ab00;">- </span><span>l</span><span>
+</span><span>            r </span><span style="color:#72ab00;">-= </span><span style="color:#b3933a;">1</span><span>
+</span><span>        </span><span style="color:#72ab00;">else</span><span>:</span><span>
+</span><span>            k </span><span style="color:#72ab00;">= </span><span>i </span><span style="color:#72ab00;">- </span><span>l</span><span>
+</span><span>            </span><span style="color:#72ab00;">if </span><span>z[k] </span><span style="color:#72ab00;">&lt; </span><span>r </span><span style="color:#72ab00;">- </span><span>i </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>:</span><span>
+</span><span>                z[i] </span><span style="color:#72ab00;">= </span><span>z[k]</span><span>
+</span><span>            </span><span style="color:#72ab00;">else</span><span>:</span><span>
+</span><span>                l </span><span style="color:#72ab00;">= </span><span>i</span><span>
+</span><span>                </span><span style="color:#72ab00;">while </span><span>r </span><span style="color:#72ab00;">&lt; </span><span>n </span><span style="color:#72ab00;">and </span><span>s[r </span><span style="color:#72ab00;">- </span><span>l] </span><span style="color:#72ab00;">== </span><span>s[r]:</span><span>
+</span><span>                    r </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1</span><span>
+</span><span>                z[i] </span><span style="color:#72ab00;">= </span><span>r </span><span style="color:#72ab00;">- </span><span>l</span><span>
+</span><span>                r </span><span style="color:#72ab00;">-= </span><span style="color:#b3933a;">1</span><span>
 </span><span>
-</span><span>    </span><span style="color:#72ab00;">return </span><span>z
+</span><span>    </span><span style="color:#72ab00;">return </span><span>z</span><span>
 </span><span>
-</span><span style="color:#72ab00;">def </span><span style="color:#c23f31;">sum_unique_substrings_lengths</span><span>(</span><span style="color:#5597d6;">s</span><span>):
-</span><span>    n </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(s)
-</span><span>    sum_lengths </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0
+</span><span style="color:#72ab00;">def </span><span style="color:#c23f31;">sum_unique_substrings_lengths</span><span>(</span><span style="color:#5597d6;">s</span><span>):</span><span>
+</span><span>    n </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(s)</span><span>
+</span><span>    sum_lengths </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>
 </span><span>
-</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(n):
-</span><span>        z_array </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">calculate_z_array</span><span>(s[i:])
-</span><span>        max_z </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">max</span><span>(z_array[</span><span style="color:#b3933a;">1</span><span>:])
-</span><span>        sum_lengths </span><span style="color:#72ab00;">+= </span><span>(n </span><span style="color:#72ab00;">- </span><span>i) </span><span style="color:#72ab00;">* </span><span>(n </span><span style="color:#72ab00;">- </span><span>i </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>) </span><span style="color:#72ab00;">// </span><span style="color:#b3933a;">2 </span><span style="color:#72ab00;">- </span><span>max_z </span><span style="color:#72ab00;">* </span><span>(max_z </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>) </span><span style="color:#72ab00;">// </span><span style="color:#b3933a;">2
+</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(n):</span><span>
+</span><span>        z_array </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">calculate_z_array</span><span>(s[i:])</span><span>
+</span><span>        max_z </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">max</span><span>(z_array[</span><span style="color:#b3933a;">1</span><span>:])</span><span>
+</span><span>        sum_lengths </span><span style="color:#72ab00;">+= </span><span>(n </span><span style="color:#72ab00;">- </span><span>i) </span><span style="color:#72ab00;">* </span><span>(n </span><span style="color:#72ab00;">- </span><span>i </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>) </span><span style="color:#72ab00;">// </span><span style="color:#b3933a;">2 </span><span style="color:#72ab00;">- </span><span>max_z </span><span style="color:#72ab00;">* </span><span>(max_z </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>) </span><span style="color:#72ab00;">// </span><span style="color:#b3933a;">2</span><span>
 </span><span>
-</span><span>    </span><span style="color:#72ab00;">return </span><span>sum_lengths
+</span><span>    </span><span style="color:#72ab00;">return </span><span>sum_lengths</span><span>
 </span><span>
-</span><span style="color:#7f8989;"># Example usage
-</span><span>S </span><span style="color:#72ab00;">= </span><span style="color:#d07711;">&quot;BOBR&quot;
-</span><span style="color:#b39f04;">print</span><span>(</span><span style="color:#5597d6;">sum_unique_substrings_lengths</span><span>(S))  </span><span style="color:#7f8989;"># Output: 19
+</span><span style="color:#7f8989;"># Example usage</span><span style="color:#7f8989;">
+</span><span>S </span><span style="color:#72ab00;">= </span><span style="color:#d07711;">&quot;BOBR&quot;</span><span>
+</span><span style="color:#b39f04;">print</span><span>(</span><span style="color:#5597d6;">sum_unique_substrings_lengths</span><span>(S))  </span><span style="color:#7f8989;"># Output: 19</span><span style="color:#7f8989;">
 </span></code></pre>
 <p>This implementation has a time complexity of O(n^2) and memory complexity of O(n), which should be suitable for the given programming competition constraints. The output for the input string &quot;BOBR&quot; is now correct.</p>
 <hr />
 <p><strong><center>USER</center></strong></p>
 <p>It fails:</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>    max_z = max(z_array[1:])
-</span><span>ValueError: max() arg is an empty sequence
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>    max_z = max(z_array[1:])</span><span>
+</span><span>ValueError: max() arg is an empty sequence</span><span>
 </span></code></pre>
 <hr />
 <p><strong><center>GPT-4</center></strong></p>
 <p>I apologize for the oversight. To handle the case where the z_array has only one element, we can add a conditional check to ensure it has more than one element before finding the max. Here's the updated implementation:</p>
-<pre data-lang="python" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#72ab00;">def </span><span style="color:#c23f31;">calculate_z_array</span><span>(</span><span style="color:#5597d6;">s</span><span>):
-</span><span>    n </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(s)
-</span><span>    z </span><span style="color:#72ab00;">= </span><span>[</span><span style="color:#b3933a;">0</span><span>] </span><span style="color:#72ab00;">* </span><span>n
-</span><span>    l, r </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0
+<pre data-lang="python" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#72ab00;">def </span><span style="color:#c23f31;">calculate_z_array</span><span>(</span><span style="color:#5597d6;">s</span><span>):</span><span>
+</span><span>    n </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(s)</span><span>
+</span><span>    z </span><span style="color:#72ab00;">= </span><span>[</span><span style="color:#b3933a;">0</span><span>] </span><span style="color:#72ab00;">* </span><span>n</span><span>
+</span><span>    l, r </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0</span><span>
 </span><span>
-</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(</span><span style="color:#b3933a;">1</span><span>, n):
-</span><span>        </span><span style="color:#72ab00;">if </span><span>i </span><span style="color:#72ab00;">&gt; </span><span>r:
-</span><span>            l, r </span><span style="color:#72ab00;">= </span><span>i, i
-</span><span>            </span><span style="color:#72ab00;">while </span><span>r </span><span style="color:#72ab00;">&lt; </span><span>n </span><span style="color:#72ab00;">and </span><span>s[r </span><span style="color:#72ab00;">- </span><span>l] </span><span style="color:#72ab00;">== </span><span>s[r]:
-</span><span>                r </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1
-</span><span>            z[i] </span><span style="color:#72ab00;">= </span><span>r </span><span style="color:#72ab00;">- </span><span>l
-</span><span>            r </span><span style="color:#72ab00;">-= </span><span style="color:#b3933a;">1
-</span><span>        </span><span style="color:#72ab00;">else</span><span>:
-</span><span>            k </span><span style="color:#72ab00;">= </span><span>i </span><span style="color:#72ab00;">- </span><span>l
-</span><span>            </span><span style="color:#72ab00;">if </span><span>z[k] </span><span style="color:#72ab00;">&lt; </span><span>r </span><span style="color:#72ab00;">- </span><span>i </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>:
-</span><span>                z[i] </span><span style="color:#72ab00;">= </span><span>z[k]
-</span><span>            </span><span style="color:#72ab00;">else</span><span>:
-</span><span>                l </span><span style="color:#72ab00;">= </span><span>i
-</span><span>                </span><span style="color:#72ab00;">while </span><span>r </span><span style="color:#72ab00;">&lt; </span><span>n </span><span style="color:#72ab00;">and </span><span>s[r </span><span style="color:#72ab00;">- </span><span>l] </span><span style="color:#72ab00;">== </span><span>s[r]:
-</span><span>                    r </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1
-</span><span>                z[i] </span><span style="color:#72ab00;">= </span><span>r </span><span style="color:#72ab00;">- </span><span>l
-</span><span>                r </span><span style="color:#72ab00;">-= </span><span style="color:#b3933a;">1
+</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(</span><span style="color:#b3933a;">1</span><span>, n):</span><span>
+</span><span>        </span><span style="color:#72ab00;">if </span><span>i </span><span style="color:#72ab00;">&gt; </span><span>r:</span><span>
+</span><span>            l, r </span><span style="color:#72ab00;">= </span><span>i, i</span><span>
+</span><span>            </span><span style="color:#72ab00;">while </span><span>r </span><span style="color:#72ab00;">&lt; </span><span>n </span><span style="color:#72ab00;">and </span><span>s[r </span><span style="color:#72ab00;">- </span><span>l] </span><span style="color:#72ab00;">== </span><span>s[r]:</span><span>
+</span><span>                r </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1</span><span>
+</span><span>            z[i] </span><span style="color:#72ab00;">= </span><span>r </span><span style="color:#72ab00;">- </span><span>l</span><span>
+</span><span>            r </span><span style="color:#72ab00;">-= </span><span style="color:#b3933a;">1</span><span>
+</span><span>        </span><span style="color:#72ab00;">else</span><span>:</span><span>
+</span><span>            k </span><span style="color:#72ab00;">= </span><span>i </span><span style="color:#72ab00;">- </span><span>l</span><span>
+</span><span>            </span><span style="color:#72ab00;">if </span><span>z[k] </span><span style="color:#72ab00;">&lt; </span><span>r </span><span style="color:#72ab00;">- </span><span>i </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>:</span><span>
+</span><span>                z[i] </span><span style="color:#72ab00;">= </span><span>z[k]</span><span>
+</span><span>            </span><span style="color:#72ab00;">else</span><span>:</span><span>
+</span><span>                l </span><span style="color:#72ab00;">= </span><span>i</span><span>
+</span><span>                </span><span style="color:#72ab00;">while </span><span>r </span><span style="color:#72ab00;">&lt; </span><span>n </span><span style="color:#72ab00;">and </span><span>s[r </span><span style="color:#72ab00;">- </span><span>l] </span><span style="color:#72ab00;">== </span><span>s[r]:</span><span>
+</span><span>                    r </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1</span><span>
+</span><span>                z[i] </span><span style="color:#72ab00;">= </span><span>r </span><span style="color:#72ab00;">- </span><span>l</span><span>
+</span><span>                r </span><span style="color:#72ab00;">-= </span><span style="color:#b3933a;">1</span><span>
 </span><span>
-</span><span>    </span><span style="color:#72ab00;">return </span><span>z
+</span><span>    </span><span style="color:#72ab00;">return </span><span>z</span><span>
 </span><span>
-</span><span style="color:#72ab00;">def </span><span style="color:#c23f31;">sum_unique_substrings_lengths</span><span>(</span><span style="color:#5597d6;">s</span><span>):
-</span><span>    n </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(s)
-</span><span>    sum_lengths </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0
+</span><span style="color:#72ab00;">def </span><span style="color:#c23f31;">sum_unique_substrings_lengths</span><span>(</span><span style="color:#5597d6;">s</span><span>):</span><span>
+</span><span>    n </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(s)</span><span>
+</span><span>    sum_lengths </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>
 </span><span>
-</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(n):
-</span><span>        z_array </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">calculate_z_array</span><span>(s[i:])
-</span><span>        max_z </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">max</span><span>(z_array[</span><span style="color:#b3933a;">1</span><span>:]) </span><span style="color:#72ab00;">if </span><span style="color:#b39f04;">len</span><span>(z_array) </span><span style="color:#72ab00;">&gt; </span><span style="color:#b3933a;">1 </span><span style="color:#72ab00;">else </span><span style="color:#b3933a;">0
-</span><span>        sum_lengths </span><span style="color:#72ab00;">+= </span><span>(n </span><span style="color:#72ab00;">- </span><span>i) </span><span style="color:#72ab00;">* </span><span>(n </span><span style="color:#72ab00;">- </span><span>i </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>) </span><span style="color:#72ab00;">// </span><span style="color:#b3933a;">2 </span><span style="color:#72ab00;">- </span><span>max_z </span><span style="color:#72ab00;">* </span><span>(max_z </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>) </span><span style="color:#72ab00;">// </span><span style="color:#b3933a;">2
+</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(n):</span><span>
+</span><span>        z_array </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">calculate_z_array</span><span>(s[i:])</span><span>
+</span><span>        max_z </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">max</span><span>(z_array[</span><span style="color:#b3933a;">1</span><span>:]) </span><span style="color:#72ab00;">if </span><span style="color:#b39f04;">len</span><span>(z_array) </span><span style="color:#72ab00;">&gt; </span><span style="color:#b3933a;">1 </span><span style="color:#72ab00;">else </span><span style="color:#b3933a;">0</span><span>
+</span><span>        sum_lengths </span><span style="color:#72ab00;">+= </span><span>(n </span><span style="color:#72ab00;">- </span><span>i) </span><span style="color:#72ab00;">* </span><span>(n </span><span style="color:#72ab00;">- </span><span>i </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>) </span><span style="color:#72ab00;">// </span><span style="color:#b3933a;">2 </span><span style="color:#72ab00;">- </span><span>max_z </span><span style="color:#72ab00;">* </span><span>(max_z </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>) </span><span style="color:#72ab00;">// </span><span style="color:#b3933a;">2</span><span>
 </span><span>
-</span><span>    </span><span style="color:#72ab00;">return </span><span>sum_lengths
+</span><span>    </span><span style="color:#72ab00;">return </span><span>sum_lengths</span><span>
 </span><span>
-</span><span style="color:#7f8989;"># Example usage
-</span><span>S </span><span style="color:#72ab00;">= </span><span style="color:#d07711;">&quot;BOBR&quot;
-</span><span style="color:#b39f04;">print</span><span>(</span><span style="color:#5597d6;">sum_unique_substrings_lengths</span><span>(S))  </span><span style="color:#7f8989;"># Output: 19
+</span><span style="color:#7f8989;"># Example usage</span><span style="color:#7f8989;">
+</span><span>S </span><span style="color:#72ab00;">= </span><span style="color:#d07711;">&quot;BOBR&quot;</span><span>
+</span><span style="color:#b39f04;">print</span><span>(</span><span style="color:#5597d6;">sum_unique_substrings_lengths</span><span>(S))  </span><span style="color:#7f8989;"># Output: 19</span><span style="color:#7f8989;">
 </span></code></pre>
 <p>This implementation should now work correctly for all cases, including cases where the z_array has only one element. The time complexity remains O(n^2), and the memory complexity is O(n), which should be suitable for the programming competition constraints.</p>
 <hr />
@@ -1061,14 +1058,14 @@ Return the <code>sum_lengths</code> variable, which contains the sum of lengths 
 <hr />
 <p><strong><center>GPT-4</center></strong></p>
 <p>Certainly! Let's break down the formula and explain its components:</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>sum_lengths += (n - i) * (n - i + 1) // 2 - max_z * (max_z + 1) // 2
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>sum_lengths += (n - i) * (n - i + 1) // 2 - max_z * (max_z + 1) // 2</span><span>
 </span></code></pre>
 <p>The formula calculates the sum of lengths of unique substrings for each suffix of the input string S. We iterate through the string, starting with the entire string as a suffix and moving towards shorter suffixes.</p>
 <p><strong>(n - i) * (n - i + 1) // 2</strong>: This part of the formula calculates the total number of substrings for the current suffix. We use the formula for the sum of the first n natural numbers (n * (n + 1) / 2) to calculate this. Here, <code>n - i</code> represents the length of the current suffix. For example, if the input string is &quot;BOBR&quot; and i = 1, we are considering the suffix &quot;OBR&quot;, which has a length of 3. The total number of substrings for this suffix is 3 * (3 + 1) / 2 = 6.</p>
 <p><strong>max_z</strong>: This variable represents the length of the longest common prefix between the current suffix and any of its smaller substrings. By calculating the Z-array for the current suffix, we can find the maximum value (excluding Z[0]), which represents the longest repeated substring within the current suffix.</p>
 <p><strong>max_z * (max_z + 1) // 2</strong>: <span class="red-bg example">This part of the formula calculates the sum of lengths of the repeated substrings (non-unique substrings) for the current suffix.</span> We multiply max_z by (max_z + 1) / 2, which is the sum of the first max_z natural numbers. This gives us the total length of the repeated substrings.</p>
 <p>Finally, we subtract the sum of lengths of the repeated substrings from the total number of substrings for the current suffix to obtain the sum of lengths of unique substrings for that suffix:</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>sum_lengths += (n - i) * (n - i + 1) // 2 - max_z * (max_z + 1) // 2
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>sum_lengths += (n - i) * (n - i + 1) // 2 - max_z * (max_z + 1) // 2</span><span>
 </span></code></pre>
 <p>By iterating through the string and performing this calculation for each suffix, we can compute the sum of lengths of unique substrings for the entire input string S.</p>
 </div>
@@ -1089,7 +1086,8 @@ Return the <code>sum_lengths</code> variable, which contains the sum of lengths 
 <p><strong><center>GPT-4</center></strong>
 Compute the sum of lengths of unique substrings for an input string S by iterating through its suffixes, calculating the Z-array for each suffix, and subtracting the sum of lengths of repeated substrings (represented by max_z) from the total number of substrings for each suffix.</p>
 </div>
-</details><h2 id="few-shot-learning"><a class="anchor" href="#few-shot-learning">#<sup>2</sup></a>Few-shot learning</h2>
+</details>
+<h2 id="few-shot-learning"><a class="anchor" href="#few-shot-learning">#<sup>2</sup></a>Few-shot learning</h2>
 <p>Где-то видел такую технику: сначала даём хорошее решение похожей задачи, а затем нашу задачу, и нейронка перфомит намного лучше, делая по аналогии.</p>
 <p>Решил попробовать так же, нашёл похожую задачу про палиндромы и Z-функцию, затем пошёл сложным путём: сначала написал решение текущей задачи, и попросил решить задачу про палиндром, а затем решение про палиндром в подходящем стиле вставил нейронке для решения задачи про сумму. Не очень правильно поступил, но уже как есть.</p>
 <details>
@@ -1267,41 +1265,41 @@ Number of unique substrings = length of the suffix (1) - max value in the Z-func
 </li>
 </ul>
 <p>Here's a Python implementation of the above solution:</p>
-<pre data-lang="python" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#72ab00;">def </span><span style="color:#c23f31;">z_function</span><span>(</span><span style="color:#5597d6;">s</span><span>):
-</span><span>    n </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(s)
-</span><span>    z </span><span style="color:#72ab00;">= </span><span>[</span><span style="color:#b3933a;">0</span><span>] </span><span style="color:#72ab00;">* </span><span>n
-</span><span>    l, r </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0
-</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(</span><span style="color:#b3933a;">1</span><span>, n):
-</span><span>        </span><span style="color:#72ab00;">if </span><span>i </span><span style="color:#72ab00;">&gt; </span><span>r:
-</span><span>            l, r </span><span style="color:#72ab00;">= </span><span>i, i
-</span><span>            </span><span style="color:#72ab00;">while </span><span>r </span><span style="color:#72ab00;">&lt; </span><span>n </span><span style="color:#72ab00;">and </span><span>s[r </span><span style="color:#72ab00;">- </span><span>l] </span><span style="color:#72ab00;">== </span><span>s[r]:
-</span><span>                r </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1
-</span><span>            z[i] </span><span style="color:#72ab00;">= </span><span>r </span><span style="color:#72ab00;">- </span><span>l
-</span><span>            r </span><span style="color:#72ab00;">-= </span><span style="color:#b3933a;">1
-</span><span>        </span><span style="color:#72ab00;">else</span><span>:
-</span><span>            k </span><span style="color:#72ab00;">= </span><span>i </span><span style="color:#72ab00;">- </span><span>l
-</span><span>            </span><span style="color:#72ab00;">if </span><span>z[k] </span><span style="color:#72ab00;">&lt; </span><span>r </span><span style="color:#72ab00;">- </span><span>i </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>:
-</span><span>                z[i] </span><span style="color:#72ab00;">= </span><span>z[k]
-</span><span>            </span><span style="color:#72ab00;">else</span><span>:
-</span><span>                l </span><span style="color:#72ab00;">= </span><span>i
-</span><span>                </span><span style="color:#72ab00;">while </span><span>r </span><span style="color:#72ab00;">&lt; </span><span>n </span><span style="color:#72ab00;">and </span><span>s[r </span><span style="color:#72ab00;">- </span><span>l] </span><span style="color:#72ab00;">== </span><span>s[r]:
-</span><span>                    r </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1
-</span><span>                z[i] </span><span style="color:#72ab00;">= </span><span>r </span><span style="color:#72ab00;">- </span><span>l
-</span><span>                r </span><span style="color:#72ab00;">-= </span><span style="color:#b3933a;">1
-</span><span>    </span><span style="color:#72ab00;">return </span><span>z
+<pre data-lang="python" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#72ab00;">def </span><span style="color:#c23f31;">z_function</span><span>(</span><span style="color:#5597d6;">s</span><span>):</span><span>
+</span><span>    n </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(s)</span><span>
+</span><span>    z </span><span style="color:#72ab00;">= </span><span>[</span><span style="color:#b3933a;">0</span><span>] </span><span style="color:#72ab00;">* </span><span>n</span><span>
+</span><span>    l, r </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0</span><span>
+</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(</span><span style="color:#b3933a;">1</span><span>, n):</span><span>
+</span><span>        </span><span style="color:#72ab00;">if </span><span>i </span><span style="color:#72ab00;">&gt; </span><span>r:</span><span>
+</span><span>            l, r </span><span style="color:#72ab00;">= </span><span>i, i</span><span>
+</span><span>            </span><span style="color:#72ab00;">while </span><span>r </span><span style="color:#72ab00;">&lt; </span><span>n </span><span style="color:#72ab00;">and </span><span>s[r </span><span style="color:#72ab00;">- </span><span>l] </span><span style="color:#72ab00;">== </span><span>s[r]:</span><span>
+</span><span>                r </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1</span><span>
+</span><span>            z[i] </span><span style="color:#72ab00;">= </span><span>r </span><span style="color:#72ab00;">- </span><span>l</span><span>
+</span><span>            r </span><span style="color:#72ab00;">-= </span><span style="color:#b3933a;">1</span><span>
+</span><span>        </span><span style="color:#72ab00;">else</span><span>:</span><span>
+</span><span>            k </span><span style="color:#72ab00;">= </span><span>i </span><span style="color:#72ab00;">- </span><span>l</span><span>
+</span><span>            </span><span style="color:#72ab00;">if </span><span>z[k] </span><span style="color:#72ab00;">&lt; </span><span>r </span><span style="color:#72ab00;">- </span><span>i </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>:</span><span>
+</span><span>                z[i] </span><span style="color:#72ab00;">= </span><span>z[k]</span><span>
+</span><span>            </span><span style="color:#72ab00;">else</span><span>:</span><span>
+</span><span>                l </span><span style="color:#72ab00;">= </span><span>i</span><span>
+</span><span>                </span><span style="color:#72ab00;">while </span><span>r </span><span style="color:#72ab00;">&lt; </span><span>n </span><span style="color:#72ab00;">and </span><span>s[r </span><span style="color:#72ab00;">- </span><span>l] </span><span style="color:#72ab00;">== </span><span>s[r]:</span><span>
+</span><span>                    r </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1</span><span>
+</span><span>                z[i] </span><span style="color:#72ab00;">= </span><span>r </span><span style="color:#72ab00;">- </span><span>l</span><span>
+</span><span>                r </span><span style="color:#72ab00;">-= </span><span style="color:#b3933a;">1</span><span>
+</span><span>    </span><span style="color:#72ab00;">return </span><span>z</span><span>
 </span><span>
-</span><span style="color:#72ab00;">def </span><span style="color:#c23f31;">unique_substrings</span><span>(</span><span style="color:#5597d6;">s</span><span>):
-</span><span>    total_sum </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0
-</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(</span><span style="color:#b39f04;">len</span><span>(s)):
-</span><span>        suffix </span><span style="color:#72ab00;">= </span><span>s[i:]
-</span><span>        z_arr </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">z_function</span><span>(suffix)
-</span><span>        max_z </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">max</span><span>(z_arr[</span><span style="color:#b3933a;">1</span><span>:])
-</span><span>        M </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(suffix)
-</span><span>        total_sum </span><span style="color:#72ab00;">+= </span><span>(M </span><span style="color:#72ab00;">* </span><span>(M </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>) </span><span style="color:#72ab00;">// </span><span style="color:#b3933a;">2</span><span>) </span><span style="color:#72ab00;">- </span><span>(max_z </span><span style="color:#72ab00;">* </span><span>(max_z </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>) </span><span style="color:#72ab00;">// </span><span style="color:#b3933a;">2</span><span>)
-</span><span>    </span><span style="color:#72ab00;">return </span><span>total_sum
+</span><span style="color:#72ab00;">def </span><span style="color:#c23f31;">unique_substrings</span><span>(</span><span style="color:#5597d6;">s</span><span>):</span><span>
+</span><span>    total_sum </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>
+</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(</span><span style="color:#b39f04;">len</span><span>(s)):</span><span>
+</span><span>        suffix </span><span style="color:#72ab00;">= </span><span>s[i:]</span><span>
+</span><span>        z_arr </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">z_function</span><span>(suffix)</span><span>
+</span><span>        max_z </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">max</span><span>(z_arr[</span><span style="color:#b3933a;">1</span><span>:])</span><span>
+</span><span>        M </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(suffix)</span><span>
+</span><span>        total_sum </span><span style="color:#72ab00;">+= </span><span>(M </span><span style="color:#72ab00;">* </span><span>(M </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>) </span><span style="color:#72ab00;">// </span><span style="color:#b3933a;">2</span><span>) </span><span style="color:#72ab00;">- </span><span>(max_z </span><span style="color:#72ab00;">* </span><span>(max_z </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>) </span><span style="color:#72ab00;">// </span><span style="color:#b3933a;">2</span><span>)</span><span>
+</span><span>    </span><span style="color:#72ab00;">return </span><span>total_sum</span><span>
 </span><span>
-</span><span>S </span><span style="color:#72ab00;">= </span><span style="color:#d07711;">&quot;ababa&quot;
-</span><span style="color:#b39f04;">print</span><span>(</span><span style="color:#5597d6;">unique_substrings</span><span>(S))
+</span><span>S </span><span style="color:#72ab00;">= </span><span style="color:#d07711;">&quot;ababa&quot;</span><span>
+</span><span style="color:#b39f04;">print</span><span>(</span><span style="color:#5597d6;">unique_substrings</span><span>(S))</span><span>
 </span></code></pre>
 <p>This implementation calculates the sum of lengths of unique substrings for the given string <code>S</code> using the Z-function in an efficient way.</p>
 </div>
@@ -1459,7 +1457,8 @@ To do this, simply subtract the result from step 2 from the result of step 1.</p
 <p>Стоит заметить, что совершенно аналогично можно пересчитывать за O(n) количество различных подстрок и при дописывании символа в начало, а также при удалении символа с конца или с начала.</p>
 </blockquote>
 </div>
-</details><h1 id="filosofiia"><a class="anchor" href="#filosofiia">#</a>Философия</h1>
+</details>
+<h1 id="filosofiia"><a class="anchor" href="#filosofiia">#</a>Философия</h1>
 <h2 id="pochemu-imenno-zadachi-po-olimpiadnomu-programmirovaniiu"><a class="anchor" href="#pochemu-imenno-zadachi-po-olimpiadnomu-programmirovaniiu">#<sup>2</sup></a>Почему именно задачи по олимпиадному программированию?</h2>
 <p>Вообще у меня цель, каким-то образом научить LLM'ки мыслить, чтобы приблизиться к AGI. Так почему я выбрал именно олимпиадные задачи по программированию, а не математику, физику, геометрию, химию или любую другую естественно-научную область? Потому что область олимпиадных задач по программированию:</p>
 <ul>
@@ -1659,6 +1658,178 @@ proposed to overcome these limitations.</p>
 <p>Предложенный способ решения задачи является полностью инженерным, и не требует практически ничего со стороны машинного обучения, никаких новых архитектур, или хитрой математики. Кажется мы достигли такой точки в прогрессе, когда такое может сработать.</p>
 <p>Конечно, я рассмотрел таким образом только одну задачу (и на это у меня ушло несколько недель по выходным), для каждой новой задачи могут возникать новые необычные сложности, которые я не могу рассмотреть в этой статье. Я написал её, чтобы передать вам идею и философию, которые можно развивать дальше, при столкновении с реальностью.</p>
 <p>Как думаете, хорошее направление для развития?</p>
+<hr />
+<h1 id="apdeit-posle-vykhoda-o1-6-dekabria-2024"><a class="anchor" href="#apdeit-posle-vykhoda-o1-6-dekabria-2024">#</a>Апдейт после выхода o1, 6 декабря 2024</h1>
+<p>Буквально вчера появилась новая версия o1, и она смогла решить эту задачу!</p>
+<p>Но пришлось дополнять промпт после каждой её ошибки.</p>
+<p>Без всех этих промтов она старалась откосить в сторону suffix array. Без него она пыталась сделать решение <code>O(n)</code>, со всякими ухищрениями (которые конечно же были неверны). Её ошибки обычно детектировались на самом простом примере: <code>ABB</code>, поэтому я добавил и его в промт. И когда это случилось, то она таки смогла.</p>
+<p>Конечно, нельзя отменять секцию &quot;Самокритика&quot; и &quot;Возможные причины&quot; о том что какая-то часть этого уже была в интернете, и поэтому ей повезло додуматься. Плюс она сама пишет что &quot;известная формула&quot;. А мне эту формулу пришлось самому выводить((</p>
+<p>Это не то мышление, которое я ожидал, но явно большой шаг в правильном направлении! Ну и как я говорил, стакать больше слоёв не получится, вот не зря сделали RL. Надеюсь в какой-то момент она начнёт думать как бы опровергнуть свои мысли, тогда сможет сама додуматься до <code>ABB</code>. Ну и конечно ждём добавления ей инструментов, чтобы она смогла сама написать наивную версию, и затем сравнивать себя с наивным решением, запуская свой код.</p>
+<p>Ещё большая проблема этой модели - как дать ей возможность думать в течении множества часов, например? Потому что засовывать ВСЁ в контекст - это плохой способ. Надо будет придумывать способы чтобы она смогла ужимать найденные знания в короткий текст и заново запускать себя со свежим контекстом.</p>
+<p>Теперь надо искать новую задачу и оценивать модели на ней)</p>
+<details>
+<summary>Диалог</summary>
+<div class="details-content">
+<p><strong><center>USER</center></strong></p>
+<p>You have that competitive programming task:</p>
+<blockquote>
+<p>Given string S, calculate sum of lengths of unique substrings of that string.</p>
+</blockquote>
+<p>How would you solve it using Z-function in most efficient way? You should use Z-function, not suffix array, not LCP, not hashing.</p>
+<p>Result time complexity should be O(n^2), this task can't be solved in O(n).</p>
+<p>After your solution please write a Python code of it.</p>
+<p>For string ABA it should output 9, for string ABB 9 too.</p>
+<p><strong><center>o1</center></strong></p>
+<p><code>Thinking for 1m 16s</code></p>
+<p><strong>Idea</strong></p>
+<p>We want to find the sum of lengths of all <em>distinct</em> substrings of a given string <script type="math/tex"> S </script>.</p>
+<p>A well-known formula (from suffix arrays and LCP arrays) for counting distinct substrings is:</p>
+<ul>
+<li>The total number of distinct substrings of a string <script type="math/tex"> S </script> of length <script type="math/tex"> n </script> is:</li>
+</ul>
+<script type="math/tex;mode=display">
+\frac{n(n+1)}{2} - \sum LCP
+</script>
+<p>where <script type="math/tex"> LCP </script> is the Longest Common Prefix array from the suffix array construction. Similarly, there is a known formula for the sum of lengths of distinct substrings:</p>
+<script type="math/tex;mode=display">
+\text{sum\_of\_lengths\_of\_distinct} = \sum_{i=1}^{n} \frac{(n - SA[i]) (n - SA[i] + 1)}{2} - \frac{LCP[i](LCP[i] + 1)}{2}
+</script>
+<p>But we are forbidden from using suffix arrays or LCP arrays directly. We must use the Z-function and the solution is allowed to be <script type="math/tex">O(n^2)</script>.</p>
+<p><strong>Key Insight Using Z-function</strong></p>
+<p>We can avoid building the suffix array. Instead, we can use the following trick:</p>
+<ol>
+<li>
+<p>Consider suffixes of <script type="math/tex"> S </script>: <script type="math/tex"> S[i..n-1] </script> for <script type="math/tex"> i = 0,1,\ldots,n-1 </script>.</p>
+</li>
+<li>
+<p>For each suffix <script type="math/tex"> i </script>, consider the string:</p>
+<script type="math/tex;mode=display">
+T = S[i..n-1] + \# + S
+</script>
+<p>where <script type="math/tex">#</script> is a separator character not in the alphabet of <script type="math/tex"> S </script>.</p>
+<p>Compute the Z-function for <script type="math/tex"> T </script>.</p>
+<p>The part after <script type="math/tex">#</script> corresponds to the original string <script type="math/tex"> S </script>. The Z-values in that part tell us how much of the prefix of <script type="math/tex"> S[i..] </script> appears starting at various positions in <script type="math/tex"> S </script>.</p>
+</li>
+<li>
+<p>We are interested only in occurrences <em>before</em> <script type="math/tex"> i </script> (to detect previously seen substrings). That is, we look at the part of <script type="math/tex"> S </script> in <script type="math/tex"> T </script> corresponding to indices that represent starting positions in <script type="math/tex"> S[0..i-1] </script>.</p>
+<p>Formally, in <script type="math/tex"> T </script>:</p>
+<ul>
+<li><script type="math/tex"> T[0..(n-i-1)] = S[i..n-1] </script>
+</li>
+<li><script type="math/tex"> T[n-i] = \# </script>
+</li>
+<li><script type="math/tex"> T[n-i+1..n-i+n] = S[0..n-1] </script>
+</li>
+</ul>
+<p>The segment <script type="math/tex"> T[n-i+1..n-i+i] </script> corresponds to <script type="math/tex"> S[0..i-1] </script>.</p>
+<p>We take the maximum Z-value in this segment (call it <script type="math/tex"> \text{maxZ}_i </script>). This <script type="math/tex"> \text{maxZ}_i </script> tells us the longest prefix of <script type="math/tex"> S[i..] </script> that has appeared before position <script type="math/tex"> i </script>.</p>
+</li>
+<li>
+<p>The number of new distinct substrings introduced by suffix <script type="math/tex"> S[i..] </script> is:</p>
+<script type="math/tex;mode=display">
+(n - i) - \text{maxZ}_i
+</script>
+<p>But we need the sum of lengths of these new distinct substrings.</p>
+<p>The substrings contributed by suffix <script type="math/tex"> i </script> that are <em>new</em> are those from length <script type="math/tex">\text{maxZ}_i + 1</script> up to <script type="math/tex">(n - i)</script>.</p>
+<p>The sum of these lengths is:</p>
+<script type="math/tex;mode=display">
+\sum_{\ell = \text{maxZ}_i + 1}^{n - i} \ell = \frac{(n - i)(n - i + 1)}{2} - \frac{\text{maxZ}_i(\text{maxZ}_i + 1)}{2}
+</script>
+</li>
+<li>
+<p>Summing this over all suffixes <script type="math/tex"> i </script> gives the total sum of lengths of distinct substrings.</p>
+</li>
+</ol>
+<p><strong>Complexity</strong></p>
+<ul>
+<li>For each <script type="math/tex"> i </script>, we construct <script type="math/tex"> T </script> of length approximately <script type="math/tex"> 2n - i </script> and compute the Z-function in <script type="math/tex"> O(|T|) = O(n) </script>.</li>
+<li>Summation over <script type="math/tex"> i </script> results in <script type="math/tex"> O(n^2) </script> time.</li>
+</ul>
+<p>This meets the requirement and uses only Z-function.</p>
+<p><strong>Example Check</strong></p>
+<p>For <script type="math/tex"> S = \text{'ABA'} </script>:</p>
+<ul>
+<li><script type="math/tex"> n=3 </script>
+</li>
+<li>For <script type="math/tex"> i=0 </script>:
+<ul>
+<li><script type="math/tex"> T = 'ABA#ABA' </script>
+</li>
+<li>No previous occurrences can appear before <script type="math/tex"> i=0 </script>, so <script type="math/tex"> \text{maxZ}_0=0 </script>.</li>
+<li>Contribution = <script type="math/tex">\frac{3 \cdot 4}{2}-0 = 6</script>.</li>
+</ul>
+</li>
+<li>For <script type="math/tex"> i=1 </script>:
+<ul>
+<li><script type="math/tex"> T = 'BA#ABA' </script>
+</li>
+<li>Check first <script type="math/tex"> i=1 </script> positions in <script type="math/tex"> S </script>-part of <script type="math/tex"> T </script>: found <script type="math/tex">\text{maxZ}_1=0 </script></li>
+<li>Contribution = <script type="math/tex">\frac{2 \cdot 3}{2}-0=3</script></li>
+</ul>
+</li>
+<li>For <script type="math/tex"> i=2 </script>:
+<ul>
+<li><script type="math/tex"> T = 'A#ABA' </script>
+</li>
+<li>Check first <script type="math/tex"> i=2 </script> positions: <script type="math/tex">\text{maxZ}_2=1</script></li>
+<li>Contribution = <script type="math/tex">\frac{1 \cdot 2}{2}-\frac{1 \cdot 2}{2}=1-1=0</script></li>
+</ul>
+</li>
+</ul>
+<p>Sum = 6+3+0=9, matches the sample.</p>
+<p><strong>Code Implementation</strong></p>
+<pre data-lang="python" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#72ab00;">def </span><span style="color:#c23f31;">z_function</span><span>(</span><span style="color:#5597d6;">s</span><span>):</span><span>
+</span><span>    n </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(s)</span><span>
+</span><span>    z </span><span style="color:#72ab00;">= </span><span>[</span><span style="color:#b3933a;">0</span><span>]</span><span style="color:#72ab00;">*</span><span>n</span><span>
+</span><span>    l, r </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0</span><span>
+</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(</span><span style="color:#b3933a;">1</span><span>, n):</span><span>
+</span><span>        </span><span style="color:#72ab00;">if </span><span>i </span><span style="color:#72ab00;">&lt;= </span><span>r:</span><span>
+</span><span>            z[i] </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">min</span><span>(r </span><span style="color:#72ab00;">- </span><span>i </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>, z[i </span><span style="color:#72ab00;">- </span><span>l])</span><span>
+</span><span>        </span><span style="color:#72ab00;">while </span><span>i</span><span style="color:#72ab00;">+</span><span>z[i] </span><span style="color:#72ab00;">&lt; </span><span>n </span><span style="color:#72ab00;">and </span><span>s[z[i]] </span><span style="color:#72ab00;">== </span><span>s[i</span><span style="color:#72ab00;">+</span><span>z[i]]:</span><span>
+</span><span>            z[i] </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1</span><span>
+</span><span>        </span><span style="color:#72ab00;">if </span><span>i</span><span style="color:#72ab00;">+</span><span>z[i]</span><span style="color:#72ab00;">-</span><span style="color:#b3933a;">1 </span><span style="color:#72ab00;">&gt; </span><span>r:</span><span>
+</span><span>            l, r </span><span style="color:#72ab00;">= </span><span>i, i</span><span style="color:#72ab00;">+</span><span>z[i]</span><span style="color:#72ab00;">-</span><span style="color:#b3933a;">1</span><span>
+</span><span>    </span><span style="color:#72ab00;">return </span><span>z</span><span>
+</span><span>
+</span><span style="color:#72ab00;">def </span><span style="color:#c23f31;">solve</span><span>():</span><span>
+</span><span>    S </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">input</span><span>().</span><span style="color:#5597d6;">strip</span><span>()</span><span>
+</span><span>    n </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">len</span><span>(S)</span><span>
+</span><span>    ans </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>
+</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(n):</span><span>
+</span><span>        </span><span style="color:#7f8989;"># Build T = S[i..] + &#39;#&#39; + S</span><span style="color:#7f8989;">
+</span><span>        T </span><span style="color:#72ab00;">= </span><span>S[i:] </span><span style="color:#72ab00;">+ </span><span style="color:#d07711;">&#39;#&#39; </span><span style="color:#72ab00;">+ </span><span>S</span><span>
+</span><span>        Z </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">z_function</span><span>(T)</span><span>
+</span><span>        </span><span>
+</span><span>        </span><span style="color:#7f8989;"># We want max Z-value in T that corresponds to an occurrence before i in S</span><span style="color:#7f8989;">
+</span><span>        </span><span style="color:#7f8989;"># Those positions are T-index from (n-i+1) to (n-i+i)=n, inclusive.</span><span style="color:#7f8989;">
+</span><span>        </span><span style="color:#7f8989;"># i.e., T indices corresponding to S[0..i-1].</span><span style="color:#7f8989;">
+</span><span>        </span><span>
+</span><span>        start </span><span style="color:#72ab00;">= </span><span>n </span><span style="color:#72ab00;">- </span><span>i </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>
+</span><span>        end </span><span style="color:#72ab00;">= </span><span>start </span><span style="color:#72ab00;">+ </span><span>i </span><span style="color:#72ab00;">- </span><span style="color:#b3933a;">1  </span><span style="color:#7f8989;"># last index corresponding to S[i-1]</span><span style="color:#7f8989;">
+</span><span>        maxZ_i </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>
+</span><span>        </span><span style="color:#72ab00;">if </span><span>i </span><span style="color:#72ab00;">&gt; </span><span style="color:#b3933a;">0</span><span>:  </span><span style="color:#7f8989;"># If i=0, there&#39;s no previous suffix</span><span style="color:#7f8989;">
+</span><span>            </span><span style="color:#72ab00;">for </span><span>t </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(start, end</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>):</span><span>
+</span><span>                </span><span style="color:#72ab00;">if </span><span>Z[t] </span><span style="color:#72ab00;">&gt; </span><span>maxZ_i:</span><span>
+</span><span>                    maxZ_i </span><span style="color:#72ab00;">= </span><span>Z[t]</span><span>
+</span><span>
+</span><span>        </span><span style="color:#7f8989;"># Calculate contribution</span><span style="color:#7f8989;">
+</span><span>        length_all </span><span style="color:#72ab00;">= </span><span>(n </span><span style="color:#72ab00;">- </span><span>i)</span><span style="color:#72ab00;">*</span><span>(n </span><span style="color:#72ab00;">- </span><span>i </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>)</span><span style="color:#72ab00;">//</span><span style="color:#b3933a;">2</span><span>
+</span><span>        length_old </span><span style="color:#72ab00;">= </span><span>maxZ_i</span><span style="color:#72ab00;">*</span><span>(maxZ_i </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">1</span><span>)</span><span style="color:#72ab00;">//</span><span style="color:#b3933a;">2</span><span>
+</span><span>        ans </span><span style="color:#72ab00;">+= </span><span>length_all </span><span style="color:#72ab00;">- </span><span>length_old</span><span>
+</span><span>
+</span><span>    </span><span style="color:#b39f04;">print</span><span>(ans)</span><span>
+</span></code></pre>
+<p><strong>Explanation of Code</strong></p>
+<ul>
+<li>We define a standard Z-function computation routine.</li>
+<li>For each suffix <script type="math/tex"> i </script>, we form <script type="math/tex"> T </script> and compute Z.</li>
+<li>We find <code>maxZ_i</code> by looking only at the portion of Z corresponding to suffixes starting in <code>S[0..i-1]</code>.</li>
+<li>Use the formula to accumulate the result.</li>
+<li>Print the final sum.</li>
+</ul>
+<p>This will yield the correct answer in <script type="math/tex"> O(n^2) </script> time, uses only Z-function, and matches the provided test cases.</p>
+</div>
+</details>
 
 </div>
 </article>
@@ -1804,6 +1975,12 @@ proposed to overcome these limitations.</p>
  
   <li>
    <a href="#zakliuchenie">Заключение</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#apdeit-posle-vykhoda-o1-6-dekabria-2024">Апдейт после выхода o1, 6 декабря 2024</a>
    
   </li>
  
