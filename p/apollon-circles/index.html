@@ -13,13 +13,6 @@
   <link rel="stylesheet" href="/main.css">
   <!-- --- -->
 
-  
-  <!-- Yandex.Metrika counter -->
-  <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(53392057, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/53392057" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-  <meta name="yandex-verification" content="ec61b5ac4464201b" />
-  <!-- --- -->
-  
-
   <!-- Non social metatags -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -223,15 +216,6 @@
   
 <article itemscope itemtype="http://schema.org/BlogPosting">
 <div itemprop="articleBody" id="content">
-
-
-
-
-
-
-
-
-
 <div class="magnifier-container img-two-three">
 <img
     class="not-default full-screen-img"
@@ -246,17 +230,6 @@
 </div>
 <p>Этот фрактал основан на бесконечном построении касающихся окружностей.</p>
 <p>Суть этого фрактала заключается в следующем: изначально у нас есть минимальный набор окружностей (три), у которого мы знаем положение центров и радиусы. Далее необходимо строить касательную к каждой из них, и к каждой из образовавшихся, и так до бесконечности, чтобы пространство полностью заполнялось без пересечений окружностей.</p>
-
-
-    
-
-
-
-
-
-
-
-
 <div class="magnifier-container img-two-three">
 <img
     class="not-default full-screen-img"
@@ -270,20 +243,9 @@
 </div>
 </div>
 <p>Поэтому, для того, чтобы нарисовать при помощи программы такой фрактал, необходимо сначала решить простую задачу:</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>Как, зная координаты центра и радиус трех окружностей, найти все касательные к ним? 
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>Как, зная координаты центра и радиус трех окружностей, найти все касательные к ним? </span><span>
 </span></code></pre>
 <p>Но для начала <em>свойство двух касательных окружностей:</em> если касание внешнее, то расстояние между центрами окружностей равно сумме их радиусов; если касание внутреннее, то расстояние между центрами равно разности их радиусов, взятое по модулю.</p>
-
-
-    
-
-
-
-
-
-
-
-
 <div class="magnifier-container img-two-three">
 <img
     class="not-default full-screen-img"
@@ -299,17 +261,6 @@
 <p>Учитывая, что окружностей три, а каждая может касаться четвертой двумя способами, получаем всего 2³=8 способов как могут касаться три окружности с четвертой, которую надо найти. </p>
 <p>Благодаря этому свойству можем составить систему из трех уравнений, где есть три неизвестных. За m<sub>1</sub>, m<sub>2</sub>, m<sub>3</sub> я обозначил параметры - внешнее или внутреннее касание для конкретной окружности: +1 означает внешнее касание, -1 внутреннее (рисунок 4).</p>
 <p>Благодаря этому свойству можем составить систему из трех уравнений, где есть три неизвестных. За m<sub>1</sub>, m<sub>2</sub>, m<sub>3</sub> я обозначил параметры - внешнее или внутреннее касание для конкретной окружности: +1 означает внешнее касание, -1 внутреннее.</p>
-
-
-    
-
-
-
-
-
-
-
-
 <div class="magnifier-container img-two-three">
 <img
     class="not-default full-screen-img"
@@ -323,17 +274,6 @@
 </div>
 </div>
 <p>Такую систему уравнений надо как-то решить. Поначалу она может показаться страшной, и на самом деле так и есть :) И проще её решить аналитически, чем при помощи всяких численных методов. Но это аналитическое решение не способна выдать ни одна система символьных вычислений, а если может, то ей не хватит памяти, либо формула выходит километровой, и ее невозможно использовать в программе (если вы найдете такую программу, которая сможет решить эту систему, и там не будет километровой формулы, то я скинусь вам на шаурму). Поэтому единственный доступный способ - решать на бумажке, делая огромное число замен.</p>
-
-
-    
-
-
-
-
-
-
-
-
 <div class="magnifier-container img-two-three">
 <img
     class="not-default full-screen-img"
@@ -353,15 +293,6 @@
 <p>Далее, имея функцию нахождения касательных окружностей к трем данным, можно легко написать функцию, которая из изначального набора строит весь фрактал. В этой функции будет использоваться рекурсия, а так же там надо учесть, чтобы не возникали окружности, которые уже рисовались.</p>
 <p>Таким образом получается первая картинка.</p>
 <p>Ну а на следующей картинке показаны первые эксперименты: внутрь всех окружностей была вписана изначальная окружность. </p>
-
-
-
-
-
-
-
-
-
 <div class="magnifier-container img-two-three">
 <img
     class="not-default full-screen-img"
@@ -375,15 +306,6 @@
 </div>
 </div>
 <p>А на следующей картинке такой процесс повторялся до бесконечности (причем, чтобы выглядело красиво, цвет более глубоких итераций ставился на более блёклый).</p>
-
-
-
-
-
-
-
-
-
 <div class="magnifier-container img-two-three">
 <img
     class="not-default full-screen-img"
@@ -546,11 +468,6 @@
 
 
     </td><td style="border: 0px; padding: 0.2rem;">
-    
-    <!-- Yandex.Metrika informer -->
-    <a href="https://metrika.yandex.ru/stat/?id=53392057&amp;from=informer" target="_blank" rel="nofollkw"><img src="https://informer.yandex.ru/informer/53392057/1_0_35B977FF_159957FF_1_pageviews" style="width:80px; height:15px; border:0; border-radius: 0px; margin-top: -4px; max-height: 100%; max-width: 100%;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры)" class="ym-advanced-informer" data-cid="53392057" data-lang="ru" /></a> 
-    <!-- /Yandex.Metrika informer -->
-    
 
     </td></tr>
     </table>

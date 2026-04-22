@@ -13,13 +13,6 @@
   <link rel="stylesheet" href="/main.css">
   <!-- --- -->
 
-  
-  <!-- Yandex.Metrika counter -->
-  <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(53392057, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/53392057" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-  <meta name="yandex-verification" content="ec61b5ac4464201b" />
-  <!-- --- -->
-  
-
   <!-- Non social metatags -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -257,37 +250,24 @@
 <li>Поставить коллбэк-функцию с названием вида <code>on_button_click_1337</code>, которая будет вызываться каждый раз когда по кнопке кликают.</li>
 </ul>
 <p>В то время как чтобы сделать кнопку в ImGui, нужна всего-лишь одна строка кода:</p>
-<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#72ab00;">if</span><span> ui.</span><span style="color:#b39f04;">button</span><span>(</span><span style="color:#d07711;">&quot;Next&quot;</span><span>).</span><span style="color:#b39f04;">clicked</span><span>() {
-</span><span>  </span><span style="color:#7f8989;">// do on click
-</span><span>}
+<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#72ab00;">if</span><span> ui.</span><span style="color:#b39f04;">button</span><span>(</span><span style="color:#d07711;">&quot;Next&quot;</span><span>).</span><span style="color:#b39f04;">clicked</span><span>() {</span><span>
+</span><span>  </span><span style="color:#7f8989;">// do on click</span><span>
+</span><span>}</span><span>
 </span></code></pre>
 <p>Никаких рисований, никаких коллбэков, нажатие кнопки проверяется прямо сейчас, и если прямо сейчас кнопка не нажата, то и ничего не происходит. От этого и получается название Immediate.</p>
 <p>Если вы хотите что-то посложнее, то вот пример, взятый из ридмишки egui:</p>
-<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span>ui.</span><span style="color:#b39f04;">heading</span><span>(</span><span style="color:#d07711;">&quot;My egui Application&quot;</span><span>);
-</span><span>ui.</span><span style="color:#b39f04;">horizontal</span><span>(|</span><span style="color:#5597d6;">ui</span><span>| {
-</span><span>    ui.</span><span style="color:#b39f04;">label</span><span>(</span><span style="color:#d07711;">&quot;Your name: &quot;</span><span>);
-</span><span>    ui.</span><span style="color:#b39f04;">text_edit_singleline</span><span>(</span><span style="color:#72ab00;">&amp;</span><span style="color:#668f14;">mut</span><span> name);
-</span><span>});
-</span><span>ui.</span><span style="color:#b39f04;">add</span><span>(egui::Slider::new(</span><span style="color:#72ab00;">&amp;</span><span style="color:#668f14;">mut</span><span> age, </span><span style="color:#b3933a;">0</span><span style="color:#72ab00;">..=</span><span style="color:#b3933a;">120</span><span>).</span><span style="color:#b39f04;">text</span><span>(</span><span style="color:#d07711;">&quot;age&quot;</span><span>));
-</span><span style="color:#72ab00;">if</span><span> ui.</span><span style="color:#b39f04;">button</span><span>(</span><span style="color:#d07711;">&quot;Click each year&quot;</span><span>).</span><span style="color:#b39f04;">clicked</span><span>() {
-</span><span>    age </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1</span><span>;
-</span><span>}
-</span><span>ui.</span><span style="color:#b39f04;">label</span><span>(</span><span style="color:#a2a001;">format!</span><span>(</span><span style="color:#d07711;">&quot;Hello &#39;</span><span style="color:#aeb52b;">{}</span><span style="color:#d07711;">&#39;, age </span><span style="color:#aeb52b;">{}</span><span style="color:#d07711;">&quot;</span><span>, name, age));
+<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span>ui.</span><span style="color:#b39f04;">heading</span><span>(</span><span style="color:#d07711;">&quot;My egui Application&quot;</span><span>);</span><span>
+</span><span>ui.</span><span style="color:#b39f04;">horizontal</span><span>(|</span><span style="color:#5597d6;">ui</span><span>| {</span><span>
+</span><span>    ui.</span><span style="color:#b39f04;">label</span><span>(</span><span style="color:#d07711;">&quot;Your name: &quot;</span><span>);</span><span>
+</span><span>    ui.</span><span style="color:#b39f04;">text_edit_singleline</span><span>(</span><span style="color:#72ab00;">&amp;</span><span style="color:#668f14;">mut</span><span> name);</span><span>
+</span><span>});</span><span>
+</span><span>ui.</span><span style="color:#b39f04;">add</span><span>(egui::Slider::new(</span><span style="color:#72ab00;">&amp;</span><span style="color:#668f14;">mut</span><span> age, </span><span style="color:#b3933a;">0</span><span style="color:#72ab00;">..=</span><span style="color:#b3933a;">120</span><span>).</span><span style="color:#b39f04;">text</span><span>(</span><span style="color:#d07711;">&quot;age&quot;</span><span>));</span><span>
+</span><span style="color:#72ab00;">if</span><span> ui.</span><span style="color:#b39f04;">button</span><span>(</span><span style="color:#d07711;">&quot;Click each year&quot;</span><span>).</span><span style="color:#b39f04;">clicked</span><span>() {</span><span>
+</span><span>    age </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1</span><span>;</span><span>
+</span><span>}</span><span>
+</span><span>ui.</span><span style="color:#b39f04;">label</span><span>(</span><span style="color:#a2a001;">format!</span><span>(</span><span style="color:#d07711;">&quot;Hello &#39;</span><span style="color:#aeb52b;">{}</span><span style="color:#d07711;">&#39;, age </span><span style="color:#aeb52b;">{}</span><span style="color:#d07711;">&quot;</span><span>, name, age));</span><span>
 </span><span>
 </span></code></pre>
-
-    
-
-
-    
-
-
-
-
-
-
-
-
 <div class="magnifier-container img-one">
 <img
     class="not-default full-screen-img"
@@ -302,13 +282,13 @@
 </div>
 <p>Если в retained mode вы задаёте для каждого виджета его координаты, то здесь вы описываете каждый виджет сверху-вниз слева-направо. Его соответствующие координаты вычисляются автоматически, всё размещается компактно.</p>
 <p>Ещё виджеты можно задавать в цикле или внутри if, и всё будет прекрасно работать:</p>
-<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#72ab00;">for</span><span> i </span><span style="color:#72ab00;">in </span><span style="color:#b3933a;">0</span><span style="color:#72ab00;">..</span><span style="color:#b3933a;">10 </span><span>{
-</span><span>    ui.</span><span style="color:#b39f04;">horizontal</span><span>(|</span><span style="color:#5597d6;">ui</span><span>| {
-</span><span>        </span><span style="color:#72ab00;">if</span><span> ui.</span><span style="color:#b39f04;">button</span><span>(i.</span><span style="color:#b39f04;">to_string</span><span>()).</span><span style="color:#b39f04;">clicked</span><span>() {
-</span><span>            ui.</span><span style="color:#b39f04;">label</span><span>(</span><span style="color:#a2a001;">format!</span><span>(</span><span style="color:#d07711;">&quot;</span><span style="color:#aeb52b;">{}</span><span style="color:#d07711;"> is clicked&quot;</span><span>, i));
-</span><span>        }
-</span><span>    });
-</span><span>}
+<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#72ab00;">for</span><span> i </span><span style="color:#72ab00;">in </span><span style="color:#b3933a;">0</span><span style="color:#72ab00;">..</span><span style="color:#b3933a;">10 </span><span>{</span><span>
+</span><span>    ui.</span><span style="color:#b39f04;">horizontal</span><span>(|</span><span style="color:#5597d6;">ui</span><span>| {</span><span>
+</span><span>        </span><span style="color:#72ab00;">if</span><span> ui.</span><span style="color:#b39f04;">button</span><span>(i.</span><span style="color:#b39f04;">to_string</span><span>()).</span><span style="color:#b39f04;">clicked</span><span>() {</span><span>
+</span><span>            ui.</span><span style="color:#b39f04;">label</span><span>(</span><span style="color:#a2a001;">format!</span><span>(</span><span style="color:#d07711;">&quot;</span><span style="color:#aeb52b;">{}</span><span style="color:#d07711;"> is clicked&quot;</span><span>, i));</span><span>
+</span><span>        }</span><span>
+</span><span>    });</span><span>
+</span><span>}</span><span>
 </span></code></pre>
 <p>Здесь будет создано 10 кнопок, которые расположены сверху-вниз, и если кликнуть по одной кнопке, то на момент клика справа от кнопки появляется надпись о том что она кликнута.</p>
 <p>Можете представить себе такое в retained mode? Такая возможность позволяет отлично абстрагировать и переиспользовать элементы интерфейса без сложных классов, наследований, Dependency Injection итд.</p>
@@ -327,14 +307,16 @@
 <span style="color: #090"><big><b>Плюсы:</b></big></span>
 <ul>
 <li>Писать интерфейс очень просто</li>
-<li>Идеально подходит для заимствований Rust 
+<li>Идеально подходит для заимствований Rust </li>
+</ul>
 </div>
 <div class="cons">
-<span style="color: #c00"><big><b>Минусы:</b></big></span></li>
+<span style="color: #c00"><big><b>Минусы:</b></big></span>
+<ul>
 <li>Жрёт ресурсы компьютера</li>
-<li>Невозможность автоматически вычислить layout
-</div></li>
+<li>Невозможность автоматически вычислить layout</li>
 </ul>
+</div>
 <p>Вообще на тему плюсов и минусов, советую почитать <a href="https://github.com/emilk/egui#why-immediate-mode">ридмишку egui</a>, там хорошо расписывается что и как. Некоторые пункты я лишь пересказываю.</p>
 <h2 id="pisat-interfeis-ochen-prosto"><a class="anchor" href="#pisat-interfeis-ochen-prosto">#<sup>2</sup></a>Писать интерфейс очень просто</h2>
 <ul>
@@ -348,7 +330,7 @@
 <h2 id="ideal-no-podkhodit-dlia-zaimstvovanii-rust"><a class="anchor" href="#ideal-no-podkhodit-dlia-zaimstvovanii-rust">#<sup>2</sup></a>Идеально подходит для заимствований Rust</h2>
 <p>Rust очень строгий к ссылкам, и я даже не представляю как на нём можно написать retained mode без использования <code>Arc&lt;RefCell&lt;_&gt;&gt;</code>. Ведь там надо чтобы одновременно какое-нибудь поле ввода знало куда ему вводить информацию, и одновременно чтобы эта информация хранилась где-то ещё, кроме самого интерфейса.</p>
 <p>А в ImGui ничего такого не нужно вообще, так как обращение к данным существует только в сейчас, можно передавать обычные ссылки. Давайте посмотрим на то как работает поле ввода:</p>
-<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span>ui.</span><span style="color:#b39f04;">text_edit_singleline</span><span>(</span><span style="color:#72ab00;">&amp;</span><span style="color:#668f14;">mut</span><span> name);
+<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span>ui.</span><span style="color:#b39f04;">text_edit_singleline</span><span>(</span><span style="color:#72ab00;">&amp;</span><span style="color:#668f14;">mut</span><span> name);</span><span>
 </span></code></pre>
 <p>В него мы просто кидаем изменяемую ссылку на строку. Если за этот кадр нажались какие-то символы и данная строка изменилась, то она изменится после того как функция завершится.</p>
 <h2 id="zhriot-resursy-komp-iutera"><a class="anchor" href="#zhriot-resursy-komp-iutera">#<sup>2</sup></a>Жрёт ресурсы компьютера</h2>
@@ -402,19 +384,6 @@
 <h1 id="chto-ia-sdelal-na-imgui"><a class="anchor" href="#chto-ia-sdelal-na-imgui">#</a>Что я сделал на ImGui</h1>
 <h2 id="the-tenet-of-life"><a class="anchor" href="#the-tenet-of-life">#<sup>2</sup></a>The Tenet of Life</h2>
 <p>Самый первый проект где я познакомился с ImGui — симулятор обратимых клеточных автоматов. Здесь я просто заюзал ImGui, который шёл внутри библиотеки macroquad, для того чтобы написать текст и сделать пару кнопочек.</p>
-
-    
-
-
-    
-
-
-
-
-
-
-
-
 <div class="magnifier-container img-one">
 <img
     class="not-default full-screen-img"
@@ -432,18 +401,7 @@
 <p>Я рисовал сцены с порталами через код при помощи рейтрейсинга. Чтобы подвинуть или повернуть что-то мне приходилось редактировать код и перекомпилировать проект. В один момент мне это надело и я захотел поворачивать вещи в реальном времени.</p>
 <p>Сделал чтобы через интерфейс можно было вращать матрицы и это отображалось в реальном времени.</p>
 <p>Это показалось слишком просто, я почувствовал силушку богатырскую, взял и напилил целый визуальный редактор на ImGui:</p>
-<p><figure>
-
-
-    
-
-
-
-
-
-
-
-
+<figure>
 <div class="magnifier-container img-two-three">
 <img
     class="not-default full-screen-img"
@@ -457,25 +415,12 @@
 </div>
 </div>
 <figcaption><a href="https://twitter.com/optozorax/status/1369940146460762112">Ссылка на твит</a></figcaption>
-</figure></p>
+</figure>
 <p>Уже через него можно было редактировать матрицы, объекты и их код в шейдерах. Это на порядок упрощало процесс создания сцен, благодаря чему я стал эффективнее. Главный прикол что я сделал его просто за пару дней и он просто работал. Это самое приятное чувство при использовании ImGui.</p>
 <p>Более подробно об этом можно почитать в моём канале в телеграме, начиная отсюда: <a href="https://t.me/optozorax_dev/351">@optozorax_dev/351</a>.</p>
 <p>А уже потом я ударился во все тяжкие, начал делать сложные интерфейсы, <a href="https://t.me/optozorax_dev/398">inline элементы</a>, <a href="https://t.me/optozorax_dev/358">формулы</a>, и интерфейс который задаёт другой интерфейс.</p>
 <p>Вообще знаете, когда я всё это задумывал, я изначально думал: «Ну сделаю чтобы в структурках на расте можно было писать порталы, и чтобы это потом кодогенерилось. Но, блин, это такой гемор, столько всего надо сделать.», а тут я нафиг сделал не только это, но ещё и сделал ко всему этому интерфейс, я вообще даже не мечтал о таком результате, который есть сейчас.</p>
 <p>Настолько великую силу даёт ImGui. От абсолютного нуля до realtime sophisticated визуального редактора 3D сцен за один проект.</p>
-
-    
-
-
-    
-
-
-
-
-
-
-
-
 <div class="magnifier-container img-one">
 <img
     class="not-default full-screen-img"
@@ -487,22 +432,10 @@
 <div class="magnifier-display">
 <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1.4<br>png</div>
 </div>
-</div><h2 id="learn-words"><a class="anchor" href="#learn-words">#<sup>2</sup></a>Learn Words</h2>
+</div>
+<h2 id="learn-words"><a class="anchor" href="#learn-words">#<sup>2</sup></a>Learn Words</h2>
 <p>Об этом проекте я написал <a href="/learn-words-post">статью</a>. Его особенность в том, что заодно с написанием продукта, я решил проверить гипотезу о том что с ImGui напишу программу очень быстро. И написал. Быстро. На минимально рабочий прототип ушло 6ч чистого времени, а чтобы полностью завершить проект, ушло 40ч чистого времени. И это при учёте того что программа полностью построена на графическом интерфейсе, и там есть довольно сложные элементы.</p>
 <p>Я бы такую программу с retained mode не написал бы никогда.</p>
-
-    
-
-
-    
-
-
-
-
-
-
-
-
 <div class="magnifier-container img-one">
 <img
     class="not-default full-screen-img"
@@ -514,7 +447,8 @@
 <div class="magnifier-display">
 <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1.6<br>png</div>
 </div>
-</div><h1 id="skhozhest-s-konsol-nymi-utilitami"><a class="anchor" href="#skhozhest-s-konsol-nymi-utilitami">#</a>Схожесть с консольными утилитами</h1>
+</div>
+<h1 id="skhozhest-s-konsol-nymi-utilitami"><a class="anchor" href="#skhozhest-s-konsol-nymi-utilitami">#</a>Схожесть с консольными утилитами</h1>
 <p>Обычно люди в качестве пет-проектов, или просто начинающие программисты пишут консольные утилиты, потому что они проще, потому что они не требуют слишком много разбираться и ломать голову.</p>
 <p>ImGui предоставляет точно такие же преимущества. И если раньше школьники начинали с консольных приложений, потому что они проще, то сейчас они могут начинать с ImGui.</p>
 <p>Я уверен, что если школьник сразу начнёт делать свои программы и видеть результат в ImGui, то весь процесс будет для него в 10 раз интересней, чем когда он вводит данные из файла или в консоли. Это увеличивает вовлечённость и потенциал обучения программированию.</p>
@@ -831,11 +765,6 @@
 
 
     </td><td style="border: 0px; padding: 0.2rem;">
-    
-    <!-- Yandex.Metrika informer -->
-    <a href="https://metrika.yandex.ru/stat/?id=53392057&amp;from=informer" target="_blank" rel="nofollkw"><img src="https://informer.yandex.ru/informer/53392057/1_0_35B977FF_159957FF_1_pageviews" style="width:80px; height:15px; border:0; border-radius: 0px; margin-top: -4px; max-height: 100%; max-width: 100%;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры)" class="ym-advanced-informer" data-cid="53392057" data-lang="ru" /></a> 
-    <!-- /Yandex.Metrika informer -->
-    
 
     </td></tr>
     </table>

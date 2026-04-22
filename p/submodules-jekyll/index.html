@@ -13,13 +13,6 @@
   <link rel="stylesheet" href="/main.css">
   <!-- --- -->
 
-  
-  <!-- Yandex.Metrika counter -->
-  <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(53392057, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/53392057" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-  <meta name="yandex-verification" content="ec61b5ac4464201b" />
-  <!-- --- -->
-  
-
   <!-- Non social metatags -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -247,19 +240,6 @@
 <h1 id="submodules"><a class="anchor" href="#submodules">#</a>Submodules</h1>
 <p>Чтобы рассказать как я это сделал, сначала надо ввести вас в контекст.</p>
 <p>В git есть такая интересная вещь под названием <code>submodules</code>. Воспользоваться ей можно так: <code>git submodule add &lt;path-to-repository&gt;</code>. С точки зрения вашей локальной копии она делает то же самое что и <code>git clone &lt;path-to-repository&gt;</code>, а с точки зрения git'а она добавляет особое отслеживание состояния данной склонированной папки. На удалённое хранилище вашего репозитория (eg Github) отправляется минимальная информация о том, что находится в этой папке: адрес к репозиторию и хэш коммита. В гитхабе это отображается папкой со стрелкой и ведёт на репозиторий куда ссылается данный сабмодуль:</p>
-
-    
-
-
-    
-
-
-
-
-
-
-
-
 <div class="magnifier-container img-one">
 <img
     class="not-default full-screen-img"
@@ -278,20 +258,20 @@
 <h1 id="step-to-step"><a class="anchor" href="#step-to-step">#</a>Step-to-step</h1>
 <h2 id="shag-0-nastroika-repozitoriia-kotoryi-budet-publikovat-sia-kak-stat-ia"><a class="anchor" href="#shag-0-nastroika-repozitoriia-kotoryi-budet-publikovat-sia-kak-stat-ia">#<sup>2</sup></a>Шаг 0: настройка репозитория, который будет публиковаться как статья</h2>
 <p>Необходимо в этом репозитории создать <code>blogpost.md</code> файл (назвать можно как угодно), со следующим содержимым:</p>
-<pre data-lang="md" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-md "><code class="language-md" data-lang="md"><span style="background-color:#234561;font-style:italic;color:#f8f8f8;">---
-</span><span>layout: post
-</span><span>title: &quot;4D&quot;
-</span><span>tags: [4D, систематизация]
-</span><span>permalink: 4D
-</span><span>description: &quot;Сборник информации о четвёртом измерении. Если вы изучете всё что здесь находится, то сможете понять четвёртое измерение.&quot;
-</span><span>image: submodules/4D/img/inside4D_2.png
-</span><span>submodule: true
-</span><span>thisname: submodules/4D
-</span><span>date: 2020-12-15
-</span><span>github: https://github.com/optozorax/4D
-</span><span style="color:#b82812;">---
+<pre data-lang="md" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-md "><code class="language-md" data-lang="md"><span style="background-color:#234561;font-style:italic;color:#f8f8f8;">---</span><span>
+</span><span>layout: post</span><span>
+</span><span>title: &quot;4D&quot;</span><span>
+</span><span>tags: [4D, систематизация]</span><span>
+</span><span>permalink: 4D</span><span>
+</span><span>description: &quot;Сборник информации о четвёртом измерении. Если вы изучете всё что здесь находится, то сможете понять четвёртое измерение.&quot;</span><span>
+</span><span>image: submodules/4D/img/inside4D_2.png</span><span>
+</span><span>submodule: true</span><span>
+</span><span>thisname: submodules/4D</span><span>
+</span><span>date: 2020-12-15</span><span>
+</span><span>github: https://github.com/optozorax/4D</span><span>
+</span><span style="background-color:#234561;font-style:italic;color:#f8f8f8;">---</span><span>
 </span><span>
-</span><span>{% include_relative README.md %}
+</span><span>{% include_relative README.md %}</span><span>
 </span></code></pre>
 <ul>
 <li>Тэги здесь должны перечисляться не через пробелы, как это делается в обычных постах, а внутри квадратных скобок и через запятые. Почему-то это работает только так, я хз почему.</li>
@@ -314,51 +294,51 @@
 <p>А об этом следующий шаг и первый костыль...</p>
 <h2 id="shag-2-zastavliaem-kartinki-rabotat"><a class="anchor" href="#shag-2-zastavliaem-kartinki-rabotat">#<sup>2</sup></a>Шаг 2: заставляем картинки работать</h2>
 <p>Открываем файл <code>_post.html</code> и чему-то, что оборачивает контент, задаём айдишник <code>content</code>. В моём случае было так:</p>
-<pre data-lang="diff" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-diff "><code class="language-diff" data-lang="diff"><span style="background-color:#6c1d15;color:#f8f8f8;">- &lt;div itemprop=&quot;articleBody&quot;&gt;
-</span><span style="background-color:#3b5a37;color:#f8f8f8;">+ &lt;div itemprop=&quot;articleBody&quot; id=&quot;content&quot;&gt;
+<pre data-lang="diff" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-diff "><code class="language-diff" data-lang="diff"><span style="background-color:#6c1d15;color:#f8f8f8;">- &lt;div itemprop=&quot;articleBody&quot;&gt;</span><span>
+</span><span style="background-color:#3b5a37;color:#f8f8f8;">+ &lt;div itemprop=&quot;articleBody&quot; id=&quot;content&quot;&gt;</span><span>
 </span></code></pre>
 <p>Затем после этого <code>div</code> вставляем такой js код:</p>
-<pre data-lang="html" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-html "><code class="language-html" data-lang="html"><span>{% if page.submodule %}
-</span><span style="color:#6486ab;">&lt;script&gt;
-</span><span>  </span><span style="background-color:#b0b3ba14;color:#668f14;">function </span><span style="background-color:#b0b3ba14;color:#c23f31;">fixer</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">() {
-</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">    </span><span style="background-color:#b0b3ba14;color:#72ab00;">return </span><span style="background-color:#b0b3ba14;color:#668f14;">function</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#5597d6;">img</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">) {
-</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">      </span><span style="background-color:#b0b3ba14;color:#72ab00;">return </span><span style="background-color:#b0b3ba14;color:#668f14;">function</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">() {
-</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">        </span><span style="background-color:#b0b3ba14;color:#72ab00;">if </span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#5597d6;">img</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.trying_to_fix </span><span style="background-color:#b0b3ba14;color:#72ab00;">=== </span><span style="background-color:#b0b3ba14;color:#b3933a;">undefined</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">) {
-</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">          </span><span style="background-color:#b0b3ba14;color:#668f14;">var </span><span style="background-color:#b0b3ba14;color:#5597d6;">url </span><span style="background-color:#b0b3ba14;color:#72ab00;">= new </span><span style="background-color:#b0b3ba14;color:#5597d6;">URL</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#5597d6;">img</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.src);
-</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">          </span><span style="background-color:#b0b3ba14;color:#a2a001;">console</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.</span><span style="background-color:#b0b3ba14;color:#b39f04;">log</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#d07711;">&quot;[SUBMODULES FIXER] Trying to fix img: &quot; </span><span style="background-color:#b0b3ba14;color:#72ab00;">+ </span><span style="background-color:#b0b3ba14;color:#5597d6;">url</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">);
-</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">          </span><span style="background-color:#b0b3ba14;color:#5597d6;">img</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.src </span><span style="background-color:#b0b3ba14;color:#72ab00;">= </span><span style="background-color:#b0b3ba14;color:#d07711;">&quot;{{ page.thisname }}&quot; </span><span style="background-color:#b0b3ba14;color:#72ab00;">+ </span><span style="background-color:#b0b3ba14;color:#5597d6;">url</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.pathname;
-</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">          </span><span style="background-color:#b0b3ba14;color:#5597d6;">img</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.trying_to_fix </span><span style="background-color:#b0b3ba14;color:#72ab00;">= </span><span style="background-color:#b0b3ba14;color:#b3933a;">true</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">;
-</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">        } </span><span style="background-color:#b0b3ba14;color:#72ab00;">else </span><span style="background-color:#b0b3ba14;color:#1f1f1f;">{
-</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">          </span><span style="background-color:#b0b3ba14;color:#a2a001;">console</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.</span><span style="background-color:#b0b3ba14;color:#b39f04;">log</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#d07711;">&quot;[SUBMODULES FIXER] Unable to fix: &quot; </span><span style="background-color:#b0b3ba14;color:#72ab00;">+ </span><span style="background-color:#b0b3ba14;color:#5597d6;">img</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.src);
-</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">        }
-</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">      };
-</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">    };
-</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">  }
-</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">  </span><span style="background-color:#b0b3ba14;color:#668f14;">var </span><span style="background-color:#b0b3ba14;color:#5597d6;">collection </span><span style="background-color:#b0b3ba14;color:#72ab00;">= </span><span style="background-color:#b0b3ba14;color:#a2a001;">document</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.</span><span style="background-color:#b0b3ba14;color:#5597d6;">getElementById</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#d07711;">&quot;content&quot;</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">).</span><span style="background-color:#b0b3ba14;color:#5597d6;">getElementsByTagName</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#d07711;">&quot;img&quot;</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">);
-</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">  </span><span style="background-color:#b0b3ba14;color:#72ab00;">for </span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#668f14;">var </span><span style="background-color:#b0b3ba14;color:#5597d6;">i </span><span style="background-color:#b0b3ba14;color:#72ab00;">= </span><span style="background-color:#b0b3ba14;color:#b3933a;">0</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">; </span><span style="background-color:#b0b3ba14;color:#5597d6;">i </span><span style="background-color:#b0b3ba14;color:#72ab00;">&lt; </span><span style="background-color:#b0b3ba14;color:#5597d6;">collection</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.length; </span><span style="background-color:#b0b3ba14;color:#5597d6;">i</span><span style="background-color:#b0b3ba14;color:#72ab00;">++</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">) {
-</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">    </span><span style="background-color:#b0b3ba14;color:#668f14;">var </span><span style="background-color:#b0b3ba14;color:#5597d6;">item </span><span style="background-color:#b0b3ba14;color:#72ab00;">= </span><span style="background-color:#b0b3ba14;color:#5597d6;">collection</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.</span><span style="background-color:#b0b3ba14;color:#5597d6;">item</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#5597d6;">i</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">);
-</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">    </span><span style="background-color:#b0b3ba14;color:#668f14;">var </span><span style="background-color:#b0b3ba14;color:#5597d6;">url </span><span style="background-color:#b0b3ba14;color:#72ab00;">= new </span><span style="background-color:#b0b3ba14;color:#5597d6;">URL</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#5597d6;">item</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.src);
-</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">    </span><span style="background-color:#b0b3ba14;color:#72ab00;">if </span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#5597d6;">url</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.host </span><span style="background-color:#b0b3ba14;color:#72ab00;">=== </span><span style="background-color:#b0b3ba14;color:#a2a001;">window</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.location.host) {
-</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">      </span><span style="background-color:#b0b3ba14;color:#5597d6;">item</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.</span><span style="background-color:#b0b3ba14;color:#5597d6;">addEventListener</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#d07711;">&#39;error&#39;</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">, </span><span style="background-color:#b0b3ba14;color:#5597d6;">fixer</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">()(</span><span style="background-color:#b0b3ba14;color:#5597d6;">item</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">));
-</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">    }
-</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">  }
-</span><span style="color:#6486ab;">&lt;/script&gt;
-</span><span>{% endif %}
+<pre data-lang="html" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-html "><code class="language-html" data-lang="html"><span>{% if page.submodule %}</span><span>
+</span><span style="color:#6486ab;">&lt;script&gt;</span><span>
+</span><span>  </span><span style="background-color:#b0b3ba14;color:#668f14;">function </span><span style="background-color:#b0b3ba14;color:#c23f31;">fixer</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">() {</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">    </span><span style="background-color:#b0b3ba14;color:#72ab00;">return </span><span style="background-color:#b0b3ba14;color:#668f14;">function</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#5597d6;">img</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">) {</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">      </span><span style="background-color:#b0b3ba14;color:#72ab00;">return </span><span style="background-color:#b0b3ba14;color:#668f14;">function</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">() {</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">        </span><span style="background-color:#b0b3ba14;color:#72ab00;">if </span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#5597d6;">img</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.trying_to_fix </span><span style="background-color:#b0b3ba14;color:#72ab00;">=== </span><span style="background-color:#b0b3ba14;color:#b3933a;">undefined</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">) {</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">          </span><span style="background-color:#b0b3ba14;color:#668f14;">var </span><span style="background-color:#b0b3ba14;color:#5597d6;">url </span><span style="background-color:#b0b3ba14;color:#72ab00;">= new </span><span style="background-color:#b0b3ba14;color:#5597d6;">URL</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#5597d6;">img</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.src);</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">          </span><span style="background-color:#b0b3ba14;color:#a2a001;">console</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.</span><span style="background-color:#b0b3ba14;color:#b39f04;">log</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#d07711;">&quot;[SUBMODULES FIXER] Trying to fix img: &quot; </span><span style="background-color:#b0b3ba14;color:#72ab00;">+ </span><span style="background-color:#b0b3ba14;color:#5597d6;">url</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">);</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">          </span><span style="background-color:#b0b3ba14;color:#5597d6;">img</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.src </span><span style="background-color:#b0b3ba14;color:#72ab00;">= </span><span style="background-color:#b0b3ba14;color:#d07711;">&quot;{{ page.thisname }}&quot; </span><span style="background-color:#b0b3ba14;color:#72ab00;">+ </span><span style="background-color:#b0b3ba14;color:#5597d6;">url</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.pathname;</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">          </span><span style="background-color:#b0b3ba14;color:#5597d6;">img</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.trying_to_fix </span><span style="background-color:#b0b3ba14;color:#72ab00;">= </span><span style="background-color:#b0b3ba14;color:#b3933a;">true</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">;</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">        } </span><span style="background-color:#b0b3ba14;color:#72ab00;">else </span><span style="background-color:#b0b3ba14;color:#1f1f1f;">{</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">          </span><span style="background-color:#b0b3ba14;color:#a2a001;">console</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.</span><span style="background-color:#b0b3ba14;color:#b39f04;">log</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#d07711;">&quot;[SUBMODULES FIXER] Unable to fix: &quot; </span><span style="background-color:#b0b3ba14;color:#72ab00;">+ </span><span style="background-color:#b0b3ba14;color:#5597d6;">img</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.src);</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">        }</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">      };</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">    };</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">  }</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">  </span><span style="background-color:#b0b3ba14;color:#668f14;">var </span><span style="background-color:#b0b3ba14;color:#5597d6;">collection </span><span style="background-color:#b0b3ba14;color:#72ab00;">= </span><span style="background-color:#b0b3ba14;color:#a2a001;">document</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.</span><span style="background-color:#b0b3ba14;color:#5597d6;">getElementById</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#d07711;">&quot;content&quot;</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">).</span><span style="background-color:#b0b3ba14;color:#5597d6;">getElementsByTagName</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#d07711;">&quot;img&quot;</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">);</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">  </span><span style="background-color:#b0b3ba14;color:#72ab00;">for </span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#668f14;">var </span><span style="background-color:#b0b3ba14;color:#5597d6;">i </span><span style="background-color:#b0b3ba14;color:#72ab00;">= </span><span style="background-color:#b0b3ba14;color:#b3933a;">0</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">; </span><span style="background-color:#b0b3ba14;color:#5597d6;">i </span><span style="background-color:#b0b3ba14;color:#72ab00;">&lt; </span><span style="background-color:#b0b3ba14;color:#5597d6;">collection</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.length; </span><span style="background-color:#b0b3ba14;color:#5597d6;">i</span><span style="background-color:#b0b3ba14;color:#72ab00;">++</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">) {</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">    </span><span style="background-color:#b0b3ba14;color:#668f14;">var </span><span style="background-color:#b0b3ba14;color:#5597d6;">item </span><span style="background-color:#b0b3ba14;color:#72ab00;">= </span><span style="background-color:#b0b3ba14;color:#5597d6;">collection</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.</span><span style="background-color:#b0b3ba14;color:#5597d6;">item</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#5597d6;">i</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">);</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">    </span><span style="background-color:#b0b3ba14;color:#668f14;">var </span><span style="background-color:#b0b3ba14;color:#5597d6;">url </span><span style="background-color:#b0b3ba14;color:#72ab00;">= new </span><span style="background-color:#b0b3ba14;color:#5597d6;">URL</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#5597d6;">item</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.src);</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">    </span><span style="background-color:#b0b3ba14;color:#72ab00;">if </span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#5597d6;">url</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.host </span><span style="background-color:#b0b3ba14;color:#72ab00;">=== </span><span style="background-color:#b0b3ba14;color:#a2a001;">window</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.location.host) {</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">      </span><span style="background-color:#b0b3ba14;color:#5597d6;">item</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">.</span><span style="background-color:#b0b3ba14;color:#5597d6;">addEventListener</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">(</span><span style="background-color:#b0b3ba14;color:#d07711;">&#39;error&#39;</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">, </span><span style="background-color:#b0b3ba14;color:#5597d6;">fixer</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">()(</span><span style="background-color:#b0b3ba14;color:#5597d6;">item</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">));</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">    }</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">
+</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">  }</span><span style="background-color:#b0b3ba14;color:#1f1f1f;">
+</span><span style="color:#6486ab;">&lt;/script&gt;</span><span>
+</span><span>{% endif %}</span><span>
 </span></code></pre>
 <p>Во-первых данный код инклюдится только если данная страница устроена по механизму сабмодулей, тут нам пригождается <code>submodule: true</code>, что мы указали:</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>{% if page.submodule %}
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>{% if page.submodule %}</span><span>
 </span></code></pre>
 <p>Во-вторых, данный код перебирает все картинки, и в случае неудачи пытается добавить к ним абсолютный адрес. Тут нам пригождается <code>thisname: submodules/4D</code> что мы указывали ранее.</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>img.src = &quot;{{ page.thisname }}&quot; + url.pathname;
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>img.src = &quot;{{ page.thisname }}&quot; + url.pathname;</span><span>
 </span></code></pre>
 <p>Хотел бы я картинки фиксить статически, но что поделать, нету доступа к коду jekyll. Захардкожено в нём всё. Поэтому фиксим такими костылями на фронтенде. Работает вполне незаметно, так что вроде даже норм.</p>
 <h2 id="shag-3-otobrazhaem-eti-stranitsy-v-toi-zhe-lente-chto-i-obychnye-blogposty"><a class="anchor" href="#shag-3-otobrazhaem-eti-stranitsy-v-toi-zhe-lente-chto-i-obychnye-blogposty">#<sup>2</sup></a>Шаг 3: отображаем эти страницы в той же ленте что и обычные блогпосты</h2>
 <p>Так, значит на данный момент наши страницы существуют, но они не отображаются в ленте на домашней странице. Исправляем это, редактируя файл <code>_layouts/home.html</code>:</p>
-<pre data-lang="diff" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-diff "><code class="language-diff" data-lang="diff"><span style="background-color:#6c1d15;color:#f8f8f8;">- {% for post in site.posts %}
-</span><span style="background-color:#3b5a37;color:#f8f8f8;">+ {% assign pages_posts = site.pages | where: &quot;submodule&quot;, true %}
-</span><span style="background-color:#3b5a37;color:#f8f8f8;">+ {% assign concatted_posts = site.posts | concat: pages_posts %}
-</span><span style="background-color:#3b5a37;color:#f8f8f8;">+ {% assign result_posts = concatted_posts | sort_natural: &quot;date&quot; | reverse %}
-</span><span style="background-color:#3b5a37;color:#f8f8f8;">+ {% for post in result_posts %}
+<pre data-lang="diff" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-diff "><code class="language-diff" data-lang="diff"><span style="background-color:#6c1d15;color:#f8f8f8;">- {% for post in site.posts %}</span><span>
+</span><span style="background-color:#3b5a37;color:#f8f8f8;">+ {% assign pages_posts = site.pages | where: &quot;submodule&quot;, true %}</span><span>
+</span><span style="background-color:#3b5a37;color:#f8f8f8;">+ {% assign concatted_posts = site.posts | concat: pages_posts %}</span><span>
+</span><span style="background-color:#3b5a37;color:#f8f8f8;">+ {% assign result_posts = concatted_posts | sort_natural: &quot;date&quot; | reverse %}</span><span>
+</span><span style="background-color:#3b5a37;color:#f8f8f8;">+ {% for post in result_posts %}</span><span>
 </span></code></pre>
 <p>По сути тут мы просто заменяем обращение к постам на обращение к постам, сконкатенированным с нашими страницами <code>submodule: true</code>.</p>
 <p>Кстати, тут есть такой код как <code>sort_natural: &quot;date&quot;</code>. Он сортирует посты в хронологическом порядке, используя сравнение строк дат (обычный <code>sort</code> здесь не будет работать). Для того чтобы это работало, надо ещё кое-что сделать...</p>
@@ -370,35 +350,22 @@
 <p>Кажется запахло жареными костылями.</p>
 <p>Чтож. Скажу вам, что в liquid нету возможности сортировать по датам (простым <code>sort</code>), поэтому мы вставляем ещё один костыль: найдите где в настройках задаётся дата для всего блога, и поставьте там: <code>%Y-%M-%d</code>. Это чтобы дата отображалась в виде <code>YYYY-MM-DD</code>, чтобы при сортировке по строке, мы могли получить правильный хронологический порядок. Это работает, потому что при задании этой опции, где-то внутри jekyll для каждой страницы происходит преобразование даты в строку по этому формату...</p>
 <p>У меня надо было поменять в <code>_config.yml</code>:</p>
-<pre data-lang="yml" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-yml "><code class="language-yml" data-lang="yml"><span style="color:#7f902a;">cayman-blog</span><span>:
-</span><span>  </span><span style="color:#7f902a;">date_format</span><span>: </span><span style="color:#d07711;">&quot;%Y-%M-%d&quot;
+<pre data-lang="yml" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-yml "><code class="language-yml" data-lang="yml"><span style="color:#7f902a;">cayman-blog</span><span>:</span><span>
+</span><span>  </span><span style="color:#7f902a;">date_format</span><span>: </span><span style="color:#d07711;">&quot;%Y-%M-%d&quot;</span><span>
 </span></code></pre>
 <p>Затем во всех местах где происходит обращение к этой дате по умолчанию <code>site.cayman-blog.date_format</code> замените на ту дату, которая у вас была до этого, и которая вам больше нравится. У меня надо было поменять лишь в двух местах:</p>
 <p><code>_layouts/home.html</code>, <code>_layouts/default.html</code>:</p>
-<pre data-lang="diff" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-diff "><code class="language-diff" data-lang="diff"><span style="background-color:#6c1d15;color:#f8f8f8;">- {% assign date_format = site.cayman-blog.date_format | default: &quot;%b %-d, %Y&quot; %}
-</span><span style="background-color:#3b5a37;color:#f8f8f8;">+ {% assign date_format = &quot;%d %b %Y&quot; %}
+<pre data-lang="diff" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-diff "><code class="language-diff" data-lang="diff"><span style="background-color:#6c1d15;color:#f8f8f8;">- {% assign date_format = site.cayman-blog.date_format | default: &quot;%b %-d, %Y&quot; %}</span><span>
+</span><span style="background-color:#3b5a37;color:#f8f8f8;">+ {% assign date_format = &quot;%d %b %Y&quot; %}</span><span>
 </span></code></pre>
 <h2 id="shag-5-fiksim-bagi-v-ostal-noi-chasti-bloga-u-menia-eto-tegi"><a class="anchor" href="#shag-5-fiksim-bagi-v-ostal-noi-chasti-bloga-u-menia-eto-tegi">#<sup>2</sup></a>Шаг 5: фиксим баги в остальной части блога, у меня - это тэги</h2>
 <p>Я пишу эту статью-инструкцию для своего блога, а я свой блог персонализировал, поэтому у меня вылилось ещё пара мест где пришлось фиксить всё и вся. Ну и плюс надо где-то вставить новые фичи, чтобы такие статьи по особому отображались.</p>
 <p>Я вставил такой код в <code>_layouts/default.html</code>:</p>
-<pre data-lang="html" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-html "><code class="language-html" data-lang="html"><span>{% if page.github %}
-</span><span>    </span><span style="color:#7f902a;">&lt;br&gt;&lt;a href=</span><span style="color:#d07711;">&quot;{{ page.github }}&quot; </span><span style="color:#7f902a;">class=</span><span style="color:#d07711;">&quot;btn&quot; </span><span style="color:#7f902a;">style=</span><span style="color:#d07711;">&quot;</span><span style="background-color:#b0b3ba14;color:#c5af75;">margin</span><span style="background-color:#b0b3ba14;color:#7f902a;">: </span><span style="background-color:#b0b3ba14;color:#ca7840;">0</span><span style="background-color:#b0b3ba14;color:#72ab00;">px</span><span style="background-color:#b0b3ba14;color:#7f902a;">;</span><span style="color:#d07711;">&quot;</span><span style="color:#7f902a;">&gt;</span><span>Эта страница на GitHub</span><span style="color:#7f902a;">&lt;/a&gt;
-</span><span>{% endif %}
+<pre data-lang="html" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-html "><code class="language-html" data-lang="html"><span>{% if page.github %}</span><span>
+</span><span>    </span><span style="color:#7f902a;">&lt;br&gt;&lt;a href=</span><span style="color:#d07711;">&quot;{{ page.github }}&quot; </span><span style="color:#7f902a;">class=</span><span style="color:#d07711;">&quot;btn&quot; </span><span style="color:#7f902a;">style=</span><span style="color:#d07711;">&quot;</span><span style="background-color:#b0b3ba14;color:#c5af75;">margin</span><span style="background-color:#b0b3ba14;color:#7f902a;">: </span><span style="background-color:#b0b3ba14;color:#ca7840;">0</span><span style="background-color:#b0b3ba14;color:#72ab00;">px</span><span style="background-color:#b0b3ba14;color:#7f902a;">;</span><span style="color:#d07711;">&quot;</span><span style="color:#7f902a;">&gt;</span><span>Эта страница на GitHub</span><span style="color:#7f902a;">&lt;/a&gt;</span><span>
+</span><span>{% endif %}</span><span>
 </span></code></pre>
 <p>Чтобы у меня на статьях, которые взяты с репозитория на гитхабе отображалась такая кнопка:</p>
-
-    
-
-
-    
-
-
-
-
-
-
-
-
 <div class="magnifier-container img-one">
 <img
     class="not-default full-screen-img"
@@ -427,14 +394,14 @@
 </blockquote>
 <p>Если вы их ещё не читали, то welcome!</p>
 <p>Получил я этот список, кстати, довольно хитрым образом: =)</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>{{ }}
-</span><span>{%- for item in site.pages -%}
-</span><span>{%- if item.submodule -%}
-</span><span>* [{{ item.title }}]({{ item.url }})
-</span><span>{{ }}
-</span><span>{%- endif -%}
-</span><span>{%- endfor -%}
-</span><span>{{ }}
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>{{ }}</span><span>
+</span><span>{%- for item in site.pages -%}</span><span>
+</span><span>{%- if item.submodule -%}</span><span>
+</span><span>* [{{ item.title }}]({{ item.url }})</span><span>
+</span><span>{{ }}</span><span>
+</span><span>{%- endif -%}</span><span>
+</span><span>{%- endfor -%}</span><span>
+</span><span>{{ }}</span><span>
 </span></code></pre>
 <h1 id="vyvody"><a class="anchor" href="#vyvody">#</a>Выводы</h1>
 <p>Не используйте Jekyll только потому что он по умолчанию поддерживается GitHub Pages. Это движок с неправильной архитектурой организации блогпостов (нельзя сделать картинки локально к посту!!!!!1111), и с слабым языком &quot;программирования&quot; то ли функциональным, то ли императивным. Вместо этого публикуйте свой блог на отдельную ветку, которая будет отправляться на ваш <code>username.github.io</code> сразу html-ками. Используйте для их генерации любой удобный для вас движок. Вы, наверное, даже можете настроить чтобы html-ки сами билдились при пуше в репозиторий с исходным кодом блога через всякие бесплатные CI/CD.</p>
@@ -687,11 +654,6 @@
 
 
     </td><td style="border: 0px; padding: 0.2rem;">
-    
-    <!-- Yandex.Metrika informer -->
-    <a href="https://metrika.yandex.ru/stat/?id=53392057&amp;from=informer" target="_blank" rel="nofollkw"><img src="https://informer.yandex.ru/informer/53392057/1_0_35B977FF_159957FF_1_pageviews" style="width:80px; height:15px; border:0; border-radius: 0px; margin-top: -4px; max-height: 100%; max-width: 100%;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры)" class="ym-advanced-informer" data-cid="53392057" data-lang="ru" /></a> 
-    <!-- /Yandex.Metrika informer -->
-    
 
     </td></tr>
     </table>

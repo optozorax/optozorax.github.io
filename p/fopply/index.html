@@ -13,13 +13,6 @@
   <link rel="stylesheet" href="/main.css">
   <!-- --- -->
 
-  
-  <!-- Yandex.Metrika counter -->
-  <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(53392057, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/53392057" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-  <meta name="yandex-verification" content="ec61b5ac4464201b" />
-  <!-- --- -->
-  
-
   <!-- Non social metatags -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -241,39 +234,39 @@
 <p>Сегодня с утра у меня появилось непреодолимое желание написать частичку калькулятора над формулами. Его суть: у нас есть формулы и выражения. Мы можем применять формулы к выражениям, чтобы преобразовывать их к другому виду.</p>
 <p>Я накидал программу, которая парсит формулы и выражения из строк и выполняет это &quot;применение формулы&quot;.</p>
 <p>Например, у нас есть формула:</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>a+b &lt;-&gt; b+a  
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>a+b &lt;-&gt; b+a  </span><span>
 </span></code></pre>
 <p>где символ <code>&lt;-&gt;</code> означает, что мы можем преобразовывать как левое в правое, так и наоборот.</p>
 <p>Тогда если применить эту формулу к выражению:</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>x*y*(c+d) + a*b*c
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>x*y*(c+d) + a*b*c</span><span>
 </span></code></pre>
 <p>то мы получим:</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>a*b*c + x*y*(c+d)  
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>a*b*c + x*y*(c+d)  </span><span>
 </span></code></pre>
 <p>Что, собственно, моя программа и делает.</p>
 <p><a href="https://github.com/optozorax/fopply/tree/f95111d40a2c3a6a729c2a907f2d1ec750022106">Вот код</a>. Получилось немного: 168 строк кода.</p>
 <p>Для представления выражения я использовал следующий enum:</p>
-<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#668f14;">enum </span><span style="color:#c23f31;">Tree </span><span>{
-</span><span>    Function {
-</span><span>        name: </span><span style="color:#a2a001;">String</span><span>,
-</span><span>        args: </span><span style="color:#a2a001;">Vec</span><span>&lt;Tree&gt;,
-</span><span>    },
-</span><span>    Variable {
-</span><span>        name: </span><span style="color:#a2a001;">String</span><span>,
-</span><span>    }
-</span><span>}
+<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#668f14;">enum </span><span style="color:#c23f31;">Tree </span><span>{</span><span>
+</span><span>    Function {</span><span>
+</span><span>        name: </span><span style="color:#a2a001;">String</span><span>,</span><span>
+</span><span>        args: </span><span style="color:#a2a001;">Vec</span><span>&lt;Tree&gt;,</span><span>
+</span><span>    },</span><span>
+</span><span>    Variable {</span><span>
+</span><span>        name: </span><span style="color:#a2a001;">String</span><span>,</span><span>
+</span><span>    }</span><span>
+</span><span>}</span><span>
 </span></code></pre>
 <p>Где <code>Function::name</code> может принимать значения <code>&quot;+&quot;</code>, <code>&quot;*&quot;</code>, <code>&quot;sin&quot;</code> и вообще любой функции.</p>
 <p>Сначала при помощи <a href="https://github.com/kevinmehall/rust-peg">rust-peg</a> я паршу строку формулы в эту структуру данных.</p>
 <p>Затем есть функция <code>find_bindings</code>, которая принимает формулу и выражение, и возвращает какие переменные в формулы соответствуют под-выражениям из основного выражения. Лучше всего это показать на примере:</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>find_bindings(&quot;a+b&quot;, &quot;x*y*(c+d) + a*b*c&quot;) -&gt; 
-</span><span>[
-</span><span>  (&quot;a&quot;, &quot;x*y*(c+d)&quot;),
-</span><span>  (&quot;b&quot;, &quot;a*b*c&quot;)
-</span><span>]
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>find_bindings(&quot;a+b&quot;, &quot;x*y*(c+d) + a*b*c&quot;) -&gt; </span><span>
+</span><span>[</span><span>
+</span><span>  (&quot;a&quot;, &quot;x*y*(c+d)&quot;),</span><span>
+</span><span>  (&quot;b&quot;, &quot;a*b*c&quot;)</span><span>
+</span><span>]</span><span>
 </span></code></pre>
 <p>Потом имеется функция <code>apply</code>, которая берёт эти биндинги и вторую часть формулы, и заменят в формуле все вхождения переменных на выражения:</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>apply(&quot;b+a&quot;, bindings) -&gt; &quot;a*b*c + x*y*(c+d)&quot;  
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>apply(&quot;b+a&quot;, bindings) -&gt; &quot;a*b*c + x*y*(c+d)&quot;  </span><span>
 </span></code></pre>
 <p>По сути эти две функции являются ядром всех вычислений. Они написаны в функциональном и рекурсивном стиле, что получилось очень прикольно, но при этом и страшно (для непосвящённых).</p>
 <p>В качестве дальнейшего развития:</p>
@@ -282,20 +275,7 @@
 <li>запись всего этого в текстовом файле (см. <code>formulas.txt</code>)</li>
 <li>дорасти до функционала моего старого проекта по преобразованию выражений (про который дай бог расскажу потом)</li>
 </ul>
-<p><figure>
-
-    
-
-
-    
-
-
-
-
-
-
-
-
+<figure>
 <div class="magnifier-container img-one">
 <img
     class="not-default full-screen-img"
@@ -309,7 +289,7 @@
 </div>
 </div>
 <figcaption>Вот так выглядит вывод программы</figcaption>
-</figure></p>
+</figure>
 <h1 id="15-03-2020"><a class="anchor" href="#15-03-2020">#</a>15.03.2020</h1>
 <blockquote>
 <p><strong>Источник:</strong>
@@ -336,19 +316,6 @@
 <p>Затем я заставил аналогичным образом применяться вторую формулу, и в итоге получилось:<br />
 <code>a*b*a*d/(c*(1+2)*3*e*f)</code></p>
 <p>В общем, при помощи двух простых формул я получил программу, которая может произвольное выражение с делением и умножением привести к виду с одним числителем и знаменателем!!! \0/</p>
-
-    
-
-
-    
-
-
-
-
-
-
-
-
 <div class="magnifier-container img-one">
 <img
     class="not-default full-screen-img"
@@ -363,50 +330,37 @@
 </div>
 <p>Я добавил ещё кучу формул:</p>
 <p><strong>Преобразование к дроби:</strong></p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>a/b*c &lt;-&gt; a*c/b
-</span><span>a/b/c &lt;-&gt; a/(b*c)
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>a/b*c &lt;-&gt; a*c/b</span><span>
+</span><span>a/b/c &lt;-&gt; a/(b*c)</span><span>
 </span></code></pre>
 <p><strong>Сложение дробей:</strong></p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>a/b + c/d &lt;-&gt; (a*d+c*b)/(b*d)
-</span><span>a + c/d &lt;-&gt; (a*d+c)/d
-</span><span>a/b + c &lt;-&gt; (a+c*b)/b
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>a/b + c/d &lt;-&gt; (a*d+c*b)/(b*d)</span><span>
+</span><span>a + c/d &lt;-&gt; (a*d+c)/d</span><span>
+</span><span>a/b + c &lt;-&gt; (a+c*b)/b</span><span>
 </span></code></pre>
 <p><strong>Раскрытие скобок:</strong></p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>c*(a+b) &lt;-&gt; (a+b)*c
-</span><span>(a+b)*c &lt;-&gt; a*c+b*c
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>c*(a+b) &lt;-&gt; (a+b)*c</span><span>
+</span><span>(a+b)*c &lt;-&gt; a*c+b*c</span><span>
 </span></code></pre>
 <p><strong>Простейшая оптимизация:</strong></p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>1*a &lt;-&gt; a
-</span><span>a*1 &lt;-&gt; a
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>1*a &lt;-&gt; a</span><span>
+</span><span>a*1 &lt;-&gt; a</span><span>
 </span></code></pre>
 <p>И заставил их все применяться к выражению:</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>c*(a+b)+1/2
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>c*(a+b)+1/2</span><span>
 </span></code></pre>
 <p>В итоге программа привела его к виду:</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>(2ac + 2bc + 1)/2
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>(2ac + 2bc + 1)/2</span><span>
 </span></code></pre>
 <p>!!! 🎉 !!!</p>
 <p>(специально преобразовал к более читабельному виду, убрал лишние умножения)</p>
 <p>В общем она научилась раскрывать скобки и складывать дроби!</p>
 <p>Вот ещё примеры работы:</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>1/(a+b)+1/(c+d) ---&gt; (c+d+a+b)/(ca+da+cb+db)
-</span><span>(x+1)*(x+2) ---&gt; x*x + 2x + x + 2
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>1/(a+b)+1/(c+d) ---&gt; (c+d+a+b)/(ca+da+cb+db)</span><span>
+</span><span>(x+1)*(x+2) ---&gt; x*x + 2x + x + 2</span><span>
 </span></code></pre>
 <p>Конечно, она ещё плохо работает на некоторых примерах, и за счёт внутреннего представления выражения, и за счёт того что надо прикручивать дополнительную логику, но результаты уже впечатляют!</p>
-<p><figure>
-
-    
-
-
-    
-
-
-
-
-
-
-
-
+<figure>
 <div class="magnifier-container img-one">
 <img
     class="not-default full-screen-img"
@@ -420,22 +374,9 @@
 </div>
 </div>
 <figcaption>А ещё я немного разукрасил вывод, чтобы читать было легче. Сори за цвета, терминал ограничен в выборе цветов, поэтому так.</figcaption>
-</figure></p>
+</figure>
 <p>Я тут значит мучаюсь с арифметической грамматикой, а в либе, которую я использую, уже есть средства для работы с парсингом чего-то где есть приоритет операций!</p>
-<p><figure>
-
-    
-
-
-    
-
-
-
-
-
-
-
-
+<figure>
 <div class="magnifier-container img-one">
 <img
     class="not-default full-screen-img"
@@ -449,10 +390,10 @@
 </div>
 </div>
 <figcaption>Грамматика для парсинга арифметических выражений</figcaption>
-</figure></p>
+</figure>
 <p>Заметьте, как расставлены скобочки вокруг <code>@</code>, они отличаются только для <code>^</code>, потому что:</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>a-b-c = (a-b)-c
-</span><span>a^b^c = a^(b^c)
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>a-b-c = (a-b)-c</span><span>
+</span><span>a^b^c = a^(b^c)</span><span>
 </span></code></pre>
 <h1 id="99"><a class="anchor" href="#99">#</a>16.03.2020</h1>
 <blockquote>
@@ -474,51 +415,38 @@
 </ul>
 <p>А чтобы в этом посте было что-то интересно, я опишу вам крутые функции, на которых будет много чего строиться в будущем!</p>
 <p>Для начала договоримся считать операции <code>+</code>, <code>-</code>, <code>*</code> итд как функции от двух аргументов:</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>a+b = sum(a, b)
-</span><span>a-b-c = sub(sub(a, b), c)
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>a+b = sum(a, b)</span><span>
+</span><span>a-b-c = sub(sub(a, b), c)</span><span>
 </span></code></pre>
 <h2 id="funktsiia-many"><a class="anchor" href="#funktsiia-many">#<sup>2</sup></a>Функция many</h2>
 <p>Эта функция принимает на вход два чего угодно одного типа, и она означает, что два значения существуют параллельно. Свойства у неё такие, что, находясь в любой функции, она может из неё выйти. Лучше показать на примере:</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>1+many(1, 2) = many(1+1, 1+2)
-</span><span>sin(many(pi, 0)) = many(sin(pi), sin(0))
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>1+many(1, 2) = many(1+1, 1+2)</span><span>
+</span><span>sin(many(pi, 0)) = many(sin(pi), sin(0))</span><span>
 </span></code></pre>
 <h2 id="funktsiia-ifval"><a class="anchor" href="#funktsiia-ifval">#<sup>2</sup></a>Функция ifval</h2>
 <p>Первый аргумент этой функции - некоторое выражение; а второй - логическое условие. Эта функция позволяет задавать значение, которое существует только при каком-то условии. В его свойства тоже входит, что она может выходить почти из любой функции (пока не знаю, как она должна выходить из логических функций). Опять же пример наше всё:</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>1+ifval(a, a != 0) = ifval(1+a, a != 0)
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>1+ifval(a, a != 0) = ifval(1+a, a != 0)</span><span>
 </span></code></pre>
 <p>При помощи комбинации этих двух функций, можно определить множество интересных вещей, например, модуль!</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>abs(x) = many(ifval(x, x &gt;= 0), ifval(-x, x &lt; 0))
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>abs(x) = many(ifval(x, x &gt;= 0), ifval(-x, x &lt; 0))</span><span>
 </span></code></pre>
 <p>Или корни квадратного уравнения:</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>x = (-b + many(D, -D))/(2a)
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>x = (-b + many(D, -D))/(2a)</span><span>
 </span></code></pre>
 <p>Либо безопасное добавление новых переменных.
 Чтобы объяснить это, давайте вспомним, как мы иногда на математике решали примеры: добавляли в конце прибавление и отнимание какого-то выражения:</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>a = a+b-b
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>a = a+b-b</span><span>
 </span></code></pre>
 <p>Затем использовали это, например, чтобы выделить полный квадрат:</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>x+2x = x+2x + 1 - 1 = (x+1)^2 - 1
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>x+2x = x+2x + 1 - 1 = (x+1)^2 - 1</span><span>
 </span></code></pre>
 <p>С добавлением умножения и деления не всё так просто, ведь мы можем случайно умножить и поделить на ноль! Поэтому формула добавления умножения выглядит так:</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>a &lt;-&gt; many(ifval(a, b == 0), ifval(b*a/b, b != 0))
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>a &lt;-&gt; many(ifval(a, b == 0), ifval(b*a/b, b != 0))</span><span>
 </span></code></pre>
 <p>Благодаря этой формуле мы можем безопасно производить дальнейшие вычисления и ничего не потерять или не сломать. Ещё эта формула работает в обе стороны.</p>
 <p>Стандартная формула работает в одну сторону, соответственно ломает эквивалентность входа и выхода:</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>a -&gt; b*a/b
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>a -&gt; b*a/b</span><span>
 </span></code></pre>
-
-    
-
-
-    
-
-
-
-
-
-
-
-
 <div class="magnifier-container img-one">
 <img
     class="not-default full-screen-img"
@@ -555,29 +483,16 @@
 <p>Для начала об этих долларах на скриншоте. Доллар перед названием переменной обозначает, что когда формула будет применяться, переменная должна иметь именно это название. То есть <code>&quot;a&quot;</code> - это паттерн в формуле <code>&quot;a+b&quot;</code>. А <code>&quot;$true&quot;</code> в формуле <code>&quot;true &amp; a&quot;</code> - это конкретная переменная с именем <code>true</code>.</p>
 <p>С функциями всё наоборот. В них изначально <code>&quot;sin(x)&quot;</code> означает, что функция имеет конкретное имя. Если мы хотим написать формулу для любой функции, то нам нужны хаки, а именно доллар. Таким образом: <code>&quot;$f(a, b)&quot;</code> сматчится с любой функцией от двух аргументов, будь то <code>&quot;a+b&quot;</code> или <code>&quot;atan2(y, x)&quot;</code>.</p>
 <p>Ещё имеются функции с двумя долларами, именно они и будут обозначать что-то встроенное. Например, функция <code>&quot;$$anypos(x)&quot;</code> сматчится с любой функцией с любым количеством переменных, но при этом только если хотя бы один аргумент матчится с паттерном <code>x</code>. Тогда этот паттерн берётся, и производится преобразование над этой функцией только внутри этого аргумента. Лучше покажу на примере. Пусть имеется такая формула:</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>$$anypos(many(a, b)) = many($$anypos(a), $$anypos(b));  
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>$$anypos(many(a, b)) = many($$anypos(a), $$anypos(b));  </span><span>
 </span></code></pre>
 <p>Тогда по этой формуле:</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>myfunc(many(a, b), y, z) = many(myfunc(a, y, z), myfunc(b, y, z))  
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>myfunc(many(a, b), y, z) = many(myfunc(a, y, z), myfunc(b, y, z))  </span><span>
 </span></code></pre>
 <p>В данном случае <code>myfunc</code> сматчилась с <code>$$anypos</code>, а первый её аргумент с <code>many(..)</code>, и при использовании формулы все остальные аргументы функции <code>myfunc</code> остались неизменны.</p>
 <p>Так же думаю что должна быть встроенная функция, которая арифметические выражения, и должны быть матчинги типов через два доллара, например, <code>$$n</code> должен матчиться с любым числом.</p>
 <p>Как видно, я хочу всю логику оперирования математикой вынести в формулы и свой язык, а в коде держать всё максимально абстрагированно от математики. Мне кажется этот подход хорош тем, что на моём языке можно будет описать, например, общую алгебру. И он будет безопаснее, чем кодировать это в коде, но при этом будет работать долго.</p>
 <p>Надо ещё подумать как записывать вывод формул из одних в другие.</p>
-<p><figure>
-
-    
-
-
-    
-
-
-
-
-
-
-
-
+<figure>
 <div class="magnifier-container img-one">
 <img
     class="not-default full-screen-img"
@@ -591,7 +506,7 @@
 </div>
 </div>
 <figcaption>Слева код формул, справа код для задания синтаксиса в саблайме.</figcaption>
-</figure></p>
+</figure>
 <h1 id="22-03-2020"><a class="anchor" href="#22-03-2020">#</a>22.03.2020</h1>
 <blockquote>
 <p><strong>Источник:</strong>
@@ -618,103 +533,93 @@
 <p>А вот код вычисления этих матриц, кому интересно: </p>
 <details>
 <summary>integrate_fem_3.py <a class='right' href='https://github.com/optozorax/labs_emf/blob/3c1285218149ed732155c0e8b00082984015c7aa/coursework2/integrate_fem_3.py'>link</a></summary>
-<div class="details-content"><pre data-lang="python" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#72ab00;">from </span><span>sympy </span><span style="color:#72ab00;">import </span><span style="color:#b3933a;">*
-</span><span style="color:#72ab00;">import </span><span>copy
+<div class="details-content">
+<pre data-lang="python" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#72ab00;">from </span><span>sympy </span><span style="color:#72ab00;">import </span><span style="color:#b3933a;">*</span><span>
+</span><span style="color:#72ab00;">import </span><span>copy</span><span>
 </span><span>
-</span><span>a, b, c </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">symbols</span><span>(</span><span style="color:#d07711;">&quot;a b c&quot;</span><span>)
+</span><span>a, b, c </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">symbols</span><span>(</span><span style="color:#d07711;">&quot;a b c&quot;</span><span>)</span><span>
 </span><span>
-</span><span>x, y </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">symbols</span><span>(</span><span style="color:#d07711;">&quot;x y&quot;</span><span>)
+</span><span>x, y </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">symbols</span><span>(</span><span style="color:#d07711;">&quot;x y&quot;</span><span>)</span><span>
 </span><span>
-</span><span style="color:#72ab00;">def </span><span style="color:#c23f31;">get_function</span><span>(</span><span style="color:#5597d6;">list</span><span>, </span><span style="color:#5597d6;">var</span><span>, </span><span style="color:#5597d6;">xy</span><span>, </span><span style="color:#5597d6;">h</span><span>):
-</span><span>	a1 </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">solve</span><span>([
-</span><span>		a</span><span style="color:#72ab00;">*</span><span>xy</span><span style="color:#72ab00;">*</span><span>xy </span><span style="color:#72ab00;">+ </span><span>b</span><span style="color:#72ab00;">*</span><span>xy </span><span style="color:#72ab00;">+ </span><span>c </span><span style="color:#72ab00;">- </span><span style="color:#a2a001;">list</span><span>[</span><span style="color:#b3933a;">0</span><span>], 
-</span><span>		a</span><span style="color:#72ab00;">*</span><span>(xy </span><span style="color:#72ab00;">+ </span><span>h</span><span style="color:#72ab00;">/</span><span style="color:#b3933a;">2</span><span>)</span><span style="color:#72ab00;">*</span><span>(xy </span><span style="color:#72ab00;">+ </span><span>h</span><span style="color:#72ab00;">/</span><span style="color:#b3933a;">2</span><span>) </span><span style="color:#72ab00;">+ </span><span>b</span><span style="color:#72ab00;">*</span><span>(xy </span><span style="color:#72ab00;">+ </span><span>h</span><span style="color:#72ab00;">/</span><span style="color:#b3933a;">2</span><span>) </span><span style="color:#72ab00;">+ </span><span>c </span><span style="color:#72ab00;">- </span><span style="color:#a2a001;">list</span><span>[</span><span style="color:#b3933a;">1</span><span>], 
-</span><span>		a</span><span style="color:#72ab00;">*</span><span>(xy </span><span style="color:#72ab00;">+ </span><span>h)</span><span style="color:#72ab00;">*</span><span>(xy </span><span style="color:#72ab00;">+ </span><span>h) </span><span style="color:#72ab00;">+ </span><span>b</span><span style="color:#72ab00;">*</span><span>(xy </span><span style="color:#72ab00;">+ </span><span>h) </span><span style="color:#72ab00;">+ </span><span>c </span><span style="color:#72ab00;">- </span><span style="color:#a2a001;">list</span><span>[</span><span style="color:#b3933a;">2</span><span>]
-</span><span>	], (a, b, c))
-</span><span>	</span><span style="color:#72ab00;">return </span><span>a1[a]</span><span style="color:#72ab00;">*</span><span>var</span><span style="color:#72ab00;">*</span><span>var </span><span style="color:#72ab00;">+ </span><span>a1[b]</span><span style="color:#72ab00;">*</span><span>var </span><span style="color:#72ab00;">+ </span><span>a1[c]
+</span><span style="color:#72ab00;">def </span><span style="color:#c23f31;">get_function</span><span>(</span><span style="color:#5597d6;">list</span><span>, </span><span style="color:#5597d6;">var</span><span>, </span><span style="color:#5597d6;">xy</span><span>, </span><span style="color:#5597d6;">h</span><span>):</span><span>
+</span><span>	a1 </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">solve</span><span>([</span><span>
+</span><span>		a</span><span style="color:#72ab00;">*</span><span>xy</span><span style="color:#72ab00;">*</span><span>xy </span><span style="color:#72ab00;">+ </span><span>b</span><span style="color:#72ab00;">*</span><span>xy </span><span style="color:#72ab00;">+ </span><span>c </span><span style="color:#72ab00;">- </span><span style="color:#a2a001;">list</span><span>[</span><span style="color:#b3933a;">0</span><span>], </span><span>
+</span><span>		a</span><span style="color:#72ab00;">*</span><span>(xy </span><span style="color:#72ab00;">+ </span><span>h</span><span style="color:#72ab00;">/</span><span style="color:#b3933a;">2</span><span>)</span><span style="color:#72ab00;">*</span><span>(xy </span><span style="color:#72ab00;">+ </span><span>h</span><span style="color:#72ab00;">/</span><span style="color:#b3933a;">2</span><span>) </span><span style="color:#72ab00;">+ </span><span>b</span><span style="color:#72ab00;">*</span><span>(xy </span><span style="color:#72ab00;">+ </span><span>h</span><span style="color:#72ab00;">/</span><span style="color:#b3933a;">2</span><span>) </span><span style="color:#72ab00;">+ </span><span>c </span><span style="color:#72ab00;">- </span><span style="color:#a2a001;">list</span><span>[</span><span style="color:#b3933a;">1</span><span>], </span><span>
+</span><span>		a</span><span style="color:#72ab00;">*</span><span>(xy </span><span style="color:#72ab00;">+ </span><span>h)</span><span style="color:#72ab00;">*</span><span>(xy </span><span style="color:#72ab00;">+ </span><span>h) </span><span style="color:#72ab00;">+ </span><span>b</span><span style="color:#72ab00;">*</span><span>(xy </span><span style="color:#72ab00;">+ </span><span>h) </span><span style="color:#72ab00;">+ </span><span>c </span><span style="color:#72ab00;">- </span><span style="color:#a2a001;">list</span><span>[</span><span style="color:#b3933a;">2</span><span>]</span><span>
+</span><span>	], (a, b, c))</span><span>
+</span><span>	</span><span style="color:#72ab00;">return </span><span>a1[a]</span><span style="color:#72ab00;">*</span><span>var</span><span style="color:#72ab00;">*</span><span>var </span><span style="color:#72ab00;">+ </span><span>a1[b]</span><span style="color:#72ab00;">*</span><span>var </span><span style="color:#72ab00;">+ </span><span>a1[c]</span><span>
 </span><span>
-</span><span>x_p, h_x </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">symbols</span><span>(</span><span style="color:#d07711;">&quot;x_p h_x&quot;</span><span>)
-</span><span>x_p1 </span><span style="color:#72ab00;">= </span><span>x_p </span><span style="color:#72ab00;">+ </span><span>h_x
+</span><span>x_p, h_x </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">symbols</span><span>(</span><span style="color:#d07711;">&quot;x_p h_x&quot;</span><span>)</span><span>
+</span><span>x_p1 </span><span style="color:#72ab00;">= </span><span>x_p </span><span style="color:#72ab00;">+ </span><span>h_x</span><span>
 </span><span>
-</span><span>y_p, h_y </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">symbols</span><span>(</span><span style="color:#d07711;">&quot;y_p h_y&quot;</span><span>)
-</span><span>y_p1 </span><span style="color:#72ab00;">= </span><span>y_p </span><span style="color:#72ab00;">+ </span><span>h_y
+</span><span>y_p, h_y </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">symbols</span><span>(</span><span style="color:#d07711;">&quot;y_p h_y&quot;</span><span>)</span><span>
+</span><span>y_p1 </span><span style="color:#72ab00;">= </span><span>y_p </span><span style="color:#72ab00;">+ </span><span>h_y</span><span>
 </span><span>
-</span><span>X1 </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">get_function</span><span>([</span><span style="color:#b3933a;">1</span><span>, </span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0</span><span>], x, x_p, h_x)
-</span><span>X2 </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">get_function</span><span>([</span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">1</span><span>, </span><span style="color:#b3933a;">0</span><span>], x, x_p, h_x)
-</span><span>X3 </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">get_function</span><span>([</span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">1</span><span>], x, x_p, h_x)
+</span><span>X1 </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">get_function</span><span>([</span><span style="color:#b3933a;">1</span><span>, </span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0</span><span>], x, x_p, h_x)</span><span>
+</span><span>X2 </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">get_function</span><span>([</span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">1</span><span>, </span><span style="color:#b3933a;">0</span><span>], x, x_p, h_x)</span><span>
+</span><span>X3 </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">get_function</span><span>([</span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">1</span><span>], x, x_p, h_x)</span><span>
 </span><span>
-</span><span>Y1 </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">get_function</span><span>([</span><span style="color:#b3933a;">1</span><span>, </span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0</span><span>], y, y_p, h_y)
-</span><span>Y2 </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">get_function</span><span>([</span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">1</span><span>, </span><span style="color:#b3933a;">0</span><span>], y, y_p, h_y)
-</span><span>Y3 </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">get_function</span><span>([</span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">1</span><span>], y, y_p, h_y)
+</span><span>Y1 </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">get_function</span><span>([</span><span style="color:#b3933a;">1</span><span>, </span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0</span><span>], y, y_p, h_y)</span><span>
+</span><span>Y2 </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">get_function</span><span>([</span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">1</span><span>, </span><span style="color:#b3933a;">0</span><span>], y, y_p, h_y)</span><span>
+</span><span>Y3 </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">get_function</span><span>([</span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">1</span><span>], y, y_p, h_y)</span><span>
 </span><span>
-</span><span>f </span><span style="color:#72ab00;">= </span><span>[]
+</span><span>f </span><span style="color:#72ab00;">= </span><span>[]</span><span>
 </span><span>
-</span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span>[Y1, Y2, Y3]:
-</span><span>	</span><span style="color:#72ab00;">for </span><span>j </span><span style="color:#72ab00;">in </span><span>[X1, X2, X3]:
-</span><span>		f.</span><span style="color:#5597d6;">append</span><span>(j</span><span style="color:#72ab00;">*</span><span>i)
+</span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span>[Y1, Y2, Y3]:</span><span>
+</span><span>	</span><span style="color:#72ab00;">for </span><span>j </span><span style="color:#72ab00;">in </span><span>[X1, X2, X3]:</span><span>
+</span><span>		f.</span><span style="color:#5597d6;">append</span><span>(j</span><span style="color:#72ab00;">*</span><span>i)</span><span>
 </span><span>
-</span><span>G1 </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">zeros</span><span>(</span><span style="color:#b39f04;">len</span><span>(f))
-</span><span>G2 </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">zeros</span><span>(</span><span style="color:#b39f04;">len</span><span>(f))
+</span><span>G1 </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">zeros</span><span>(</span><span style="color:#b39f04;">len</span><span>(f))</span><span>
+</span><span>G2 </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">zeros</span><span>(</span><span style="color:#b39f04;">len</span><span>(f))</span><span>
 </span><span>
-</span><span style="color:#72ab00;">for </span><span>i, a </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">enumerate</span><span>(f):
-</span><span>	</span><span style="color:#72ab00;">for </span><span>j, b </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">enumerate</span><span>(f):
-</span><span>		temp </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">simplify</span><span>(
-</span><span>			</span><span style="color:#5597d6;">integrate</span><span>(
-</span><span>				</span><span style="color:#5597d6;">integrate</span><span>(
-</span><span>					</span><span style="color:#5597d6;">diff</span><span>(a, x) </span><span style="color:#72ab00;">* </span><span style="color:#5597d6;">diff</span><span>(b, x) </span><span style="color:#72ab00;">+ </span><span style="color:#5597d6;">diff</span><span>(a, y) </span><span style="color:#72ab00;">* </span><span style="color:#5597d6;">diff</span><span>(b, y),
-</span><span>					(y, y_p, y_p </span><span style="color:#72ab00;">+ </span><span>h_y)
-</span><span>				),
-</span><span>				(x, x_p, x_p </span><span style="color:#72ab00;">+ </span><span>h_x)
-</span><span>			)
-</span><span>		)
-</span><span>		(first, second) </span><span style="color:#72ab00;">= </span><span>temp.args
-</span><span>		(coef, up, down) </span><span style="color:#72ab00;">= </span><span>first.args
-</span><span>		</span><span style="color:#72ab00;">if </span><span>up </span><span style="color:#72ab00;">== </span><span>h_x:
-</span><span>			G1[i, j], G2[i, j] </span><span style="color:#72ab00;">= </span><span>first, second
-</span><span>		</span><span style="color:#72ab00;">else</span><span>:
-</span><span>			G1[i, j], G2[i, j] </span><span style="color:#72ab00;">= </span><span>second, first
+</span><span style="color:#72ab00;">for </span><span>i, a </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">enumerate</span><span>(f):</span><span>
+</span><span>	</span><span style="color:#72ab00;">for </span><span>j, b </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">enumerate</span><span>(f):</span><span>
+</span><span>		temp </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">simplify</span><span>(</span><span>
+</span><span>			</span><span style="color:#5597d6;">integrate</span><span>(</span><span>
+</span><span>				</span><span style="color:#5597d6;">integrate</span><span>(</span><span>
+</span><span>					</span><span style="color:#5597d6;">diff</span><span>(a, x) </span><span style="color:#72ab00;">* </span><span style="color:#5597d6;">diff</span><span>(b, x) </span><span style="color:#72ab00;">+ </span><span style="color:#5597d6;">diff</span><span>(a, y) </span><span style="color:#72ab00;">* </span><span style="color:#5597d6;">diff</span><span>(b, y),</span><span>
+</span><span>					(y, y_p, y_p </span><span style="color:#72ab00;">+ </span><span>h_y)</span><span>
+</span><span>				),</span><span>
+</span><span>				(x, x_p, x_p </span><span style="color:#72ab00;">+ </span><span>h_x)</span><span>
+</span><span>			)</span><span>
+</span><span>		)</span><span>
+</span><span>		(first, second) </span><span style="color:#72ab00;">= </span><span>temp.args</span><span>
+</span><span>		(coef, up, down) </span><span style="color:#72ab00;">= </span><span>first.args</span><span>
+</span><span>		</span><span style="color:#72ab00;">if </span><span>up </span><span style="color:#72ab00;">== </span><span>h_x:</span><span>
+</span><span>			G1[i, j], G2[i, j] </span><span style="color:#72ab00;">= </span><span>first, second</span><span>
+</span><span>		</span><span style="color:#72ab00;">else</span><span>:</span><span>
+</span><span>			G1[i, j], G2[i, j] </span><span style="color:#72ab00;">= </span><span>second, first</span><span>
 </span><span>
-</span><span>M </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">zeros</span><span>(</span><span style="color:#b39f04;">len</span><span>(f))
-</span><span style="color:#72ab00;">for </span><span>i, a </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">enumerate</span><span>(f):
-</span><span>	</span><span style="color:#72ab00;">for </span><span>j, b </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">enumerate</span><span>(f):
-</span><span>		M[i, j] </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">simplify</span><span>(
-</span><span>			</span><span style="color:#5597d6;">integrate</span><span>(
-</span><span>				</span><span style="color:#5597d6;">integrate</span><span>(
-</span><span>					a </span><span style="color:#72ab00;">* </span><span>b,
-</span><span>					(y, y_p, y_p </span><span style="color:#72ab00;">+ </span><span>h_y)
-</span><span>				),
-</span><span>				(x, x_p, x_p </span><span style="color:#72ab00;">+ </span><span>h_x)
-</span><span>			)
-</span><span>		)
+</span><span>M </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">zeros</span><span>(</span><span style="color:#b39f04;">len</span><span>(f))</span><span>
+</span><span style="color:#72ab00;">for </span><span>i, a </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">enumerate</span><span>(f):</span><span>
+</span><span>	</span><span style="color:#72ab00;">for </span><span>j, b </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">enumerate</span><span>(f):</span><span>
+</span><span>		M[i, j] </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">simplify</span><span>(</span><span>
+</span><span>			</span><span style="color:#5597d6;">integrate</span><span>(</span><span>
+</span><span>				</span><span style="color:#5597d6;">integrate</span><span>(</span><span>
+</span><span>					a </span><span style="color:#72ab00;">* </span><span>b,</span><span>
+</span><span>					(y, y_p, y_p </span><span style="color:#72ab00;">+ </span><span>h_y)</span><span>
+</span><span>				),</span><span>
+</span><span>				(x, x_p, x_p </span><span style="color:#72ab00;">+ </span><span>h_x)</span><span>
+</span><span>			)</span><span>
+</span><span>		)</span><span>
 </span><span>
-</span><span>first </span><span style="color:#72ab00;">= </span><span>h_x</span><span style="color:#72ab00;">/</span><span>(h_y</span><span style="color:#72ab00;">*</span><span style="color:#b3933a;">6</span><span style="color:#72ab00;">*</span><span style="color:#b3933a;">15</span><span>)
-</span><span>second </span><span style="color:#72ab00;">= </span><span>h_y</span><span style="color:#72ab00;">/</span><span>(h_x</span><span style="color:#72ab00;">*</span><span style="color:#b3933a;">6</span><span style="color:#72ab00;">*</span><span style="color:#b3933a;">15</span><span>)
-</span><span>G1 </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">simplify</span><span>(G1 </span><span style="color:#72ab00;">/ </span><span>first)
-</span><span>G2 </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">simplify</span><span>(G2 </span><span style="color:#72ab00;">/ </span><span>second)
-</span><span>l </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">Symbol</span><span>(</span><span style="color:#d07711;">&quot;lambda&quot;</span><span>)
+</span><span>first </span><span style="color:#72ab00;">= </span><span>h_x</span><span style="color:#72ab00;">/</span><span>(h_y</span><span style="color:#72ab00;">*</span><span style="color:#b3933a;">6</span><span style="color:#72ab00;">*</span><span style="color:#b3933a;">15</span><span>)</span><span>
+</span><span>second </span><span style="color:#72ab00;">= </span><span>h_y</span><span style="color:#72ab00;">/</span><span>(h_x</span><span style="color:#72ab00;">*</span><span style="color:#b3933a;">6</span><span style="color:#72ab00;">*</span><span style="color:#b3933a;">15</span><span>)</span><span>
+</span><span>G1 </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">simplify</span><span>(G1 </span><span style="color:#72ab00;">/ </span><span>first)</span><span>
+</span><span>G2 </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">simplify</span><span>(G2 </span><span style="color:#72ab00;">/ </span><span>second)</span><span>
+</span><span>l </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">Symbol</span><span>(</span><span style="color:#d07711;">&quot;lambda&quot;</span><span>)</span><span>
 </span><span>
-</span><span style="color:#b39f04;">print</span><span>(</span><span style="color:#d07711;">&quot;G = </span><span style="color:#aeb52b;">{}\\</span><span style="color:#d07711;">cdot</span><span style="color:#aeb52b;">{}</span><span style="color:#d07711;"> + </span><span style="color:#aeb52b;">{}\\</span><span style="color:#d07711;">cdot</span><span style="color:#aeb52b;">{}</span><span style="color:#d07711;">&quot;</span><span>.</span><span style="color:#5597d6;">format</span><span>(</span><span style="color:#5597d6;">latex</span><span>(l </span><span style="color:#72ab00;">* </span><span>first), </span><span style="color:#5597d6;">latex</span><span>(G1), </span><span style="color:#5597d6;">latex</span><span>(l </span><span style="color:#72ab00;">* </span><span>second), </span><span style="color:#5597d6;">latex</span><span>(G2)))
+</span><span style="color:#b39f04;">print</span><span>(</span><span style="color:#d07711;">&quot;G = </span><span style="color:#aeb52b;">{}\\</span><span style="color:#d07711;">cdot</span><span style="color:#aeb52b;">{}</span><span style="color:#d07711;"> + </span><span style="color:#aeb52b;">{}\\</span><span style="color:#d07711;">cdot</span><span style="color:#aeb52b;">{}</span><span style="color:#d07711;">&quot;</span><span>.</span><span style="color:#5597d6;">format</span><span>(</span><span style="color:#5597d6;">latex</span><span>(l </span><span style="color:#72ab00;">* </span><span>first), </span><span style="color:#5597d6;">latex</span><span>(G1), </span><span style="color:#5597d6;">latex</span><span>(l </span><span style="color:#72ab00;">* </span><span>second), </span><span style="color:#5597d6;">latex</span><span>(G2)))</span><span>
 </span><span>
-</span><span>multiplier </span><span style="color:#72ab00;">= </span><span>h_x</span><span style="color:#72ab00;">*</span><span>h_y</span><span style="color:#72ab00;">/</span><span style="color:#b3933a;">36</span><span style="color:#72ab00;">/</span><span style="color:#b3933a;">25
-</span><span>M </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">simplify</span><span>(M </span><span style="color:#72ab00;">/ </span><span>multiplier)
-</span><span>g </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">Symbol</span><span>(</span><span style="color:#d07711;">&quot;gamma&quot;</span><span>)
+</span><span>multiplier </span><span style="color:#72ab00;">= </span><span>h_x</span><span style="color:#72ab00;">*</span><span>h_y</span><span style="color:#72ab00;">/</span><span style="color:#b3933a;">36</span><span style="color:#72ab00;">/</span><span style="color:#b3933a;">25</span><span>
+</span><span>M </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">simplify</span><span>(M </span><span style="color:#72ab00;">/ </span><span>multiplier)</span><span>
+</span><span>g </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">Symbol</span><span>(</span><span style="color:#d07711;">&quot;gamma&quot;</span><span>)</span><span>
 </span><span>
-</span><span style="color:#b39f04;">print</span><span>(</span><span style="color:#d07711;">&quot;M = </span><span style="color:#aeb52b;">{}\\</span><span style="color:#d07711;">cdot</span><span style="color:#aeb52b;">{}</span><span style="color:#d07711;">&quot;</span><span>.</span><span style="color:#5597d6;">format</span><span>(</span><span style="color:#5597d6;">latex</span><span>(g </span><span style="color:#72ab00;">* </span><span>multiplier), </span><span style="color:#5597d6;">latex</span><span>(M)))
+</span><span style="color:#b39f04;">print</span><span>(</span><span style="color:#d07711;">&quot;M = </span><span style="color:#aeb52b;">{}\\</span><span style="color:#d07711;">cdot</span><span style="color:#aeb52b;">{}</span><span style="color:#d07711;">&quot;</span><span>.</span><span style="color:#5597d6;">format</span><span>(</span><span style="color:#5597d6;">latex</span><span>(g </span><span style="color:#72ab00;">* </span><span>multiplier), </span><span style="color:#5597d6;">latex</span><span>(M)))</span><span>
 </span></code></pre>
 </div>
 </details>
-<p><figure>
-
-
-    
-
-
-
-
-
-
-
-
+<figure>
 <div class="magnifier-container img-one-two">
 <img
     class="not-default full-screen-img"
@@ -728,23 +633,10 @@
 </div>
 </div>
 <figcaption>Каждый элемент в этих матрицах - это решение какого-то двойного интеграла.</figcaption>
-</figure></p>
+</figure>
 <p>Чтож, я закончил эту работу, <a href="https://github.com/optozorax/labs_emf/commit/72e893134ee23ff39607e02c94b3a30d05cd4a53">ветка замержена</a>. Рассказывать больше особо нечего, потому что тут слишком много контекста. Да и я просто переделал прошлогоднюю работу на немного другое основание.</p>
 <p>Так что просто полюбуйтесь какие божественные автогенерируемые отчёты в LaTeX с королевскими исследованиями я раньше делал: <a href="https://github.com/optozorax/labs_emf/raw/master/coursework2/report/report.pdf">link to pdf</a>.</p>
-<p><figure>
-
-    
-
-
-    
-
-
-
-
-
-
-
-
+<figure>
 <div class="magnifier-container img-one">
 <img
     class="not-default full-screen-img"
@@ -758,7 +650,7 @@
 </div>
 </div>
 <figcaption>😊</figcaption>
-</figure></p>
+</figure>
 <h1 id="1-07-2020"><a class="anchor" href="#1-07-2020">#</a>1.07.2020</h1>
 <blockquote>
 <p><strong>Источник:</strong>
@@ -768,23 +660,10 @@
 </blockquote>
 <p>Я только что осознал что придуманные там функции, которые обладают свойством &quot;выходить из любой другой функции&quot; <code>ifval</code> и <code>many</code>, на самом деле противоречат сами себе.</p>
 <p>Напомню, что функцию модуля в этих терминах можно описать следующим образом:</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>abs(x) = many(ifval(x, x &gt;= 0), ifval(-x, x &lt; 0))
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>abs(x) = many(ifval(x, x &gt;= 0), ifval(-x, x &lt; 0))</span><span>
 </span></code></pre>
 <p>И вот с заданными мною свойствами этих функций можно прийти к тому что <code>abs(x)</code> всегда является пустым множеством.</p>
-<p><figure>
-
-    
-
-
-    
-
-
-
-
-
-
-
-
+<figure>
 <div class="magnifier-container img-one">
 <img
     class="not-default full-screen-img"
@@ -798,23 +677,10 @@
 </div>
 </div>
 <figcaption>Доказательство этого факта</figcaption>
-</figure></p>
+</figure>
 <p>Вот так можно превратить модуль в пустое множество. Так что придуманные мною обозначения для задания кусочно-заданных функций, вроде модуля, деления на ноль итд, не подходят. И надо искать другие методы формализации кусочно-заданных функций и каким образом мы имеем право преобразовывать такие кусочно-заданные функции в системы уравнений без кусочно-заданных функций.</p>
 <p>В школе мы об этом не думаем, а просто следуем 100500 правилам, схожим с правилами бизнес-логики, поэтому когда дело доходит до формализации или попытки написать программу, сталкиваемся с такими трудностями. Возможно, школьную алгебру уже давно формализовали, и все эти трудности там решены, мне просто нужно нагуглить.</p>
-<p><figure>
-
-    
-
-
-    
-
-
-
-
-
-
-
-
+<figure>
 <div class="magnifier-container img-one">
 <img
     class="not-default full-screen-img"
@@ -828,7 +694,7 @@
 </div>
 </div>
 <figcaption>Вот что я имею ввиду под словами «преобразовать кусочно-заданную функцию в систему уравнений».</figcaption>
-</figure></p>
+</figure>
 <p>Мне интересно по каким именно правилам математики мы можем вот так вот взять и вытащить условия модуля за пределы самого модуля, на уровень равенства, где границы этого протаскивания.</p>
 <h1 id="26-08-2020"><a class="anchor" href="#26-08-2020">#</a>26.08.2020</h1>
 <blockquote>
@@ -837,20 +703,7 @@
 <a href="https://t.me/optozorax_dev/247"><code>tg/247</code></a>,
 <a href="https://t.me/optozorax_dev/248"><code>tg/248</code></a>.</p>
 </blockquote>
-<p><figure>
-
-    
-
-
-    
-
-
-
-
-
-
-
-
+<figure>
 <div class="magnifier-container img-one">
 <img
     class="not-default full-screen-img"
@@ -864,27 +717,14 @@
 </div>
 </div>
 <figcaption>Это я, когда мне нужно решить фундаментальные проблемы математики прежде чем писать хоть какой-то код.</figcaption>
-</figure></p>
+</figure>
 <p>А ещё я наконец решил &quot;фундаментальные проблемы математики&quot;, которые описывал в ранее.</p>
 <p><strong>Повторю суть:</strong> я хочу написать программу для символьных (аналитических) вычислений. Хочу чтобы там можно было выводить формулы из аксиом и других формул. Для этого мне нужно записать аксиомы над стандартными операциями и функциями. Всякие коммутативности/ассоциативности для сложения-деления-умножения я легко записал. Проблемы начались когда мне надо было придумать представление для частично заданных функций, например: модуль, знак. Как задавать такие функции, чтобы над ними можно было совершать операции, и как записать аксиомами их структуру?</p>
 <p>Я придумал такие операторы как <code>ifval</code> и <code>many</code>, которые подробно описаны в <a href="https://optozorax.github.io/p/fopply/#99">/99</a>. Я надеялся комбинацией этих операторов записать частично заданную функцию. В итоге оказалось, что эти операторы настолько широкие, что они приводят к противоречиям, и на практике их использовать невозможно.</p>
 <p>После этого я встрял в разработке, я не мог двигаться дальше из-за этой проблемы, потому что она находится в самой основе. Я пытался придумать односторонние формулы, думал над типизацией, ничего не помогало.</p>
 <p>Но вот недавно, после релиза репозитория с эволюцией, я сел за <code>fopply</code>, немного подумал, и нашёл решение!</p>
 <p>Надо ввести одну функцию для этого дела: <code>part(cond, then, else)</code>. То есть эта функция возвращает <code>then</code>, если в <code>cond</code> находится <code>$true</code>, либо <code>else</code> иначе.</p>
-<p><figure>
-
-    
-
-
-    
-
-
-
-
-
-
-
-
+<figure>
 <div class="magnifier-container img-one">
 <img
     class="not-default full-screen-img"
@@ -898,7 +738,7 @@
 </div>
 </div>
 <figcaption>Здесь показаны свойства этой функции.</figcaption>
-</figure></p>
+</figure>
 <p>Напоминаю что формулами можно пользоваться как в прямую сторону, так и в обратную. Здесь я записал базовые свойства над этой функцией и как её можно превратить в логические операторы.</p>
 <p>Правда последняя формула уже требует от меня реализации типизации с разделением на число и логическое значение, иначе оно не будет иметь смысла, если превратить модуль в логическую структуру посередине обычной формулы.</p>
 <p>С помощью этой функции я смог записать модуль, <code>sign</code>, и даже смог из базовых формул вывести эту: <code>a &lt;-&gt; part(b == 0, a, a*b/b)</code> (к формуле можно добавить умножение чего-то на самого себя, если это что-то не равно нулю). А раз я смог формально вывести такую экзотику, значит я иду по правильному пути.</p>
@@ -917,30 +757,30 @@
 <p>Я придумал что можно вручную записать чему будут равны неизвестные переменные формулы следующим образом: <code>x := x = 0</code> (это я называю биндингом), тогда результат будет: <code>part(x = 0, x+1, x+1)</code>. У формулы и выражения собственное пространство имён, так что коллизий с иксом с одной стороны и с другой не возникает.</p>
 <h2 id="zadanie-polozheniia"><a class="anchor" href="#zadanie-polozheniia">#<sup>2</sup></a>Задание положения</h2>
 <p>Например, у нас есть формула <code>a+b &lt;-&gt; b+a</code> и есть выражение <code>2*(3+4)</code>. Как мне применить эту формулу внутрь выражения? Можно вручную записать позицию в виде массива: <code>[1]</code>, и применять формулу к внутренней части. Но это неудобно для пользователя, поэтому я придумал следующую запись:</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>2*(3+4)  
-</span><span>. ^^^  
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>2*(3+4)  </span><span>
+</span><span>. ^^^  </span><span>
 </span></code></pre>
 <p>При парсинге будет сохранена вся информация о расположении частей формулы, и мы сможем восстановить позицию в виде массива по такой записи. Точка вначале нужна, потому что мне пока лень парсить отступы, и она нужна чтобы указать начало.</p>
 <p>Хотя вчера друг предложил мне что можно прямо внутри формулы записывать задание позиции, например так: <code>2+({3+4})</code>.</p>
 <p><em>Замечание:</em> нельзя записать:</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>1+2+3+4  
-</span><span>. ^^^  
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>1+2+3+4  </span><span>
+</span><span>. ^^^  </span><span>
 </span></code></pre>
 <p>потому что формула представляется деревом следующего вида: <code>+(1, +(2, +(3, 4)))</code>. Соответственно не существует такого под-дерева в этом дереве, которое было бы равно <code>+(2, 3)</code>. Здесь нужно только преобразовывать исходное выражение.</p>
 <h2 id="matching-proizvol-noi-funktsii"><a class="anchor" href="#matching-proizvol-noi-funktsii">#<sup>2</sup></a>Матчинг произвольной функции</h2>
 <p>Итак, у нас есть формула: <code>a = b &amp; $f(a) &lt;-&gt; a = b &amp; $f(b)</code>. Эта формула означает, что если у нас где-то записано <code>a = b</code>, то мы можем в местах, где это равенство записано через логический оператор И, заменить переменную <code>a</code> на переменную <code>b</code>. <code>$f(a)</code> здесь означает &quot;любая функция с одним аргументом, который матчится в паттерн <code>a</code>&quot;.</p>
 <p>То есть данная формула может быть применена к:</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>1. a = 1 &amp; a  
-</span><span>2. a = 1 &amp; c+a = 0  
-</span><span>3. a = 1 &amp; (x*a + b*a + a*a = 0 | x = 5)  
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>1. a = 1 &amp; a  </span><span>
+</span><span>2. a = 1 &amp; c+a = 0  </span><span>
+</span><span>3. a = 1 &amp; (x*a + b*a + a*a = 0 | x = 5)  </span><span>
 </span></code></pre>
 <p>Первый случай тривиальный. А что делать со вторым и третьим? Как нам найти то самое место что матчится с <code>a</code>? Первое что приходит на ум - это брать известную нам информацию с чем оно должно матчиться и рекурсивно пройтись и произвести замену.</p>
 <p>С первыми двумя этот подход сработает, но проблемы начнутся на третьем. Мы должны сматчить первое совпадение? Второе? Третье? А если я хочу заменить на единицу только второе и третье с четвёртым совпадение с <code>a</code>, а первое в <code>x*a</code> оставить?</p>
 <p>И вот для таких случаев я придумал, что нужно вручную записать паттерн, который будет считаться <code>$f</code>, например: <code>$f(x) := a + b*x + x*x | c</code> для третьего случая.</p>
 <p>В данном случае сматчится следующим образом:</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>a := x*a  
-</span><span>b := b  
-</span><span>c := x = 5  
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>a := x*a  </span><span>
+</span><span>b := b  </span><span>
+</span><span>c := x = 5  </span><span>
 </span></code></pre>
 <p>Заметьте, что в этом паттерне можно описать только структуру, не надо описывать один в один всё выражение.</p>
 <p>Для формулы <code>$f(sin(a))</code> и выражения <code>sin(1+2) * sin(1+2)</code> можно записать паттерн <code>$f(x) := x * x</code>, в итоге оно сматчится с <code>x := sin(a)</code>, а затем <code>a</code> сматчится с <code>1+2</code>.</p>
@@ -966,28 +806,15 @@
 <p>А я вспомнил, что существует #fopply! Я <a href="https://github.com/optozorax/fopply/commit/95853742ca3cdc8ecbb28aee440c536795f3c3cd">немного посидел</a> над ним и приделал нормальные сообщения об ошибках. Для этого пришлось немного подредачить парсер и написать тонну кода обработки ошибок. В будущем для этого планирую заюзать библиотеку <a href="https://github.com/brendanzab/codespan">codespan</a>.</p>
 <p>У меня выводится сразу несколько сообщений об ошибках, которые можно получить на текущем этапе проверки. Некоторые самописные ЯП'ы таким похвастаться не могут!</p>
 <p>Чтобы получить сообщения об ошибках, которые указывают на место ошибки, пришлось сделать такую структурку:</p>
-<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#668f14;">struct </span><span style="color:#c23f31;">Spanned</span><span>&lt;T&gt; {
-</span><span>    </span><span style="color:#5597d6;">span</span><span>: Range&lt;</span><span style="color:#668f14;">usize</span><span>&gt;,
-</span><span>    </span><span style="color:#5597d6;">inner</span><span>: T,
-</span><span>}
+<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#668f14;">struct </span><span style="color:#c23f31;">Spanned</span><span>&lt;T&gt; {</span><span>
+</span><span>    </span><span style="color:#5597d6;">span</span><span>: Range&lt;</span><span style="color:#668f14;">usize</span><span>&gt;,</span><span>
+</span><span>    </span><span style="color:#5597d6;">inner</span><span>: T,</span><span>
+</span><span>}</span><span>
 </span></code></pre>
 <p>И обернуть в эту структурку множество всяких полей других структур, которые образуют формулу и доказательство.<br />
 Так же через новую версию, благодаря сообщениям об ошибках, которые указывают на проблему, я смог доказать <code>(a+b)*(a-b) = a*a-b*b</code>.</p>
 <p>Следующим этапом планирую написать интерактивное приложение, в котором можно интерактивно применять формулы, находить все возжможные формулы, которые подходят к текущему выражению. Далее я собираюсь через него начать заносить как можно больше известных мне формул, чтобы найти проблемные места и лучше понять как их разрешить в будущем.</p>
 <p>А вот так теперь выглядят сообщения об ошибках в fopply:</p>
-
-    
-
-
-    
-
-
-
-
-
-
-
-
 <div class="magnifier-container img-one">
 <img
     class="not-default full-screen-img"
@@ -1000,18 +827,6 @@
 <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1<br>jpg</div>
 </div>
 </div>
-    
-
-
-    
-
-
-
-
-
-
-
-
 <div class="magnifier-container img-one">
 <img
     class="not-default full-screen-img"
@@ -1023,36 +838,22 @@
 <div class="magnifier-display">
 <img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1<br>jpg</div>
 </div>
-</div><h1 id="27-03-2021"><a class="anchor" href="#27-03-2021">#</a>27.03.2021</h1>
+</div>
+<h1 id="27-03-2021"><a class="anchor" href="#27-03-2021">#</a>27.03.2021</h1>
 <blockquote>
 <p><strong>Источник:</strong>
 <a href="https://t.me/optozorax_dev/391"><code>tg/391</code></a> (9 💬).</p>
 </blockquote>
 <p>Недавно в твиттере увидел эту шикарную анимацию об идее интересного интерфейса для алгебры. На примере этой анимации можно увидеть ту степень пошаговости, которую я хочу для fopply. Правда у него в анимации интерфейс сильно оптимизирован под работу с базовой алгеброй, например при взятии степени и перетаскивании её на другую сторону равенства, она превращается в квадратный корень. Это, наверное, уже оверкилл, но выглядит прикольно.</p>
 <p>Так же он говорит что было бы очень круто увидеть что получится, если младенцы будут играться с такой программой, что если они выработают интуицию и ощущеные красоты в математике ещё в таком раннем возрасте? Получится ли ещё один Рамануджан? Мне тоже очень интересно такое применение формальных пошаговых алгебраических систем. У меня была идея по представлению какой-нибудь тригонометрии не в виде формул, а в виде геометрических структур с 3D, и чтобы операции над структурами просто являлись тригонометрическими формулами. Будет ли на этой основе игра интересна людям, и в частности детям? Получится ли научить их любить математику через такие игры? 🤔</p>
-<p><figure>
-
-    
-
-
+<figure>
 <video class="img-one" controls>
   <source src="1374291155869966336_1_web.mp4" type="video/mp4">
   Your browser is not supporting video.
 </video>
 <figcaption>Видео из твита ниже для вашего удобства</figcaption>
-</figure></p>
-<p><figure>
-
-
-    
-
-
-
-
-
-
-
-
+</figure>
+<figure>
 <div class="magnifier-container img-two-three">
 <img
     class="not-default full-screen-img"
@@ -1066,7 +867,7 @@
 </div>
 </div>
 <figcaption><a href="https://twitter.com/elzr/status/1374291155869966336">Ссылка на твит</a></figcaption>
-</figure></p>
+</figure>
 
 </div>
 </article>
@@ -1360,11 +1161,6 @@
 
 
     </td><td style="border: 0px; padding: 0.2rem;">
-    
-    <!-- Yandex.Metrika informer -->
-    <a href="https://metrika.yandex.ru/stat/?id=53392057&amp;from=informer" target="_blank" rel="nofollkw"><img src="https://informer.yandex.ru/informer/53392057/1_0_35B977FF_159957FF_1_pageviews" style="width:80px; height:15px; border:0; border-radius: 0px; margin-top: -4px; max-height: 100%; max-width: 100%;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры)" class="ym-advanced-informer" data-cid="53392057" data-lang="ru" /></a> 
-    <!-- /Yandex.Metrika informer -->
-    
 
     </td></tr>
     </table>

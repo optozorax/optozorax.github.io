@@ -13,13 +13,6 @@
   <link rel="stylesheet" href="/main.css">
   <!-- --- -->
 
-  
-  <!-- Yandex.Metrika counter -->
-  <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(53392057, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/53392057" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-  <meta name="yandex-verification" content="ec61b5ac4464201b" />
-  <!-- --- -->
-  
-
   <!-- Non social metatags -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -266,19 +259,23 @@
 	x_n
 \end{pmatrix}</script>
 <p>Любой абстрактный вектор можно представить в виде:</p>
-<script type="math/tex;mode=display">\mathbf{x} = 𝕖\cdot [\mathbf{x}]_𝕖</script><script type="math/tex;mode=display">\mathbf{x} = (\mathbf{e}_1, \mathbf{e}_2, \dots, \mathbf{e}_n)\cdot\begin{pmatrix}
+<script type="math/tex;mode=display">\mathbf{x} = 𝕖\cdot [\mathbf{x}]_𝕖</script>
+<script type="math/tex;mode=display">\mathbf{x} = (\mathbf{e}_1, \mathbf{e}_2, \dots, \mathbf{e}_n)\cdot\begin{pmatrix}
 	x_1\\
 	x_2\\
 	\ldots\\
 	x_n
-\end{pmatrix}</script><script type="math/tex;mode=display">\mathbf{x} = x_1\mathbf{e}_1 + x_2\mathbf{e}_2 + \dots + x_n\mathbf{e}_n</script>
+\end{pmatrix}</script>
+<script type="math/tex;mode=display">\mathbf{x} = x_1\mathbf{e}_1 + x_2\mathbf{e}_2 + \dots + x_n\mathbf{e}_n</script>
 <p>Эти формулы задают соответствие между абстрактным и численными векторами!</p>
 <p>Заметьте, что можно ввести базис <script type="math/tex">𝕒=(\mathbf{a}_1, \mathbf{a}_2, \dots, \mathbf{a}_n)</script>. Тогда можно записать вектор <script type="math/tex">\mathbf{x}</script> через этот базис:</p>
 <script type="math/tex;mode=display">\mathbf{x} = 𝕒\cdot [\mathbf{x}]_𝕒</script>
 <p>И в другом базисе будут другие числа, но вектор останется одним и тем же. Конечно, на практике мы никогда не столкнёмся с абстрактными векторами, а всегда будем работать с числовыми столбцами, но это удобная абстракция, чтобы обозначить один и тот же объект.</p>
 <p>По сути численный вектор - это <em>проекция</em> абстрактного вектора на базис.</p>
 <p>Кстати, линейные операции над вектором равносильны линейным операциям над его координатным столбцом:</p>
-<script type="math/tex;mode=display">[c\cdot \mathbf{x}]_𝕖 = c\cdot [\mathbf{x}]_𝕖 </script><script type="math/tex;mode=display">\displaystyle [\mathbf{x} + \mathbf{y}]_𝕖 = [\mathbf{x}]_𝕖 + [\mathbf{y}]_𝕖 </script><h1 id="perekhod-iz-odnogo-bazisa-v-drugoi"><a class="anchor" href="#perekhod-iz-odnogo-bazisa-v-drugoi">#</a>Переход из одного базиса в другой</h1>
+<script type="math/tex;mode=display">[c\cdot \mathbf{x}]_𝕖 = c\cdot [\mathbf{x}]_𝕖 </script>
+<script type="math/tex;mode=display">\displaystyle [\mathbf{x} + \mathbf{y}]_𝕖 = [\mathbf{x}]_𝕖 + [\mathbf{y}]_𝕖 </script>
+<h1 id="perekhod-iz-odnogo-bazisa-v-drugoi"><a class="anchor" href="#perekhod-iz-odnogo-bazisa-v-drugoi">#</a>Переход из одного базиса в другой</h1>
 <p>В этой задаче данные обозначения проявляют свою силу, потому что со стандартными обозначениями в ней происходит больше всего путаницы при решении задач.</p>
 <p>Скажем, мы смогли выразить вектора базиса <script type="math/tex">𝕒</script> через вектора базиса <script type="math/tex">𝕖</script>:</p>
 <script type="math/tex;mode=display">
@@ -292,7 +289,7 @@
 \right.
 </script>
 <p>И ввёдем такую матрицу:</p>
-<p><script type="math/tex;mode=display">
+<script type="math/tex;mode=display">
 P_{𝕖𝕒} = 
 \left([a_1]_𝕖, [a_2]_𝕖, \ldots, [a_n]_𝕖\right)
 </script>
@@ -304,7 +301,7 @@ P_{𝕖𝕒} =
 	\ldots& \ldots& \ldots& \ldots \\
 	\alpha_{1,n}& \alpha_{2, n}& \ldots& \alpha_{n,n}
 \end{pmatrix}
-</script></p>
+</script>
 <p>Тогда изначальная система равносильна следующим записям:</p>
 <script type="math/tex;mode=display">
 \begin{matrix}
@@ -314,18 +311,19 @@ P_{𝕖𝕒} =
 	&𝕒 \cdot P_{𝕒𝕖} &= &𝕖
 \end{matrix}
 </script>
-<p><script type="math/tex">P_{𝕖𝕒}</script> называется матрицей перехода от базиса 𝕖 к базису 𝕒.</p>
+<script type="math/tex">P_{𝕖𝕒}</script> называется матрицей перехода от базиса 𝕖 к базису 𝕒.
 <p>Из имеющихся у нас формул можно вывести ещё несколько полезных:</p>
-<p><script type="math/tex;mode=display"> P_{𝕖𝕒} = P_{𝕒𝕖}^{-1} </script>
+<script type="math/tex;mode=display"> P_{𝕖𝕒} = P_{𝕒𝕖}^{-1} </script>
 <script type="math/tex;mode=display"> 𝕒 = 𝕖 \cdot P_{𝕖𝕒} </script>
 <script type="math/tex;mode=display"> P_{𝕒𝕕} = P_{𝕒𝕖}\cdot P_{𝕖𝕕} </script>
-<script type="math/tex;mode=display"> [\mathbf{x}]_𝕒 = P_{𝕖𝕒} \cdot [\mathbf{x}]_𝕖 </script></p>
+<script type="math/tex;mode=display"> [\mathbf{x}]_𝕒 = P_{𝕖𝕒} \cdot [\mathbf{x}]_𝕖 </script>
 <p>Благодаря полученным формулам мы теперь знаем как переводить численные вектора из одного базиса в другой.</p>
 <h1 id="lineinyi-operator"><a class="anchor" href="#lineinyi-operator">#</a>Линейный оператор</h1>
 <p><strong>Линейный оператор</strong> - это функция, принимающая на вход вектор, и возвращающая вектор. При этом пространство первого вектора может отличаться от пространства второго вектора. </p>
 <p>В математике любят писать: <script type="math/tex">\mathbf{A}\mathbf{x}</script>, что означает, что &quot;оператор применяется к вектору&quot;. Меня эта нотация бесит. Она похожа на умножение, и всегда надо заранее знать, что <script type="math/tex">\mathbf{A}</script> - функция.</p>
 <p>Этот &quot;оператор&quot; называется <em>линейным</em>, потому что он обладает линейными свойствами (как и практически всё в линейной алгебре).</p>
-<script type="math/tex;mode=display">\mathbf{A}(\mathbf{x} + \mathbf{y}) = \mathbf{A}(\mathbf{x}) + \mathbf{A}(\mathbf{y})</script><script type="math/tex;mode=display">\mathbf{A}(c\cdot\mathbf{x}) = c\cdot\mathbf{A}(\mathbf{x})</script>
+<script type="math/tex;mode=display">\mathbf{A}(\mathbf{x} + \mathbf{y}) = \mathbf{A}(\mathbf{x}) + \mathbf{A}(\mathbf{y})</script>
+<script type="math/tex;mode=display">\mathbf{A}(c\cdot\mathbf{x}) = c\cdot\mathbf{A}(\mathbf{x})</script>
 <p>Чем же является линейный оператор в нашем мире чисел? Оказывается, можно доказать, что любой линейный оператор для данных базисов можно свести к единственной матрице! При этом операция &quot;применения оператора к вектору&quot; будет являться умножением матрицы на этот вектор. </p>
 <script type="math/tex;mode=display">
 [\mathbf{A}]_{𝕖𝕒}\cdot[\mathbf{x}]_𝕖 = [\mathbf{y}]_𝕒
@@ -343,11 +341,15 @@ P_{𝕖𝕒} =
 <p>И нам нужно получить его матрицу в базисе <script type="math/tex">𝕒</script>, то есть такую матрицу, чтобы выполнялось следующее равенство:</p>
 <script type="math/tex;mode=display">[\mathbf{A}]_𝕒\cdot[\mathbf{x}]_𝕒 = [\mathbf{y}]_𝕒</script>
 <p>Тогда для вывода нам понадобится следующее:</p>
-<script type="math/tex;mode=display"> [\mathbf{x}]_𝕖 = P_{𝕒𝕖} \cdot [\mathbf{x}]_𝕒 </script><script type="math/tex;mode=display">[\mathbf{y}]_𝕖 = P_{𝕒𝕖} \cdot [\mathbf{y}]_𝕒</script><script type="math/tex;mode=display">[\mathbf{A}]_𝕖\cdot[\mathbf{x}]_𝕖 = [\mathbf{y}]_𝕖</script>
+<script type="math/tex;mode=display"> [\mathbf{x}]_𝕖 = P_{𝕒𝕖} \cdot [\mathbf{x}]_𝕒 </script>
+<script type="math/tex;mode=display">[\mathbf{y}]_𝕖 = P_{𝕒𝕖} \cdot [\mathbf{y}]_𝕒</script>
+<script type="math/tex;mode=display">[\mathbf{A}]_𝕖\cdot[\mathbf{x}]_𝕖 = [\mathbf{y}]_𝕖</script>
 <p>Подставляем первые две формулы в третью:</p>
-<script type="math/tex;mode=display">[\mathbf{A}]_𝕖\cdot P_{𝕒𝕖} \cdot [\mathbf{x}]_𝕒 = P_{𝕒𝕖} \cdot [\mathbf{y}]_𝕒</script><script type="math/tex;mode=display">P_{𝕒𝕖}^{-1} \cdot [\mathbf{A}]_𝕖\cdot P_{𝕒𝕖} \cdot [\mathbf{x}]_𝕒 = [\mathbf{y}]_𝕒</script>
+<script type="math/tex;mode=display">[\mathbf{A}]_𝕖\cdot P_{𝕒𝕖} \cdot [\mathbf{x}]_𝕒 = P_{𝕒𝕖} \cdot [\mathbf{y}]_𝕒</script>
+<script type="math/tex;mode=display">P_{𝕒𝕖}^{-1} \cdot [\mathbf{A}]_𝕖\cdot P_{𝕒𝕖} \cdot [\mathbf{x}]_𝕒 = [\mathbf{y}]_𝕒</script>
 <p>И получаем такой ответ:</p>
-<script type="math/tex;mode=display">[\mathbf{A}]_𝕒 = P_{𝕒𝕖}^{-1} \cdot [\mathbf{A}]_𝕒\cdot P_{𝕒𝕖}</script><h1 id="pochemu-eti-oboznacheniia-khoroshi"><a class="anchor" href="#pochemu-eti-oboznacheniia-khoroshi">#</a>Почему эти обозначения хороши?</h1>
+<script type="math/tex;mode=display">[\mathbf{A}]_𝕒 = P_{𝕒𝕖}^{-1} \cdot [\mathbf{A}]_𝕒\cdot P_{𝕒𝕖}</script>
+<h1 id="pochemu-eti-oboznacheniia-khoroshi"><a class="anchor" href="#pochemu-eti-oboznacheniia-khoroshi">#</a>Почему эти обозначения хороши?</h1>
 <p>Вы могли заметить, что впервые в жизни поняли что происходит в этой чертовой линейной алгебре, и это неспроста. В стандартных обозначениях нет никакого разделения между вектором, его проекцией на базис, и базисом. Всё <strong>тупо</strong> и <strong>лениво</strong> обозначается обычными нежирными неажурными буквами. </p>
 <p>Именно из-за этого тебе постоянно приходится помнить о контексте. И ещё хорошо, если тебе расскажут разницу между абстрактным вектором и числовым столбцом. Обычно преподаватели сами толком не знают разницу, или не знают что на неё надо обратить внимание студентов.</p>
 <p>Минус тупого обозначения всего обычными буквами в том, что <strong>обычные буквы начинают обозначать слишком много</strong>. У них появляется многозначность. В зависимости от контекста <script type="math/tex">a</script> мог быть чем угодно: числом, вектором, базисом и даже оператором младшим.</p>
@@ -593,11 +595,6 @@ P_{𝕖𝕒} =
 
 
     </td><td style="border: 0px; padding: 0.2rem;">
-    
-    <!-- Yandex.Metrika informer -->
-    <a href="https://metrika.yandex.ru/stat/?id=53392057&amp;from=informer" target="_blank" rel="nofollkw"><img src="https://informer.yandex.ru/informer/53392057/1_0_35B977FF_159957FF_1_pageviews" style="width:80px; height:15px; border:0; border-radius: 0px; margin-top: -4px; max-height: 100%; max-width: 100%;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры)" class="ym-advanced-informer" data-cid="53392057" data-lang="ru" /></a> 
-    <!-- /Yandex.Metrika informer -->
-    
 
     </td></tr>
     </table>

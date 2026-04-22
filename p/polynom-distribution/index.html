@@ -13,13 +13,6 @@
   <link rel="stylesheet" href="/main.css">
   <!-- --- -->
 
-  
-  <!-- Yandex.Metrika counter -->
-  <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(53392057, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/53392057" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-  <meta name="yandex-verification" content="ec61b5ac4464201b" />
-  <!-- --- -->
-  
-
   <!-- Non social metatags -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -237,7 +230,9 @@
 <h1 id="vyvod"><a class="anchor" href="#vyvod">#</a>Вывод</h1>
 <p>У нас есть много данных: <script type="math/tex">D_i</script>, всего их <script type="math/tex">M</script>. Мы хотим аппроксимировать их распределение полиномом <script type="math/tex">P(x) = \sum_{i = 0}^n c_i x^i</script>.</p>
 <p>Что значит аппроксимировать распределение? Это значит что на произвольном отрезке <script type="math/tex">[a_k, b_k]</script> интеграл данной функции стремится к плотности данных: (<script type="math/tex">count_{a_k}^{b_k} D</script> - количество точек <script type="math/tex">D</script>, попавших в отрезок <script type="math/tex">[a_k, b_k]</script>)</p>
-<script type="math/tex;mode=display">\int_{a_k}^{b_k} P(x) dx \approx \frac{count_{a_k}^{b_k} D}{M}</script><script type="math/tex;mode=display">\int_{a_k}^{b_k} \left[\sum_{i = 0}^n c_i x^i \right] dx - \frac{count_{a_k}^{b_k} D}{M} \approx 0</script><script type="math/tex;mode=display">\sum_{i = 0}^n c_i \cdot \frac{a_k^{i+1} - b_k^{i+1}}{i+1} - \frac{count_{a_k}^{b_k} D}{M} \approx 0</script>
+<script type="math/tex;mode=display">\int_{a_k}^{b_k} P(x) dx \approx \frac{count_{a_k}^{b_k} D}{M}</script>
+<script type="math/tex;mode=display">\int_{a_k}^{b_k} \left[\sum_{i = 0}^n c_i x^i \right] dx - \frac{count_{a_k}^{b_k} D}{M} \approx 0</script>
+<script type="math/tex;mode=display">\sum_{i = 0}^n c_i \cdot \frac{a_k^{i+1} - b_k^{i+1}}{i+1} - \frac{count_{a_k}^{b_k} D}{M} \approx 0</script>
 <p>И если взять все отрезки, количество которых K:</p>
 <script type="math/tex;mode=display">\sum_{k = 0}^K \left[ \sum_{i = 0}^n c_i \cdot \frac{a_k^{i+1} - b_k^{i+1}}{i+1} - \frac{count_{a_k}^{b_k} D}{M} \right]^2 \to \min</script>
 <p>Здесь я взял разницу в квадрат, чтобы она всегда была больше 0, и чтобы в сумме на разных отрезках получалось положительное число. И чтобы итоговая сумма по всем отрезкам не равнялась нулю, а стремилась к некоторому минимуму. В этом уравнении мы хотим найти неизвестные <script type="math/tex">c_i</script>.</p>
@@ -259,9 +254,12 @@
 <h1 id="algoritm"><a class="anchor" href="#algoritm">#</a>Алгоритм</h1>
 <p>Входные данные:</p>
 <ul>
-<li><script type="math/tex">D_i</script> - массив значений размера M, распределение которых надо аппроксимировать.</li>
-<li><script type="math/tex">N</script> - степень итогового полинома.</li>
-<li><script type="math/tex">K</script> - количество отрезков.</li>
+<li><script type="math/tex">D_i</script> - массив значений размера M, распределение которых надо аппроксимировать.
+</li>
+<li><script type="math/tex">N</script> - степень итогового полинома.
+</li>
+<li><script type="math/tex">K</script> - количество отрезков.
+</li>
 </ul>
 <p>Степень полинома, очевидно, надо брать небольшую (5-10), чтобы не &quot;переобучаться&quot; на данных, и не делать график, который равен гистограмме или ещё чему-то такому.</p>
 <p>Количество отрезков нужно брать тоже не очень большое. Я прикинул, что <script type="math/tex">5\cdot M</script> вполне достаточно. В итоге на практике оказалось что оптимальным получается <script type="math/tex">N \cdot M</script>.</p>
@@ -278,42 +276,42 @@
 <p>В рандомном случае самой ресурсоёмкой операцией получается подсчёт числа точек, попадающих на этот отрезок, что занимает <script type="math/tex">O(\ln n)</script>, если данные отсортированы.</p>
 <p>Если же пытаться перебирать отрезки организованно, от минимума к максимуму, то можно использовать метод двух указателей, и за <script type="math/tex">O(1)</script> знать количество точек, находящихся на данном отрезке. А так как количество отрезков равно <script type="math/tex">O(n)</script>, то это - оптимальный вариант.</p>
 <p>Итого весь алгоритм выглядит так в псевдокоде:</p>
-<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span>vec </span><span style="color:#72ab00;">= </span><span style="color:#7f8989;">/* одномерный вектор размера n+1 */
-</span><span>mat </span><span style="color:#72ab00;">= </span><span style="color:#7f8989;">/* двумерная матрица размера n+1 */
-</span><span>minv </span><span style="color:#72ab00;">=</span><span> D[</span><span style="color:#b3933a;">0</span><span>];
-</span><span>maxv </span><span style="color:#72ab00;">=</span><span> D[</span><span style="color:#72ab00;">-</span><span style="color:#b3933a;">1</span><span>];
-</span><span>seg_count </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">sqrt</span><span>(K);
-</span><span>step </span><span style="color:#72ab00;">= </span><span>(maxv </span><span style="color:#72ab00;">-</span><span> minv) </span><span style="color:#72ab00;">/</span><span> seg_count;
+<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span>vec </span><span style="color:#72ab00;">= </span><span style="color:#7f8989;">/* одномерный вектор размера n+1 */</span><span>
+</span><span>mat </span><span style="color:#72ab00;">= </span><span style="color:#7f8989;">/* двумерная матрица размера n+1 */</span><span>
+</span><span>minv </span><span style="color:#72ab00;">=</span><span> D[</span><span style="color:#b3933a;">0</span><span>];</span><span>
+</span><span>maxv </span><span style="color:#72ab00;">=</span><span> D[</span><span style="color:#72ab00;">-</span><span style="color:#b3933a;">1</span><span>];</span><span>
+</span><span>seg_count </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">sqrt</span><span>(K);</span><span>
+</span><span>step </span><span style="color:#72ab00;">= </span><span>(maxv </span><span style="color:#72ab00;">-</span><span> minv) </span><span style="color:#72ab00;">/</span><span> seg_count;</span><span>
 </span><span>
-</span><span>apos </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>;
-</span><span style="color:#72ab00;">for</span><span> ai </span><span style="color:#72ab00;">in </span><span style="color:#b3933a;">0</span><span style="color:#72ab00;">..</span><span>seg_count</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1 </span><span>{
-</span><span>	a </span><span style="color:#72ab00;">=</span><span> minv </span><span style="color:#72ab00;">+</span><span> ai </span><span style="color:#72ab00;">*</span><span> step;
-</span><span>	</span><span style="color:#72ab00;">while</span><span> apos </span><span style="color:#72ab00;">&lt;</span><span> M </span><span style="color:#72ab00;">&amp;&amp;</span><span> a </span><span style="color:#72ab00;">&gt;</span><span> D[apos] { apos </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1</span><span>; }
+</span><span>apos </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>;</span><span>
+</span><span style="color:#72ab00;">for</span><span> ai </span><span style="color:#72ab00;">in </span><span style="color:#b3933a;">0</span><span style="color:#72ab00;">..</span><span>seg_count</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1 </span><span>{</span><span>
+</span><span>	a </span><span style="color:#72ab00;">=</span><span> minv </span><span style="color:#72ab00;">+</span><span> ai </span><span style="color:#72ab00;">*</span><span> step;</span><span>
+</span><span>	</span><span style="color:#72ab00;">while</span><span> apos </span><span style="color:#72ab00;">&lt;</span><span> M </span><span style="color:#72ab00;">&amp;&amp;</span><span> a </span><span style="color:#72ab00;">&gt;</span><span> D[apos] { apos </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1</span><span>; }</span><span>
 </span><span>
-</span><span>	bpos </span><span style="color:#72ab00;">=</span><span> apos;
-</span><span>	</span><span style="color:#72ab00;">for</span><span> bi </span><span style="color:#72ab00;">in</span><span> ai</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span style="color:#72ab00;">..</span><span>seg_count</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1 </span><span>{
-</span><span>		b </span><span style="color:#72ab00;">=</span><span> minv </span><span style="color:#72ab00;">+</span><span> bi </span><span style="color:#72ab00;">*</span><span> step;
-</span><span>		</span><span style="color:#72ab00;">while</span><span> bpos </span><span style="color:#72ab00;">&lt;</span><span> M </span><span style="color:#72ab00;">&amp;&amp;</span><span> b </span><span style="color:#72ab00;">&gt;</span><span> D[bpos] { bpos </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1</span><span>; }
+</span><span>	bpos </span><span style="color:#72ab00;">=</span><span> apos;</span><span>
+</span><span>	</span><span style="color:#72ab00;">for</span><span> bi </span><span style="color:#72ab00;">in</span><span> ai</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span style="color:#72ab00;">..</span><span>seg_count</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1 </span><span>{</span><span>
+</span><span>		b </span><span style="color:#72ab00;">=</span><span> minv </span><span style="color:#72ab00;">+</span><span> bi </span><span style="color:#72ab00;">*</span><span> step;</span><span>
+</span><span>		</span><span style="color:#72ab00;">while</span><span> bpos </span><span style="color:#72ab00;">&lt;</span><span> M </span><span style="color:#72ab00;">&amp;&amp;</span><span> b </span><span style="color:#72ab00;">&gt;</span><span> D[bpos] { bpos </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1</span><span>; }</span><span>
 </span><span>
-</span><span>		count </span><span style="color:#72ab00;">= </span><span>(bpos </span><span style="color:#72ab00;">-</span><span> apos) </span><span style="color:#72ab00;">/</span><span> M;
+</span><span>		count </span><span style="color:#72ab00;">= </span><span>(bpos </span><span style="color:#72ab00;">-</span><span> apos) </span><span style="color:#72ab00;">/</span><span> M;</span><span>
 </span><span>
-</span><span>		</span><span style="color:#72ab00;">for</span><span> i </span><span style="color:#72ab00;">in </span><span style="color:#b3933a;">0</span><span style="color:#72ab00;">..</span><span>n</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1 </span><span>{
-</span><span>			vec[i] </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">2 </span><span style="color:#72ab00;">*</span><span> count </span><span style="color:#72ab00;">* </span><span>(b</span><span style="color:#72ab00;">^</span><span>(i</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>) </span><span style="color:#72ab00;">-</span><span> a</span><span style="color:#72ab00;">^</span><span>(i</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>))</span><span style="color:#72ab00;">/</span><span>(i</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>);
-</span><span>		}
+</span><span>		</span><span style="color:#72ab00;">for</span><span> i </span><span style="color:#72ab00;">in </span><span style="color:#b3933a;">0</span><span style="color:#72ab00;">..</span><span>n</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1 </span><span>{</span><span>
+</span><span>			vec[i] </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">2 </span><span style="color:#72ab00;">*</span><span> count </span><span style="color:#72ab00;">* </span><span>(b</span><span style="color:#72ab00;">^</span><span>(i</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>) </span><span style="color:#72ab00;">-</span><span> a</span><span style="color:#72ab00;">^</span><span>(i</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>))</span><span style="color:#72ab00;">/</span><span>(i</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>);</span><span>
+</span><span>		}</span><span>
 </span><span>
-</span><span>		</span><span style="color:#72ab00;">for</span><span> i </span><span style="color:#72ab00;">in </span><span style="color:#b3933a;">0</span><span style="color:#72ab00;">..</span><span>n</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1 </span><span>{
-</span><span>			</span><span style="color:#72ab00;">for</span><span> j </span><span style="color:#72ab00;">in </span><span style="color:#b3933a;">0</span><span style="color:#72ab00;">..</span><span>n</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1 </span><span>{
-</span><span>				to_add </span><span style="color:#72ab00;">= </span><span>(b</span><span style="color:#72ab00;">^</span><span>(i</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>) </span><span style="color:#72ab00;">-</span><span> a</span><span style="color:#72ab00;">^</span><span>(i</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>))</span><span style="color:#72ab00;">/</span><span>(i</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>) 
-</span><span>				       </span><span style="color:#72ab00;">* </span><span>(b</span><span style="color:#72ab00;">^</span><span>(j</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>) </span><span style="color:#72ab00;">-</span><span> a</span><span style="color:#72ab00;">^</span><span>(j</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>))</span><span style="color:#72ab00;">/</span><span>(j</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>);
+</span><span>		</span><span style="color:#72ab00;">for</span><span> i </span><span style="color:#72ab00;">in </span><span style="color:#b3933a;">0</span><span style="color:#72ab00;">..</span><span>n</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1 </span><span>{</span><span>
+</span><span>			</span><span style="color:#72ab00;">for</span><span> j </span><span style="color:#72ab00;">in </span><span style="color:#b3933a;">0</span><span style="color:#72ab00;">..</span><span>n</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1 </span><span>{</span><span>
+</span><span>				to_add </span><span style="color:#72ab00;">= </span><span>(b</span><span style="color:#72ab00;">^</span><span>(i</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>) </span><span style="color:#72ab00;">-</span><span> a</span><span style="color:#72ab00;">^</span><span>(i</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>))</span><span style="color:#72ab00;">/</span><span>(i</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>) </span><span>
+</span><span>				       </span><span style="color:#72ab00;">* </span><span>(b</span><span style="color:#72ab00;">^</span><span>(j</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>) </span><span style="color:#72ab00;">-</span><span> a</span><span style="color:#72ab00;">^</span><span>(j</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>))</span><span style="color:#72ab00;">/</span><span>(j</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>);</span><span>
 </span><span>
-</span><span>				mat[i, j] </span><span style="color:#72ab00;">+=</span><span> to_add;
-</span><span>				mat[j, i] </span><span style="color:#72ab00;">+=</span><span> to_add;
-</span><span>			}
-</span><span>		}
-</span><span>	}
-</span><span>}
+</span><span>				mat[i, j] </span><span style="color:#72ab00;">+=</span><span> to_add;</span><span>
+</span><span>				mat[j, i] </span><span style="color:#72ab00;">+=</span><span> to_add;</span><span>
+</span><span>			}</span><span>
+</span><span>		}</span><span>
+</span><span>	}</span><span>
+</span><span>}</span><span>
 </span><span>
-</span><span>x </span><span style="color:#72ab00;">=</span><span> solve_SLE(vec, mat)
+</span><span>x </span><span style="color:#72ab00;">=</span><span> solve_SLE(vec, mat)</span><span>
 </span></code></pre>
 <h1 id="veb-interfeis"><a class="anchor" href="#veb-interfeis">#</a>Веб-интерфейс</h1>
 <p>Ссылки:</p>
@@ -525,11 +523,6 @@
 
 
     </td><td style="border: 0px; padding: 0.2rem;">
-    
-    <!-- Yandex.Metrika informer -->
-    <a href="https://metrika.yandex.ru/stat/?id=53392057&amp;from=informer" target="_blank" rel="nofollkw"><img src="https://informer.yandex.ru/informer/53392057/1_0_35B977FF_159957FF_1_pageviews" style="width:80px; height:15px; border:0; border-radius: 0px; margin-top: -4px; max-height: 100%; max-width: 100%;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры)" class="ym-advanced-informer" data-cid="53392057" data-lang="ru" /></a> 
-    <!-- /Yandex.Metrika informer -->
-    
 
     </td></tr>
     </table>
