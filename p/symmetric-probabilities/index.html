@@ -263,7 +263,7 @@
     class="not-default full-screen-img"
     width="1280"
     height="436"
-    src="\processed_images\6f6002d469d77b2300.webp" 
+    src="&#x2F;processed_images&#x2F;6f6002d469d77b2300.webp" 
     onclick="full_screen('1.png')"
     onauxclick="full_screen_new_page('1.png')">
 <div class="magnifier-display">
@@ -295,7 +295,7 @@
     class="not-default full-screen-img"
     width="642"
     height="542"
-    src="\processed_images\bddb2c25aad133ca00.webp" 
+    src="&#x2F;processed_images&#x2F;bddb2c25aad133ca00.webp" 
     onclick="full_screen('bad.jpg')"
     onauxclick="full_screen_new_page('bad.jpg')">
 <div class="magnifier-display">
@@ -311,7 +311,7 @@
     class="not-default full-screen-img"
     width="1060"
     height="377"
-    src="\processed_images\7457597ac35567e100.webp" 
+    src="&#x2F;processed_images&#x2F;7457597ac35567e100.webp" 
     onclick="full_screen('good.jpg')"
     onauxclick="full_screen_new_page('good.jpg')">
 <div class="magnifier-display">
@@ -331,7 +331,7 @@
     class="not-default full-screen-img"
     width="900"
     height="390"
-    src="\processed_images\c0f22f2615f12af100.webp" 
+    src="&#x2F;processed_images&#x2F;c0f22f2615f12af100.webp" 
     onclick="full_screen('grid.jpg')"
     onauxclick="full_screen_new_page('grid.jpg')">
 <div class="magnifier-display">
@@ -346,7 +346,7 @@
     class="not-default full-screen-img"
     width="841"
     height="380"
-    src="\processed_images\5e3debe8697ea3f800.webp" 
+    src="&#x2F;processed_images&#x2F;5e3debe8697ea3f800.webp" 
     onclick="full_screen('graph1.jpg')"
     onauxclick="full_screen_new_page('graph1.jpg')">
 <div class="magnifier-display">
@@ -360,7 +360,7 @@
     class="not-default full-screen-img"
     width="1046"
     height="709"
-    src="\processed_images\c9d0f7e18f5a189f00.webp" 
+    src="&#x2F;processed_images&#x2F;c9d0f7e18f5a189f00.webp" 
     onclick="full_screen('text.jpg')"
     onauxclick="full_screen_new_page('text.jpg')">
 <div class="magnifier-display">
@@ -375,7 +375,7 @@
     class="not-default full-screen-img"
     width="640"
     height="480"
-    src="\processed_images\470cbfaf1af290f900.webp" 
+    src="&#x2F;processed_images&#x2F;470cbfaf1af290f900.webp" 
     onclick="full_screen('1.jpg')"
     onauxclick="full_screen_new_page('1.jpg')">
 <div class="magnifier-display">
@@ -387,7 +387,7 @@
     class="not-default full-screen-img"
     width="640"
     height="480"
-    src="\processed_images\e42e4b861f07502100.webp" 
+    src="&#x2F;processed_images&#x2F;e42e4b861f07502100.webp" 
     onclick="full_screen('2.jpg')"
     onauxclick="full_screen_new_page('2.jpg')">
 <div class="magnifier-display">
@@ -403,31 +403,31 @@
 <div class="details-content">
 <p><strong><center>USER</center></strong></p>
 <p>Я нашёл один репозиторий, который вводит какую-то функцию умножения &quot;уверенностей&quot;. Выведи функцию, которая бы удовлетворяла этим условиям, как бы она могла выглядеть? Размышляй и отвечай на английском.</p>
-<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span># Confidence function</span><span>
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span># Confidence function
 </span><span>
-</span><span>Предположим, мы пишем парсер, который для каждого правила грамматики задаёт вероятность. Если данное правило распарсилось, то мы умножаем эту вероятность к итоговой.</span><span>
+</span><span>Предположим, мы пишем парсер, который для каждого правила грамматики задаёт вероятность. Если данное правило распарсилось, то мы умножаем эту вероятность к итоговой.
 </span><span>
-</span><span>В таком случае проблема классических вероятностей, - чисел от 0 до 1, в том, что для большого размера парсируемого текста итоговая вероятность будет очень маленькой. И нам сложно оценить насколько мы уверенны в данном результате.</span><span>
+</span><span>В таком случае проблема классических вероятностей, - чисел от 0 до 1, в том, что для большого размера парсируемого текста итоговая вероятность будет очень маленькой. И нам сложно оценить насколько мы уверенны в данном результате.
 </span><span>
-</span><span>Здесь же представлен тип данных `confidence`, умножение которых позволяет представлять такую уверенность. У этого типа данных есть три разных состояния:</span><span>
-</span><span>* Степень уверенности в том что гипотеза неверна</span><span>
-</span><span>* Полная неуверенность</span><span>
-</span><span>* Степень уверенности в том гипотеза верна</span><span>
+</span><span>Здесь же представлен тип данных `confidence`, умножение которых позволяет представлять такую уверенность. У этого типа данных есть три разных состояния:
+</span><span>* Степень уверенности в том что гипотеза неверна
+</span><span>* Полная неуверенность
+</span><span>* Степень уверенности в том гипотеза верна
 </span><span>
-</span><span>Его область определения `A = [-1, 1]`:</span><span>
-</span><span>* На области `[-1, 0)` отображается уверенность в том что это неправильно. Чем ближе к `-1`, тем больше эта уверенность</span><span>
-</span><span>* Элемент `0` означает что неизвестно правильно это или нет</span><span>
-</span><span>* На области `(0, 1]` отображается уверенность в том что это правильно. Чем ближе к `1`, тем больше эта уверенность</span><span>
+</span><span>Его область определения `A = [-1, 1]`:
+</span><span>* На области `[-1, 0)` отображается уверенность в том что это неправильно. Чем ближе к `-1`, тем больше эта уверенность
+</span><span>* Элемент `0` означает что неизвестно правильно это или нет
+</span><span>* На области `(0, 1]` отображается уверенность в том что это правильно. Чем ближе к `1`, тем больше эта уверенность
 </span><span>
-</span><span>Переопределён метод для умножения этих &quot;уверенностей&quot; друг на друга. Обозначим его как `P(a: A, b: A) -&gt; A`, то есть функция принимает два аргумента из области определения `A`, и возвращает результат из этой же области определения. Эта функция обладает следующими свойствами:</span><span>
-</span><span>* `P(x, 0) = x`</span><span>
-</span><span>* `P(x, -1) = -1`</span><span>
-</span><span>* `P(x, 1) = 1`</span><span>
-</span><span>* `P(x, +y) &gt;= x` - положительные увеличивают</span><span>
-</span><span>* `P(x, -y) &lt;= x` - отрицательные уменьшают</span><span>
-</span><span>* `P(P(x, y), z) = P(P(x, z), y)` - независимо от порядка применения получается один и тот же результат. Это очень важно, потому что при парсинге возможно много вариантов в какой последовательности применить функцию, и от этого очень много зависит.</span><span>
-</span><span>* `P(x, y)` относительно `y` монотонно возрастает.</span><span>
-</span><span>* `P(x, y) = P(y, x)` - это свойство не нужно было для парсинга, но оно случайно появилось</span><span>
+</span><span>Переопределён метод для умножения этих &quot;уверенностей&quot; друг на друга. Обозначим его как `P(a: A, b: A) -&gt; A`, то есть функция принимает два аргумента из области определения `A`, и возвращает результат из этой же области определения. Эта функция обладает следующими свойствами:
+</span><span>* `P(x, 0) = x`
+</span><span>* `P(x, -1) = -1`
+</span><span>* `P(x, 1) = 1`
+</span><span>* `P(x, +y) &gt;= x` - положительные увеличивают
+</span><span>* `P(x, -y) &lt;= x` - отрицательные уменьшают
+</span><span>* `P(P(x, y), z) = P(P(x, z), y)` - независимо от порядка применения получается один и тот же результат. Это очень важно, потому что при парсинге возможно много вариантов в какой последовательности применить функцию, и от этого очень много зависит.
+</span><span>* `P(x, y)` относительно `y` монотонно возрастает.
+</span><span>* `P(x, y) = P(y, x)` - это свойство не нужно было для парсинга, но оно случайно появилось
 </span></code></pre>
 <p><strong><center>o1</center></strong></p>
 <p>Below is one example of a function that meets all the specified requirements. The idea is to interpret the &quot;confidence&quot; values in a way that allows us to combine them using an associative, commutative operation that respects the given constraints.</p>
