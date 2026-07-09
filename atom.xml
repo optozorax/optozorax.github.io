@@ -5,12 +5,12 @@
 	<link href="https://optozorax.github.io/atom.xml" rel="self" type="application/atom+xml"/>
   	<link href="https://optozorax.github.io/"/>
 	<generator uri="https://www.getzola.org/">Zola</generator>
-	<updated>2023-06-07T00:00:00+00:00</updated>
+	<updated>2026-07-09T00:00:00+00:00</updated>
 	<author>
         <name>optozorax</name>
         <uri>https://optozorax.github.io/</uri>
     </author>
-    <icon>https://optozorax.github.io/favicon/android-chrome-192x192.png</icon>
+	<icon>https://optozorax.github.io/favicon/android-chrome-192x192.png</icon>
 	<id>https://optozorax.github.io/atom.xml</id>
 	<entry xml:lang="ru">
 		<title>Аппроксимация распределения данных полиномом</title>
