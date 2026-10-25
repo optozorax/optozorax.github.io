@@ -9,72 +9,57 @@ function cloneAttributes(element, sourceNode) {
 window.addEventListener('DOMContentLoaded', () => {
 	let re = /^[ \t]+/;
 	document.querySelectorAll(".main-content pre code").forEach((code) => {
-		let first_elem_in_line = true;
-		let table = null;
-		let tr = null;
-		let td1 = null;
-		let td2 = null;
-		let span1 = null;
-		let span2 = null;
+		// Zola's highlighter puts every line in its own `.giallo-l` span with the tokens inside
+		let lines = code.querySelectorAll(":scope > .giallo-l");
+		if (lines.length == 0) {
+			return;
+		}
 		let new_code = document.createElement("code");
 		new_code.classList = code.classList;
 		cloneAttributes(new_code, code);
-		new_code["data-lang"] = code["data-lang"];
-		code.querySelectorAll("span").forEach((span) => {
-			let string = span.innerHTML;
-			let last_elem_in_line = string.endsWith("\n");
+		lines.forEach((line) => {
+			let table = document.createElement("span");
+			let tr = document.createElement("span");
+			let td1 = document.createElement("span");
+			let td2 = document.createElement("span");
+			let span1 = document.createElement("span");
+			let span1_hidden = document.createElement("span");
 
-			if (first_elem_in_line) {
-				table = document.createElement("span");
-				tr = document.createElement("span");
-				td1 = document.createElement("span");
-				td2 = document.createElement("span");
-				span1 = document.createElement("span");
-				span1_hidden = document.createElement("span");
-				span2 = span.cloneNode();
+			table.classList.add("table");
+			tr.classList.add("tr");
+			td1.classList.add("td");
+			td2.classList.add("td");
 
-				table.classList.add("table");
-				tr.classList.add("tr");
-				td1.classList.add("td");
-				td2.classList.add("td");
+			td1.classList.add("no-copy");
+			span1_hidden.classList.add("hidden-copy");
 
-				td1.classList.add("no-copy");
-				span1_hidden.classList.add("hidden-copy");
-
-				let matched = string.match(re);
-				if (matched == null) {
-					matched = [""];
-				}
-
-				span1.innerHTML = matched[0];
-				span1_hidden.innerHTML = matched[0];
-				span2.innerHTML = string.slice(matched[0].length);
-
-				td1.appendChild(span1);
-				td2.appendChild(span1_hidden);
-				td2.appendChild(span2);
-
-				span1 = null;
-				span2 = null;
-			} else {
-				let span3 = span.cloneNode();
-				span3.innerHTML = span.innerHTML;
-				td2.appendChild(span3);
+			let tokens = Array.from(line.children);
+			let first = tokens.length > 0 ? tokens[0] : document.createElement("span");
+			let string = first.innerHTML;
+			let matched = string.match(re);
+			if (matched == null) {
+				matched = [""];
 			}
 
-			if (last_elem_in_line) {
-				tr.appendChild(td1);
-				tr.appendChild(td2);
-				table.appendChild(tr);
-				new_code.appendChild(table);
+			let span2 = first.cloneNode();
+			span1.innerHTML = matched[0];
+			span1_hidden.innerHTML = matched[0];
+			span2.innerHTML = string.slice(matched[0].length);
 
-				table = null;
-				td1 = null;
-				td2 = null;
-				span1 = null;
-				span2 = null;
-			}
-			first_elem_in_line = last_elem_in_line;
+			td1.appendChild(span1);
+			td2.appendChild(span1_hidden);
+			td2.appendChild(span2);
+			tokens.slice(1).forEach((span) => {
+				td2.appendChild(span.cloneNode(true));
+			});
+			let line_end = document.createElement("span");
+			line_end.innerHTML = "\n";
+			td2.appendChild(line_end);
+
+			tr.appendChild(td1);
+			tr.appendChild(td2);
+			table.appendChild(tr);
+			new_code.appendChild(table);
 		});
 		code.parentNode.replaceChild(new_code, code);
 	});

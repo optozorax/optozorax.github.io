@@ -27,7 +27,7 @@
   
 
 <meta name="author" content="optozorax">
-<meta name="title" content="Как записать перестановку в число — Блог optozorax&#x27;а">
+<meta name="title" content="Как записать перестановку в число — Блог optozorax&#39;а">
 <meta name="description" content="Как представить любую перестановку в виде числа от 1 до N! и наоборот из любого числа получить перестановку.">
 <meta name="image" content="https://optozorax.github.io/p/permutation-into-number/permutation-into-number.png">
 
@@ -37,7 +37,7 @@
 <!-- Facebook Meta Tags -->
 <meta property="og:url" content="https://optozorax.github.io/p/permutation-into-number/">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Как записать перестановку в число — Блог optozorax&#x27;а">
+<meta property="og:title" content="Как записать перестановку в число — Блог optozorax&#39;а">
 <meta property="og:description" content="Как представить любую перестановку в виде числа от 1 до N! и наоборот из любого числа получить перестановку.">
 <meta property="og:image" content="https://optozorax.github.io/p/permutation-into-number/permutation-into-number.png">
 <meta property="og:locale" content="ru">
@@ -58,7 +58,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta property="twitter:domain" content="optozorax.github.io">
 <meta property="twitter:url" content="https://optozorax.github.io/p/permutation-into-number/">
-<meta name="twitter:title" content="Как записать перестановку в число — Блог optozorax&#x27;а">
+<meta name="twitter:title" content="Как записать перестановку в число — Блог optozorax&#39;а">
 <meta name="twitter:description" content="Как представить любую перестановку в виде числа от 1 до N! и наоборот из любого числа получить перестановку.">
 <meta name="twitter:image" content="https://optozorax.github.io/p/permutation-into-number/permutation-into-number.png">
 <meta name="twitter:creator" content="optozorax">
@@ -87,7 +87,7 @@
   <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
   <!-- --- -->
 
-  <title>Как записать перестановку в число — Блог optozorax&#x27;а</title>
+  <title>Как записать перестановку в число — Блог optozorax&#39;а</title>
 </head>
 
 <body>
@@ -181,7 +181,7 @@
 <td style="padding-left: 10px;">
   
   
-  <a href="https:&#x2F;&#x2F;t.me&#x2F;optozorax_dev&#x2F;261">
+  <a href="https://t.me/optozorax_dev/261">
   <code class="tag">Пост в Telegram</code>
   </a>
   
@@ -210,7 +210,7 @@
   
 <article itemscope itemtype="http://schema.org/BlogPosting">
 <div itemprop="articleBody" id="content">
-<p>Для предстоящей программки, где можно запускать обратимые клеточные автоматы я хочу сделать возможность задавать любые правила. Как я описывал в <a href="/critters">посте про Critters</a>, любая перестановка массива от <code>0</code> до <code>N</code> является корректным правилом. Значит должна быть возможность задавать перестановку в виде чего-то, что можно скопипастить и вставить в программу. </p>
+<p>Для предстоящей программки, где можно запускать обратимые клеточные автоматы я хочу сделать возможность задавать любые правила. Как я описывал в <a href="/critters">посте про Critters</a>, любая перестановка массива от <code>0</code> до <code>N</code> является корректным правилом. Значит должна быть возможность задавать перестановку в виде чего-то, что можно скопипастить и вставить в программу.</p>
 <p>На <a href="https://dmishin.github.io/js-revca/index.html">одном сайте с обратимыми автоматами</a> перестановка задаётся так:</p>
 <p><code>0,2,8,3,1,5,6,7,4,9,10,11,12,13,14,15</code></p>
 <p>По мне это довольно скучно и не очень удобно.</p>
@@ -226,14 +226,14 @@
 <p>А теперь я расскажу как именно можно превратить перестановку в одно число.</p>
 <p>Пусть у нас есть перестановка <code>А</code> из пяти элементов: <code>[4,1,2,3,0]</code>. Главное свойство любой перестановки - в ней все числа уникальны. Значит можно преобразовать этот массив в немного другой.</p>
 <p>Пусть у нас ещё есть такой массив <code>Б</code>: <code>[0,1,2,3,4]</code>.</p>
-<p>Далее берём нашу перестановку, и говорим по какому индексу находится первый её элемент? <code>4</code> находится по индексу <code>4</code>, так и записываем в массив <code>Ц</code>. Удаляем из массива <code>Б</code> и массива <code>А</code> число <code>4</code>. </p>
+<p>Далее берём нашу перестановку, и говорим по какому индексу находится первый её элемент? <code>4</code> находится по индексу <code>4</code>, так и записываем в массив <code>Ц</code>. Удаляем из массива <code>Б</code> и массива <code>А</code> число <code>4</code>.</p>
 <p><code>А = [1,2,3,0]. Б = [0,1,2,3]. Ц = [4].</code></p>
-<p>Берём следующее число из <code>А</code>: <code>1</code>. По какому индексу находится? <code>1</code>. Так и записываем, удаляем из <code>Б</code> и <code>А</code> эти элементы. </p>
+<p>Берём следующее число из <code>А</code>: <code>1</code>. По какому индексу находится? <code>1</code>. Так и записываем, удаляем из <code>Б</code> и <code>А</code> эти элементы.</p>
 <p><code>А = [2,3,0]. Б = [0,2,3]. Ц = [4,1].</code></p>
-<p>И теперь начинается самое интересное. Берём следующее число из <code>А</code>: <code>2</code>. Оно находится по индексу <code>1</code>. Так и записываем, и удаляем из <code>А</code> и <code>Б</code>. </p>
+<p>И теперь начинается самое интересное. Берём следующее число из <code>А</code>: <code>2</code>. Оно находится по индексу <code>1</code>. Так и записываем, и удаляем из <code>А</code> и <code>Б</code>.</p>
 <p><code>А = [3,0]. Б = [0,3]. Ц = [4,1,1].</code></p>
 <p>Ну и таким образом у нас в итоге получится: <code>А = []. Б = []. Ц = [4,1,1,1,0]</code>.</p>
-<p>Что интересного в массиве <code>Ц</code>? У него в каждом следующем элементе максимальное возможное число уменьшается на <code>1</code>. То есть максимальный <code>Ц = [4,3,2,1,0]</code> возможен для перестановки: <code>[4,3,2,1,0]</code>. А <code>Ц = [0,0,0,0,0]</code> получается для перестановки <code>[0,1,2,3,4]</code>. </p>
+<p>Что интересного в массиве <code>Ц</code>? У него в каждом следующем элементе максимальное возможное число уменьшается на <code>1</code>. То есть максимальный <code>Ц = [4,3,2,1,0]</code> возможен для перестановки: <code>[4,3,2,1,0]</code>. А <code>Ц = [0,0,0,0,0]</code> получается для перестановки <code>[0,1,2,3,4]</code>.</p>
 <p>Получается в <code>Ц</code> у нас хранятся цифры с необычной системой счисления, разной для каждого разряда. Ну и далее можно использовать <code>Ц</code> чтобы получить номер перестановки:</p>
 <p><code>0*0! + 1*1! + 1*2! + 1*3! + 4*4! = 105.</code></p>
 <p>Получается это число находится в промежутке от <code>0</code> до <code>N!-1</code>. Вот так мы и пронумеровали каждую перестановку.</p>
@@ -291,10 +291,9 @@
     <tr><td style="border: 0px; padding: 0.2rem;">
     <!-- SVG icons from https://iconmonstr.com -->
 
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
-    href="https:&#x2F;&#x2F;github.com&#x2F;optozorax" 
+    href="https://github.com/optozorax" 
     aria-label="optozorax's GitHub" 
     title="optozorax's GitHub">
     <img 
@@ -306,11 +305,9 @@
   </a>
 </span>
 
-
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
-    href="https:&#x2F;&#x2F;t.me&#x2F;optozorax_dev" 
+    href="https://t.me/optozorax_dev" 
     aria-label="optozorax's Telegram channel" 
     title="optozorax's Telegram channel">
     <img 
@@ -322,11 +319,9 @@
   </a>
 </span>
 
-
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
-    href="https:&#x2F;&#x2F;www.youtube.com&#x2F;c&#x2F;optozorax" 
+    href="https://www.youtube.com/c/optozorax" 
     aria-label="optozorax's YouTube channel" 
     title="optozorax's YouTube channel">
     <img 
@@ -338,11 +333,9 @@
   </a>
 </span>
 
-
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
-    href="https:&#x2F;&#x2F;boosty.to&#x2F;optozorax" 
+    href="https://boosty.to/optozorax" 
     aria-label="optozorax's donate page" 
     title="optozorax's donate page">
     <img 
@@ -354,11 +347,9 @@
   </a>
 </span>
 
-
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
-    href="&#x2F;atom.xml" 
+    href="/atom.xml" 
     aria-label="optozorax's Atom Feed" 
     title="optozorax's Atom Feed">
     <img 
@@ -370,9 +361,7 @@
   </a>
 </span>
 
-
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
     href="mailto:optozorax@gmail.com" 
     aria-label="optozorax's email" 
@@ -385,7 +374,6 @@
       alt="optozorax's email">
   </a>
 </span>
-
 
     </td><td style="border: 0px; padding: 0.2rem;">
 

@@ -27,7 +27,7 @@
   
 
 <meta name="author" content="optozorax">
-<meta name="title" content="Клеточный автомат на основе фильма «Довод» — Блог optozorax&#x27;а">
+<meta name="title" content="Клеточный автомат на основе фильма «Довод» — Блог optozorax&#39;а">
 <meta name="description" content="Возможно ли создать автомат, который будет одновременно обладать частицами, идущими вперёд во времени и назад во времени? Да, и я такой автомат сделал, рассказываю о нём в посте.">
 <meta name="image" content="https://optozorax.github.io/p/the-tenet-of-life/preview.jpg">
 
@@ -37,7 +37,7 @@
 <!-- Facebook Meta Tags -->
 <meta property="og:url" content="https://optozorax.github.io/p/the-tenet-of-life/">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Клеточный автомат на основе фильма «Довод» — Блог optozorax&#x27;а">
+<meta property="og:title" content="Клеточный автомат на основе фильма «Довод» — Блог optozorax&#39;а">
 <meta property="og:description" content="Возможно ли создать автомат, который будет одновременно обладать частицами, идущими вперёд во времени и назад во времени? Да, и я такой автомат сделал, рассказываю о нём в посте.">
 <meta property="og:image" content="https://optozorax.github.io/p/the-tenet-of-life/preview.jpg">
 <meta property="og:locale" content="ru">
@@ -60,7 +60,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta property="twitter:domain" content="optozorax.github.io">
 <meta property="twitter:url" content="https://optozorax.github.io/p/the-tenet-of-life/">
-<meta name="twitter:title" content="Клеточный автомат на основе фильма «Довод» — Блог optozorax&#x27;а">
+<meta name="twitter:title" content="Клеточный автомат на основе фильма «Довод» — Блог optozorax&#39;а">
 <meta name="twitter:description" content="Возможно ли создать автомат, который будет одновременно обладать частицами, идущими вперёд во времени и назад во времени? Да, и я такой автомат сделал, рассказываю о нём в посте.">
 <meta name="twitter:image" content="https://optozorax.github.io/p/the-tenet-of-life/preview.jpg">
 <meta name="twitter:creator" content="optozorax">
@@ -89,7 +89,7 @@
   <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
   <!-- --- -->
 
-  <title>Клеточный автомат на основе фильма «Довод» — Блог optozorax&#x27;а</title>
+  <title>Клеточный автомат на основе фильма «Довод» — Блог optozorax&#39;а</title>
 </head>
 
 <body>
@@ -185,7 +185,7 @@
 <td style="padding-left: 10px;">
   
   
-  <a href="https:&#x2F;&#x2F;t.me&#x2F;optozorax_dev&#x2F;252">
+  <a href="https://t.me/optozorax_dev/252">
   <code class="tag">Пост в Telegram</code>
   </a>
   
@@ -214,12 +214,12 @@
   
 <article itemscope itemtype="http://schema.org/BlogPosting">
 <div itemprop="articleBody" id="content">
-<p>Сразу как у нас открыли кинотеатры, я побежал смотреть фильм &quot;Довод&quot; от Нолана. Мне очень понравилось. И весь дальнейший пост будет основан на концепции из этого фильма, так что если вы не любите спойлеры, то лучше не читайте дальше. Хотя, возможно, я рассказываю спойлеры только максимум на уровне трейлера, я хз, не смотрю трейлеры из-за ненависти к любым спойлерам. Короче, я вас предупредил.</p>
-<p>Меня не особо интересуют всякие персонажи и прочие кожаные мешки, а вот концепции и идеи - очень даже. Поэтому мне ОООЧЕНЬ понравился этот фильм. И в &quot;Доводе&quot; как раз показывается ОЧЕНЬ интересная концепция, когда вещество, идущее обратно во времени, существует параллельно с веществом, идущим вперёд во времени. Это даже путешествием во времени назвать нельзя, потому что это не то читерство с гитовыми ветками, которое нам показывают в других фильмах, это очень органичная, сложная, противоречивая и интересная вещь. Сразу после фильма я задался единственным главным вопросом: возможно ли и как такое симулировать?! Интересует как минимум возможность симуляции такого через клеточный автомат, не то что физика. Как раз хорошим совпадением стало то, что я за пару месяцев до этого наконец <a href="/critters">реализовал обратимый автомат Critters и немного его поисследовал</a>. Я сразу подумал, что обратимость Critters должна как-то помочь с концепцией Довода, но в первые дни я так и ничего не смог придумать.</p>
-<p>Так же я начал думать каким образом прошлое может знать о том каким будет будущее, так что наверняка обязательно придётся решать какую-то астрономически огромную систему уравнений, чтобы реализовать что-то подобное &quot;Доводу&quot;, поэтому концепция обычной пошаговой симуляции тут может быть неприменима.</p>
-<p>Затем я начал целенаправленно думать как это симулировать и наконец придумал. Обратимость Critters действительно помогла, и я сделал на основе него обратимый клеточный автомат, где существует одновременно три вещества: </p>
+<p>Сразу как у нас открыли кинотеатры, я побежал смотреть фильм "Довод" от Нолана. Мне очень понравилось. И весь дальнейший пост будет основан на концепции из этого фильма, так что если вы не любите спойлеры, то лучше не читайте дальше. Хотя, возможно, я рассказываю спойлеры только максимум на уровне трейлера, я хз, не смотрю трейлеры из-за ненависти к любым спойлерам. Короче, я вас предупредил.</p>
+<p>Меня не особо интересуют всякие персонажи и прочие кожаные мешки, а вот концепции и идеи - очень даже. Поэтому мне ОООЧЕНЬ понравился этот фильм. И в "Доводе" как раз показывается ОЧЕНЬ интересная концепция, когда вещество, идущее обратно во времени, существует параллельно с веществом, идущим вперёд во времени. Это даже путешествием во времени назвать нельзя, потому что это не то читерство с гитовыми ветками, которое нам показывают в других фильмах, это очень органичная, сложная, противоречивая и интересная вещь. Сразу после фильма я задался единственным главным вопросом: возможно ли и как такое симулировать?! Интересует как минимум возможность симуляции такого через клеточный автомат, не то что физика. Как раз хорошим совпадением стало то, что я за пару месяцев до этого наконец <a href="/critters">реализовал обратимый автомат Critters и немного его поисследовал</a>. Я сразу подумал, что обратимость Critters должна как-то помочь с концепцией Довода, но в первые дни я так и ничего не смог придумать.</p>
+<p>Так же я начал думать каким образом прошлое может знать о том каким будет будущее, так что наверняка обязательно придётся решать какую-то астрономически огромную систему уравнений, чтобы реализовать что-то подобное "Доводу", поэтому концепция обычной пошаговой симуляции тут может быть неприменима.</p>
+<p>Затем я начал целенаправленно думать как это симулировать и наконец придумал. Обратимость Critters действительно помогла, и я сделал на основе него обратимый клеточный автомат, где существует одновременно три вещества:</p>
 <ul>
-<li>пустота - чёрные клетки, </li>
+<li>пустота - чёрные клетки,</li>
 <li>вещество идущее вперёд во времени - синие клетки,</li>
 <li>вещество идущее обратно во времени - красные клетки.</li>
 </ul>
@@ -230,7 +230,7 @@
 <li>Наборы клеток, которые состоят из пустоты, красных и синих клеток корректно обрабатываются.</li>
 <li>Если правила для обычных Critters имеют размер <code>2^4</code>, то в моём автомате они размером <code>2*3^4</code>. Такой большой размер тоже составляет некоторую сложность в разработке правил.</li>
 </ul>
-<p>Назвал я этот автомат гордым именем и с уважением к вдохновителю: The Tenet Of Life (Critters является самым близким аналогом The Game Of Life в мире обратимых автоматов, поэтому вполне логично). </p>
+<p>Назвал я этот автомат гордым именем и с уважением к вдохновителю: The Tenet Of Life (Critters является самым близким аналогом The Game Of Life в мире обратимых автоматов, поэтому вполне логично).</p>
 <p>Там были интересные проблемы и их решения, так что я хочу всё это подробно рассказать вместе с картинками, но сейчас у меня нет времени и мотивации. Надеюсь когда-нибудь в будущем доберусь.</p>
 <p>Ладно, а теперь время картинок!</p>
 <hr />
@@ -259,32 +259,10 @@
 </video>
 <hr />
 <p>А это так правила записываны в коде))))))))))000)0 Конечно, эти массивы вычисляется. Вычислением просто занимается другой код.</p>
-<div class="magnifier-container img-one-two">
-<img
-    class="not-default full-screen-img"
-    width="546"
-    height="640"
-    src="&#x2F;processed_images&#x2F;3366ce0f175281e600.webp" 
-    onclick="full_screen('article_5.jpg')"
-    onauxclick="full_screen_new_page('article_5.jpg')">
-<div class="magnifier-display">
-<img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1.2<br>jpg</div>
-</div>
-</div>
+<div class="magnifier-container img-one-two"> <img     class="not-default full-screen-img"     width="546"     height="640"     src="/processed_images/article_5.bc4b365ad7293014.webp"     onclick="full_screen('article_5.jpg')"     onauxclick="full_screen_new_page('article_5.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.2<br>jpg</div> </div> </div>
 <hr />
 <p>А это я проектировал правила на draw.io. Не пытайтесь понять, просто спойлер, в будущем подробно расскажу об этом.</p>
-<div class="magnifier-container img-one-two">
-<img
-    class="not-default full-screen-img"
-    width="396"
-    height="640"
-    src="&#x2F;processed_images&#x2F;800892818cb69b2700.webp" 
-    onclick="full_screen('article_6.jpg')"
-    onauxclick="full_screen_new_page('article_6.jpg')">
-<div class="magnifier-display">
-<img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×2<br>jpg</div>
-</div>
-</div>
+<div class="magnifier-container img-one-two"> <img     class="not-default full-screen-img"     width="396"     height="640"     src="/processed_images/article_6.d169c649e5d5202b.webp"     onclick="full_screen('article_6.jpg')"     onauxclick="full_screen_new_page('article_6.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×2<br>jpg</div> </div> </div>
 <hr />
 <p>Мне кажется ничего интересного или революционного я не увидел. Просто красные и синие клетки кипишатся и обладают хорошими математическими свойствами. Поэтому самое интересное - то как я его сделал, а не сам результат. Результаты не интересные потому что сам изначальный автомат Critters не очень интересный. Тут надо другие обратимые автоматы исследовать с таким подходом.</p>
 <p>Ну и ещё результаты не очень интересные, потому что у меня нет самой главной фичи из фильма - устройства, которое обращает назад во времени всё что в него войдёт. Ведь именно такое устройство и создаёт интересные парадоксы и вынос мозга. А судя по тому что получилось у меня, просто параллельное существование двух временных типов материи не очень интересно и не очень противоречиво.</p>
@@ -348,10 +326,9 @@
     <tr><td style="border: 0px; padding: 0.2rem;">
     <!-- SVG icons from https://iconmonstr.com -->
 
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
-    href="https:&#x2F;&#x2F;github.com&#x2F;optozorax" 
+    href="https://github.com/optozorax" 
     aria-label="optozorax's GitHub" 
     title="optozorax's GitHub">
     <img 
@@ -363,11 +340,9 @@
   </a>
 </span>
 
-
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
-    href="https:&#x2F;&#x2F;t.me&#x2F;optozorax_dev" 
+    href="https://t.me/optozorax_dev" 
     aria-label="optozorax's Telegram channel" 
     title="optozorax's Telegram channel">
     <img 
@@ -379,11 +354,9 @@
   </a>
 </span>
 
-
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
-    href="https:&#x2F;&#x2F;www.youtube.com&#x2F;c&#x2F;optozorax" 
+    href="https://www.youtube.com/c/optozorax" 
     aria-label="optozorax's YouTube channel" 
     title="optozorax's YouTube channel">
     <img 
@@ -395,11 +368,9 @@
   </a>
 </span>
 
-
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
-    href="https:&#x2F;&#x2F;boosty.to&#x2F;optozorax" 
+    href="https://boosty.to/optozorax" 
     aria-label="optozorax's donate page" 
     title="optozorax's donate page">
     <img 
@@ -411,11 +382,9 @@
   </a>
 </span>
 
-
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
-    href="&#x2F;atom.xml" 
+    href="/atom.xml" 
     aria-label="optozorax's Atom Feed" 
     title="optozorax's Atom Feed">
     <img 
@@ -427,9 +396,7 @@
   </a>
 </span>
 
-
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
     href="mailto:optozorax@gmail.com" 
     aria-label="optozorax's email" 
@@ -442,7 +409,6 @@
       alt="optozorax's email">
   </a>
 </span>
-
 
     </td><td style="border: 0px; padding: 0.2rem;">
 

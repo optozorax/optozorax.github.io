@@ -324,7 +324,7 @@
 		<category term="дерево-пифагора"/>
 	</entry>
 	<entry xml:lang="ru">
-		<title>У слова &#x27;ложь&#x27; слишком много значений.</title>
+		<title>У слова &#39;ложь&#39; слишком много значений.</title>
 		<published>2019-04-07T00:00:00+00:00</published>
 		<updated>2019-04-07T00:00:00+00:00</updated>
 		<link href="https://optozorax.github.io/p/lie/" type="text/html"/>
@@ -334,12 +334,12 @@
 		<category term="язык"/>
 	</entry>
 	<entry xml:lang="ru">
-		<title>Что произойдет, если Пиноккио скажет: &#x27;Мой нос сейчас вырастет&#x27;?</title>
+		<title>Что произойдет, если Пиноккио скажет: &#39;Мой нос сейчас вырастет&#39;?</title>
 		<published>2019-03-23T00:00:00+00:00</published>
 		<updated>2019-03-23T00:00:00+00:00</updated>
 		<link href="https://optozorax.github.io/p/pinoccio/" type="text/html"/>
 		<id>https://optozorax.github.io/p/pinoccio/</id>
-		<summary type="html">Рассуждаю на эту тему. Спойлер: никаких версий аля &#x27;вселенная взорвалась&#x27; не будет, логика ставится во главу угла.</summary>
+		<summary type="html">Рассуждаю на эту тему. Спойлер: никаких версий аля &#39;вселенная взорвалась&#39; не будет, логика ставится во главу угла.</summary>
 		<category term="рассуждения"/>
 	</entry>
 	<entry xml:lang="ru">
@@ -353,7 +353,7 @@
 		<category term="c++"/>
 	</entry>
 	<entry xml:lang="ru">
-		<title>Фрактал &#x27;Круги Аполлона&#x27;. Первые эксперименты.</title>
+		<title>Фрактал &#39;Круги Аполлона&#39;. Первые эксперименты.</title>
 		<published>2018-07-20T00:00:00+00:00</published>
 		<updated>2018-07-20T00:00:00+00:00</updated>
 		<link href="https://optozorax.github.io/p/apollon-circles/" type="text/html"/>

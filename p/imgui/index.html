@@ -27,7 +27,7 @@
   
 
 <meta name="author" content="optozorax">
-<meta name="title" content="Как я впервые в жизни начал делать графические приложения: плюсы и минусы ImGui — Блог optozorax&#x27;а">
+<meta name="title" content="Как я впервые в жизни начал делать графические приложения: плюсы и минусы ImGui — Блог optozorax&#39;а">
 <meta name="description" content="Рассказываю об инструменте, который изменит ваше отношение к программированию графических интерфейсов. Если раньше вы в своих пет-проектах ограничивались только консольными утилитами, то теперь можете смело начать делать и графические утилиты с примерно таким же количеством усилий.">
 <meta name="image" content="https://optozorax.github.io/p/imgui/portal_explorer.png">
 
@@ -37,7 +37,7 @@
 <!-- Facebook Meta Tags -->
 <meta property="og:url" content="https://optozorax.github.io/p/imgui/">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Как я впервые в жизни начал делать графические приложения: плюсы и минусы ImGui — Блог optozorax&#x27;а">
+<meta property="og:title" content="Как я впервые в жизни начал делать графические приложения: плюсы и минусы ImGui — Блог optozorax&#39;а">
 <meta property="og:description" content="Рассказываю об инструменте, который изменит ваше отношение к программированию графических интерфейсов. Если раньше вы в своих пет-проектах ограничивались только консольными утилитами, то теперь можете смело начать делать и графические утилиты с примерно таким же количеством усилий.">
 <meta property="og:image" content="https://optozorax.github.io/p/imgui/portal_explorer.png">
 <meta property="og:locale" content="ru">
@@ -58,7 +58,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta property="twitter:domain" content="optozorax.github.io">
 <meta property="twitter:url" content="https://optozorax.github.io/p/imgui/">
-<meta name="twitter:title" content="Как я впервые в жизни начал делать графические приложения: плюсы и минусы ImGui — Блог optozorax&#x27;а">
+<meta name="twitter:title" content="Как я впервые в жизни начал делать графические приложения: плюсы и минусы ImGui — Блог optozorax&#39;а">
 <meta name="twitter:description" content="Рассказываю об инструменте, который изменит ваше отношение к программированию графических интерфейсов. Если раньше вы в своих пет-проектах ограничивались только консольными утилитами, то теперь можете смело начать делать и графические утилиты с примерно таким же количеством усилий.">
 <meta name="twitter:image" content="https://optozorax.github.io/p/imgui/portal_explorer.png">
 <meta name="twitter:creator" content="optozorax">
@@ -87,7 +87,7 @@
   <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
   <!-- --- -->
 
-  <title>Как я впервые в жизни начал делать графические приложения: плюсы и минусы ImGui — Блог optozorax&#x27;а</title>
+  <title>Как я впервые в жизни начал делать графические приложения: плюсы и минусы ImGui — Блог optozorax&#39;а</title>
 </head>
 
 <body>
@@ -188,7 +188,7 @@
 <td style="padding-left: 10px;">
   
   
-  <a href="https:&#x2F;&#x2F;t.me&#x2F;optozorax_dev&#x2F;493">
+  <a href="https://t.me/optozorax_dev/493">
   <code class="tag">Пост в Telegram</code>
   </a>
   
@@ -250,53 +250,38 @@
 <li>Поставить коллбэк-функцию с названием вида <code>on_button_click_1337</code>, которая будет вызываться каждый раз когда по кнопке кликают.</li>
 </ul>
 <p>В то время как чтобы сделать кнопку в ImGui, нужна всего-лишь одна строка кода:</p>
-<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#72ab00;">if</span><span> ui.</span><span style="color:#b39f04;">button</span><span>(</span><span style="color:#d07711;">&quot;Next&quot;</span><span>).</span><span style="color:#b39f04;">clicked</span><span>() {</span><span>
-</span><span>  </span><span style="color:#7f8989;">// do on click</span><span>
-</span><span>}</span><span>
-</span></code></pre>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="rust"><code data-lang="rust"><span class="giallo-l"><span style="color: #72AB00;">if</span><span style="color: #5597D6;"> ui</span><span style="color: #72AB00;">.</span><span style="color: #C23F31;">button</span><span>(</span><span style="color: #D07711;">&quot;Next&quot;</span><span>)</span><span style="color: #72AB00;">.</span><span style="color: #C23F31;">clicked</span><span>() {</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">  // do on click</span></span>
+<span class="giallo-l"><span>}</span></span></code></pre>
 <p>Никаких рисований, никаких коллбэков, нажатие кнопки проверяется прямо сейчас, и если прямо сейчас кнопка не нажата, то и ничего не происходит. От этого и получается название Immediate.</p>
 <p>Если вы хотите что-то посложнее, то вот пример, взятый из ридмишки egui:</p>
-<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span>ui.</span><span style="color:#b39f04;">heading</span><span>(</span><span style="color:#d07711;">&quot;My egui Application&quot;</span><span>);</span><span>
-</span><span>ui.</span><span style="color:#b39f04;">horizontal</span><span>(|</span><span style="color:#5597d6;">ui</span><span>| {</span><span>
-</span><span>    ui.</span><span style="color:#b39f04;">label</span><span>(</span><span style="color:#d07711;">&quot;Your name: &quot;</span><span>);</span><span>
-</span><span>    ui.</span><span style="color:#b39f04;">text_edit_singleline</span><span>(</span><span style="color:#72ab00;">&amp;</span><span style="color:#668f14;">mut</span><span> name);</span><span>
-</span><span>});</span><span>
-</span><span>ui.</span><span style="color:#b39f04;">add</span><span>(egui::Slider::new(</span><span style="color:#72ab00;">&amp;</span><span style="color:#668f14;">mut</span><span> age, </span><span style="color:#b3933a;">0</span><span style="color:#72ab00;">..=</span><span style="color:#b3933a;">120</span><span>).</span><span style="color:#b39f04;">text</span><span>(</span><span style="color:#d07711;">&quot;age&quot;</span><span>));</span><span>
-</span><span style="color:#72ab00;">if</span><span> ui.</span><span style="color:#b39f04;">button</span><span>(</span><span style="color:#d07711;">&quot;Click each year&quot;</span><span>).</span><span style="color:#b39f04;">clicked</span><span>() {</span><span>
-</span><span>    age </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1</span><span>;</span><span>
-</span><span>}</span><span>
-</span><span>ui.</span><span style="color:#b39f04;">label</span><span>(</span><span style="color:#a2a001;">format!</span><span>(</span><span style="color:#d07711;">&quot;Hello &#39;</span><span style="color:#aeb52b;">{}</span><span style="color:#d07711;">&#39;, age </span><span style="color:#aeb52b;">{}</span><span style="color:#d07711;">&quot;</span><span>, name, age));</span><span>
-</span><span>
-</span></code></pre>
-<div class="magnifier-container img-one">
-<img
-    class="not-default full-screen-img"
-    width="558"
-    height="204"
-    src="&#x2F;processed_images&#x2F;2c221cb704b7b8ee00.webp" 
-    onclick="full_screen('demo.png')"
-    onauxclick="full_screen_new_page('demo.png')">
-<div class="magnifier-display">
-<img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1<br>png</div>
-</div>
-</div>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="rust"><code data-lang="rust"><span class="giallo-l"><span style="color: #5597D6;">ui</span><span style="color: #72AB00;">.</span><span style="color: #C23F31;">heading</span><span>(</span><span style="color: #D07711;">&quot;My egui Application&quot;</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">ui</span><span style="color: #72AB00;">.</span><span style="color: #C23F31;">horizontal</span><span>(</span><span style="color: #72AB00;">|</span><span style="color: #5597D6;">ui</span><span style="color: #72AB00;">|</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">    ui</span><span style="color: #72AB00;">.</span><span style="color: #C23F31;">label</span><span>(</span><span style="color: #D07711;">&quot;Your name: &quot;</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">    ui</span><span style="color: #72AB00;">.</span><span style="color: #C23F31;">text_edit_singleline</span><span>(</span><span style="color: #72AB00;">&amp;</span><span style="color: #668F14;">mut</span><span style="color: #5597D6;"> name</span><span>);</span></span>
+<span class="giallo-l"><span>});</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">ui</span><span style="color: #72AB00;">.</span><span style="color: #C23F31;">add</span><span>(</span><span style="color: #C23F31;">egui</span><span style="color: #72AB00;">::</span><span style="color: #C23F31;">Slider</span><span style="color: #72AB00;">::</span><span style="color: #C23F31;">new</span><span>(</span><span style="color: #72AB00;">&amp;</span><span style="color: #668F14;">mut</span><span style="color: #5597D6;"> age</span><span>,</span><span style="color: #B3933A;"> 0</span><span style="color: #72AB00;">..=</span><span style="color: #B3933A;">120</span><span>)</span><span style="color: #72AB00;">.</span><span style="color: #C23F31;">text</span><span>(</span><span style="color: #D07711;">&quot;age&quot;</span><span>));</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">if</span><span style="color: #5597D6;"> ui</span><span style="color: #72AB00;">.</span><span style="color: #C23F31;">button</span><span>(</span><span style="color: #D07711;">&quot;Click each year&quot;</span><span>)</span><span style="color: #72AB00;">.</span><span style="color: #C23F31;">clicked</span><span>() {</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">    age</span><span style="color: #72AB00;"> +=</span><span style="color: #B3933A;"> 1</span><span>;</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">ui</span><span style="color: #72AB00;">.</span><span style="color: #C23F31;">label</span><span>(</span><span style="color: #C23F31;">format!</span><span>(</span><span style="color: #D07711;">&quot;Hello &#39;{}&#39;, age {}&quot;</span><span>,</span><span style="color: #5597D6;"> name</span><span>,</span><span style="color: #5597D6;"> age</span><span>));</span></span>
+<span class="giallo-l"></span></code></pre><div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="558"     height="204"     src="/processed_images/demo.cd51358161218e7a.webp"     onclick="full_screen('demo.png')"     onauxclick="full_screen_new_page('demo.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
 <p>Если в retained mode вы задаёте для каждого виджета его координаты, то здесь вы описываете каждый виджет сверху-вниз слева-направо. Его соответствующие координаты вычисляются автоматически, всё размещается компактно.</p>
 <p>Ещё виджеты можно задавать в цикле или внутри if, и всё будет прекрасно работать:</p>
-<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#72ab00;">for</span><span> i </span><span style="color:#72ab00;">in </span><span style="color:#b3933a;">0</span><span style="color:#72ab00;">..</span><span style="color:#b3933a;">10 </span><span>{</span><span>
-</span><span>    ui.</span><span style="color:#b39f04;">horizontal</span><span>(|</span><span style="color:#5597d6;">ui</span><span>| {</span><span>
-</span><span>        </span><span style="color:#72ab00;">if</span><span> ui.</span><span style="color:#b39f04;">button</span><span>(i.</span><span style="color:#b39f04;">to_string</span><span>()).</span><span style="color:#b39f04;">clicked</span><span>() {</span><span>
-</span><span>            ui.</span><span style="color:#b39f04;">label</span><span>(</span><span style="color:#a2a001;">format!</span><span>(</span><span style="color:#d07711;">&quot;</span><span style="color:#aeb52b;">{}</span><span style="color:#d07711;"> is clicked&quot;</span><span>, i));</span><span>
-</span><span>        }</span><span>
-</span><span>    });</span><span>
-</span><span>}</span><span>
-</span></code></pre>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="rust"><code data-lang="rust"><span class="giallo-l"><span style="color: #72AB00;">for</span><span style="color: #5597D6;"> i</span><span style="color: #72AB00;"> in</span><span style="color: #B3933A;"> 0</span><span style="color: #72AB00;">..</span><span style="color: #B3933A;">10</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">    ui</span><span style="color: #72AB00;">.</span><span style="color: #C23F31;">horizontal</span><span>(</span><span style="color: #72AB00;">|</span><span style="color: #5597D6;">ui</span><span style="color: #72AB00;">|</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        if</span><span style="color: #5597D6;"> ui</span><span style="color: #72AB00;">.</span><span style="color: #C23F31;">button</span><span>(</span><span style="color: #5597D6;">i</span><span style="color: #72AB00;">.</span><span style="color: #C23F31;">to_string</span><span>())</span><span style="color: #72AB00;">.</span><span style="color: #C23F31;">clicked</span><span>() {</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">            ui</span><span style="color: #72AB00;">.</span><span style="color: #C23F31;">label</span><span>(</span><span style="color: #C23F31;">format!</span><span>(</span><span style="color: #D07711;">&quot;{} is clicked&quot;</span><span>,</span><span style="color: #5597D6;"> i</span><span>));</span></span>
+<span class="giallo-l"><span>        }</span></span>
+<span class="giallo-l"><span>    });</span></span>
+<span class="giallo-l"><span>}</span></span></code></pre>
 <p>Здесь будет создано 10 кнопок, которые расположены сверху-вниз, и если кликнуть по одной кнопке, то на момент клика справа от кнопки появляется надпись о том что она кликнута.</p>
 <p>Можете представить себе такое в retained mode? Такая возможность позволяет отлично абстрагировать и переиспользовать элементы интерфейса без сложных классов, наследований, Dependency Injection итд.</p>
 <h1 id="kak-eto-rabotaet"><a class="anchor" href="#kak-eto-rabotaet">#</a>Как это работает</h1>
 <p>Если для retained mode хотя бы приблизительно понятно как он работает, да и мы к нему привыкли, то для immediate mode не очевидно.</p>
 <ul>
-<li>Интерфейс ImGui вызывается в цикле, каждая итерация цикла считается одним кадром. </li>
-<li>Перед началом кадра библиотека должна получить все данные касательно положения мыши, нажатых клавиш и прочих вводных. </li>
+<li>Интерфейс ImGui вызывается в цикле, каждая итерация цикла считается одним кадром.</li>
+<li>Перед началом кадра библиотека должна получить все данные касательно положения мыши, нажатых клавиш и прочих вводных.</li>
 <li>Затем вызывается функция, в которой пользователь библиотеки получает структуру <code>ui</code>, рисует свой интерфейс. В этот момент библиотека в реальном времени формирует все виджеты, для каждого виджета определяет попала ли на него мышь, и формирует вершины и треугольники, которые потом будут рисоваться.</li>
 <li>Теперь библиотека возвращает все сформированные mesh'и и отдаёт их на рисование бэкенду. Он рисует это на экран.</li>
 <li>И так повторяется 60 кадров в секунду.</li>
@@ -307,7 +292,7 @@
 <span style="color: #090"><big><b>Плюсы:</b></big></span>
 <ul>
 <li>Писать интерфейс очень просто</li>
-<li>Идеально подходит для заимствований Rust </li>
+<li>Идеально подходит для заимствований Rust</li>
 </ul>
 </div>
 <div class="cons">
@@ -330,8 +315,7 @@
 <h2 id="ideal-no-podkhodit-dlia-zaimstvovanii-rust"><a class="anchor" href="#ideal-no-podkhodit-dlia-zaimstvovanii-rust">#<sup>2</sup></a>Идеально подходит для заимствований Rust</h2>
 <p>Rust очень строгий к ссылкам, и я даже не представляю как на нём можно написать retained mode без использования <code>Arc&lt;RefCell&lt;_&gt;&gt;</code>. Ведь там надо чтобы одновременно какое-нибудь поле ввода знало куда ему вводить информацию, и одновременно чтобы эта информация хранилась где-то ещё, кроме самого интерфейса.</p>
 <p>А в ImGui ничего такого не нужно вообще, так как обращение к данным существует только в сейчас, можно передавать обычные ссылки. Давайте посмотрим на то как работает поле ввода:</p>
-<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span>ui.</span><span style="color:#b39f04;">text_edit_singleline</span><span>(</span><span style="color:#72ab00;">&amp;</span><span style="color:#668f14;">mut</span><span> name);</span><span>
-</span></code></pre>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="rust"><code data-lang="rust"><span class="giallo-l"><span style="color: #5597D6;">ui</span><span style="color: #72AB00;">.</span><span style="color: #C23F31;">text_edit_singleline</span><span>(</span><span style="color: #72AB00;">&amp;</span><span style="color: #668F14;">mut</span><span style="color: #5597D6;"> name</span><span>);</span></span></code></pre>
 <p>В него мы просто кидаем изменяемую ссылку на строку. Если за этот кадр нажались какие-то символы и данная строка изменилась, то она изменится после того как функция завершится.</p>
 <h2 id="zhriot-resursy-komp-iutera"><a class="anchor" href="#zhriot-resursy-komp-iutera">#<sup>2</sup></a>Жрёт ресурсы компьютера</h2>
 <p>Для того чтобы каждый кадр заново вычислять весь интерфейс, требуется много вычислений. В retained mode почти всё можно вычислить заранее, и хранить только вычисленное, в том числе весь массив виджетов, перерисовывать только изменяющиеся части. В ImGui же такое невозможно, всё вычисляется и рисуется заново каждый кадр.</p>
@@ -384,36 +368,14 @@
 <h1 id="chto-ia-sdelal-na-imgui"><a class="anchor" href="#chto-ia-sdelal-na-imgui">#</a>Что я сделал на ImGui</h1>
 <h2 id="the-tenet-of-life"><a class="anchor" href="#the-tenet-of-life">#<sup>2</sup></a>The Tenet of Life</h2>
 <p>Самый первый проект где я познакомился с ImGui — симулятор обратимых клеточных автоматов. Здесь я просто заюзал ImGui, который шёл внутри библиотеки macroquad, для того чтобы написать текст и сделать пару кнопочек.</p>
-<div class="magnifier-container img-one">
-<img
-    class="not-default full-screen-img"
-    width="1042"
-    height="577"
-    src="&#x2F;processed_images&#x2F;175754ce5a69a9e300.webp" 
-    onclick="full_screen('critters.png')"
-    onauxclick="full_screen_new_page('critters.png')">
-<div class="magnifier-display">
-<img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1<br>png</div>
-</div>
-</div>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1042"     height="577"     src="/processed_images/critters.ceb2142e9620f6c3.webp"     onclick="full_screen('critters.png')"     onauxclick="full_screen_new_page('critters.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
 <p>Казалось бы такая простота, а это кардинально изменило юзабельность программы, ведь раньше все мои программы с графикой управлялись исключительно через нажатия букв на клавиатуре, которые написаны в текстовом файле <code>help.txt</code>. Например, так было в <a href="/net-creater#%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%BE%D0%B9">моей программе из 2015 года</a>.</p>
 <h2 id="portal-explorer"><a class="anchor" href="#portal-explorer">#<sup>2</sup></a>Portal Explorer</h2>
 <p>Я рисовал сцены с порталами через код при помощи рейтрейсинга. Чтобы подвинуть или повернуть что-то мне приходилось редактировать код и перекомпилировать проект. В один момент мне это надело и я захотел поворачивать вещи в реальном времени.</p>
 <p>Сделал чтобы через интерфейс можно было вращать матрицы и это отображалось в реальном времени.</p>
 <p>Это показалось слишком просто, я почувствовал силушку богатырскую, взял и напилил целый визуальный редактор на ImGui:</p>
 <figure>
-<div class="magnifier-container img-two-three">
-<img
-    class="not-default full-screen-img"
-    width="733"
-    height="853"
-    src="&#x2F;processed_images&#x2F;75c24facc1bfc55400.webp" 
-    onclick="full_screen('twitter_1369940146460762112.png')"
-    onauxclick="full_screen_new_page('twitter_1369940146460762112.png')">
-<div class="magnifier-display">
-<img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1.7<br>png</div>
-</div>
-</div>
+<div class="magnifier-container img-two-three"> <img     class="not-default full-screen-img"     width="733"     height="853"     src="/processed_images/twitter_1369940146460762112.ece0545bb16c9041.webp"     onclick="full_screen('twitter_1369940146460762112.png')"     onauxclick="full_screen_new_page('twitter_1369940146460762112.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.7<br>png</div> </div> </div>
 <figcaption><a href="https://twitter.com/optozorax/status/1369940146460762112">Ссылка на твит</a></figcaption>
 </figure>
 <p>Уже через него можно было редактировать матрицы, объекты и их код в шейдерах. Это на порядок упрощало процесс создания сцен, благодаря чему я стал эффективнее. Главный прикол что я сделал его просто за пару дней и он просто работал. Это самое приятное чувство при использовании ImGui.</p>
@@ -421,33 +383,11 @@
 <p>А уже потом я ударился во все тяжкие, начал делать сложные интерфейсы, <a href="https://t.me/optozorax_dev/398">inline элементы</a>, <a href="https://t.me/optozorax_dev/358">формулы</a>, и интерфейс который задаёт другой интерфейс.</p>
 <p>Вообще знаете, когда я всё это задумывал, я изначально думал: «Ну сделаю чтобы в структурках на расте можно было писать порталы, и чтобы это потом кодогенерилось. Но, блин, это такой гемор, столько всего надо сделать.», а тут я нафиг сделал не только это, но ещё и сделал ко всему этому интерфейс, я вообще даже не мечтал о таком результате, который есть сейчас.</p>
 <p>Настолько великую силу даёт ImGui. От абсолютного нуля до realtime sophisticated визуального редактора 3D сцен за один проект.</p>
-<div class="magnifier-container img-one">
-<img
-    class="not-default full-screen-img"
-    width="1280"
-    height="790"
-    src="&#x2F;processed_images&#x2F;47f5a66d3251a1bb00.webp" 
-    onclick="full_screen('portal_explorer.png')"
-    onauxclick="full_screen_new_page('portal_explorer.png')">
-<div class="magnifier-display">
-<img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1.4<br>png</div>
-</div>
-</div>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1280"     height="790"     src="/processed_images/portal_explorer.d8686ce37a27ffc7.webp"     onclick="full_screen('portal_explorer.png')"     onauxclick="full_screen_new_page('portal_explorer.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.4<br>png</div> </div> </div>
 <h2 id="learn-words"><a class="anchor" href="#learn-words">#<sup>2</sup></a>Learn Words</h2>
 <p>Об этом проекте я написал <a href="/learn-words-post">статью</a>. Его особенность в том, что заодно с написанием продукта, я решил проверить гипотезу о том что с ImGui напишу программу очень быстро. И написал. Быстро. На минимально рабочий прототип ушло 6ч чистого времени, а чтобы полностью завершить проект, ушло 40ч чистого времени. И это при учёте того что программа полностью построена на графическом интерфейсе, и там есть довольно сложные элементы.</p>
 <p>Я бы такую программу с retained mode не написал бы никогда.</p>
-<div class="magnifier-container img-one">
-<img
-    class="not-default full-screen-img"
-    width="1280"
-    height="748"
-    src="&#x2F;processed_images&#x2F;28af5f083c672dfa00.webp" 
-    onclick="full_screen('..&#x2F;learn-words-post&#x2F;full.png')"
-    onauxclick="full_screen_new_page('..&#x2F;learn-words-post&#x2F;full.png')">
-<div class="magnifier-display">
-<img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1.6<br>png</div>
-</div>
-</div>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1280"     height="748"     src="/processed_images/full.4106585b8a0a6a0b.webp"     onclick="full_screen('../learn-words-post/full.png')"     onauxclick="full_screen_new_page('../learn-words-post/full.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.6<br>png</div> </div> </div>
 <h1 id="skhozhest-s-konsol-nymi-utilitami"><a class="anchor" href="#skhozhest-s-konsol-nymi-utilitami">#</a>Схожесть с консольными утилитами</h1>
 <p>Обычно люди в качестве пет-проектов, или просто начинающие программисты пишут консольные утилиты, потому что они проще, потому что они не требуют слишком много разбираться и ломать голову.</p>
 <p>ImGui предоставляет точно такие же преимущества. И если раньше школьники начинали с консольных приложений, потому что они проще, то сейчас они могут начинать с ImGui.</p>
@@ -668,10 +608,9 @@
     <tr><td style="border: 0px; padding: 0.2rem;">
     <!-- SVG icons from https://iconmonstr.com -->
 
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
-    href="https:&#x2F;&#x2F;github.com&#x2F;optozorax" 
+    href="https://github.com/optozorax" 
     aria-label="optozorax's GitHub" 
     title="optozorax's GitHub">
     <img 
@@ -683,11 +622,9 @@
   </a>
 </span>
 
-
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
-    href="https:&#x2F;&#x2F;t.me&#x2F;optozorax_dev" 
+    href="https://t.me/optozorax_dev" 
     aria-label="optozorax's Telegram channel" 
     title="optozorax's Telegram channel">
     <img 
@@ -699,11 +636,9 @@
   </a>
 </span>
 
-
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
-    href="https:&#x2F;&#x2F;www.youtube.com&#x2F;c&#x2F;optozorax" 
+    href="https://www.youtube.com/c/optozorax" 
     aria-label="optozorax's YouTube channel" 
     title="optozorax's YouTube channel">
     <img 
@@ -715,11 +650,9 @@
   </a>
 </span>
 
-
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
-    href="https:&#x2F;&#x2F;boosty.to&#x2F;optozorax" 
+    href="https://boosty.to/optozorax" 
     aria-label="optozorax's donate page" 
     title="optozorax's donate page">
     <img 
@@ -731,11 +664,9 @@
   </a>
 </span>
 
-
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
-    href="&#x2F;atom.xml" 
+    href="/atom.xml" 
     aria-label="optozorax's Atom Feed" 
     title="optozorax's Atom Feed">
     <img 
@@ -747,9 +678,7 @@
   </a>
 </span>
 
-
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
     href="mailto:optozorax@gmail.com" 
     aria-label="optozorax's email" 
@@ -762,7 +691,6 @@
       alt="optozorax's email">
   </a>
 </span>
-
 
     </td><td style="border: 0px; padding: 0.2rem;">
 

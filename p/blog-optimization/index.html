@@ -27,7 +27,7 @@
   
 
 <meta name="author" content="optozorax">
-<meta name="title" content="Оптимизация скорости статического сайта — Блог optozorax&#x27;а">
+<meta name="title" content="Оптимизация скорости статического сайта — Блог optozorax&#39;а">
 <meta name="description" content="Раньше мой блог загружался очень долго и сильно тормозил, несмотря на то что являлся статическим сайтом. Рассказываю как я добился максимальной скорости загрузки, минимального потребления трафика и 100 баллов в Lighthouse.">
 <meta name="image" content="https://optozorax.github.io/p/blog-optimization/preview.png">
 
@@ -37,7 +37,7 @@
 <!-- Facebook Meta Tags -->
 <meta property="og:url" content="https://optozorax.github.io/p/blog-optimization/">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Оптимизация скорости статического сайта — Блог optozorax&#x27;а">
+<meta property="og:title" content="Оптимизация скорости статического сайта — Блог optozorax&#39;а">
 <meta property="og:description" content="Раньше мой блог загружался очень долго и сильно тормозил, несмотря на то что являлся статическим сайтом. Рассказываю как я добился максимальной скорости загрузки, минимального потребления трафика и 100 баллов в Lighthouse.">
 <meta property="og:image" content="https://optozorax.github.io/p/blog-optimization/preview.png">
 <meta property="og:locale" content="ru">
@@ -62,7 +62,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta property="twitter:domain" content="optozorax.github.io">
 <meta property="twitter:url" content="https://optozorax.github.io/p/blog-optimization/">
-<meta name="twitter:title" content="Оптимизация скорости статического сайта — Блог optozorax&#x27;а">
+<meta name="twitter:title" content="Оптимизация скорости статического сайта — Блог optozorax&#39;а">
 <meta name="twitter:description" content="Раньше мой блог загружался очень долго и сильно тормозил, несмотря на то что являлся статическим сайтом. Рассказываю как я добился максимальной скорости загрузки, минимального потребления трафика и 100 баллов в Lighthouse.">
 <meta name="twitter:image" content="https://optozorax.github.io/p/blog-optimization/preview.png">
 <meta name="twitter:creator" content="optozorax">
@@ -91,7 +91,7 @@
   <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
   <!-- --- -->
 
-  <title>Оптимизация скорости статического сайта — Блог optozorax&#x27;а</title>
+  <title>Оптимизация скорости статического сайта — Блог optozorax&#39;а</title>
 </head>
 
 <body>
@@ -187,7 +187,7 @@
 </td>
 <td style="padding-right: 10px; border-right: 0px solid #ffffff;">
 <h2 class="project-date" style="margin-top: 0px;">
-    <span class="post-date" style="font-style: normal">| 🕑 17 мин</span>
+    <span class="post-date" style="font-style: normal">| 🕑 16 мин</span>
 </h2>
 </td>
 
@@ -196,7 +196,7 @@
 <td style="padding-left: 10px;">
   
   
-  <a href="https:&#x2F;&#x2F;t.me&#x2F;optozorax_dev&#x2F;503">
+  <a href="https://t.me/optozorax_dev/503">
   <code class="tag">Пост в Telegram</code>
   </a>
   
@@ -236,17 +236,17 @@
 .speed-good { color: #0dce6b; } /* 90-100 */
 </style>
 <h1 id="vvedenie"><a class="anchor" href="#vvedenie">#</a>Введение</h1>
-<p>Мир софта очевидно работает не так эффективно как мог бы: </p>
+<p>Мир софта очевидно работает не так эффективно как мог бы:</p>
 <ul>
 <li>приложения на телефон весят всё больше и больше,</li>
 <li>потребляемый трафик и потребляемые мощности постоянно раздуваются без видимой на то причины,</li>
 <li><a href="https://www.electronjs.org/">Electron</a>.</li>
 </ul>
-<p>Некоторые люди воспринимают это слишком близко к сердцу и начинают бороться за быстрый софт: </p>
+<p>Некоторые люди воспринимают это слишком близко к сердцу и начинают бороться за быстрый софт:</p>
 <ul>
 <li>Пользуются и популяризируют протокол <a href="https://gemini.circumlunar.space/">Gemini</a>.</li>
 <li>Отключают JS на некоторых сайтах, требуют чтобы сайты работали без JS.</li>
-<li>Используют легковесные альтернативы, например: 
+<li>Используют легковесные альтернативы, например:
 <ul>
 <li><a href="https://nitter.net/optozorax">Nitter</a> — альтернативный фронтенд Twitter.</li>
 <li><a href="https://yewtu.be/channel/UCIsVwdLhYrrs3K8MOXEZdhQ">yewtu.be</a> (на <a href="https://github.com/iv-org/invidious">Invidious</a>) — альтернативный фронтенд YouTube.</li>
@@ -281,9 +281,7 @@
 <div class="admonition-title violet-bg violet-border">Использование в Zola</div>
 <div class="admonition-content">
 <p>В статьях я вставляю картинки в markdown не через <code>![]()</code>, а через шорткод <code>image.html</code>:</p>
-<pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ image(path=&quot;my_image.jpg&quot;) }}</span><span>
-</span></code></pre>
-</div></div>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="zola"><code data-lang="zola"><span class="giallo-l"><span>{{ image(path=&quot;my_image.jpg&quot;) }}</span></span></code></pre></div></div>
 <p>Пример изменений в размерах:</p>
 <table><thead><tr><th>Комментарий</th><th>Прошлый формат</th><th>Прошлое разрешение / 1280</th><th>Прошлый размер</th><th>Новый размер</th><th>Пожато в N раз</th></tr></thead><tbody>
 <tr><td>Фотография моей клавитуры</td><td>jpg</td><td>×1.3</td><td>533кб</td><td>39кб</td><td>×13.7</td></tr>
@@ -301,9 +299,9 @@
 <p>Итого экономия в <strong>≈5 раз</strong>!</p>
 </div></div>
 <div class="admonition blue2-bg blue2-border-left">
-<div class="admonition-title blue2-bg blue2-border">Кстати, </div>
+<div class="admonition-title blue2-bg blue2-border">Кстати,</div>
 <div class="admonition-content">
-<p>на главной странице у каждой статьи сбоку есть картинка, чтобы не одними заголовками привлекать внимание. </p>
+<p>на главной странице у каждой статьи сбоку есть картинка, чтобы не одними заголовками привлекать внимание.</p>
 <p>Раньше для этих маленьких картинок запрашивалось картинка в оригинальном огромном разрешении, поэтому главная страница могла загружаться долго и весить реально много.</p>
 <p>Сейчас же, с этой фичей оптимизаций картинок, специально для главной я ресайзю картинки до максимального разрешения 200×200, и теперь главная даже со всеми картинками загружается моментально.</p>
 <p>Без этой фичи в золе я бы точно не стал так заморачиваться с маленькими картинками.</p>
@@ -313,47 +311,46 @@
 <p>Видео тоже не должны иметь слишком большое разрешение. Например, на телефоне вы снимаете в 4к, зачем это качество иметь у себя на странице и зря нагружать трафик? Тем более если видео маленькое, демонстративное.</p>
 <p>Ещё видео надо особым образом кодировать, чтобы оно воспроизводилось во всех браузерах и устройствах.</p>
 <p>Я преобразую видео через <a href="https://www.ffmpeg.org/"><code>ffmpeg</code></a> следующим скриптом:</p>
-<pre data-lang="bash" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#7f8989;">#!/bin/bash</span><span style="color:#7f8989;">
-</span><span>
-</span><span style="color:#7f8989;"># First argument: input file (may be another video, gif or folder with pictures,</span><span style="color:#7f8989;">
-</span><span style="color:#7f8989;"># read ffmpeg docs).</span><span style="color:#7f8989;">
-</span><span style="color:#7f8989;">#</span><span style="color:#7f8989;">
-</span><span style="color:#7f8989;"># Second argument optional: quality. for default it is 35 (averagely bad </span><span style="color:#7f8989;">
-</span><span style="color:#7f8989;"># quality), you can provide 22 as nice quality.</span><span style="color:#7f8989;">
-</span><span style="color:#7f8989;">#</span><span style="color:#7f8989;">
-</span><span style="color:#7f8989;"># Third argument optional: can be &quot;mute&quot; to mute or anything else to not to.</span><span style="color:#7f8989;">
-</span><span style="color:#7f8989;">#</span><span style="color:#7f8989;">
-</span><span style="color:#7f8989;"># Out is file with `_web` postfix and `mp4` format scaled down to 1280 max </span><span style="color:#7f8989;">
-</span><span style="color:#7f8989;"># width or height or not scaled if initial size is smaller</span><span style="color:#7f8989;">
-</span><span style="color:#7f8989;"># </span><span style="color:#7f8989;">
-</span><span style="color:#7f8989;"># Command get from https://gist.github.com/jaydenseric/220c785d6289bcfd7366</span><span style="color:#7f8989;">
-</span><span>
-</span><span style="color:#5597d6;">filename</span><span style="color:#72ab00;">=</span><span style="color:#d07711;">$(</span><span style="color:#acb3c2;">basename</span><span style="color:#72ab00;"> -- </span><span style="color:#d07711;">&quot;$</span><span style="color:#acb3c2;">1</span><span style="color:#d07711;">&quot;)</span><span>
-</span><span style="color:#5597d6;">extension</span><span style="color:#72ab00;">=</span><span style="color:#d07711;">&quot;${</span><span style="color:#acb3c2;">filename</span><span style="color:#72ab00;">##*</span><span style="color:#d07711;">.}&quot;</span><span>
-</span><span style="color:#5597d6;">filename</span><span style="color:#72ab00;">=</span><span style="color:#d07711;">&quot;${</span><span style="color:#acb3c2;">filename</span><span style="color:#72ab00;">%</span><span style="color:#d07711;">.</span><span style="color:#72ab00;">*</span><span style="color:#d07711;">}&quot;</span><span>
-</span><span style="color:#5597d6;">path</span><span style="color:#72ab00;">=</span><span style="color:#d07711;">&quot;${</span><span style="color:#acb3c2;">1</span><span style="color:#72ab00;">%</span><span style="color:#d07711;">/</span><span style="color:#72ab00;">*</span><span style="color:#d07711;">}&quot;</span><span>
-</span><span>
-</span><span style="color:#72ab00;">if </span><span style="color:#b39f04;">[ </span><span>${</span><span style="color:#5597d6;">3</span><span style="color:#72ab00;">:-</span><span style="color:#d07711;">&quot;preserve_audio&quot;</span><span>} </span><span style="color:#72ab00;">== </span><span style="color:#d07711;">&quot;mute&quot; </span><span style="color:#b39f04;">]</span><span>
-</span><span style="color:#72ab00;">then</span><span>
-</span><span>	</span><span style="color:#5597d6;">audio</span><span style="color:#72ab00;">=</span><span style="color:#d07711;">&quot;-an&quot;</span><span>
-</span><span style="color:#72ab00;">else</span><span>
-</span><span>	</span><span style="color:#5597d6;">audio</span><span style="color:#72ab00;">=</span><span style="color:#d07711;">&quot;-c:a aac -strict experimental&quot;</span><span>
-</span><span style="color:#72ab00;">fi</span><span>
-</span><span>
-</span><span style="color:#5597d6;">ffmpeg -y</span><span> \</span><span>
-</span><span>       </span><span style="color:#5597d6;">-i </span><span>$</span><span style="color:#5597d6;">1</span><span> \</span><span>
-</span><span>       </span><span style="color:#5597d6;">-c:v</span><span> libx264 \</span><span>
-</span><span>       </span><span style="color:#5597d6;">-pix_fmt</span><span> yuv420p \</span><span>
-</span><span>       </span><span style="color:#5597d6;">-profile:v</span><span> baseline \</span><span>
-</span><span>       </span><span style="color:#5597d6;">-level</span><span> 3.0 \</span><span>
-</span><span>       </span><span style="color:#5597d6;">-crf </span><span>${</span><span style="color:#5597d6;">2</span><span style="color:#72ab00;">:-</span><span>35} \</span><span>
-</span><span>       </span><span style="color:#5597d6;">-preset</span><span> veryslow \</span><span>
-</span><span>       </span><span style="color:#5597d6;">-vf </span><span style="color:#d07711;">&quot;scale=ceil(iw*min(1\,1280/iw)/2)*2:ceil(ow/dar/2)*2&quot;</span><span> \</span><span>
-</span><span>       </span><span style="color:#5597d6;">${audio}</span><span> \</span><span>
-</span><span>       </span><span style="color:#5597d6;">-movflags</span><span> +faststart \</span><span>
-</span><span>       </span><span style="color:#5597d6;">-threads</span><span> 0 \</span><span>
-</span><span>       </span><span style="color:#5597d6;">${path}/${filename}_web.mp4</span><span>
-</span></code></pre>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="shellscript"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #7F8989;">#!/bin/bash</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;"># First argument: input file (may be another video, gif or folder with pictures,</span></span>
+<span class="giallo-l"><span style="color: #7F8989;"># read ffmpeg docs).</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">#</span></span>
+<span class="giallo-l"><span style="color: #7F8989;"># Second argument optional: quality. for default it is 35 (averagely bad </span></span>
+<span class="giallo-l"><span style="color: #7F8989;"># quality), you can provide 22 as nice quality.</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">#</span></span>
+<span class="giallo-l"><span style="color: #7F8989;"># Third argument optional: can be &quot;mute&quot; to mute or anything else to not to.</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">#</span></span>
+<span class="giallo-l"><span style="color: #7F8989;"># Out is file with `_web` postfix and `mp4` format scaled down to 1280 max </span></span>
+<span class="giallo-l"><span style="color: #7F8989;"># width or height or not scaled if initial size is smaller</span></span>
+<span class="giallo-l"><span style="color: #7F8989;"># </span></span>
+<span class="giallo-l"><span style="color: #7F8989;"># Command get from https://gist.github.com/jaydenseric/220c785d6289bcfd7366</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #5597D6;">filename</span><span style="color: #72AB00;">=</span><span>$(</span><span style="color: #C23F31;">basename</span><span style="color: #AEB52B;"> --</span><span style="color: #D07711;"> &quot;</span><span style="color: #ACB3C2;">$1</span><span style="color: #D07711;">&quot;</span><span>)</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">extension</span><span style="color: #72AB00;">=</span><span style="color: #D07711;">&quot;${</span><span style="color: #ACB3C2;">filename</span><span style="color: #72AB00;">##*</span><span style="color: #D07711;">.}&quot;</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">filename</span><span style="color: #72AB00;">=</span><span style="color: #D07711;">&quot;${</span><span style="color: #ACB3C2;">filename</span><span style="color: #72AB00;">%</span><span style="color: #D07711;">.</span><span style="color: #72AB00;">*</span><span style="color: #D07711;">}&quot;</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">path</span><span style="color: #72AB00;">=</span><span style="color: #D07711;">&quot;</span><span style="color: #ACB3C2;">${1</span><span style="color: #72AB00;">%/*</span><span style="color: #ACB3C2;">}</span><span style="color: #D07711;">&quot;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">if</span><span> [</span><span style="color: #5597D6;"> ${3</span><span style="color: #72AB00;">:-</span><span style="color: #D07711;">&quot;preserve_audio&quot;</span><span style="color: #5597D6;">}</span><span style="color: #72AB00;"> ==</span><span style="color: #D07711;"> &quot;mute&quot;</span><span> ]</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">then</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">	audio</span><span style="color: #72AB00;">=</span><span style="color: #D07711;">&quot;-an&quot;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">else</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">	audio</span><span style="color: #72AB00;">=</span><span style="color: #D07711;">&quot;-c:a aac -strict experimental&quot;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">fi</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #C23F31;">ffmpeg</span><span style="color: #AEB52B;"> -y</span><span style="color: #B3933A;"> \</span></span>
+<span class="giallo-l"><span style="color: #AEB52B;">       -i</span><span style="color: #5597D6;"> $1</span><span style="color: #B3933A;"> \</span></span>
+<span class="giallo-l"><span style="color: #AEB52B;">       -c:v</span><span style="color: #D07711;"> libx264</span><span style="color: #B3933A;"> \</span></span>
+<span class="giallo-l"><span style="color: #AEB52B;">       -pix_fmt</span><span style="color: #D07711;"> yuv420p</span><span style="color: #B3933A;"> \</span></span>
+<span class="giallo-l"><span style="color: #AEB52B;">       -profile:v</span><span style="color: #D07711;"> baseline</span><span style="color: #B3933A;"> \</span></span>
+<span class="giallo-l"><span style="color: #AEB52B;">       -level 3.0</span><span style="color: #B3933A;"> \</span></span>
+<span class="giallo-l"><span style="color: #AEB52B;">       -crf</span><span style="color: #5597D6;"> ${2</span><span style="color: #72AB00;">:-</span><span style="color: #5597D6;">35}</span><span style="color: #B3933A;"> \</span></span>
+<span class="giallo-l"><span style="color: #AEB52B;">       -preset</span><span style="color: #D07711;"> veryslow</span><span style="color: #B3933A;"> \</span></span>
+<span class="giallo-l"><span style="color: #AEB52B;">       -vf</span><span style="color: #D07711;"> &quot;scale=ceil(iw*min(1\,1280/iw)/2)*2:ceil(ow/dar/2)*2&quot;</span><span style="color: #B3933A;"> \</span></span>
+<span class="giallo-l"><span>       ${</span><span style="color: #5597D6;">audio</span><span>}</span><span style="color: #B3933A;"> \</span></span>
+<span class="giallo-l"><span style="color: #AEB52B;">       -movflags</span><span style="color: #D07711;"> +faststart</span><span style="color: #B3933A;"> \</span></span>
+<span class="giallo-l"><span style="color: #AEB52B;">       -threads 0</span><span style="color: #B3933A;"> \</span></span>
+<span class="giallo-l"><span>       ${</span><span style="color: #5597D6;">path</span><span>}</span><span style="color: #D07711;">/</span><span>${</span><span style="color: #5597D6;">filename</span><span>}</span><span style="color: #D07711;">_web.mp4</span></span></code></pre>
 <p>Аргументы и его источник написаны в комментариях к скрипту, так что пользуйтесь наздоровье. Итоговое видео оптмизировано для работы в браузере, а так же работает и с телефона. Наивный <code>mp4</code> просто так на телефоне не запустится.</p>
 <div class="admonition green2-bg green2-border-left">
 <div class="admonition-title green2-bg green2-border">Результат</div>
@@ -373,9 +370,7 @@
 <div class="admonition-title violet-bg violet-border">Использование в Zola</div>
 <div class="admonition-content">
 <p>Для вставки видео в формате гифок я использу шорткод <code>video_gif.html</code>:</p>
-<pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ video_gif(path=&quot;my_gif_web.mp4&quot;) }}</span><span>
-</span></code></pre>
-</div></div>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="zola"><code data-lang="zola"><span class="giallo-l"><span>{{ video_gif(path=&quot;my_gif_web.mp4&quot;) }}</span></span></code></pre></div></div>
 <div class="admonition green2-bg green2-border-left">
 <div class="admonition-title green2-bg green2-border">Результат</div>
 <div class="admonition-content">
@@ -386,8 +381,7 @@
 <p>Вся суть этого пункта в том чтобы сократить число запросов к внешним сайтам до нуля. Ибо запросы к внешним сайтам делаются не сразу, и могут занимать продолжительное время, поэтому их лучше оптимизировать настолько насколько возможно.</p>
 <h2 id="shrifty"><a class="anchor" href="#shrifty">#<sup>2</sup></a>Шрифты</h2>
 <p>Сейчас все используют <a href="https://developers.google.com/fonts/docs/getting_started">Google Fonts</a> для добавления шрифтов на свой сайт, просто добавляя это в <code>&lt;head&gt;</code>:</p>
-<pre data-lang="html" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-html "><code class="language-html" data-lang="html"><span style="color:#7f902a;">&lt;link rel=</span><span style="color:#d07711;">&quot;stylesheet&quot; </span><span style="color:#7f902a;">href=</span><span style="color:#d07711;">&quot;//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700</span><span style="color:#aeb52b;">&amp;amp;</span><span style="color:#d07711;">lang=en&quot; </span><span style="color:#7f902a;">/&gt;</span><span>
-</span></code></pre>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="html"><code data-lang="html"><span class="giallo-l"><span style="color: #6486AB;">&lt;link rel=</span><span style="color: #D07711;">&quot;stylesheet&quot;</span><span style="color: #6486AB;"> href=</span><span style="color: #D07711;">&quot;//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700</span><span style="color: #AEB52B;">&amp;amp;</span><span style="color: #D07711;">lang=en&quot;</span><span style="color: #6486AB;"> /&gt;</span></span></code></pre>
 <p>Но ведь в таком случае сначала делается запрос в Google, затем из полученного документа снова скачиваются шрифты из Google. Зачем это делать каждый раз, если в 99% юзкейсов у вас на сайте будет один и тот же шрифт?</p>
 <p>Поэтому я просто взял и для всех используемых шрифтов скачал локально соответствующий <code>css</code> и файлы шрифтов.</p>
 <p>Вроде я не слышал чтобы лицензии запрещали так делать.</p>
@@ -395,37 +389,24 @@
 <p>Я использую <a href="https://hammerjs.github.io/">hammerjs</a> и <a href="https://katex.org/">KaTeX</a>. Они требуют включения дополнительного JS кода, а второму ещё нужны CSS с кастомными шрифтами.</p>
 <p>Когда люди подключают такого вида скрипты, они просто ссылаются на какой-то внешний сайт где они лежат. С моим казахстанским интернетом один сайт грузился очень долго из-за <code>jquery</code>, который качался очень долго с какого-то внешнего источника.</p>
 <p>Причём это даже пишут с хэшем в поле <code>integrity</code>, чтобы гарантировать что придёт именно нужный скрипт:</p>
-<pre data-lang="html" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-html "><code class="language-html" data-lang="html"><span style="color:#6486ab;">&lt;script </span><span style="color:#6486ab;">
-</span><span style="color:#6486ab;">	defer </span><span style="color:#6486ab;">
-</span><span style="color:#6486ab;">	src=</span><span style="color:#d07711;">&quot;https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js&quot; </span><span style="color:#6486ab;">
-</span><span style="color:#6486ab;">	integrity=</span><span style="color:#d07711;">&quot;sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx&quot; </span><span style="color:#6486ab;">
-</span><span style="color:#6486ab;">	crossorigin=</span><span style="color:#d07711;">&quot;anonymous&quot;</span><span style="color:#6486ab;">&gt;&lt;/script&gt;</span><span>
-</span></code></pre>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="html"><code data-lang="html"><span class="giallo-l"><span style="color: #6486AB;">&lt;script </span></span>
+<span class="giallo-l"><span style="color: #6486AB;">	defer </span></span>
+<span class="giallo-l"><span style="color: #6486AB;">	src=</span><span style="color: #D07711;">&quot;https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js&quot;</span><span style="color: #6486AB;"> </span></span>
+<span class="giallo-l"><span style="color: #6486AB;">	integrity=</span><span style="color: #D07711;">&quot;sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx&quot;</span><span style="color: #6486AB;"> </span></span>
+<span class="giallo-l"><span style="color: #6486AB;">	crossorigin=</span><span style="color: #D07711;">&quot;anonymous&quot;</span><span style="color: #6486AB;">&gt;</span><span style="color: #6486AB;background-color: #B0B3BA14;">&lt;</span><span style="color: #6486AB;">/script&gt;</span></span></code></pre>
 <p>И снова, зачем все эти задержки и хэши, если можно просто взять и скачать себе локально?</p>
 <h2 id="youtube"><a class="anchor" href="#youtube">#<sup>2</sup></a>YouTube</h2>
 <p>Ладно, шутки кончились, пора приступать к серьёзным вещам.</p>
 <p>Все мы знаем что YouTube-видео можно embed'ить следующим образом:</p>
-<div class="magnifier-container img-two-three">
-<img
-    class="not-default full-screen-img"
-    width="853"
-    height="480"
-    src="&#x2F;processed_images&#x2F;0dff7e9789cc75fd00.webp" 
-    onclick="full_screen('embed.png')"
-    onauxclick="full_screen_new_page('embed.png')">
-<div class="magnifier-display">
-<img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1.7<br>png</div>
-</div>
-</div>
+<div class="magnifier-container img-two-three"> <img     class="not-default full-screen-img"     width="853"     height="480"     src="/processed_images/embed.3dc4fc4246e10d70.webp"     onclick="full_screen('embed.png')"     onauxclick="full_screen_new_page('embed.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.7<br>png</div> </div> </div>
 <p>Но за этим скрывается главный ужас данной статьи...</p>
 <p>Честно, первое время я даже не подозревал что ютуб настолько грешен. То что он жрёт очень много трафика и замедляет загрузку моих страниц я заметил только благодаря <strong>гугловской</strong> утилите <a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a>!</p>
 <p>Я замерил, и у меня на страницах с парочкой ютуб-видео добавлялось <strong>2 мегабайта</strong> лишнего трафика. Это при том когда самая большая и тяжёлая страница про <a href="/p/my-keyboard-layout/">мою раскладку на клавиатуре</a> после оптимизаций картинок весит 3.8 мегабайта. То есть для остальных страниц это просто недопустимый оверхэд, и это значит что все мои предыдущие пункты просто плевки в пустоту по сравнению с тем что мне добавляет ютуб.</p>
 <p>А когда я пытался замерить страницу <a href="/e/emergevolution">Эмёрджеволюция</a>, где было эмбеднуто 37 видео, <a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a> просто отказался выдавать отчёт. Не смог скачать видимо.</p>
-<p>Значит это обязательно надо оптимизировать. И здесь есть несколько вариантов. </p>
+<p>Значит это обязательно надо оптимизировать. И здесь есть несколько вариантов.</p>
 <h3 id="samyi-prostoi-sposob-vstavit-iutub-video"><a class="anchor" href="#samyi-prostoi-sposob-vstavit-iutub-video">#<sup>3</sup></a>Самый простой способ вставить ютуб-видео</h3>
 <p><a href="https://stackoverflow.com/questions/11804820/how-can-i-embed-a-youtube-video-on-github-wiki-pages">Вставлять картинку-ссылку на видео</a>:</p>
-<pre data-lang="md" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-md "><code class="language-md" data-lang="md"><span>[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)</span><span>
-</span></code></pre>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="markdown"><code data-lang="markdown"><span class="giallo-l"><span>[</span><span style="color: #D07711;">![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)</span><span>](https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)</span></span></code></pre>
 <p>Что будет выглядеть следующим образом:</p>
 <p><a href="https://www.youtube.com/watch?v=1q0sHf_n_2Y"><img src="0.jpg"></a></p>
 <div class="pros">
@@ -451,39 +432,22 @@
 <div class="admonition-title violet-bg violet-border">Использование в Zola</div>
 <div class="admonition-content">
 <p>В статьях использую шорткод <code>youtube.html</code>:</p>
-<pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ youtube(id=&quot;1q0sHf_n_2Y&quot;) }}</span><span>
-</span></code></pre>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="zola"><code data-lang="zola"><span class="giallo-l"><span>{{ youtube(id=&quot;1q0sHf_n_2Y&quot;) }}</span></span></code></pre>
 <p>И дополнительно скачиваю мета-информацию и преьюшку локально. Об этом подробнее сказано в <a href="/p/new-features/#embedding-youtube">статье про фичи</a>.</p>
 </div></div>
 <p>И далее это выглядит вот так:</p>
-<!-- todo: wait for https://github.com/jaredforth/webp/issues/7 to be resolved -->
-
-
-
-
-<!-- --------------------- -->
-
-
-
-
-
-
-
-
-
 <div class="yt-container">
-<a target="_blank" href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=1q0sHf_n_2Y">
+<a target="_blank" href="https://www.youtube.com/watch?v=1q0sHf_n_2Y">
 <div class="yt-image-wrapper">
-<img class="yt-image not-default" src="/youtube&#x2F;1q0sHf_n_2Y.webp" width="336" height="188">
+<img class="yt-image not-default" src="/youtube/1q0sHf_n_2Y.webp" width="336" height="188">
 </div>
 </a>
 <div class="yt-title-wrapper">
-<a class="yt-title" target="_blank" href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=1q0sHf_n_2Y">Решение главного парадокса порталов</a>
-<span class="yt-text">Канал: </span><a target="_blank" class="yt-channel" href="https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCIsVwdLhYrrs3K8MOXEZdhQ">optozorax</a>
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=1q0sHf_n_2Y">Решение главного парадокса порталов</a>
+<span class="yt-text">Канал: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCIsVwdLhYrrs3K8MOXEZdhQ">optozorax</a>
 </div>
 <div class="yt-duration">23:59</div>
-
-<a target="_blank" href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=1q0sHf_n_2Y">
+<a target="_blank" href="https://www.youtube.com/watch?v=1q0sHf_n_2Y">
 <svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
 </a>
 </div>
@@ -495,10 +459,10 @@
 <p>Тут в качестве результатов представлю баллы из сервиса <a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a>.</p>
 <p>Столбец «До оптимизации» показывает результаты когда картинки, гифки и видео уже оптимизированы; шрифты и скрипты скачаны локально.</p>
 <p>Столбец «После оптимизации» показывает результаты после оптимизации ютуба этим образом и прелоадинга шрифтов (об этом будет далее).</p>
-<p>В графах таблицых будет написано соответственно: </p>
+<p>В графах таблицых будет написано соответственно:</p>
 <ul>
-<li>баллы для мобилок; </li>
-<li>баллы для десктопов; </li>
+<li>баллы для мобилок;</li>
+<li>баллы для десктопов;</li>
 <li>вес страницы вместе с загружаемыми ресурсами.</li>
 </ul>
 <table><thead><tr><th>Страница</th><th>Комментарий</th><th>До оптимизации ютуба</th><th><strong>После оптимизации ютуба</strong></th></tr></thead><tbody>
@@ -516,18 +480,7 @@
 <h2 id="drugie-embeddingi"><a class="anchor" href="#drugie-embeddingi">#<sup>2</sup></a>Другие эмбеддинги</h2>
 <p>У себя в блоге я ещё немного использовал эмбеддинг сообщений из Telegram и Twitter. Тут изобретать что-то своё, как с ютубом, просто неразумно. Поэтому тут я просто вставляю скриншот эмбеддинга. Например, для твиттера:</p>
 <figure>
-<div class="magnifier-container img-two-three">
-<img
-    class="not-default full-screen-img"
-    width="673"
-    height="853"
-    src="&#x2F;processed_images&#x2F;717c1c18abfaaf6600.webp" 
-    onclick="full_screen('twitter_1415392339586129928.png')"
-    onauxclick="full_screen_new_page('twitter_1415392339586129928.png')">
-<div class="magnifier-display">
-<img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1.8<br>png</div>
-</div>
-</div>
+<div class="magnifier-container img-two-three"> <img     class="not-default full-screen-img"     width="673"     height="853"     src="/processed_images/twitter_1415392339586129928.99007b14317021b2.webp"     onclick="full_screen('twitter_1415392339586129928.png')"     onauxclick="full_screen_new_page('twitter_1415392339586129928.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.8<br>png</div> </div> </div>
 <figcaption><a href="https://twitter.com/optozorax/status/1415392339586129928">Ссылка на твит</a></figcaption>
 </figure>
 <p>Решение тупое, но работает хорошо. Да и даже если оригинальный твит удалится, информация о нём будет лежать у меня в блоге!</p>
@@ -539,11 +492,10 @@
 </div></div>
 <h1 id="optimizatsiia-glubiny-zaprosov"><a class="anchor" href="#optimizatsiia-glubiny-zaprosov">#</a>Оптимизация глубины запросов</h1>
 <p>Тут ничего особенного, просто <a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a> поругался на меня, что у меня сами шрифты формата <code>.woff2</code> скачиваются не сразу с загрузкой страницы, а только когда файл <code>main.css</code> скачается. То есть глубина шрифтов равна 2. Там же он предложил вставить такое у себя на страницу:</p>
-<pre data-lang="html" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-html "><code class="language-html" data-lang="html"><span style="color:#7f902a;">&lt;link rel=</span><span style="color:#d07711;">&quot;preload&quot; </span><span style="color:#7f902a;">as=</span><span style="color:#d07711;">&quot;font&quot; </span><span style="color:#7f902a;">href=</span><span style="color:#d07711;">&quot;/fonts/Rubik/iJWKBXyIfDnIV7nFrXyi0A.woff2&quot; </span><span style="color:#7f902a;">crossOrigin=</span><span style="color:#d07711;">&quot;anonymous&quot;</span><span style="color:#7f902a;">&gt;</span><span>
-</span></code></pre>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="html"><code data-lang="html"><span class="giallo-l"><span style="color: #6486AB;">&lt;link rel=</span><span style="color: #D07711;">&quot;preload&quot;</span><span style="color: #6486AB;"> as=</span><span style="color: #D07711;">&quot;font&quot;</span><span style="color: #6486AB;"> href=</span><span style="color: #D07711;">&quot;/fonts/Rubik/iJWKBXyIfDnIV7nFrXyi0A.woff2&quot;</span><span style="color: #6486AB;"> crossOrigin=</span><span style="color: #D07711;">&quot;anonymous&quot;</span><span style="color: #6486AB;">&gt;</span></span></code></pre>
 <p>Я даже не подозревал что такой параметр глубины запросов возможно оптимизировать. Надеюсь вам будет полезно, и надеюсь мой блог загружается теперь хотя бы на несколько миллисекунд быстрее.</p>
 <h1 id="optimizatsiia-khotelok"><a class="anchor" href="#optimizatsiia-khotelok">#</a>Оптимизация хотелок</h1>
-<p>Одним препятствием на пути оптимизаций являются наши хотелки. Например, во время чтения главы про ютуб, вы могли подумать: «ну да, быстрее загружается, но это же надо открывать видео в новой вкладке и смотреть там, нельзя прямо на сайте посмотреть», или «нельзя нажать кнопку &quot;смотреть позже&quot;». А ещё проблема локальных эмбеддингов в том, что если оригинальное видео или пост изменится, то у меня это не отобразится.</p>
+<p>Одним препятствием на пути оптимизаций являются наши хотелки. Например, во время чтения главы про ютуб, вы могли подумать: «ну да, быстрее загружается, но это же надо открывать видео в новой вкладке и смотреть там, нельзя прямо на сайте посмотреть», или «нельзя нажать кнопку "смотреть позже"». А ещё проблема локальных эмбеддингов в том, что если оригинальное видео или пост изменится, то у меня это не отобразится.</p>
 <p>Да, это реальные минусы. Тут я не могу сказать ничего, кроме того что <strong>надо убавить хотелки</strong>. Лично я считаю что эти удобства не стоят своих минусов.</p>
 <p>Если суметь укротить свои желания и идти на компромиссы, то можно оптимизировать очень много.</p>
 <p>На этот счёт хочу сослаться на свою статью <a href="/p/how-i-write-programs/#srazu-otbrasyvat-slozhnye-fichi">«Как я пишу программы», глава «Сразу отбрасывать сложные фичи»</a>. В этой главе я рассказываю как убавил свои хотелки и смог быстро написать програму, которой теперь активно пользуюсь.</p>
@@ -567,7 +519,7 @@
 <p>По меркам современного веба можно сказать что JS я практически не использую. Есть мнение что JS плох тем что замедляет страницы и позволяет следить за пользователями. Если отключить JS, то мой блог довольно юзабелен за исключение нескольких вещей:</p>
 <ul>
 <li>Галереи не пролистываются. В этом плане я уже <a href="/p/new-features/#chistyi-css">хочу сделать галерею на чистом CSS</a>.</li>
-<li>Нельзя открыть картинки в полном разрешении. Тут можно придумать костыли в виде <code>&lt;a href=&quot;&quot;&gt;</code>, которые не будут мешать обычному поведению, но надо подумать.</li>
+<li>Нельзя открыть картинки в полном разрешении. Тут можно придумать костыли в виде <code>&lt;a href=""&gt;</code>, которые не будут мешать обычному поведению, но надо подумать.</li>
 <li>Содержание нельзя пролистывать и оно автоматически не пролистывается. Тут простите ребята, это уже невозможно без JS делать к сожалению (или возможно, но я чего-то не знаю, или совершил недостаточно ресёрча).</li>
 <li>Математические формулы не будут рендериться. Мне самому не нравится что здесь используется JS, я бы хотел чтобы математика парсилась при генерации сайта, но пока что Zola не имеет фич для этого. А генерировать картинки в <code>svg</code> заранее довольно сложно и неудобно.</li>
 </ul>
@@ -633,18 +585,7 @@
 <p>В плане важности скорости ещё хочу сослаться на пост <a href="https://t.me/nikitonsky_pub/64">«Стой под стрелой»/64</a>, правда это не совсем релевантно, так как там говорится про софт, а у меня блог, но общая идея подходит.</p>
 <p>Ну и под конец мемчик:</p>
 <figure>
-<div class="magnifier-container img-two-three">
-<img
-    class="not-default full-screen-img"
-    width="853"
-    height="682"
-    src="&#x2F;processed_images&#x2F;955c8b4228a9530300.webp" 
-    onclick="full_screen('future_meme.jpg')"
-    onauxclick="full_screen_new_page('future_meme.jpg')">
-<div class="magnifier-display">
-<img class="magnifier" src="/ico/magnifier.svg"><div class="magnifier-info">×1.2<br>jpg</div>
-</div>
-</div>
+<div class="magnifier-container img-two-three"> <img     class="not-default full-screen-img"     width="853"     height="682"     src="/processed_images/future_meme.48b37ba8ce536644.webp"     onclick="full_screen('future_meme.jpg')"     onauxclick="full_screen_new_page('future_meme.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.2<br>jpg</div> </div> </div>
 <figcaption><a href="https://t.me/optozorax_dev_chat/6228">Это не я сказал</a></figcaption>
 </figure>
 
@@ -889,10 +830,9 @@
     <tr><td style="border: 0px; padding: 0.2rem;">
     <!-- SVG icons from https://iconmonstr.com -->
 
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
-    href="https:&#x2F;&#x2F;github.com&#x2F;optozorax" 
+    href="https://github.com/optozorax" 
     aria-label="optozorax's GitHub" 
     title="optozorax's GitHub">
     <img 
@@ -904,11 +844,9 @@
   </a>
 </span>
 
-
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
-    href="https:&#x2F;&#x2F;t.me&#x2F;optozorax_dev" 
+    href="https://t.me/optozorax_dev" 
     aria-label="optozorax's Telegram channel" 
     title="optozorax's Telegram channel">
     <img 
@@ -920,11 +858,9 @@
   </a>
 </span>
 
-
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
-    href="https:&#x2F;&#x2F;www.youtube.com&#x2F;c&#x2F;optozorax" 
+    href="https://www.youtube.com/c/optozorax" 
     aria-label="optozorax's YouTube channel" 
     title="optozorax's YouTube channel">
     <img 
@@ -936,11 +872,9 @@
   </a>
 </span>
 
-
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
-    href="https:&#x2F;&#x2F;boosty.to&#x2F;optozorax" 
+    href="https://boosty.to/optozorax" 
     aria-label="optozorax's donate page" 
     title="optozorax's donate page">
     <img 
@@ -952,11 +886,9 @@
   </a>
 </span>
 
-
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
-    href="&#x2F;atom.xml" 
+    href="/atom.xml" 
     aria-label="optozorax's Atom Feed" 
     title="optozorax's Atom Feed">
     <img 
@@ -968,9 +900,7 @@
   </a>
 </span>
 
-
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
     href="mailto:optozorax@gmail.com" 
     aria-label="optozorax's email" 
@@ -983,7 +913,6 @@
       alt="optozorax's email">
   </a>
 </span>
-
 
     </td><td style="border: 0px; padding: 0.2rem;">
 

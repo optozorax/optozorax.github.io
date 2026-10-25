@@ -27,7 +27,7 @@
   
 
 <meta name="author" content="optozorax">
-<meta name="title" content="Переезд моего блога на Zola и чем она лучше Jekyll — Блог optozorax&#x27;а">
+<meta name="title" content="Переезд моего блога на Zola и чем она лучше Jekyll — Блог optozorax&#39;а">
 <meta name="description" content="Zola — отличный генератор статических сайтов. Я перевёл свой блог на неё, и она сильно вдохновила меня на реализацию множества крутых фич и оптимизацию скорости блога. Данная статья фокусируется на плюсах и минусах золы как генератора статического сайта.">
 <meta name="image" content="https://optozorax.github.io/p/zola/preview.png">
 
@@ -37,7 +37,7 @@
 <!-- Facebook Meta Tags -->
 <meta property="og:url" content="https://optozorax.github.io/p/zola/">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Переезд моего блога на Zola и чем она лучше Jekyll — Блог optozorax&#x27;а">
+<meta property="og:title" content="Переезд моего блога на Zola и чем она лучше Jekyll — Блог optozorax&#39;а">
 <meta property="og:description" content="Zola — отличный генератор статических сайтов. Я перевёл свой блог на неё, и она сильно вдохновила меня на реализацию множества крутых фич и оптимизацию скорости блога. Данная статья фокусируется на плюсах и минусах золы как генератора статического сайта.">
 <meta property="og:image" content="https://optozorax.github.io/p/zola/preview.png">
 <meta property="og:locale" content="ru">
@@ -62,7 +62,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta property="twitter:domain" content="optozorax.github.io">
 <meta property="twitter:url" content="https://optozorax.github.io/p/zola/">
-<meta name="twitter:title" content="Переезд моего блога на Zola и чем она лучше Jekyll — Блог optozorax&#x27;а">
+<meta name="twitter:title" content="Переезд моего блога на Zola и чем она лучше Jekyll — Блог optozorax&#39;а">
 <meta name="twitter:description" content="Zola — отличный генератор статических сайтов. Я перевёл свой блог на неё, и она сильно вдохновила меня на реализацию множества крутых фич и оптимизацию скорости блога. Данная статья фокусируется на плюсах и минусах золы как генератора статического сайта.">
 <meta name="twitter:image" content="https://optozorax.github.io/p/zola/preview.png">
 <meta name="twitter:creator" content="optozorax">
@@ -91,7 +91,7 @@
   <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
   <!-- --- -->
 
-  <title>Переезд моего блога на Zola и чем она лучше Jekyll — Блог optozorax&#x27;а</title>
+  <title>Переезд моего блога на Zola и чем она лучше Jekyll — Блог optozorax&#39;а</title>
 </head>
 
 <body>
@@ -196,7 +196,7 @@
 <td style="padding-left: 10px;">
   
   
-  <a href="https:&#x2F;&#x2F;t.me&#x2F;optozorax_dev&#x2F;506">
+  <a href="https://t.me/optozorax_dev/506">
   <code class="tag">Пост в Telegram</code>
   </a>
   
@@ -249,7 +249,7 @@
 <p>Потом я начал играться с функцией <code>resize_image</code>, почувствовал силу оптимизаций, и оптимизировал весь сайт настолько хорошо и интересно, что это тоже пришлось писать отдельную статью: <a href="/p/blog-optimization">Оптимизация скорости статического сайта</a>.</p>
 <p>По конкретно этим вещам вы можете ознакомиться с соответствующими статьями. А далее я сфокусируюсь на вопросах конкретного использования золы.</p>
 <h2 id="podgotovka"><a class="anchor" href="#podgotovka">#<sup>2</sup></a>Подготовка</h2>
-<p>Прежде чем переезжать на золу, я сделал несколько вещей: </p>
+<p>Прежде чем переезжать на золу, я сделал несколько вещей:</p>
 <ul>
 <li>Поигрался с ней на какой-то теме, попутно подглядывая в документацию с поиском. Сформировал нейронные связи и пул вопросов и непоняток.</li>
 <li>Прочитать <a href="https://tera.netlify.app/docs/">документацию языка шаблонов Tera</a>.</li>
@@ -280,25 +280,23 @@
 <p>As you can see, creating an <code>about.md</code> file is equivalent to creating an <code>about/index.md</code> file. The only difference between the two methods is that creating the <code>about</code> directory allows you to use asset co-location, as discussed in the overview section.</p>
 </div></div>
 <h2 id="table-of-contents"><a class="anchor" href="#table-of-contents">#<sup>2</sup></a>Table Of Contents</h2>
-<p>Или по-русски «Содержание». </p>
+<p>Или по-русски «Содержание».</p>
 <p>Опять же, вспоминая Jekyll, что нужно чтобы сделать содержание? Нуу, надо либо плагин, либо костыль. Вот <a href="https://github.com/allejo/jekyll-toc/blob/master/_includes/toc.html">пример костыля</a>, который я тупо скопипастил себе в блог.</p>
 <p>А что тем временем в золе? А там парсинг содержания уже встроен в движок, и оно автоматически доступно для каждой страницы, и это содержание представляет собой удобный структурированный объект с прописанным типом</p>
 <div class="admonition blue3-bg blue3-border-left">
 <div class="admonition-title blue3-bg blue3-border">Цитата документации <a href="https://www.getzola.org/documentation/templates/pages-sections/#table-of-contents">отсюда</a></div>
 <div class="admonition-content">
 <p>Both page and section templates have a <code>toc</code> variable that corresponds to an array of <code>Header</code>. A <code>Header</code> has the following fields:</p>
-<pre data-lang="ts" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-ts "><code class="language-ts" data-lang="ts"><span style="color:#7f8989;">// The hX level</span><span>
-</span><span style="color:#c23f31;">level</span><span>: </span><span style="color:#b3933a;">1 </span><span style="color:#72ab00;">| </span><span style="color:#b3933a;">2 </span><span style="color:#72ab00;">| </span><span style="color:#b3933a;">3 </span><span style="color:#72ab00;">| </span><span style="color:#b3933a;">4 </span><span style="color:#72ab00;">| </span><span style="color:#b3933a;">5 </span><span style="color:#72ab00;">| </span><span style="color:#b3933a;">6</span><span>;</span><span>
-</span><span style="color:#7f8989;">// The generated slug id</span><span>
-</span><span style="color:#c23f31;">id</span><span>: </span><span style="color:#a2a001;">String</span><span>;</span><span>
-</span><span style="color:#7f8989;">// The text of the header</span><span>
-</span><span style="color:#c23f31;">title</span><span>: </span><span style="color:#a2a001;">String</span><span>;</span><span>
-</span><span style="color:#7f8989;">// A link pointing directly to the header, using the inserted anchor</span><span>
-</span><span style="color:#c23f31;">permalink</span><span>: </span><span style="color:#a2a001;">String</span><span>;</span><span>
-</span><span style="color:#7f8989;">// All lower level headers below this header</span><span>
-</span><span style="color:#c23f31;">children</span><span>: </span><span style="color:#a2a001;">Array</span><span style="color:#72ab00;">&lt;</span><span style="color:#5597d6;">Header</span><span style="color:#72ab00;">&gt;</span><span>;</span><span>
-</span></code></pre>
-</div></div>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="typescript"><code data-lang="typescript"><span class="giallo-l"><span style="color: #7F8989;">// The hX level</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">level</span><span>:</span><span style="color: #B3933A;"> 1</span><span style="color: #72AB00;"> |</span><span style="color: #B3933A;"> 2</span><span style="color: #72AB00;"> |</span><span style="color: #B3933A;"> 3</span><span style="color: #72AB00;"> |</span><span style="color: #B3933A;"> 4</span><span style="color: #72AB00;"> |</span><span style="color: #B3933A;"> 5</span><span style="color: #72AB00;"> |</span><span style="color: #B3933A;"> 6</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">// The generated slug id</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">id</span><span>:</span><span style="color: #5597D6;"> String</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">// The text of the header</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">title</span><span>:</span><span style="color: #5597D6;"> String</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">// A link pointing directly to the header, using the inserted anchor</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">permalink</span><span>:</span><span style="color: #5597D6;"> String</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">// All lower level headers below this header</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">children</span><span>:</span><span style="color: #5597D6;"> Array</span><span style="color: #72AB00;">&lt;</span><span style="color: #5597D6;">Header</span><span style="color: #72AB00;">&gt;</span><span>;</span></span></code></pre></div></div>
 <p>То есть ты тупо берёшь и по <a href="https://www.getzola.org/documentation/content/table-of-contents/">этому примеру</a> генерируешь такое содержание как тебе нужно.</p>
 <h2 id="taksonomii"><a class="anchor" href="#taksonomii">#<sup>2</sup></a>Таксономии</h2>
 <p>Например, мы хотим чтобы у наших статей были тэги, и эти тэги потом можно было посмотреть где-нибудь.</p>
@@ -312,13 +310,11 @@
 <p>Что я там не раскрыл — это возможность узнать размеры картинки прямо на этапе компиляции сайта, что отлично подходит для вставки атрибутов <code>width</code>, <code>height</code> или даже для <a href="/p/new-features/#vertikal-noe-tsentrirovanie">вертикального центрирования</a>!</p>
 <h2 id="bloki-i-nasledovanie-stranits"><a class="anchor" href="#bloki-i-nasledovanie-stranits">#<sup>2</sup></a>Блоки и наследование страниц</h2>
 <p>В золе имеется возможность в <code>html</code> странице написать что какие-то участки являются блоками, а затем в других страницах наследовать эту страницу и переопределять что делают блоки. Например у нас есть страница <code>base.html</code>:</p>
-<pre data-lang="html" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-html "><code class="language-html" data-lang="html"><span style="color:#7f902a;">&lt;title&gt;</span><span>{% block title %}My blog{% endblock title %}</span><span style="color:#7f902a;">&lt;/title&gt;</span><span>
-</span></code></pre>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="html"><code data-lang="html"><span class="giallo-l"><span style="color: #6486AB;">&lt;title&gt;</span><span>{% block title %}My blog{% endblock title %}</span><span style="color: #6486AB;">&lt;/title&gt;</span></span></code></pre>
 <p>Затем мы хотим создать новую страницу <code>post.html</code> на основе <code>base.html</code> и сделать там другой заголовок, тогда можно написать следующее:</p>
-<pre data-lang="html" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-html "><code class="language-html" data-lang="html"><span>{% extends &quot;base.html&quot; %}</span><span>
-</span><span>
-</span><span>{% block title %}My post{% endblock title %}</span><span>
-</span></code></pre>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="html"><code data-lang="html"><span class="giallo-l"><span>{% extends &quot;base.html&quot; %}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>{% block title %}My post{% endblock title %}</span></span></code></pre>
 <p>И теперь страница, сгенерированная по шаблону <code>post.html</code> будет во всём похожа на <code>base.html</code>, только заголовок будет <code>My post</code>.</p>
 <p>А если хочется иметь ещё и старый заголовок, то можно внутри блока просто использовать <code>{{ super() }}</code>.</p>
 <p>Ещё удобно создавать блоки, в которых изначально ничего нет, например <code>extra_head</code>, чтобы наследующий мог дополнительно определить что ему нужно в <code>&lt;head&gt;</code> секции.</p>
@@ -330,15 +326,13 @@
 <p>A magical variable is available in every template if you want to print the current context: <code>__tera_context</code>.</p>
 </div></div>
 <p>Это очень удобно при первичной разработке, чтобы постоянно не смотреть в документацию, а сразу видеть какие значения принимают какие переменные. Я использую дебаг следующим образом, чтобы прямо на странице получать результат в удобном виде:</p>
-<pre data-lang="html" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-html "><code class="language-html" data-lang="html"><span style="color:#6486ab;">&lt;pre&gt;</span><span style="color:#7f902a;">&lt;code&gt;</span><span>
-</span><span>{{ __tera_context | escape_xml | safe }}</span><span>
-</span><span style="color:#7f902a;">&lt;/code&gt;</span><span style="color:#6486ab;">&lt;/pre&gt;</span><span>
-</span></code></pre>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="html"><code data-lang="html"><span class="giallo-l"><span style="color: #6486AB;">&lt;pre&gt;</span><span style="color: #7F902A;">&lt;code&gt;</span></span>
+<span class="giallo-l"><span>{{ __tera_context | escape_xml | safe }}</span></span>
+<span class="giallo-l"><span style="color: #7F902A;">&lt;/code&gt;</span><span style="color: #6486AB;">&lt;/pre&gt;</span></span></code></pre>
 <p>А обычные переменные дебажу следующим образом:</p>
-<pre data-lang="html" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-html "><code class="language-html" data-lang="html"><span style="color:#6486ab;">&lt;pre&gt;</span><span style="color:#7f902a;">&lt;code&gt;</span><span>
-</span><span>{{ variable | json_encode(pretty=true) | safe }}</span><span>
-</span><span style="color:#7f902a;">&lt;/code&gt;</span><span style="color:#6486ab;">&lt;/pre&gt;</span><span>
-</span></code></pre>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="html"><code data-lang="html"><span class="giallo-l"><span style="color: #6486AB;">&lt;pre&gt;</span><span style="color: #7F902A;">&lt;code&gt;</span></span>
+<span class="giallo-l"><span>{{ variable | json_encode(pretty=true) | safe }}</span></span>
+<span class="giallo-l"><span style="color: #7F902A;">&lt;/code&gt;</span><span style="color: #6486AB;">&lt;/pre&gt;</span></span></code></pre>
 <p>Правда тут есть одна проблема, что когда ваш блог наполняется контентом, то пользоваться дебагом через <code>__tera_context</code> уже невозможно из-за того что она содержит в себе весь контент, и страница начинает очень много весить и нагружать браузер. По этому поводу <a href="https://zola.discourse.group/t/add-analogue-of-tera-context-but-without-content/1023">попросил фичу</a> для новой переменной аналогичного действия, но без контента, так что заходите, ставьте лайки.</p>
 <h2 id="load-data"><a class="anchor" href="#load-data">#<sup>2</sup></a>load_data</h2>
 <p>Есть такая функция <a href="https://www.getzola.org/documentation/templates/overview/#load-data"><code>load_data</code></a>, которая позволяет считать данные в каком-нибудь структурированном формате и потом это использовать в рендеринге страниц</p>
@@ -379,42 +373,36 @@
 <div class="admonition-title blue3-bg blue3-border">Цитата документации <a href="https://www.getzola.org/documentation/content/shortcodes/#shortcodes-with-body">отсюда</a></div>
 <div class="admonition-content">
 <p>Let's imagine that we have the following shortcode <code>quote.html</code> template:</p>
-<pre data-lang="html" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-html "><code class="language-html" data-lang="html"><span style="color:#6486ab;">&lt;blockquote&gt;</span><span>
-</span><span>    {{ body }} </span><span style="color:#7f902a;">&lt;br&gt;</span><span>
-</span><span>    -- {{ author }}</span><span>
-</span><span style="color:#6486ab;">&lt;/blockquote&gt;</span><span>
-</span></code></pre>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="html"><code data-lang="html"><span class="giallo-l"><span style="color: #6486AB;">&lt;blockquote&gt;</span></span>
+<span class="giallo-l"><span>    {{ body }} </span><span style="color: #7F902A;">&lt;br&gt;</span></span>
+<span class="giallo-l"><span>    -- {{ author }}</span></span>
+<span class="giallo-l"><span style="color: #6486AB;">&lt;/blockquote&gt;</span></span></code></pre>
 <p>We could use it in our Markdown file like so:</p>
-<pre data-lang="md" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-md "><code class="language-md" data-lang="md"><span>As someone said:</span><span>
-</span><span>
-</span><span>{% quote(author=&quot;Vincent&quot;) %}</span><span>
-</span><span>A quote</span><span>
-</span><span>{% end %}</span><span>
-</span></code></pre>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="markdown"><code data-lang="markdown"><span class="giallo-l"><span>As someone said:</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>{% quote(author=&quot;Vincent&quot;) %}</span></span>
+<span class="giallo-l"><span>A quote</span></span>
+<span class="giallo-l"><span>{% end %}</span></span></code></pre>
 <p>The body of the shortcode will be automatically passed down to the rendering context as the body variable and needs to be on a new line.</p>
 </div></div>
 <p>Проблема в том что <code>body</code> передаётся в виде текста. То есть если мы там напишем какой-то markdown или другой шорткод, то они передадутся в виде обычного текста. Окей, чтобы это распарсить надо написать всего-лишь:</p>
-<pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ body | markdown | safe }}</span><span>
-</span></code></pre>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="zola"><code data-lang="zola"><span class="giallo-l"><span>{{ body | markdown | safe }}</span></span></code></pre>
 <p>Только тут есть несколько проблем:</p>
 <ul>
 <li>Если там есть заголовки, то они не попадут в содержание.</li>
 <li>Шорткоды внутри этого вроде как работает.</li>
 <li>А вот функции <code>resize_image</code> уже нет.</li>
 </ul>
-<p>Из-за этого шорткоды с телом становятся абсолютно неюзабельны. Поэтому все <a href="p/new-features/">мои фичи</a> состоят из двух частей — начала и конца:</p>
-<pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ pros_start(text=&quot;Плюсы: (_фичи_)&quot;) }}</span><span>
-</span><span>* плюс1</span><span>
-</span><span>* плюс2</span><span>
-</span><span>{{ pros_end() }}</span><span>
-</span></code></pre>
+<p>Из-за этого шорткоды с телом становятся абсолютно неюзабельны. Поэтому все <a href="https://optozorax.github.io/p/zola/p/new-features/">мои фичи</a> состоят из двух частей — начала и конца:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="zola"><code data-lang="zola"><span class="giallo-l"><span>{{ pros_start(text=&quot;Плюсы: (_фичи_)&quot;) }}</span></span>
+<span class="giallo-l"><span>* плюс1</span></span>
+<span class="giallo-l"><span>* плюс2</span></span>
+<span class="giallo-l"><span>{{ pros_end() }}</span></span></code></pre>
 <p>Где <code>pros_start.html</code>:</p>
-<pre data-lang="html" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-html "><code class="language-html" data-lang="html"><span style="color:#6486ab;">&lt;div class=</span><span style="color:#d07711;">&quot;pros&quot;</span><span style="color:#6486ab;">&gt;</span><span>
-</span><span style="color:#7f902a;">&lt;span style=</span><span style="color:#d07711;">&quot;</span><span style="background-color:#b0b3ba14;color:#c5af75;">color</span><span style="background-color:#b0b3ba14;color:#7f902a;">: </span><span style="background-color:#b0b3ba14;color:#ca7840;">#090</span><span style="color:#d07711;">&quot;</span><span style="color:#7f902a;">&gt;&lt;big&gt;&lt;b&gt;</span><span>{%/* if text*/ %}{{/*text | markdown(inline=true) | safe/*}}{%/* else */%}Плюсы:{%/* endif */%}</span><span style="color:#7f902a;">&lt;/b&gt;&lt;/big&gt;&lt;/span&gt;</span><span>
-</span></code></pre>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="html"><code data-lang="html"><span class="giallo-l"><span style="color: #6486AB;">&lt;div class=</span><span style="color: #D07711;">&quot;pros&quot;</span><span style="color: #6486AB;">&gt;</span></span>
+<span class="giallo-l"><span style="color: #7F902A;">&lt;span style=</span><span style="color: #D07711;">&quot;</span><span style="color: #7C8F4C;background-color: #B0B3BA14;">color: #090&quot;</span><span style="color: #7F902A;">&gt;&lt;</span><span style="color: #D2A8A1;font-style: italic;text-decoration: underline;">big</span><span style="color: #7F902A;">&gt;&lt;b&gt;</span><span>{%/* if text*/ %}{{/*text | markdown(inline=true) | safe/*}}{%/* else */%}Плюсы:{%/* endif */%}</span><span style="color: #7F902A;">&lt;/b&gt;&lt;/</span><span style="color: #D2A8A1;font-style: italic;text-decoration: underline;">big</span><span style="color: #7F902A;">&gt;&lt;/span&gt;</span></span></code></pre>
 <p>а <code>pros_end.html</code>:</p>
-<pre data-lang="html" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-html "><code class="language-html" data-lang="html"><span style="color:#6486ab;">&lt;/div&gt;</span><span>
-</span></code></pre>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="html"><code data-lang="html"><span class="giallo-l"><span style="color: #6486AB;">&lt;/div&gt;</span></span></code></pre>
 <p>Таким образом у меня «тело» шорткода <code>pros</code> парсится автоматически движком золы, а лишь вставляю инфу между ними. Я считаю что шорткоды с телом должны работать так по умолчанию.</p>
 <div class="cons">
 <span style="color: #c00"><big><b>Минусы моего подхода:</b></big></span>
@@ -428,26 +416,22 @@
 <h2 id="iazyk-opisaniia-shablonov"><a class="anchor" href="#iazyk-opisaniia-shablonov">#<sup>2</sup></a>Язык описания шаблонов</h2>
 <h3 id="fil-try"><a class="anchor" href="#fil-try">#<sup>3</sup></a>Фильтры</h3>
 <p>Есть небольшая проблема, что некоторые вещи можно получить только через механизм фильтров, например:</p>
-<pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{{ [1, 2, 3] | length }}</span><span>
-</span></code></pre>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="zola"><code data-lang="zola"><span class="giallo-l"><span>{{ [1, 2, 3] | length }}</span></span></code></pre>
 <p>Вот только этот механизм нельзя засунуть в скобки. И если хочется добавить единицу к результату, то придётся писать в две строчки:</p>
-<pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{% set temp = [1, 2, 3] | length %}</span><span>
-</span><span>{{ temp + 1 }}</span><span>
-</span></code></pre>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="zola"><code data-lang="zola"><span class="giallo-l"><span>{% set temp = [1, 2, 3] | length %}</span></span>
+<span class="giallo-l"><span>{{ temp + 1 }}</span></span></code></pre>
 <p>И фильтры нельзя применять в виде <code>length(value=[1, 2, 3])</code>, что довольно печально. Я <a href="https://zola.discourse.group/t/allow-writing-filters-inside-parenthesis/1025">написал по этому поводу фич-реквест</a>, так что заходим, ставим лайки.</p>
 <h3 id="falsy"><a class="anchor" href="#falsy">#<sup>3</sup></a>Falsy</h3>
 <div class="admonition blue3-bg blue3-border-left">
 <div class="admonition-title blue3-bg blue3-border">Цитата документации <a href="https://tera.netlify.app/docs/#if">отсюда</a></div>
 <div class="admonition-content">
 <p>Undefined variables are considered falsy. This means that you can test for the presence of a variable in the current context by writing:</p>
-<pre data-lang="zola" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-zola "><code class="language-zola" data-lang="zola"><span>{% if my_var %}</span><span>
-</span><span>    {{ my_var }}</span><span>
-</span><span>{% else %}</span><span>
-</span><span>    Sorry, my_var isn&#39;t defined.</span><span>
-</span><span>{% endif %}</span><span>
-</span></code></pre>
-</div></div>
-<p>В этом проблема. Мне кажется было бы намного лучше если бы присутствие переменной проверялось через функцию, например: <code>exists(&quot;my_var&quot;)</code> и <code>exists_field(config.extra, &quot;variable&quot;)</code>; а обращение к несуществующему полю возвращало не <code>null</code>-подобную штуку, а сразу выкидывало сообщение об ошибке.</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="zola"><code data-lang="zola"><span class="giallo-l"><span>{% if my_var %}</span></span>
+<span class="giallo-l"><span>    {{ my_var }}</span></span>
+<span class="giallo-l"><span>{% else %}</span></span>
+<span class="giallo-l"><span>    Sorry, my_var isn&#39;t defined.</span></span>
+<span class="giallo-l"><span>{% endif %}</span></span></code></pre></div></div>
+<p>В этом проблема. Мне кажется было бы намного лучше если бы присутствие переменной проверялось через функцию, например: <code>exists("my_var")</code> и <code>exists_field(config.extra, "variable")</code>; а обращение к несуществующему полю возвращало не <code>null</code>-подобную штуку, а сразу выкидывало сообщение об ошибке.</p>
 <p>Я так на этом прокололся, и опубликовал сайт без одно важной фичи, которую долго не мог найти, потому что в <code>{% if config.extra.enable_something %}</code> в <code>enable_something</code> допустил опечатку.</p>
 <p>Вообще весь язык создаёт впечатление такого расслабленного динамически-слабо-типизированного языка по типу JS, Pyhton. Лично мне хотелось бы чтобы порождение Rust'а была таким же строгим как и Rust. Но к сожалению имеем что имеем.</p>
 <h2 id="syrost"><a class="anchor" href="#syrost">#<sup>2</sup></a>Сырость</h2>
@@ -465,15 +449,13 @@
 <p>Ну и ещё вспомним мои предложения по фичам, а ещё есть много чего остального, что не поддерживается. Можно сказать что на данный момент зола довольно сыра. Как минимум в сравнении с каким-нибудь Hugo.</p>
 <h2 id="diff"><a class="anchor" href="#diff">#<sup>2</sup></a>diff</h2>
 <p>Подсветка синтаксиса для <code>diff</code> ужасна. Она вроде во всех темах такая плохая.</p>
-<pre data-lang="diff" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-diff "><code class="language-diff" data-lang="diff"><span style="background-color:#3b5a37;color:#f8f8f8;">+added line</span><span>
-</span><span style="background-color:#6c1d15;color:#f8f8f8;">-removed line</span><span>
-</span></code></pre>
-<h1 id="zakliuchenie"><a class="anchor" href="#zakliuchenie">#</a>Заключение</h1>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="diff"><code data-lang="diff"><span class="giallo-l"><span style="color: #F8F8F8;background-color: #3B5A37;">+added line</span></span>
+<span class="giallo-l"><span style="color: #F8F8F8;background-color: #6C1D15;">-removed line</span></span></code></pre><h1 id="zakliuchenie"><a class="anchor" href="#zakliuchenie">#</a>Заключение</h1>
 <p>Так получилось что для меня переезд на золу — это не только про переезд, но и повод:</p>
 <ul>
-<li>переписать весь код, чтобы знать за что отвечает каждая строчка шаблона; </li>
-<li>выкинуть лишнее; </li>
-<li>сделать новые фичи, которые так долго откладывал; </li>
+<li>переписать весь код, чтобы знать за что отвечает каждая строчка шаблона;</li>
+<li>выкинуть лишнее;</li>
+<li>сделать новые фичи, которые так долго откладывал;</li>
 <li>пофиксить проблемы которые так долго лежали в бэклоге.</li>
 </ul>
 <p>Как видите, мой блог очень похорошел при <del>Сергее Семёновиче</del> Золе.</p>
@@ -797,10 +779,9 @@
     <tr><td style="border: 0px; padding: 0.2rem;">
     <!-- SVG icons from https://iconmonstr.com -->
 
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
-    href="https:&#x2F;&#x2F;github.com&#x2F;optozorax" 
+    href="https://github.com/optozorax" 
     aria-label="optozorax's GitHub" 
     title="optozorax's GitHub">
     <img 
@@ -812,11 +793,9 @@
   </a>
 </span>
 
-
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
-    href="https:&#x2F;&#x2F;t.me&#x2F;optozorax_dev" 
+    href="https://t.me/optozorax_dev" 
     aria-label="optozorax's Telegram channel" 
     title="optozorax's Telegram channel">
     <img 
@@ -828,11 +807,9 @@
   </a>
 </span>
 
-
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
-    href="https:&#x2F;&#x2F;www.youtube.com&#x2F;c&#x2F;optozorax" 
+    href="https://www.youtube.com/c/optozorax" 
     aria-label="optozorax's YouTube channel" 
     title="optozorax's YouTube channel">
     <img 
@@ -844,11 +821,9 @@
   </a>
 </span>
 
-
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
-    href="https:&#x2F;&#x2F;boosty.to&#x2F;optozorax" 
+    href="https://boosty.to/optozorax" 
     aria-label="optozorax's donate page" 
     title="optozorax's donate page">
     <img 
@@ -860,11 +835,9 @@
   </a>
 </span>
 
-
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
-    href="&#x2F;atom.xml" 
+    href="/atom.xml" 
     aria-label="optozorax's Atom Feed" 
     title="optozorax's Atom Feed">
     <img 
@@ -876,9 +849,7 @@
   </a>
 </span>
 
-
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
     href="mailto:optozorax@gmail.com" 
     aria-label="optozorax's email" 
@@ -891,7 +862,6 @@
       alt="optozorax's email">
   </a>
 </span>
-
 
     </td><td style="border: 0px; padding: 0.2rem;">
 

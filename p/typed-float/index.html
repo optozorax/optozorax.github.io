@@ -27,7 +27,7 @@
   
 
 <meta name="author" content="optozorax">
-<meta name="title" content="Float — это динамическая типизация на уровне процессора — Блог optozorax&#x27;а">
+<meta name="title" content="Float — это динамическая типизация на уровне процессора — Блог optozorax&#39;а">
 <meta name="description" content="Почему работа с вещественными числами приносит столько страданий и безумная идея как это улучшить при помощи новых типов данных.">
 <meta name="image" content="https://optozorax.github.io/p/typed-float/typed-float.png">
 
@@ -37,7 +37,7 @@
 <!-- Facebook Meta Tags -->
 <meta property="og:url" content="https://optozorax.github.io/p/typed-float/">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Float — это динамическая типизация на уровне процессора — Блог optozorax&#x27;а">
+<meta property="og:title" content="Float — это динамическая типизация на уровне процессора — Блог optozorax&#39;а">
 <meta property="og:description" content="Почему работа с вещественными числами приносит столько страданий и безумная идея как это улучшить при помощи новых типов данных.">
 <meta property="og:image" content="https://optozorax.github.io/p/typed-float/typed-float.png">
 <meta property="og:locale" content="ru">
@@ -62,7 +62,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta property="twitter:domain" content="optozorax.github.io">
 <meta property="twitter:url" content="https://optozorax.github.io/p/typed-float/">
-<meta name="twitter:title" content="Float — это динамическая типизация на уровне процессора — Блог optozorax&#x27;а">
+<meta name="twitter:title" content="Float — это динамическая типизация на уровне процессора — Блог optozorax&#39;а">
 <meta name="twitter:description" content="Почему работа с вещественными числами приносит столько страданий и безумная идея как это улучшить при помощи новых типов данных.">
 <meta name="twitter:image" content="https://optozorax.github.io/p/typed-float/typed-float.png">
 <meta name="twitter:creator" content="optozorax">
@@ -91,7 +91,7 @@
   <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
   <!-- --- -->
 
-  <title>Float — это динамическая типизация на уровне процессора — Блог optozorax&#x27;а</title>
+  <title>Float — это динамическая типизация на уровне процессора — Блог optozorax&#39;а</title>
 </head>
 
 <body>
@@ -187,7 +187,7 @@
 </td>
 <td style="padding-right: 10px; border-right: 0px solid #ffffff;">
 <h2 class="project-date" style="margin-top: 0px;">
-    <span class="post-date" style="font-style: normal">| 🕑 5 мин</span>
+    <span class="post-date" style="font-style: normal">| 🕑 4 мин</span>
 </h2>
 </td>
 
@@ -196,7 +196,7 @@
 <td style="padding-left: 10px;">
   
   
-  <a href="https:&#x2F;&#x2F;t.me&#x2F;optozorax_dev&#x2F;226">
+  <a href="https://t.me/optozorax_dev/226">
   <code class="tag">Пост в Telegram</code>
   </a>
   
@@ -231,134 +231,122 @@
 <h1 id="vvedenie"><a class="anchor" href="#vvedenie">#</a>Введение</h1>
 <p>В этой статье предполагается что вы знакомы с языком Rust, и знаете что такое алгебраические типы данных (ADT).</p>
 <p>Сравните эти два примера кода:</p>
-<pre data-lang="js" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#668f14;">function </span><span style="color:#c23f31;">something</span><span>(</span><span style="color:#5597d6;">a</span><span>) {</span><span>
-</span><span>    </span><span style="color:#72ab00;">if </span><span>(</span><span style="color:#72ab00;">typeof </span><span style="color:#5597d6;">a </span><span style="color:#72ab00;">=== </span><span style="color:#d07711;">&quot;number&quot;</span><span>) {</span><span>
-</span><span>        </span><span style="color:#72ab00;">return </span><span style="color:#5597d6;">a</span><span style="color:#72ab00;">*</span><span style="color:#b3933a;">3 </span><span style="color:#72ab00;">+ </span><span style="color:#b3933a;">2</span><span>;</span><span>
-</span><span>    } </span><span style="color:#72ab00;">else if </span><span>(</span><span style="color:#72ab00;">typeof </span><span style="color:#5597d6;">a </span><span style="color:#72ab00;">=== </span><span style="color:#d07711;">&quot;string&quot;</span><span>) {</span><span>
-</span><span>        </span><span style="color:#72ab00;">return </span><span style="color:#b3933a;">0</span><span>;</span><span>
-</span><span>    }</span><span>
-</span><span>}</span><span>
-</span></code></pre>
-<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#668f14;">fn </span><span style="color:#c23f31;">something</span><span>(</span><span style="color:#5597d6;">a</span><span>: </span><span style="color:#668f14;">f64</span><span>) -&gt; </span><span style="color:#668f14;">f64 </span><span>{</span><span>
-</span><span>    </span><span style="color:#72ab00;">if</span><span> a.</span><span style="color:#b39f04;">is_nan</span><span>() {</span><span>
-</span><span>        </span><span style="color:#b3933a;">0.0</span><span>
-</span><span>    } </span><span style="color:#72ab00;">else if !</span><span>a.</span><span style="color:#b39f04;">is_finite</span><span>() {</span><span>
-</span><span>        </span><span style="color:#b3933a;">1.0</span><span>
-</span><span>    } </span><span style="color:#72ab00;">else if</span><span> a </span><span style="color:#72ab00;">== </span><span style="color:#b3933a;">0.0 </span><span>{</span><span>
-</span><span>        </span><span style="color:#b3933a;">1.0</span><span>
-</span><span>    } </span><span style="color:#72ab00;">else </span><span>{</span><span>
-</span><span>        </span><span style="color:#b3933a;">1 </span><span style="color:#72ab00;">/</span><span> a.</span><span style="color:#b39f04;">abs</span><span>()</span><span>
-</span><span>    }</span><span>
-</span><span>}</span><span>
-</span></code></pre>
-<p>Казалось, бы, два совершенно разных языка, а код выглядит так одинаково: всё <strong>валидируется</strong> (кто не в теме, надо <a href="https://habr.com/ru/post/498042/">парсить, а не валидировать</a>). Да, всё дело в том, что вещественные числа - это, по сути, динамическая типизация на уровне процессора. У нас в переменной вещественного числа может храниться множество состояний, которые мы должны проверять, если хотим узнать что там хранится. Так же там присутствует неявное приведение типов из &quot;разных&quot; категорий, например <code>1.0 + NaN = NaN</code>.</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="javascript"><code data-lang="javascript"><span class="giallo-l"><span style="color: #668F14;">function</span><span style="color: #C23F31;"> something</span><span>(</span><span style="color: #5597D6;">a</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">    if</span><span> (</span><span style="color: #72AB00;">typeof</span><span style="color: #5597D6;"> a</span><span style="color: #72AB00;"> ===</span><span style="color: #D07711;"> &quot;number&quot;</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        return</span><span style="color: #5597D6;"> a</span><span style="color: #72AB00;">*</span><span style="color: #B3933A;">3</span><span style="color: #72AB00;"> +</span><span style="color: #B3933A;"> 2</span><span>;</span></span>
+<span class="giallo-l"><span>    }</span><span style="color: #72AB00;"> else if</span><span> (</span><span style="color: #72AB00;">typeof</span><span style="color: #5597D6;"> a</span><span style="color: #72AB00;"> ===</span><span style="color: #D07711;"> &quot;string&quot;</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        return</span><span style="color: #B3933A;"> 0</span><span>;</span></span>
+<span class="giallo-l"><span>    }</span></span>
+<span class="giallo-l"><span>}</span></span></code></pre><pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="rust"><code data-lang="rust"><span class="giallo-l"><span style="color: #72AB00;">fn</span><span style="color: #C23F31;"> something</span><span>(</span><span style="color: #5597D6;">a</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> f64</span><span>)</span><span style="color: #72AB00;"> -&gt;</span><span style="color: #C23F31;"> f64</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">    if</span><span style="color: #5597D6;"> a</span><span style="color: #72AB00;">.</span><span style="color: #C23F31;">is_nan</span><span>() {</span></span>
+<span class="giallo-l"><span style="color: #B3933A;">        0.0</span></span>
+<span class="giallo-l"><span>    }</span><span style="color: #72AB00;"> else if !</span><span style="color: #5597D6;">a</span><span style="color: #72AB00;">.</span><span style="color: #C23F31;">is_finite</span><span>() {</span></span>
+<span class="giallo-l"><span style="color: #B3933A;">        1.0</span></span>
+<span class="giallo-l"><span>    }</span><span style="color: #72AB00;"> else if</span><span style="color: #5597D6;"> a</span><span style="color: #72AB00;"> ==</span><span style="color: #B3933A;"> 0.0</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #B3933A;">        1.0</span></span>
+<span class="giallo-l"><span>    }</span><span style="color: #72AB00;"> else</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #B3933A;">        1</span><span style="color: #72AB00;"> /</span><span style="color: #5597D6;"> a</span><span style="color: #72AB00;">.</span><span style="color: #C23F31;">abs</span><span>()</span></span>
+<span class="giallo-l"><span>    }</span></span>
+<span class="giallo-l"><span>}</span></span></code></pre>
+<p>Казалось, бы, два совершенно разных языка, а код выглядит так одинаково: всё <strong>валидируется</strong> (кто не в теме, надо <a href="https://habr.com/ru/post/498042/">парсить, а не валидировать</a>). Да, всё дело в том, что вещественные числа - это, по сути, динамическая типизация на уровне процессора. У нас в переменной вещественного числа может храниться множество состояний, которые мы должны проверять, если хотим узнать что там хранится. Так же там присутствует неявное приведение типов из "разных" категорий, например <code>1.0 + NaN = NaN</code>.</p>
 <p>Что люди сделали с динамической типизацией в JavaScript? Они придумали TypeScript. И стало хорошо. Получается то же самое можно сделать с вещественными числами?</p>
 <h1 id="nan"><a class="anchor" href="#nan">#</a>NaN</h1>
 <p>Самая базовая проблема вещественных чисел - это <code>NaN</code>. Он обладает очень противным свойством: не равен самому себе.</p>
 <p>Из-за этого мы в Rust'е не можем хранить вещественные числа в дереве, сортировать массив с ними, то есть реализовывать трейты <code>Eq</code>, <code>Ord</code>.</p>
 <p>Если вытащить из вещественного числа <code>NaN</code>, то оно сразу становится хорошим. Схематически это можно обозначить так:</p>
-<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#668f14;">enum </span><span style="color:#c23f31;">Float </span><span>{</span><span>
-</span><span>    NaN,</span><span>
-</span><span>    NotNanFloat(NotNanFloat),</span><span>
-</span><span>}</span><span>
-</span><span>
-</span><span style="color:#668f14;">enum </span><span style="color:#c23f31;">NotNanFloat </span><span>{ </span><span style="color:#7f8989;">/* ... */ </span><span>}</span><span>
-</span><span>
-</span><span style="color:#668f14;">impl </span><span>Eq </span><span style="color:#72ab00;">for </span><span style="color:#c23f31;">NotNanFloat </span><span>{ </span><span style="color:#7f8989;">/* ... */ </span><span>}</span><span>
-</span><span style="color:#668f14;">impl </span><span>Ord </span><span style="color:#72ab00;">for </span><span style="color:#c23f31;">NotNanFloat </span><span>{ </span><span style="color:#7f8989;">/* ... */ </span><span>}</span><span>
-</span></code></pre>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="rust"><code data-lang="rust"><span class="giallo-l"><span style="color: #668F14;">enum</span><span style="color: #C23F31;"> Float</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    NaN</span><span>,</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    NotNanFloat</span><span>(</span><span style="color: #C23F31;">NotNanFloat</span><span>),</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">enum</span><span style="color: #C23F31;"> NotNanFloat</span><span> {</span><span style="color: #7F8989;"> /* ... */</span><span> }</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">impl</span><span style="color: #C23F31;"> Eq</span><span style="color: #72AB00;"> for</span><span style="color: #C23F31;"> NotNanFloat</span><span> {</span><span style="color: #7F8989;"> /* ... */</span><span> }</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">impl</span><span style="color: #C23F31;"> Ord</span><span style="color: #72AB00;"> for</span><span style="color: #C23F31;"> NotNanFloat</span><span> {</span><span style="color: #7F8989;"> /* ... */</span><span> }</span></span></code></pre>
 <p>И мы можем записать в массиве, что храним только <code>NotNanFloat</code>.</p>
 <p>Когда я писал <a href="https://github.com/optozorax/confidence">github:confidence</a>, мне очень не хватало возможности матчиться по такой структуре данных, или говорить что я принимаю только <code>NotNanFloat</code>.</p>
 <p>Правда, появляется проблема, что некоторые операции над <code>NotNanFloat</code> позволяют прийти к <code>NaN</code>, например: умножение бесконечности на ноль, деление на ноль. Получается, нам после любых арифметических вычислений нужно приводить тип из более широкого <code>Float</code> обратно к <code>NotNanFloat</code>:</p>
-<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#668f14;">let</span><span> a: NotNanFloat </span><span style="color:#72ab00;">= ...</span><span>;</span><span>
-</span><span style="color:#668f14;">let</span><span> b: NotNanFloat </span><span style="color:#72ab00;">= ...</span><span>;</span><span>
-</span><span style="color:#668f14;">let</span><span> c: Float </span><span style="color:#72ab00;">=</span><span> a </span><span style="color:#72ab00;">*</span><span> b </span><span style="color:#72ab00;">/ </span><span>(a </span><span style="color:#72ab00;">+</span><span> b);</span><span>
-</span><span style="color:#668f14;">let</span><span> d: NotNanFloat </span><span style="color:#72ab00;">=</span><span> c.</span><span style="color:#b39f04;">try_into</span><span>().</span><span style="color:#b39f04;">unwrap</span><span>();</span><span>
-</span></code></pre>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="rust"><code data-lang="rust"><span class="giallo-l"><span style="color: #668F14;">let</span><span style="color: #5597D6;"> a</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> NotNanFloat</span><span style="color: #72AB00;"> = ...</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #668F14;">let</span><span style="color: #5597D6;"> b</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> NotNanFloat</span><span style="color: #72AB00;"> = ...</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #668F14;">let</span><span style="color: #5597D6;"> c</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> Float</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> a</span><span style="color: #72AB00;"> *</span><span style="color: #5597D6;"> b</span><span style="color: #72AB00;"> /</span><span> (</span><span style="color: #5597D6;">a</span><span style="color: #72AB00;"> +</span><span style="color: #5597D6;"> b</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #668F14;">let</span><span style="color: #5597D6;"> d</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> NotNanFloat</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> c</span><span style="color: #72AB00;">.</span><span style="color: #C23F31;">try_into</span><span>()</span><span style="color: #72AB00;">.</span><span style="color: #C23F31;">unwrap</span><span>();</span></span></code></pre>
 <p>С одной стороны это даже хорошо, потому что мы не будем хранить фигню у себя в массивах, и в конце не получим что у нас огромная матрица перемножалась 100 раз с <code>NaN</code>'ами, а получим ошибку намного раньше.</p>
 <h1 id="prodolzhenie-bezumiia"><a class="anchor" href="#prodolzhenie-bezumiia">#</a>Продолжение безумия</h1>
 <p>Можно пойти дальше и ещё сильнее разделить вещественные числа:</p>
-<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#668f14;">enum </span><span style="color:#c23f31;">NotNanFloat </span><span>{</span><span>
-</span><span>    InfiniteFloat(InfiniteFloat),</span><span>
-</span><span>    FiniteFloat(FiniteFloat),</span><span>
-</span><span>}</span><span>
-</span><span>
-</span><span style="color:#668f14;">enum </span><span style="color:#c23f31;">InfiniteFloat </span><span>{</span><span>
-</span><span>    Negative,</span><span>
-</span><span>    Positive,</span><span>
-</span><span>}</span><span>
-</span><span>
-</span><span style="color:#668f14;">enum </span><span style="color:#c23f31;">FiniteFloat </span><span>{ </span><span style="color:#7f8989;">/* ... */ </span><span>}</span><span>
-</span></code></pre>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="rust"><code data-lang="rust"><span class="giallo-l"><span style="color: #668F14;">enum</span><span style="color: #C23F31;"> NotNanFloat</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    InfiniteFloat</span><span>(</span><span style="color: #C23F31;">InfiniteFloat</span><span>),</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    FiniteFloat</span><span>(</span><span style="color: #C23F31;">FiniteFloat</span><span>),</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">enum</span><span style="color: #C23F31;"> InfiniteFloat</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    Negative</span><span>,</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    Positive</span><span>,</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">enum</span><span style="color: #C23F31;"> FiniteFloat</span><span> {</span><span style="color: #7F8989;"> /* ... */</span><span> }</span></span></code></pre>
 <p>Но в этом уже нет такой серьёзной причины как в отделении от <code>NaN</code>'а. Такое разделение можно использовать для более чёткого контроля типов данных на этапе компиляции.</p>
 <p>Например, можно создать тип <code>FloatFrom0ToInf</code>, который содержит все положительные числа и включая ноль. И затем сказать что <code>fn div_one(down: FloatFrom0ToInf) -&gt; FloatFrom0ToInf</code>. Ну и вообще рассчитать все операции друг из друга, и записать это на системах типов.</p>
 <p>Либо же <code>NotNanFloat</code> можно расписать так:</p>
-<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#668f14;">enum </span><span style="color:#c23f31;">NotNanFloat </span><span>{</span><span>
-</span><span>    PositiveFloat(PositiveFloat),</span><span>
-</span><span>    NegativeFloat(NegativeFloat),</span><span>
-</span><span>}</span><span>
-</span><span>
-</span><span style="color:#668f14;">enum </span><span style="color:#c23f31;">PositiveFloat </span><span>{</span><span>
-</span><span>    Infinity,</span><span>
-</span><span>    FinitePositiveFloat(FinitePositiveFloat),</span><span>
-</span><span>}</span><span>
-</span><span>
-</span><span style="color:#668f14;">enum </span><span style="color:#c23f31;">FinitePositiveFloat </span><span>{ </span><span style="color:#7f8989;">/* ... */ </span><span>}</span><span>
-</span></code></pre>
-<p>Здесь можно сделать метод: </p>
-<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#668f14;">fn </span><span style="color:#c23f31;">mul</span><span>(PositiveFiniteFloat, PositiveFiniteFloat) -&gt; PositiveFloat;</span><span>
-</span></code></pre>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="rust"><code data-lang="rust"><span class="giallo-l"><span style="color: #668F14;">enum</span><span style="color: #C23F31;"> NotNanFloat</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    PositiveFloat</span><span>(</span><span style="color: #C23F31;">PositiveFloat</span><span>),</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    NegativeFloat</span><span>(</span><span style="color: #C23F31;">NegativeFloat</span><span>),</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">enum</span><span style="color: #C23F31;"> PositiveFloat</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    Infinity</span><span>,</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    FinitePositiveFloat</span><span>(</span><span style="color: #C23F31;">FinitePositiveFloat</span><span>),</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">enum</span><span style="color: #C23F31;"> FinitePositiveFloat</span><span> {</span><span style="color: #7F8989;"> /* ... */</span><span> }</span></span></code></pre>
+<p>Здесь можно сделать метод:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="rust"><code data-lang="rust"><span class="giallo-l"><span style="color: #72AB00;">fn</span><span style="color: #C23F31;"> mul</span><span>(</span><span style="color: #C23F31;">PositiveFiniteFloat</span><span>,</span><span style="color: #C23F31;"> PositiveFiniteFloat</span><span>)</span><span style="color: #72AB00;"> -&gt;</span><span style="color: #C23F31;"> PositiveFloat</span><span>;</span></span></code></pre>
 <p>Или надо отделить ноль от всего остального, и можно получить деление, которое не должно вызывать <code>NaN</code>:</p>
-<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#668f14;">fn </span><span style="color:#c23f31;">div</span><span>(FiniteFloat, NonZeroFiniteFloat) -&gt; NonZeroFiniteFloat;</span><span>
-</span></code></pre>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="rust"><code data-lang="rust"><span class="giallo-l"><span style="color: #72AB00;">fn</span><span style="color: #C23F31;"> div</span><span>(</span><span style="color: #C23F31;">FiniteFloat</span><span>,</span><span style="color: #C23F31;"> NonZeroFiniteFloat</span><span>)</span><span style="color: #72AB00;"> -&gt;</span><span style="color: #C23F31;"> NonZeroFiniteFloat</span><span>;</span></span></code></pre>
 <p>А ещё можно иметь крутые сообщения об ошибках, когда ты пытаешься преобразовать более широкий тип к более маленькому:</p>
-<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#668f14;">let</span><span> a: Float </span><span style="color:#72ab00;">= -</span><span style="color:#b3933a;">1.2</span><span>;</span><span>
-</span><span style="color:#668f14;">let</span><span> b: PositiveFiniteFloat </span><span style="color:#72ab00;">=</span><span> a.</span><span style="color:#b39f04;">float_unwrap</span><span>(); </span><span style="color:#7f8989;">// &quot;Can&#39;t convert negative float `-1.2` to positive number in line N&quot;</span><span>
-</span></code></pre>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="rust"><code data-lang="rust"><span class="giallo-l"><span style="color: #668F14;">let</span><span style="color: #5597D6;"> a</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> Float</span><span style="color: #72AB00;"> = -</span><span style="color: #B3933A;">1.2</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #668F14;">let</span><span style="color: #5597D6;"> b</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> PositiveFiniteFloat</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> a</span><span style="color: #72AB00;">.</span><span style="color: #C23F31;">float_unwrap</span><span>();</span><span style="color: #7F8989;"> // &quot;Can&#39;t convert negative float `-1.2` to positive number in line N&quot;</span></span></code></pre>
 <p>Такие типы могли бы быть очень удобны во всяких библиотечных функциях. Например, функция расчёта площади треугольника по трём сторонам, которая принимает только конечные положительные числа, чтобы не <strong>валидировать</strong> их внутри:</p>
-<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#668f14;">fn </span><span style="color:#c23f31;">triangle_area</span><span>(</span><span>
-</span><span>    </span><span style="color:#5597d6;">a</span><span>: PositiveNonZeroFiniteFloat, </span><span>
-</span><span>    </span><span style="color:#5597d6;">b</span><span>: PositiveNonZeroFiniteFloat, </span><span>
-</span><span>    </span><span style="color:#5597d6;">c</span><span>: PositiveNonZeroFiniteFloat,</span><span>
-</span><span>) -&gt; </span><span style="color:#a2a001;">Option</span><span>&lt;PositiveNonZeroFiniteFloat&gt; { </span><span style="color:#7f8989;">/* ... */ </span><span>}</span><span>
-</span><span style="color:#7f8989;">// В этой функции возвращается `Option&lt;_&gt;`, потому что в процессе вычислений может возникнуть бесконечность.</span><span>
-</span></code></pre>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="rust"><code data-lang="rust"><span class="giallo-l"><span style="color: #72AB00;">fn</span><span style="color: #C23F31;"> triangle_area</span><span>(</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">    a</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> PositiveNonZeroFiniteFloat</span><span>, </span></span>
+<span class="giallo-l"><span style="color: #5597D6;">    b</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> PositiveNonZeroFiniteFloat</span><span>, </span></span>
+<span class="giallo-l"><span style="color: #5597D6;">    c</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> PositiveNonZeroFiniteFloat</span><span>,</span></span>
+<span class="giallo-l"><span>)</span><span style="color: #72AB00;"> -&gt;</span><span style="color: #C23F31;"> Option</span><span>&lt;</span><span style="color: #C23F31;">PositiveNonZeroFiniteFloat</span><span>&gt; {</span><span style="color: #7F8989;"> /* ... */</span><span> }</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">// В этой функции возвращается `Option&lt;_&gt;`, потому что в процессе вычислений может возникнуть бесконечность.</span></span></code></pre>
 <p>И таких способов расписать <code>NotNanFloat</code> существует очень много. Для этого, бы, наверное, в Rust пришлось создать целую языковую конструкцию <code>safe union</code>, которая позволяет переключаться между этими представлениями <code>Float</code>, потому что они абсолютно эквивалентны.</p>
 <h1 id="to-zhe-samoe-no-na-tipakh"><a class="anchor" href="#to-zhe-samoe-no-na-tipakh">#</a>То же самое, но на типах</h1>
 <p>Или это разделение можно записывать по-другому:</p>
-<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#668f14;">struct </span><span style="color:#c23f31;">Yes</span><span>;</span><span>
-</span><span style="color:#668f14;">struct </span><span style="color:#c23f31;">No</span><span>;</span><span>
-</span><span>
-</span><span style="color:#668f14;">trait </span><span style="color:#c23f31;">IsFloatParameter </span><span>{}</span><span>
-</span><span style="color:#668f14;">impl </span><span>IsFloatParameter </span><span style="color:#72ab00;">for </span><span style="color:#c23f31;">Yes</span><span>;</span><span>
-</span><span style="color:#c23f31;">impl IsFloatParameter for No</span><span>;</span><span>
-</span><span>
-</span><span style="color:#c23f31;">struct Float</span><span>&lt;</span><span>
-</span><span>    HasNan: IsFloatParameter,</span><span>
-</span><span>    HasNegativeInfinity: IsFloatParameter,</span><span>
-</span><span>
-</span><span>    HasNegativeFrom1: IsFloatParameter,</span><span>
-</span><span>    HasNegative1: IsFloatParameter,</span><span>
-</span><span>    HasNegativeFrom0To1: IsFloatParameter,</span><span>
-</span><span>    HasNegative0: IsFloatParameter,</span><span>
-</span><span>
-</span><span>    HasPositive0: IsFloatParameter,</span><span>
-</span><span>    HasPositiveFrom0To1: IsFloatParameter,</span><span>
-</span><span>    HasPositive1: IsFloatParameter,</span><span>
-</span><span>    HasPositiveFrom1: IsFloatParameter,</span><span>
-</span><span>
-</span><span>    HasPositiveInfinity: IsFloatParameter,</span><span>
-</span><span>&gt;(</span><span style="color:#c23f31;">f64</span><span>);</span><span>
-</span><span>
-</span><span style="color:#c23f31;">type NotNanFloat</span><span> = </span><span style="color:#c23f31;">Float</span><span>&lt;</span><span>
-</span><span>    No, </span><span>
-</span><span>
-</span><span>    Yes, </span><span>
-</span><span>    Yes, Yes, Yes, Yes, </span><span>
-</span><span>    Yes, Yes, Yes, Yes, </span><span>
-</span><span>    Yes,</span><span>
-</span><span>&gt;;</span><span>
-</span></code></pre>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="rust"><code data-lang="rust"><span class="giallo-l"><span style="color: #668F14;">struct</span><span style="color: #C23F31;"> Yes</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #668F14;">struct</span><span style="color: #C23F31;"> No</span><span>;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">trait</span><span style="color: #C23F31;"> IsFloatParameter</span><span> {}</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">impl</span><span style="color: #C23F31;"> IsFloatParameter</span><span style="color: #72AB00;"> for</span><span style="color: #C23F31;"> Yes</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">impl</span><span style="color: #C23F31;"> IsFloatParameter</span><span style="color: #72AB00;"> for</span><span style="color: #C23F31;"> No</span><span>;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">struct</span><span style="color: #C23F31;"> Float</span><span>&lt;</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    HasNan</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> IsFloatParameter</span><span>,</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    HasNegativeInfinity</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> IsFloatParameter</span><span>,</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #C23F31;">    HasNegativeFrom1</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> IsFloatParameter</span><span>,</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    HasNegative1</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> IsFloatParameter</span><span>,</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    HasNegativeFrom0To1</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> IsFloatParameter</span><span>,</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    HasNegative0</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> IsFloatParameter</span><span>,</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #C23F31;">    HasPositive0</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> IsFloatParameter</span><span>,</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    HasPositiveFrom0To1</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> IsFloatParameter</span><span>,</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    HasPositive1</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> IsFloatParameter</span><span>,</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    HasPositiveFrom1</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> IsFloatParameter</span><span>,</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #C23F31;">    HasPositiveInfinity</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> IsFloatParameter</span><span>,</span></span>
+<span class="giallo-l"><span>&gt;(</span><span style="color: #C23F31;">f64</span><span>);</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">type</span><span style="color: #C23F31;"> NotNanFloat</span><span style="color: #72AB00;"> =</span><span style="color: #C23F31;"> Float</span><span>&lt;</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    No</span><span>, </span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #C23F31;">    Yes</span><span>, </span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    Yes</span><span>,</span><span style="color: #C23F31;"> Yes</span><span>,</span><span style="color: #C23F31;"> Yes</span><span>,</span><span style="color: #C23F31;"> Yes</span><span>, </span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    Yes</span><span>,</span><span style="color: #C23F31;"> Yes</span><span>,</span><span style="color: #C23F31;"> Yes</span><span>,</span><span style="color: #C23F31;"> Yes</span><span>, </span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    Yes</span><span>,</span></span>
+<span class="giallo-l"><span>&gt;;</span></span></code></pre>
 <p>Но в таком случае теряется возможность матчиться по структуре данных, чтобы получить нужный промежуток. Не знаю что лучше.</p>
 <p>Для подобного представления очень пригодятся умения программировать сложные вычисления на типах данных, чтобы автоматически получать все возможные преобразования для всех возможных комбинаций вещественных чисел.</p>
 <p>Если же делать это вручную, то потребуется очень много кода. Вероятно, эту задачу было бы логичнее решать на зависимых типах? Или нужна новая, более сильная абстракция, чем ADT?</p>
@@ -485,10 +473,9 @@
     <tr><td style="border: 0px; padding: 0.2rem;">
     <!-- SVG icons from https://iconmonstr.com -->
 
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
-    href="https:&#x2F;&#x2F;github.com&#x2F;optozorax" 
+    href="https://github.com/optozorax" 
     aria-label="optozorax's GitHub" 
     title="optozorax's GitHub">
     <img 
@@ -500,11 +487,9 @@
   </a>
 </span>
 
-
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
-    href="https:&#x2F;&#x2F;t.me&#x2F;optozorax_dev" 
+    href="https://t.me/optozorax_dev" 
     aria-label="optozorax's Telegram channel" 
     title="optozorax's Telegram channel">
     <img 
@@ -516,11 +501,9 @@
   </a>
 </span>
 
-
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
-    href="https:&#x2F;&#x2F;www.youtube.com&#x2F;c&#x2F;optozorax" 
+    href="https://www.youtube.com/c/optozorax" 
     aria-label="optozorax's YouTube channel" 
     title="optozorax's YouTube channel">
     <img 
@@ -532,11 +515,9 @@
   </a>
 </span>
 
-
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
-    href="https:&#x2F;&#x2F;boosty.to&#x2F;optozorax" 
+    href="https://boosty.to/optozorax" 
     aria-label="optozorax's donate page" 
     title="optozorax's donate page">
     <img 
@@ -548,11 +529,9 @@
   </a>
 </span>
 
-
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
-    href="&#x2F;atom.xml" 
+    href="/atom.xml" 
     aria-label="optozorax's Atom Feed" 
     title="optozorax's Atom Feed">
     <img 
@@ -564,9 +543,7 @@
   </a>
 </span>
 
-
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
     href="mailto:optozorax@gmail.com" 
     aria-label="optozorax's email" 
@@ -579,7 +556,6 @@
       alt="optozorax's email">
   </a>
 </span>
-
 
     </td><td style="border: 0px; padding: 0.2rem;">
 

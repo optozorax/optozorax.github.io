@@ -27,7 +27,7 @@
   
 
 <meta name="author" content="optozorax">
-<meta name="title" content="Аппроксимация распределения данных полиномом — Блог optozorax&#x27;а">
+<meta name="title" content="Аппроксимация распределения данных полиномом — Блог optozorax&#39;а">
 <meta name="description" content="У меня была куча данных полётов на микродроне, и я захотел сделать красивый гладкий график... Готового решения в интернете не нашёл.">
 <meta name="image" content="https://optozorax.github.io/p/polynom-distribution/image.png">
 
@@ -37,7 +37,7 @@
 <!-- Facebook Meta Tags -->
 <meta property="og:url" content="https://optozorax.github.io/p/polynom-distribution/">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Аппроксимация распределения данных полиномом — Блог optozorax&#x27;а">
+<meta property="og:title" content="Аппроксимация распределения данных полиномом — Блог optozorax&#39;а">
 <meta property="og:description" content="У меня была куча данных полётов на микродроне, и я захотел сделать красивый гладкий график... Готового решения в интернете не нашёл.">
 <meta property="og:image" content="https://optozorax.github.io/p/polynom-distribution/image.png">
 <meta property="og:locale" content="ru">
@@ -60,7 +60,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta property="twitter:domain" content="optozorax.github.io">
 <meta property="twitter:url" content="https://optozorax.github.io/p/polynom-distribution/">
-<meta name="twitter:title" content="Аппроксимация распределения данных полиномом — Блог optozorax&#x27;а">
+<meta name="twitter:title" content="Аппроксимация распределения данных полиномом — Блог optozorax&#39;а">
 <meta name="twitter:description" content="У меня была куча данных полётов на микродроне, и я захотел сделать красивый гладкий график... Готового решения в интернете не нашёл.">
 <meta name="twitter:image" content="https://optozorax.github.io/p/polynom-distribution/image.png">
 <meta name="twitter:creator" content="optozorax">
@@ -99,7 +99,7 @@
   <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
   <!-- --- -->
 
-  <title>Аппроксимация распределения данных полиномом — Блог optozorax&#x27;а</title>
+  <title>Аппроксимация распределения данных полиномом — Блог optozorax&#39;а</title>
 </head>
 
 <body>
@@ -261,7 +261,7 @@
 <li><script type="math/tex">K</script> - количество отрезков.
 </li>
 </ul>
-<p>Степень полинома, очевидно, надо брать небольшую (5-10), чтобы не &quot;переобучаться&quot; на данных, и не делать график, который равен гистограмме или ещё чему-то такому.</p>
+<p>Степень полинома, очевидно, надо брать небольшую (5-10), чтобы не "переобучаться" на данных, и не делать график, который равен гистограмме или ещё чему-то такому.</p>
 <p>Количество отрезков нужно брать тоже не очень большое. Я прикинул, что <script type="math/tex">5\cdot M</script> вполне достаточно. В итоге на практике оказалось что оптимальным получается <script type="math/tex">N \cdot M</script>.</p>
 <p>Значит весь алгоритм состоит из двух этапов:</p>
 <ul>
@@ -276,44 +276,42 @@
 <p>В рандомном случае самой ресурсоёмкой операцией получается подсчёт числа точек, попадающих на этот отрезок, что занимает <script type="math/tex">O(\ln n)</script>, если данные отсортированы.</p>
 <p>Если же пытаться перебирать отрезки организованно, от минимума к максимуму, то можно использовать метод двух указателей, и за <script type="math/tex">O(1)</script> знать количество точек, находящихся на данном отрезке. А так как количество отрезков равно <script type="math/tex">O(n)</script>, то это - оптимальный вариант.</p>
 <p>Итого весь алгоритм выглядит так в псевдокоде:</p>
-<pre data-lang="rust" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-rust "><code class="language-rust" data-lang="rust"><span>vec </span><span style="color:#72ab00;">= </span><span style="color:#7f8989;">/* одномерный вектор размера n+1 */</span><span>
-</span><span>mat </span><span style="color:#72ab00;">= </span><span style="color:#7f8989;">/* двумерная матрица размера n+1 */</span><span>
-</span><span>minv </span><span style="color:#72ab00;">=</span><span> D[</span><span style="color:#b3933a;">0</span><span>];</span><span>
-</span><span>maxv </span><span style="color:#72ab00;">=</span><span> D[</span><span style="color:#72ab00;">-</span><span style="color:#b3933a;">1</span><span>];</span><span>
-</span><span>seg_count </span><span style="color:#72ab00;">= </span><span style="color:#b39f04;">sqrt</span><span>(K);</span><span>
-</span><span>step </span><span style="color:#72ab00;">= </span><span>(maxv </span><span style="color:#72ab00;">-</span><span> minv) </span><span style="color:#72ab00;">/</span><span> seg_count;</span><span>
-</span><span>
-</span><span>apos </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">0</span><span>;</span><span>
-</span><span style="color:#72ab00;">for</span><span> ai </span><span style="color:#72ab00;">in </span><span style="color:#b3933a;">0</span><span style="color:#72ab00;">..</span><span>seg_count</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1 </span><span>{</span><span>
-</span><span>	a </span><span style="color:#72ab00;">=</span><span> minv </span><span style="color:#72ab00;">+</span><span> ai </span><span style="color:#72ab00;">*</span><span> step;</span><span>
-</span><span>	</span><span style="color:#72ab00;">while</span><span> apos </span><span style="color:#72ab00;">&lt;</span><span> M </span><span style="color:#72ab00;">&amp;&amp;</span><span> a </span><span style="color:#72ab00;">&gt;</span><span> D[apos] { apos </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1</span><span>; }</span><span>
-</span><span>
-</span><span>	bpos </span><span style="color:#72ab00;">=</span><span> apos;</span><span>
-</span><span>	</span><span style="color:#72ab00;">for</span><span> bi </span><span style="color:#72ab00;">in</span><span> ai</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span style="color:#72ab00;">..</span><span>seg_count</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1 </span><span>{</span><span>
-</span><span>		b </span><span style="color:#72ab00;">=</span><span> minv </span><span style="color:#72ab00;">+</span><span> bi </span><span style="color:#72ab00;">*</span><span> step;</span><span>
-</span><span>		</span><span style="color:#72ab00;">while</span><span> bpos </span><span style="color:#72ab00;">&lt;</span><span> M </span><span style="color:#72ab00;">&amp;&amp;</span><span> b </span><span style="color:#72ab00;">&gt;</span><span> D[bpos] { bpos </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">1</span><span>; }</span><span>
-</span><span>
-</span><span>		count </span><span style="color:#72ab00;">= </span><span>(bpos </span><span style="color:#72ab00;">-</span><span> apos) </span><span style="color:#72ab00;">/</span><span> M;</span><span>
-</span><span>
-</span><span>		</span><span style="color:#72ab00;">for</span><span> i </span><span style="color:#72ab00;">in </span><span style="color:#b3933a;">0</span><span style="color:#72ab00;">..</span><span>n</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1 </span><span>{</span><span>
-</span><span>			vec[i] </span><span style="color:#72ab00;">+= </span><span style="color:#b3933a;">2 </span><span style="color:#72ab00;">*</span><span> count </span><span style="color:#72ab00;">* </span><span>(b</span><span style="color:#72ab00;">^</span><span>(i</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>) </span><span style="color:#72ab00;">-</span><span> a</span><span style="color:#72ab00;">^</span><span>(i</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>))</span><span style="color:#72ab00;">/</span><span>(i</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>);</span><span>
-</span><span>		}</span><span>
-</span><span>
-</span><span>		</span><span style="color:#72ab00;">for</span><span> i </span><span style="color:#72ab00;">in </span><span style="color:#b3933a;">0</span><span style="color:#72ab00;">..</span><span>n</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1 </span><span>{</span><span>
-</span><span>			</span><span style="color:#72ab00;">for</span><span> j </span><span style="color:#72ab00;">in </span><span style="color:#b3933a;">0</span><span style="color:#72ab00;">..</span><span>n</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1 </span><span>{</span><span>
-</span><span>				to_add </span><span style="color:#72ab00;">= </span><span>(b</span><span style="color:#72ab00;">^</span><span>(i</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>) </span><span style="color:#72ab00;">-</span><span> a</span><span style="color:#72ab00;">^</span><span>(i</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>))</span><span style="color:#72ab00;">/</span><span>(i</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>) </span><span>
-</span><span>				       </span><span style="color:#72ab00;">* </span><span>(b</span><span style="color:#72ab00;">^</span><span>(j</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>) </span><span style="color:#72ab00;">-</span><span> a</span><span style="color:#72ab00;">^</span><span>(j</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>))</span><span style="color:#72ab00;">/</span><span>(j</span><span style="color:#72ab00;">+</span><span style="color:#b3933a;">1</span><span>);</span><span>
-</span><span>
-</span><span>				mat[i, j] </span><span style="color:#72ab00;">+=</span><span> to_add;</span><span>
-</span><span>				mat[j, i] </span><span style="color:#72ab00;">+=</span><span> to_add;</span><span>
-</span><span>			}</span><span>
-</span><span>		}</span><span>
-</span><span>	}</span><span>
-</span><span>}</span><span>
-</span><span>
-</span><span>x </span><span style="color:#72ab00;">=</span><span> solve_SLE(vec, mat)</span><span>
-</span></code></pre>
-<h1 id="veb-interfeis"><a class="anchor" href="#veb-interfeis">#</a>Веб-интерфейс</h1>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="rust"><code data-lang="rust"><span class="giallo-l"><span style="color: #5597D6;">vec</span><span style="color: #72AB00;"> =</span><span style="color: #7F8989;"> /* одномерный вектор размера n+1 */</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">mat</span><span style="color: #72AB00;"> =</span><span style="color: #7F8989;"> /* двумерная матрица размера n+1 */</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">minv</span><span style="color: #72AB00;"> =</span><span style="color: #C23F31;"> D</span><span>[</span><span style="color: #B3933A;">0</span><span>];</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">maxv</span><span style="color: #72AB00;"> =</span><span style="color: #C23F31;"> D</span><span>[</span><span style="color: #72AB00;">-</span><span style="color: #B3933A;">1</span><span>];</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">seg_count</span><span style="color: #72AB00;"> =</span><span style="color: #C23F31;"> sqrt</span><span>(</span><span style="color: #C23F31;">K</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">step</span><span style="color: #72AB00;"> =</span><span> (</span><span style="color: #5597D6;">maxv</span><span style="color: #72AB00;"> -</span><span style="color: #5597D6;"> minv</span><span>)</span><span style="color: #72AB00;"> /</span><span style="color: #5597D6;"> seg_count</span><span>;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #5597D6;">apos</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">for</span><span style="color: #5597D6;"> ai</span><span style="color: #72AB00;"> in</span><span style="color: #B3933A;"> 0</span><span style="color: #72AB00;">..</span><span style="color: #5597D6;">seg_count</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">	a</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> minv</span><span style="color: #72AB00;"> +</span><span style="color: #5597D6;"> ai</span><span style="color: #72AB00;"> *</span><span style="color: #5597D6;"> step</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">	while</span><span style="color: #5597D6;"> apos</span><span style="color: #72AB00;"> &lt;</span><span style="color: #C23F31;"> M</span><span style="color: #72AB00;"> &amp;&amp;</span><span style="color: #5597D6;"> a</span><span style="color: #72AB00;"> &gt;</span><span style="color: #C23F31;"> D</span><span>[</span><span style="color: #5597D6;">apos</span><span>] {</span><span style="color: #5597D6;"> apos</span><span style="color: #72AB00;"> +=</span><span style="color: #B3933A;"> 1</span><span>; }</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #5597D6;">	bpos</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> apos</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">	for</span><span style="color: #5597D6;"> bi</span><span style="color: #72AB00;"> in</span><span style="color: #5597D6;"> ai</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span style="color: #72AB00;">..</span><span style="color: #5597D6;">seg_count</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">		b</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> minv</span><span style="color: #72AB00;"> +</span><span style="color: #5597D6;"> bi</span><span style="color: #72AB00;"> *</span><span style="color: #5597D6;"> step</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">		while</span><span style="color: #5597D6;"> bpos</span><span style="color: #72AB00;"> &lt;</span><span style="color: #C23F31;"> M</span><span style="color: #72AB00;"> &amp;&amp;</span><span style="color: #5597D6;"> b</span><span style="color: #72AB00;"> &gt;</span><span style="color: #C23F31;"> D</span><span>[</span><span style="color: #5597D6;">bpos</span><span>] {</span><span style="color: #5597D6;"> bpos</span><span style="color: #72AB00;"> +=</span><span style="color: #B3933A;"> 1</span><span>; }</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #5597D6;">		count</span><span style="color: #72AB00;"> =</span><span> (</span><span style="color: #5597D6;">bpos</span><span style="color: #72AB00;"> -</span><span style="color: #5597D6;"> apos</span><span>)</span><span style="color: #72AB00;"> /</span><span style="color: #C23F31;"> M</span><span>;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">		for</span><span style="color: #5597D6;"> i</span><span style="color: #72AB00;"> in</span><span style="color: #B3933A;"> 0</span><span style="color: #72AB00;">..</span><span style="color: #5597D6;">n</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">			vec</span><span>[</span><span style="color: #5597D6;">i</span><span>]</span><span style="color: #72AB00;"> +=</span><span style="color: #B3933A;"> 2</span><span style="color: #72AB00;"> *</span><span style="color: #5597D6;"> count</span><span style="color: #72AB00;"> *</span><span> (</span><span style="color: #5597D6;">b</span><span style="color: #72AB00;">^</span><span>(</span><span style="color: #5597D6;">i</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span>)</span><span style="color: #72AB00;"> -</span><span style="color: #5597D6;"> a</span><span style="color: #72AB00;">^</span><span>(</span><span style="color: #5597D6;">i</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span>))</span><span style="color: #72AB00;">/</span><span>(</span><span style="color: #5597D6;">i</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span>);</span></span>
+<span class="giallo-l"><span>		}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">		for</span><span style="color: #5597D6;"> i</span><span style="color: #72AB00;"> in</span><span style="color: #B3933A;"> 0</span><span style="color: #72AB00;">..</span><span style="color: #5597D6;">n</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">			for</span><span style="color: #5597D6;"> j</span><span style="color: #72AB00;"> in</span><span style="color: #B3933A;"> 0</span><span style="color: #72AB00;">..</span><span style="color: #5597D6;">n</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">				to_add</span><span style="color: #72AB00;"> =</span><span> (</span><span style="color: #5597D6;">b</span><span style="color: #72AB00;">^</span><span>(</span><span style="color: #5597D6;">i</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span>)</span><span style="color: #72AB00;"> -</span><span style="color: #5597D6;"> a</span><span style="color: #72AB00;">^</span><span>(</span><span style="color: #5597D6;">i</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span>))</span><span style="color: #72AB00;">/</span><span>(</span><span style="color: #5597D6;">i</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span>) </span></span>
+<span class="giallo-l"><span style="color: #72AB00;">				       *</span><span> (</span><span style="color: #5597D6;">b</span><span style="color: #72AB00;">^</span><span>(</span><span style="color: #5597D6;">j</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span>)</span><span style="color: #72AB00;"> -</span><span style="color: #5597D6;"> a</span><span style="color: #72AB00;">^</span><span>(</span><span style="color: #5597D6;">j</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span>))</span><span style="color: #72AB00;">/</span><span>(</span><span style="color: #5597D6;">j</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span>);</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #5597D6;">				mat</span><span>[</span><span style="color: #5597D6;">i</span><span>,</span><span style="color: #5597D6;"> j</span><span>]</span><span style="color: #72AB00;"> +=</span><span style="color: #5597D6;"> to_add</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">				mat</span><span>[</span><span style="color: #5597D6;">j</span><span>,</span><span style="color: #5597D6;"> i</span><span>]</span><span style="color: #72AB00;"> +=</span><span style="color: #5597D6;"> to_add</span><span>;</span></span>
+<span class="giallo-l"><span>			}</span></span>
+<span class="giallo-l"><span>		}</span></span>
+<span class="giallo-l"><span>	}</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #5597D6;">x</span><span style="color: #72AB00;"> =</span><span style="color: #C23F31;"> solve_SLE</span><span>(</span><span style="color: #5597D6;">vec</span><span>,</span><span style="color: #5597D6;"> mat</span><span>)</span></span></code></pre><h1 id="veb-interfeis"><a class="anchor" href="#veb-interfeis">#</a>Веб-интерфейс</h1>
 <p>Ссылки:</p>
 <ul>
 <li><a href="https://optozorax.github.io/distribution_approximation/">Онлайн-интерфейс в отдельной вкладке</a></li>
@@ -426,10 +424,9 @@
     <tr><td style="border: 0px; padding: 0.2rem;">
     <!-- SVG icons from https://iconmonstr.com -->
 
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
-    href="https:&#x2F;&#x2F;github.com&#x2F;optozorax" 
+    href="https://github.com/optozorax" 
     aria-label="optozorax's GitHub" 
     title="optozorax's GitHub">
     <img 
@@ -441,11 +438,9 @@
   </a>
 </span>
 
-
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
-    href="https:&#x2F;&#x2F;t.me&#x2F;optozorax_dev" 
+    href="https://t.me/optozorax_dev" 
     aria-label="optozorax's Telegram channel" 
     title="optozorax's Telegram channel">
     <img 
@@ -457,11 +452,9 @@
   </a>
 </span>
 
-
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
-    href="https:&#x2F;&#x2F;www.youtube.com&#x2F;c&#x2F;optozorax" 
+    href="https://www.youtube.com/c/optozorax" 
     aria-label="optozorax's YouTube channel" 
     title="optozorax's YouTube channel">
     <img 
@@ -473,11 +466,9 @@
   </a>
 </span>
 
-
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
-    href="https:&#x2F;&#x2F;boosty.to&#x2F;optozorax" 
+    href="https://boosty.to/optozorax" 
     aria-label="optozorax's donate page" 
     title="optozorax's donate page">
     <img 
@@ -489,11 +480,9 @@
   </a>
 </span>
 
-
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
-    href="&#x2F;atom.xml" 
+    href="/atom.xml" 
     aria-label="optozorax's Atom Feed" 
     title="optozorax's Atom Feed">
     <img 
@@ -505,9 +494,7 @@
   </a>
 </span>
 
-
-    
-<span class="my-span-icon">
+    <span class="my-span-icon">
   <a 
     href="mailto:optozorax@gmail.com" 
     aria-label="optozorax's email" 
@@ -520,7 +507,6 @@
       alt="optozorax's email">
   </a>
 </span>
-
 
     </td><td style="border: 0px; padding: 0.2rem;">
 
