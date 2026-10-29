@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Fonts preload -->
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nFrXyi0A.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nBrXw.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxTcwhsk.woff2" crossOrigin="anonymous">
+  <!-- --- -->
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/main.css">
+  <!-- --- -->
+
+  <!-- Non social metatags -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link rel="canonical" href="https://optozorax.github.io/en/p/linear-algebra/">
+  <link rel="alternate" hreflang="en" href="https://optozorax.github.io/en/p/linear-algebra/">
+  <link rel="alternate" hreflang="ru" href="https://optozorax.github.io/p/linear-algebra/">
+  <link rel="alternate" hreflang="x-default" href="https://optozorax.github.io/p/linear-algebra/">
+  <meta name="robots" content="noarchive">
+  <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/en/atom.xml"> 
+  <!-- --- -->
+
+  <!-- Social metatags -->
+  
+
+<meta name="author" content="optozorax">
+<meta name="title" content="A notation for linear algebra — optozorax&#39;s blog">
+<meta name="description" content="A notation system that makes linear algebra with vectors easier to understand.">
+<meta name="image" content="https://optozorax.github.io/en/p/linear-algebra/linear_algebra.png">
+
+<meta name="keywords" itemprop="tags" content="math, notation, linear-algebra">
+
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://optozorax.github.io/en/p/linear-algebra/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A notation for linear algebra — optozorax&#39;s blog">
+<meta property="og:description" content="A notation system that makes linear algebra with vectors easier to understand.">
+<meta property="og:image" content="https://optozorax.github.io/en/p/linear-algebra/linear_algebra.png">
+<meta property="og:locale" content="en">
+
+
+<meta property="article:published_time" content="2019-11-09">
+
+
+
+
+<meta property="article:tag" content="math">
+
+<meta property="article:tag" content="notation">
+
+<meta property="article:tag" content="linear-algebra">
+
+
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="optozorax.github.io">
+<meta property="twitter:url" content="https://optozorax.github.io/en/p/linear-algebra/">
+<meta name="twitter:title" content="A notation for linear algebra — optozorax&#39;s blog">
+<meta name="twitter:description" content="A notation system that makes linear algebra with vectors easier to understand.">
+<meta name="twitter:image" content="https://optozorax.github.io/en/p/linear-algebra/linear_algebra.png">
+<meta name="twitter:creator" content="optozorax">
+
+  <!-- --- -->
+
+  <!-- Extra head declarations -->
+  
+
+<link rel="preload" as="font" href="/fonts/KaTeX/KaTeX_Size4-Regular.woff2" crossOrigin="anonymous">
+<link rel="preload" as="font" href="/fonts/KaTeX/KaTeX_Math-Italic.woff2" crossOrigin="anonymous">
+<link rel="preload" as="font" href="/fonts/KaTeX/KaTeX_Main-Bold.woff2" crossOrigin="anonymous">
+<link rel="preload" as="font" href="/fonts/KaTeX/KaTeX_Main-Regular.woff2" crossOrigin="anonymous">
+<link rel="preload" as="font" href="/fonts/KaTeX/KaTeX_AMS-Regular.woff2" crossOrigin="anonymous">
+
+<link rel="stylesheet" href="/katex.min.css">
+<script defer src="/js/katex.min.js"></script>
+<script defer src="/js/mathtex-script-type.min.js"></script>
+
+<script type="text/javascript" src="/js/hammer.min.js"></script>
+<script type="text/javascript" src="/js/toc.js"></script>
+<script type="text/javascript" src="/js/gallery.js"></script>
+<script type="text/javascript" src="/js/full_screen.js"></script>
+<script type="text/javascript" src="/js/word_wrap.js"></script>
+
+  <!-- --- -->
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+  <!-- --- -->
+
+  <title>A notation for linear algebra — optozorax&#39;s blog</title>
+</head>
+
+<body>
+  <!-- FullScreen block -->
+  <div id="img_modal" class="modal" style="display: none;">
+      <img id="img_modal_01" src="/ico/loading.gif">
+      <span class="close" id="img_modal_close">&times;</span>
+  </div>
+  <!-- --- -->
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <header class="site-header" role="banner">
+  
+  <div class="wrapper">
+    <a class="site-title" href="/en/">optozorax.blog</a>
+
+    <div class="lang-switch">
+      <span class="lang-switch-item lang-switch-current" lang="en" title="English"><span class="lang-switch-flag">🇬🇧</span>EN</span>
+      <a class="lang-switch-item" href="/p/linear-algebra/" hreflang="ru" lang="ru" title="Русский"><span class="lang-switch-flag">🇷🇺</span>RU</a>
+    </div>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <img src="/ico/menu.svg" width="13px" height="15px">
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          <a class="page-link" href="/en/">Blog</a>
+        
+          <a class="page-link" href="/en/e">Collections</a>
+        
+          <a class="page-link" href="/en/tags">Tags</a>
+        
+          <a class="page-link" href="/en/about">About me</a>
+        
+      </div>
+    </nav>
+  </div>
+  
+  </header>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+  
+  <section class="page-header">
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+<h1 class="project-name">A notation for linear algebra</h1>
+
+<h2 class="project-tagline">A notation system that makes linear algebra with vectors easier to understand.</h2>
+
+
+
+<span style="margin-bottom: 10px;">
+  
+    <a href="/en/tags#math"><code class="tag"><nobr>#math</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#notation"><code class="tag"><nobr>#notation</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#linear-algebra"><code class="tag"><nobr>#linear-algebra</nobr></code></a>&nbsp;
+  
+</span>
+
+
+<center>
+<table style="margin-top: 8px;">
+<tr>
+
+
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+  <time datetime="2019-11-09" itemprop="datePublished">
+    
+    
+    
+    
+    <span class="post-date">09 November 2019</span>
+  </time>
+</h2>
+</td>
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+    <span class="post-date" style="font-style: normal">| 🕑 8 min</span>
+</h2>
+</td>
+
+
+
+<td style="padding-left: 10px;">
+  
+  <a href="https://vk.com/wall-169103586_19">
+  <code class="tag">Post on VK</code>
+  </a>
+  
+  
+  
+</td>
+
+</tr>
+</table>
+
+
+<div class="translation-note">
+  <svg class="translation-note-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+  <span>Translated from 🇷🇺 Russian</span>
+  <span class="translation-note-sep">·</span>
+  <span>Translation by Claude Opus 5.5</span>
+  <span class="translation-note-sep">·</span>
+  <a href="/p/linear-algebra/" hreflang="ru" lang="ru">Original</a>
+</div>
+
+
+
+</center>
+
+
+</td><td>
+</td></tr></table>
+
+
+
+  </section>
+  
+  
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <section class="main-content section">
+  
+<article itemscope itemtype="http://schema.org/BlogPosting">
+<div itemprop="articleBody" id="content">
+<h1 id="introduction"><a class="anchor" href="#introduction">#</a>Introduction</h1>
+<p>You know that old story about how, once Arabic numerals replaced Roman ones, mathematics started advancing by leaps and bounds?</p>
+<p>The takeaway from this story is that sometimes a good notation or encoding system for something can have a significant effect on how people perceive it and how easily they can work with it.</p>
+<p>This post describes a notation for bases, vectors and linear operators that makes it much easier to understand what the hell is actually going on in linear algebra.</p>
+<h1 id="abstract-vector"><a class="anchor" href="#abstract-vector">#</a>Abstract vector</h1>
+<script type="math/tex"></script>
+<p>Since school we've been used to thinking of a vector as a tuple of <strong>numbers</strong>, <script type="math/tex">\mathbf{x} = (1, 2, 3)^T</script>. But in linear algebra any vector is an <em>abstract object</em> with certain properties.</p>
+<p>For example, we could have two vectors: <script type="math/tex">\mathbf{x} =</script> orange juice, <script type="math/tex">\mathbf{y}=</script> apple juice. Then the result of adding them could be: <script type="math/tex">\mathbf{x}+2\mathbf{y}=</script> one-orange-two-apple juice.</p>
+<p>The properties of a vector are given by the definition of a <a href="https://en.wikipedia.org/wiki/Vector_space">vector space</a>.</p>
+<h1 id="notation"><a class="anchor" href="#notation">#</a>Notation</h1>
+<p>The text in dollar signs shows how to write it in <code>TeX</code>.</p>
+<p><strong>Number</strong>: a lowercase letter in a regular font, <code>$x$</code>, <code>$y$</code>, <code>$z$</code>: <script type="math/tex">x</script>, <script type="math/tex">y</script>, <script type="math/tex">z</script>.</p>
+<p><strong>Abstract vector</strong>: a lowercase letter in a bold upright font, <code>$\mathbf{x}$</code>: <script type="math/tex">\mathbf{x}</script>.</p>
+<p><strong>Basis</strong>: a lowercase letter in blackboard bold, <code>$\mathbb{e}$</code>: 𝕖. It is a row vector of abstract vectors:</p>
+<script type="math/tex;mode=display">𝕖=(\mathbf{e}_1, \mathbf{e}_2, \dots, \mathbf{e}_n)</script>
+<p><strong>Linear operator</strong>: an uppercase letter in bold, <code>$\mathbf{A}$</code>: <script type="math/tex">\mathbf{A}(\mathbf{x})</script>, always followed by parentheses.</p>
+<p><strong>Numeric vector</strong>: an abstract vector enclosed in square brackets, with the basis it is projected onto written as a subscript, <code>$[\mathbf{x}]_\mathbb{e}$</code>: <script type="math/tex">[\mathbf{x}]_𝕖</script>. This is the vector <script type="math/tex">\mathbf{x}</script> in the basis <script type="math/tex">𝕖</script>. It is a column vector of numbers.</p>
+<script type="math/tex;mode=display">[\mathbf{x}]_𝕖 = 
+\begin{pmatrix}
+	x_1\\
+	x_2\\
+	\ldots\\
+	x_n
+\end{pmatrix}</script>
+<p>Any abstract vector can be written as:</p>
+<script type="math/tex;mode=display">\mathbf{x} = 𝕖\cdot [\mathbf{x}]_𝕖</script>
+<script type="math/tex;mode=display">\mathbf{x} = (\mathbf{e}_1, \mathbf{e}_2, \dots, \mathbf{e}_n)\cdot\begin{pmatrix}
+	x_1\\
+	x_2\\
+	\ldots\\
+	x_n
+\end{pmatrix}</script>
+<script type="math/tex;mode=display">\mathbf{x} = x_1\mathbf{e}_1 + x_2\mathbf{e}_2 + \dots + x_n\mathbf{e}_n</script>
+<p>These formulas define the correspondence between abstract and numeric vectors!</p>
+<p>Note that we can introduce a basis <script type="math/tex">𝕒=(\mathbf{a}_1, \mathbf{a}_2, \dots, \mathbf{a}_n)</script>. Then we can write the vector <script type="math/tex">\mathbf{x}</script> in terms of this basis:</p>
+<script type="math/tex;mode=display">\mathbf{x} = 𝕒\cdot [\mathbf{x}]_𝕒</script>
+<p>In a different basis the numbers will be different, but the vector stays the same. Of course, in practice we'll never deal with abstract vectors and will always work with columns of numbers, but this is a convenient abstraction for denoting one and the same object.</p>
+<p>Essentially, a numeric vector is the <em>projection</em> of an abstract vector onto a basis.</p>
+<p>By the way, linear operations on a vector are equivalent to linear operations on its coordinate column:</p>
+<script type="math/tex;mode=display">[c\cdot \mathbf{x}]_𝕖 = c\cdot [\mathbf{x}]_𝕖 </script>
+<script type="math/tex;mode=display">\displaystyle [\mathbf{x} + \mathbf{y}]_𝕖 = [\mathbf{x}]_𝕖 + [\mathbf{y}]_𝕖 </script>
+<h1 id="change-of-basis"><a class="anchor" href="#change-of-basis">#</a>Change of basis</h1>
+<p>This is where the notation really shines, because with the standard notation this is the topic that causes the most confusion when solving problems.</p>
+<p>Say we've managed to express the vectors of basis <script type="math/tex">𝕒</script> in terms of the vectors of basis <script type="math/tex">𝕖</script>:</p>
+<script type="math/tex;mode=display">
+\left\{
+\begin{aligned}
+	&\mathbf{a_1} = 𝕖 \cdot [a_1]_𝕖 = \alpha_{1,1}\mathbf{e_1} + \alpha_{1,2}\mathbf{e_2} + \ldots + \alpha_{1,n}\mathbf{e_n} \\
+	&\mathbf{a_2} = 𝕖 \cdot [a_2]_𝕖 = \alpha_{2,1}\mathbf{e_1} + \alpha_{2,2}\mathbf{e_2} + \ldots + \alpha_{2,n}\mathbf{e_n} \\
+	&\ldots \\
+	&\mathbf{a_n} = 𝕖 \cdot [a_n]_𝕖 = \alpha_{n,1}\mathbf{e_1} + \alpha_{n,2}\mathbf{e_2} + \ldots + \alpha_{n,n}\mathbf{e_n}
+\end{aligned}
+\right.
+</script>
+<p>And let's introduce the following matrix:</p>
+<script type="math/tex;mode=display">
+P_{𝕖𝕒} = 
+\left([a_1]_𝕖, [a_2]_𝕖, \ldots, [a_n]_𝕖\right)
+</script>
+<script type="math/tex;mode=display">
+P_{𝕖𝕒} = 
+\begin{pmatrix}
+	\alpha_{1,1}& \alpha_{2, 1}& \ldots& \alpha_{n,1} \\
+	\alpha_{1,2}& \alpha_{2, 2}& \ldots& \alpha_{n,2} \\
+	\ldots& \ldots& \ldots& \ldots \\
+	\alpha_{1,n}& \alpha_{2, n}& \ldots& \alpha_{n,n}
+\end{pmatrix}
+</script>
+<p>Then the original system is equivalent to each of the following:</p>
+<script type="math/tex;mode=display">
+\begin{matrix}
+	&P_{𝕖𝕒}^T \cdot 𝕖^T &= &𝕒^T \\
+	&𝕖 \cdot P_{𝕖𝕒} &= &𝕒 \\
+	&𝕒 \cdot P_{𝕖𝕒}^{-1} &= &𝕖 \\
+	&𝕒 \cdot P_{𝕒𝕖} &= &𝕖
+\end{matrix}
+</script>
+<script type="math/tex">P_{𝕖𝕒}</script> is called the change-of-basis matrix from basis 𝕖 to basis 𝕒.
+<p>From the formulas we have, we can derive a few more useful ones:</p>
+<script type="math/tex;mode=display"> P_{𝕖𝕒} = P_{𝕒𝕖}^{-1} </script>
+<script type="math/tex;mode=display"> 𝕒 = 𝕖 \cdot P_{𝕖𝕒} </script>
+<script type="math/tex;mode=display"> P_{𝕒𝕕} = P_{𝕒𝕖}\cdot P_{𝕖𝕕} </script>
+<script type="math/tex;mode=display"> [\mathbf{x}]_𝕒 = P_{𝕖𝕒} \cdot [\mathbf{x}]_𝕖 </script>
+<p>With these formulas we now know how to convert numeric vectors from one basis to another.</p>
+<h1 id="linear-operator"><a class="anchor" href="#linear-operator">#</a>Linear operator</h1>
+<p>A <strong>linear operator</strong> is a function that takes a vector as input and returns a vector. The space of the first vector may differ from the space of the second one.</p>
+<p>Mathematicians love to write <script type="math/tex">\mathbf{A}\mathbf{x}</script>, which means "the operator is applied to the vector". This notation drives me mad. It looks like multiplication, and you always have to know in advance that <script type="math/tex">\mathbf{A}</script> is a function.</p>
+<p>This "operator" is called <em>linear</em> because it has the linearity properties (like almost everything in linear algebra).</p>
+<script type="math/tex;mode=display">\mathbf{A}(\mathbf{x} + \mathbf{y}) = \mathbf{A}(\mathbf{x}) + \mathbf{A}(\mathbf{y})</script>
+<script type="math/tex;mode=display">\mathbf{A}(c\cdot\mathbf{x}) = c\cdot\mathbf{A}(\mathbf{x})</script>
+<p>So what is a linear operator in our world of numbers? It turns out you can prove that, for given bases, any linear operator comes down to a unique matrix! And the operation of "applying the operator to a vector" becomes multiplying that matrix by the vector.</p>
+<script type="math/tex;mode=display">
+[\mathbf{A}]_{𝕖𝕒}\cdot[\mathbf{x}]_𝕖 = [\mathbf{y}]_𝕒
+</script>
+<p>That's exactly why I try not to write operator application without parentheses: otherwise we get even more chances to confuse the abstract operator with its matrix.</p>
+<p>Note that the matrix depends on two bases: the input basis and the output basis! After all, the result might be a 50-dimensional vector while the input is 2-dimensional. Of course, in practice the input and the output are more often in the same basis and therefore have the same dimension. So I'll show the notation for exactly this case:</p>
+<script type="math/tex;mode=display">
+[\mathbf{A}]_𝕖\cdot[\mathbf{x}]_𝕖 = [\mathbf{y}]_𝕖
+</script>
+<p>Let me stress it once again: a linear operator ≠ the matrix of the linear operator.</p>
+<p>A linear operator is an abstract function, while a matrix is its concrete implementation as a set of numbers.</p>
+<h1 id="deriving-the-change-of-basis-formula-for-the-matrix-of-a-linear-operator"><a class="anchor" href="#deriving-the-change-of-basis-formula-for-the-matrix-of-a-linear-operator">#</a>Deriving the change-of-basis formula for the matrix of a linear operator</h1>
+<p>Say we know how a linear operator is represented in the basis <script type="math/tex">𝕖</script>:</p>
+<script type="math/tex;mode=display">[\mathbf{A}]_𝕖\cdot[\mathbf{x}]_𝕖 = [\mathbf{y}]_𝕖</script>
+<p>And we need to get its matrix in the basis <script type="math/tex">𝕒</script>, that is, a matrix for which the following equality holds:</p>
+<script type="math/tex;mode=display">[\mathbf{A}]_𝕒\cdot[\mathbf{x}]_𝕒 = [\mathbf{y}]_𝕒</script>
+<p>For the derivation we'll need the following:</p>
+<script type="math/tex;mode=display"> [\mathbf{x}]_𝕖 = P_{𝕒𝕖} \cdot [\mathbf{x}]_𝕒 </script>
+<script type="math/tex;mode=display">[\mathbf{y}]_𝕖 = P_{𝕒𝕖} \cdot [\mathbf{y}]_𝕒</script>
+<script type="math/tex;mode=display">[\mathbf{A}]_𝕖\cdot[\mathbf{x}]_𝕖 = [\mathbf{y}]_𝕖</script>
+<p>We substitute the first two formulas into the third:</p>
+<script type="math/tex;mode=display">[\mathbf{A}]_𝕖\cdot P_{𝕒𝕖} \cdot [\mathbf{x}]_𝕒 = P_{𝕒𝕖} \cdot [\mathbf{y}]_𝕒</script>
+<script type="math/tex;mode=display">P_{𝕒𝕖}^{-1} \cdot [\mathbf{A}]_𝕖\cdot P_{𝕒𝕖} \cdot [\mathbf{x}]_𝕒 = [\mathbf{y}]_𝕒</script>
+<p>And we get this answer:</p>
+<script type="math/tex;mode=display">[\mathbf{A}]_𝕒 = P_{𝕒𝕖}^{-1} \cdot [\mathbf{A}]_𝕖\cdot P_{𝕒𝕖}</script>
+<h1 id="why-is-this-notation-good"><a class="anchor" href="#why-is-this-notation-good">#</a>Why is this notation good?</h1>
+<p>You may have noticed that for the first time in your life you understood what's going on in this damn linear algebra, and that's no accident. The standard notation makes no distinction at all between a vector, its projection onto a basis, and the basis. Everything is <strong>stupidly</strong> and <strong>lazily</strong> denoted by ordinary letters, neither bold nor blackboard bold.</p>
+<p>That's exactly why you constantly have to keep the context in mind. And you're lucky if someone even tells you the difference between an abstract vector and a column of numbers. Usually the teachers themselves don't really know the difference, or don't know that they should draw the students' attention to it.</p>
+<p>The downside of stupidly denoting everything with ordinary letters is that <strong>ordinary letters start to mean too much</strong>. They become ambiguous. Depending on the context, <script type="math/tex">a</script> could be anything: a number, a vector, a basis, or even a junior operator.</p>
+<p>I'll admit that this notation for coordinate columns takes too many symbols: you have to write <code>[</code>, <code>]</code>, <code>𝕖</code>, and it's not at all clear how to write the last one with a pen. Using it in practice to solve linear algebra problems is impossible. So I suggest using this notation:</p>
+<ul>
+<li>In books and study guides,</li>
+<li>On paper, when the problem involves going from one basis to another,</li>
+<li>At the early stages, to tell an abstract vector apart from a column of numbers,</li>
+<li>When you've forgotten how everything works.</li>
+</ul>
+<p>Later on, <em>once you've learned to understand it all</em>, you can use ordinary letters to keep things short.</p>
+<p>This system is a slightly refined version of the notation taught by <a href="https://ciu.nstu.ru/kaf/persons/3080">Elena Viktorovna Ovchinnikova</a> (in Russian) at the Faculty of Automation and Computer Engineering (AVT) of Novosibirsk State Technical University (NSTU).</p>
+<p>The main features of this notation system are:</p>
+<ul>
+<li>The vector is split into two concepts: abstract and numeric.</li>
+<li>Each of these classes gets its own special notation.</li>
+<li>The basis of a numeric vector isn't ignored: it is part of the vector's notation.</li>
+<li>The basis gets a special font so that it can't be confused with a vector or a number.</li>
+</ul>
+<h1 id="conclusion"><a class="anchor" href="#conclusion">#</a>Conclusion</h1>
+<center><big>The right notation matters.</big></center>
+
+</div>
+</article>
+
+  </section>
+  
+
+</td><td>
+<!-- TOC -->
+<input type="checkbox" id="toc-trigger" class="toc-trigger" />
+<label for="toc-trigger">
+  <span class="menu-icon">
+    <div class="side-button"><img src="/ico/right.svg"></div>
+  </span>
+</label>
+
+<nav class="section-nav">
+ <h2>Contents</h2>
+ <ul class="first">
+ 
+ 
+  <li>
+   <a href="#introduction">Introduction</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#abstract-vector">Abstract vector</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#notation">Notation</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#change-of-basis">Change of basis</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#linear-operator">Linear operator</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#deriving-the-change-of-basis-formula-for-the-matrix-of-a-linear-operator">Deriving the change-of-basis formula for the matrix of a linear operator</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#why-is-this-notation-good">Why is this notation good?</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#conclusion">Conclusion</a>
+   
+  </li>
+ 
+ </ul>
+</nav>
+</td></tr></table>
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="section second-section">
+If you like what I do, follow me on <a href="https://t.me/optozorax_dev">Telegram</a> and <a href="https://www.youtube.com/c/optozorax">YouTube</a>.
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="comments section second-section">
+
+<script src="https://utteranc.es/client.js"
+        repo="optozorax/optozorax.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+
+  <hr class="enabled-on-phone">
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <footer class="site-footer section second-section">
+  
+    <center>
+    <div style="margin-bottom: 10px;">© Ilya Sheprut. License: <a href="https://creativecommons.org/licenses/by/3.0/deed.en">CC-BY</a>.</div>
+    <table style="border: 0px; display: contents;">
+    <tr><td style="border: 0px; padding: 0.2rem;">
+    <!-- SVG icons from https://iconmonstr.com -->
+
+    <span class="my-span-icon">
+  <a 
+    href="https://github.com/optozorax" 
+    aria-label="optozorax's GitHub" 
+    title="optozorax's GitHub">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/github.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's GitHub">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://t.me/optozorax_dev" 
+    aria-label="optozorax's Telegram channel" 
+    title="optozorax's Telegram channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/tg.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Telegram channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://www.youtube.com/c/optozorax" 
+    aria-label="optozorax's YouTube channel" 
+    title="optozorax's YouTube channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/youtube.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's YouTube channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://boosty.to/optozorax" 
+    aria-label="optozorax's donate page" 
+    title="optozorax's donate page">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/donate.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's donate page">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="/en/atom.xml" 
+    aria-label="optozorax's Atom Feed" 
+    title="optozorax's Atom Feed">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/rss.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Atom Feed">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="mailto:optozorax@gmail.com" 
+    aria-label="optozorax's email" 
+    title="optozorax's email">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/contact.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's email">
+  </a>
+</span>
+
+    </td><td style="border: 0px; padding: 0.2rem;">
+
+    </td></tr>
+    </table>
+    <div class="small-info">
+      Made with <a href="https://www.getzola.org/">Zola</a> | Theme based on <a href="https://github.com/lorepirri/cayman-blog">Cayman Blog</a> | <a href="https://github.com/optozorax/blog_zola">Site sources</a>
+      <a rel="me" href="https://mathstodon.xyz/@optozorax" style="display: none;">Mastodon</a>
+    </div>
+    </center>
+  
+  </footer>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+</body>
+</html>

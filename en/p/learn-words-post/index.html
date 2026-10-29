@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Fonts preload -->
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nFrXyi0A.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nBrXw.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxTcwhsk.woff2" crossOrigin="anonymous">
+  <!-- --- -->
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/main.css">
+  <!-- --- -->
+
+  <!-- Non social metatags -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link rel="canonical" href="https://optozorax.github.io/en/p/learn-words-post/">
+  <link rel="alternate" hreflang="en" href="https://optozorax.github.io/en/p/learn-words-post/">
+  <link rel="alternate" hreflang="ru" href="https://optozorax.github.io/p/learn-words-post/">
+  <link rel="alternate" hreflang="x-default" href="https://optozorax.github.io/p/learn-words-post/">
+  <meta name="robots" content="noarchive">
+  <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/en/atom.xml"> 
+  <!-- --- -->
+
+  <!-- Social metatags -->
+  
+
+<meta name="author" content="optozorax">
+<meta name="title" content="A program for learning English words — optozorax&#39;s blog">
+<meta name="description" content="How this program works, why I made it, and what advantages it has over the others.">
+<meta name="image" content="https://optozorax.github.io/en/p/learn-words-post/full.png">
+
+<meta name="keywords" itemprop="tags" content="programming, program, language, interface">
+
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://optozorax.github.io/en/p/learn-words-post/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A program for learning English words — optozorax&#39;s blog">
+<meta property="og:description" content="How this program works, why I made it, and what advantages it has over the others.">
+<meta property="og:image" content="https://optozorax.github.io/en/p/learn-words-post/full.png">
+<meta property="og:locale" content="en">
+
+
+<meta property="article:published_time" content="2021-08-01">
+
+
+
+
+<meta property="article:tag" content="programming">
+
+<meta property="article:tag" content="program">
+
+<meta property="article:tag" content="language">
+
+<meta property="article:tag" content="interface">
+
+
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="optozorax.github.io">
+<meta property="twitter:url" content="https://optozorax.github.io/en/p/learn-words-post/">
+<meta name="twitter:title" content="A program for learning English words — optozorax&#39;s blog">
+<meta name="twitter:description" content="How this program works, why I made it, and what advantages it has over the others.">
+<meta name="twitter:image" content="https://optozorax.github.io/en/p/learn-words-post/full.png">
+<meta name="twitter:creator" content="optozorax">
+
+  <!-- --- -->
+
+  <!-- Extra head declarations -->
+  
+
+<script type="text/javascript" src="/js/hammer.min.js"></script>
+<script type="text/javascript" src="/js/toc.js"></script>
+<script type="text/javascript" src="/js/gallery.js"></script>
+<script type="text/javascript" src="/js/full_screen.js"></script>
+<script type="text/javascript" src="/js/word_wrap.js"></script>
+
+  <!-- --- -->
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+  <!-- --- -->
+
+  <title>A program for learning English words — optozorax&#39;s blog</title>
+</head>
+
+<body>
+  <!-- FullScreen block -->
+  <div id="img_modal" class="modal" style="display: none;">
+      <img id="img_modal_01" src="/ico/loading.gif">
+      <span class="close" id="img_modal_close">&times;</span>
+  </div>
+  <!-- --- -->
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <header class="site-header" role="banner">
+  
+  <div class="wrapper">
+    <a class="site-title" href="/en/">optozorax.blog</a>
+
+    <div class="lang-switch">
+      <span class="lang-switch-item lang-switch-current" lang="en" title="English"><span class="lang-switch-flag">🇬🇧</span>EN</span>
+      <a class="lang-switch-item" href="/p/learn-words-post/" hreflang="ru" lang="ru" title="Русский"><span class="lang-switch-flag">🇷🇺</span>RU</a>
+    </div>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <img src="/ico/menu.svg" width="13px" height="15px">
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          <a class="page-link" href="/en/">Blog</a>
+        
+          <a class="page-link" href="/en/e">Collections</a>
+        
+          <a class="page-link" href="/en/tags">Tags</a>
+        
+          <a class="page-link" href="/en/about">About me</a>
+        
+      </div>
+    </nav>
+  </div>
+  
+  </header>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+  
+  <section class="page-header">
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+<h1 class="project-name">A program for learning English words</h1>
+
+<h2 class="project-tagline">How this program works, why I made it, and what advantages it has over the others.</h2>
+
+
+
+<span style="margin-bottom: 10px;">
+  
+    <a href="/en/tags#programming"><code class="tag"><nobr>#programming</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#program"><code class="tag"><nobr>#program</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#language"><code class="tag"><nobr>#language</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#interface"><code class="tag"><nobr>#interface</nobr></code></a>&nbsp;
+  
+</span>
+
+
+<center>
+<table style="margin-top: 8px;">
+<tr>
+
+
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+  <time datetime="2021-08-01" itemprop="datePublished">
+    
+    
+    
+    
+    <span class="post-date">01 August 2021</span>
+  </time>
+</h2>
+</td>
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+    <span class="post-date" style="font-style: normal">| 🕑 18 min</span>
+</h2>
+</td>
+
+
+
+<td style="padding-left: 10px;">
+  
+  
+  <a href="https://t.me/optozorax_dev/489">
+  <code class="tag">Post on Telegram</code>
+  </a>
+  
+  
+  (37 💬)
+  
+</td>
+
+</tr>
+</table>
+
+
+<div class="translation-note">
+  <svg class="translation-note-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+  <span>Translated from 🇷🇺 Russian</span>
+  <span class="translation-note-sep">·</span>
+  <span>Translation by Claude Opus 5.5</span>
+  <span class="translation-note-sep">·</span>
+  <a href="/p/learn-words-post/" hreflang="ru" lang="ru">Original</a>
+</div>
+
+
+
+<br><a href="https://optozorax.github.io/learn_words/" class="btn" style="margin: 0px;">Link to the program</a>
+
+</center>
+
+
+</td><td>
+</td></tr></table>
+
+
+
+  </section>
+  
+  
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <section class="main-content section">
+  
+<article itemscope itemtype="http://schema.org/BlogPosting">
+<div itemprop="articleBody" id="content">
+<h1 id="about-my-english"><a class="anchor" href="#about-my-english">#</a>About my English</h1>
+<p>Honestly, school and university never really taught me English: I did all the assignments, but reading and writing texts is still very hard for me. A couple of years ago I realized that if I didn't do something <em>myself</em>, my English would stay at a very low level forever.</p>
+<p>So I promised myself to watch <strong>everything</strong> with English audio and Russian subtitles whenever the original is in English. Series and films sound much better in the original; I got used to watching the screen and reading the text at the same time, and I also picked up a lot of expressions and unexpected meanings of words (for example, in radio talk "copy that" = "принял" ("received")). You could say my level went up thanks to this. But after a year I felt that I had hit a plateau.</p>
+<p>So I moved on to the next step and tried watching Futurama with English subtitles. I even mostly understood what was going on, but a lot of sentences slipped past me. I watched about 4 seasons this way, and I wouldn't say I leveled up at all. Recently I watched 2 seasons of "Agents of S.H.I.E.L.D." with English subtitles, and this time I understood more. But nothing was sinking in. I realized that you can't learn anything from watching like this without active effort. And the enjoyment suffers too when you don't understand things.</p>
+<p>You hear it from every corner: first of all you need to know the words, and understanding everything else will come on its own. And indeed, when a series used words I knew, in whatever combinations, I understood it; but I didn't understand the simplest constructions when they had words I didn't know.</p>
+<p><strong>So I decided that I had to actively learn words.</strong></p>
+<h1 id="alternatives"><a class="anchor" href="#alternatives">#</a>Alternatives</h1>
+<p>I tried various phone apps for learning English, and they have the following <strong>problems</strong>:</p>
+<ol>
+<li>To check whether you know a word, they use a multiple-choice test where the word is placed among 4 other words; different meanings of the word aren't checked</li>
+<li>Checking starts with the simplest words</li>
+<li>You can't say "I know this word, remove it"</li>
+<li>You can't add your own word</li>
+<li>There are no statistics</li>
+<li>You can't automatically pick out the words I don't know from a text or a video</li>
+</ol>
+<blockquote>
+<p><em>Note:</em> before writing my program and the draft of this article, I didn't know about Anki. I don't know exactly what set of features that program has, so please tell me in the comments what Anki has that mine doesn't, and vice versa.</p>
+</blockquote>
+<h1 id="previous-attempts"><a class="anchor" href="#previous-attempts">#</a>Previous attempts</h1>
+<p>That's why, many years ago, I already wanted to write my own program for learning words, one that would solve these problems my own way. Back then I knew only C++ and couldn't program anything more complex than basic stuff in WinAPI. I did try to write such a program, but even the very simplest part of the interface took me an enormous amount of effort. In the end the project was abandoned. For those interested, here are the links: <a href="https://github.com/optozorax/slovo-gonka">1</a>, <a href="https://github.com/optozorax/slovo_gonki2">2</a>.</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="450"     height="400"     src="/processed_images/old.4a193de422c93834.webp"     onclick="full_screen('old.jpg')"     onauxclick="full_screen_new_page('old.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<h1 id="today-s-result"><a class="anchor" href="#today-s-result">#</a>Today's result</h1>
+<p>But now I can program very complex interfaces using <code>ImGUI</code>, so I decided to try writing this program again, only this time as a hackathon: timing myself and trying to make it as fast as possible.</p>
+<p>And as a result, I got a program that runs in the browser at this address: <a href="https://optozorax.github.io/learn_words/">optozorax.github.io/learn_words</a>.</p>
+<p>Its source code and binaries are here: <a href="https://github.com/optozorax/learn_words">github.com/optozorax/learn_words</a>.</p>
+<p>Here is a screenshot with almost all the windows of this program, to grab your attention, so to speak:</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1280"     height="748"     src="/processed_images/full.b95b907dc08edc48.webp"     onclick="full_screen('full.png')"     onauxclick="full_screen_new_page('full.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.6<br>png</div> </div> </div>
+<h1 id="how-words-are-tested"><a class="anchor" href="#how-words-are-tested">#</a>How words are tested</h1>
+<p>I think learning words with tests, where the right translation is already written and can be found by elimination, is a lost cause. The translation has to be actively retrieved from memory. I know this because my first program worked exactly that way, and it was awful: I didn't remember anything. And picking the distractors so as not to give away too many hints is a whole hassle of its own.</p>
+<p>So I decided that words should be learned by typing them on the keyboard. That is, you're shown a word, and you have to type all of its translations by hand.</p>
+<p>You can't type a word several times in one day and then remember it forever; memorization has to be spaced out over time. After a word is added, there's a specific schedule for when you have to type it again:</p>
+<ul>
+<li>On the first day, 2 times with a hint; the hint is there to help you memorize the word.</li>
+<li>On the first day, 3 times without a hint; from then on everything is without hints.</li>
+<li>Two days later, 3 times</li>
+<li>A week later, 2 times</li>
+<li>20 days later, 2 times</li>
+<li>After all that, the word is considered learned</li>
+<li>In between, the word isn't offered for typing.</li>
+</ul>
+<p>These numbers were pulled out of thin air. I plan to move them into the settings, so that you can make your own modes and even imitate flashcards, where a word may be repeated just once a day, with a hint, every day for a whole week. I don't know which approach is more effective; this topic needs research.</p>
+<p>Below you can see how several different translations of the word "mean" are typed.</p>
+<div class="magnifier-container img-one-two"> <img     class="not-default full-screen-img"     width="468"     height="294"     src="/processed_images/lw1.a8440078030f9895.webp"     onclick="full_screen('lw1.png')"     onauxclick="full_screen_new_page('lw1.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<p>When you type with a hint, you have to type the word in both English and Russian, because I caught myself typing only the Russian hint when going fast.</p>
+<p>The first translation, "означать" ("to mean"), we've already learned and don't need to type; the second translation, "смысл" ("meaning"), has to be typed with a hint because we added it only recently; and the third translation, "грубый" ("rude"), we've already typed with hints, and now we have to actively retrieve it from memory. In other words, this program takes into account that a word can have many different meanings.</p>
+<p>You can move between these fields with Enter.</p>
+<p>After typing, you can press the "Next" button and see how we did.</p>
+<div class="magnifier-container img-one-two"> <img     class="not-default full-screen-img"     width="472"     height="265"     src="/processed_images/lw2.5ac845c615432abe.webp"     onclick="full_screen('lw2.png')"     onauxclick="full_screen_new_page('lw2.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<p>This window offers both English words for which you have to type the Russian translation, and the other way around. I think this alternation is very important, because I noticed that some words are easy to recall when you see them in one particular language, and very hard the other way around.</p>
+<p>This way I solve problem 1 from the introduction.</p>
+<h1 id="how-words-are-added"><a class="anchor" href="#how-words-are-added">#</a>How words are added</h1>
+<p>In programs for learning English words, usually all the words with their translations and meanings are already built in, so you launch it and start working. I'm not a megacorporation, I'm making this program primarily for myself, and I want to get a result as fast as possible, so I decided not to bother with that. I chose the path of adding words manually.</p>
+<p>A word together with all its translations can be added manually. This means that you yourself have to know which word you need to learn, and look up its translations yourself.</p>
+<div class="magnifier-container img-one-two"> <img     class="not-default full-screen-img"     width="563"     height="556"     src="/processed_images/lw3.9e172b7fc9a947a2.webp"     onclick="full_screen('lw3.png')"     onauxclick="full_screen_new_page('lw3.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<p>This solves problems 2, 3 and 4 from the introduction.</p>
+<h2 id="adding-from-text-and-subtitles"><a class="anchor" href="#adding-from-text-and-subtitles">#<sup>2</sup></a>Adding from text and subtitles</h2>
+<p>For this there's a special window for importing from subtitles in the <code>srt</code> format.</p>
+<div class="magnifier-container img-one-two"> <img     class="not-default full-screen-img"     width="574"     height="617"     src="/processed_images/lw4.a61a2c2b9b41aa6e.webp"     onclick="full_screen('lw4.png')"     onauxclick="full_screen_new_page('lw4.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<p>Then you can press the "Use this text" button.</p>
+<p>The program tells us how many words of each kind it found in this text. I think this is an extremely effective way to find unknown and known words.</p>
+<div class="magnifier-container img-one-two"> <img     class="not-default full-screen-img"     width="305"     height="239"     src="/processed_images/lw2.5.6fbf9949715de10d.webp"     onclick="full_screen('lw2.5.png')"     onauxclick="full_screen_new_page('lw2.5.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<p>We also get a window that has parsed all these words and asks you to enter information for each word.</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="946"     height="444"     src="/processed_images/lw5.2e9d5e7bce35814e.webp"     onclick="full_screen('lw5.png')"     onauxclick="full_screen_new_page('lw5.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<p>After you add information about one word, it automatically moves on to the next word.</p>
+<p>There's a button for "trash" words. These are artifacts of subtitle parsing, for example <code>&lt;i&gt;</code>, <code>Mack:</code>, <code>O-o-o-okay</code>. They're stored in the program only so that they get filtered out in the future and don't get in the way. I don't know what the fundamental difference between "Know this word" and "Trash word" is from a programmer's point of view, but let it be.</p>
+<p>We can see that these subtitles gave 531 unique words. Don't worry, it won't be like this every time: only the first few times do you have to say for a pile of words that you know them, and after that it gets easier, since all added words will be filtered out of the following texts and subtitles. In the end the program will ask you only about what you really don't know, or what it doesn't know.</p>
+<p>In the "Add words" window, the context of the current word is shown on the right, so you can better understand which translation to pick for learning. And there's a separate window that searches for the word in the database of words you already have. In the search window, the query is updated automatically when the next word is selected.</p>
+<p>You can add words from a plain text in the same way. Before reading an article, you can simply copy it to the clipboard, paste it into the program and find out all the words you don't know.</p>
+<p>There's a problem here, though: I don't do any word normalization (stemming or lemmatization), so words with <code>-s</code> and <code>-ing</code> count as different words, and you'll have to manually say "yes, I know this word" for all of them. Because of this, the database also has to be N times bigger than it would be if words were normalized. I didn't do it for the sake of simplicity, and because normalization tools are usually distributed as <code>.exe</code> files or as libraries that are very hard to use. Or the normalization databases come with license restrictions altogether.</p>
+<p>Also, set phrases, idioms and other multi-word things aren't detected automatically: words are split only by spaces. So if you want to learn something like that, you'll have to add it manually.</p>
+<p>By the way, downloading subtitles from the internet <strong>probably</strong> doesn't even count as piracy, so here are some useful links for you:</p>
+<ul>
+<li><a href="https://www.movavi.ru/learning-portal/best-subtitle-download-sites.html">About sites for downloading subtitles, on the Movavi website</a> (in Russian)</li>
+<li><a href="https://subtitleseeker.in/">Subtitle Seeker</a> — subtitles in English.</li>
+<li><a href="https://www.opensubtitles.org/ru/ssearch/sublanguageid-rus/idmovie-158962">opensubtitles.org</a> — there are Russian subtitles here, but of dubious quality. So it's better to take the subtitles that come with the film or series on you-know-which site.</li>
+</ul>
+<p>This solves problem 6 from the introduction.</p>
+<h2 id="synchronized-subtitles"><a class="anchor" href="#synchronized-subtitles">#<sup>2</sup></a>Synchronized subtitles</h2>
+<p>While adding words, I realized that the English context alone isn't enough: sometimes I come across words that I just can't understand. And here the work of professionals who have already translated these subtitles into Russian would come in very handy.</p>
+<p>So I have a window where you can paste two different subtitle files, English and Russian; the subtitles must be for the same episode or the same film.</p>
+<div class="magnifier-container img-one-two"> <img     class="not-default full-screen-img"     width="468"     height="355"     src="/processed_images/lw101.9385d94ea386ee21.webp"     onclick="full_screen('lw101.png')"     onauxclick="full_screen_new_page('lw101.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<p>And then, when you add a word, the scroll automatically jumps to the Russian-English pair for this word in the subtitles. Of course, the algorithm that aligns the subtitles isn't perfect, but it's off by only 1-2 lines, which isn't very critical.</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="956"     height="793"     src="/processed_images/lw100.02121a7aa8629330.webp"     onclick="full_screen('lw100.png')"     onauxclick="full_screen_new_page('lw100.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<p>With this feature, adding words is incredibly convenient. Do you know if such a feature exists anywhere else?</p>
+<h1 id="statistics"><a class="anchor" href="#statistics">#</a>Statistics</h1>
+<p>A program for learning words implies that you'll work in it regularly and spend a significant amount of time in it. And since you're spending that much, you'd like to see what exactly the results are. So a lack of proper statistics can kill the motivation for any activity.</p>
+<p>First of all, there's a panel at the bottom that shows the statistics for the current day. I saw a panel like this in VerseQ, a touch typing trainer, and I liked it a lot. It's very satisfying to see that today I did this much work in this much time, and it also helps me keep myself in check.</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1046"     height="74"     src="/processed_images/lw6.a6460e185ccf35ec.webp"     onclick="full_screen('lw6.png')"     onauxclick="full_screen_new_page('lw6.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<p>There are also full statistics:</p>
+<div class="magnifier-container img-one-three"> <img     class="not-default full-screen-img"     width="254"     height="366"     src="/processed_images/lw7.b63c6410d94a7117.webp"     onclick="full_screen('lw7.png')"     onauxclick="full_screen_new_page('lw7.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<p>You can view statistics by day: the number of words in each category, time spent working, the number of attempts.</p>
+<div class="container">
+<div class="magnifier-container img-one-three"> <img     class="not-default full-screen-img"     width="333"     height="426"     src="/processed_images/lw8.b193aa67d30309ff.webp"     onclick="full_screen('lw8.png')"     onauxclick="full_screen_new_page('lw8.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.6<br>png</div> </div> </div>
+<div class="magnifier-container img-one-three"> <img     class="not-default full-screen-img"     width="334"     height="426"     src="/processed_images/lw9.e1eba581b0af2628.webp"     onclick="full_screen('lw9.png')"     onauxclick="full_screen_new_page('lw9.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.6<br>png</div> </div> </div>
+<div class="magnifier-container img-one-three"> <img     class="not-default full-screen-img"     width="330"     height="426"     src="/processed_images/lw10.99e4b868f649dc0a.webp"     onclick="full_screen('lw10.png')"     onauxclick="full_screen_new_page('lw10.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.6<br>png</div> </div> </div>
+</div>
+<p>By the way, since time is measured and then shown in the statistics, it can happen that you step away while the program keeps measuring. And you don't want to see such garbage data in your statistics. So after 15 seconds of inactivity, time stops being measured, and the whole screen fades out with the familiar pause icon.</p>
+<div class="magnifier-container img-one-two"> <img     class="not-default full-screen-img"     width="640"     height="361"     src="/processed_images/lw12.ea2c6ac4bd2d4b37.webp"     onclick="full_screen('lw12.png')"     onauxclick="full_screen_new_page('lw12.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.4<br>png</div> </div> </div>
+<h2 id="github-like"><a class="anchor" href="#github-like">#<sup>2</sup></a>GitHub-like</h2>
+<p>GitHub's contribution graph is simply a stroke of genius. This visualization really should have its own name, because it should be in every service and program where you can do something regularly. Visualizing your work like this pushes you to work well now because you worked well before, lets you take in all your work at a glance, and encourages you to keep at it every day.</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1132"     height="304"     src="/processed_images/github.d03aa06efcf6f92b.webp"     onclick="full_screen('github.png')"     onauxclick="full_screen_new_page('github.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<p>So I simply couldn't make my program without this feature.</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="831"     height="307"     src="/processed_images/lw11.e45c94b101add60b.webp"     onclick="full_screen('lw11.png')"     onauxclick="full_screen_new_page('lw11.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<p>And I even made it better: in mine you can scroll this graph, you can also choose which of three different metrics to visualize, months and years are separated by lines, and most importantly, the week starts on Monday.</p>
+<img class="not-default img-one" width="844" height="274" src="/en/p/learn-words-post/lw13.gif">
+<p>This window always opens automatically when the program starts, so that right away you see how much you've worked and get motivated to work now.</p>
+<h1 id="automatic-layout-switching"><a class="anchor" href="#automatic-layout-switching">#</a>Automatic layout switching</h1>
+<p>In my program, Russian and English translations come in random order. So you might have to switch the keyboard layout all the time. When you type a translation, the program knows exactly which language it should be in, so the language can be switched automatically.</p>
+<p>I implemented it like this: there's simply a hash map that knows, for each English letter, which Russian letter it corresponds to, and vice versa. So when you need to type a Russian word, you just type it as if the Russian layout were on, and the program fixes everything by itself. The good thing about this approach is that the program doesn't need any special permissions to switch the layout. For example, in the browser via WASM it's definitely impossible to switch the layout, for security reasons. But the bad thing about this approach is that it won't work for language pairs that use the same characters on both sides, like English and German. If more than 2 people ever use this program, I'll think about solving this problem.</p>
+<p>In the settings you can specify your layout by entering all the Russian letters in one field and all the English letters in the same order in the other. The newline character is ignored, and a space can be used when you can't type the needed character at all. The good thing about this approach is that you can have the most insane keyboard layouts, like Dvorak or Diktor, and automatic layout switching will still work.</p>
+<div class="magnifier-container img-one-two"> <img     class="not-default full-screen-img"     width="477"     height="640"     src="/processed_images/lw14.fd4d680abfa4e10f.webp"     onclick="full_screen('lw14.png')"     onauxclick="full_screen_new_page('lw14.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.8<br>png</div> </div> </div>
+<p>I put my own layout there, and switching layouts costs me zero time in my head, although I've heard that some people may find it hard. There's room for features here too.</p>
+<h1 id="platform"><a class="anchor" href="#platform">#</a>Platform</h1>
+<p>The program can run both in the browser and as a native application.</p>
+<p>In the browser it runs entirely locally on your machine: I didn't buy any servers, all the computation happens on your side. And I love this approach, WASM is wonderful. So it's simply an application that you can open in the browser without downloading anything, and that will exist independently of me.</p>
+<p>The only difference between the browser and the native program is how your data is stored. In the browser it's stored via the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API">Web Storage API</a>, which persists after you close the tab or the browser, and apparently can even work across different browsers on the same computer.</p>
+<h1 id="data-export"><a class="anchor" href="#data-export">#</a>Data export</h1>
+<p>For the local application, all your data and statistics are in a single file <code>local.data</code> next to the program, but it's unclear what to do with the browser data. What if I want to reinstall my OS, how do I get my data out?</p>
+<p>Specifically to solve such issues, I made it possible to export and import all the statistics via the clipboard. The user is simply handed this information and can store it however they like.</p>
+<p>I think this is a very important feature for absolutely every program. I don't really trust all these cloud programs that store my stuff somewhere out there, with no way for me to download all my data or put it into another account.</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="727"     height="394"     src="/processed_images/lw200.295d6b842086eca2.webp"     onclick="full_screen('lw200.png')"     onauxclick="full_screen_new_page('lw200.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<p>So you'll be able to use this program even if GitHub dies or I abandon it.</p>
+<h1 id="almost-any-language"><a class="anchor" href="#almost-any-language">#</a>Almost any language</h1>
+<p>I call it a program for learning English words, but in fact it can be used to learn any words in any two languages. The whole design of the program is language-agnostic, be it adding words or automatic layout switching.</p>
+<p>Right-to-left languages and CJK characters aren't supported yet, because the libraries I use aren't that powerful yet. So you could say the program can be used to learn <em>*almost</em> any language.</p>
+<h1 id="open-source"><a class="anchor" href="#open-source">#</a>Open-source</h1>
+<p>This is an open-source program of 3.5k lines, which means you could quite realistically make your own changes to it if you're interested. That's a good thing compared to programs that are too big to wrap your head around.</p>
+<h1 id="wip"><a class="anchor" href="#wip">#</a>WIP</h1>
+<p>But this program is in a WIP (Work In Progress) state, which means that you personally may find some features missing. If you use this program, write to me about bugs or features you need, and I'll think about it.</p>
+<h1 id="usage"><a class="anchor" href="#usage">#</a>Usage</h1>
+<p>I've been using this program for 5 days now, and during that time a lot of holes turned up that needed features, which I successfully fixed, but quite a few other, less critical holes remain.</p>
+<p>On the first day I spent a lot of time adding words from the very first episode of "Agents of S.H.I.E.L.D.":</p>
+<ul>
+<li>It came to 900 unique words.</li>
+<li>Of these, I didn't know 70.</li>
+<li>Filtering all that and translating those 70 took me 50 minutes.</li>
+</ul>
+<p>And that's for an episode that lasts 40 minutes. So watch out that you don't spend too much time adding words. Split it into short chunks so that you don't spend too much time on it every day. Or add a lot of words in advance, and then each day pick the right number of them to learn.</p>
+<p>Then I tried to learn all these 70 words in one day. Why not, it's not many words, in theory it should be quick. The result:</p>
+<ul>
+<li>Actually there are ~140 words, because both Russian-English and English-Russian pairs are added.</li>
+<li>If each pair has to be typed 5 times on the first day, that's 700 attempts minimum in total.</li>
+<li>It took me 762 attempts: 681 correct and 81 incorrect.</li>
+<li>And all that was 55 minutes of continuous time.</li>
+</ul>
+<p>There were so many incorrect attempts because it's hard to keep track of 140 words; I often forgot them.</p>
+<p>So my plan to learn all the words from an episode before watching it failed: that's too much for one go. I think you could try to learn all the words of some series or film before watching it, and spoilers from just the subtitles shouldn't matter much, since you can't make sense of anything, and it should be forgotten anyway.</p>
+<p>I think the optimum is to learn 10-20 words a day, so that it takes 20-30 minutes a day at most, but to do it literally every day. Also, you shouldn't learn too many words a day, because each day you have to type not only the new words but also the words learned 2, 9 and 29 days ago.</p>
+<p>In the program you can choose how many new words to take for today's practice:</p>
+<div class="magnifier-container img-one-two"> <img     class="not-default full-screen-img"     width="314"     height="186"     src="/processed_images/lw300.010734b192b586fa.webp"     onclick="full_screen('lw300.png')"     onauxclick="full_screen_new_page('lw300.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<h1 id="conclusion"><a class="anchor" href="#conclusion">#</a>Conclusion</h1>
+<p>Now I learn words with my own program. I'll definitely publish my results and thoughts in a month or more.</p>
+<p>I implemented this program in full accordance with my worldview, my vision of which features are essential, and my attitude to whether overcomplication is worth it. And I like that, because in my opinion a lot of programs do things wrong, and I can say exactly what should be added to them or how they should be done differently to make them better. By the way, on this topic you can read my <a href="/en/e/ideas/">Ideas</a> page.</p>
+<p>But on the other hand, I did the wrong thing by not studying the market of similar programs well enough, in particular the much-praised Anki. So it turns out I was reinventing the wheel again. I've been cured of destructive perfectionism: I no longer refactor code 10 times over; now I just need to be cured of reinventing the wheel.</p>
+<p>I made this program with its core features in 18 hours of pure working time, which is incredibly fast for a program with a GUI. The minimal working version was ready in 6 hours. Thanks for that go to the <code>ImGUI</code> concept, which makes building interfaces incredibly easy and fast, as well as to my ability to plan a program and to Rust's static typing. I fully documented the process of planning this program and every stage of writing it, so soon there will be an article about how it was written and about how I collect ideas and organize myself to write programs. The article may be useful both for beginners and in terms of how more experienced and smarter people will criticize it.</p>
+<p>So subscribe to my Telegram channel if you haven't yet: <a href="https://t.me/optozorax_dev">@optozorax_dev</a> (in Russian).</p>
+<hr />
+<h1 id="upd-update-0-2-1"><a class="anchor" href="#upd-update-0-2-1">#</a>UPD: update 0.2.1</h1>
+<p>It's now August 11, 2021, and I'm releasing version <code>0.2.1</code> with the following features:</p>
+<h2 id="moving-to-egui-web"><a class="anchor" href="#moving-to-egui-web">#<sup>2</sup></a>Moving to <code>egui-web</code></h2>
+<ul>
+<li>It's now actually possible to use the program on a phone.</li>
+<li>IME works for typing CJK characters and non-standard symbols.</li>
+<li>The light theme looks better. Some of its colors still need work, though; this will be fixed in the next versions.</li>
+</ul>
+<h2 id="the-learn-words-window"><a class="anchor" href="#the-learn-words-window">#<sup>2</sup></a>The "Learn Words" window</h2>
+<div class="magnifier-container img-one-two"> <img     class="not-default full-screen-img"     width="640"     height="506"     src="/processed_images/up2.5f4da1a6d6c681b7.webp"     onclick="full_screen('up2.png')"     onauxclick="full_screen_new_page('up2.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.1<br>png</div> </div> </div>
+<ul>
+<li>You can invert the grading of an answer. For example, if you got one letter wrong or typed an absolutely equivalent synonym.</li>
+<li>If a word was typed incorrectly, you can't go further until you type this word with a hint.</li>
+<li>Improved the input field with a hint. Now it simply doesn't let you go further until the hint is typed correctly, and glows green when the hint is typed correctly.</li>
+<li>Now you can move between fields not only with <code>Enter</code> but also with <code>Backspace</code>.</li>
+<li>Now all translations of each word are added together to the learning queue of the current session. Previously, you could learn the Russian-English pair on one day and the English-Russian one on another, depending on your luck with the random number generator, and that turned out to be inconvenient in practice.</li>
+<li>Now the oldest words are picked for review first, rather than in random order.</li>
+<li>Now all the words with hints are typed first, and then all the words without hints. Before, they were mixed, and it could happen that you were given a new word at the very end of typing all the words. I think it's better to type all the new words first, and then retrieve them from memory together with the ones being reviewed.</li>
+</ul>
+<h2 id="the-add-subtitles-from-window"><a class="anchor" href="#the-add-subtitles-from-window">#<sup>2</sup></a>The "Add subtitles from ..." window</h2>
+<div class="magnifier-container img-one-two"> <img     class="not-default full-screen-img"     width="640"     height="470"     src="/processed_images/up3.75ac78e5836bf4ce.webp"     onclick="full_screen('up3.png')"     onauxclick="full_screen_new_page('up3.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.4<br>png</div> </div> </div>
+<ul>
+<li>You can add known translations for this word.</li>
+<li>You can skip words. This can be handy if you want to add only the known words from a text and skip the unknown ones, leaving them for later, or if you don't want to deal with a very hard word right now.</li>
+<li>You can now go back to the previous word.</li>
+</ul>
+<h2 id="the-edit-word-window"><a class="anchor" href="#the-edit-word-window">#<sup>2</sup></a>The "Edit word" window</h2>
+<div class="magnifier-container img-one-three"> <img     class="not-default full-screen-img"     width="308"     height="426"     src="/processed_images/up4.c99540334144cc93.webp"     onclick="full_screen('up4.png')"     onauxclick="full_screen_new_page('up4.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.6<br>png</div> </div> </div>
+<ul>
+<li>Fixed bugs.</li>
+<li>You can add and remove translation items.</li>
+</ul>
+<h2 id="the-settings-window"><a class="anchor" href="#the-settings-window">#<sup>2</sup></a>The settings window</h2>
+<div class="magnifier-container img-one-two"> <img     class="not-default full-screen-img"     width="640"     height="464"     src="/processed_images/up5.d4549cb88cf072d9.webp"     onclick="full_screen('up5.png')"     onauxclick="full_screen_new_page('up5.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.5<br>png</div> </div> </div>
+<ul>
+<li>Now you can set the number of repetitions and the intervals in days, and generally configure the program's behavior however you like: to make it work like Anki, or the way you prefer. For example, some people advise learning words like this: during the first week, repeat a word once every day. You can set that up too.</li>
+</ul>
+<h2 id="other"><a class="anchor" href="#other">#<sup>2</sup></a>Other</h2>
+<ul>
+<li>Fixed how the current day is determined.</li>
+</ul>
+
+</div>
+</article>
+
+  </section>
+  
+
+</td><td>
+<!-- TOC -->
+<input type="checkbox" id="toc-trigger" class="toc-trigger" />
+<label for="toc-trigger">
+  <span class="menu-icon">
+    <div class="side-button"><img src="/ico/right.svg"></div>
+  </span>
+</label>
+
+<nav class="section-nav">
+ <h2>Contents</h2>
+ <ul class="first">
+ 
+ 
+  <li>
+   <a href="#about-my-english">About my English</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#alternatives">Alternatives</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#previous-attempts">Previous attempts</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#today-s-result">Today&#39;s result</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#how-words-are-tested">How words are tested</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#how-words-are-added">How words are added</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#adding-from-text-and-subtitles">Adding from text and subtitles</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#synchronized-subtitles">Synchronized subtitles</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#statistics">Statistics</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#github-like">GitHub-like</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#automatic-layout-switching">Automatic layout switching</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#platform">Platform</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#data-export">Data export</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#almost-any-language">Almost any language</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#open-source">Open-source</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#wip">WIP</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#usage">Usage</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#conclusion">Conclusion</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#upd-update-0-2-1">UPD: update 0.2.1</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#moving-to-egui-web">Moving to egui-web</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#the-learn-words-window">The &quot;Learn Words&quot; window</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#the-add-subtitles-from-window">The &quot;Add subtitles from ...&quot; window</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#the-edit-word-window">The &quot;Edit word&quot; window</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#the-settings-window">The settings window</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#other">Other</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ </ul>
+</nav>
+</td></tr></table>
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="section second-section">
+If you like what I do, follow me on <a href="https://t.me/optozorax_dev">Telegram</a> and <a href="https://www.youtube.com/c/optozorax">YouTube</a>.
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="comments section second-section">
+
+<script src="https://utteranc.es/client.js"
+        repo="optozorax/optozorax.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+
+  <hr class="enabled-on-phone">
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <footer class="site-footer section second-section">
+  
+    <center>
+    <div style="margin-bottom: 10px;">© Ilya Sheprut. License: <a href="https://creativecommons.org/licenses/by/3.0/deed.en">CC-BY</a>.</div>
+    <table style="border: 0px; display: contents;">
+    <tr><td style="border: 0px; padding: 0.2rem;">
+    <!-- SVG icons from https://iconmonstr.com -->
+
+    <span class="my-span-icon">
+  <a 
+    href="https://github.com/optozorax" 
+    aria-label="optozorax's GitHub" 
+    title="optozorax's GitHub">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/github.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's GitHub">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://t.me/optozorax_dev" 
+    aria-label="optozorax's Telegram channel" 
+    title="optozorax's Telegram channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/tg.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Telegram channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://www.youtube.com/c/optozorax" 
+    aria-label="optozorax's YouTube channel" 
+    title="optozorax's YouTube channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/youtube.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's YouTube channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://boosty.to/optozorax" 
+    aria-label="optozorax's donate page" 
+    title="optozorax's donate page">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/donate.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's donate page">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="/en/atom.xml" 
+    aria-label="optozorax's Atom Feed" 
+    title="optozorax's Atom Feed">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/rss.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Atom Feed">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="mailto:optozorax@gmail.com" 
+    aria-label="optozorax's email" 
+    title="optozorax's email">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/contact.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's email">
+  </a>
+</span>
+
+    </td><td style="border: 0px; padding: 0.2rem;">
+
+    </td></tr>
+    </table>
+    <div class="small-info">
+      Made with <a href="https://www.getzola.org/">Zola</a> | Theme based on <a href="https://github.com/lorepirri/cayman-blog">Cayman Blog</a> | <a href="https://github.com/optozorax/blog_zola">Site sources</a>
+      <a rel="me" href="https://mathstodon.xyz/@optozorax" style="display: none;">Mastodon</a>
+    </div>
+    </center>
+  
+  </footer>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+</body>
+</html>

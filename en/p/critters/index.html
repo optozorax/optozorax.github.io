@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Fonts preload -->
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nFrXyi0A.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nBrXw.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxTcwhsk.woff2" crossOrigin="anonymous">
+  <!-- --- -->
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/main.css">
+  <!-- --- -->
+
+  <!-- Non social metatags -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link rel="canonical" href="https://optozorax.github.io/en/p/critters/">
+  <link rel="alternate" hreflang="en" href="https://optozorax.github.io/en/p/critters/">
+  <link rel="alternate" hreflang="ru" href="https://optozorax.github.io/p/critters/">
+  <link rel="alternate" hreflang="x-default" href="https://optozorax.github.io/p/critters/">
+  <meta name="robots" content="noarchive">
+  <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/en/atom.xml"> 
+  <!-- --- -->
+
+  <!-- Social metatags -->
+  
+
+<meta name="author" content="optozorax">
+<meta name="title" content="Reversible cellular automata — optozorax&#39;s blog">
+<meta name="description" content="How changes in the present can affect the past, with the Critters automaton as an example.">
+<meta name="image" content="https://optozorax.github.io/en/p/critters/preview.png">
+
+<meta name="keywords" itemprop="tags" content="cellular-automata, reversible-automata, programming">
+
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://optozorax.github.io/en/p/critters/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Reversible cellular automata — optozorax&#39;s blog">
+<meta property="og:description" content="How changes in the present can affect the past, with the Critters automaton as an example.">
+<meta property="og:image" content="https://optozorax.github.io/en/p/critters/preview.png">
+<meta property="og:locale" content="en">
+
+
+<meta property="article:published_time" content="2020-07-27">
+
+
+
+
+<meta property="article:tag" content="cellular-automata">
+
+<meta property="article:tag" content="reversible-automata">
+
+<meta property="article:tag" content="programming">
+
+
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="optozorax.github.io">
+<meta property="twitter:url" content="https://optozorax.github.io/en/p/critters/">
+<meta name="twitter:title" content="Reversible cellular automata — optozorax&#39;s blog">
+<meta name="twitter:description" content="How changes in the present can affect the past, with the Critters automaton as an example.">
+<meta name="twitter:image" content="https://optozorax.github.io/en/p/critters/preview.png">
+<meta name="twitter:creator" content="optozorax">
+
+  <!-- --- -->
+
+  <!-- Extra head declarations -->
+  
+
+<script type="text/javascript" src="/js/hammer.min.js"></script>
+<script type="text/javascript" src="/js/toc.js"></script>
+<script type="text/javascript" src="/js/gallery.js"></script>
+<script type="text/javascript" src="/js/full_screen.js"></script>
+<script type="text/javascript" src="/js/word_wrap.js"></script>
+
+  <!-- --- -->
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+  <!-- --- -->
+
+  <title>Reversible cellular automata — optozorax&#39;s blog</title>
+</head>
+
+<body>
+  <!-- FullScreen block -->
+  <div id="img_modal" class="modal" style="display: none;">
+      <img id="img_modal_01" src="/ico/loading.gif">
+      <span class="close" id="img_modal_close">&times;</span>
+  </div>
+  <!-- --- -->
+
+  
+
+
+  <header class="site-header" role="banner">
+  
+  <div class="wrapper">
+    <a class="site-title" href="/en/">optozorax.blog</a>
+
+    <div class="lang-switch">
+      <span class="lang-switch-item lang-switch-current" lang="en" title="English"><span class="lang-switch-flag">🇬🇧</span>EN</span>
+      <a class="lang-switch-item" href="/p/critters/" hreflang="ru" lang="ru" title="Русский"><span class="lang-switch-flag">🇷🇺</span>RU</a>
+    </div>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <img src="/ico/menu.svg" width="13px" height="15px">
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          <a class="page-link" href="/en/">Blog</a>
+        
+          <a class="page-link" href="/en/e">Collections</a>
+        
+          <a class="page-link" href="/en/tags">Tags</a>
+        
+          <a class="page-link" href="/en/about">About me</a>
+        
+      </div>
+    </nav>
+  </div>
+  
+  </header>
+  
+
+
+
+  
+  
+  <section class="page-header">
+  
+
+
+<h1 class="project-name">Reversible cellular automata</h1>
+
+<h2 class="project-tagline">How changes in the present can affect the past, with the Critters automaton as an example.</h2>
+
+
+
+<span style="margin-bottom: 10px;">
+  
+    <a href="/en/tags#cellular-automata"><code class="tag"><nobr>#cellular-automata</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#reversible-automata"><code class="tag"><nobr>#reversible-automata</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#programming"><code class="tag"><nobr>#programming</nobr></code></a>&nbsp;
+  
+</span>
+
+
+<center>
+<table style="margin-top: 8px;">
+<tr>
+
+
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+  <time datetime="2020-07-27" itemprop="datePublished">
+    
+    
+    
+    
+    <span class="post-date">27 July 2020</span>
+  </time>
+</h2>
+</td>
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+    <span class="post-date" style="font-style: normal">| 🕑 5 min</span>
+</h2>
+</td>
+
+
+
+<td style="padding-left: 10px;">
+  
+  
+  <a href="https://t.me/optozorax_dev/235">
+  <code class="tag">Post on Telegram</code>
+  </a>
+  
+  
+</td>
+
+</tr>
+</table>
+
+
+<div class="translation-note">
+  <svg class="translation-note-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+  <span>Translated from 🇷🇺 Russian</span>
+  <span class="translation-note-sep">·</span>
+  <span>Translation by Claude Opus 5.5</span>
+  <span class="translation-note-sep">·</span>
+  <a href="/p/critters/" hreflang="ru" lang="ru">Original</a>
+</div>
+
+
+
+</center>
+
+
+
+
+  </section>
+  
+  
+
+  
+
+
+  <section class="main-content section">
+  
+<article itemscope itemtype="http://schema.org/BlogPosting">
+<div itemprop="articleBody" id="content">
+<p>Everyone has heard of the cellular automaton called <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">"Conway's Game Of Life"</a>.</p>
+<p>This automaton has a property called irreversibility: a given arrangement of cells can have anywhere from 0 to infinitely many predecessors that lead to it. States that can't have any predecessor are called <a href="https://en.wikipedia.org/wiki/Garden_of_Eden_%28cellular_automaton%29">Gardens of Eden</a>.</p>
+<p>It's easy to see that this automaton is irreversible: you can build states in it that lead to empty space. Obviously, emptiness has infinitely many predecessors.</p>
+<p>To get rid of this property, people invented reversible cellular automata: in such an automaton a state always has a predecessor, exactly one, and it's easy to compute algorithmically.</p>
+<p>Essentially, such an automaton lets you look into the past if you know the present!</p>
+<p>There's very little information about these automata online, which is exactly why they got me so interested. One example of such an automaton is <a href="https://en.wikipedia.org/wiki/Critters_%28block_cellular_automaton%29">Critters</a>. Here's how it works: all non-overlapping <code>2x2</code> squares are examined and replaced according to the transformation on Wikipedia. Then the grid of squares is shifted by <code>1</code> diagonally and the same thing is done again. Now one step counts as done, and the grid is shifted by <code>1</code> diagonally again (back to where it was).</p>
+<p>Let me introduce a bit of notation:</p>
+<ul>
+<li><code>0</code> - the current state,</li>
+<li><code>10</code> - simulating <code>10</code> steps forward from the current state,</li>
+<li><code>-10</code> - simulating <code>10</code> steps back.</li>
+</ul>
+<p>What interested me about this automaton:</p>
+<ul>
+<li>what <code>-10</code> will look like if I draw something in <code>0</code>;</li>
+<li>what <code>0</code> will look like if I simulate up to <code>10</code>, modify something there, and then simulate back.</li>
+</ul>
+<p>There's so little information about these automata online that I couldn't even find a simulation of Critters. So I had to write the program myself.</p>
+<p>I quickly threw together a small program and put it on <a href="https://github.com/optozorax/critters">github:critters</a>.</p>
+<hr />
+<p>This is how the critters evolve in a normal forward simulation starting from the drawing "hi".</p>
+<video class="img-one" autoplay loop muted inline>
+  <source src="hi_forward_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<hr />
+<p>And here is the drawing "hi" evolving backward.</p>
+<video class="img-one" autoplay loop muted inline>
+  <source src="hi_backward.gif_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<hr />
+<p>The top shows the current state of the field. The bottom shows what the field will look like if you simulate it back to step <code>0</code>. First the simulation runs up to step <code>95</code>. You can see that the field at the bottom stays unchanged. But then I start changing the field in the present, deleting white dots in some places. You can see that deleting a single glider or a couple of pixels immediately changes the past dramatically. And the effect is explosive: a whole structure falls apart.</p>
+<video class="img-one" autoplay loop muted inline>
+  <source src="to_zero.gif_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<hr />
+<p>This shows what the transformation rules from Wikipedia look like and how they're written in my program. The array for the backward simulation is computed from it. In fact, any permutation of this array is also a reversible cellular automaton; there's probably something more interesting to be found among all these permutations.</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="838"     height="682"     src="/processed_images/rules.5bc10fc40f9abf95.webp"     onclick="full_screen('rules.jpg')"     onauxclick="full_screen_new_page('rules.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<hr />
+<p>An example of one of the permutations of this array.</p>
+<video class="img-one" autoplay loop muted inline>
+  <source src="other_rules.gif_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<hr />
+<p>I made this automaton on a wrap-around field, so the number of states is finite and bounded by <code>2^(WxH)</code>. And given that every state always has exactly one successor and one predecessor, any state is bound to return to itself after some number of steps. The same reasoning explains why a Rubik's Cube always returns to its initial state after a certain number of repetitions if you keep applying the same move sequence to it. Likewise, if our world is a finite reversible automaton, then after a certain number of Big Bangs and Big Crunches it will repeat itself exactly (reminds me of a Futurama episode :) ).</p>
+<p>Also, this automaton can't lose information, because it has to be reversible. What this means is easiest to explain with an example: say you wanted to build a device in this finite automaton that multiplies two numbers. Then the device must be able to run backward, which means it must be able to take one number and produce the two numbers whose product it is. But the number alone won't be enough: you'll also need meta-information, or "garbage", to get back to the initial state. Most likely this "garbage" will be a bunch of gliders that flew out of the multiplication device along the way. So no breaking RSA with this :) By the way, reversible programming languages exist! For example, <a href="https://en.wikipedia.org/wiki/Janus_%28time-reversible_computing_programming_language%29">Janus</a>.</p>
+<p>In the Game of Life, no gliders fly out when you build a multiplication device: everything works very cleanly, and after multiplying, the device can return to its initial state. That's because that automaton loses information.</p>
+<p>Can our world be simulated backward? I've heard that according to classical mechanics, yes. About quantum effects I'm not so sure. By the way, physics has a problem known as the <a href="https://en.wikipedia.org/wiki/Black_hole_information_paradox">black hole information paradox</a>.</p>
+<p>The GIFs show that Critters looks rather boring in motion, nothing like how beautiful the Game of Life looks. Maybe the rules just aren't very good, but I think the main problem is that Critters can't lose information, which is why its evolution looks so boring. In fact, there's no real evolution going on at all, just noise being noisy; thankfully, at least gliders exist.</p>
+<p>Then again, considering that our world is reversible too, it looks way too interesting for that. I think the point is that at first glance it looks like the Game of Life, but on closer inspection all the "garbage" needed to simulate it backward is stored as heat and electromagnetic radiation. Moreover, the interesting states (atoms) strongly affect the world, while the uninteresting states needed to preserve information (heat, electromagnetic radiation, photons) barely affect it. So apparently we should also try to design a cellular automaton that turns all the boring stuff into weak states and the most interesting stuff into strong states.</p>
+<p>All in all, I'm a bit disappointed in this automaton: its past isn't interesting, and neither is its future. I guess I need to come up with a more complex automaton with more states per cell, maybe somehow using the idea from the previous paragraph.</p>
+
+</div>
+</article>
+
+  </section>
+  
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<section class="section second-section">
+If you like what I do, follow me on <a href="https://t.me/optozorax_dev">Telegram</a> and <a href="https://www.youtube.com/c/optozorax">YouTube</a>.
+</section>
+
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<section class="comments section second-section">
+
+<script src="https://utteranc.es/client.js"
+        repo="optozorax/optozorax.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</section>
+
+
+
+
+
+  <hr class="enabled-on-phone">
+
+  
+
+
+  <footer class="site-footer section second-section">
+  
+    <center>
+    <div style="margin-bottom: 10px;">© Ilya Sheprut. License: <a href="https://creativecommons.org/licenses/by/3.0/deed.en">CC-BY</a>.</div>
+    <table style="border: 0px; display: contents;">
+    <tr><td style="border: 0px; padding: 0.2rem;">
+    <!-- SVG icons from https://iconmonstr.com -->
+
+    <span class="my-span-icon">
+  <a 
+    href="https://github.com/optozorax" 
+    aria-label="optozorax's GitHub" 
+    title="optozorax's GitHub">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/github.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's GitHub">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://t.me/optozorax_dev" 
+    aria-label="optozorax's Telegram channel" 
+    title="optozorax's Telegram channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/tg.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Telegram channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://www.youtube.com/c/optozorax" 
+    aria-label="optozorax's YouTube channel" 
+    title="optozorax's YouTube channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/youtube.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's YouTube channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://boosty.to/optozorax" 
+    aria-label="optozorax's donate page" 
+    title="optozorax's donate page">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/donate.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's donate page">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="/en/atom.xml" 
+    aria-label="optozorax's Atom Feed" 
+    title="optozorax's Atom Feed">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/rss.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Atom Feed">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="mailto:optozorax@gmail.com" 
+    aria-label="optozorax's email" 
+    title="optozorax's email">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/contact.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's email">
+  </a>
+</span>
+
+    </td><td style="border: 0px; padding: 0.2rem;">
+
+    </td></tr>
+    </table>
+    <div class="small-info">
+      Made with <a href="https://www.getzola.org/">Zola</a> | Theme based on <a href="https://github.com/lorepirri/cayman-blog">Cayman Blog</a> | <a href="https://github.com/optozorax/blog_zola">Site sources</a>
+      <a rel="me" href="https://mathstodon.xyz/@optozorax" style="display: none;">Mastodon</a>
+    </div>
+    </center>
+  
+  </footer>
+  
+
+
+
+  
+</body>
+</html>

@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Fonts preload -->
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nFrXyi0A.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nBrXw.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxTcwhsk.woff2" crossOrigin="anonymous">
+  <!-- --- -->
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/main.css">
+  <!-- --- -->
+
+  <!-- Non social metatags -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link rel="canonical" href="https://optozorax.github.io/en/p/symmetric-probabilities/">
+  <link rel="alternate" hreflang="en" href="https://optozorax.github.io/en/p/symmetric-probabilities/">
+  <link rel="alternate" hreflang="ru" href="https://optozorax.github.io/p/symmetric-probabilities/">
+  <link rel="alternate" hreflang="x-default" href="https://optozorax.github.io/p/symmetric-probabilities/">
+  <meta name="robots" content="noarchive">
+  <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/en/atom.xml"> 
+  <!-- --- -->
+
+  <!-- Social metatags -->
+  
+
+<meta name="author" content="optozorax">
+<meta name="title" content="Symmetric probabilities, or Confidences — optozorax&#39;s blog">
+<meta name="description" content="Ordinary probabilities give the chance that some event will happen. But how do you describe a person&#39;s confidence that an event will happen? And how do you describe that the probability increases given some event? I propose an interesting idea of &quot;confidences&quot;, which are meant to solve this.">
+<meta name="image" content="https://optozorax.github.io/en/p/symmetric-probabilities/preview.jpg">
+
+<meta name="keywords" itemprop="tags" content="math, programming">
+
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://optozorax.github.io/en/p/symmetric-probabilities/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Symmetric probabilities, or Confidences — optozorax&#39;s blog">
+<meta property="og:description" content="Ordinary probabilities give the chance that some event will happen. But how do you describe a person&#39;s confidence that an event will happen? And how do you describe that the probability increases given some event? I propose an interesting idea of &quot;confidences&quot;, which are meant to solve this.">
+<meta property="og:image" content="https://optozorax.github.io/en/p/symmetric-probabilities/preview.jpg">
+<meta property="og:locale" content="en">
+
+
+<meta property="article:published_time" content="2020-06-18">
+
+
+
+
+<meta property="article:tag" content="math">
+
+<meta property="article:tag" content="programming">
+
+
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="optozorax.github.io">
+<meta property="twitter:url" content="https://optozorax.github.io/en/p/symmetric-probabilities/">
+<meta name="twitter:title" content="Symmetric probabilities, or Confidences — optozorax&#39;s blog">
+<meta name="twitter:description" content="Ordinary probabilities give the chance that some event will happen. But how do you describe a person&#39;s confidence that an event will happen? And how do you describe that the probability increases given some event? I propose an interesting idea of &quot;confidences&quot;, which are meant to solve this.">
+<meta name="twitter:image" content="https://optozorax.github.io/en/p/symmetric-probabilities/preview.jpg">
+<meta name="twitter:creator" content="optozorax">
+
+  <!-- --- -->
+
+  <!-- Extra head declarations -->
+  
+
+<link rel="preload" as="font" href="/fonts/KaTeX/KaTeX_Size4-Regular.woff2" crossOrigin="anonymous">
+<link rel="preload" as="font" href="/fonts/KaTeX/KaTeX_Math-Italic.woff2" crossOrigin="anonymous">
+<link rel="preload" as="font" href="/fonts/KaTeX/KaTeX_Main-Bold.woff2" crossOrigin="anonymous">
+<link rel="preload" as="font" href="/fonts/KaTeX/KaTeX_Main-Regular.woff2" crossOrigin="anonymous">
+<link rel="preload" as="font" href="/fonts/KaTeX/KaTeX_AMS-Regular.woff2" crossOrigin="anonymous">
+
+<link rel="stylesheet" href="/katex.min.css">
+<script defer src="/js/katex.min.js"></script>
+<script defer src="/js/mathtex-script-type.min.js"></script>
+
+<script type="text/javascript" src="/js/hammer.min.js"></script>
+<script type="text/javascript" src="/js/toc.js"></script>
+<script type="text/javascript" src="/js/gallery.js"></script>
+<script type="text/javascript" src="/js/full_screen.js"></script>
+<script type="text/javascript" src="/js/word_wrap.js"></script>
+
+  <!-- --- -->
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+  <!-- --- -->
+
+  <title>Symmetric probabilities, or Confidences — optozorax&#39;s blog</title>
+</head>
+
+<body>
+  <!-- FullScreen block -->
+  <div id="img_modal" class="modal" style="display: none;">
+      <img id="img_modal_01" src="/ico/loading.gif">
+      <span class="close" id="img_modal_close">&times;</span>
+  </div>
+  <!-- --- -->
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <header class="site-header" role="banner">
+  
+  <div class="wrapper">
+    <a class="site-title" href="/en/">optozorax.blog</a>
+
+    <div class="lang-switch">
+      <span class="lang-switch-item lang-switch-current" lang="en" title="English"><span class="lang-switch-flag">🇬🇧</span>EN</span>
+      <a class="lang-switch-item" href="/p/symmetric-probabilities/" hreflang="ru" lang="ru" title="Русский"><span class="lang-switch-flag">🇷🇺</span>RU</a>
+    </div>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <img src="/ico/menu.svg" width="13px" height="15px">
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          <a class="page-link" href="/en/">Blog</a>
+        
+          <a class="page-link" href="/en/e">Collections</a>
+        
+          <a class="page-link" href="/en/tags">Tags</a>
+        
+          <a class="page-link" href="/en/about">About me</a>
+        
+      </div>
+    </nav>
+  </div>
+  
+  </header>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+  
+  <section class="page-header">
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+<h1 class="project-name">Symmetric probabilities, or Confidences</h1>
+
+<h2 class="project-tagline">Ordinary probabilities give the chance that some event will happen. But how do you describe a person&#39;s confidence that an event will happen? And how do you describe that the probability increases given some event? I propose an interesting idea of &quot;confidences&quot;, which are meant to solve this.</h2>
+
+
+
+<span style="margin-bottom: 10px;">
+  
+    <a href="/en/tags#math"><code class="tag"><nobr>#math</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#programming"><code class="tag"><nobr>#programming</nobr></code></a>&nbsp;
+  
+</span>
+
+
+<center>
+<table style="margin-top: 8px;">
+<tr>
+
+
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+  <time datetime="2020-06-18" itemprop="datePublished">
+    
+    
+    
+    
+    <span class="post-date">18 June 2020</span>
+  </time>
+</h2>
+</td>
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+    <span class="post-date" style="font-style: normal">| 🕑 11 min</span>
+</h2>
+</td>
+
+
+
+<td style="padding-left: 10px;">
+  
+  
+  <a href="https://t.me/optozorax_dev/214">
+  <code class="tag">Post on Telegram</code>
+  </a>
+  
+  
+</td>
+
+</tr>
+</table>
+
+
+<div class="translation-note">
+  <svg class="translation-note-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+  <span>Translated from 🇷🇺 Russian</span>
+  <span class="translation-note-sep">·</span>
+  <span>Translation by Claude Opus 5.5</span>
+  <span class="translation-note-sep">·</span>
+  <a href="/p/symmetric-probabilities/" hreflang="ru" lang="ru">Original</a>
+</div>
+
+
+
+</center>
+
+
+</td><td>
+</td></tr></table>
+
+
+
+  </section>
+  
+  
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <section class="main-content section">
+  
+<article itemscope itemtype="http://schema.org/BlogPosting">
+<div itemprop="articleBody" id="content">
+<h1 id="what-s-my-problem"><a class="anchor" href="#what-s-my-problem">#</a>What's my problem?</h1>
+<p>I want to have some abstract little numbers next to the rules of a formal grammar, which will be transformed according to some abstract rules (not necessarily multiplication or addition) to achieve certain goals.</p>
+<h1 id="what-goals"><a class="anchor" href="#what-goals">#</a>What goals?</h1>
+<p>I'm writing a parser that will approximate natural language with context-free grammars. Obviously, since this is an approximation, nothing can be absolutely correct and exact. So some rules may approximate certain phrases better and others worse. For that I need little numbers that get transformed somehow, so that the output looks roughly like this: for this phrase, such-and-such a fact is <code>57%</code> likely to be correct, and for that phrase, <code>98%</code> likely to be correct.</p>
+<h1 id="why-are-the-numbers-abstract-what-do-you-want-from-them"><a class="anchor" href="#why-are-the-numbers-abstract-what-do-you-want-from-them">#</a>Why are the numbers abstract, what do you want from them?</h1>
+<p>I wanted a convenient interface for specifying these numbers, one that can be interpreted logically and that is easy to write as a user of the parser (that is, without getting into numerical methods).</p>
+<h1 id="well-there-are-ordinary-probabilities-for-example-numbers-from-0-to-1-just-take-them-and-multiply"><a class="anchor" href="#well-there-are-ordinary-probabilities-for-example-numbers-from-0-to-1-just-take-them-and-multiply">#</a>Well, there are ordinary probabilities, for example: numbers from 0 to 1, just take them and multiply.</h1>
+<p>No. Ordinary probabilities don't fit, for several reasons:</p>
+<ul>
+<li>The longer the phrase, the more multiplications of numbers from <code>0</code> to <code>1</code>, and the closer the result gets to <code>0</code>.</li>
+<li>Because of this, the absolute values of the "probabilities" make no sense at all.</li>
+<li>They're inconvenient to specify: you need some magic numbers like <code>0.57</code>, <code>0.98</code>, <code>0.05</code>.</li>
+<li>They come with the constraint that the probabilities for one nonterminal must sum to <code>1</code>.</li>
+<li>See the example in <a href="https://t.me/optozorax_dev/199">/199</a> (in Russian)</li>
+</ul>
+<p>I think that clears things up, so now I'll continue with the regular story.</p>
+<p>In <a href="https://t.me/optozorax_dev/184">/184</a> (in Russian) I proposed an interface for describing "abstract numbers" that can be interpreted logically:</p>
+<ul>
+<li><code>+20%</code> means that something increases by something, and it increases by more than <code>+10%</code> would</li>
+<li><code>-20%</code> is the same as above, but it decreases, and decreases more strongly than <code>-10%</code></li>
+<li><code>60%</code> sets an ordinary probability</li>
+</ul>
+<p>Soon I realized that you can't mix ordinary probability with these <code>+20%</code>, <code>-20%</code>. Because the ordinary probability eats them up and generally infects everything with itself.</p>
+<p>So we throw it out and add an element: <code>0%</code>, which means that nothing changes.</p>
+<p>Let's call this quantity "confidence". And let's introduce an operation for combining "confidences", denoted by the symbol ★.</p>
+<p>Now the main problem is to define how these confidences are specified, what properties they have and how to compute ★.</p>
+<p>I decided that <code>-20%</code> should map to <code>-0.2</code>, <code>+20%</code> to <code>+0.2</code>, and in the end the domain should be <code>[-1; 1]</code>.</p>
+<p>I started by creating <a href="https://www.desmos.com/calculator/njsni62kej">this function</a>.</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1280"     height="436"     src="/processed_images/1.5939b4f0c61e2b8e.webp"     onclick="full_screen('1.png')"     onauxclick="full_screen_new_page('1.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.2<br>png</div> </div> </div>
+<p>Its problem is that it isn't smooth, and it gives different results depending on the order in which you apply it. And in grammars there is no fixed order, and you don't know when ★ should be applied and when not. On top of that, it took inputs in <code>[-1; 1]</code> but returned values in <code>[0; 1]</code>. But that's easy to fix.</p>
+<p>So the most important property I need is: (a ★ b) ★ c = (a ★ c) ★ b.</p>
+<p>Next I tried googling, to no avail. I tried reading about Bayes' theorem and thinking about how to apply it to my problem, also to no avail.</p>
+<p>Then I realized that I could use brute force!!! I'm a damn numerical methods programmer, I should use that to find the function I need numerically!</p>
+<p>So I had to do the following sequence of steps:</p>
+<ul>
+<li>Formulate the properties of the function I need</li>
+<li>Program the computation of how well these properties hold, using integrals</li>
+<li>Find a library for defining smooth 2D functions by a set of numbers</li>
+<li>Use optimization methods to find the numbers that give the minimum of these integrals</li>
+<li>Optimize well enough and use it</li>
+</ul>
+<p>I thought that such a function might not exist; it had to be just too good.</p>
+<p>I formulated the properties easily, wrote the integral and started testing. My linear function scored 2 on these properties, while the ideal function should score 0. The worst part was the triple integral for the most important property (so an accuracy of 10 points per dimension took 1000 function evaluations).</p>
+<p>I didn't find a library for building smooth 2D functions, so I had to apply my knowledge of FEM and program the evaluation of the function from point values myself.</p>
+<p>For the optimization methods (finding the minimum of a function) I took <a href="https://github.com/argmin-rs/argmin">argmin-rs</a>. I recommend quasi-Newton methods.</p>
+<p>Then I combined all of this with the optimization methods and...</p>
+<p>It ran for a very long time. To define the 2D function I required too many parameters, and many of them were redundant, so a ton of time was wasted.</p>
+<p>Then I realized that I needed visualization! And right at that moment <a href="https://t.me/dereference_pointer_there/538">Anton</a> (in Russian) wrote about embedding Python in Rust! After a bit of a fight with it, I managed to plot the resulting function with <code>matplotlib</code>, and even <code>plt.show()</code> worked!</p>
+<p>I plotted the graph, and...</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="642"     height="542"     src="/processed_images/bad.db688e0cede52d1b.webp"     onclick="full_screen('bad.jpg')"     onauxclick="full_screen_new_page('bad.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<p>The function turned out... awful: it was very noisy, non-monotonic, and clearly overfitting somewhere. And the metric barely crawled down to <code>0.04</code>. I left the optimization running for several hours, to no avail: in the end I got complete nonsense, and degenerate nonsense at that, a function that tends to just keep the first value.</p>
+<p>I was really upset.</p>
+<p>But the next day it occurred to me that my "weights" from <a href="https://t.me/optozorax_dev/199">/199</a> (in Russian) were actually a very good fit! They were perfect for the interval from <code>0</code> to <code>1</code> and for multiplying <code>0.8</code> by <code>1.2</code>, but were inconvenient for the interval from <code>1</code> to <code>∞</code>. So I decided to simply fold this infinity down to <code>1</code> by division. Then <code>+20%</code> turned into <code>1+1/(1-0.2)=2.25</code>. And you know what? I got the perfect function I wanted! It satisfied all the properties perfectly and was really smooth. And it's also symmetric: from <code>-1</code> to <code>0</code> it behaves the same way as from <code>0</code> to <code>1</code>.</p>
+<p>Ah, so simple. And I didn't even believe it existed.</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1060"     height="377"     src="/processed_images/good.71ab1e75da876a7d.webp"     onclick="full_screen('good.jpg')"     onauxclick="full_screen_new_page('good.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<p>Here it is, my perfect function ❤️</p>
+<p>And you can play with it <a href="https://www.desmos.com/calculator/nadaxdx40e">here</a>.</p>
+<p>I published the result here: <a href="https://github.com/optozorax/confidence">github:confidence</a> (in Russian); I tried to write the code very cleanly and safely. In the end I realized that float is dynamic typing at the processor level, and I want it to be built on algebraic data types :)))</p>
+<p>But that's a whole different story, and the topic of the next post...</p>
+<h1 id="the-interval-1-1"><a class="anchor" href="#the-interval-1-1">#</a>The interval [-1, 1]</h1>
+<p>In general, I really love the interval <code>[-1, 1]</code>.</p>
+<p>A year ago, when I was writing my <a href="https://github.com/optozorax/labs_emf/blob/72e893134ee23ff39607e02c94b3a30d05cd4a53/coursework/report/report.pdf">term paper</a> (in Russian) on <a href="https://en.wikipedia.org/wiki/Finite_element_method">FEM</a>, I had to study how well the method works on non-uniform square grids and produce plots or tables.</p>
+<p>If you don't know what a non-uniform grid is, here's an illustration (which I drew <a href="https://github.com/optozorax/bufdraw/blob/b466ecf8e3aa8936fc410809b3644462004fa46e/examples/grid.rs">with code</a>). The property of this grid is that each next element is <code>c</code> times larger than the previous one, where <code>c</code> is some positive number from <code>0</code> to <code>∞</code>.</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="900"     height="390"     src="/processed_images/grid.en.91cecb865fb2bd1a.webp"     onclick="full_screen('grid.en.jpg')"     onauxclick="full_screen_new_page('grid.en.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<p>Everyone usually made tables: they took a few non-uniform grids and the accuracy on each, and drew some conclusions. But I'm a goddamn perfectionist: I made the computer work its transistors to the bone, so I swept through everything I could with a very small step and plotted graphs in LaTeX.</p>
+<p>At first, like everyone else, I set the number c from <code>0</code> to <code>∞</code>. So the closer c is to zero, the denser the grid gets towards the right edge, and the closer it is to infinity, the denser towards the left.</p>
+<p>But doing research on something that goes to infinity is inconvenient; look at this graph:</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="841"     height="380"     src="/processed_images/graph1.en.6828e33c33b422b9.webp"     onclick="full_screen('graph1.en.jpg')"     onauxclick="full_screen_new_page('graph1.en.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<p>Where do I stop here? At <code>10^5</code>? At <code>10^10</code>? Make x grow exponentially and use a logarithmic scale? Who knows. Besides, it's very inconvenient to reason about logically: left and right somehow end up asymmetric.</p>
+<p>So I decided to come up with a function that makes specifying non-uniform grids very convenient: with a coefficient of -1 the grid gets denser towards the left edge, and with a coefficient of 1 it gets denser towards the right edge.</p>
+<blockquote>
+<p><strong>4.2.2 Non-uniform grid functions</strong></p>
+<p>While doing the lab work, I found a function that makes it easy to specify a non-uniform grid that gets denser towards one of the ends.</p>
+<p>If the grid starts at <script type="math/tex">a</script> and ends at <script type="math/tex">b</script>, and the number of elements is <script type="math/tex">n</script>, then the grid can be defined as follows:</p>
+<script type="math/tex;mode=display">x_i = a + m\left(\frac{i}{n}\right)\cdot(b-a),\quad i=\overline{0,n}</script>
+<p>where <script type="math/tex">m(x)</script> is some function that defines the non-uniform grid. Here <script type="math/tex">x</script> must belong to the interval <script type="math/tex">[0, 1]</script>, and the function <script type="math/tex">m</script> must return values from the same interval and be monotonic on it. Then the grid is guaranteed to be monotonic, that is, <script type="math/tex">j \leqslant i \Rightarrow x_j \leqslant x_i</script>.</p>
+<p><em>Example:</em> with <script type="math/tex">m(x) = x</script> the grid becomes uniform.</p>
+<p>The function I found depends on the non-uniformity parameter <script type="math/tex">t</script>:</p>
+<script type="math/tex;mode=display">m_t(x) = \frac{1-(1-|t|)^{x \operatorname{sign} t}}{1-(1-|t|)^{\operatorname{sign} t}}</script>
+<p>This function degenerates into <script type="math/tex">x</script> at <script type="math/tex">t = 0</script>; at <script type="math/tex">t = -1</script> it degenerates into a grid that lies entirely at 0; and at <script type="math/tex">t = 1</script> it is entirely concentrated at 1.</p>
+<p>Thus, you can study various non-uniform grids by changing the parameter from <script type="math/tex">-1</script> to <script type="math/tex">1</script>, where the point <script type="math/tex">t = 0</script> gives the result on a uniform grid.</p>
+</blockquote>
+<p>I came up with it and <a href="https://github.com/optozorax/labs_emf/blob/72e893134ee23ff39607e02c94b3a30d05cd4a53/coursework/report/file.tex#L503-L521">described it</a> (in Russian) in the report.</p>
+<p>And this is how awesome the studies look when the grid parameter is varied along both the <code>X</code> and <code>Y</code> axes at the same time.</p>
+<div class="container">
+<div class="magnifier-container img-one-two"> <img     class="not-default full-screen-img"     width="640"     height="480"     src="/processed_images/1.ee1df87ce016a47d.webp"     onclick="full_screen('1.jpg')"     onauxclick="full_screen_new_page('1.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×2<br>jpg</div> </div> </div>
+<div class="magnifier-container img-one-two"> <img     class="not-default full-screen-img"     width="640"     height="480"     src="/processed_images/2.41ff9a1b827a2fff.webp"     onclick="full_screen('2.jpg')"     onauxclick="full_screen_new_page('2.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×2<br>jpg</div> </div> </div>
+</div>
+<h1 id="update-from-21-12-2024"><a class="anchor" href="#update-from-21-12-2024">#</a>Update from 21.12.2024</h1>
+<p>A new AI model, o1, came out recently, and I asked it to design a function that would handle these probabilities, and it made a very neat and compact alternative function that meets my requirements. Below are my prompt and its solution. When I was writing this article, I couldn't even imagine that some automated system would be able to help me with this problem. Truly, we have entered a new era of technology.</p>
+<p>You can look at this function in Desmos: <a href="https://www.desmos.com/calculator/gzejyiee3u">https://www.desmos.com/calculator/gzejyiee3u</a></p>
+<details>
+<summary>Dialogue</summary>
+<div class="details-content">
+<p><strong><center>USER</center></strong></p>
+<p>I found a repository that introduces some kind of function for multiplying "confidences". Derive a function that would satisfy these conditions: what could it look like? Think and answer in English.</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span># Confidence function</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>Suppose we&#39;re writing a parser that assigns a probability to each grammar rule. If a rule has been parsed, we multiply the total by its probability.</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>In this case, the problem with classical probabilities, numbers from 0 to 1, is that for a large amount of parsed text the total probability will be very small. And it&#39;s hard for us to judge how confident we are in that result.</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>This repository presents the `confidence` data type, whose multiplication makes it possible to represent such confidence. This data type has three different states:</span></span>
+<span class="giallo-l"><span>* The degree of confidence that the hypothesis is false</span></span>
+<span class="giallo-l"><span>* Complete uncertainty</span></span>
+<span class="giallo-l"><span>* The degree of confidence that the hypothesis is true</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>Its domain is `A = [-1, 1]`:</span></span>
+<span class="giallo-l"><span>* The range `[-1, 0)` represents confidence that it is wrong. The closer to `-1`, the greater this confidence</span></span>
+<span class="giallo-l"><span>* The element `0` means that it is unknown whether it is right or not</span></span>
+<span class="giallo-l"><span>* The range `(0, 1]` represents confidence that it is right. The closer to `1`, the greater this confidence</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>The multiplication method is overloaded for these &quot;confidences&quot;. Let&#39;s denote it as `P(a: A, b: A) -&gt; A`, that is, the function takes two arguments from the domain `A` and returns a result from the same domain. This function has the following properties:</span></span>
+<span class="giallo-l"><span>* `P(x, 0) = x`</span></span>
+<span class="giallo-l"><span>* `P(x, -1) = -1`</span></span>
+<span class="giallo-l"><span>* `P(x, 1) = 1`</span></span>
+<span class="giallo-l"><span>* `P(x, +y) &gt;= x` - positive values increase it</span></span>
+<span class="giallo-l"><span>* `P(x, -y) &lt;= x` - negative values decrease it</span></span>
+<span class="giallo-l"><span>* `P(P(x, y), z) = P(P(x, z), y)` - the result is the same regardless of the order of application. This is very important, because during parsing there can be many options for the order in which to apply the function, and a lot depends on it.</span></span>
+<span class="giallo-l"><span>* `P(x, y)` is monotonically increasing in `y`.</span></span>
+<span class="giallo-l"><span>* `P(x, y) = P(y, x)` - this property wasn&#39;t needed for parsing, but it appeared by accident</span></span></code></pre>
+<p><strong><center>o1</center></strong></p>
+<p>Below is one example of a function that meets all the specified requirements. The idea is to interpret the "confidence" values in a way that allows us to combine them using an associative, commutative operation that respects the given constraints.</p>
+<p><strong>Key Insight:</strong><br />
+If we think of these "confidences" as something like a "scaled opinion" measure on the interval <script type="math/tex">[-1,1]</script>, we can use a transformation related to the hyperbolic tangent function. Consider that <script type="math/tex">\tanh</script> maps real numbers to <script type="math/tex">(-1, 1)</script>, and its inverse, <script type="math/tex">\operatorname{atanh}</script>, maps <script type="math/tex">(-1,1)</script> to all real numbers. When we apply <script type="math/tex">\operatorname{atanh}</script>, the confidence space <script type="math/tex">[-1,1]</script> becomes a linear space <script type="math/tex">(-\infty,+\infty)</script>. In that linearized space, combining two confidences is just addition. Mapping back to <script type="math/tex">[-1,1]</script> gives us a nonlinear combination formula.</p>
+<p><strong>Derivation:</strong></p>
+<ol>
+<li>
+<p>Define a transformation:</p>
+<script type="math/tex;mode=display">
+X = \operatorname{atanh}(x), \quad Y = \operatorname{atanh}(y).
+</script>
+<p>Here, <script type="math/tex">x,y \in (-1,1)</script>.</p>
+</li>
+<li>
+<p>In the transformed domain, "combining" two confidences <script type="math/tex">X</script> and <script type="math/tex">Y</script> is just addition:</p>
+<script type="math/tex;mode=display">
+X + Y = \operatorname{atanh}(x) + \operatorname{atanh}(y).
+</script>
+</li>
+<li>
+<p>To get back to the original confidence domain:</p>
+<script type="math/tex;mode=display">
+P(x,y) = \tanh(\operatorname{atanh}(x) + \operatorname{atanh}(y)).
+</script>
+<p>Using the hyperbolic tangent addition formula:</p>
+<script type="math/tex;mode=display">
+\tanh(A+B) = \frac{\tanh(A)+\tanh(B)}{1+\tanh(A)\tanh(B)},
+</script>
+<p>we can substitute <script type="math/tex">\tanh(A)=x</script> and <script type="math/tex">\tanh(B)=y</script>:</p>
+<script type="math/tex;mode=display">
+P(x,y) = \frac{x + y}{1 + x y}.
+</script>
+</li>
+</ol>
+<p><strong>Check the properties:</strong></p>
+<ul>
+<li>
+<p><strong>Identity with 0:</strong></p>
+<script type="math/tex;mode=display">
+P(x,0) = \frac{x + 0}{1 + x \cdot 0} = x.
+</script>
+</li>
+<li>
+<p><strong>Absorbing elements -1 and 1:</strong></p>
+<script type="math/tex;mode=display">
+P(x,1) = \frac{x+1}{1 + x} = 1 \quad \text{for } x \in (-1,1),
+</script>
+<script type="math/tex;mode=display">
+P(x,-1) = \frac{x - 1}{1 - x} = -1 \quad \text{for } x \in (-1,1).
+</script>
+</li>
+<li>
+<p><strong>Positive arguments increase the value:</strong>
+If <script type="math/tex">y\gt 0</script>, since <script type="math/tex">\frac{\partial P}{\partial y} \gt  0</script>, we have <script type="math/tex">P(x,y) \gt  x</script>.</p>
+</li>
+<li>
+<p><strong>Negative arguments decrease the value:</strong>
+If <script type="math/tex">y \lt 0</script>, similarly <script type="math/tex">P(x,y) \lt x</script>.</p>
+</li>
+<li>
+<p><strong>Associativity:</strong>
+The operation is associative because addition in the <script type="math/tex">\operatorname{atanh}</script> domain is associative, and we are just transforming back and forth. Formally:</p>
+<script type="math/tex;mode=display">
+P(P(x,y), z) = P(x, P(y,z))
+</script>
+<p>corresponds to:</p>
+<script type="math/tex;mode=display">
+\tanh((\operatorname{atanh}(x)+\operatorname{atanh}(y))+\operatorname{atanh}(z)) = \tanh(\operatorname{atanh}(x)+(\operatorname{atanh}(y)+\operatorname{atanh}(z))).
+</script>
+</li>
+<li>
+<p><strong>Monotonicity in each argument:</strong>
+For fixed <script type="math/tex">x</script>, as <script type="math/tex">y</script> increases, <script type="math/tex">P(x,y)</script> increases (and vice versa) because both the numerator and denominator lead to a monotonic relationship. The <script type="math/tex">\tanh</script>-based structure preserves this.</p>
+</li>
+<li>
+<p><strong>Symmetry:</strong>
+Clearly <script type="math/tex">P(x,y)=P(y,x)</script>.</p>
+</li>
+</ul>
+<p><strong>Final Proposed Function:</strong></p>
+<script type="math/tex;mode=display">
+\boxed{P(x,y) = \frac{x + y}{1 + x\,y}}
+</script>
+<p>with the understanding that for boundary cases like <script type="math/tex">P(x,1)=1</script> and <script type="math/tex">P(x,-1)=-1</script>, the function behaves as stated. This function satisfies all the listed requirements.</p>
+</div>
+</details>
+
+</div>
+</article>
+
+  </section>
+  
+
+</td><td>
+<!-- TOC -->
+<input type="checkbox" id="toc-trigger" class="toc-trigger" />
+<label for="toc-trigger">
+  <span class="menu-icon">
+    <div class="side-button"><img src="/ico/right.svg"></div>
+  </span>
+</label>
+
+<nav class="section-nav">
+ <h2>Contents</h2>
+ <ul class="first">
+ 
+ 
+  <li>
+   <a href="#what-s-my-problem">What&#39;s my problem?</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#what-goals">What goals?</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#why-are-the-numbers-abstract-what-do-you-want-from-them">Why are the numbers abstract, what do you want from them?</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#well-there-are-ordinary-probabilities-for-example-numbers-from-0-to-1-just-take-them-and-multiply">Well, there are ordinary probabilities, for example: numbers from 0 to 1, just take them and multiply.</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#the-interval-1-1">The interval [-1, 1]</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#update-from-21-12-2024">Update from 21.12.2024</a>
+   
+  </li>
+ 
+ </ul>
+</nav>
+</td></tr></table>
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="section second-section">
+If you like what I do, follow me on <a href="https://t.me/optozorax_dev">Telegram</a> and <a href="https://www.youtube.com/c/optozorax">YouTube</a>.
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="comments section second-section">
+
+<script src="https://utteranc.es/client.js"
+        repo="optozorax/optozorax.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+
+  <hr class="enabled-on-phone">
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <footer class="site-footer section second-section">
+  
+    <center>
+    <div style="margin-bottom: 10px;">© Ilya Sheprut. License: <a href="https://creativecommons.org/licenses/by/3.0/deed.en">CC-BY</a>.</div>
+    <table style="border: 0px; display: contents;">
+    <tr><td style="border: 0px; padding: 0.2rem;">
+    <!-- SVG icons from https://iconmonstr.com -->
+
+    <span class="my-span-icon">
+  <a 
+    href="https://github.com/optozorax" 
+    aria-label="optozorax's GitHub" 
+    title="optozorax's GitHub">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/github.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's GitHub">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://t.me/optozorax_dev" 
+    aria-label="optozorax's Telegram channel" 
+    title="optozorax's Telegram channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/tg.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Telegram channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://www.youtube.com/c/optozorax" 
+    aria-label="optozorax's YouTube channel" 
+    title="optozorax's YouTube channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/youtube.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's YouTube channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://boosty.to/optozorax" 
+    aria-label="optozorax's donate page" 
+    title="optozorax's donate page">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/donate.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's donate page">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="/en/atom.xml" 
+    aria-label="optozorax's Atom Feed" 
+    title="optozorax's Atom Feed">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/rss.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Atom Feed">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="mailto:optozorax@gmail.com" 
+    aria-label="optozorax's email" 
+    title="optozorax's email">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/contact.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's email">
+  </a>
+</span>
+
+    </td><td style="border: 0px; padding: 0.2rem;">
+
+    </td></tr>
+    </table>
+    <div class="small-info">
+      Made with <a href="https://www.getzola.org/">Zola</a> | Theme based on <a href="https://github.com/lorepirri/cayman-blog">Cayman Blog</a> | <a href="https://github.com/optozorax/blog_zola">Site sources</a>
+      <a rel="me" href="https://mathstodon.xyz/@optozorax" style="display: none;">Mastodon</a>
+    </div>
+    </center>
+  
+  </footer>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+</body>
+</html>

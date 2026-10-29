@@ -18,7 +18,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#157878">
-  <link rel="canonical" href="https://optozorax.github.io/">
+  <link rel="canonical" href="https://optozorax.github.io/p/symmetric-probabilities/">
+  <link rel="alternate" hreflang="en" href="https://optozorax.github.io/en/p/symmetric-probabilities/">
+  <link rel="alternate" hreflang="ru" href="https://optozorax.github.io/p/symmetric-probabilities/">
+  <link rel="alternate" hreflang="x-default" href="https://optozorax.github.io/p/symmetric-probabilities/">
   <meta name="robots" content="noarchive">
   <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/atom.xml"> 
   <!-- --- -->
@@ -118,6 +121,11 @@
   <div class="wrapper">
     <a class="site-title" href="/">optozorax.blog</a>
 
+    <div class="lang-switch">
+      <a class="lang-switch-item" href="/en/p/symmetric-probabilities/" hreflang="en" lang="en" title="English"><span class="lang-switch-flag">🇬🇧</span>EN</a>
+      <span class="lang-switch-item lang-switch-current" lang="ru" title="Русский"><span class="lang-switch-flag">🇷🇺</span>RU</span>
+    </div>
+
     <nav class="site-nav">
       <input type="checkbox" id="nav-trigger" class="nav-trigger" />
       <label for="nav-trigger">
@@ -189,7 +197,7 @@
 </td>
 <td style="padding-right: 10px; border-right: 0px solid #ffffff;">
 <h2 class="project-date" style="margin-top: 0px;">
-    <span class="post-date" style="font-style: normal">| 🕑 10 мин</span>
+    <span class="post-date" style="font-style: normal">| 🕑 11 мин</span>
 </h2>
 </td>
 
@@ -259,7 +267,7 @@
 <p>Я решил что <code>-20%</code> должно мапиться в <code>-0.2</code>, <code>+20%</code> в <code>+0.2</code>, а в итоге область определения должна быть <code>[-1; 1]</code>.</p>
 <p>Я начал с создания <a href="https://www.desmos.com/calculator/njsni62kej">такой функции</a>.</p>
 <div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1280"     height="436"     src="/processed_images/1.5939b4f0c61e2b8e.webp"     onclick="full_screen('1.png')"     onauxclick="full_screen_new_page('1.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.2<br>png</div> </div> </div>
-<p>Её проблема в том что она не гладкая, и она даёт разные результаты в зависимости от порядка когда её применять. А ведь в грамматиках не задан конкретный порядок, и не знаешь когда надо выполнить ★, а когда нет. К тому же она получала данные в области <code>[-1; 1]</code>, а возврщала в области <code>[0; 1]</code>. Но это легко поправляется.</p>
+<p>Её проблема в том что она не гладкая, и она даёт разные результаты в зависимости от порядка когда её применять. А ведь в грамматиках не задан конкретный порядок, и не знаешь когда надо выполнить ★, а когда нет. К тому же она получала данные в области <code>[-1; 1]</code>, а возвращала в области <code>[0; 1]</code>. Но это легко поправляется.</p>
 <p>Значит, самое главное свойство, которое мне нужно, это: (a ★ b) ★ c = (a ★ c) ★ b.</p>
 <p>Далее я пытался гуглить, но безрезультатно. Пытался читать теорему Байеса, думать как её применить к своей задаче, тоже безрезультатно.</p>
 <p>Затем я осознал, что я могу применить грубую силу!!! Я чёртов программист численных методов, я должен это использовать чтобы численно найти нужную мне функцию!</p>
@@ -300,7 +308,18 @@
 <div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="841"     height="380"     src="/processed_images/graph1.7f7542181d3c02ca.webp"     onclick="full_screen('graph1.jpg')"     onauxclick="full_screen_new_page('graph1.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
 <p>Где мне здесь остановиться? На <code>10^5</code>? На <code>10^10</code>? Делать экспоненциальное возрастание икса и логарифмическую шкалу? Непонятно. Тем более это очень неудобно логически воспринимать: несимметрично право и лево как-то получается.</p>
 <p>Тогда я принял решение придумать такую функцию, которая позволяет задавать неравномерные сетки очень удобно, чтобы для значения коэффициента -1, сетка сгущалась к левому краю, а при значении коэффициента 1 сетка сгущалась к правому краю.</p>
-<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1046"     height="709"     src="/processed_images/text.2250bbf9f4f6bb83.webp"     onclick="full_screen('text.jpg')"     onauxclick="full_screen_new_page('text.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<blockquote>
+<p><strong>4.2.2 Функции нелинейной сетки</strong></p>
+<p>В ходе выполнения лабораторной работы была обнаружена функция, позволяющая легко задавать неравномерную сетку, сгущающуюся к одному из концов.</p>
+<p>Если у нас задано начало — <script type="math/tex">a</script> и конец сетки — <script type="math/tex">b</script>, а количество элементов <script type="math/tex">n</script>, тогда сетку можно задать следующим образом:</p>
+<script type="math/tex;mode=display">x_i = a + m\left(\frac{i}{n}\right)\cdot(b-a),\quad i=\overline{0,n}</script>
+<p>где <script type="math/tex">m(x)</script> — некоторая функция, задающая неравномерную сетку. При этом <script type="math/tex">x</script> обязан принадлежать области <script type="math/tex">[0, 1]</script>, а функция <script type="math/tex">m</script> возвращать значения из той же области, и при этом быть монотонной на этом участке. Тогда гарантируется условие монотонности сетки, то есть что при <script type="math/tex">j \leqslant i \Rightarrow x_j \leqslant x_i</script>.</p>
+<p><em>Пример:</em> при <script type="math/tex">m(x) = x</script> сетка становится равномерной.</p>
+<p>Найденная функция зависит от параметра неравномерности <script type="math/tex">t</script>:</p>
+<script type="math/tex;mode=display">m_t(x) = \frac{1-(1-|t|)^{x \operatorname{sign} t}}{1-(1-|t|)^{\operatorname{sign} t}}</script>
+<p>Эта функция вырождается в <script type="math/tex">x</script> при <script type="math/tex">t = 0</script>; при <script type="math/tex">t = -1</script> она вырождается в сетку, полностью находящуюся в 0; а при <script type="math/tex">t = 1</script> она полностью сгущается к 1.</p>
+<p>Таким образом, можно исследовать различные неравномерные сетки, изменяя параметр от <script type="math/tex">-1</script> до <script type="math/tex">1</script>, где точка <script type="math/tex">t = 0</script> будет являться результатом на равномерной сетке.</p>
+</blockquote>
 <p>Придумал и <a href="https://github.com/optozorax/labs_emf/blob/72e893134ee23ff39607e02c94b3a30d05cd4a53/coursework/report/file.tex#L503-L521">описал</a> в отчёте.</p>
 <p>А вот так офигенно выглядят исследования где одновременно меняется параметр сетки по осям <code>X</code> и <code>Y</code>.</p>
 <div class="container">

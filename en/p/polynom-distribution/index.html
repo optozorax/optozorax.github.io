@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Fonts preload -->
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nFrXyi0A.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nBrXw.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxTcwhsk.woff2" crossOrigin="anonymous">
+  <!-- --- -->
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/main.css">
+  <!-- --- -->
+
+  <!-- Non social metatags -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link rel="canonical" href="https://optozorax.github.io/en/p/polynom-distribution/">
+  <link rel="alternate" hreflang="en" href="https://optozorax.github.io/en/p/polynom-distribution/">
+  <link rel="alternate" hreflang="ru" href="https://optozorax.github.io/p/polynom-distribution/">
+  <link rel="alternate" hreflang="x-default" href="https://optozorax.github.io/p/polynom-distribution/">
+  <meta name="robots" content="noarchive">
+  <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/en/atom.xml"> 
+  <!-- --- -->
+
+  <!-- Social metatags -->
+  
+
+<meta name="author" content="optozorax">
+<meta name="title" content="Approximating a data distribution with a polynomial — optozorax&#39;s blog">
+<meta name="description" content="I had a lot of flight data from a micro drone and wanted to make a nice smooth plot... I couldn&#39;t find a ready-made solution on the internet.">
+<meta name="image" content="https://optozorax.github.io/en/p/polynom-distribution/image.png">
+
+<meta name="keywords" itemprop="tags" content="math, programming, rust">
+
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://optozorax.github.io/en/p/polynom-distribution/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Approximating a data distribution with a polynomial — optozorax&#39;s blog">
+<meta property="og:description" content="I had a lot of flight data from a micro drone and wanted to make a nice smooth plot... I couldn&#39;t find a ready-made solution on the internet.">
+<meta property="og:image" content="https://optozorax.github.io/en/p/polynom-distribution/image.png">
+<meta property="og:locale" content="en">
+
+
+<meta property="article:published_time" content="2023-06-07">
+
+
+
+
+<meta property="article:tag" content="math">
+
+<meta property="article:tag" content="programming">
+
+<meta property="article:tag" content="rust">
+
+
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="optozorax.github.io">
+<meta property="twitter:url" content="https://optozorax.github.io/en/p/polynom-distribution/">
+<meta name="twitter:title" content="Approximating a data distribution with a polynomial — optozorax&#39;s blog">
+<meta name="twitter:description" content="I had a lot of flight data from a micro drone and wanted to make a nice smooth plot... I couldn&#39;t find a ready-made solution on the internet.">
+<meta name="twitter:image" content="https://optozorax.github.io/en/p/polynom-distribution/image.png">
+<meta name="twitter:creator" content="optozorax">
+
+  <!-- --- -->
+
+  <!-- Extra head declarations -->
+  
+
+<link rel="preload" as="font" href="/fonts/KaTeX/KaTeX_Size4-Regular.woff2" crossOrigin="anonymous">
+<link rel="preload" as="font" href="/fonts/KaTeX/KaTeX_Math-Italic.woff2" crossOrigin="anonymous">
+<link rel="preload" as="font" href="/fonts/KaTeX/KaTeX_Main-Bold.woff2" crossOrigin="anonymous">
+<link rel="preload" as="font" href="/fonts/KaTeX/KaTeX_Main-Regular.woff2" crossOrigin="anonymous">
+<link rel="preload" as="font" href="/fonts/KaTeX/KaTeX_AMS-Regular.woff2" crossOrigin="anonymous">
+
+<link rel="stylesheet" href="/katex.min.css">
+<script defer src="/js/katex.min.js"></script>
+<script defer src="/js/mathtex-script-type.min.js"></script>
+
+<script type="text/javascript" src="/js/hammer.min.js"></script>
+<script type="text/javascript" src="/js/toc.js"></script>
+<script type="text/javascript" src="/js/gallery.js"></script>
+<script type="text/javascript" src="/js/full_screen.js"></script>
+<script type="text/javascript" src="/js/word_wrap.js"></script>
+
+  <!-- --- -->
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+  <!-- --- -->
+
+  <title>Approximating a data distribution with a polynomial — optozorax&#39;s blog</title>
+</head>
+
+<body>
+  <!-- FullScreen block -->
+  <div id="img_modal" class="modal" style="display: none;">
+      <img id="img_modal_01" src="/ico/loading.gif">
+      <span class="close" id="img_modal_close">&times;</span>
+  </div>
+  <!-- --- -->
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <header class="site-header" role="banner">
+  
+  <div class="wrapper">
+    <a class="site-title" href="/en/">optozorax.blog</a>
+
+    <div class="lang-switch">
+      <span class="lang-switch-item lang-switch-current" lang="en" title="English"><span class="lang-switch-flag">🇬🇧</span>EN</span>
+      <a class="lang-switch-item" href="/p/polynom-distribution/" hreflang="ru" lang="ru" title="Русский"><span class="lang-switch-flag">🇷🇺</span>RU</a>
+    </div>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <img src="/ico/menu.svg" width="13px" height="15px">
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          <a class="page-link" href="/en/">Blog</a>
+        
+          <a class="page-link" href="/en/e">Collections</a>
+        
+          <a class="page-link" href="/en/tags">Tags</a>
+        
+          <a class="page-link" href="/en/about">About me</a>
+        
+      </div>
+    </nav>
+  </div>
+  
+  </header>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+  
+  <section class="page-header">
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+<h1 class="project-name">Approximating a data distribution with a polynomial</h1>
+
+<h2 class="project-tagline">I had a lot of flight data from a micro drone and wanted to make a nice smooth plot... I couldn&#39;t find a ready-made solution on the internet.</h2>
+
+
+
+<span style="margin-bottom: 10px;">
+  
+    <a href="/en/tags#math"><code class="tag"><nobr>#math</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#programming"><code class="tag"><nobr>#programming</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#rust"><code class="tag"><nobr>#rust</nobr></code></a>&nbsp;
+  
+</span>
+
+
+<center>
+<table style="margin-top: 8px;">
+<tr>
+
+
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+  <time datetime="2023-06-07" itemprop="datePublished">
+    
+    
+    
+    
+    <span class="post-date">07 June 2023</span>
+  </time>
+</h2>
+</td>
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+    <span class="post-date" style="font-style: normal">| 🕑 5 min</span>
+</h2>
+</td>
+
+
+
+</tr>
+</table>
+
+
+<div class="translation-note">
+  <svg class="translation-note-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+  <span>Translated from 🇷🇺 Russian</span>
+  <span class="translation-note-sep">·</span>
+  <span>Translation by Claude Opus 5.5</span>
+  <span class="translation-note-sep">·</span>
+  <a href="/p/polynom-distribution/" hreflang="ru" lang="ru">Original</a>
+</div>
+
+
+
+</center>
+
+
+</td><td>
+</td></tr></table>
+
+
+
+  </section>
+  
+  
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <section class="main-content section">
+  
+<article itemscope itemtype="http://schema.org/BlogPosting">
+<div itemprop="articleBody" id="content">
+<h1 id="introduction"><a class="anchor" href="#introduction">#</a>Introduction</h1>
+<p>I flew a lot of laps with my drone at home and timed them automatically: there were 8.5 s laps, a lot of 10 s laps, a fair number of 15 s laps, and very few 30 s and 60 s laps. Of course, I could just plot a histogram to visualize these results, but I wanted some kind of smooth curve, so that I wouldn't have to pick the bin width of the histogram, and so that this smooth curve would take into account how close the results are to each other.</p>
+<p>I tried googling it and found nothing. Or I found something but didn't understand a thing (like <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0174573">this paper</a>: it started <del>with a bang</del> well, but then wandered off somewhere and lost me). So I had to invent everything myself. I sat over a notebook for a bit, thought it through, then coded for a while and got a result (not right away, of course). In this post I'll explain how to approximate a one-dimensional distribution with a polynomial of degree N. The resulting algorithm has complexity <script type="math/tex">O(m)</script>, where <script type="math/tex">m</script> is the number of points.</p>
+<h1 id="derivation"><a class="anchor" href="#derivation">#</a>Derivation</h1>
+<p>We have a lot of data points: <script type="math/tex">D_i</script>, <script type="math/tex">M</script> of them in total. We want to approximate their distribution with a polynomial <script type="math/tex">P(x) = \sum_{i = 0}^n c_i x^i</script>.</p>
+<p>What does it mean to approximate a distribution? It means that on any interval <script type="math/tex">[a_k, b_k]</script> the integral of this function approaches the density of the data (<script type="math/tex">count_{a_k}^{b_k} D</script> is the number of points of <script type="math/tex">D</script> that fall into the interval <script type="math/tex">[a_k, b_k]</script>):</p>
+<script type="math/tex;mode=display">\int_{a_k}^{b_k} P(x) dx \approx \frac{count_{a_k}^{b_k} D}{M}</script>
+<script type="math/tex;mode=display">\int_{a_k}^{b_k} \left[\sum_{i = 0}^n c_i x^i \right] dx - \frac{count_{a_k}^{b_k} D}{M} \approx 0</script>
+<script type="math/tex;mode=display">\sum_{i = 0}^n c_i \cdot \frac{a_k^{i+1} - b_k^{i+1}}{i+1} - \frac{count_{a_k}^{b_k} D}{M} \approx 0</script>
+<p>And if we take all the intervals, and there are K of them:</p>
+<script type="math/tex;mode=display">\sum_{k = 0}^K \left[ \sum_{i = 0}^n c_i \cdot \frac{a_k^{i+1} - b_k^{i+1}}{i+1} - \frac{count_{a_k}^{b_k} D}{M} \right]^2 \to \min</script>
+<p>Here I squared the difference so that it's always greater than 0, and so that summing over different intervals gives a positive number. And so that the final sum over all intervals doesn't equal zero but tends to some minimum. In this equation we want to find the unknowns <script type="math/tex">c_i</script>.</p>
+<p>If we expand the brackets and collect like terms, we get an equation of the following form:</p>
+<script type="math/tex;mode=display">a_{0,0} + a_{0,1} c_0 + \dots + a_{1, 1} c_0^2 + a_{1, 2} c_0 c_1 + \dots a_{n+1,n+1} c_n^2 \to min</script>
+<p>You can see that this is a quadratic equation with many unknowns. And the minimum of such a function can be found directly: take the derivative and set it to 0:</p>
+<script type="math/tex;mode=display">
+\left\{
+\begin{aligned}
+	&-a_{0, 1} = a_{1, 1} c_0 + a_{1, 2} c_1 + \ldots + a_{1, n+1} c_n \\
+	&-a_{0, 2} = a_{2, 1} c_0 + a_{2, 2} c_1 + \ldots + a_{2, n+1} c_n \\
+	
+	&\ldots \\
+	&-a_{0, n} = a_{n, 1} c_0 + a_{n, 2} c_1 + \ldots + a_{n+1, n+1} c_n \\
+\end{aligned}
+\right.
+</script>
+<p>So all we have to do is compute some coefficients <script type="math/tex">a_{i, j}</script> and then solve the system of linear equations (SLE), and we get the coefficients of a polynomial that honestly approximates the given distribution.</p>
+<h1 id="algorithm"><a class="anchor" href="#algorithm">#</a>Algorithm</h1>
+<p>Input:</p>
+<ul>
+<li><script type="math/tex">D_i</script>: an array of M values whose distribution we want to approximate.
+</li>
+<li><script type="math/tex">N</script>: the degree of the resulting polynomial.
+</li>
+<li><script type="math/tex">K</script>: the number of intervals.
+</li>
+</ul>
+<p>Obviously, the degree of the polynomial should be small (5-10), so as not to "overfit" the data and end up with a plot that equals the histogram or something like that.</p>
+<p>The number of intervals shouldn't be very large either. I figured that <script type="math/tex">5\cdot M</script> would be plenty. In practice it turned out that <script type="math/tex">N \cdot M</script> is optimal.</p>
+<p>So the whole algorithm consists of two stages:</p>
+<ul>
+<li>Iterating over <script type="math/tex">K</script> intervals to build the matrix and the vector.</li>
+<li>Solving a system of linear equations of size <script type="math/tex">N</script>, which is not very large.</li>
+</ul>
+<p>There are two ways to iterate over the intervals:</p>
+<ul>
+<li>Randomly</li>
+<li>Systematically</li>
+</ul>
+<p>In the random case, the most expensive operation is counting the number of points that fall into the interval, which takes <script type="math/tex">O(\ln n)</script> if the data is sorted.</p>
+<p>If instead we iterate over the intervals systematically, from the minimum to the maximum, we can use the two-pointer technique and know the number of points in the current interval in <script type="math/tex">O(1)</script>. And since the number of intervals is <script type="math/tex">O(n)</script>, this is the optimal option.</p>
+<p>Altogether, the whole algorithm looks like this in pseudocode:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="rust"><code data-lang="rust"><span class="giallo-l"><span style="color: #5597D6;">vec</span><span style="color: #72AB00;"> =</span><span style="color: #7F8989;"> /* 1D vector of size n+1 */</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">mat</span><span style="color: #72AB00;"> =</span><span style="color: #7F8989;"> /* 2D matrix of size n+1 */</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">minv</span><span style="color: #72AB00;"> =</span><span style="color: #C23F31;"> D</span><span>[</span><span style="color: #B3933A;">0</span><span>];</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">maxv</span><span style="color: #72AB00;"> =</span><span style="color: #C23F31;"> D</span><span>[</span><span style="color: #72AB00;">-</span><span style="color: #B3933A;">1</span><span>];</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">seg_count</span><span style="color: #72AB00;"> =</span><span style="color: #C23F31;"> sqrt</span><span>(</span><span style="color: #C23F31;">K</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">step</span><span style="color: #72AB00;"> =</span><span> (</span><span style="color: #5597D6;">maxv</span><span style="color: #72AB00;"> -</span><span style="color: #5597D6;"> minv</span><span>)</span><span style="color: #72AB00;"> /</span><span style="color: #5597D6;"> seg_count</span><span>;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #5597D6;">apos</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">for</span><span style="color: #5597D6;"> ai</span><span style="color: #72AB00;"> in</span><span style="color: #B3933A;"> 0</span><span style="color: #72AB00;">..</span><span style="color: #5597D6;">seg_count</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">	a</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> minv</span><span style="color: #72AB00;"> +</span><span style="color: #5597D6;"> ai</span><span style="color: #72AB00;"> *</span><span style="color: #5597D6;"> step</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">	while</span><span style="color: #5597D6;"> apos</span><span style="color: #72AB00;"> &lt;</span><span style="color: #C23F31;"> M</span><span style="color: #72AB00;"> &amp;&amp;</span><span style="color: #5597D6;"> a</span><span style="color: #72AB00;"> &gt;</span><span style="color: #C23F31;"> D</span><span>[</span><span style="color: #5597D6;">apos</span><span>] {</span><span style="color: #5597D6;"> apos</span><span style="color: #72AB00;"> +=</span><span style="color: #B3933A;"> 1</span><span>; }</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #5597D6;">	bpos</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> apos</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">	for</span><span style="color: #5597D6;"> bi</span><span style="color: #72AB00;"> in</span><span style="color: #5597D6;"> ai</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span style="color: #72AB00;">..</span><span style="color: #5597D6;">seg_count</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">		b</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> minv</span><span style="color: #72AB00;"> +</span><span style="color: #5597D6;"> bi</span><span style="color: #72AB00;"> *</span><span style="color: #5597D6;"> step</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">		while</span><span style="color: #5597D6;"> bpos</span><span style="color: #72AB00;"> &lt;</span><span style="color: #C23F31;"> M</span><span style="color: #72AB00;"> &amp;&amp;</span><span style="color: #5597D6;"> b</span><span style="color: #72AB00;"> &gt;</span><span style="color: #C23F31;"> D</span><span>[</span><span style="color: #5597D6;">bpos</span><span>] {</span><span style="color: #5597D6;"> bpos</span><span style="color: #72AB00;"> +=</span><span style="color: #B3933A;"> 1</span><span>; }</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #5597D6;">		count</span><span style="color: #72AB00;"> =</span><span> (</span><span style="color: #5597D6;">bpos</span><span style="color: #72AB00;"> -</span><span style="color: #5597D6;"> apos</span><span>)</span><span style="color: #72AB00;"> /</span><span style="color: #C23F31;"> M</span><span>;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">		for</span><span style="color: #5597D6;"> i</span><span style="color: #72AB00;"> in</span><span style="color: #B3933A;"> 0</span><span style="color: #72AB00;">..</span><span style="color: #5597D6;">n</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">			vec</span><span>[</span><span style="color: #5597D6;">i</span><span>]</span><span style="color: #72AB00;"> +=</span><span style="color: #B3933A;"> 2</span><span style="color: #72AB00;"> *</span><span style="color: #5597D6;"> count</span><span style="color: #72AB00;"> *</span><span> (</span><span style="color: #5597D6;">b</span><span style="color: #72AB00;">^</span><span>(</span><span style="color: #5597D6;">i</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span>)</span><span style="color: #72AB00;"> -</span><span style="color: #5597D6;"> a</span><span style="color: #72AB00;">^</span><span>(</span><span style="color: #5597D6;">i</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span>))</span><span style="color: #72AB00;">/</span><span>(</span><span style="color: #5597D6;">i</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span>);</span></span>
+<span class="giallo-l"><span>		}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">		for</span><span style="color: #5597D6;"> i</span><span style="color: #72AB00;"> in</span><span style="color: #B3933A;"> 0</span><span style="color: #72AB00;">..</span><span style="color: #5597D6;">n</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">			for</span><span style="color: #5597D6;"> j</span><span style="color: #72AB00;"> in</span><span style="color: #B3933A;"> 0</span><span style="color: #72AB00;">..</span><span style="color: #5597D6;">n</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">				to_add</span><span style="color: #72AB00;"> =</span><span> (</span><span style="color: #5597D6;">b</span><span style="color: #72AB00;">^</span><span>(</span><span style="color: #5597D6;">i</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span>)</span><span style="color: #72AB00;"> -</span><span style="color: #5597D6;"> a</span><span style="color: #72AB00;">^</span><span>(</span><span style="color: #5597D6;">i</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span>))</span><span style="color: #72AB00;">/</span><span>(</span><span style="color: #5597D6;">i</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span>) </span></span>
+<span class="giallo-l"><span style="color: #72AB00;">				       *</span><span> (</span><span style="color: #5597D6;">b</span><span style="color: #72AB00;">^</span><span>(</span><span style="color: #5597D6;">j</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span>)</span><span style="color: #72AB00;"> -</span><span style="color: #5597D6;"> a</span><span style="color: #72AB00;">^</span><span>(</span><span style="color: #5597D6;">j</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span>))</span><span style="color: #72AB00;">/</span><span>(</span><span style="color: #5597D6;">j</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span>);</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #5597D6;">				mat</span><span>[</span><span style="color: #5597D6;">i</span><span>,</span><span style="color: #5597D6;"> j</span><span>]</span><span style="color: #72AB00;"> +=</span><span style="color: #5597D6;"> to_add</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">				mat</span><span>[</span><span style="color: #5597D6;">j</span><span>,</span><span style="color: #5597D6;"> i</span><span>]</span><span style="color: #72AB00;"> +=</span><span style="color: #5597D6;"> to_add</span><span>;</span></span>
+<span class="giallo-l"><span>			}</span></span>
+<span class="giallo-l"><span>		}</span></span>
+<span class="giallo-l"><span>	}</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #5597D6;">x</span><span style="color: #72AB00;"> =</span><span style="color: #C23F31;"> solve_SLE</span><span>(</span><span style="color: #5597D6;">vec</span><span>,</span><span style="color: #5597D6;"> mat</span><span>)</span></span></code></pre><h1 id="web-interface"><a class="anchor" href="#web-interface">#</a>Web interface</h1>
+<p>Links:</p>
+<ul>
+<li><a href="https://optozorax.github.io/distribution_approximation/">Online interface in a separate tab</a></li>
+<li><a href="https://github.com/optozorax/distribution_approximation/blob/master/src/app.rs#L67-L129">Source code</a></li>
+</ul>
+<p>I put in some effort and coded a web interface where you can play with this algorithm. And anyway, what's the point of talking about some algorithm you came up with if there's no code? If that paper had at least had code, never mind a web interface, maybe I wouldn't have had to invent anything myself...</p>
+<p>My drone flight data is already loaded in there. Yes, I flew 300 laps in a day, and what are you going to do about it 😁. You can see how much my skill on this track leveled up the next day: faster times became much more frequent.</p>
+<iframe src="https://optozorax.github.io/distribution_approximation/" width="100%" height="500px" style="border:0;"></iframe>
+
+</div>
+</article>
+
+  </section>
+  
+
+</td><td>
+<!-- TOC -->
+<input type="checkbox" id="toc-trigger" class="toc-trigger" />
+<label for="toc-trigger">
+  <span class="menu-icon">
+    <div class="side-button"><img src="/ico/right.svg"></div>
+  </span>
+</label>
+
+<nav class="section-nav">
+ <h2>Contents</h2>
+ <ul class="first">
+ 
+ 
+  <li>
+   <a href="#introduction">Introduction</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#derivation">Derivation</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#algorithm">Algorithm</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#web-interface">Web interface</a>
+   
+  </li>
+ 
+ </ul>
+</nav>
+</td></tr></table>
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="section second-section">
+If you like what I do, follow me on <a href="https://t.me/optozorax_dev">Telegram</a> and <a href="https://www.youtube.com/c/optozorax">YouTube</a>.
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="comments section second-section">
+
+<script src="https://utteranc.es/client.js"
+        repo="optozorax/optozorax.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+
+  <hr class="enabled-on-phone">
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <footer class="site-footer section second-section">
+  
+    <center>
+    <div style="margin-bottom: 10px;">© Ilya Sheprut. License: <a href="https://creativecommons.org/licenses/by/3.0/deed.en">CC-BY</a>.</div>
+    <table style="border: 0px; display: contents;">
+    <tr><td style="border: 0px; padding: 0.2rem;">
+    <!-- SVG icons from https://iconmonstr.com -->
+
+    <span class="my-span-icon">
+  <a 
+    href="https://github.com/optozorax" 
+    aria-label="optozorax's GitHub" 
+    title="optozorax's GitHub">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/github.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's GitHub">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://t.me/optozorax_dev" 
+    aria-label="optozorax's Telegram channel" 
+    title="optozorax's Telegram channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/tg.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Telegram channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://www.youtube.com/c/optozorax" 
+    aria-label="optozorax's YouTube channel" 
+    title="optozorax's YouTube channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/youtube.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's YouTube channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://boosty.to/optozorax" 
+    aria-label="optozorax's donate page" 
+    title="optozorax's donate page">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/donate.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's donate page">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="/en/atom.xml" 
+    aria-label="optozorax's Atom Feed" 
+    title="optozorax's Atom Feed">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/rss.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Atom Feed">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="mailto:optozorax@gmail.com" 
+    aria-label="optozorax's email" 
+    title="optozorax's email">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/contact.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's email">
+  </a>
+</span>
+
+    </td><td style="border: 0px; padding: 0.2rem;">
+
+    </td></tr>
+    </table>
+    <div class="small-info">
+      Made with <a href="https://www.getzola.org/">Zola</a> | Theme based on <a href="https://github.com/lorepirri/cayman-blog">Cayman Blog</a> | <a href="https://github.com/optozorax/blog_zola">Site sources</a>
+      <a rel="me" href="https://mathstodon.xyz/@optozorax" style="display: none;">Mastodon</a>
+    </div>
+    </center>
+  
+  </footer>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+</body>
+</html>

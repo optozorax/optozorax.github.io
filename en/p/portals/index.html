@@ -1,0 +1,2692 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Fonts preload -->
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nFrXyi0A.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nBrXw.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxTcwhsk.woff2" crossOrigin="anonymous">
+  <!-- --- -->
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/main.css">
+  <!-- --- -->
+
+  <!-- Non social metatags -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link rel="canonical" href="https://optozorax.github.io/en/p/portals/">
+  <link rel="alternate" hreflang="en" href="https://optozorax.github.io/en/p/portals/">
+  <link rel="alternate" hreflang="ru" href="https://optozorax.github.io/p/portals/">
+  <link rel="alternate" hreflang="x-default" href="https://optozorax.github.io/p/portals/">
+  <meta name="robots" content="noarchive">
+  <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/en/atom.xml"> 
+  <!-- --- -->
+
+  <!-- Social metatags -->
+  
+
+<meta name="author" content="optozorax">
+<meta name="title" content="Portals — optozorax&#39;s blog">
+<meta name="description" content="Everything about the discoveries I made about portals; how I developed software to visualize them; what happens if you put a portal inside a portal; monoportals; a triple portal. I break your brain and space with portals.">
+<meta name="image" content="https://optozorax.github.io/en/p/portals/preview.png">
+
+<meta name="keywords" itemprop="tags" content="programming, rust, graphics, portals, ray-tracing, youtube">
+
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://optozorax.github.io/en/p/portals/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Portals — optozorax&#39;s blog">
+<meta property="og:description" content="Everything about the discoveries I made about portals; how I developed software to visualize them; what happens if you put a portal inside a portal; monoportals; a triple portal. I break your brain and space with portals.">
+<meta property="og:image" content="https://optozorax.github.io/en/p/portals/preview.png">
+<meta property="og:locale" content="en">
+
+
+<meta property="article:published_time" content="2021-08-18">
+
+
+
+
+<meta property="article:tag" content="programming">
+
+<meta property="article:tag" content="rust">
+
+<meta property="article:tag" content="graphics">
+
+<meta property="article:tag" content="portals">
+
+<meta property="article:tag" content="ray-tracing">
+
+<meta property="article:tag" content="youtube">
+
+
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="optozorax.github.io">
+<meta property="twitter:url" content="https://optozorax.github.io/en/p/portals/">
+<meta name="twitter:title" content="Portals — optozorax&#39;s blog">
+<meta name="twitter:description" content="Everything about the discoveries I made about portals; how I developed software to visualize them; what happens if you put a portal inside a portal; monoportals; a triple portal. I break your brain and space with portals.">
+<meta name="twitter:image" content="https://optozorax.github.io/en/p/portals/preview.png">
+<meta name="twitter:creator" content="optozorax">
+
+  <!-- --- -->
+
+  <!-- Extra head declarations -->
+  
+
+<script type="text/javascript" src="/js/hammer.min.js"></script>
+<script type="text/javascript" src="/js/toc.js"></script>
+<script type="text/javascript" src="/js/gallery.js"></script>
+<script type="text/javascript" src="/js/full_screen.js"></script>
+<script type="text/javascript" src="/js/word_wrap.js"></script>
+
+  <!-- --- -->
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+  <!-- --- -->
+
+  <title>Portals — optozorax&#39;s blog</title>
+</head>
+
+<body>
+  <!-- FullScreen block -->
+  <div id="img_modal" class="modal" style="display: none;">
+      <img id="img_modal_01" src="/ico/loading.gif">
+      <span class="close" id="img_modal_close">&times;</span>
+  </div>
+  <!-- --- -->
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <header class="site-header" role="banner">
+  
+  <div class="wrapper">
+    <a class="site-title" href="/en/">optozorax.blog</a>
+
+    <div class="lang-switch">
+      <span class="lang-switch-item lang-switch-current" lang="en" title="English"><span class="lang-switch-flag">🇬🇧</span>EN</span>
+      <a class="lang-switch-item" href="/p/portals/" hreflang="ru" lang="ru" title="Русский"><span class="lang-switch-flag">🇷🇺</span>RU</a>
+    </div>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <img src="/ico/menu.svg" width="13px" height="15px">
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          <a class="page-link" href="/en/">Blog</a>
+        
+          <a class="page-link" href="/en/e">Collections</a>
+        
+          <a class="page-link" href="/en/tags">Tags</a>
+        
+          <a class="page-link" href="/en/about">About me</a>
+        
+      </div>
+    </nav>
+  </div>
+  
+  </header>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+  
+  <section class="page-header">
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+<h1 class="project-name">Portals</h1>
+
+<h2 class="project-tagline">Everything about the discoveries I made about portals; how I developed software to visualize them; what happens if you put a portal inside a portal; monoportals; a triple portal. I break your brain and space with portals.</h2>
+
+
+
+<span style="margin-bottom: 10px;">
+  
+    <a href="/en/tags#programming"><code class="tag"><nobr>#programming</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#rust"><code class="tag"><nobr>#rust</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#graphics"><code class="tag"><nobr>#graphics</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#portals"><code class="tag"><nobr>#portals</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#ray-tracing"><code class="tag"><nobr>#ray-tracing</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#youtube"><code class="tag"><nobr>#youtube</nobr></code></a>&nbsp;
+  
+</span>
+
+
+<center>
+<table style="margin-top: 8px;">
+<tr>
+
+
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+  <time datetime="2021-08-18" itemprop="datePublished">
+    
+    
+    
+    
+    <span class="post-date">18 August 2021</span>
+  </time>
+</h2>
+</td>
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+    <span class="post-date" style="font-style: normal">| 🕑 74 min</span>
+</h2>
+</td>
+
+
+
+<td style="padding-left: 10px;">
+  
+  
+  <a href="https://t.me/optozorax_dev/496">
+  <code class="tag">Post on Telegram</code>
+  </a>
+  
+  
+  (18 💬)
+  
+</td>
+
+</tr>
+</table>
+
+
+<div class="translation-note">
+  <svg class="translation-note-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+  <span>Translated from 🇷🇺 Russian</span>
+  <span class="translation-note-sep">·</span>
+  <span>Translation by Claude Opus 5.5</span>
+  <span class="translation-note-sep">·</span>
+  <a href="/p/portals/" hreflang="ru" lang="ru">Original</a>
+</div>
+
+
+
+</center>
+
+
+</td><td>
+</td></tr></table>
+
+
+
+  </section>
+  
+  
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <section class="main-content section">
+  
+<article itemscope itemtype="http://schema.org/BlogPosting">
+<div itemprop="articleBody" id="content">
+<style>
+.container-col {
+  padding: 10px;
+  margin: 5px;
+  min-width: 110px;
+  flex: 1 0 0%;
+}
+</style>
+<h1 id="introduction"><a class="anchor" href="#introduction">#</a>Introduction</h1>
+<p>This article collects all my posts about portals from my Telegram channel. I gathered them in one place so they're easier to read, the information doesn't get lost, and search engines can index it.</p>
+<p>Each post is headed by its publication date (DD.MM.YYYY). Right after the heading there are links to the Telegram posts (in Russian) it was taken from.</p>
+<h1 id="24-11-2019"><a class="anchor" href="#24-11-2019">#</a>24.11.2019</h1>
+<blockquote>
+<p><strong>Source:</strong> a channel that has since been deleted.</p>
+</blockquote>
+<p>Friends, this moment has finally come! I'm publishing a video showing the result of a project that I've been hiding from everyone for the last two years and calling my "secret project". So what did this secret project turn out to be? Watch the video and see.</p>
+<p>Enjoy.</p>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=fWkAfa96OmI">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/fWkAfa96OmI.webp" width="1280" height="720">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=fWkAfa96OmI">This happens when you put one portal inside another</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCIsVwdLhYrrs3K8MOXEZdhQ">optozorax</a>
+</div>
+<div class="yt-duration">2:22</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=fWkAfa96OmI">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<div class="container">
+<div class="container-col">
+<p><strong>Where I posted it myself:</strong></p>
+<table><thead><tr><th>Link</th><th>❤️</th><th>💬</th></tr></thead><tbody>
+<tr><td><a href="https://pikabu.ru/story/portal_v_portale_reshenie_problemyi_s_pomoshchyu_simulyatsii_7066445">pikabu</a> (in Russian)</td><td>2456</td><td>469</td></tr>
+<tr><td><a href="https://vk.com/wall-169103586_20">optozorax blog VK</a> (in Russian)</td><td>11</td><td>11</td></tr>
+<tr><td><a href="https://twitter.com/optozorax/status/1198648150095007744">Twitter</a></td><td>6</td><td>4</td></tr>
+<tr><td><a href="https://www.reddit.com/r/Portal/comments/e10wxm/portal_in_portal_simulation_and_rendening/">reddit</a></td><td>28</td><td>7</td></tr>
+</tbody></table>
+</div>
+<div class="container-col">
+<p><strong>Other people wrote about this work (in Russian):</strong></p>
+<table><thead><tr><th>Link</th><th>❤️</th><th>💬</th></tr></thead><tbody>
+<tr><td><a href="https://dtf.ru/avi/84037-video-pro-to-chto-budet-esli-prosunut-portal-v-portal">DTF</a></td><td>204</td><td>72</td></tr>
+<tr><td><a href="https://vk.com/wall-184203753_15697">ЖЮ VK</a></td><td>114</td><td>12</td></tr>
+<tr><td><a href="https://www.maximonline.ru/guide/maximir/_article/chto-budet-esli-odin-portal-perpendikulyarno-zasunut-v-drugoi-portal-video-simulyacii/">MAXIM</a></td><td>-</td><td>32</td></tr>
+<tr><td><a href="https://tjournal.ru/flood/128131-chto-budet-esli-popytatsya-prosunut-portal-cherez-portal">TJ</a></td><td>42</td><td>10</td></tr>
+</tbody></table>
+</div>
+</div>
+<h1 id="24-02-2020"><a class="anchor" href="#24-02-2020">#</a>24.02.2020</h1>
+<blockquote>
+<p><strong>Source:</strong>
+<a href="https://t.me/optozorax_dev/62"><code>tg/62</code></a>,
+<a href="https://t.me/optozorax_dev/63"><code>tg/63</code></a>,
+<a href="https://t.me/optozorax_dev/64"><code>tg/64</code></a>.</p>
+</blockquote>
+<p>I wondered how fast ray tracing would run in a browser.</p>
+<p>To begin with, it's obvious that ray tracing has to be done in shaders.</p>
+<p>So I went to shadertoy.com and took the first shaders I came across that do it. Then I stuck those shaders into the library I'd been using for graphics in the browser: <a href="https://github.com/not-fl3/miniquad">miniquad</a></p>
+<p>Here's what came out of it:</p>
+<h2 id="fairly-fast-ray-tracing-of-three-spheres"><a class="anchor" href="#fairly-fast-ray-tracing-of-three-spheres">#<sup>2</sup></a>Fairly fast ray tracing of three spheres</h2>
+<p>(<a href="https://gist.github.com/optozorax/b62122a06e38f8752ee4e95879ecc1db">code</a>) (<a href="https://www.shadertoy.com/view/4ljGRd">shader</a>) (<a href="https://optozorax.github.io/bufdraw/www_shader_test_1/index.html">web demo</a>)</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="669"     height="525"     src="/processed_images/63.8a955c43d0c5e16b.webp"     onclick="full_screen('63.jpg')"     onauxclick="full_screen_new_page('63.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<h2 id="very-slow-but-very-beautiful-ray-tracing-of-colored-clouds"><a class="anchor" href="#very-slow-but-very-beautiful-ray-tracing-of-colored-clouds">#<sup>2</sup></a>Very slow but very beautiful ray tracing of colored clouds</h2>
+<p>(<a href="https://gist.github.com/optozorax/030f3f11d2c14c333524f34750538f37">code</a>) (<a href="https://www.shadertoy.com/view/3l23Rh">shader</a>) (<a href="https://optozorax.github.io/bufdraw/www_shader_test_2/index.html">web demo</a>)</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="669"     height="525"     src="/processed_images/64.5db5f290e59e506d.webp"     onclick="full_screen('64.jpg')"     onauxclick="full_screen_new_page('64.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<h2 id="conclusion"><a class="anchor" href="#conclusion">#<sup>2</sup></a>Conclusion</h2>
+<p>Neither the first example nor, even less so, the second one runs on my phone: Firefox just crashes. On an iPhone the first example flies. The second one works, but noticeably slower.</p>
+<p>So the prospects of ray tracing in the browser with shaders look doubtful. And there I was, having come up with an idea in the shower: rewriting my <a href="https://github.com/optozorax/portals_opengl">portal</a> viewer to use ray tracing and run in the browser. Looks like it's not meant to be, for now :)</p>
+<p><em>(a spoiler from the distant future: it was meant to be, I was wrong)</em></p>
+<h1 id="31-01-2021"><a class="anchor" href="#31-01-2021">#</a>31.01.2021</h1>
+<blockquote>
+<p><strong>Source:</strong>
+<a href="https://t.me/optozorax_dev/298"><code>tg/298</code></a> (7 💬),
+<a href="https://t.me/optozorax_dev/299"><code>tg/299</code></a> (80 💬).</p>
+</blockquote>
+<h2 id="introduction-1"><a class="anchor" href="#introduction-1">#<sup>2</sup></a>Introduction</h2>
+<p>As you know, I've solved the problem of "what happens if you put a portal inside a portal". I wrote a program that computes it and rendered the result.</p>
+<p>I published a short video about it on YouTube, then posted that video on Reddit, and it didn't take off there, getting 29 upvotes.</p>
+<p>Now, a year later, I decided to make attempt #2: I uploaded the video so that it can be watched in Reddit's built-in player, made it start right at the point where the interesting part begins, and sped it up at the same time. I hope this will increase the effect.</p>
+<p>Here's the <a href="https://www.reddit.com/r/Portal/comments/l9agp9/this_happens_if_you_put_one_portal_inside_another/">link</a> to the new Reddit post. Please give it a look.</p>
+<h2 id="takeaways"><a class="anchor" href="#takeaways">#<sup>2</sup></a>Takeaways</h2>
+<p>Thanks everyone for the support, the post got 2.8k upvotes and stopped climbing. And now some thoughts about Reddit.</p>
+<p>I posted it in <code>r/Portal</code>, which has 98k subscribers and where the most successful post of all time got 5k upvotes. That means no matter how good my post is, it's unlikely to get more than 5k, because that depends not only on the quality of the post but also on lots of other factors that have to line up at the same time. And I'd seen that cool stuff on Reddit usually gets &gt;40k upvotes, and I was counting on roughly that. I thought Reddit had something like trending, and that any post could skyrocket if it was good. Turns out it doesn't, and if you want to skyrocket, you have to post in a subreddit that's popular to begin with.</p>
+<p>Also, the post got 2.8k upvotes and 70 comments, while the same <a href="https://pikabu.ru/story/portal_v_portale_reshenie_problemyi_s_pomoshchyu_simulyatsii_7066445">post on Pikabu</a> (in Russian; Pikabu is a Russian site similar to Reddit) got 2.4k upvotes but 469 comments. Plus, on Pikabu I posted it with a backstory and attached the YouTube video, where you probably have to wait something like 30 seconds before the portal goes in. Nevertheless, a lot of people liked it and a lot of people watched it. From this we can conclude that Pikabu is a good platform with a loyal and active audience.</p>
+<p>Another way to increase reach on Reddit is crossposting. As I found out, you can't crosspost to the subreddits most relevant to my post: <code>r/gifs</code>, <code>r/gaming</code>, <code>r/interestingasfuck</code>, <code>r/nextfuckinglevel</code>. Only "original" content can be posted there.</p>
+<p>But you can crosspost to less popular subreddits, so I posted to <a href="https://www.reddit.com/r/DrosteEffect/comments/l9l9ki/this_happens_if_you_put_one_portal_inside_another/">r/DrosteEffect</a>, and some guy crossposted it to <a href="https://www.reddit.com/r/Recursion/comments/l9z3ky/this_happens_if_you_put_one_portal_inside_another/">r/Recursion</a>.</p>
+<p>Now I find out that my gif has been reuploaded and posted to <a href="https://www.reddit.com/r/interestingasfuck/comments/l9zjec/this_happens_if_you_put_one_portal_inside_another/">r/interestingasfuck</a>, and there the post got 4.3k upvotes.</p>
+<p>I made the right call by putting the watermark in the middle of the picture, because given the scale at which posts get copy-pasted, that's the only way to find the original. In the future I think I'll put a link to this Telegram channel right away, writing <code>t.me/optozorax_dev</code>. My earlier watermark was barely visible and sat in the left corner of the picture, so some VK community cropped my animation to a square, and my watermark was gone without a trace.</p>
+<p>I also made the right call by getting straight to the point in the gif: the entry starts 1 second in, and all the needed context is given in the title. People do this a lot, and it works. In this respect my <a href="https://www.youtube.com/watch?v=fWkAfa96OmI">YouTube video</a> is just terrible, because it repeats the title, introduces a lot of unnecessary information at the beginning, and everything in it happens slowly in general. The whole thing could be sped up 1.5 times and nothing bad would happen. Also, if I'd made the video as short as possible, it would have had a much better chance of going viral on YouTube, because people on YouTube always write: "If this video less than a minute, and YouTube recommends it to me, I definitely watch it.".</p>
+<p>I plan to post future gif posts on this topic in <code>r/gaming</code> or <code>r/nextfuckinglevel</code>, and only then crosspost them to <code>r/Portal</code> (crossposting there is allowed).</p>
+<p>I hope this information will be useful to you if you want to post something on Reddit and get maximum reach.</p>
+<h2 id="statistics"><a class="anchor" href="#statistics">#<sup>2</sup></a>Statistics</h2>
+<div class="container">
+<div class="container-col" markdown="1">
+<p><strong>On Reddit:</strong></p>
+<table><thead><tr><th>Link</th><th>❤️</th><th>💬</th></tr></thead><tbody>
+<tr><td><a href="https://www.reddit.com/r/Portal/comments/l9agp9/this_happens_if_you_put_one_portal_inside_another/">r/Portal</a></td><td>3.3k</td><td>78</td></tr>
+<tr><td><a href="https://www.reddit.com/r/interestingasfuck/comments/l9zjec/this_happens_if_you_put_one_portal_inside_another/">r/interestingasfuck</a></td><td>4.4k</td><td>127</td></tr>
+<tr><td><a href="https://www.reddit.com/r/Recursion/comments/l9z3ky/this_happens_if_you_put_one_portal_inside_another/">r/Recursion</a></td><td>1.3k</td><td>25</td></tr>
+<tr><td><a href="https://www.reddit.com/r/DrosteEffect/comments/l9l9ki/this_happens_if_you_put_one_portal_inside_another/">r/DrosteEffect</a></td><td>486</td><td>12</td></tr>
+</tbody></table>
+</div>
+<div class="container-col" markdown="1">
+<p><strong>Stolen without credit (in Russian):</strong></p>
+<table><thead><tr><th>Link</th><th>❤️</th><th>💬</th></tr></thead><tbody>
+<tr><td><a href="https://vk.com/wall-152349826_15251">GameTopus VK</a></td><td>162</td><td>0</td></tr>
+<tr><td><a href="https://vk.com/wall-112289703_56003">SciTopus VK</a></td><td>157</td><td>14</td></tr>
+<tr><td><a href="https://vk.com/wall-132147085_344201">Vidach VK</a></td><td>694</td><td>46</td></tr>
+</tbody></table>
+</div>
+</div>
+<h1 id="9-02-2021"><a class="anchor" href="#9-02-2021">#</a>9.02.2021</h1>
+<blockquote>
+<p><strong>Source:</strong>
+<a href="https://t.me/optozorax_dev/310"><code>tg/310</code></a> (115 💬).</p>
+</blockquote>
+<video class="img-one" autoplay loop muted inline>
+  <source src="310_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<p>While solving the problem of a portal entering a portal, I realized that portals don't have to be flat: they can also be surface portals.</p>
+<p>This gif shows an example of a surface portal. It consists of two pairs of flat portals connected to each other in such a way that teleportation preserves the continuity and integrity of space on both sides.</p>
+<p>On the right you can see how a triangle gets cut as it enters this portal.</p>
+<p>In general, in theory, portals can be placed on any surface; the main thing is that one of them forms the back of the surface and the other the front.</p>
+<p>Also, you can play around with <a href="https://github.com/optozorax/portals_opengl#%D0%BF%D0%BE%D0%B2%D0%B5%D1%80%D1%85%D0%BD%D0%BE%D1%81%D1%82%D0%BD%D1%8B%D0%B9-%D0%BF%D0%BE%D1%80%D1%82%D0%B0%D0%BB">surface portals</a> (in Russian) in <a href="https://github.com/optozorax/portals_opengl/releases/tag/1.1">my little program</a>.</p>
+<h1 id="14-02-2021"><a class="anchor" href="#14-02-2021">#</a>14.02.2021</h1>
+<blockquote>
+<p><strong>Source:</strong>
+<a href="https://t.me/optozorax_dev/312"><code>tg/312</code></a>,
+<a href="https://t.me/optozorax_dev/313"><code>tg/313</code></a>,
+<a href="https://t.me/optozorax_dev/314"><code>tg/314</code></a>,
+<a href="https://t.me/optozorax_dev/315"><code>tg/315</code></a>,
+<a href="https://t.me/optozorax_dev/316"><code>tg/316</code></a>,
+<a href="https://t.me/optozorax_dev/317"><code>tg/317</code></a> (3 💬),
+<a href="https://t.me/optozorax_dev/318"><code>tg/318</code></a>,
+<a href="https://t.me/optozorax_dev/319"><code>tg/319</code></a>,
+<a href="https://t.me/optozorax_dev/320"><code>tg/320</code></a>,
+<a href="https://t.me/optozorax_dev/322"><code>tg/322</code></a> (1 💬),
+<a href="https://t.me/optozorax_dev/323"><code>tg/323</code></a> (19 💬).</p>
+</blockquote>
+<p>Recently I heard an interesting idea: make a portal in the shape of a Möbius strip.</p>
+<p>I didn't want to create a boring Möbius strip portal that teleports from one place to another; I wanted to create a portal that would teleport into some part of itself, that is, to make the strip a portal consisting of a single side.</p>
+<p>So I sat down to think: I drew on paper, cut shapes out of it, held the pieces of paper against each other, and realized that in theory it's possible: the integrity of an entering object won't be broken at the place where the Möbius strip closes onto its own back side. This is possible only if the entering object moves forward but is teleported mirrored relative to the horizontal.</p>
+<p>To better understand what I mean, let's look at this gif.</p>
+<video class="img-one" controls>
+  <source src="optimized/313.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<p>Here is a cylinder that teleports the light entering it mirrored relative to the horizontal. This cylinder has only a lateral surface and no top. So when we look at it from above, we can see its insides.</p>
+<p>If you look at it so that a ray crosses it twice, everything looks normal (mirror + mirror = normal). It's important to note here that at the beginning of the gif we see the blue floor through it. But if you look at it so that a ray crosses the surface once, then instead of the floor we see the white ceiling. That's the whole point of the mirroring. Now imagine the same thing being done in a Möbius strip.</p>
+<p>At first I wanted to make the Möbius strip out of polygonal portals, but I quickly realized that it's a dead end, because the entrance and the exit can't be mapped onto each other, and there the polygons need to match 100%. So I decided to go a different way: take a segment on the Möbius strip and teleport the incoming light ray mirrored within that segment. In theory, since we now operate on segments rather than polygons, everything should work.</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="907"     height="460"     src="/processed_images/314.0122581a7b6977a8.png"     onclick="full_screen('314.png')"     onauxclick="full_screen_new_page('314.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<p>More formally, if you look at the parametric representation of the Möbius strip, I need to find at which point <code>(u, v)</code> something touches the strip, then just multiply <code>v</code> by <code>-1</code>: <code>(u, -v)</code>, and convert these coordinates back to <code>(x, y, z)</code>.</p>
+<p>So, what can this be built on? After a bit of thought I concluded that implementing it with ray tracing would be the easiest. Okay, I know how to do ray tracing in shaders (or I can google how people do it on <a href="http://shadertoy.com/">shadertoy.com</a>), so no problem there. But how do I find the intersection of a ray and the Möbius surface?</p>
+<p>In ray tracing, a ray is usually represented as <code>o + d*t</code>, where <code>o</code> (origin) and <code>d</code> (direction) are vectors, and <code>t</code> is the scalar we need to find.</p>
+<p>And if you look at the parametric representation, it looks really bad: we won't be able to find the intersection of a ray with a point on the Möbius surface analytically.</p>
+<p>But this gives us three unknowns <code>(t, u, v)</code> and three equations. So the solution can be found numerically! Luckily, in my third year at university we had labs on writing the multidimensional Newton's method (which I'd dreamed of learning since school), so once I understood it, I immediately wrote it up as a math article so that anyone (who understands math) could use it too; here's <a href="https://github.com/optozorax/newtons_method_article">a link to the article</a> (in Russian), the PDF is right there too.</p>
+<p>So I started programming this Newton's method inside shaders, and it turns out to be very weak. It depends heavily on the initial guess. And it finds the solution I need so poorly that it worked terribly even with a sphere:</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1280"     height="687"     src="/processed_images/316.489fedd15895ccbd.webp"     onclick="full_screen('316.jpg')"     onauxclick="full_screen_new_page('316.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<p>I thought all was lost, that this was the end of me. But after a while I got the idea that the multidimensional search can be reduced to a one-dimensional one. If you look closely at the parametric equation of the Möbius strip, you can notice the following: for a fixed <code>u</code> it turns into the equation of a line! You can also notice that if you fix <code>v = 0</code>, you get the equation of a circle!</p>
+<p>In this picture you can see that the Möbius strip really does consist of straight segments:</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1280"     height="901"     src="/processed_images/317.8ebd8beebe95c02d.webp"     onclick="full_screen('317.jpg')"     onauxclick="full_screen_new_page('317.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<p>Since the Möbius strip turns into the equation of a line for a fixed <code>u</code>, the distance between two lines can be found analytically. And this distance can be used in the one-dimensional Newton's method: minimize it and find a <code>u</code> at which this distance is zero, that is, where the ray intersects a line of the surface, that is, the surface itself!</p>
+<p>First, a one-dimensional search converges to the right roots much better, and second, it's much easier to take many initial guesses for it at once, so that the solution is sure to arrive at the most useful root (the nearest point on the ray).</p>
+<p>It's also important to note here that <code>u</code> is passed only into periodic functions, so it should stay within <code>[0; 2π)</code>, and it's better to wrap this variable around within these bounds when <code>Δu</code> is added to it, otherwise the solution converges very poorly (tested in practice).</p>
+<p>In the end, my one-dimensional Newton's method goes through 20 initial guesses around the whole circle, otherwise sometimes there are areas where the optimal root isn't found. And that's very expensive, let me tell you, especially computing it for every pixel. Oh well, these aren't production algorithms, they're prototypes and research, it'll do. But if anyone knows how to search for a numerical solution of this equation more efficiently, I'd be glad to hear it.</p>
+<p>Or there's another option: take a different parametric representation of the Möbius strip, one that doesn't produce such distortions, but one like that hardly exists. I couldn't google any other forms of the Möbius strip at all, except the one on Wikipedia.</p>
+<p>So, now I can finally draw a Möbius strip with ray tracing, and for each ray I can get the <code>(u, v)</code> on the strip where it lands. Here's what it looks like on the surface.</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="900"     height="775"     src="/processed_images/319.256402612f737371.webp"     onclick="full_screen('319.jpg')"     onauxclick="full_screen_new_page('319.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<p>The rest is a small matter: add objects around it (so that there's something to look at through the teleported light), implement the teleportation itself, and of course mouse controls to spin it around, all that stuff.</p>
+<p>I dusted off macroquad and my old C++ code for <a href="https://github.com/optozorax/portals_tracing">rendering portals</a> and quickly threw together code for the camera, the mouse and so on. Oh, how I love my own code: I invented practically all the abstractions and math for ray tracing there myself, and my code is much clearer and nicer to me than what people usually write on shadertoy, which is usually a mess of formulas that are damn hard to decipher.</p>
+<p>So, now the moment of truth! What does a Möbius strip portal look like???</p>
+<p>It looks like this:</p>
+<video class="img-one" controls>
+  <source src="optimized/322.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<p>I hoped I had a bug somewhere in the code and that this strip wouldn't really distort everything so badly, but no: this code works correctly for the cylinder, and I've already thought it through as much as I can, there are no logical errors in it.</p>
+<p>The problem with this portal is that it isn't a portal. You can see that straight lines aren't preserved, which means that if an object flies in there, on the other side it will be torn apart and twisted so much that it can no longer be itself. Regular portals aren't guilty of this; it's one of their main properties: preserving the integrity of an entering object. The surface portal, for example, preserves integrity, so it is a portal. So this is just a light-bender.</p>
+<p>But it's pretty obvious that this "portal" distorts everything. If you look at the <code>(u, v)</code> visualization in the previous picture, you can see that the little square at the bottom isn't the same size as the one at the top, and top and bottom are exactly what gets swapped here.</p>
+<p>That's how sad it all is. I had high hopes for this portal, I dreamed of seeing it for all these 2 days and prayed to all the gods that it would preserve integrity, I thought it would look very interesting, and it turned out like this...((</p>
+<p>I think I need to lower the bar a bit and try to make a Möbius strip portal that consists of two parts. That one, it seems, should preserve integrity :)</p>
+<p>By the way, the code is <a href="https://github.com/optozorax/mobius_portal/tree/778c561061a51a4c574755427ba227f87d6c4922">here</a>.</p>
+<h1 id="15-02-2021"><a class="anchor" href="#15-02-2021">#</a>15.02.2021</h1>
+<blockquote>
+<p><strong>Source:</strong>
+<a href="https://t.me/optozorax_dev/324"><code>tg/324</code></a> (14 💬).</p>
+</blockquote>
+<video class="img-one" controls>
+  <source src="optimized/324.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<p>Today I made a Möbius portal consisting of two parts, and it works and looks fine!</p>
+<p>Everything here is like with the cylinder in <a href="https://optozorax.github.io/en/p/portals/#14-02-2021">14.02.2021</a>: if a ray passes through the portal twice, it returns to the original universe. That's why the Möbius strip looks so interesting from some angles, where the ray passes through twice.</p>
+<p>Where the ray passes through once, it gets teleported to the other side, and you can see that. First we look at the back of the blue portal and see that the red wall is now close to us, because it's close to the orange portal.</p>
+<p>Another thing I like: looking into the blue portal, you can see the other side of its border, the orange one.</p>
+<p>You can also see that if you put these portals facing each other, they create a corridor, just like regular portals.</p>
+<p>Then, in the middle of the video, I flipped one portal by 180° by pressing <code>A</code>. I did this to make it easier to see where the ray passes once and where twice.</p>
+<p>To me, it turned out very beautiful and interesting, worth all the effort :)</p>
+<p><a href="https://github.com/optozorax/mobius_portal/tree/8aee45f6f8da7252a77fe97d9c337a0aa1d8b169">Code</a>.</p>
+<h1 id="15-02-2021-1"><a class="anchor" href="#15-02-2021-1">#</a>15.02.2021</h1>
+<blockquote>
+<p><strong>Source:</strong>
+<a href="https://t.me/optozorax_dev/325"><code>tg/325</code></a> (57 💬).</p>
+</blockquote>
+<p>I made a web demo of the Möbius portal!!!</p>
+<p>Go ahead and spin it to your heart's content. Controls: mouse + keys, listed in the top left. If it lags a lot and the FPS is low, make the browser window smaller, it should get better.</p>
+<p>Don't open it on a phone, it might just freeze. The shaders are to blame here, a phone can't handle this.</p>
+<p><a href="https://optozorax.github.io/mobius_portal/">https://optozorax.github.io/mobius_portal/</a></p>
+<p>And since there's a demo now, I can post it in other places too; here are links to <a href="https://github.com/optozorax/mobius_portal">GitHub</a>, <a href="https://www.reddit.com/r/nextfuckinglevel/comments/lkok2m/mindblowing_portal_in_form_of_the_mobius_strip/">Reddit</a>, <a href="https://twitter.com/optozorax/status/1361438218101657600">Twitter</a> and <a href="https://vk.com/wall-169103586_54">VK</a> (in Russian), if you'd like to give it a like.</p>
+<h1 id="20-02-2021"><a class="anchor" href="#20-02-2021">#</a>20.02.2021</h1>
+<blockquote>
+<p><strong>Source:</strong>
+<a href="https://t.me/optozorax_dev/326"><code>tg/326</code></a> (6 💬),
+<a href="https://t.me/optozorax_dev/327"><code>tg/327</code></a>,
+<a href="https://t.me/optozorax_dev/328"><code>tg/328</code></a>,
+<a href="https://t.me/optozorax_dev/329"><code>tg/329</code></a>,
+<a href="https://t.me/optozorax_dev/330"><code>tg/330</code></a> (15 💬).</p>
+</blockquote>
+<p>On Twitter my Möbius portal was liked by a lot of cool people, and I got a lot of retweets. There were also very valuable comments from mathematicians (geometers/topologists) who shared links to similar things.</p>
+<p>Meanwhile on Reddit I got banned with the wording "this is not next fucking level", and overall it got few likes there, even in the /r/Portal subreddit. So I think from now on, besides this channel, it's better to grow my Twitter: it's a more rewarding platform, and cool mathematicians and cool programmers hang out there.</p>
+<p>The first thing I learned about was the program <a href="https://facstaff.susqu.edu/brakke/polycut/polycut.htm">"Polycut"</a>, which visualizes various kinds of portals, but without the portal effects themselves and without complex geometry in general; it just shows the idea through colors.</p>
+<p>And it turns out the concept of a two-part Möbius portal (order-2) has already been considered 😔. Not only that, there's also a triple Möbius portal! And there are such mind-blowing portals that I still can't wrap my head around, for example Trefoil Partial.</p>
+<p>It seems to me that all these visualizations lack a bit of eye candy, like teleporting light and the ability to see another scene through them, or to put them facing each other.</p>
+<p>The next thing I was told about is <a href="https://imaginary.org/program/knotportal">"KnotPortal"</a>. Actually, a similar type of portal was already shown in the older program "Polycut", but here the visualization is much better, and the most interesting thing here is the Trefoil Knot, which is a single continuous portal but can teleport into 4 (or more) different universes!</p>
+<p>By the way, a continuous portal that can lead not into just one universe but into many at once is a very little-known concept. I call such portals triple/quadruple and so on, and at some point I discovered the triple portal on my own, and based on the idea behind it, any N-portal. That is, such portals can exist as N equal parts. And accordingly, we can put each of these parts in a different universe to connect them with each other.</p>
+<p>So many-world portals existed before me, but not in the form I came up with! So my upcoming visualizations will be something new and unusual.</p>
+<p>I need to keep studying those pages, there's still a lot of text and a lot of portals there, and I think I should later try to bring all these visualizations over to my new program.</p>
+<p>Here's how "Polycut" visualized the Möbius portal:</p>
+<video class="img-one" controls>
+  <source src="optimized/327.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<p>And here's what a portal called "Trefoil partial" looks like 🤯.</p>
+<video class="img-one" controls>
+  <source src="optimized/328.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<p>And here's what the Trefoil Knot looks like, the one that teleports into 4 (or more) different universes. You can see it in <a href="https://www.youtube.com/watch?v=XhdnG1xkFnw">this video</a>.</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="592"     height="333"     src="/processed_images/329.b32f68c73ef404d9.webp"     onclick="full_screen('329.jpg')"     onauxclick="full_screen_new_page('329.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<p>Oh right, I almost forgot! While I'm working on the visualizations, here are some puzzles for you!</p>
+<p>I have two very cool things: a triple portal and a single portal (monoportal). If you understand the concept of the triple portal, you can easily build a quadruple one, a quintuple one and so on, but not a single one.</p>
+<p>Regular portals consist of two equal parts: you can't call one part the "entrance" and the other the "exit", both are equally entrances and exits.</p>
+<p>So here are the puzzles: come up with portals that exist equally as three parts (a triple portal) and as one part (a monoportal).</p>
+<p>Maybe you'll come up with something that neither I nor anyone else knew before! In any case, if you try to solve these puzzles, it'll be much more interesting to see the solution later.</p>
+<h1 id="2-03-2021"><a class="anchor" href="#2-03-2021">#</a>2.03.2021</h1>
+<blockquote>
+<p><strong>Source:</strong>
+<a href="https://t.me/optozorax_dev/331"><code>tg/331</code></a> (1 💬),
+<a href="https://t.me/optozorax_dev/332"><code>tg/332</code></a>,
+<a href="https://t.me/optozorax_dev/333"><code>tg/333</code></a> (2 💬),
+<a href="https://t.me/optozorax_dev/334"><code>tg/334</code></a>,
+<a href="https://t.me/optozorax_dev/335"><code>tg/335</code></a>,
+<a href="https://t.me/optozorax_dev/336"><code>tg/336</code></a>,
+<a href="https://t.me/optozorax_dev/337"><code>tg/337</code></a> (2 💬).</p>
+</blockquote>
+<p>Instead of doing what I promised or wanted to do, I was once again doing what's shown on this channel's avatar (the distracted boyfriend meme, where I'm the boyfriend and a new side project is the girl in red).</p>
+<p>Namely, I wanted to optimize the rendering of the Möbius strip.</p>
+<p>As a reminder, the Möbius strip is defined parametrically by a fairly complex equation, and I render it with ray tracing. So for every pixel I have to find the intersection of a ray with this strip. I searched for the intersection with the one-dimensional Newton's method.</p>
+<p>The bottleneck of these computations was that Newton's method needed a lot of initial guesses, namely 10, otherwise the picture came out very bad. With 20-30 the picture is perfect and has absolutely no artifacts, but it takes forever to compute. And if I could cut this number down to at least 1 or 2, I'd improve rendering performance a great deal.</p>
+<p>So I started thinking about how to make do with just one initial guess.</p>
+<p>The very first thing I did was <a href="https://www.shadertoy.com/view/3sycRV">dig up</a> a demo in the depths of shadertoy where a Möbius strip is rendered with ray marching; maybe I could use that information.</p>
+<p>Then I <a href="https://github.com/optozorax/mobius_portal/blob/improve-calculations/ray_marching.glsl">threw out</a> everything unnecessary from it and tried to use it to compute the initial guess from the position at the intersection. In the end the initial guess really was found well, even too well, but because of how ray marching works there was a glow around the Möbius strip, and it was very bad at finding the intersection of a teleported ray that passes through the strip twice, especially where those two places are close to each other. Unfortunately I don't really understand how the ray marching in that demo works, by what magic that rotor does it, so I couldn't reduce the radius of this glow. And this option had to be dropped in favor of others that could potentially work.</p>
+<p>For what follows, I should say that, obviously, the Möbius strip can be wrapped in a sphere that covers it completely. This sphere has a radius of at least <code>1.55</code>.</p>
+<p>Now this information can be used. Any ray that can potentially intersect the Möbius strip can be represented by two points on this sphere. The first point represents the origin, and the second the direction. So any ray can be encoded with 4 numbers: these angles on the sphere. Then the result for these 4 numbers should be n numbers denoting the points where this ray intersects the shape inside the sphere. For the Möbius strip there should in theory always be 2 numbers, since it's a fairly simple shape.</p>
+<p>But actually we don't even need to encode 2 numbers for one ray, we can always encode 1 number: the nearest intersection point. And to get the far point (in case our ray lies inside the sphere rather than outside it), we can simply swap the points on the sphere and get the reverse result.</p>
+<p>Hooray, now: what number should the result be? It could be <code>t</code>, the value showing how far you have to go along the ray to reach the Möbius strip. But that's fairly unusable information, since rendering uses Newton's method over the variable <code>u</code> of the parametric definition of the Möbius strip. So I decided to store <code>u</code>.</p>
+<p>To assess the quality of any solution, the following data can be used. I went through numbers of initial guesses for Newton's method from 0 to 10 and computed how well each predicts the true result obtained with 1000 initial guesses:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>0 — 9.9  </span></span>
+<span class="giallo-l"><span>1 — 0.47  </span></span>
+<span class="giallo-l"><span>2 — 0.12  </span></span>
+<span class="giallo-l"><span>3 — 0.04  </span></span>
+<span class="giallo-l"><span>5 — 0.02  </span></span>
+<span class="giallo-l"><span>10 — 0.007</span></span></code></pre>
+<p>From here on we'll use these to judge how adequate each proposed method is.</p>
+<p>So, the foundation is laid, what next?</p>
+<p>The first thing that came to my sick mind was to use machine learning. That is, compute a whole lot of rays and then make some neural net that gets the one number from the 4 numbers. Since simple neural nets are just matrix multiplications, and in shaders we can multiply matrices of at most 4×4, the neural nets have to be made of 4 neurons or fewer (remember, we do ray tracing for every pixel, so we can't use multiplication of large matrices; it would be cheaper to just run Newton's method 10 times). My sick mind assumed this might be enough and might even work.</p>
+<p>At first I tried training the neural nets with Rust optimization libraries, and it came out insanely slow and insanely bad. It turned out I was just multiplying matrices and applying the activation function to them, but completely forgot that it's crucial to also add a bias.</p>
+<p>Then I moved over to Python + Keras and started training the network there. Here's the <a href="https://t.me/emergevolution/1982">data</a>, in case anyone wants to try doing better. In the end my best result came from 3 layers of 4 neurons with the elu activation function. And that result is <code>20.0</code>. Much worse than 0 initial guesses (WAT? there's clearly a bug somewhere in my code, but the network definitely works correctly in the Rust code, I checked that). If I add Newton's method after the prediction, I get <code>0.31451</code> (≈π/10, WAT?), which is a tiny bit better than 1 initial guess, but still very bad. Maybe the network just found some average number from which Newton's method converges well for the largest number of other numbers, and that's it.</p>
+<p>I want to thank <a href="https://t.me/sv9t_channel">Svyat</a> (in Russian) for valuable advice and comments. I'll pass on what might be useful to you: if you want to solve a problem like this, it's a regression problem, and you need to use the appropriate metrics for it; if your data is somehow related to trigonometry, you can add sines and cosines of the input data as extra inputs, and the network's results may improve (I checked: they improved, but not by much); you can also add products of the inputs (second powers) as inputs to get polynomial regression (this also improved the result a little). And in general, after talking to him I realized that all my data is stored in a texture anyway, so I can simply do linear or quadratic interpolation on the texture to get values between the points.</p>
+<p>Alongside the neural nets, while preparing the data, I suddenly realized that you can actually just iterate over all these 4 numbers with some step and save the result to a texture. With 50 steps for each number, the texture would be 50²×50² = 2500×2500, which isn't that much, especially considering that a lot of rays will just be black, and that PNG will optimize it. A dozen megabytes at most.</p>
+<p>Here's what the texture looks like on the sphere.</p>
+<video class="img-one" controls>
+  <source src="optimized/334.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<p>Okay, so I put it into a texture. Now can we get the initial guess from the texture and run Newton's method? It turns out it works very, very badly, and you can see it in this video:</p>
+<video class="img-one" controls>
+  <source src="optimized/335.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<p>Since I reduce rays to discrete values, a lot of information about them is lost, and in fact a given ray may need a radically different initial guess than the one found at these integer coordinates. It's especially bad where the strip becomes parallel to the horizon.</p>
+<p>And here's what the texture itself looks like (drawn in a rainbow gradient to make it easier to see).</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="900"     height="900"     src="/processed_images/336.e166e6bbfbc91bdb.webp"     onclick="full_screen('336.jpg')"     onauxclick="full_screen_new_page('336.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<p>All in all, I've been fussing with this on and off for a whole week, writing a ton of code, and it's turning out very badly, so I'm deciding to tell you about this failed experiment here and drop it.</p>
+<p>In the end, by the way, I managed to get 60 FPS in 4K fullscreen, but I found that out along the way. The first thing I did was add an if that checks whether the ray intersects the sphere covering the Möbius strip, and only in that case compute the expensive Newton's method, otherwise skip it. The next optimization was that to compute the two closest points of skew lines I stopped using a 3×3 matrix inversion and switched to simpler formulas from Wikipedia that use the dot and cross products of vectors.</p>
+<p>That's it, there's your 60 FPS, and you could say all that effort went down the drain. So: less getting distracted by side quests, more focus on the main quest.</p>
+<h1 id="6-03-2021"><a class="anchor" href="#6-03-2021">#</a>6.03.2021</h1>
+<blockquote>
+<p><strong>Source:</strong>
+<a href="https://t.me/optozorax_dev/338"><code>tg/338</code></a>,
+<a href="https://t.me/optozorax_dev/339"><code>tg/339</code></a> (3 💬),
+<a href="https://t.me/optozorax_dev/340"><code>tg/340</code></a>,
+<a href="https://t.me/optozorax_dev/341"><code>tg/341</code></a>.</p>
+</blockquote>
+<p>I want to port the old portal visualization scenes from <a href="https://github.com/optozorax/portals_opengl">portals_opengl</a> to the new ray-tracing browser engine that renders the Möbius portal. So I need fast ray tracing of polygons, because in those scenes everything is represented with polygons, and my portal-in-portal computation was also done with polygon algorithms.</p>
+<p>I do ray tracing in shaders, and in the shaders my scene is stored as code (not as data). So polygons also have to be represented as code somehow. The classic algorithms for checking whether a point belongs to a polygon need arrays, maybe allocations, so that's not a very viable option inside shaders. On the other hand, shaders are compiled at runtime, which means code can be mixed into them at runtime.</p>
+<p>So for fast polygon ray tracing I'm choosing the path of code generation. That is, for a given polygon I plan to generate some code that checks as fast as possible whether an arbitrary point belongs to the polygon.</p>
+<p>I've <a href="https://optozorax.github.io/fast_tree_point_in_polygon">tried to do this before</a> (in Russian), since earlier I also rendered portals and everything related to them with ray tracing, but on the CPU. If you look at that page, I failed: the algorithm worked very crookedly, slowly and poorly. I drowned in complexity and decided to abandon it. Back then I tried to do it based on rectangles and right triangles.</p>
+<p>But now I got the idea that it can be done differently: you can split everything in half with a line. And to check which side of a line a given point is on, you need very few, very simple arithmetic operations, so such code should, in theory, be very fast.</p>
+<p>As we know, the equation of a line is <code>y = k * x + b</code>. Sometimes this equation causes a problem when <code>k → ∞</code>, that is, when the line is vertical. This problem is easy to get around by using the line equation <code>x = k * y + b</code>, because here <code>k_y → 0</code> when <code>k_x → ∞</code>; so if we always choose the smaller of the two, our <code>k</code> will always be less than one in absolute value.</p>
+<p>I decided to proceed as follows:</p>
+<ul>
+<li>If the current polygon is a triangle, return a check of whether the point is inside this triangle.</li>
+<li>First choose the best line, then cut the polygon with this line.</li>
+<li>For each side, repeat this procedure recursively.</li>
+<li>Return a check that looks at which side of the line the point is on and, depending on that, branches into the corresponding recursive check.</li>
+</ul>
+<p>This way the final check will only look at which side of a line the point is on, and at the very end it will only check whether the point belongs to a triangle.</p>
+<p>And that can easily be generated as just a bunch of <code>if</code>s in shader code.</p>
+<p>The main problem here is cutting a polygon with a line, because after this operation the polygon can become more complex, and then we might never get out of the recursion and reach a triangle. Another problem is that after cutting a polygon with a line, there may be more than one polygon on one side of the line. And the last problem is finding a suitable library that will do this.</p>
+<p>The first problem is solved by making sure that the "best line" doesn't create too many new polygons after the cut, and that after the cut the numbers of vertices on one side and on the other are as close as possible (it should tend to split in half).</p>
+<p>Interestingly, if the "best line" metric picks the line that splits the area as close to "in half" as possible, the resulting algorithm works very badly.</p>
+<p>As for cutting a polygon with a line, there are no such algorithms on the internet. There are no libraries that can do it. But there are libraries that can find the intersection of two complex polygons. You'd think the second is much harder, yet there are libraries for it and none for the first. Oh well, no problem: cutting a polygon with a line can be reduced to finding the intersection of two polygons.</p>
+<p>To do this, you can find the bounding box of the current polygon, and then cut this rectangle with the current line by hand, which is pretty elementary. You get two polygons, and then for each of them you call the algorithm that finds its intersection with the original polygon. Problem solved.</p>
+<p>As for a library for polygon intersection, it's all pretty simple. Rust has bindings to the C++ library <code>clipper</code>, so that's what I used.</p>
+<p>Anyway, I got it working, and here's an example of a complex polygon it works for.</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1280"     height="1050"     src="/processed_images/340.e9c8955742a8b804.webp"     onclick="full_screen('340.png')"     onauxclick="full_screen_new_page('340.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.1<br>png</div> </div> </div>
+<p>You can see its code <a href="https://gist.github.com/optozorax/22b58ce813ea45dbb2318edad59081a9">here</a>.</p>
+<p>Everything worked fine, but the problems started when I wanted to compile it for wasm: C++ wouldn't compile to wasm out of the box, and googling and trying all sorts of <code>wasm32-unknown-emscripten</code> led me down a rabbit hole, and I realized I had to drop it before it was too late. Another library, called geo-booleanop, is written in pure Rust 👍. But the problem is that its source code is based on JS code, and for me it crashes on any slightly complex polygons, and sometimes even on simple ones 👎.</p>
+<p>Plus, while I was figuring all this out, I realized that even my algorithm with clipper works very poorly and breaks on some inputs.</p>
+<p>And I'd hoped to make a web demo so that anyone could just enter coordinates and get the corresponding shader code.</p>
+<p>Now I think the main problem is the algorithm for cutting a polygon with a line, because after this operation the polygon becomes more complex. Plus the algorithms themselves, even in the infallible clipper library, don't handle my cases very well.</p>
+<p>And sometimes it returns a triangle made of 4 points, and the funny thing about this triangle is that the 4th point is very far away, yet what it forms has practically zero area. And no suitable dividing line can be found for such a "triangle". All in all, nothing but trouble.</p>
+<p>So now I'm thinking that instead of cutting the polygon with a line, it's better to do this:</p>
+<ul>
+<li>Triangulate the polygon.</li>
+<li>Find a line that divides all the triangles so that the numbers of triangles on both sides are as equal as possible, and the total number of triangles on the two sides is as small as possible (that is, if this line crosses a triangle, that triangle has to be kept, uncut, on both sides).</li>
+<li>Repeat recursively until we get down to one triangle.</li>
+</ul>
+<p>This way no new complex shapes are created and there's no room for bugs (except in the triangulation algorithm, of course), while the inherent speed of binary space partitioning is preserved.</p>
+<p>For now, here's a link to the <a href="https://github.com/optozorax/fast_point_in_polygon_for_glsl">current code</a>.</p>
+<p>Interestingly, I did everything here in about 2-3 days. I thought debugging would take me another week, like it did with speeding up the Möbius strip rendering. But no, very often the whole thing worked on the first try. I don't know who deserves the credit: me, because I already work a lot with algorithms like this in my personal projects; or Rust, because its type system and the philosophy by which its libraries are organized give such a boost; or maybe competitive programming has loosened up my brain.</p>
+<p>I also see that this is, again, to some extent a post about failure... I've been writing about failures a lot lately, maybe I should make a separate hashtag.</p>
+<h1 id="8-03-2021"><a class="anchor" href="#8-03-2021">#</a>8.03.2021</h1>
+<blockquote>
+<p><strong>Source:</strong>
+<a href="https://t.me/optozorax_dev/342"><code>tg/342</code></a> (26 💬),
+<a href="https://t.me/optozorax_dev/343"><code>tg/343</code></a>.</p>
+</blockquote>
+<video class="img-one" controls>
+  <source src="optimized/342.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<p><strong>Monoportal.</strong></p>
+<p>We're used to portals consisting of two parts, to them being able to connect two worlds together. But what if we question this foundation and come up with a portal that consists of one or of three parts? Is that even possible?!</p>
+<p>Yes! And today I'll show you a portal that consists of one part. I simply call it the <strong>Monoportal</strong>.</p>
+<p>This portal works almost like a mirror, only without the mirroring! You can see that it doesn't mirror the text written on the opposite wall, and you can read it just fine.</p>
+<p>The triangle shows that you can even walk into this portal, and after turning off light teleportation you can see that there's only ever one triangle, no copies are created anywhere.</p>
+<p>If such a portal existed in reality, you could see yourself through it the way other people see you (without mirroring). You could also dance in a circle with yourself through it.</p>
+<p>You can play with the monoportal in your browser:</p>
+<p><a href="https://optozorax.github.io/portal/?scene=monoportal">https://optozorax.github.io/portal/?scene=monoportal</a></p>
+<p>This monoportal consists of one part only in a certain sense: the video shows how it can be constructed from two regular portals. I call it a monoportal because their teleporting surfaces are joined into one continuous surface that preserves the continuity of entering light and objects (I call this preserving integrity). It's precisely the continuity of the surface and the preservation of integrity that make it possible to call this portal a single whole, something that consists of one part.</p>
+<p>And it can be called a portal rather than something mirror-like, because you can walk into it. A mirror, on the other hand, can't be called a portal, because when you walk into it you'll bump into yourself, and it can't be constructed from regular portals without breaking "physics".</p>
+<p><a href="https://github.com/optozorax/portal">Source code</a> (the code is a bit ugly for now, I'll clean it up soon).</p>
+<p>Enjoy)) And there's a whole bunch of other monoportals on the way, plus the <strong>triple portal</strong>.</p>
+<p>You can also support this post on <a href="https://twitter.com/optozorax/status/1368633616725651463">Twitter</a>.</p>
+<h1 id="13-03-2021"><a class="anchor" href="#13-03-2021">#</a>13.03.2021</h1>
+<blockquote>
+<p><strong>Source:</strong>
+<a href="https://t.me/optozorax_dev/351"><code>tg/351</code></a> (3 💬),
+<a href="https://t.me/optozorax_dev/352"><code>tg/352</code></a> (1 💬).</p>
+</blockquote>
+<p>I made an interface for visually editing scenes with portals. In this interface you can change object matrices, and they'll update in real time (done with shader uniforms); and you can change objects and the code that defines what's inside them and how to intersect with them; those changes take effect after you press the <code>Recompile</code> button, because the shaders need to be recompiled. You can see this interface in the video. The scene here was made entirely with this interface.</p>
+<video class="img-one" controls>
+  <source src="optimized/351.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<p>Below I'll describe how and why I made it.</p>
+<p>In the previous post, in the monoportal demo, you could see an interface for viewing the scene and rotating the triangle.</p>
+<p>That interface is built on megaui, the standard GUI of the library I use (macroquad). It's a so-called Immediate Mode GUI (from here on I'll call it imgui, not to be confused with the Dear ImGui library), which, in short, means it's used like this:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>if ui.button(&quot;Add&quot;).clicked() {  </span></span>
+<span class="giallo-l"><span>    array.push(...);  </span></span>
+<span class="giallo-l"><span>}</span></span></code></pre>
+<p>No objects, no OOP, no callbacks, everything is written directly, as if the button had always been there. Accordingly, it's rebuilt from scratch every frame.</p>
+<p>Back to the topic: after the monoportal I started making the triple portal scene, but realized I was running compilation way too often, even when I just needed to rotate a matrix by some angle to test how it would look. And I realized this couldn't go on, I needed a visual matrix editor based on what I'd made in the monoportal viewer. And literally in a couple of days I made such a visual editor, and it worked. I moved sliders, and objects rotated in real time. Real time was achieved by passing the matrices through uniforms.</p>
+<p>Then I realized I could move absolutely everything into the visual editor, even adding and editing regular objects. So that's what I did next.</p>
+<p>By the time I'd done that, I published a <a href="https://twitter.com/optozorax/status/1369940146460762112">tweet</a> where you can see what it looked like.</p>
+<p>Now I use <a href="https://github.com/emilk/egui">egui</a> for imgui, I recommend it to everyone.</p>
+<p>And that's when I felt the power. I really, really liked imgui. It's some kind of magic that you can write an interface so simply and quickly. Never in my life have I been able to make <strong>such</strong> an interface so quickly. It's incredible power; I now feel that I can use imgui for lots of my other projects and get results faster and better.</p>
+<p>Of course, imgui has its drawbacks: performance, it's not as flexible as a regular GUI, it <a href="https://github.com/emilk/egui/issues/94">can't</a> work properly while resizing, it's not so easy to make a table layout in it, and so on. But none of that matters, it's the price of its simplicity. And I think you have to accept this price and adapt your vision of the interface to imgui's limitations, and then development will be simple and fast.</p>
+<p>Right now I have a lot of bugs, and the shader generation code isn't great, I'm working on it, but there's already:</p>
+<ul>
+<li>A matrix editor: a regular matrix, matrix multiplication, teleporting a matrix through two other matrices.</li>
+<li>An object editor: (flat, complex) × (regular, portal).</li>
+<li>A material editor: regular, mirror, glass (haven't tested the last 2).</li>
+</ul>
+<p>Next I plan to add:</p>
+<ul>
+<li>A uniform editor</li>
+</ul>
+<p>So that you can define a uniform of any type there: an integer, a boolean, a real number, and then use this uniform in matrices and in code. Using it in matrices is needed to make it possible to define animations like the ones in the monoportal scene.</p>
+<p>Next I plan to recreate the monoportal scene with this interface, then make the Möbius portal with it too, and start making all the other scenes and showing all the other cool portals I've discovered. Stay tuned.</p>
+<p>As you can see, I'm trying a new format: first I say what I did, and then I explain all the motivation. How do you like it?</p>
+<h1 id="14-03-2021"><a class="anchor" href="#14-03-2021">#</a>14.03.2021</h1>
+<blockquote>
+<p><strong>Source:</strong>
+<a href="https://t.me/optozorax_dev/353"><code>tg/353</code></a> (3 💬).</p>
+</blockquote>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1280"     height="718"     src="/processed_images/353.c6988ed6972a54da.webp"     onclick="full_screen('353.png')"     onauxclick="full_screen_new_page('353.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×2<br>png</div> </div> </div>
+<p>I spent a bit of time on it, fixed bugs, added code, and now:</p>
+<ul>
+<li>Even the Möbius portal can be defined and configured in this visual editor.</li>
+<li>The glass material works: the sphere in the middle. I don't know why I need glass, it's just cool!</li>
+<li>The mirror material works: the wall on the right.</li>
+</ul>
+<p>Oh, how good it is with this visual editor, soon I'll cook up some great <del>soup</del> portal scenes.</p>
+<h1 id="18-03-2021"><a class="anchor" href="#18-03-2021">#</a>18.03.2021</h1>
+<blockquote>
+<p><strong>Source:</strong>
+<a href="https://t.me/optozorax_dev/354"><code>tg/354</code></a>,
+<a href="https://t.me/optozorax_dev/357"><code>tg/357</code></a> (1 💬),
+<a href="https://t.me/optozorax_dev/358"><code>tg/358</code></a>,
+<a href="https://t.me/optozorax_dev/359"><code>tg/359</code></a>,
+<a href="https://t.me/optozorax_dev/362"><code>tg/362</code></a> (1 💬),
+<a href="https://t.me/optozorax_dev/364"><code>tg/364</code></a>,
+<a href="https://t.me/optozorax_dev/365"><code>tg/365</code></a> (6 💬).</p>
+</blockquote>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1280"     height="790"     src="/processed_images/354.daa6209f24665bed.webp"     onclick="full_screen('354.png')"     onauxclick="full_screen_new_page('354.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.4<br>png</div> </div> </div>
+<h2 id="portal-explorer"><a class="anchor" href="#portal-explorer">#<sup>2</sup></a>Portal Explorer</h2>
+<p><strong>Announcing the release of Portal Explorer v0.1.0!</strong></p>
+<p><strong>Portal Explorer</strong> is first and foremost a program for viewing all kinds of portals. Secondly, it's a program for creating portal scenes in a visual editor. And I've remade all my previous portals in this format.</p>
+<p>What more is there to say, just go and check out the web demos (better on a computer):</p>
+<h2 id="monoportal"><a class="anchor" href="#monoportal">#<sup>2</sup></a>Monoportal</h2>
+<p><a href="https://optozorax.github.io/portal/?scene=monoportal">Monoportal</a></p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1280"     height="790"     src="/processed_images/355.4d095298f640aaed.webp"     onclick="full_screen('355.png')"     onauxclick="full_screen_new_page('355.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.4<br>png</div> </div> </div>
+<h2 id="mobius-portal"><a class="anchor" href="#mobius-portal">#<sup>2</sup></a>Möbius portal</h2>
+<p><a href="https://optozorax.github.io/portal/?scene=mobius">Möbius portal</a></p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1280"     height="790"     src="/processed_images/356.5a059f002e4dfa43.webp"     onclick="full_screen('356.png')"     onauxclick="full_screen_new_page('356.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.4<br>png</div> </div> </div>
+<h2 id="timelapse"><a class="anchor" href="#timelapse">#<sup>2</sup></a>Timelapse</h2>
+<p>And here you can see a timelapse of how I made the monoportal scene with the interface. I recorded until the program crashed :D, after that I was too lazy to record.</p>
+<video class="img-one" controls>
+  <source src="optimized/357.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<h2 id="what-i-did"><a class="anchor" href="#what-i-did">#<sup>2</sup></a>What I did</h2>
+<p>So, for the last few days I've been hammering away at this whole cool interface, building features, and I've finally made it possible to define EVERYTHING in the interface:</p>
+<ul>
+<li>Free variables of types bool, int, float.</li>
+<li>Computed variables. That is, you write a formula in the interface, and the formula is evaluated to a number.</li>
+<li>Matrices.</li>
+<li>Matrices from computed variables.</li>
+<li>Objects.</li>
+<li>Materials.</li>
+<li>Textures.</li>
+<li>Custom GLSL code.</li>
+<li>Which of the free variables the user can adjust.</li>
+<li>Animation stages (like how to assemble a monoportal from a doorway and simple portals).</li>
+</ul>
+<p>Once again, I recommend poking around the interface: you can configure all of this there, take a look, seeing it is worth a thousand words.</p>
+<p>I've already told you about defining objects and matrices, so I'll talk about the new stuff.</p>
+<h2 id="computed-variables"><a class="anchor" href="#computed-variables">#<sup>2</sup></a>Computed variables.</h2>
+<p>My matrices have to be computed in Rust code so they can then be passed to the shaders via uniforms. I also have places where code is written right in the interface: that's shader code, for example a function that determines whether a point is inside an object, or, for a material, some clever way to transform the color.</p>
+<p>So I'd love to just put the computed variables into the shaders, but I can't, I need a separate solution. And I quickly found a great library, <a href="https://github.com/likebike/fasteval">fasteval</a>, which does exactly that: it parses strings with formulas and interprets them. I love Rust for the fact that I managed to fully hook up and integrate this library into the interface in a few hours.</p>
+<p>Animation stages are done by working with the free variables. For each stage I simply set whether this variable is exposed to the user or is overridden with some special value.</p>
+<p>Combining these, I create what you can see in the monoportal demo.</p>
+<p>Here's what formulas and animation stages look like in the interface:</p>
+<div class="gallery-container">
+<div class="gallery-slide" id="slide_1_0" style="display:block;">
+  <div class="gallery-text">1 / 3</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/359.38178489d9e30772.webp"
+    onclick="full_screen('359.png')"
+    onauxclick="full_screen_new_page('359.png')"
+    width="1280"
+    height="949">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1.3<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+</div>
+<div class="gallery-slide" id="slide_1_1" >
+  <div class="gallery-text">2 / 3</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/360.df4c916a2197a716.webp"
+    onclick="full_screen('360.png')"
+    onauxclick="full_screen_new_page('360.png')"
+    width="1280"
+    height="949">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1.3<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+</div>
+<div class="gallery-slide" id="slide_1_2" >
+  <div class="gallery-text">3 / 3</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/361.3a1b5f55ede23d16.webp"
+    onclick="full_screen('361.png')"
+    onauxclick="full_screen_new_page('361.png')"
+    width="1280"
+    height="949">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1.3<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+</div>
+<a class="gallery-prev" onclick="gallery_plus(1, -1)">&#10094;</a>
+<a class="gallery-next" onclick="gallery_plus(1, 1)">&#10095;</a>
+</div>
+<div class="gallery-row">
+  <div class="gallery-column" style="width: 33.333333333333336%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+    <img class="gallery-demo not-default gallery-active" src="/processed_images/359.38178489d9e30772.webp"
+      id="demo_1_0"
+      onclick="gallery_set(1, 0)"
+      width="1280" height="949">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  </div>
+  <div class="gallery-column" style="width: 33.333333333333336%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+    <img class="gallery-demo not-default" src="/processed_images/360.df4c916a2197a716.webp"
+      id="demo_1_1"
+      onclick="gallery_set(1, 1)"
+      width="1280" height="949">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  </div>
+  <div class="gallery-column" style="width: 33.333333333333336%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+    <img class="gallery-demo not-default" src="/processed_images/361.3a1b5f55ede23d16.webp"
+      id="demo_1_2"
+      onclick="gallery_set(1, 2)"
+      width="1280" height="949">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  </div>
+</div>
+<script>
+slide_index[1] = 0;
+slide_count[1] = 3;
+</script>
+<h2 id="error-messages"><a class="anchor" href="#error-messages">#<sup>2</sup></a>Error messages</h2>
+<p>Another thing I put a lot of effort into is <strong>error messages</strong>. If an error occurs somewhere, the header of the corresponding storage shows the number of errors inside. For shaders, the error messages are parsed to determine in which exact part of the user's code the error occurred. A feature like this is worth its weight in gold when you do code generation.</p>
+<div class="container">
+<div class="magnifier-container img-one-two"> <img     class="not-default full-screen-img"     width="506"     height="640"     src="/processed_images/362.d915b5219435d9ff.webp"     onclick="full_screen('362.jpg')"     onauxclick="full_screen_new_page('362.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.3<br>jpg</div> </div> </div>
+<div class="magnifier-container img-one-two"> <img     class="not-default full-screen-img"     width="498"     height="640"     src="/processed_images/363.a183c61a185ff39e.webp"     onclick="full_screen('363.jpg')"     onauxclick="full_screen_new_page('363.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.3<br>jpg</div> </div> </div>
+</div>
+<h2 id="panini-projection"><a class="anchor" href="#panini-projection">#<sup>2</sup></a>Panini projection</h2>
+<p>I also added the very hyped <strong>Panini projection</strong>. This projection doesn't distort the picture too much (no more than Fisheye), yet gives a very wide field of view, even wider than 180°. It's based on a projection onto a sphere, followed by a projection from that onto a cylinder. A tricky projection, in short. To turn it on in the web demo, click "Camera Settings" and check "Panini Projection".</p>
+<video class="img-one" controls>
+  <source src="optimized/364.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<h2 id="conclusion-1"><a class="anchor" href="#conclusion-1">#<sup>2</sup></a>Conclusion</h2>
+<p>Now I'm going to make so many scenes: the offsetting monoportal, the monoportal that rotates by 180°, the triple portal, the MÖBIUS MONOPORTAL, the corner monoportal, portal armor, portals from tilings, whoa.</p>
+<p>I really like what's happening, I'm really loving the result; the last time it felt this cool was when I was hammering away at the article about my keyboard layout.</p>
+<p>I also really like egui, it looks so nice, and it's so easy to write interfaces with it. And I love that I can change lots of different things without recompiling.</p>
+<p>You know, when I was first planning all this, I originally thought: "Well, I'll make it possible to write portals in Rust structs and then generate code from them. But, damn, that's such a pain, so much has to be done.", and here I went and did not only that, but also built an interface for all of it; I never even dreamed of the result I have now.</p>
+<p>I also now think that with all this GUI I can REALLY easily show how to actually <strong>build</strong> a portal in a portal, without all my bone-crushing polygon algorithms in C++; I think with this GUI you could solve the portal-in-portal problem in just an hour, in the form it's solved in my YouTube video.</p>
+<p>All this interactivity is just so good. Love it.</p>
+<p>By the way, you can support this post on <a href="https://twitter.com/optozorax/status/1372318558584242178">Twitter</a>.</p>
+<h1 id="19-03-2021"><a class="anchor" href="#19-03-2021">#</a>19.03.2021</h1>
+<blockquote>
+<p><strong>Source:</strong>
+<a href="https://t.me/optozorax_dev/366"><code>tg/366</code></a> (5 💬).</p>
+</blockquote>
+<video class="img-one" controls>
+  <source src="optimized/366.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<p><strong>Möbius monoportal.</strong></p>
+<p>This portal consists of one part and has one surface! Everything that enters it simply gets teleported to another part of it.</p>
+<p>Be sure to check out the web demo (on a computer): it has the whole animation, a description, and lots and lots of sliders to play with:</p>
+<p><a href="https://optozorax.github.io/portal/?scene=mobius_monoportal">https://optozorax.github.io/portal/?scene=mobius_monoportal</a></p>
+<p>An interesting observation I made by accident: if you rotate it around its local <code>Y</code> axis, the picture doesn't change!</p>
+<p>There was a reason I explained what a simple Monoportal is in the previous posts: that was planned so you could better understand this post. Essentially it's the same monoportal, just with a weird shape.</p>
+<p>If you remember, at the very beginning this is exactly the result I dreamed of getting, and now I've done it!</p>
+<p>By the way, no other Möbius monoportals are possible, even if you add mirroring along any of the axes, so this is the only one.</p>
+<h1 id="20-03-2021"><a class="anchor" href="#20-03-2021">#</a>20.03.2021</h1>
+<blockquote>
+<p><strong>Source:</strong>
+<a href="https://t.me/optozorax_dev/368"><code>tg/368</code></a> (11 💬).</p>
+</blockquote>
+<div class="gallery-container">
+<div class="gallery-slide" id="slide_2_0" style="display:block;">
+  <div class="gallery-text">1 / 8</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/368.198c21820595e022.webp"
+    onclick="full_screen('368.png')"
+    onauxclick="full_screen_new_page('368.png')"
+    width="1280"
+    height="871">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1.5<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+</div>
+<div class="gallery-slide" id="slide_2_1" >
+  <div class="gallery-text">2 / 8</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/369.c38fbcd8cf83154b.webp"
+    onclick="full_screen('369.png')"
+    onauxclick="full_screen_new_page('369.png')"
+    width="1280"
+    height="871">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1.5<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+</div>
+<div class="gallery-slide" id="slide_2_2" >
+  <div class="gallery-text">3 / 8</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/370.1468d2a9a8b0f58e.webp"
+    onclick="full_screen('370.png')"
+    onauxclick="full_screen_new_page('370.png')"
+    width="1280"
+    height="871">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1.5<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+</div>
+<div class="gallery-slide" id="slide_2_3" >
+  <div class="gallery-text">4 / 8</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/371.37e961d931a5b5ad.webp"
+    onclick="full_screen('371.png')"
+    onauxclick="full_screen_new_page('371.png')"
+    width="1280"
+    height="871">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1.5<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+</div>
+<div class="gallery-slide" id="slide_2_4" >
+  <div class="gallery-text">5 / 8</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/372.f82330328b7cd8cd.webp"
+    onclick="full_screen('372.png')"
+    onauxclick="full_screen_new_page('372.png')"
+    width="1280"
+    height="871">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1.5<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+</div>
+<div class="gallery-slide" id="slide_2_5" >
+  <div class="gallery-text">6 / 8</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/373.becf013d32122f5d.webp"
+    onclick="full_screen('373.png')"
+    onauxclick="full_screen_new_page('373.png')"
+    width="1280"
+    height="871">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1.5<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+</div>
+<div class="gallery-slide" id="slide_2_6" >
+  <div class="gallery-text">7 / 8</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/374.e8708dc0bb9acbc7.webp"
+    onclick="full_screen('374.png')"
+    onauxclick="full_screen_new_page('374.png')"
+    width="1280"
+    height="871">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1.5<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+</div>
+<div class="gallery-slide" id="slide_2_7" >
+  <div class="gallery-text">8 / 8</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.06931793956520665"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/375.af138bf586445269.webp"
+    onclick="full_screen('375.png')"
+    onauxclick="full_screen_new_page('375.png')"
+    width="1280"
+    height="706">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×3.1<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.06931793956520665"></svg>
+</div>
+<a class="gallery-prev" onclick="gallery_plus(2, -1)">&#10094;</a>
+<a class="gallery-next" onclick="gallery_plus(2, 1)">&#10095;</a>
+</div>
+<div class="gallery-row">
+  <div class="gallery-column" style="width: 12.5%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+    <img class="gallery-demo not-default gallery-active" src="/processed_images/368.198c21820595e022.webp"
+      id="demo_2_0"
+      onclick="gallery_set(2, 0)"
+      width="1280" height="871">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  </div>
+  <div class="gallery-column" style="width: 12.5%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+    <img class="gallery-demo not-default" src="/processed_images/369.c38fbcd8cf83154b.webp"
+      id="demo_2_1"
+      onclick="gallery_set(2, 1)"
+      width="1280" height="871">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  </div>
+  <div class="gallery-column" style="width: 12.5%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+    <img class="gallery-demo not-default" src="/processed_images/370.1468d2a9a8b0f58e.webp"
+      id="demo_2_2"
+      onclick="gallery_set(2, 2)"
+      width="1280" height="871">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  </div>
+  <div class="gallery-column" style="width: 12.5%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+    <img class="gallery-demo not-default" src="/processed_images/371.37e961d931a5b5ad.webp"
+      id="demo_2_3"
+      onclick="gallery_set(2, 3)"
+      width="1280" height="871">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  </div>
+  <div class="gallery-column" style="width: 12.5%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+    <img class="gallery-demo not-default" src="/processed_images/372.f82330328b7cd8cd.webp"
+      id="demo_2_4"
+      onclick="gallery_set(2, 4)"
+      width="1280" height="871">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  </div>
+  <div class="gallery-column" style="width: 12.5%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+    <img class="gallery-demo not-default" src="/processed_images/373.becf013d32122f5d.webp"
+      id="demo_2_5"
+      onclick="gallery_set(2, 5)"
+      width="1280" height="871">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  </div>
+  <div class="gallery-column" style="width: 12.5%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+    <img class="gallery-demo not-default" src="/processed_images/374.e8708dc0bb9acbc7.webp"
+      id="demo_2_6"
+      onclick="gallery_set(2, 6)"
+      width="1280" height="871">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  </div>
+  <div class="gallery-column" style="width: 12.5%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.06931793956520665"></svg>
+    <img class="gallery-demo not-default" src="/processed_images/375.af138bf586445269.webp"
+      id="demo_2_7"
+      onclick="gallery_set(2, 7)"
+      width="1280" height="706">
+    <svg class="gallery-svg" viewBox="0 0 1 0.06931793956520665"></svg>
+  </div>
+</div>
+<script>
+slide_index[2] = 0;
+slide_count[2] = 8;
+</script>
+<p><strong>Triple portal.</strong></p>
+<p>I've already questioned the idea that portals can only have two parts and showed you a portal made of <a href="https://optozorax.github.io/en/p/portals/#8-03-2021">one part</a>; now it's time to show a portal made of three parts, a portal that can connect three different worlds!</p>
+<p><a href="https://optozorax.github.io/portal/?scene=triple_portal">Web demo</a> (better on a PC)</p>
+<p>This portal can be assembled from three pairs of regular portals, so it's all perfectly legal!) At the center, where the three portals touch, no object breaks or gets torn apart, you can see that in the demo.</p>
+<p>There are really a ton of sliders there now, be sure to play with them, twist them around. I personally got hooked for about an hour, twisting these sliders and exploring what beautiful recursion the parts of a triple portal pointed at each other can produce.</p>
+<p>I really didn't expect it to turn out so beautiful. Especially since I'd never seen all this beauty myself before; it's all thanks to the visual editor and the power of ray tracing.</p>
+<p>By the way, a life hack: to zoom in, you can set the field of view to 2°.</p>
+<p>You can support me on <a href="https://twitter.com/optozorax/status/1373077780720668675">Twitter</a>, <a href="https://www.reddit.com/r/Portal/comments/m8wgc3/ever_interested_in_a_portal_gun_that_can_create/">Reddit</a>, <a href="http://pikabu.ru/story/portal_iz_tryoknh_chastey_8090309">Pikabu</a> (in Russian).</p>
+<h1 id="21-03-2021"><a class="anchor" href="#21-03-2021">#</a>21.03.2021</h1>
+<blockquote>
+<p><strong>Source:</strong>
+<a href="https://t.me/optozorax_dev/380"><code>tg/380</code></a> (3 💬),
+<a href="https://t.me/optozorax_dev/386"><code>tg/386</code></a> (2 💬).</p>
+</blockquote>
+<div class="gallery-container">
+<div class="gallery-slide" id="slide_3_0" style="display:block;">
+  <div class="gallery-text">1 / 4</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/380.4b1a9e57e96769fb.webp"
+    onclick="full_screen('380.png')"
+    onauxclick="full_screen_new_page('380.png')"
+    width="1280"
+    height="913">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1.5<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+</div>
+<div class="gallery-slide" id="slide_3_1" >
+  <div class="gallery-text">2 / 4</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/381.34fad05d20a124c9.webp"
+    onclick="full_screen('381.png')"
+    onauxclick="full_screen_new_page('381.png')"
+    width="1280"
+    height="913">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1.5<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+</div>
+<div class="gallery-slide" id="slide_3_2" >
+  <div class="gallery-text">3 / 4</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/382.63c60c405ed74432.webp"
+    onclick="full_screen('382.png')"
+    onauxclick="full_screen_new_page('382.png')"
+    width="1280"
+    height="913">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1.5<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+</div>
+<div class="gallery-slide" id="slide_3_3" >
+  <div class="gallery-text">4 / 4</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/383.f59daa1673f1a599.webp"
+    onclick="full_screen('383.png')"
+    onauxclick="full_screen_new_page('383.png')"
+    width="1280"
+    height="913">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1.5<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+</div>
+<a class="gallery-prev" onclick="gallery_plus(3, -1)">&#10094;</a>
+<a class="gallery-next" onclick="gallery_plus(3, 1)">&#10095;</a>
+</div>
+<div class="gallery-row">
+  <div class="gallery-column" style="width: 25%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+    <img class="gallery-demo not-default gallery-active" src="/processed_images/380.4b1a9e57e96769fb.webp"
+      id="demo_3_0"
+      onclick="gallery_set(3, 0)"
+      width="1280" height="913">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  </div>
+  <div class="gallery-column" style="width: 25%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+    <img class="gallery-demo not-default" src="/processed_images/381.34fad05d20a124c9.webp"
+      id="demo_3_1"
+      onclick="gallery_set(3, 1)"
+      width="1280" height="913">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  </div>
+  <div class="gallery-column" style="width: 25%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+    <img class="gallery-demo not-default" src="/processed_images/382.63c60c405ed74432.webp"
+      id="demo_3_2"
+      onclick="gallery_set(3, 2)"
+      width="1280" height="913">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  </div>
+  <div class="gallery-column" style="width: 25%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+    <img class="gallery-demo not-default" src="/processed_images/383.f59daa1673f1a599.webp"
+      id="demo_3_3"
+      onclick="gallery_set(3, 3)"
+      width="1280" height="913">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  </div>
+</div>
+<script>
+slide_index[3] = 0;
+slide_count[3] = 4;
+</script>
+<p><strong>Portal in portal.</strong></p>
+<p>I can't believe I'm saying this, but I made a web demo where you can literally take one portal, put it into another at any possible angle and see what happens. And it just works.</p>
+<p>I think this is the best thing I've ever made in my life.</p>
+<p><a href="https://optozorax.github.io/portal/?scene=portal_in_portal">https://optozorax.github.io/portal/?scene=portal_in_portal</a></p>
+<p>I made it in my visual editor in just a couple of hours. I'd already accidentally posted screenshots of what it looks like here, and decided not to delete them since I'd already posted them.</p>
+<p>I've solved a similar problem before, but that was long ago, and I did it in a very complicated way: through all sorts of computations on polygons. And it was so complicated that in a couple of years of working on it at half throttle in my free time, I could only make what you can see in <a href="https://optozorax.github.io/en/p/portals/#31-01-2021">this</a> post. Other ways of a portal entering a portal, or a triple portal entering a triple portal, worked with crazy bugs that are so hard to make sense of that I still don't fully understand what the problem is, even though I've visualized it a million times.</p>
+<p>I'd long had a feeling that this should be solvable more simply somehow, that there had to be an approach that simplifies everything. Similar to how brute force lets you solve a problem simply, though not very fast. And here, finally, I've found such a way.</p>
+<p>Now I'm even more convinced that what matters more is not hard work, but the ability to come up with a clever workaround, the ability to use your brain.</p>
+<video class="img-one" controls>
+  <source src="optimized/384.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<video class="img-one" controls>
+  <source src="optimized/385.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<h1 id="24-03-2021"><a class="anchor" href="#24-03-2021">#</a>24.03.2021</h1>
+<blockquote>
+<p><strong>Source:</strong>
+<a href="https://t.me/optozorax_dev/387"><code>tg/387</code></a> (1 💬),
+<a href="https://t.me/optozorax_dev/388"><code>tg/388</code></a>,
+<a href="https://t.me/optozorax_dev/389"><code>tg/389</code></a> (3 💬).</p>
+</blockquote>
+<p>Meanwhile, I've made a few open-source contributions. In Portal Explorer I had various bits of work, improvements to the libraries I use, and I decided to pull them out into separate crates so others could use them too.</p>
+<h2 id="quad-url"><a class="anchor" href="#quad-url">#<sup>2</sup></a>quad-url</h2>
+<p><a href="https://crates.io/crates/quad-url">[crates.io]</a> <a href="https://github.com/optozorax/quad-url">[github]</a> <a href="https://optozorax.github.io/quad-url/?a&amp;b=1&amp;cd=e+f&amp;gh#myhash">[web demo]</a></p>
+<p>This is a library for reading and changing the current URL (query parameters, hash) and for opening links in the current or a new tab.</p>
+<p>In my Portal Explorer it's used to read the scene from the URL: <code>?scene=triple_portal</code>, and I've now made it so that when a scene is opened via the "Load" menu, the current URL changes to the name of that scene.</p>
+<p>I also used it to <a href="https://github.com/not-fl3/egui-miniquad/pull/13">fix</a> link opening in egui-miniquad, and therefore in the next crate too.</p>
+<h2 id="egui-macroquad"><a class="anchor" href="#egui-macroquad">#<sup>2</sup></a>egui-macroquad</h2>
+<p><a href="https://crates.io/crates/egui-macroquad">[crates.io]</a> <a href="https://github.com/optozorax/egui-macroquad">[github]</a> <a href="https://optozorax.github.io/egui-macroquad/">[web demo]</a></p>
+<p><a href="https://github.com/not-fl3/macroquad">macroquad</a> is famous for being easy to use, and now you can plug in a very cool Immediate Mode GUI library, egui, just as easily.</p>
+<p>By the way, all my recent things, Portal Explorer, Monoportal and Mobius Portal, are written with macroquad, so I recommend it to everyone.</p>
+<div class="container">
+<div class="magnifier-container img-one-two"> <img     class="not-default full-screen-img"     width="640"     height="540"     src="/processed_images/389.8eabcb9d837205ca.webp"     onclick="full_screen('389.jpg')"     onauxclick="full_screen_new_page('389.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×2<br>jpg</div> </div> </div>
+<div class="magnifier-container img-one-two"> <img     class="not-default full-screen-img"     width="640"     height="469"     src="/processed_images/390.0bf4c1278aa44dfd.webp"     onclick="full_screen('390.jpg')"     onauxclick="full_screen_new_page('390.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.3<br>jpg</div> </div> </div>
+</div>
+<h1 id="13-04-2021"><a class="anchor" href="#13-04-2021">#</a>13.04.2021</h1>
+<blockquote>
+<p><strong>Source:</strong>
+<a href="https://t.me/optozorax_dev/395"><code>tg/395</code></a> (4 💬).</p>
+</blockquote>
+<p>News from the past few weeks:</p>
+<ol>
+<li>
+<p>My rather non-trivial feature in <code>egui</code> got <a href="https://github.com/emilk/egui/pull/257#event-4584292671">merged</a>. In short, this feature lets any widget store arbitrary data in the interface structure that gets passed around everywhere. That is, you don't need to set up some <code>HashMap</code> of your own and drag it through all the functions. This is done by storing things through the <a href="https://doc.rust-lang.org/std/any/trait.Any.html">Any</a> trait (like <code>TypeMap</code>). And the most important part and challenge of this feature is solving the problem of de/serializing this thing! That's needed so that when the program is closed, the whole interface state can be saved to a file and loaded from it. I did it with lazy deserialization, which waits until the user calls <code>.get::&lt;Type&gt;()</code> with the type they need. The author of <code>egui</code> says I should move this out into a separate crate, since serialization of <code>Any</code> apparently hasn't been solved like this before. I'll have to get to it, but my perfectionism demands that I first study all the <code>TypeMap</code> libraries and only then release this as a crate... I made this feature because the interface code in Portal Explorer looked scary, since I was dragging my <code>HashMap</code>s everywhere. No new portal scenes for now, because a refactoring is in full swing there 🚧, since my interface no longer lets me make complex portal scenes easily and quickly.</p>
+</li>
+<li>
+<p>I revived the <a href="https://github.com/ozkriff/awesome-quads">awesome-quads</a> repo, which collects links to projects based on the <code>miniquad</code>/<code>macroquad</code> libs. Judging by the list of games and other stuff, <code>macroquad</code> is pretty popular.</p>
+</li>
+<li>
+<p>🔵🟠 Portal Explorer <a href="https://gamedev.rs/news/020/#portal-explorer">made it</a> into the Rust GameDev monthly newsletter! Thanks to Andrey <a href="https://t.me/ozkriff_games">@ozkriff_games</a> for this opportunity and the coordination ✊.</p>
+</li>
+</ol>
+<h1 id="29-04-2021"><a class="anchor" href="#29-04-2021">#</a>29.04.2021</h1>
+<blockquote>
+<p><strong>Source:</strong>
+<a href="https://t.me/optozorax_dev/396"><code>tg/396</code></a>,
+<a href="https://t.me/optozorax_dev/397"><code>tg/397</code></a>,
+<a href="https://t.me/optozorax_dev/398"><code>tg/398</code></a>,
+<a href="https://t.me/optozorax_dev/399"><code>tg/399</code></a>,
+<a href="https://t.me/optozorax_dev/400"><code>tg/400</code></a> (2 💬),
+<a href="https://t.me/optozorax_dev/402"><code>tg/402</code></a> (6 💬),
+<a href="https://t.me/optozorax_dev/403"><code>tg/403</code></a>.</p>
+</blockquote>
+<h2 id="portal-explorer-2"><a class="anchor" href="#portal-explorer-2">#<sup>2</sup></a>Portal Explorer 2</h2>
+<p>Announcing the release of Portal Explorer v0.2.0!</p>
+<p>Changelog:</p>
+<ul>
+<li>Refactored the scene editing interface.</li>
+<li>Added the ability to change the camera in the scene viewing menu.</li>
+<li>The menu now has a button to switch to Russian.</li>
+<li>Added descriptions of specific stages; variables can now have human-readable names and descriptions instead of "user_a".</li>
+<li>favicon</li>
+</ul>
+<p>For each scene:</p>
+<ul>
+<li>Improved the description, added a description in Russian.</li>
+<li>The ability to view a portal as something that connects several worlds.</li>
+<li>In the "Explore" section you can move the camera to a specific portal in one click.</li>
+</ul>
+<p>Scene changes:</p>
+<ul>
+<li>Triple portal: beautiful combinations of settings were added as separate stages.</li>
+<li>Hopf link portal (Chain portal): a "new" scene.</li>
+<li>Portal in portal: now shows the beginning of the animation; beautiful combinations of settings and even animations were added as separate stages.</li>
+</ul>
+<p>Web demo:</p>
+<p><a href="https://optozorax.github.io/portal/?scene=triple_portal">https://optozorax.github.io/portal/?scene=triple_portal</a></p>
+<p>Choose scenes in the "Load" menu. Even if you've seen all these scenes, I recommend going through them again and rereading the descriptions, because there are lots of changes and improvements.</p>
+<p>There are no optimizations for phones yet, but I fixed one bug, so now you should be able to control the interface with your fingers. So if you have a powerful phone, you can try running it.</p>
+<p>More details below.</p>
+<h2 id="refactored-the-scene-editing-interface"><a class="anchor" href="#refactored-the-scene-editing-interface">#<sup>2</sup></a>Refactored the scene editing interface</h2>
+<p>As a reminder, I make all the scenes in a visual editor that I wrote myself. Previously its User Experience was very bad, because:</p>
+<ul>
+<li>Some scene settings depended on positions in an array. So if I deleted or moved something, things could break.</li>
+<li>Other settings were tied to string names, so some objects couldn't be renamed, and in general it's kind of unprofessional.</li>
+<li>You couldn't define an anonymous object "in place" (inline). You could only write the names of existing objects. So if I just wanted to negate an existing variable, I had to create a new named variable.</li>
+<li>All the explanation stages were done in such a way that in the scene settings, for a specific variable (for example, the one controlling the color of the portals, from black to orange/blue), you had to put a switch in the form of a math formula, for example <code>swith(stage, 0.0, progress, 1.0, 1.0 - progress, 0.0)</code>. Since different animations had to live in one matrix or one variable, complexity and cognitive load went through the roof.</li>
+</ul>
+<p>So making scenes was very hard, and there were many places where errors could happen; it was especially hard to write scenes that explain something, because they have lots of animations.</p>
+<p>So I decided to introduce two new features:</p>
+<ul>
+<li>Every object has its own typed ID (instead of a name or a position in an array).</li>
+<li>The value of any object can be defined "in place", without writing its name and creating a named object.</li>
+</ul>
+<p>And that was the main point of my refactoring. To make some parts work, I had to make that contribution to <code>egui</code>, because things were getting so complicated that it was impossible without that feature.</p>
+<p>After I'd done it, I had to manually convert all the scenes to the new format: its ideology and principles had changed, after all, so you can't just convert them automatically. Besides, I wanted to test it in practice and find bugs, and improve the scenes along the way.</p>
+<p>In the end, developing scenes really did become a million times easier, and typed IDs are a real lifesaver when coding (more types for the type god!).</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1280"     height="1175"     src="/processed_images/398.f0add0da39a08388.webp"     onclick="full_screen('398.png')"     onauxclick="full_screen_new_page('398.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.8<br>png</div> </div> </div>
+<p>At the very top is the "Objects" menu, which holds the objects. An object needs one matrix to define where it will be. The matrix can be declared inline, and that's exactly what's done here. But here it's a "Param." (parametric) matrix, whose components can be given by formulas that depend on some parameters. In this case it's set up so that the matrix position is computed from an angle <code>x</code> along a circular path, and that angle can, for example, be exposed to the user. So this object moves around a circle. You can see there are more inline formulas inside the matrix.</p>
+<p>Just imagine the same code with the previous approach, where you had to create a named object for every little thing: a nightmare!</p>
+<h2 id="added-the-ability-to-change-the-camera-in-the-scene-viewing-menu"><a class="anchor" href="#added-the-ability-to-change-the-camera-in-the-scene-viewing-menu">#<sup>2</sup></a>Added the ability to change the camera in the scene viewing menu</h2>
+<p>I want:</p>
+<ul>
+<li>The user to be able to choose which portal to orbit around (maybe they want to get a better look at it).</li>
+<li>To be able to choose which room to orbit inside (for scenes that have several rooms/worlds).</li>
+</ul>
+<p>And I've implemented that, and you can see it in detail in this video.</p>
+<video class="img-one" controls>
+  <source src="optimized/399.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<h2 id="the-menu-now-has-a-button-to-switch-to-russian"><a class="anchor" href="#the-menu-now-has-a-button-to-switch-to-russian">#<sup>2</sup></a>The menu now has a button to switch to Russian</h2>
+<p>I made it possible to define lots of descriptions and hints, and to have all descriptions turn into Russian at the press of a button.</p>
+<p>I did this, if nothing else, because it's easier for me to first write all the prose in Russian and then translate it into English. When there was only an English description, it was very hard to put my thoughts into words.</p>
+<p>And in general, Russian is kind of the main language for me and my readers.</p>
+<p>True, for consistency the rest of the interface should then be translated too... But I think Russian humans can handle an English interface, they're "used to it". If it gets really critical, I'll think about implementing <a href="https://github.com/emilk/egui/issues/136">this issue</a>, and implementing it in a way that also makes localization convenient for users of the <code>egui</code> library.</p>
+<div class="container">
+<div class="magnifier-container img-one-two"> <img     class="not-default full-screen-img"     width="361"     height="393"     src="/processed_images/400.58390f0cd6326710.webp"     onclick="full_screen('400.jpg')"     onauxclick="full_screen_new_page('400.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<div class="magnifier-container img-one-two"> <img     class="not-default full-screen-img"     width="367"     height="407"     src="/processed_images/401.46dd983ab049b662.webp"     onclick="full_screen('401.jpg')"     onauxclick="full_screen_new_page('401.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+</div>
+<h2 id="hopf-link-portal"><a class="anchor" href="#hopf-link-portal">#<sup>2</sup></a>Hopf link portal</h2>
+<p>You know how chain links are joined together? This portal has exactly that shape. It would probably be better to call it the "Chain portal".</p>
+<p>For it to work, the two portals linked into a chain have to be double-sided (have a teleporting surface both on the front and on the back).</p>
+<p>In the video you can see that no teleportation happens where the two portals intersect; that's because it cancels out from passing through twice.</p>
+<p>The video also shows that there are two ways to color this portal, and one of them is exactly what lets you understand where and when a ray gets teleported.</p>
+<p>The idea for this portal was suggested by a mathematician on Twitter, he liked it a lot.</p>
+<p>Last time I made it badly and sloppily (apparently I was upset by the reaction to the other portals), so I released it half-baked and didn't even mention it here. This time it wasn't hard for me to do it properly, so here it is.</p>
+<video class="img-one" controls>
+  <source src="optimized/402.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<h2 id="portal-in-portal"><a class="anchor" href="#portal-in-portal">#<sup>2</sup></a>Portal in portal</h2>
+<p>I also didn't put much effort into this scene when I released it; somehow I didn't even think of showing how this portal got there in the first place. So in this version it first shows that we take two connected portals, then turn the blue one around and insert it into the orange one.</p>
+<p>Animations and pictures were also added. Praise the new interface, adding them was a piece of cake!</p>
+<p>And this time I put effort into the description of this scene: I explained what the colors mean when the "Teleport light" option is turned off, and how they're computed. Read the "How this works" section, I think this time you'll understand the magic under the hood better.</p>
+<video class="img-one" controls>
+  <source src="optimized/403.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<h1 id="1-05-2021"><a class="anchor" href="#1-05-2021">#</a>1.05.2021</h1>
+<blockquote>
+<p><strong>Source:</strong>
+<a href="https://t.me/optozorax_dev/404"><code>tg/404</code></a>,
+<a href="https://t.me/optozorax_dev/405"><code>tg/405</code></a>,
+<a href="https://t.me/optozorax_dev/406"><code>tg/406</code></a>,
+<a href="https://t.me/optozorax_dev/407"><code>tg/407</code></a> (3 💬).</p>
+</blockquote>
+<p>I've brought you a couple of new cool monoportals. Two more (three/four?) interesting monoportals are coming soon.</p>
+<h2 id="rotating-monoportal"><a class="anchor" href="#rotating-monoportal">#<sup>2</sup></a>Rotating monoportal</h2>
+<video class="img-one" controls>
+  <source src="optimized/405.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<p><a href="https://optozorax.github.io/portal/?scene=monoportal_rotating">Rotating monoportal</a></p>
+<p>This monoportal is assembled from a regular monoportal by simply reflecting one of its parts. In reality such a reflection is impossible to perform.</p>
+<p>The resulting monoportal rotates everything by 180°.</p>
+<p>Also, if you walk into it, you'll become mirrored (or the world will become mirrored for you), as if you'd walked into a mirror.</p>
+<p><strong>Idea:</strong> thanks to <a href="http://t.me/FindYouByUsernameAndContactYou">myotra</a>.</p>
+<h2 id="n-monoportal"><a class="anchor" href="#n-monoportal">#<sup>2</sup></a>N-monoportal</h2>
+<video class="img-one" controls>
+  <source src="optimized/406.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<p><a href="https://optozorax.github.io/portal/?scene=monoportal_n">N-monoportal</a></p>
+<p>This is a monoportal that behaves as if it consists of N parts, for example three, but actually there's always just one part!</p>
+<h3 id="construction"><a class="anchor" href="#construction">#<sup>3</sup></a>Construction</h3>
+<p>Take a regular monoportal and simply rotate its parts so that the angle between them is <code>360°/Count</code>.</p>
+<h3 id="regular-monoportal"><a class="anchor" href="#regular-monoportal">#<sup>3</sup></a>Regular monoportal</h3>
+<p>You get it with <code>Count = 2</code>, and that's pretty obvious: it looks like it has two parts.</p>
+<p>If you replace the portals with mirrors (the <code>Act as a mirror</code> option), it looks like an ordinary mirror.</p>
+<p>If you mirror one portal part (the <code>Mirror one part vertically</code> option) (this is not the same as turning it into a mirror!), the portal looks like the regular rotating monoportal.</p>
+<h3 id="triple-monoportal"><a class="anchor" href="#triple-monoportal">#<sup>3</sup></a>Triple monoportal</h3>
+<p>It sounds crazy, but it looks like the love child of a monoportal and a triple portal. The main thing is that the image in it stays continuous and looks good.</p>
+<p>The mirror breaks in the middle here.</p>
+<p>Mirroring one part breaks too.</p>
+<h3 id="quadruple-monoportal"><a class="anchor" href="#quadruple-monoportal">#<sup>3</sup></a>Quadruple monoportal</h3>
+<p>And here the mirror no longer breaks. In fact, the mirror breaks only for odd N.</p>
+<p>The quarter in the middle looks like a regular monoportal: through it you can read the text that's opposite you, and this holds even if you turn on the mirror! That's exactly how the thing called a "True mirror" is made: it consists of two mirrors set at 90° to each other.</p>
+<p>The same goes for the option of mirroring one part.</p>
+<h3 id="the-rest"><a class="anchor" href="#the-rest">#<sup>3</sup></a>The rest</h3>
+<p>The other monoportals are nothing special.</p>
+<h1 id="2-05-2021"><a class="anchor" href="#2-05-2021">#</a>2.05.2021</h1>
+<blockquote>
+<p><strong>Source:</strong>
+<a href="https://t.me/optozorax_dev/408"><code>tg/408</code></a> (5 💬).</p>
+</blockquote>
+<p>⚠️ Spoilers for Ilya's future portals have been spotted on the streets of Almaty</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1280"     height="720"     src="/processed_images/408.d2813ebc9fae1af8.webp"     onclick="full_screen('408.jpg')"     onauxclick="full_screen_new_page('408.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<h1 id="3-05-2021"><a class="anchor" href="#3-05-2021">#</a>3.05.2021</h1>
+<blockquote>
+<p><strong>Source:</strong>
+<a href="https://t.me/optozorax_dev/409"><code>tg/409</code></a>.</p>
+</blockquote>
+<h2 id="offsetting-monoportal"><a class="anchor" href="#offsetting-monoportal">#<sup>2</sup></a>Offsetting monoportal</h2>
+<video class="img-one" controls>
+  <source src="optimized/409.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<p><a href="https://optozorax.github.io/portal/?scene=monoportal_offset">Offsetting monoportal</a></p>
+<p>This portal works like a regular monoportal, but it also shifts everything by half its height.</p>
+<p>It can only exist with the help of support portals.</p>
+<p>The idea for this portal came to me by accident while I was trying to fall asleep. Good thing I always write down my thoughts before going to sleep.</p>
+<h3 id="shifting-one-part"><a class="anchor" href="#shifting-one-part">#<sup>3</sup></a>Shifting one part</h3>
+<p>Take a regular monoportal and shift one of its parts by exactly half its height.</p>
+<h3 id="adding-support-portals-and-teleporting-this-part"><a class="anchor" href="#adding-support-portals-and-teleporting-this-part">#<sup>3</sup></a>Adding support portals and teleporting this part</h3>
+<p>By the end of this animation the portal becomes continuous.</p>
+<p>Try scrubbing through this animation with the "Teleport light" option turned off. Green means a teleported portal.</p>
+<h3 id="exploring-the-offset"><a class="anchor" href="#exploring-the-offset">#<sup>3</sup></a>Exploring the offset</h3>
+<p>The portal comes out continuous only for an offset of 0 (the regular monoportal) and 0.5 of the portal's height.</p>
+<h3 id="making-the-portal-bigger"><a class="anchor" href="#making-the-portal-bigger">#<sup>3</sup></a>Making the portal bigger</h3>
+<p>You can see that with a bigger portal, the floor and the ceiling meet exactly halfway up the room.</p>
+<h1 id="5-05-2021"><a class="anchor" href="#5-05-2021">#</a>5.05.2021</h1>
+<blockquote>
+<p><strong>Source:</strong>
+<a href="https://t.me/optozorax_dev/412"><code>tg/412</code></a>,
+<a href="https://t.me/optozorax_dev/413"><code>tg/413</code></a> (2 💬),
+<a href="https://t.me/optozorax_dev/414"><code>tg/414</code></a>,
+<a href="https://t.me/optozorax_dev/415"><code>tg/415</code></a>,
+<a href="https://t.me/optozorax_dev/416"><code>tg/416</code></a>.</p>
+</blockquote>
+<h2 id="introduction-2"><a class="anchor" href="#introduction-2">#<sup>2</sup></a>Introduction</h2>
+<p>I've finished all the fundamental monoportals!</p>
+<p>For those who don't know or have forgotten: a monoportal is a portal that consists of one continuous teleporting surface. The regular monoportal isn't that interesting, but everything that comes after it is a bit mind-blowing, because it's not clear how some things can be squeezed into one part.</p>
+<p>In particular, in this post I'll talk about scaling monoportals. The idea is that one continuous surface can enlarge or shrink an object entering it. Before reading further, try to solve this problem yourself. Is it possible to build one? How do you make it so that it doesn't tear objects apart and preserves straight lines and angles?</p>
+<p>It sounds crazy, but it really is possible, and it really can be assembled from ordinary flat portals, without any new technology for uniform shrinking and the like.</p>
+<h2 id="offsetting-monoportal-2"><a class="anchor" href="#offsetting-monoportal-2">#<sup>2</sup></a>Offsetting monoportal 2</h2>
+<video class="img-one" controls>
+  <source src="optimized/414.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<p><a href="https://optozorax.github.io/portal/?scene=monoportal_offset2">Offsetting monoportal 2</a></p>
+<p>Before telling you about the other scaling portal, I have to show another way to build the offsetting monoportal, because that's exactly what will be used next. It's shown in the video, and it's pretty simple. Much simpler, by the way, than the original method with all that teleportation. But the original one is good because it shows that no offsets other than 0.5 and 0 exist.</p>
+<h2 id="scaling-monoportal-2"><a class="anchor" href="#scaling-monoportal-2">#<sup>2</sup></a>Scaling monoportal 2</h2>
+<video class="img-one" controls>
+  <source src="optimized/415.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<p><a href="https://optozorax.github.io/portal/?scene=monoportal_scale2">Scaling monoportal 2</a></p>
+<p>It's assembled from the offsetting monoportal: its upper part was turned into a trapezoid, and the scale of everything that depended on it changed accordingly.</p>
+<p>This portal consists of one continuous surface, and when you enter it you can either grow or shrink.</p>
+<h2 id="conclusion-2"><a class="anchor" href="#conclusion-2">#<sup>2</sup></a>Conclusion</h2>
+<p>Here you can see an interesting pattern: there are two scaling monoportals, and both are based on other monoportals: the offsetting one and the rotating one. This raises some open questions:</p>
+<ul>
+<li>Is it possible to create a scaling monoportal based on the regular monoportal?</li>
+<li>Is it possible to create a scaling monoportal without support portals?</li>
+</ul>
+<p>The preliminary answer is no, but who knows)</p>
+<h1 id="6-05-2021"><a class="anchor" href="#6-05-2021">#</a>6.05.2021</h1>
+<blockquote>
+<p><strong>Source:</strong>
+<a href="https://t.me/optozorax_dev/417"><code>tg/417</code></a>,
+<a href="https://t.me/optozorax_dev/420"><code>tg/420</code></a> (10 💬),
+<a href="https://t.me/optozorax_dev/421"><code>tg/421</code></a> (13 💬)</p>
+</blockquote>
+<h2 id="logarithmic-spiral-portal"><a class="anchor" href="#logarithmic-spiral-portal">#<sup>2</sup></a>Logarithmic spiral portal</h2>
+<p><a href="https://optozorax.github.io/portal/?scene=monoportal_log">Logarithmic spiral portal</a></p>
+<p>This is just the rotating scaling monoportal I told you about earlier, only in a slightly different shape. If you travel through it in circles, it will seem like you're going up or down a logarithmic spiral.</p>
+<div class="gallery-container">
+<div class="gallery-slide" id="slide_4_0" style="display:block;">
+  <div class="gallery-text">1 / 3</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/417.403ac39684142aeb.webp"
+    onclick="full_screen('417.png')"
+    onauxclick="full_screen_new_page('417.png')"
+    width="1280"
+    height="720">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1.6<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+</div>
+<div class="gallery-slide" id="slide_4_1" >
+  <div class="gallery-text">2 / 3</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/418.f4e94384731cd9ee.webp"
+    onclick="full_screen('418.png')"
+    onauxclick="full_screen_new_page('418.png')"
+    width="1280"
+    height="720">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1.6<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+</div>
+<div class="gallery-slide" id="slide_4_2" >
+  <div class="gallery-text">3 / 3</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/419.5a1aede0d4a20f82.webp"
+    onclick="full_screen('419.png')"
+    onauxclick="full_screen_new_page('419.png')"
+    width="1280"
+    height="720">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1.6<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+</div>
+<a class="gallery-prev" onclick="gallery_plus(4, -1)">&#10094;</a>
+<a class="gallery-next" onclick="gallery_plus(4, 1)">&#10095;</a>
+</div>
+<div class="gallery-row">
+  <div class="gallery-column" style="width: 33.333333333333336%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+    <img class="gallery-demo not-default gallery-active" src="/processed_images/417.403ac39684142aeb.webp"
+      id="demo_4_0"
+      onclick="gallery_set(4, 0)"
+      width="1280" height="720">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  </div>
+  <div class="gallery-column" style="width: 33.333333333333336%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+    <img class="gallery-demo not-default" src="/processed_images/418.f4e94384731cd9ee.webp"
+      id="demo_4_1"
+      onclick="gallery_set(4, 1)"
+      width="1280" height="720">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  </div>
+  <div class="gallery-column" style="width: 33.333333333333336%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+    <img class="gallery-demo not-default" src="/processed_images/419.5a1aede0d4a20f82.webp"
+      id="demo_4_2"
+      onclick="gallery_set(4, 2)"
+      width="1280" height="720">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  </div>
+</div>
+<script>
+slide_index[4] = 0;
+slide_count[4] = 3;
+</script>
+<h2 id="poll"><a class="anchor" href="#poll">#<sup>2</sup></a>Poll</h2>
+<figure>
+<div class="magnifier-container img-two-three"> <img     class="not-default full-screen-img"     width="817"     height="853"     src="/processed_images/tg_optozorax_dev_420.en.3fa8c1693175c291.webp"     onclick="full_screen('tg_optozorax_dev_420.en.png')"     onauxclick="full_screen_new_page('tg_optozorax_dev_420.en.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.3<br>png</div> </div> </div>
+<figcaption><a href="https://t.me/optozorax_dev/420">Link to the message</a> (in Russian)</figcaption>
+</figure>
+<h2 id="result"><a class="anchor" href="#result">#<sup>2</sup></a>Result</h2>
+<p>Thanks everyone for taking part, it matched 3/4 of my own picks; I didn't expect the regular monoportal to make it so high)</p>
+<p>I posted it on Twitter (follow the link, there's a thread):</p>
+<figure>
+<div class="magnifier-container img-two-three"> <img     class="not-default full-screen-img"     width="701"     height="853"     src="/processed_images/twitter_1390241834232913923.4d7bf9ea3c00a402.webp"     onclick="full_screen('twitter_1390241834232913923.png')"     onauxclick="full_screen_new_page('twitter_1390241834232913923.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.8<br>png</div> </div> </div>
+<figcaption><a href="https://twitter.com/optozorax/status/1390241834232913923">Link to the tweet</a></figcaption>
+</figure>
+<p>This time I tried posting in a different way:</p>
+<ul>
+<li>Lots of things at once.</li>
+<li>Very short videos that show only the gist, without the construction.</li>
+</ul>
+<h1 id="11-05-2021"><a class="anchor" href="#11-05-2021">#</a>11.05.2021</h1>
+<blockquote>
+<p><strong>Source:</strong>
+<a href="https://t.me/optozorax_dev/423"><code>tg/423</code></a>,
+<a href="https://t.me/optozorax_dev/424"><code>tg/424</code></a> (2 💬),
+<a href="https://t.me/optozorax_dev/425"><code>tg/425</code></a> (1 💬),
+<a href="https://t.me/optozorax_dev/427"><code>tg/427</code></a> (1 💬),
+<a href="https://t.me/optozorax_dev/430"><code>tg/430</code></a>,
+<a href="https://t.me/optozorax_dev/431"><code>tg/431</code></a> (2 💬),
+<a href="https://t.me/optozorax_dev/432"><code>tg/432</code></a>,
+<a href="https://t.me/optozorax_dev/433"><code>tg/433</code></a> (13 💬),
+<a href="https://t.me/optozorax_dev/434"><code>tg/434</code></a> (17 💬),
+<a href="https://t.me/optozorax_dev/435"><code>tg/435</code></a>,
+<a href="https://t.me/optozorax_dev/436"><code>tg/436</code></a> (7 💬).</p>
+</blockquote>
+<h2 id="introduction-3"><a class="anchor" href="#introduction-3">#<sup>2</sup></a>Introduction</h2>
+<p>New scenes again. But this time they're not about mind-blowing stuff, but about the basics. I know a lot of people don't understand what's going on here at all, so explanatory scenes like these are important. Based on these scenes I plan to make an explanatory video about portal in portal and upload it to YouTube: to gather all the explanations and my comments in one place, so they aren't scattered around like in this channel.</p>
+<h2 id="basics"><a class="anchor" href="#basics">#<sup>2</sup></a>Basics</h2>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1280"     height="644"     src="/processed_images/424.b7a17f7d86173d77.webp"     onclick="full_screen('424.jpg')"     onauxclick="full_screen_new_page('424.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<p><a href="https://optozorax.github.io/portal/?scene=basics">Basics</a></p>
+<p>This scene explains what a portal is, where it came from and how it can be created. The scene is good for those who haven't played Portal/Portal 2.</p>
+<p>Portals are very often compared to mirrors, so there's a "Mirror" option that turns off the teleportation of light and objects and simply turns the portals into mirrors.</p>
+<p>We're used to the concept of a door: it lets you go from one room to another. But much more important than the door itself is the doorway, because it's what connects two rooms separated by walls.</p>
+<p>Apparently it was the doorway that inspired the idea of a portal.</p>
+<p>This scene shows two rooms connected by a doorway.</p>
+<p>Just as a doorway can connect two rooms, a regular portal can connect two worlds:</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1280"     height="644"     src="/processed_images/425.8dac53f712d06515.webp"     onclick="full_screen('425.jpg')"     onauxclick="full_screen_new_page('425.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1280"     height="644"     src="/processed_images/426.b530ec5b51e26311.webp"     onclick="full_screen('426.jpg')"     onauxclick="full_screen_new_page('426.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<p>You could say that a portal is a doorway between spaces.</p>
+<h2 id="portals-in-one-world"><a class="anchor" href="#portals-in-one-world">#<sup>2</sup></a>Portals in one world</h2>
+<p>Things get interesting when we put portals in the same world.</p>
+<p>This scene shows two portals facing each other. The triangle keeps moving straight ahead, but thanks to the portals' ability to teleport, its motion loops.</p>
+<p>Notice that when we look into the blue portal, we again see only the blue portal; the same goes for the orange one; and we always see the triangle's image from behind.</p>
+<p>Now try replacing the portals with mirrors. Now in each mirror we see blue and orange mirrors alternating; and the triangle's image alternates between front and back.</p>
+<video class="img-one" controls>
+  <source src="optimized/427.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1280"     height="643"     src="/processed_images/428.5d697df8cc2c5b5f.webp"     onclick="full_screen('428.jpg')"     onauxclick="full_screen_new_page('428.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1280"     height="643"     src="/processed_images/429.f100e935a4704961.webp"     onclick="full_screen('429.jpg')"     onauxclick="full_screen_new_page('429.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<p>This is just a slightly different arrangement of two portals in one world:</p>
+<video class="img-one" controls>
+  <source src="optimized/430.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<p>With <code>Distance = 0</code> you get a <code>4-monoportal</code>, see the <code>N-monoportal</code> scene for details.</p>
+<h2 id="doorway"><a class="anchor" href="#doorway">#<sup>2</sup></a>Doorway</h2>
+<p>Portals can be created from any doorway.</p>
+<video class="img-one" controls>
+  <source src="optimized/431.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<p>You could say it's as if we tear spacetime apart between the halves of the doorway.</p>
+<h2 id="speed-model"><a class="anchor" href="#speed-model">#<sup>2</sup></a>Speed model</h2>
+<video class="img-one" controls>
+  <source src="optimized/432.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<p><a href="https://optozorax.github.io/portal/?scene=speed_model">Speed model</a></p>
+<p>In the game Portal, portals didn't move: they could only be placed on stationary surfaces, that was a limitation of the physics engine. So people have only a vague idea of how moving portals should behave.</p>
+<p>This scene shows the correct answer to the question of how a moving portal should behave.</p>
+<p>This is exactly the behavior that <a href="https://www.youtube.com/watch?v=B19nlhbA7-E">MinutePhysics</a> considers correct.</p>
+<p>If you consider different points of view on the motion, it seems as if the motion of a portal is equivalent to the motion of the whole space. And in some cases the space and the objects in it are either always moving or always at rest, before or after teleportation.</p>
+<h2 id="same-shape"><a class="anchor" href="#same-shape">#<sup>2</sup></a>Same shape</h2>
+<video class="img-one" controls>
+  <source src="optimized/433.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<p><a href="https://optozorax.github.io/portal/?scene=same_shape">Same shape</a></p>
+<p><strong>A portal must have the same shape on both sides.</strong> Otherwise you get an invalid portal. In this scene you can see what happens when a portal has different shapes in its different parts: on one side the teleportation of the triangle may look fine, while on the other it's already broken.</p>
+<p>This law comes in handy when teleporting a portal through another portal.</p>
+<h2 id="portal-in-portal-two-pairs"><a class="anchor" href="#portal-in-portal-two-pairs">#<sup>2</sup></a>Portal in portal: two pairs</h2>
+<video class="img-one" controls>
+  <source src="optimized/434.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<p><a href="https://optozorax.github.io/portal/?scene=portal_in_portal_two_pairs">Portal in portal: two pairs</a></p>
+<p>The question "What happens if you put a portal inside a portal?" can be answered differently, without creating any paradoxes, just by taking two more portals.</p>
+<p>Let's take two different pairs of portals: triangular and round. Then you can put a triangular portal into a round portal, and the problem is solved very easily. Of course, it's cheating, but it will help you better understand the logic of a true portal in portal.</p>
+<p>You can watch this by moving the "Progress" slider.</p>
+<p>Now try doing it with the "Teleport light" option turned off.</p>
+<p>Now you can see that the non-teleported portal is red and the teleported one is green. And the same coloring appears on the stationary triangular part. This happens because each portal must keep its shape the same on both sides. <strong>If a portal is cut on one side, it must be cut on the other side too.</strong></p>
+<p>Essentially, the red and the green portals are two different portals that simply sit next to each other on one side and are connected through the round portal on the other side.</p>
+<p>That's the whole essence of teleporting a portal: we cut a piece off the original portal so that this piece fully enters the round portal and doesn't cause any problems.</p>
+<h2 id="conclusion-3"><a class="anchor" href="#conclusion-3">#<sup>2</sup></a>Conclusion</h2>
+<p>Also, the speed model scene shows off a new feature: automatic animations that work by reading the current time. I updated the "Portal in portal" scene to use this feature: you can see it in the "Animation 1" and "Animation 2" stages.</p>
+<p>That's all for today. By the way, hello to all the new subscribers, and a huge thanks to <a href="https://www.youtube.com/post/UgwyCsICpnaMe1CAfrN4AaABCQ">TechnoShaman</a> (in Russian). Support like this is very motivating!</p>
+<h1 id="31-05-2021"><a class="anchor" href="#31-05-2021">#</a>31.05.2021</h1>
+<blockquote>
+<p><strong>Source:</strong>
+<a href="https://t.me/optozorax_dev/439"><code>tg/439</code></a>,
+<a href="https://t.me/optozorax_dev/440"><code>tg/440</code></a>,
+<a href="https://t.me/optozorax_dev/441"><code>tg/441</code></a>,
+<a href="https://t.me/optozorax_dev/442"><code>tg/442</code></a>,
+<a href="https://t.me/optozorax_dev/443"><code>tg/443</code></a> (3 💬),
+<a href="https://t.me/optozorax_dev/444"><code>tg/444</code></a>.</p>
+</blockquote>
+<h2 id="introduction-4"><a class="anchor" href="#introduction-4">#<sup>2</sup></a>Introduction</h2>
+<p>I still want to make a video explaining portal in portal. First I wrote a fairly detailed plan for the beginning and the end of the video. But in the middle the problems started. Before that I thought all the animations and scenes I already had would be enough to shoot a detailed and clear video, but while writing the plan I realized they weren't.</p>
+<p>It was precisely the middle, the transition from the simplest concepts to the actual solution of the problem, that left me stumped. I thought I was powerless, but then I went out for a walk (I recently started walking 8k steps every day), and decided to think all these problems through while walking. I walked for an hour, figured things out and put all the puzzle pieces together into one big picture; now I have a clear and understandable plan. For some reason I think much better while walking than while sitting still. Maybe it also helps that when you're walking outside, you don't get stuck on your phone and don't see the notification counter.</p>
+<p>So I planned a bunch more explanatory scenes, and when I finish them I'll continue writing the plan, and maybe one day I'll live to see the voice-over, the editing and, God willing, the release.</p>
+<p>I also thought that I should bring you news more often, so today I made one scene from the list and I'm telling you about it right away.</p>
+<h2 id="cutting-prism"><a class="anchor" href="#cutting-prism">#<sup>2</sup></a>Cutting prism</h2>
+<p><a href="https://optozorax.github.io/portal/?scene=cut_prism">The cutting prism scene.</a></p>
+<p>This scene shows that one portal can always be represented as several portals, and that portals cut entering objects at their border.</p>
+<p>Understanding this property of portals can help you understand how the <a href="https://optozorax.github.io/en/p/portals/#11-05-2021">"Portal in portal: two pairs"</a> scene works.</p>
+<video class="img-one" controls>
+  <source src="optimized/440.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<p>Let's take a pair of regular portals and an object that enters them. This object has a velocity, and it can move as time changes.</p>
+<video class="img-one" controls>
+  <source src="optimized/441.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<p>We can cut the blue portal into two parts with a single line. Since portals must keep the same shape on both sides, we have to do the same on the other side. As a result, we have two pairs of <strong>different</strong> portals: a red one and a green one.</p>
+<p>You can move the position of the line on the portal.</p>
+<p>The main thing to see here is that even though we have 2 pairs of different portals, together they form one continuous portal, because they're physically next to each other. Since we've composed one portal out of two, <strong>nothing</strong> has changed: neither the picture nor the teleportation of the object. <em>So this cutting exists only in our heads, and there's no way to tell from the outside whether a portal is a single whole or consists of many connected parts.</em></p>
+<p>In the same way, this portal can be cut into an infinite number of other portals, and in general you can consider each of its atoms a separate portal.</p>
+<p><strong>The main thing is that their relative positions are preserved at the entrance and at the exit.</strong></p>
+<video class="img-one" controls>
+  <source src="optimized/442.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<p>The border between two portals must behave like a knife that cuts every object entering it at the entrance. Here the knives are shown in gray.</p>
+<p><strong>This knife must point in the direction of the entering object's velocity.</strong></p>
+<p>At the exit the object is put back together, so cutting it doesn't change anything.</p>
+<p>You can see that since portals cut an object along their inner border, they must also cut it along their outer border. In <del>real life</del> the game, portal borders don't kill us because there are physical objects at the borders. Like, for example, the blue and orange outline around the portal here.</p>
+<h1 id="2-06-2021"><a class="anchor" href="#2-06-2021">#</a>2.06.2021</h1>
+<blockquote>
+<p><strong>Source:</strong>
+<a href="https://t.me/optozorax_dev/445"><code>tg/445</code></a>,
+<a href="https://t.me/optozorax_dev/446"><code>tg/446</code></a>,
+<a href="https://t.me/optozorax_dev/447"><code>tg/447</code></a> (1 💬),
+<a href="https://t.me/optozorax_dev/448"><code>tg/448</code></a>.</p>
+</blockquote>
+<p>I'm continuing to make and improve scenes for the upcoming YouTube video, and today I was adding things to the "Portal in portal" scene.</p>
+<p>When I show portal in portal, nobody understands what it actually is, and everybody says something like: "if you go in there, you'll be destroyed". So I made a scene that shows what will really happen to an object that enters that infinite funnel.</p>
+<p>In this funnel you'll simply see many images of this object. It won't be duplicated. It won't destroy itself, there's plenty of room to turn around in there. So nothing supernatural.</p>
+<p>Here the object is shown as a circle with different colors on different sides and a marked direction.</p>
+<video class="img-one" controls>
+  <source src="optimized/446.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<p>The next change: you can turn on a mode that shows all teleportation degrees of portal in portal, without filtering by which part is teleported and which isn't. I won't explain anything here, because to explain anything at all here I'd have to point with my finger and talk in real time, so let's leave that for the video blog stage, which this thing was made for. So just watch the video and see how cool it looks in the animations.</p>
+<video class="img-one" controls>
+  <source src="optimized/447.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<h1 id="2-06-2021-2"><a class="anchor" href="#2-06-2021-2">#</a>2.06.2021 2</h1>
+<blockquote>
+<p><strong>Source:</strong>
+<a href="https://t.me/optozorax_dev/449"><code>tg/449</code></a>,
+<a href="https://t.me/optozorax_dev/450"><code>tg/450</code></a>,
+<a href="https://t.me/optozorax_dev/451"><code>tg/451</code></a> (15 💬),
+<a href="https://t.me/optozorax_dev/452"><code>tg/452</code></a>.</p>
+</blockquote>
+<p><a href="https://optozorax.github.io/portal/?scene=moving_doorway">The "Moving doorway" scene.</a></p>
+<p>Since portals are made from a doorway, any portal laws that apply to portals joined back to back must match the behavior of a doorway. This is the axiom of portals.</p>
+<p>This scene shows this axiom from the point of view of portal motion.</p>
+<p>The main point of this scene is that the entrance and the exit must make the same movements at the same time, so that they don't move relative to each other; then they behave like an ordinary doorway. This explains why the rotation of the Earth doesn't interfere with portals in any way.</p>
+<p>Things get complicated when portals have velocity relative to each other. But that was already shown earlier, in <a href="https://optozorax.github.io/en/p/portals/#11-05-2021">11.05.2021</a>.</p>
+<p>If a doorway moves around a stationary object, then portals can move around an object in exactly the same way without giving it any velocity.</p>
+<video class="img-one" controls>
+  <source src="optimized/450.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<p>If a doorway can rotate around an object, then portals can also rotate around this object without giving it any velocity.</p>
+<video class="img-one" controls>
+  <source src="optimized/451.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<h1 id="3-06-2021"><a class="anchor" href="#3-06-2021">#</a>3.06.2021</h1>
+<blockquote>
+<p><strong>Source:</strong>
+<a href="https://t.me/optozorax_dev/453"><code>tg/453</code></a>,
+<a href="https://t.me/optozorax_dev/454"><code>tg/454</code></a>,
+<a href="https://t.me/optozorax_dev/455"><code>tg/455</code></a>,
+<a href="https://t.me/optozorax_dev/456"><code>tg/456</code></a> (108 💬),
+<a href="https://t.me/optozorax_dev/457"><code>tg/457</code></a>.</p>
+</blockquote>
+<p>After the previous scene, readers asked: what if one portal moves with acceleration (for example, rotates), and the other doesn't? How will the teleported object behave? Because with non-accelerated motion everything is clear, I already showed it in <a href="https://optozorax.github.io/en/p/portals/#11-05-2021">11.05.2021</a>: there the object moves according to Newton's First Law, uniformly and in a straight line.</p>
+<p>I have two possible scenarios for accelerated portals: action at a distance and no action at a distance. It'll be easier to understand with the animations.</p>
+<p>I think no action at a distance is the right option, but maybe you have your own arguments, come discuss it in the comments!</p>
+<p><a href="https://optozorax.github.io/portal/?scene=non_linear">Link to the scene.</a></p>
+<h2 id="action-at-a-distance"><a class="anchor" href="#action-at-a-distance">#<sup>2</sup></a>Action at a distance</h2>
+<video class="img-one" controls>
+  <source src="optimized/454.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<p><strong>Action at a distance.</strong> Here we move the orange portal, but the object stands still, and the portal swallows it. If you look into the orange portal, the object just keeps standing in place there, but if you look from the blue one, the object rotates without any forces acting on it. Action at a distance!</p>
+<p>I don't like this at all, because action at a distance like this is bad. Imagine: you've stepped out of a portal on another planet, and a space cat knocks it over. That's it, the great ranger's life is over.</p>
+<h2 id="no-action-at-a-distance"><a class="anchor" href="#no-action-at-a-distance">#<sup>2</sup></a>No action at a distance</h2>
+<video class="img-one" controls>
+  <source src="optimized/455.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<p><strong>No action at a distance.</strong> If you look from the blue portal, the object "rotates" only while it's stationary on one side, so that's fine, only the picture is rotating; then, while it's touching the teleporting surface, it actually keeps rotating, and when it stops touching this surface, it moves with the velocity it has acquired and with its own angular momentum. Once it's been teleported, it's on its own and obeys Newton's First Law.</p>
+<p>This one I like. But this option has a downside. Previously the teleporting surface was just a kind of abstraction, to make it easier to understand what a portal consists of and easier to program it, but now the teleporting surface becomes a real thing whose shape can be measured. That is, before, portals literally glued space together, and it was impossible to detect any seams or borders of this gluing, but now we can measure this invisible seam with exactly this kind of rotation.</p>
+<h2 id="poll-1"><a class="anchor" href="#poll-1">#<sup>2</sup></a>Poll</h2>
+<figure>
+<div class="magnifier-container img-two-three"> <img     class="not-default full-screen-img"     width="853"     height="423"     src="/processed_images/tg_optozorax_dev_456.en.5b76bacba8139314.webp"     onclick="full_screen('tg_optozorax_dev_456.en.png')"     onauxclick="full_screen_new_page('tg_optozorax_dev_456.en.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.2<br>png</div> </div> </div>
+<figcaption><a href="https://t.me/optozorax_dev/456">Link to the message</a> (in Russian)</figcaption>
+</figure>
+<h1 id="4-06-2021"><a class="anchor" href="#4-06-2021">#</a>4.06.2021</h1>
+<blockquote>
+<p><strong>Source:</strong>
+<a href="https://t.me/optozorax_dev/458"><code>tg/458</code></a> (7 💬),
+<a href="https://t.me/optozorax_dev/459"><code>tg/459</code></a>.</p>
+</blockquote>
+<video class="img-one" controls>
+  <source src="optimized/458.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<p>To understand how continuous processes work, it's sometimes handy to imagine them as discrete ones. This scene does that for teleportation.</p>
+<p>Link to the scene in the web demo: <a href="https://optozorax.github.io/portal/?scene=cut_plane">https://optozorax.github.io/portal/?scene=cut_plane</a></p>
+<p>Teleportation can be defined like this: everything that has fully entered the portal is sent to the other side of the portal.</p>
+<p>Then, to understand what happens to an object that has partially entered the portal, we need to break this process into discrete steps.</p>
+<p>There's a step Δt; during this step, part of the object enters the portal and part doesn't. Then the sequence of actions is as follows:</p>
+<ul>
+<li>First, determine where to cut the object so that one part has fully entered the portal and the other hasn't.</li>
+<li>Then cut it</li>
+<li>Then teleport the cut-off part.</li>
+<li>After that you can move everything until the end of the step.</li>
+<li>Repeat iteratively.</li>
+</ul>
+<h1 id="6-06-2021"><a class="anchor" href="#6-06-2021">#</a>6.06.2021</h1>
+<blockquote>
+<p><strong>Source:</strong>
+<a href="https://t.me/optozorax_dev/460"><code>tg/460</code></a>,
+<a href="https://t.me/optozorax_dev/461"><code>tg/461</code></a>,
+<a href="https://t.me/optozorax_dev/462"><code>tg/462</code></a>,
+<a href="https://t.me/optozorax_dev/463"><code>tg/463</code></a>.</p>
+</blockquote>
+<p>The scene <a href="https://optozorax.github.io/en/p/portals/#31-05-2021">about cutting an object</a> with portals was needed mostly for what I'm about to show now.</p>
+<p>In that scene we split a portal into two parts, and it looks a bit pointless and useless. But the real point appears when a portal enters another portal and, accordingly, gets split into two parts: before entering and after entering.</p>
+<p>Here's how it looks in the <a href="https://optozorax.github.io/en/p/portals/#11-05-2021">two pairs scene</a>.</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1280"     height="773"     src="/processed_images/460.2555fb0c420cc9d0.webp"     onclick="full_screen('460.jpg')"     onauxclick="full_screen_new_page('460.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<p>Now here's what happens if we push an object into the far triangular portal. It will be cut into two parts, as in the scene with the gray knife, and each part will enter its own portal: one the red one, the other the green one. In the end everything will look as if no knives or borders exist, everything is perfectly continuous.</p>
+<p>That's how complex teleportation works under the hood.</p>
+<video class="img-one" controls>
+  <source src="optimized/461.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<p>And this is important to understand, because when a portal enters a portal, the same thing happens to it, only more complicated. In this picture the red portal enters both another red one and another green one at the same time.</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1280"     height="1002"     src="/processed_images/462.84c9fc64751f04f5.webp"     onclick="full_screen('462.jpg')"     onauxclick="full_screen_new_page('462.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<h1 id="12-06-2021"><a class="anchor" href="#12-06-2021">#</a>12.06.2021</h1>
+<blockquote>
+<p><strong>Source:</strong>
+<a href="https://t.me/optozorax_dev/469"><code>tg/469</code></a> (21 💬),
+<a href="https://t.me/optozorax_dev/471"><code>tg/471</code></a>.</p>
+</blockquote>
+<p>Updated the visual style:</p>
+<ul>
+<li>The checkerboard texture is now less contrasty</li>
+<li>Portals now have a black outline along their edges, so they stand out better from the background</li>
+<li>Added antialiasing, so the program runs 4 times slower; you can turn it off in the "Rendering options" menu.</li>
+</ul>
+<p>The first picture is before.</p>
+<p>The second picture is after.</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1280"     height="706"     src="/processed_images/469.745fa2b33c97b918.webp"     onclick="full_screen('469.jpg')"     onauxclick="full_screen_new_page('469.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1280"     height="706"     src="/processed_images/470.5d7c275c5ea1a579.webp"     onclick="full_screen('470.jpg')"     onauxclick="full_screen_new_page('470.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<h1 id="14-07-2021"><a class="anchor" href="#14-07-2021">#</a>14.07.2021</h1>
+<blockquote>
+<p><strong>Source:</strong>
+<a href="https://t.me/optozorax_dev/473"><code>tg/473</code></a> (48 💬).</p>
+</blockquote>
+<p>I've finally made this video (it's in Russian, with English subtitles), enjoy!</p>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=1q0sHf_n_2Y">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/1q0sHf_n_2Y.webp" width="336" height="188">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=1q0sHf_n_2Y">Решение главного парадокса порталов</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCIsVwdLhYrrs3K8MOXEZdhQ">optozorax</a>
+</div>
+<div class="yt-duration">23:59</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=1q0sHf_n_2Y">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<h1 id="22-07-2021"><a class="anchor" href="#22-07-2021">#</a>22.07.2021</h1>
+<blockquote>
+<p><strong>Source:</strong>
+<a href="https://t.me/optozorax_dev/474"><code>tg/474</code></a>,
+<a href="https://t.me/optozorax_dev/475"><code>tg/475</code></a> (7 💬),
+<a href="https://t.me/optozorax_dev/476"><code>tg/476</code></a>,
+<a href="https://t.me/optozorax_dev/477"><code>tg/477</code></a> (14 💬).</p>
+</blockquote>
+<h2 id="how-i-made-this-video"><a class="anchor" href="#how-i-made-this-video">#<sup>2</sup></a>How I made this video</h2>
+<p>I dreamed of making this video back 2 years ago, when I had the old code. Back then, though, making it seemed such a distant and difficult prospect that I couldn't get started on the video itself, and I fell into the pit of improving the code, which only ate up my time.</p>
+<p>Now everything has changed, because with the new visual editor I managed to create all the explanatory scenes in a fairly short time (with the old code, creating all these scenes would have been incredibly hard), and I realized that the only remaining problems now were editing and voice-over.</p>
+<p>First I made a list of the explanatory scenes I needed and made them, and then I posted an announcement in this channel that I'd started working on the video (<a href="https://optozorax.github.io/en/p/portals/#11-05-2021">11.05.2021</a>). As I later realized, I described those scenes in way too much detail, because in the video I'd give them very little screen time and wouldn't be able to explain them in that much detail.</p>
+<p>Then I started working on the plan of the video. First I just dumbly collected all the ideas, little fragments of pictures from my head, without any structure, and then built a structure out of them.</p>
+<p>A digression: by "plan" I mean two things: the structure of the video, and the text that ties this structure together; and also, for all of the text, it should be written down, at least roughly, what visuals it goes over.</p>
+<p>At first the plan didn't work out: I'd written out the beginning and the end really well, but the middle just wouldn't come together (I already wrote about this in <a href="https://optozorax.github.io/en/p/portals/#31-05-2021">31.05.2021</a>). I had to come up with and create new scenes.</p>
+<p>After that I finally finished the plan. I decided that was enough and that I needed to learn video editing, otherwise polishing all the rest of the text was pointless without knowing what pitfalls might await me in editing.</p>
+<p>I started watching a bunch of video tutorials about Shotcut, which I worked in at first. I chose it because it's free, and I'm all about free software. With great difficulty I made the first three minutes of the video in it, and realized that working in it is awful, that it lags and that its interface is just terrible in general. I also realized that a lot had to be thrown out of my video (I threw out a detailed explanation of what a portal is and why it isn't the same as a wormhole), and I got a better understanding of how to work with the plan so that it fits the realities of video; I reworked it almost completely and moved a lot of things around.</p>
+<p>I recorded the voice-over for these three minutes on my phone, and the sound was awful. It absolutely had to be fixed, otherwise making the video would be impossible. I needed a good microphone. Onigiri said he started his first videos with a BOYA BY-M1 lavalier mic, which costs ~800 rubles (about $11). I followed his example and bought one. And yes, this video was made with exactly this lavalier. I plugged it into my phone and recorded with the voice recorder app, and then copied the recordings to my computer (plugging it straight into the computer gave a lot of noise). I'm very happy with the sound, at least for a first video it's the best option. Thanks to Onigiri for this advice, because watching Vitaly Golovanov had given me the idea that you can only work with an audio interface and a big microphone that costs a lot of money.</p>
+<p>I gave up on free, became a grown-up, installed Windows and got Premiere Pro. Working in it was, of course, much more pleasant and noticeably more efficient than in Shotcut.</p>
+<p>Then came a very long process of making the video, after which I had 17 minutes of footage. I'm too lazy to remember and tell you what went on there, so let's skip that part (haha, skipping the very essence, well done Ilya).</p>
+<p>I sent the result to a guy for review (he chose to remain anonymous). He wrote down timestamps with his criticism and the places he didn't understand, and thanks to that I found a lot of mistakes that I wouldn't have noticed myself, because my eyes had glazed over. Some of the mistakes were so fundamental that I had to heavily rewrite the plan. I rewrote it and then realized that you can't just add new parts to the video, it had to be completely re-edited too, and all the audio had to be re-recorded as well, because so much of the text had changed that it was easier to redo all the audio at once than to figure out where to insert the new parts.</p>
+<p>Struggling through it all a second time, I re-recorded all the audio, re-edited the whole video and shot a lot of new footage for it. And the video went off for a second review to <a href="https://t.me/vsevolodpl">@vsevolodpl</a>, though after that I didn't change anything (I was completely worn out by then), and I didn't get much criticism anyway, so I just said screw it.</p>
+<p>Now it was time to publish. I thought I couldn't just publish it in Russian, after all, I'd dreamed of English too. So now English subtitles were what was holding me back. I somehow made them, and then ran them through Grammarly, fixing every possible mistake. By the way, thanks to <a href="http://hirrolot.github.io/">hirrolot.github.io</a> for help with this. My English is very bad, but one English-speaking guy on Twitter said he liked the subtitles, so fine.</p>
+<p>So the text was ready, all that was left was to put the subtitles on the video. I'd done that before, and in the YouTube interface it's inconvenient, to put it mildly, so I googled whether you can add subtitles right in Premiere Pro, and it turned out you can.</p>
+<p>First I added the Russian subtitles, and it was hell. To subtitle 10 minutes of video with text you already have, you need to work monotonously for an HOUR straight without getting distracted. It's truly soul-crushing work, copy-pasting this text and aligning it to the audio. I dreaded what awaited me with the English subtitles.</p>
+<p>But then, thank heavens, I laid the English subtitles over the Russian ones, and that went 1.7 times faster (I measured!), because I didn't need to listen to the audio. I'm afraid to imagine how long subtitling in English without the Russian subs would have taken me, how much time I'd have spent reading the English text and listening to the Russian voice to align them properly.</p>
+<p>And then lots more hours of rendering and 5 hours of waiting for the video to upload, and so on. But that's insignificant compared to everything else.</p>
+<p>All in all, making this video can be described in three words: so much work.</p>
+<p>By the way, a fun fact: the pure spoken text came to 23k characters, and the video is 24 minutes long, so here's some empirical data on how to estimate the final length of a video from its plan, without editing.</p>
+<h2 id="what-i-think-about-making-this-video"><a class="anchor" href="#what-i-think-about-making-this-video">#<sup>2</sup></a>What I think about making this video</h2>
+<p><strong>Making videos is very hard.</strong> Now I understand that video blogging isn't such an easy job, and all this editing, voice-over and a whole bunch of other stuff is an incredible amount of work. And when I watch Stas exposing Topless (both are Russian YouTubers), I can't see the exposé, I only see 40 minutes of very complex editing. I can't imagine how Stas does it.</p>
+<p><strong>Making your first video is even harder.</strong> It's one thing to make videos once you've learned how, but when you're doing it for the first time, it's insanely hard. I've experienced all of it firsthand, going through Shotcut, choosing a microphone and redoing the first iteration. The first time, it's impossible to do it well. And for my first video I went for something way too complicated to produce. Ideally you should start with something simpler.</p>
+<p><strong>Filling the video's airtime drives me nuts.</strong> A big part of the video is just text that I say to explain something. It came as a discovery to me that during that time I'm apparently supposed to show some visuals, and it's rather unpleasant to think about what exactly to put in the background. In this respect writing articles is nicer, because there you can dump a ton of text without a single picture.</p>
+<p><strong>The video format forces you to put your thoughts concisely.</strong> As you've seen, in the scene descriptions I wrote huge longreads, even for something obvious. I can afford longreads like that in an article, but not in a video, because in a video that would turn into several minutes of fluff that nobody will watch and that will tank retention. So when I was writing the plan, it was hard to try to put my thoughts concisely.</p>
+<p><strong>After a review you can't just redo things.</strong> After the first review of the video I had to completely redo the whole plan, all the audio, the whole video, and reshoot most of the visuals. So reviewing a video isn't the same as reviewing an article. In an article you can tweak the text, but in a video tweaking the text sets off a chain reaction. So in video the cost of a mistake is extremely high, and I don't know yet what to do about it.</p>
+<h2 id="psychological-effect"><a class="anchor" href="#psychological-effect">#<sup>2</sup></a>Psychological effect</h2>
+<p>As I've said, I dreamed of making exactly this video 2 years ago. And now I've finally made it; you'd think I'd finally tied up a huge loose end and should be happy, but at the moment of publishing I felt nothing. And I feel nothing now. If I think about it, this happens every time I make something. I get more pleasure from anticipation than from the process or the result. Maybe that's not normal and I should work through it with a therapist.</p>
+<p>I don't like this. I don't know what to do about it, and making this video clearly hasn't boosted my motivation to do other projects. So this channel will probably stay empty for a long time. I need to rethink my life and my hobbies. I'm thinking maybe I should drop hobbies altogether and focus on other areas of life.</p>
+
+</div>
+</article>
+
+  </section>
+  
+
+</td><td>
+<!-- TOC -->
+<input type="checkbox" id="toc-trigger" class="toc-trigger" />
+<label for="toc-trigger">
+  <span class="menu-icon">
+    <div class="side-button"><img src="/ico/right.svg"></div>
+  </span>
+</label>
+
+<nav class="section-nav">
+ <h2>Contents</h2>
+ <ul class="first">
+ 
+ 
+  <li>
+   <a href="#introduction">Introduction</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#24-11-2019">24.11.2019</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#24-02-2020">24.02.2020</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#fairly-fast-ray-tracing-of-three-spheres">Fairly fast ray tracing of three spheres</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#very-slow-but-very-beautiful-ray-tracing-of-colored-clouds">Very slow but very beautiful ray tracing of colored clouds</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#conclusion">Conclusion</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#31-01-2021">31.01.2021</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#introduction-1">Introduction</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#takeaways">Takeaways</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#statistics">Statistics</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#9-02-2021">9.02.2021</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#14-02-2021">14.02.2021</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#15-02-2021">15.02.2021</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#15-02-2021-1">15.02.2021</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#20-02-2021">20.02.2021</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#2-03-2021">2.03.2021</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#6-03-2021">6.03.2021</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#8-03-2021">8.03.2021</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#13-03-2021">13.03.2021</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#14-03-2021">14.03.2021</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#18-03-2021">18.03.2021</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#portal-explorer">Portal Explorer</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#monoportal">Monoportal</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#mobius-portal">Möbius portal</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#timelapse">Timelapse</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#what-i-did">What I did</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#computed-variables">Computed variables.</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#error-messages">Error messages</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#panini-projection">Panini projection</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#conclusion-1">Conclusion</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#19-03-2021">19.03.2021</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#20-03-2021">20.03.2021</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#21-03-2021">21.03.2021</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#24-03-2021">24.03.2021</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#quad-url">quad-url</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#egui-macroquad">egui-macroquad</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#13-04-2021">13.04.2021</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#29-04-2021">29.04.2021</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#portal-explorer-2">Portal Explorer 2</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#refactored-the-scene-editing-interface">Refactored the scene editing interface</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#added-the-ability-to-change-the-camera-in-the-scene-viewing-menu">Added the ability to change the camera in the scene viewing menu</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#the-menu-now-has-a-button-to-switch-to-russian">The menu now has a button to switch to Russian</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#hopf-link-portal">Hopf link portal</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#portal-in-portal">Portal in portal</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#1-05-2021">1.05.2021</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#rotating-monoportal">Rotating monoportal</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#n-monoportal">N-monoportal</a>
+       
+       <ul class="third">
+        
+         
+         <li>
+          <a href="#construction">Construction</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#regular-monoportal">Regular monoportal</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#triple-monoportal">Triple monoportal</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#quadruple-monoportal">Quadruple monoportal</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#the-rest">The rest</a>
+          
+         </li>
+        
+       </ul>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#2-05-2021">2.05.2021</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#3-05-2021">3.05.2021</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#offsetting-monoportal">Offsetting monoportal</a>
+       
+       <ul class="third">
+        
+         
+         <li>
+          <a href="#shifting-one-part">Shifting one part</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#adding-support-portals-and-teleporting-this-part">Adding support portals and teleporting this part</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#exploring-the-offset">Exploring the offset</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#making-the-portal-bigger">Making the portal bigger</a>
+          
+         </li>
+        
+       </ul>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#5-05-2021">5.05.2021</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#introduction-2">Introduction</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#offsetting-monoportal-2">Offsetting monoportal 2</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#scaling-monoportal-2">Scaling monoportal 2</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#conclusion-2">Conclusion</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#6-05-2021">6.05.2021</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#logarithmic-spiral-portal">Logarithmic spiral portal</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#poll">Poll</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#result">Result</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#11-05-2021">11.05.2021</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#introduction-3">Introduction</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#basics">Basics</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#portals-in-one-world">Portals in one world</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#doorway">Doorway</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#speed-model">Speed model</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#same-shape">Same shape</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#portal-in-portal-two-pairs">Portal in portal: two pairs</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#conclusion-3">Conclusion</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#31-05-2021">31.05.2021</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#introduction-4">Introduction</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#cutting-prism">Cutting prism</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#2-06-2021">2.06.2021</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#2-06-2021-2">2.06.2021 2</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#3-06-2021">3.06.2021</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#action-at-a-distance">Action at a distance</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#no-action-at-a-distance">No action at a distance</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#poll-1">Poll</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#4-06-2021">4.06.2021</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#6-06-2021">6.06.2021</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#12-06-2021">12.06.2021</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#14-07-2021">14.07.2021</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#22-07-2021">22.07.2021</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#how-i-made-this-video">How I made this video</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#what-i-think-about-making-this-video">What I think about making this video</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#psychological-effect">Psychological effect</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ </ul>
+</nav>
+</td></tr></table>
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="section second-section">
+If you like what I do, follow me on <a href="https://t.me/optozorax_dev">Telegram</a> and <a href="https://www.youtube.com/c/optozorax">YouTube</a>.
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="comments section second-section">
+
+<script src="https://utteranc.es/client.js"
+        repo="optozorax/optozorax.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+
+  <hr class="enabled-on-phone">
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <footer class="site-footer section second-section">
+  
+    <center>
+    <div style="margin-bottom: 10px;">© Ilya Sheprut. License: <a href="https://creativecommons.org/licenses/by/3.0/deed.en">CC-BY</a>.</div>
+    <table style="border: 0px; display: contents;">
+    <tr><td style="border: 0px; padding: 0.2rem;">
+    <!-- SVG icons from https://iconmonstr.com -->
+
+    <span class="my-span-icon">
+  <a 
+    href="https://github.com/optozorax" 
+    aria-label="optozorax's GitHub" 
+    title="optozorax's GitHub">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/github.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's GitHub">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://t.me/optozorax_dev" 
+    aria-label="optozorax's Telegram channel" 
+    title="optozorax's Telegram channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/tg.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Telegram channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://www.youtube.com/c/optozorax" 
+    aria-label="optozorax's YouTube channel" 
+    title="optozorax's YouTube channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/youtube.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's YouTube channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://boosty.to/optozorax" 
+    aria-label="optozorax's donate page" 
+    title="optozorax's donate page">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/donate.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's donate page">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="/en/atom.xml" 
+    aria-label="optozorax's Atom Feed" 
+    title="optozorax's Atom Feed">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/rss.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Atom Feed">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="mailto:optozorax@gmail.com" 
+    aria-label="optozorax's email" 
+    title="optozorax's email">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/contact.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's email">
+  </a>
+</span>
+
+    </td><td style="border: 0px; padding: 0.2rem;">
+
+    </td></tr>
+    </table>
+    <div class="small-info">
+      Made with <a href="https://www.getzola.org/">Zola</a> | Theme based on <a href="https://github.com/lorepirri/cayman-blog">Cayman Blog</a> | <a href="https://github.com/optozorax/blog_zola">Site sources</a>
+      <a rel="me" href="https://mathstodon.xyz/@optozorax" style="display: none;">Mastodon</a>
+    </div>
+    </center>
+  
+  </footer>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+</body>
+</html>

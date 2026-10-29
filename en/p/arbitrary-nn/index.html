@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Fonts preload -->
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nFrXyi0A.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nBrXw.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxTcwhsk.woff2" crossOrigin="anonymous">
+  <!-- --- -->
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/main.css">
+  <!-- --- -->
+
+  <!-- Non social metatags -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link rel="canonical" href="https://optozorax.github.io/en/p/arbitrary-nn/">
+  <link rel="alternate" hreflang="en" href="https://optozorax.github.io/en/p/arbitrary-nn/">
+  <link rel="alternate" hreflang="ru" href="https://optozorax.github.io/p/arbitrary-nn/">
+  <link rel="alternate" hreflang="x-default" href="https://optozorax.github.io/p/arbitrary-nn/">
+  <meta name="robots" content="noarchive">
+  <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/en/atom.xml"> 
+  <!-- --- -->
+
+  <!-- Social metatags -->
+  
+
+<meta name="author" content="optozorax">
+<meta name="title" content="Arbitrary neural network — optozorax&#39;s blog">
+<meta name="description" content="What you can do with a neural network whose neurons are connected haphazardly: roughly the way it should be in our brain.">
+<meta name="image" content="https://optozorax.github.io/en/p/arbitrary-nn/arbitrary_nn_white_background.png">
+
+<meta name="keywords" itemprop="tags" content="notation, neural-networks">
+
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://optozorax.github.io/en/p/arbitrary-nn/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Arbitrary neural network — optozorax&#39;s blog">
+<meta property="og:description" content="What you can do with a neural network whose neurons are connected haphazardly: roughly the way it should be in our brain.">
+<meta property="og:image" content="https://optozorax.github.io/en/p/arbitrary-nn/arbitrary_nn_white_background.png">
+<meta property="og:locale" content="en">
+
+
+<meta property="article:published_time" content="2020-01-06">
+
+
+
+
+<meta property="article:tag" content="notation">
+
+<meta property="article:tag" content="neural-networks">
+
+
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="optozorax.github.io">
+<meta property="twitter:url" content="https://optozorax.github.io/en/p/arbitrary-nn/">
+<meta name="twitter:title" content="Arbitrary neural network — optozorax&#39;s blog">
+<meta name="twitter:description" content="What you can do with a neural network whose neurons are connected haphazardly: roughly the way it should be in our brain.">
+<meta name="twitter:image" content="https://optozorax.github.io/en/p/arbitrary-nn/arbitrary_nn_white_background.png">
+<meta name="twitter:creator" content="optozorax">
+
+  <!-- --- -->
+
+  <!-- Extra head declarations -->
+  
+
+<script type="text/javascript" src="/js/hammer.min.js"></script>
+<script type="text/javascript" src="/js/toc.js"></script>
+<script type="text/javascript" src="/js/gallery.js"></script>
+<script type="text/javascript" src="/js/full_screen.js"></script>
+<script type="text/javascript" src="/js/word_wrap.js"></script>
+
+  <!-- --- -->
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+  <!-- --- -->
+
+  <title>Arbitrary neural network — optozorax&#39;s blog</title>
+</head>
+
+<body>
+  <!-- FullScreen block -->
+  <div id="img_modal" class="modal" style="display: none;">
+      <img id="img_modal_01" src="/ico/loading.gif">
+      <span class="close" id="img_modal_close">&times;</span>
+  </div>
+  <!-- --- -->
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <header class="site-header" role="banner">
+  
+  <div class="wrapper">
+    <a class="site-title" href="/en/">optozorax.blog</a>
+
+    <div class="lang-switch">
+      <span class="lang-switch-item lang-switch-current" lang="en" title="English"><span class="lang-switch-flag">🇬🇧</span>EN</span>
+      <a class="lang-switch-item" href="/p/arbitrary-nn/" hreflang="ru" lang="ru" title="Русский"><span class="lang-switch-flag">🇷🇺</span>RU</a>
+    </div>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <img src="/ico/menu.svg" width="13px" height="15px">
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          <a class="page-link" href="/en/">Blog</a>
+        
+          <a class="page-link" href="/en/e">Collections</a>
+        
+          <a class="page-link" href="/en/tags">Tags</a>
+        
+          <a class="page-link" href="/en/about">About me</a>
+        
+      </div>
+    </nav>
+  </div>
+  
+  </header>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+  
+  <section class="page-header">
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+<h1 class="project-name">Arbitrary neural network</h1>
+
+<h2 class="project-tagline">What you can do with a neural network whose neurons are connected haphazardly: roughly the way it should be in our brain.</h2>
+
+
+
+<span style="margin-bottom: 10px;">
+  
+    <a href="/en/tags#notation"><code class="tag"><nobr>#notation</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#neural-networks"><code class="tag"><nobr>#neural-networks</nobr></code></a>&nbsp;
+  
+</span>
+
+
+<center>
+<table style="margin-top: 8px;">
+<tr>
+
+
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+  <time datetime="2020-01-06" itemprop="datePublished">
+    
+    
+    
+    
+    <span class="post-date">06 January 2020</span>
+  </time>
+</h2>
+</td>
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+    <span class="post-date" style="font-style: normal">| 🕑 5 min</span>
+</h2>
+</td>
+
+
+
+<td style="padding-left: 10px;">
+  
+  <a href="https://vk.com/optoblog?w=wall-169103586_29">
+  <code class="tag">Post on VK</code>
+  </a>
+  
+  
+  
+</td>
+
+</tr>
+</table>
+
+
+<div class="translation-note">
+  <svg class="translation-note-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+  <span>Translated from 🇷🇺 Russian</span>
+  <span class="translation-note-sep">·</span>
+  <span>Translation by Claude Opus 5.5</span>
+  <span class="translation-note-sep">·</span>
+  <a href="/p/arbitrary-nn/" hreflang="ru" lang="ru">Original</a>
+</div>
+
+
+
+</center>
+
+
+</td><td>
+</td></tr></table>
+
+
+
+  </section>
+  
+  
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <section class="main-content section">
+  
+<article itemscope itemtype="http://schema.org/BlogPosting">
+<div itemprop="articleBody" id="content">
+<h1 id="introduction"><a class="anchor" href="#introduction">#</a>Introduction</h1>
+<p>Have you ever had the feeling that all current neural networks are somehow too linear? Take the perceptron, for example:</p>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="395"     height="354"     src="/processed_images/perceptron.en.3891966354f6d494.webp"     onclick="full_screen('perceptron.en.png')"     onauxclick="full_screen_new_page('perceptron.en.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<figcaption><a href="https://ru.wikipedia.org/wiki/%D0%9F%D0%B5%D1%80%D1%86%D0%B5%D0%BF%D1%82%D1%80%D0%BE%D0%BD#/media/%D0%A4%D0%B0%D0%B9%D0%BB:Perceptron-ru.svg">Source</a> (in Russian)</figcaption>
+</figure>
+<p>Or a multilayer neural network:</p>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="958"     height="455"     src="/processed_images/multilayered.b0a90f12a4b0f755.webp"     onclick="full_screen('multilayered.png')"     onauxclick="full_screen_new_page('multilayered.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<figcaption><a href="https://ru.wikipedia.org/wiki/%D0%9F%D0%B5%D1%80%D1%86%D0%B5%D0%BF%D1%82%D1%80%D0%BE%D0%BD#/media/%D0%A4%D0%B0%D0%B9%D0%BB:Neuro.PNG">Source</a> (in Russian)</figcaption>
+</figure>
+<p>When I was first learning about this topic, I had this thought:</p>
+<blockquote>
+<p>Why does the signal in them only travel from left to right? Where are the loops? How can you do complex computations without loops?</p>
+</blockquote>
+<p>But actually, neural networks don't have to be arbitrary. Even in this form they handle a huge number of tasks.</p>
+<p>By the way, thanks to this linearity we can squeeze the most out of our current computing power by using very large neural networks. The signal travels through them without any loops, which means they're faster to compute.</p>
+<p>And besides, it was for networks like these that the backpropagation algorithm was invented back in the day.</p>
+<h1 id="an-example-of-an-arbitrary-neural-network"><a class="anchor" href="#an-example-of-an-arbitrary-neural-network">#</a>An example of an arbitrary neural network</h1>
+<p>I don't know where we get all this from, but we know for sure that the brain can't have such one-way connections: there just have to be loops and other really complicated stuff in there. The neural network in our brain must look something like this:</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="932"     height="482"     src="/processed_images/arbitrary_nn.446137a14b3f83dd.webp"     onclick="full_screen('arbitrary_nn.png')"     onauxclick="full_screen_new_page('arbitrary_nn.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<p>That is, just a plain directed graph without any restrictions.</p>
+<p>Obviously, such a neural network should be able to "remember" things for a short time and to make cyclic movements. A neural network like this is perfect for agents inside simulations.</p>
+<p>If we simulate an agent in some environment, we have to simulate the "signal propagation" process directly, set some limit on the number of these signal moves per step, accumulate the result on the red output neurons, and so on.</p>
+<p>I didn't put the weights of the connections on this image so as not to clutter it, but in reality they should be there.</p>
+<p>By the way, an arbitrary neural network was used in this video:</p>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=5lJuEW-5vr8">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/5lJuEW-5vr8.webp" width="336" height="188">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=5lJuEW-5vr8">Neuroevolution - Car learns to drive</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCNzV3u9NBUi8m1Q7qp77E2Q">MiorSoft (reexre)</a>
+</div>
+<div class="yt-duration">5:53</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=5lJuEW-5vr8">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<p>And really, it's intuitively obvious that to simulate agents trying to evolve in a virtual or real world, you should use the most general class of neural networks: arbitrary ones!</p>
+<p>For a very long time I was bothered by the question of why I couldn't find anything anywhere on the internet about how scientists use such arbitrary neural networks. Could it be that a whole category of neural networks is just sitting idle??? So I can come along with my arbitrary neural networks and blow science wide open?!</p>
+<p>Unfortunately, no.</p>
+<h1 id="recurrent-neural-network"><a class="anchor" href="#recurrent-neural-network">#</a>Recurrent neural network</h1>
+<p>To follow the rest of the story, you need to understand what a recurrent neural network is. As an introduction, I recommend this video (in Russian):</p>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=ADcu9rWK_3I">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/ADcu9rWK_3I.jpeg" width="1280" height="720">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=ADcu9rWK_3I">Лекция 9 - RNNs</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCQj_dwbIydi588xrfjWSL5g">sim0nsays</a>
+</div>
+<div class="yt-duration">81:49</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=ADcu9rWK_3I">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<p>It explains not only how it works in general, but also one very clever modern architecture, LSTM.</p>
+<p>Or you can just skip it (it's an hour long, after all) and try to get the gist from the context.</p>
+<h1 id="reducing-an-arbitrary-neural-network-to-a-recurrent-one"><a class="anchor" href="#reducing-an-arbitrary-neural-network-to-a-recurrent-one">#</a>Reducing an arbitrary neural network to a recurrent one</h1>
+<p>First, let's number all the neurons.</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="931"     height="481"     src="/processed_images/arbitrary_nn_enumerated.a24f8285beb3b685.webp"     onclick="full_screen('arbitrary_nn_enumerated.png')"     onauxclick="full_screen_new_page('arbitrary_nn_enumerated.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<p>Then we remove all the connections, arrange all the neurons from top to bottom, and make a second column that duplicates the first one. This is shown on the left of the next picture.</p>
+<p>Now all that's left is to add the connections, but we'll add them in such a way that a connection can only go from the left column to the right one. The result is shown on the right side of the picture.</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="428"     height="806"     src="/processed_images/arbitrary_nn_two.c830bde34bb88bb1.webp"     onclick="full_screen('arbitrary_nn_two.png')"     onauxclick="full_screen_new_page('arbitrary_nn_two.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<p>This is exactly what a recurrent neural network is: we've reduced everything to it! So a recurrent neural network can represent any neural network topology, and there's no point in reinventing the wheel.</p>
+<p>As you can see, the output neurons aren't used on the left, and the input neurons aren't used on the right.</p>
+<p>And indeed, if you think about how the signals flow here, it's just another way of notating a neural network with an arbitrary architecture. It even resembles the adjacency matrix used to represent a graph. So you can visualize it like this:</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="808"     height="798"     src="/processed_images/matrix_nn.16bfe27be41e1da3.webp"     onclick="full_screen('matrix_nn.png')"     onauxclick="full_screen_new_page('matrix_nn.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<p>Since the weights aren't specified, we can simply mark that a connection exists with a red square. And in this form it's obvious that the input and output data should be represented as a vector, and the neural network itself as a matrix.</p>
+<p>By the way, in this form you can't represent more than one connection from one node to another. I don't really know why you'd ever need that, except to use different activation functions, and that's a pretty pointless thing too, so let's leave this case aside.</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="241"     height="81"     src="/processed_images/not_allowed.en.d7d3f8d01898c243.webp"     onclick="full_screen('not_allowed.en.png')"     onauxclick="full_screen_new_page('not_allowed.en.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<h1 id="why-this-is-better"><a class="anchor" href="#why-this-is-better">#</a>Why this is better</h1>
+<p>I'll even say that in this form an arbitrary neural network turns out better than in its original intuitive form. Why?</p>
+<p><strong>First</strong>, you can use all the power that has grown up around recurrent neural networks, be it software for training them or lots of research papers, for example on overcoming exploding gradients.</p>
+<p><strong>Second</strong>, representing it in memory this way is more computationally efficient. Think about how you would implement a class that runs the neural network we drew at the very beginning. You'd most likely do it the straightforward way: store an array of impulses somewhere, store the graph of connections, and move the impulses along this graph. And parallelizing that kind of thing is really hard.</p>
+<p>Recurrent neural networks, on the other hand, are very easily represented by a matrix, which you can simply multiply by a vector of numbers. That's way more efficient even from the CPU cache's point of view. On top of that, people have already written a whole truckload of super-fast parallel libraries for matrix multiplication, not to mention matrix multiplication on the GPU.</p>
+<h1 id="how-i-came-to-this-idea"><a class="anchor" href="#how-i-came-to-this-idea">#</a>How I came to this idea</h1>
+<p>Completely by accident. Nobody states it outright anywhere. I don't understand why, because it's really important! They could have just written:</p>
+<blockquote>
+<p>A recurrent neural network can imitate a neural network that is an arbitrary graph.</p>
+</blockquote>
+<h1 id="conclusion"><a class="anchor" href="#conclusion">#</a>Conclusion</h1>
+<p>So we won't blow science wide open with our arbitrary neural networks: they already existed before us, just hiding under a different name, and nobody really knew it was them.</p>
+<p>And now, the next time you decide to write your own agent evolution with arbitrary neural networks and anime girls, you won't fall into the trap of reinventing the wheel, and you'll be able to use the battle-tested and optimized toolkit of recurrent neural networks!</p>
+<p>By the way, I invite everyone interested in simulating evolution to the Telegram chat (in Russian): <a href="https://t.me/emergevolution">https://t.me/emergevolution</a></p>
+
+</div>
+</article>
+
+  </section>
+  
+
+</td><td>
+<!-- TOC -->
+<input type="checkbox" id="toc-trigger" class="toc-trigger" />
+<label for="toc-trigger">
+  <span class="menu-icon">
+    <div class="side-button"><img src="/ico/right.svg"></div>
+  </span>
+</label>
+
+<nav class="section-nav">
+ <h2>Contents</h2>
+ <ul class="first">
+ 
+ 
+  <li>
+   <a href="#introduction">Introduction</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#an-example-of-an-arbitrary-neural-network">An example of an arbitrary neural network</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#recurrent-neural-network">Recurrent neural network</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#reducing-an-arbitrary-neural-network-to-a-recurrent-one">Reducing an arbitrary neural network to a recurrent one</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#why-this-is-better">Why this is better</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#how-i-came-to-this-idea">How I came to this idea</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#conclusion">Conclusion</a>
+   
+  </li>
+ 
+ </ul>
+</nav>
+</td></tr></table>
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="section second-section">
+If you like what I do, follow me on <a href="https://t.me/optozorax_dev">Telegram</a> and <a href="https://www.youtube.com/c/optozorax">YouTube</a>.
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="comments section second-section">
+
+<script src="https://utteranc.es/client.js"
+        repo="optozorax/optozorax.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+
+  <hr class="enabled-on-phone">
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <footer class="site-footer section second-section">
+  
+    <center>
+    <div style="margin-bottom: 10px;">© Ilya Sheprut. License: <a href="https://creativecommons.org/licenses/by/3.0/deed.en">CC-BY</a>.</div>
+    <table style="border: 0px; display: contents;">
+    <tr><td style="border: 0px; padding: 0.2rem;">
+    <!-- SVG icons from https://iconmonstr.com -->
+
+    <span class="my-span-icon">
+  <a 
+    href="https://github.com/optozorax" 
+    aria-label="optozorax's GitHub" 
+    title="optozorax's GitHub">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/github.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's GitHub">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://t.me/optozorax_dev" 
+    aria-label="optozorax's Telegram channel" 
+    title="optozorax's Telegram channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/tg.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Telegram channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://www.youtube.com/c/optozorax" 
+    aria-label="optozorax's YouTube channel" 
+    title="optozorax's YouTube channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/youtube.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's YouTube channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://boosty.to/optozorax" 
+    aria-label="optozorax's donate page" 
+    title="optozorax's donate page">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/donate.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's donate page">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="/en/atom.xml" 
+    aria-label="optozorax's Atom Feed" 
+    title="optozorax's Atom Feed">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/rss.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Atom Feed">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="mailto:optozorax@gmail.com" 
+    aria-label="optozorax's email" 
+    title="optozorax's email">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/contact.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's email">
+  </a>
+</span>
+
+    </td><td style="border: 0px; padding: 0.2rem;">
+
+    </td></tr>
+    </table>
+    <div class="small-info">
+      Made with <a href="https://www.getzola.org/">Zola</a> | Theme based on <a href="https://github.com/lorepirri/cayman-blog">Cayman Blog</a> | <a href="https://github.com/optozorax/blog_zola">Site sources</a>
+      <a rel="me" href="https://mathstodon.xyz/@optozorax" style="display: none;">Mastodon</a>
+    </div>
+    </center>
+  
+  </footer>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+</body>
+</html>

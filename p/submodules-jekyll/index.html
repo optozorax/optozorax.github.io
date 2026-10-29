@@ -18,7 +18,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#157878">
-  <link rel="canonical" href="https://optozorax.github.io/">
+  <link rel="canonical" href="https://optozorax.github.io/p/submodules-jekyll/">
+  <link rel="alternate" hreflang="en" href="https://optozorax.github.io/en/p/submodules-jekyll/">
+  <link rel="alternate" hreflang="ru" href="https://optozorax.github.io/p/submodules-jekyll/">
+  <link rel="alternate" hreflang="x-default" href="https://optozorax.github.io/p/submodules-jekyll/">
   <meta name="robots" content="noarchive">
   <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/atom.xml"> 
   <!-- --- -->
@@ -109,6 +112,11 @@
   
   <div class="wrapper">
     <a class="site-title" href="/">optozorax.blog</a>
+
+    <div class="lang-switch">
+      <a class="lang-switch-item" href="/en/p/submodules-jekyll/" hreflang="en" lang="en" title="English"><span class="lang-switch-flag">🇬🇧</span>EN</a>
+      <span class="lang-switch-item lang-switch-current" lang="ru" title="Русский"><span class="lang-switch-flag">🇷🇺</span>RU</span>
+    </div>
 
     <nav class="site-nav">
       <input type="checkbox" id="nav-trigger" class="nav-trigger" />
@@ -263,7 +271,7 @@
 <span class="giallo-l"><span>{% include_relative README.md %}</span></span></code></pre>
 <ul>
 <li>Тэги здесь должны перечисляться не через пробелы, как это делается в обычных постах, а внутри квадратных скобок и через запятые. Почему-то это работает только так, я хз почему.</li>
-<li><code>image</code> - это моя опция, позволяющая добавлять к посту картинку на главной странице. Здесь я указываю картинку из текущего репозитория, так что к ней надо прописать абсолютный путь (y jekyll огроооомные проблемы с локальными путями, но об этом потом). Видно, что текущий репозиторий называется 4D и он будет храниться по адресу <code>submodules/</code>.</li>
+<li><code>image</code> - это моя опция, позволяющая добавлять к посту картинку на главной странице. Здесь я указываю картинку из текущего репозитория, так что к ней надо прописать абсолютный путь (у jekyll огроооомные проблемы с локальными путями, но об этом потом). Видно, что текущий репозиторий называется 4D и он будет храниться по адресу <code>submodules/</code>.</li>
 <li><code>submodule: true</code> - это опция, показывающая что данная страница сделана через механизм описываемый в этой статье. Далее этот флаг будет использоваться чтобы определить что данную страницу надо отобразить вместе с остальными блогпостами.</li>
 <li><code>thisname: submodules/4D</code> - надо указать абсолютный путь к текущей папке внутри репозитория <code>username.github.io</code>. Это нужно для костыльного фикса картинок, но об этом позже.</li>
 <li><code>date</code> - дата "публикации" данного блогпоста.</li>
@@ -346,7 +354,7 @@
 <span class="giallo-l"><span>{% endif %}</span></span></code></pre>
 <p>Чтобы у меня на статьях, которые взяты с репозитория на гитхабе отображалась такая кнопка:</p>
 <div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="336"     height="95"     src="/processed_images/open-in-github.b7146a45cb525d9b.webp"     onclick="full_screen('open-in-github.png')"     onauxclick="full_screen_new_page('open-in-github.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
-<p>Следующее место, которое у меня сломалось - это тэги. Я откуда-то из глубинок интернета стащил код, который генерит страницу с тегами: <a href="/tags">/tags</a>. Ну, чтобы её починить пришлось тупо написать много кода. Вставлять я все эти изменения я не буду, просто скажу что ВСЕ изменения что здесь описаны можно посмотреть в этом коммите: <a href="https://github.com/optozorax/optozorax.github.io/commit/f1efe22917146e9c53cd0b99c3efa3ed2bb3afb3">@optozorax/optozorax.github.io@f1efe22</a></p>
+<p>Следующее место, которое у меня сломалось - это тэги. Я откуда-то из глубинок интернета стащил код, который генерит страницу с тегами: <a href="/tags">/tags</a>. Ну, чтобы её починить пришлось тупо написать много кода. Вставлять все эти изменения я не буду, просто скажу что ВСЕ изменения что здесь описаны можно посмотреть в этом коммите: <a href="https://github.com/optozorax/optozorax.github.io/commit/f1efe22917146e9c53cd0b99c3efa3ed2bb3afb3">@optozorax/optozorax.github.io@f1efe22</a></p>
 <p>В процессе я неоднократно обращался к этим двум страницам с документацией, может они тоже вам пригодятся:</p>
 <ul>
 <li>https://shopify.github.io/liquid/basics/introduction/</li>
@@ -358,7 +366,7 @@
 <h1 id="konkretno-moi-blog"><a class="anchor" href="#konkretno-moi-blog">#</a>Конкретно мой блог</h1>
 <p>Вот список статей, которые сделаны таким образом:</p>
 <blockquote>
-<p>Раньше здесь был список статей сделанных таким образом, но теперь их нет, так как во-первых этот блог перехал на <a href="https://www.getzola.org/">zola</a>, а во-вторых я считаю такой подход плохим и просто скопировал все ридмишки в отдельное место вручную. Благо в золе можно для каждого поста иметь отдельную папку. Об этом написана <a href="/p/zola">отдельная статья</a> и конкретно про судьбу submodules: <a href="/p/new-features/#strukturnye">раз</a>, <a href="/p/new-features/#sozdal-otdel-nuiu-kategoriiu-redaktiruemykh-stranits-1">два</a>.</p>
+<p>Раньше здесь был список статей сделанных таким образом, но теперь их нет, так как во-первых этот блог переехал на <a href="https://www.getzola.org/">zola</a>, а во-вторых я считаю такой подход плохим и просто скопировал все ридмишки в отдельное место вручную. Благо в золе можно для каждого поста иметь отдельную папку. Об этом написана <a href="/p/zola">отдельная статья</a> и конкретно про судьбу submodules: <a href="/p/new-features/#strukturnye">раз</a>, <a href="/p/new-features/#sozdal-otdel-nuiu-kategoriiu-redaktiruemykh-stranits-1">два</a>.</p>
 </blockquote>
 <p>Если вы их ещё не читали, то welcome!</p>
 <p>Получил я этот список, кстати, довольно хитрым образом: =)</p>

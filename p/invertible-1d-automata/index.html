@@ -18,7 +18,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#157878">
-  <link rel="canonical" href="https://optozorax.github.io/">
+  <link rel="canonical" href="https://optozorax.github.io/p/invertible-1d-automata/">
+  <link rel="alternate" hreflang="en" href="https://optozorax.github.io/en/p/invertible-1d-automata/">
+  <link rel="alternate" hreflang="ru" href="https://optozorax.github.io/p/invertible-1d-automata/">
+  <link rel="alternate" hreflang="x-default" href="https://optozorax.github.io/p/invertible-1d-automata/">
   <meta name="robots" content="noarchive">
   <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/atom.xml"> 
   <!-- --- -->
@@ -111,6 +114,11 @@
   
   <div class="wrapper">
     <a class="site-title" href="/">optozorax.blog</a>
+
+    <div class="lang-switch">
+      <a class="lang-switch-item" href="/en/p/invertible-1d-automata/" hreflang="en" lang="en" title="English"><span class="lang-switch-flag">🇬🇧</span>EN</a>
+      <span class="lang-switch-item lang-switch-current" lang="ru" title="Русский"><span class="lang-switch-flag">🇷🇺</span>RU</span>
+    </div>
 
     <nav class="site-nav">
       <input type="checkbox" id="nav-trigger" class="nav-trigger" />
@@ -509,7 +517,7 @@
 </center>
 <p>Поэтому можно задаться вопросом: а какие автоматы можно вывести из каких при помощи различных операций над правилами?</p>
 <h2 id="trivial-nye-porozhdeniia"><a class="anchor" href="#trivial-nye-porozhdeniia">#<sup>2</sup></a>Тривиальные порождения</h2>
-<p>Возьмём преобразования правил, для которых мы можем точно сказать: да, это одно и то же правило, только немного-по другому.</p>
+<p>Возьмём преобразования правил, для которых мы можем точно сказать: да, это одно и то же правило, только немного по-другому.</p>
 <ul>
 <li>Поменять местами лево и право. Будет обозначаться <span style="color: green; font-weight: bold;">Зелёным цветом</span>.</li>
 <li>Инвертировать белый на чёрный. Будет обозначаться <span style="color: red; font-weight: bold;">Красным цветом</span>.</li>
@@ -537,7 +545,7 @@
 </div>
 <div class="automata-col">
 <span class="automata-name"><b>2</b></span><br>
-<img class="pixelated any-img" src="img/21_skip.png">
+<img class="pixelated any-img" src="img/2_skip.png">
 </div>
 <div class="automata-col">
 <span class="automata-name"><b>21</b></span><br>
@@ -548,7 +556,7 @@
 <p>Зато автоматы <code>1</code>, <code>5</code>, <code>6</code>, <code>14</code> связаны между собой, и это радует:</p>
 <p>Значит нам нужно придумать ещё какое-то правило для порождения нового правила, чтобы другие можно было связать.</p>
 <h2 id="poluinversiia"><a class="anchor" href="#poluinversiia">#<sup>2</sup></a>Полуинверсия</h2>
-<p>Давайте добавим правило, которое реализуется полу-инверсией. Если правило можно представить в следующем виде: <code>[00, 01, 10, 11] → [11, 01, 0, 10]</code>, то обычная инверсия инвертирует биты с двух сторон, а полу-инверсия только с правой стороны. Будем обозначать её <span style="color: purple; font-weight: bold;">Фиолетовым цветом</span>. Тогда наши графы будут выглядеть следующим образом:</p>
+<p>Давайте добавим правило, которое реализуется полу-инверсией. Если правило можно представить в следующем виде: <code>[00, 01, 10, 11] → [11, 01, 00, 10]</code>, то обычная инверсия инвертирует биты с двух сторон, а полу-инверсия только с правой стороны. Будем обозначать её <span style="color: purple; font-weight: bold;">Фиолетовым цветом</span>. Тогда наши графы будут выглядеть следующим образом:</p>
 <div class="container">
 <img class="svg" src="svg/9.svg">
 <img class="svg" src="svg/10.svg">
@@ -605,7 +613,7 @@
 <img class="svg" src="svg/16.svg">
 </div>
 <p>Ура! Теперь у нас связаны тривиальные автоматы <code>{0, 7, 16, 23}</code> и чуть более сложные, но тоже очень простые <code>{2, 10, 13, 21}</code>. А что касается остальных автоматов, с ними не произошло ничего особенного. Что уже было связано прежними операциями, так и осталось связано ими.</p>
-<p>Итого у нас получается 4 группы автоматов, которые можно получить довольно простыми операциями, которые не очень сильно меняют поведение автомата. Можно сказать что если мы изучим свойства автомата <code>1</code>, то по идее можем эктраполировать его свойства с учётом полу-инверсии на <code>22</code> автомат.</p>
+<p>Итого у нас получается 4 группы автоматов, которые можно получить довольно простыми операциями, которые не очень сильно меняют поведение автомата. Можно сказать что если мы изучим свойства автомата <code>1</code>, то по идее можем экстраполировать его свойства с учётом полу-инверсии на <code>22</code> автомат.</p>
 <p>Правда мне эта <strong>странная операция</strong> не нравится совсем. Ведь я не понимаю что будет если её обобщить на:</p>
 <ul>
 <li>Автоматы с большим размером блока (от 3 и больше)</li>
@@ -618,7 +626,7 @@
 <ul>
 <li><a href="http://dmishin.blogspot.com/2014/06/cellular-automata-with-2-temporal.html">CELLULAR AUTOMATA WITH 2 TEMPORAL DIMENSIONS</a></li>
 </ul>
-<p>Там автор предлагает идею 2D времени, которая требует иметь две функции \(f, g\), которые дают одинаковый результат независимо от порядка их применения \(f(g(x)) = g(f(x))\). Поэтому можно проверить все автоматы и узнать кто с кем коммутирует. Прежде всего надо сказать что автоматы <code>{0, 23, 7, 16}</code> коммутируют со всеми, а они совсем тривиальны и не интересны, поэтому я исключил их из графа. И у меня получился следующим результат:</p>
+<p>Там автор предлагает идею 2D времени, которая требует иметь две функции \(f, g\), которые дают одинаковый результат независимо от порядка их применения \(f(g(x)) = g(f(x))\). Поэтому можно проверить все автоматы и узнать кто с кем коммутирует. Прежде всего надо сказать что автоматы <code>{0, 23, 7, 16}</code> коммутируют со всеми, а они совсем тривиальны и не интересны, поэтому я исключил их из графа. И у меня получился следующий результат:</p>
 <div class="container">
 <img class="svg" src="svg/commute0.svg">
 <img class="svg" src="svg/commute1.svg">

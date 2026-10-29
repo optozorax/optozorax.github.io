@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Fonts preload -->
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nFrXyi0A.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nBrXw.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxTcwhsk.woff2" crossOrigin="anonymous">
+  <!-- --- -->
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/main.css">
+  <!-- --- -->
+
+  <!-- Non social metatags -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link rel="canonical" href="https://optozorax.github.io/en/p/space-objects/">
+  <link rel="alternate" hreflang="en" href="https://optozorax.github.io/en/p/space-objects/">
+  <link rel="alternate" hreflang="ru" href="https://optozorax.github.io/p/space-objects/">
+  <link rel="alternate" hreflang="x-default" href="https://optozorax.github.io/p/space-objects/">
+  <meta name="robots" content="noarchive">
+  <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/en/atom.xml"> 
+  <!-- --- -->
+
+  <!-- Social metatags -->
+  
+
+<meta name="author" content="optozorax">
+<meta name="title" content="About my Space Objects library and the Pythagoras tree — optozorax&#39;s blog">
+<meta name="description" content="An article about a new library, with lots of beautiful pictures, interesting code, and raising the level of abstraction!">
+<meta name="image" content="https://optozorax.github.io/en/p/space-objects/img/logo.png">
+
+<meta name="keywords" itemprop="tags" content="programming, fractals, graphics, pythagoras-tree">
+
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://optozorax.github.io/en/p/space-objects/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="About my Space Objects library and the Pythagoras tree — optozorax&#39;s blog">
+<meta property="og:description" content="An article about a new library, with lots of beautiful pictures, interesting code, and raising the level of abstraction!">
+<meta property="og:image" content="https://optozorax.github.io/en/p/space-objects/img/logo.png">
+<meta property="og:locale" content="en">
+
+
+<meta property="article:published_time" content="2019-04-21">
+
+
+
+
+<meta property="article:tag" content="programming">
+
+<meta property="article:tag" content="fractals">
+
+<meta property="article:tag" content="graphics">
+
+<meta property="article:tag" content="pythagoras-tree">
+
+
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="optozorax.github.io">
+<meta property="twitter:url" content="https://optozorax.github.io/en/p/space-objects/">
+<meta name="twitter:title" content="About my Space Objects library and the Pythagoras tree — optozorax&#39;s blog">
+<meta name="twitter:description" content="An article about a new library, with lots of beautiful pictures, interesting code, and raising the level of abstraction!">
+<meta name="twitter:image" content="https://optozorax.github.io/en/p/space-objects/img/logo.png">
+<meta name="twitter:creator" content="optozorax">
+
+  <!-- --- -->
+
+  <!-- Extra head declarations -->
+  
+
+<script type="text/javascript" src="/js/hammer.min.js"></script>
+<script type="text/javascript" src="/js/toc.js"></script>
+<script type="text/javascript" src="/js/gallery.js"></script>
+<script type="text/javascript" src="/js/full_screen.js"></script>
+<script type="text/javascript" src="/js/word_wrap.js"></script>
+
+  <!-- --- -->
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+  <!-- --- -->
+
+  <title>About my Space Objects library and the Pythagoras tree — optozorax&#39;s blog</title>
+</head>
+
+<body>
+  <!-- FullScreen block -->
+  <div id="img_modal" class="modal" style="display: none;">
+      <img id="img_modal_01" src="/ico/loading.gif">
+      <span class="close" id="img_modal_close">&times;</span>
+  </div>
+  <!-- --- -->
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <header class="site-header" role="banner">
+  
+  <div class="wrapper">
+    <a class="site-title" href="/en/">optozorax.blog</a>
+
+    <div class="lang-switch">
+      <span class="lang-switch-item lang-switch-current" lang="en" title="English"><span class="lang-switch-flag">🇬🇧</span>EN</span>
+      <a class="lang-switch-item" href="/p/space-objects/" hreflang="ru" lang="ru" title="Русский"><span class="lang-switch-flag">🇷🇺</span>RU</a>
+    </div>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <img src="/ico/menu.svg" width="13px" height="15px">
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          <a class="page-link" href="/en/">Blog</a>
+        
+          <a class="page-link" href="/en/e">Collections</a>
+        
+          <a class="page-link" href="/en/tags">Tags</a>
+        
+          <a class="page-link" href="/en/about">About me</a>
+        
+      </div>
+    </nav>
+  </div>
+  
+  </header>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+  
+  <section class="page-header">
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+<h1 class="project-name">About my Space Objects library and the Pythagoras tree</h1>
+
+<h2 class="project-tagline">An article about a new library, with lots of beautiful pictures, interesting code, and raising the level of abstraction!</h2>
+
+
+
+<span style="margin-bottom: 10px;">
+  
+    <a href="/en/tags#programming"><code class="tag"><nobr>#programming</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#fractals"><code class="tag"><nobr>#fractals</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#graphics"><code class="tag"><nobr>#graphics</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#pythagoras-tree"><code class="tag"><nobr>#pythagoras-tree</nobr></code></a>&nbsp;
+  
+</span>
+
+
+<center>
+<table style="margin-top: 8px;">
+<tr>
+
+
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+  <time datetime="2019-04-21" itemprop="datePublished">
+    
+    
+    
+    
+    <span class="post-date">21 April 2019</span>
+  </time>
+</h2>
+</td>
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+    <span class="post-date" style="font-style: normal">| 🕑 14 min</span>
+</h2>
+</td>
+
+
+
+<td style="padding-left: 10px;">
+  
+  <a href="https://vk.com/optoblog?w=wall-169103586_12">
+  <code class="tag">Post on VK</code>
+  </a>
+  
+  
+  
+</td>
+
+</tr>
+</table>
+
+
+<div class="translation-note">
+  <svg class="translation-note-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+  <span>Translated from 🇷🇺 Russian</span>
+  <span class="translation-note-sep">·</span>
+  <span>Translation by Claude Opus 5.5</span>
+  <span class="translation-note-sep">·</span>
+  <a href="/p/space-objects/" hreflang="ru" lang="ru">Original</a>
+</div>
+
+
+
+<br><a href="https://github.com/optozorax/space_objects" class="btn" style="margin: 0px;">Link to the library</a>
+
+</center>
+
+
+</td><td>
+</td></tr></table>
+
+
+
+  </section>
+  
+  
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <section class="main-content section">
+  
+<article itemscope itemtype="http://schema.org/BlogPosting">
+<div itemprop="articleBody" id="content">
+<h1 id="introduction"><a class="anchor" href="#introduction">#</a>Introduction</h1>
+<p>I recently developed and published a library called Space Objects. It's a library for working with vectors, lines and planes; it implements coordinate transformations, finding intersections of these objects, and so on. This library grew out of another project of mine.</p>
+<p>After I published it and started coming up with usage examples, I realized how powerful it really is. It's the culmination of many projects I had worked on before: 2D graphics, fractals, 3D rendering. All of this is showcased, in condensed form, in the library's examples on <a href="https://github.com/optozorax/space_objects">GitHub</a>.</p>
+<p>Here's the library's logo; it shows all the main objects and operations for two-dimensional space.</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="900"     height="450"     src="/processed_images/logo.69a75402e0b61e0a.webp"     onclick="full_screen('img/logo.png')"     onauxclick="full_screen_new_page('img/logo.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<p>I'll talk about the features of this library using the task of drawing the <a href="https://en.wikipedia.org/wiki/Pythagoras_tree_(fractal)">Pythagoras tree</a> fractal as an example.</p>
+<p>But first, let's take a closer look at the library's logo. The standard coordinate system here is the one in the center. The other coordinate systems are shown without a grid, only with the position of their origin and their axis vectors.</p>
+<p>As you can see, a coordinate system can not only be moved anywhere relative to the standard one, but also skewed and rotated by any angle; it can even be mirrored.</p>
+<p>For each coordinate system, a square with coordinates <code>(0, 0)</code>, <code>(0, 1)</code>, <code>(1, 1)</code>, <code>(1, 0)</code> is drawn, as well as the letter <code>A</code>, to show off coordinate transformation. In more detail: before the square is drawn, its coordinates are transformed by the current coordinate system with the <code>from()</code> function (as in "from the coordinate system"), and only the transformed coordinates are drawn as line segments.</p>
+<h1 id="drawing-the-pythagoras-tree"><a class="anchor" href="#drawing-the-pythagoras-tree">#</a>Drawing the Pythagoras tree</h1>
+<h2 id="how-to-build-it"><a class="anchor" href="#how-to-build-it">#<sup>2</sup></a>How to build it</h2>
+<p>Suppose we have the initial coordinates of the very first square. Then, according to the definition of this fractal, we need to build a right triangle on its top side and find its coordinates, then take both legs of this right triangle and recursively do the same on each of them.</p>
+<p>You can see this process in the following GIF.</p>
+<video class="img-one" autoplay loop muted inline>
+  <source src="explanation_4/anim_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<p>The hardest part of drawing this fractal is calculating the coordinates of each square.</p>
+<p>Also, obviously, drawing the Pythagoras tree requires recursion. We need to write a recursive procedure that builds the Pythagoras tree on any line segment. After all, each new part of the tree is built on a side of a triangle, that is, on a segment with arbitrary coordinates.</p>
+<h2 id="the-hard-and-bad-way"><a class="anchor" href="#the-hard-and-bad-way">#<sup>2</sup></a>The hard and bad way</h2>
+<p>Back in 10th grade, when I was still programming in Pascal, I set out to draw this fractal and took the hardest path possible: deriving cumbersome formulas with geometry and trigonometry. In the end I got this code:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="pascal"><code data-lang="pascal"><span class="giallo-l"><span style="color: #72AB00;">var</span><span> alpha:</span><span style="color: #668F14;">real</span><span>; </span><span style="color: #7F8989;">// Base angle of the right triangle</span></span>
+<span class="giallo-l"><span style="color: #668F14;">procedure</span><span style="color: #C23F31;"> recur</span><span>(x,y, x1,y1:</span><span style="color: #668F14;">real</span><span>; g:</span><span style="color: #668F14;">integer</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">var</span><span> dx,dy,lx,ly:</span><span style="color: #668F14;">real</span><span>;</span></span>
+<span class="giallo-l"><span>    x2,y2,x3,y3:</span><span style="color: #668F14;">real</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">begin</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">     if</span><span> (g=</span><span style="color: #B3933A;">1</span><span>) </span><span style="color: #72AB00;">or</span><span> ((sqr(x-x1)+sqr(y-y1))&lt;</span><span style="color: #B3933A;">1</span><span>) </span><span style="color: #72AB00;">then</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">     	// Exit the recursion if the maximum depth is reached or</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">     	// the square is too small</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">     else</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">         begin</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">           {1)}</span><span>dx:=x1-x;</span></span>
+<span class="giallo-l"><span>               dy:=y1-y;</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">           {2)}</span><span>x2:=x-dy; </span><span style="color: #7F8989;">// Compute the other two points of the square from the given</span></span>
+<span class="giallo-l"><span>               y2:=y+dx; </span><span style="color: #7F8989;">// points x,y, x1,y1.</span></span>
+<span class="giallo-l"><span>               x3:=x1-dy;</span></span>
+<span class="giallo-l"><span>               y3:=y1+dx;</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">           {3)}</span><span>draw_Rect(x,y, x1,y1, x2,y2, x3,y3); </span><span style="color: #7F8989;">// Draw the square on the screen</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;">           // Compute the coordinates of the right triangle&#39;s apex</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">           {4)}</span><span>lx:=sin(</span><span style="color: #B3933A;">2</span><span>*alpha)/</span><span style="color: #B3933A;">2</span><span>*dy-sqr(cos(alpha))*dx;</span></span>
+<span class="giallo-l"><span>               ly:=sqr(cos(alpha))*dy+sin(</span><span style="color: #B3933A;">2</span><span>*alpha)/</span><span style="color: #B3933A;">2</span><span>*dx;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;">           // Recurse for each leg of the right triangle</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">           {5)}</span><span>recur(x2,y2, x2-lx,y2+ly, g-</span><span style="color: #B3933A;">1</span><span>);</span></span>
+<span class="giallo-l"><span>               recur(x2-lx,y2+ly, x3,y3, g-</span><span style="color: #B3933A;">1</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">         end</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">end</span><span>;</span></span></code></pre>
+<p>If you need to understand every step, there are comments, and the code is pretty simple anyway: even if you don't know Pascal, you'll surely understand it. But there's no need to dig into it, it only serves to demonstrate the complicated approach.</p>
+<p>The recur function receives the coordinates of two points; a square is built on the segment formed by these two points; this square is drawn; a right triangle is built on the side of the square parallel to this segment, and the same function is called for its legs.</p>
+<p>Downsides of this code:</p>
+<ul>
+<li>It doesn't use vector classes, which would let us shorten the code that adds up x and y coordinates and computes the length of the square's side, and reduce the number of parameters passed around.</li>
+<li>The whole square is defined by just one side, and then the coordinates of its other vertices are computed with obscure formulas.</li>
+<li>The coordinates of the right triangle on top of a square defined by just one side are computed in a very convoluted way, and it's unclear how these formulas work.</li>
+<li>The code only works for building the tree on the top side of the square; if you want to build it on a lateral side, or alternate between sides, you'll have to derive new formulas.</li>
+<li>This solution only works for a square. It can't be used for an arbitrary polygon.</li>
+</ul>
+<p>But thankfully, here you can at least change the base angle of the right triangle. And back then I got roughly the following animation:</p>
+<video class="img-one" autoplay loop muted inline>
+  <source src="explanation_4/angle_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<h2 id="a-better-way-using-the-library"><a class="anchor" href="#a-better-way-using-the-library">#<sup>2</sup></a>A better way, using the library</h2>
+<p>The library provides two things that will come in handy now:</p>
+<ul>
+<li>Transforming a vector from one coordinate system to another.</li>
+<li>Creating a coordinate system from two points with the <code>makeLine2</code> function.</li>
+</ul>
+<p><code>makeLine2(a, b)</code> works like this: it creates a coordinate system with its origin at point <code>a</code>; the first axis vector points toward <code>b</code> and is equal to <code>(b-a)</code> in length. The second axis vector equals the first one rotated 90 degrees counterclockwise. So such a coordinate system is always orthogonal (the axes are perpendicular).</p>
+<p>Building the Pythagoras tree will be similar to the previous section, except that instead of passing the function the coordinates of the segment to build on next, we'll pass the coordinate system in which to continue building.</p>
+<p>Since we can easily transform coordinates, for any shape, be it a square, a right triangle or a Pythagoras tree, all we need to know is its coordinates when one of its sides lies entirely on the red <code>X</code> axis, which is defined by the vector <code>i</code>. This is necessary because later we'll transform these coordinates into some coordinate system obtained with the <code>makeLine2</code> function, and as a result the transformed polygon will automatically end up as if attached to some side, already scaled to the size of that side.</p>
+<p>The resulting code:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="cpp"><code data-lang="cpp"><span class="giallo-l"><span style="color: #668F14;">void</span><span style="color: #C23F31;"> draw_pythagoras_tree</span><span>(</span><span style="color: #668F14;">const</span><span style="color: #C23F31;"> space2</span><span style="color: #668F14;">&amp;</span><span style="color: #5597D6;"> space</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">	// Exit the recursion if one of the axes (and likewise the side of the square) is shorter than 2</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">	if</span><span> (</span><span style="color: #5597D6;">space</span><span>.</span><span style="color: #5597D6;">i</span><span>.</span><span style="color: #C23F31;">length</span><span>()</span><span style="color: #72AB00;"> &lt;</span><span style="color: #B3933A;"> 2</span><span>)</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">		return</span><span>;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;">	// Set the coordinates of the square</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">	vec2 a</span><span>(</span><span style="color: #B3933A;">0</span><span>,</span><span style="color: #B3933A;"> 0</span><span>),</span><span style="color: #C23F31;"> b</span><span>(</span><span style="color: #B3933A;">0</span><span>,</span><span style="color: #B3933A;"> 1</span><span>),</span><span style="color: #C23F31;"> c</span><span>(</span><span style="color: #B3933A;">1</span><span>,</span><span style="color: #B3933A;"> 1</span><span>),</span><span style="color: #C23F31;"> d</span><span>(</span><span style="color: #B3933A;">1</span><span>,</span><span style="color: #B3933A;"> 0</span><span>);</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;">	// Compute the coordinates of a right triangle whose hypotenuse lies on the X axis, with base angle alpha</span></span>
+<span class="giallo-l"><span style="color: #668F14;">	double</span><span style="color: #5597D6;"> alpha</span><span style="color: #72AB00;"> =</span><span style="color: #C23F31;"> spob</span><span>::</span><span style="color: #C23F31;">deg2rad</span><span>(</span><span style="color: #B3933A;">10</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">	vec2 tr_a</span><span>(</span><span style="color: #B3933A;">0</span><span>,</span><span style="color: #B3933A;"> 0</span><span>),</span><span style="color: #C23F31;"> tr_b</span><span>(</span><span style="color: #B3933A;">1</span><span>,</span><span style="color: #B3933A;"> 0</span><span>),</span><span style="color: #C23F31;"> tr_c</span><span>(</span><span style="color: #C23F31;">cos</span><span>(</span><span style="color: #5597D6;">alpha</span><span>),</span><span style="color: #B3933A;"> 0</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">	tr_c</span><span style="color: #72AB00;"> =</span><span style="color: #C23F31;"> rotate</span><span>(</span><span style="color: #5597D6;">tr_c</span><span>,</span><span style="color: #C23F31;"> vec2</span><span>(</span><span style="color: #B3933A;">0</span><span>),</span><span style="color: #5597D6;"> alpha</span><span>);</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;">	// Transform the square from the current coordinates to the coordinates of the given space</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">	a</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> space</span><span>.</span><span style="color: #C23F31;">from</span><span>(</span><span style="color: #5597D6;">a</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">	b</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> space</span><span>.</span><span style="color: #C23F31;">from</span><span>(</span><span style="color: #5597D6;">b</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">	c</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> space</span><span>.</span><span style="color: #C23F31;">from</span><span>(</span><span style="color: #5597D6;">c</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">	d</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> space</span><span>.</span><span style="color: #C23F31;">from</span><span>(</span><span style="color: #5597D6;">d</span><span>);</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;">	// Draw the square</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">	draw_line</span><span>(</span><span style="color: #5597D6;">a</span><span>,</span><span style="color: #5597D6;"> b</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">	draw_line</span><span>(</span><span style="color: #5597D6;">b</span><span>,</span><span style="color: #5597D6;"> c</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">	draw_line</span><span>(</span><span style="color: #5597D6;">c</span><span>,</span><span style="color: #5597D6;"> d</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">	draw_line</span><span>(</span><span style="color: #5597D6;">d</span><span>,</span><span style="color: #5597D6;"> a</span><span>);</span></span>
+<span class="giallo-l"><span>	</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">	// Build a space that lies on the top side of the square</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">	space2</span><span style="color: #5597D6;"> tr_line</span><span style="color: #72AB00;"> =</span><span style="color: #C23F31;"> makeLine2</span><span>(</span><span style="color: #5597D6;">b</span><span>,</span><span style="color: #5597D6;"> c</span><span>);</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;">	// Convert the triangle&#39;s coordinates to this space</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">	tr_a</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> tr_line</span><span>.</span><span style="color: #C23F31;">from</span><span>(</span><span style="color: #5597D6;">tr_a</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">	tr_b</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> tr_line</span><span>.</span><span style="color: #C23F31;">from</span><span>(</span><span style="color: #5597D6;">tr_b</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">	tr_c</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> tr_line</span><span>.</span><span style="color: #C23F31;">from</span><span>(</span><span style="color: #5597D6;">tr_c</span><span>);</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;">	// Build spaces that lie on both legs of this triangle</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">	space2</span><span style="color: #5597D6;"> l1</span><span style="color: #72AB00;"> =</span><span style="color: #C23F31;"> makeLine2</span><span>(</span><span style="color: #5597D6;">tr_a</span><span>,</span><span style="color: #5597D6;"> tr_c</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">	space2</span><span style="color: #5597D6;"> l2</span><span style="color: #72AB00;"> =</span><span style="color: #C23F31;"> makeLine2</span><span>(</span><span style="color: #5597D6;">tr_c</span><span>,</span><span style="color: #5597D6;"> tr_b</span><span>);</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;">	// Recursively build the tree in these spaces</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">	draw_pythagoras_tree</span><span>(</span><span style="color: #5597D6;">l1</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">	draw_pythagoras_tree</span><span>(</span><span style="color: #5597D6;">l2</span><span>);</span></span>
+<span class="giallo-l"><span>}</span></span></code></pre>
+<p>A step-by-step description, with a visualization of the calculations:</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1216"     height="828"     src="/processed_images/explanation.9875aeea019a1dc2.webp"     onclick="full_screen('explanation_4/explanation.png')"     onauxclick="full_screen_new_page('explanation_4/explanation.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<ol>
+<li>Create the coordinates of the square.<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="cpp"><code data-lang="cpp"><span class="giallo-l"><span style="color: #C23F31;">vec2 a</span><span>(</span><span style="color: #B3933A;">0</span><span>,</span><span style="color: #B3933A;"> 0</span><span>),</span><span style="color: #C23F31;"> b</span><span>(</span><span style="color: #B3933A;">1</span><span>,</span><span style="color: #B3933A;"> 0</span><span>),</span><span style="color: #C23F31;"> c</span><span>(</span><span style="color: #B3933A;">1</span><span>,</span><span style="color: #B3933A;"> 1</span><span>),</span><span style="color: #C23F31;"> d</span><span>(</span><span style="color: #B3933A;">0</span><span>,</span><span style="color: #B3933A;"> 1</span><span>);</span></span></code></pre></li>
+<li>Compute the coordinates of the right triangle. There are no complicated formulas here, just the simplest geometry and the <code>rotate(what, around what, by what angle)</code> function.<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="cpp"><code data-lang="cpp"><span class="giallo-l"><span style="color: #C23F31;">vec2 tr_a</span><span>(</span><span style="color: #B3933A;">0</span><span>,</span><span style="color: #B3933A;"> 0</span><span>),</span><span style="color: #C23F31;"> tr_b</span><span>(</span><span style="color: #B3933A;">1</span><span>,</span><span style="color: #B3933A;"> 0</span><span>),</span><span style="color: #C23F31;"> tr_c</span><span>(</span><span style="color: #C23F31;">cos</span><span>(</span><span style="color: #5597D6;">alpha</span><span>),</span><span style="color: #B3933A;"> 0</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">tr_c</span><span style="color: #72AB00;"> =</span><span style="color: #C23F31;"> rotate</span><span>(</span><span style="color: #5597D6;">tr_c</span><span>,</span><span style="color: #C23F31;"> vec2</span><span>(</span><span style="color: #B3933A;">0</span><span>),</span><span style="color: #5597D6;"> alpha</span><span>);</span></span></code></pre></li>
+<li>Notice that the square's coordinates are given without reference to any coordinate system, they're just zeros and ones. So we convert its coordinates from the coordinate system that was passed to the function.<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="cpp"><code data-lang="cpp"><span class="giallo-l"><span style="color: #5597D6;">a</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> space</span><span>.</span><span style="color: #C23F31;">from</span><span>(</span><span style="color: #5597D6;">a</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">b</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> space</span><span>.</span><span style="color: #C23F31;">from</span><span>(</span><span style="color: #5597D6;">b</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">c</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> space</span><span>.</span><span style="color: #C23F31;">from</span><span>(</span><span style="color: #5597D6;">c</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">d</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> space</span><span>.</span><span style="color: #C23F31;">from</span><span>(</span><span style="color: #5597D6;">d</span><span>);</span></span></code></pre>And we draw this square right away.<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="cpp"><code data-lang="cpp"><span class="giallo-l"><span style="color: #C23F31;">draw_line</span><span>(</span><span style="color: #5597D6;">a</span><span>,</span><span style="color: #5597D6;"> b</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">draw_line</span><span>(</span><span style="color: #5597D6;">b</span><span>,</span><span style="color: #5597D6;"> c</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">draw_line</span><span>(</span><span style="color: #5597D6;">c</span><span>,</span><span style="color: #5597D6;"> d</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">draw_line</span><span>(</span><span style="color: #5597D6;">d</span><span>,</span><span style="color: #5597D6;"> a</span><span>);</span></span></code></pre></li>
+<li>Create a coordinate system on the top side of the square with the <code>makeLine2</code> function.<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="cpp"><code data-lang="cpp"><span class="giallo-l"><span style="color: #5597D6;">space2 tr_line</span><span style="color: #72AB00;"> =</span><span style="color: #C23F31;"> makeLine2</span><span>(</span><span style="color: #5597D6;">d</span><span>,</span><span style="color: #5597D6;"> c</span><span>);</span></span></code></pre></li>
+<li>Transform the triangle's coordinates to the coordinate system we just got.<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="cpp"><code data-lang="cpp"><span class="giallo-l"><span style="color: #5597D6;">tr_a</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> tr_line</span><span>.</span><span style="color: #C23F31;">from</span><span>(</span><span style="color: #5597D6;">tr_a</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">tr_b</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> tr_line</span><span>.</span><span style="color: #C23F31;">from</span><span>(</span><span style="color: #5597D6;">tr_b</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">tr_c</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> tr_line</span><span>.</span><span style="color: #C23F31;">from</span><span>(</span><span style="color: #5597D6;">tr_c</span><span>);</span></span></code></pre></li>
+<li>Build new coordinate systems on each leg of the resulting triangle.<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="cpp"><code data-lang="cpp"><span class="giallo-l"><span style="color: #5597D6;">space2 l1</span><span style="color: #72AB00;"> =</span><span style="color: #C23F31;"> makeLine2</span><span>(</span><span style="color: #5597D6;">triangle</span><span>[</span><span style="color: #B3933A;">0</span><span>],</span><span style="color: #5597D6;"> triangle</span><span>[</span><span style="color: #B3933A;">2</span><span>]);</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">space2 l2</span><span style="color: #72AB00;"> =</span><span style="color: #C23F31;"> makeLine2</span><span>(</span><span style="color: #5597D6;">triangle</span><span>[</span><span style="color: #B3933A;">2</span><span>],</span><span style="color: #5597D6;"> triangle</span><span>[</span><span style="color: #B3933A;">1</span><span>]);</span></span></code></pre></li>
+<li>Repeat the whole procedure recursively for each coordinate system, after first transforming it from the coordinate system that was passed in. Actually, we could get rid of this transformation if we had transformed the square's coordinates from the start, as we did with the triangle.<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="cpp"><code data-lang="cpp"><span class="giallo-l"><span style="color: #C23F31;">draw_pythagoras_tree</span><span>(</span><span style="color: #5597D6;">space</span><span>.</span><span style="color: #C23F31;">from</span><span>(</span><span style="color: #5597D6;">l1</span><span>));</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">draw_pythagoras_tree</span><span>(</span><span style="color: #5597D6;">space</span><span>.</span><span style="color: #C23F31;">from</span><span>(</span><span style="color: #5597D6;">l2</span><span>));</span></span></code></pre></li>
+</ol>
+<p>While the code for the bad approach above took me ages of working out formulas on paper, hunting bugs and tuning parameters, I wrote the first version of this solution in literally half an hour, and it was roughly 7 lines long. Later versions were modified to be easier for other people to understand.</p>
+<div class="pros">
+<span style="color: #090"><big><b>Pros:</b></big></span>
+<ul>
+<li>It uses classes for vectors and coordinate systems.</li>
+<li>The coordinates of the square are computed in an intuitive way.</li>
+<li>The coordinates of the right triangle are very easy to compute.</li>
+<li>The code can build the Pythagoras tree on any side of the square; you only need to change the parameters in the line <code>space2 tr_line = makeLine2(b, c);</code>.</li>
+<li>This solution can be applied to any polygon (as long as one of its sides lies entirely on the X axis).</li>
+</ul>
+</div>
+<p>And here, for example, is the Pythagoras tree built on sides 0 and 1 of the square:</p>
+<p><code>space2 tr_line = makeLine2(b, a);</code></p>
+<div class="container">
+<video class="img-one-two" autoplay loop muted inline>
+  <source src="explanation_4/4_0_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<div class="magnifier-container img-one-two"> <img     class="not-default full-screen-img"     width="639"     height="640"     src="/processed_images/pythagor_0.4084ee2f7e0b95b1.webp"     onclick="full_screen('explanation_4/pythagor_0.png')"     onauxclick="full_screen_new_page('explanation_4/pythagor_0.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.7<br>png</div> </div> </div>
+</div>
+<p><code>space2 tr_line = makeLine2(a, c);</code></p>
+<div class="container">
+<video class="img-one-two" autoplay loop muted inline>
+  <source src="explanation_4/4_1_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<div class="magnifier-container img-one-two"> <img     class="not-default full-screen-img"     width="640"     height="639"     src="/processed_images/pythagor_1.bfc89020aad74009.webp"     onclick="full_screen('explanation_4/pythagor_1.png')"     onauxclick="full_screen_new_page('explanation_4/pythagor_1.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.7<br>png</div> </div> </div>
+</div>
+<p>Next, I changed the drawing a bit: instead of just lines, it now draws filled polygons, and as a result the picture looks much prettier. Also, since the size changes all the time, I recompute the bounds of the image every time and shift the fractal so that it fits entirely in the image. Here's an animation for each Pythagoras tree based on a square:</p>
+<video class="img-one" autoplay loop muted inline>
+  <source src="explanation_4/pyth_0_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<video class="img-one" autoplay loop muted inline>
+  <source src="explanation_4/pyth_1_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<video class="img-one" autoplay loop muted inline>
+  <source src="explanation_4/pyth_2_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<h1 id="drawing-the-pythagoras-tree-on-an-arbitrary-polygon"><a class="anchor" href="#drawing-the-pythagoras-tree-on-an-arbitrary-polygon">#</a>Drawing the Pythagoras tree on an arbitrary polygon</h1>
+<p>As mentioned earlier, the good solution can be used for basically any polygon, with small modifications. After writing that program in 10th grade I didn't stop there, and wanted to make a solution for a regular polygon. Here's how that turned out...</p>
+<h2 id="the-old-and-nightmarish-solution"><a class="anchor" href="#the-old-and-nightmarish-solution">#<sup>2</sup></a>The old and nightmarish solution</h2>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="pascal"><code data-lang="pascal"><span class="giallo-l"><span style="color: #668F14;">procedure</span><span style="color: #C23F31;"> mnogoug</span><span>(n,m:</span><span style="color: #668F14;">integer</span><span>; x,y,x1,y1:</span><span style="color: #668F14;">real</span><span>;</span><span style="color: #72AB00;">var</span><span> x2,y2,x3,y3:</span><span style="color: #668F14;">real</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">{A very universal procedure for building regular polygons!!!}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;">{The procedure builds a polygon with n sides, and it is built so</span></span>
+<span class="giallo-l"><span style="color: #7F8989;"> that its base is the side with coordinates x,y,x1,y1 , and with that side as its base</span></span>
+<span class="giallo-l"><span style="color: #7F8989;"> it also has to return the coordinates of side number m, in x2,y2,x3,y3 ,</span></span>
+<span class="giallo-l"><span style="color: #7F8989;"> and since only the number of sides and the base coordinates are given, the size of the shape is chosen</span></span>
+<span class="giallo-l"><span style="color: #7F8989;"> according to the input data, and the tilt angle and the center coordinates too; also,</span></span>
+<span class="giallo-l"><span style="color: #7F8989;"> it matters a lot where you put the first point, in x,y or in x1,y1 , depending</span></span>
+<span class="giallo-l"><span style="color: #7F8989;"> on that your shape may come out upside down or not}</span></span>
+<span class="giallo-l"><span style="color: #72AB00;"> var</span><span> v:</span><span style="color: #668F14;">integer</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">begin</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">  {Find the center coordinates}</span></span>
+<span class="giallo-l"><span>	rx:=(x1+x)/</span><span style="color: #B3933A;">2</span><span>+((cos(pi/n)/sin(pi/n))*(y1-y))/</span><span style="color: #B3933A;">2</span><span>;</span></span>
+<span class="giallo-l"><span>	ry:=(y1+y)/</span><span style="color: #B3933A;">2</span><span>-(cos(pi/n)/sin(pi/n)*(x1-x))/</span><span style="color: #B3933A;">2</span><span>;</span></span>
+<span class="giallo-l"><span>	</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">	{Find the tilt angle of the polygon}</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">	if</span><span> (y1=y) </span><span style="color: #72AB00;">or</span><span> (x1=x) </span><span style="color: #72AB00;">then</span><span> fi:=pi/n</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">	else</span><span>                     fi:=-arctan((x1-x)/(y1-y))+pi/n;</span></span>
+<span class="giallo-l"><span>    	</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">  if</span><span> (y1&gt;y) </span><span style="color: #72AB00;">then</span><span> fi:=fi+pi;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">  if</span><span> y1=y </span><span style="color: #72AB00;">then</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">    if</span><span> x1&gt;x </span><span style="color: #72AB00;">then</span><span> fi:=fi+pi/</span><span style="color: #B3933A;">2</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">    else</span><span>         fi:=fi+</span><span style="color: #B3933A;">3</span><span>*pi/</span><span style="color: #B3933A;">2</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">  else</span><span>;</span></span>
+<span class="giallo-l"><span>  </span></span>
+<span class="giallo-l"><span style="color: #7F8989;">  {Find the radius of the polygon}</span></span>
+<span class="giallo-l"><span>	r:=sqrt(sqr(x1-x)+sqr(y1-y))/(</span><span style="color: #B3933A;">2</span><span>*sin(pi/n));</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;">  {Build all the sides one by one}</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">	for</span><span> v:=</span><span style="color: #B3933A;">0</span><span style="color: #72AB00;"> to</span><span> n </span><span style="color: #72AB00;">do</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">	   begin</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">         {Formulas for the coordinates of the polygon&#39;s vertices; to</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">          find them you need to know the center coordinates, the radius and the tilt angle, but since</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">          we&#39;ve already found them, we can safely build the polygon. The formula is taken</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">          from Wikipedia}</span></span>
+<span class="giallo-l"><span>	       xi:=rx+r*cos(fi+</span><span style="color: #B3933A;">2</span><span>*v*pi/n);</span></span>
+<span class="giallo-l"><span>	       yi:=ry+r*sin(fi+</span><span style="color: #B3933A;">2</span><span>*v*pi/n);</span></span>
+<span class="giallo-l"><span>	       </span></span>
+<span class="giallo-l"><span style="color: #7F8989;">	       {If we&#39;ve reached the side we need, return</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">          its coordinates}</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">	       if</span><span> (v=m) </span><span style="color: #72AB00;">then</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">	          begin</span></span>
+<span class="giallo-l"><span>	          	x2:=xb; y2:=yb;</span></span>
+<span class="giallo-l"><span>	          	x3:=xi; y3:=yi;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">	          end</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">	       else</span><span>;</span></span>
+<span class="giallo-l"><span>	       </span></span>
+<span class="giallo-l"><span style="color: #7F8989;">	       {Draw the line of one side of the polygon}</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">	       if</span><span> v&lt;&gt;</span><span style="color: #B3933A;">0</span><span style="color: #72AB00;"> then</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">	       begin</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">         //line(trunc(xb),round(yb),trunc(xi),trunc(yi));</span></span>
+<span class="giallo-l"><span>         line_m(trunc(xb),round(yb),trunc(xi),trunc(yi));</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">         end</span><span>;</span></span>
+<span class="giallo-l"><span>	       xb:=xi; yb:=yi;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">	   end</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">end</span><span>;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">var</span><span> i,j:</span><span style="color: #668F14;">integer</span><span>;</span></span>
+<span class="giallo-l"><span>    alpha:</span><span style="color: #668F14;">real</span><span>;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>    </span></span>
+<span class="giallo-l"><span style="color: #668F14;">procedure</span><span style="color: #C23F31;"> recur</span><span>(x,y,x1,y1:</span><span style="color: #668F14;">real</span><span>; g:</span><span style="color: #668F14;">integer</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">{The procedure builds a polygon with i sides on the side x,y,x1,y1 ,</span></span>
+<span class="giallo-l"><span style="color: #7F8989;"> and on side j of this polygon it builds a right triangle with angle alpha</span></span>
+<span class="giallo-l"><span style="color: #7F8989;"> ,and on its legs everything starts over again, and so in the end it builds the fractal called</span></span>
+<span class="giallo-l"><span style="color: #7F8989;"> &quot;Pythagoras tree&quot;, and not the usual square one, but one based on any polygon}</span></span>
+<span class="giallo-l"><span style="color: #72AB00;"> var</span></span>
+<span class="giallo-l"><span>    lx,ly:</span><span style="color: #668F14;">real</span><span>; x2,y2,x3,y3:</span><span style="color: #668F14;">real</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">begin</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">     if</span><span> (g=</span><span style="color: #B3933A;">0</span><span>) </span><span style="color: #72AB00;">or</span><span> ((sqr(x-x1)+sqr(y-y1))&lt;</span><span style="color: #B3933A;">0.1</span><span>) </span><span style="color: #72AB00;">then</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">        {When the radius of the polygon is already less than one, there&#39;s no point building further,</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">         and also when the allowed depth limit is exceeded}</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">     else</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">         begin</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">               {Build a polygon with the given base and the given number of sides}</span></span>
+<span class="giallo-l"><span>         	     mnogoug(i,j,x,y,x1,y1,x3,y3,x2,y2);</span></span>
+<span class="giallo-l"><span>         	     </span></span>
+<span class="giallo-l"><span style="color: #7F8989;">         	     {Since we&#39;ve found the side we need, we find on it the apex</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">                of the right triangle whose hypotenuse is the side</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">                we found in the previous step, and the base angle</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">                of this triangle is alpha}</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">           {1)}</span><span>dx:=x3-x2;</span></span>
+<span class="giallo-l"><span>               dy:=y3-y2;</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">           {4)}</span><span>lx:=sin(</span><span style="color: #B3933A;">2</span><span>*alpha)/</span><span style="color: #B3933A;">2</span><span>*dy-sqr(cos(alpha))*dx;</span></span>
+<span class="giallo-l"><span>               ly:=sqr(cos(alpha))*dy+sin(</span><span style="color: #B3933A;">2</span><span>*alpha)/</span><span style="color: #B3933A;">2</span><span>*dx;</span></span>
+<span class="giallo-l"><span>               </span></span>
+<span class="giallo-l"><span style="color: #7F8989;">               {And now on the legs of this right triangle we build</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">                new polygons, and on them triangles again ... and this is what&#39;s called</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">                the &quot;Pythagoras tree&quot; fractal}</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">           {5)}</span><span>recur(x2-lx,y2+ly,x2,y2,g-</span><span style="color: #B3933A;">1</span><span>);</span></span>
+<span class="giallo-l"><span>               recur(x3,y3,x2-lx,y2+ly,g-</span><span style="color: #B3933A;">1</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">         end</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">end</span><span>;</span></span></code></pre>
+<p>Honestly, it scares me to look at this code and remember how I struggled with it... I tried to make it look as nice as I could, but at its core it's still all kludges and crappy hacks. And this picture (its caption says "A visual representation of how my code works") describes it perfectly:</p>
+<div class="magnifier-container img-one-two"> <img     class="not-default full-screen-img"     width="369"     height="640"     src="/processed_images/code.en.0caa73b29a48500a.webp"     onclick="full_screen('img/code.en.jpg')"     onauxclick="full_screen_new_page('img/code.en.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.1<br>jpg</div> </div> </div>
+<p>But I'll try to walk you through it all, so you can feel the full horror.</p>
+<p>The main problem in this code was the part that computes the angle in the <code>mnogoug</code> function (the name comes from the Russian word for "polygon"). There are lots of different ifs there that exist for god knows what reason and work god knows how. In fact, those angle lines were found empirically, by trial and error. It was this part, with all that trial and error, that cost me n hours of debugging.</p>
+<p>And then, while learning <code>C</code>, I found out that there exists a heaven-sent function, <code>atan2</code>... Yes, those lines are my hacky, reinvent-the-wheel implementation of <code>atan2</code>. It was a real revelation! Be sure to read about this function and use <strong>it</strong>!</p>
+<p>I also realized that I could have written that code much more simply, without all the voodoo, if I had derived those angle formulas strictly mathematically from the start.</p>
+<p>Now, what is actually going on here? Basically everything is written in the comments. The main idea is that there's a formula for generating a regular polygon, taken from <a href="https://en.wikipedia.org/wiki/Regular_polygon">Wikipedia</a>:</p>
+<div class="magnifier-container img-one-two"> <img     class="not-default full-screen-img"     width="208"     height="112"     src="/processed_images/polygon_f.ce785191aec7d9d6.webp"     onclick="full_screen('img/polygon_f.png')"     onauxclick="full_screen_new_page('img/polygon_f.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<p>If you study it, you can see that a regular polygon has several parameters that define it uniquely: the center coordinates <code>C</code>, the radius <code>R</code> and the rotation angle <code>φ</code>. And these parameters can be computed if you know <code>n</code> and the coordinates of one side.</p>
+<p>I derived the formulas for this on paper, and it took me much longer than just deriving the formulas for the Pythagoras tree. These are exactly the formulas you can see in the <code>mnogoug</code> function before the loop. Then the Wikipedia formula is applied to find the coordinates of the polygon's side on which the next iteration will be built. All the sides are drawn right there as well.</p>
+<p>As for the <code>recur</code> function, not much has changed there; even the formulas for computing the triangle's coordinates stayed the same.</p>
+<p>So here are the results of all that suffering:</p>
+<p><em>Note:</em> the label <code>20_3</code> means that we take a 20-gon and build the rest of the fractal on its third side.</p>
+<div class="gallery-container">
+<div class="gallery-slide" id="slide_1_0" style="display:block;">
+  <div class="gallery-text">1 / 15<hr style="margin: 2px;">3_0</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.09202538104218194"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/3_0.71e798399129bf2f.jpg"
+    onclick="full_screen('explanation_5/3_0.png')"
+    onauxclick="full_screen_new_page('explanation_5/3_0.png')"
+    width="921"
+    height="1040">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.09202538104218194"></svg>
+</div>
+<div class="gallery-slide" id="slide_1_1" >
+  <div class="gallery-text">2 / 15<hr style="margin: 2px;">3_1</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.052680176049880734"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/3_1.ed542075a251fcce.jpg"
+    onclick="full_screen('explanation_5/3_1.png')"
+    onauxclick="full_screen_new_page('explanation_5/3_1.png')"
+    width="861"
+    height="1040">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.052680176049880734"></svg>
+</div>
+<div class="gallery-slide" id="slide_1_2" >
+  <div class="gallery-text">3 / 15<hr style="margin: 2px;">5_1</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.218648303450935"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/5_1.e280234ae35608de.jpg"
+    onclick="full_screen('explanation_5/5_1.png')"
+    onauxclick="full_screen_new_page('explanation_5/5_1.png')"
+    width="1040"
+    height="911">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.218648303450935"></svg>
+</div>
+<div class="gallery-slide" id="slide_1_3" >
+  <div class="gallery-text">4 / 15<hr style="margin: 2px;">5_2</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/5_2.d1c18a3ee2466dcb.jpg"
+    onclick="full_screen('explanation_5/5_2.png')"
+    onauxclick="full_screen_new_page('explanation_5/5_2.png')"
+    width="798"
+    height="1040">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+</div>
+<div class="gallery-slide" id="slide_1_4" >
+  <div class="gallery-text">5 / 15<hr style="margin: 2px;">6_1</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.22105214960478115"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/6_1.28c2be2edd7cf310.jpg"
+    onclick="full_screen('explanation_5/6_1.png')"
+    onauxclick="full_screen_new_page('explanation_5/6_1.png')"
+    width="1040"
+    height="906">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.22105214960478115"></svg>
+</div>
+<div class="gallery-slide" id="slide_1_5" >
+  <div class="gallery-text">6 / 15<hr style="margin: 2px;">10_3</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.18932138037401192"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/10_3.7265694d78a516db.jpg"
+    onclick="full_screen('explanation_5/10_3.png')"
+    onauxclick="full_screen_new_page('explanation_5/10_3.png')"
+    width="1040"
+    height="972">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.18932138037401192"></svg>
+</div>
+<div class="gallery-slide" id="slide_1_6" >
+  <div class="gallery-text">7 / 15<hr style="margin: 2px;">20_1</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.04486436679935124"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/20_1.8221e21999b5d66a.jpg"
+    onclick="full_screen('explanation_5/20_1.png')"
+    onauxclick="full_screen_new_page('explanation_5/20_1.png')"
+    width="850"
+    height="1040">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.04486436679935124"></svg>
+</div>
+<div class="gallery-slide" id="slide_1_7" >
+  <div class="gallery-text">8 / 15<hr style="margin: 2px;">20_2</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.12219947350390359"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/20_2.6d85f803ad2364bb.jpg"
+    onclick="full_screen('explanation_5/20_2.png')"
+    onauxclick="full_screen_new_page('explanation_5/20_2.png')"
+    width="973"
+    height="1040">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.12219947350390359"></svg>
+</div>
+<div class="gallery-slide" id="slide_1_8" >
+  <div class="gallery-text">9 / 15<hr style="margin: 2px;">20_3</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.18499445729708885"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/20_3.37b2eb8843a27d72.jpg"
+    onclick="full_screen('explanation_5/20_3.png')"
+    onauxclick="full_screen_new_page('explanation_5/20_3.png')"
+    width="1040"
+    height="981">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.18499445729708885"></svg>
+</div>
+<div class="gallery-slide" id="slide_1_9" >
+  <div class="gallery-text">10 / 15<hr style="margin: 2px;">20_4</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.23884061114324268"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/20_4.fb9d5d1fd873daf3.jpg"
+    onclick="full_screen('explanation_5/20_4.png')"
+    onauxclick="full_screen_new_page('explanation_5/20_4.png')"
+    width="1040"
+    height="869">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.23884061114324268"></svg>
+</div>
+<div class="gallery-slide" id="slide_1_10" >
+  <div class="gallery-text">11 / 15<hr style="margin: 2px;">20_5</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.23547522652785807"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/20_5.65dba0d741d6a0f6.jpg"
+    onclick="full_screen('explanation_5/20_5.png')"
+    onauxclick="full_screen_new_page('explanation_5/20_5.png')"
+    width="1040"
+    height="876">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.23547522652785807"></svg>
+</div>
+<div class="gallery-slide" id="slide_1_11" >
+  <div class="gallery-text">12 / 15<hr style="margin: 2px;">20_6</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.20374445729708884"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/20_6.748a7f0e332e97b0.jpg"
+    onclick="full_screen('explanation_5/20_6.png')"
+    onauxclick="full_screen_new_page('explanation_5/20_6.png')"
+    width="1040"
+    height="942">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.20374445729708884"></svg>
+</div>
+<div class="gallery-slide" id="slide_1_12" >
+  <div class="gallery-text">13 / 15<hr style="margin: 2px;">20_7</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.06437394739696622"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/20_7.0b62dff55adc70d9.jpg"
+    onclick="full_screen('explanation_5/20_7.png')"
+    onauxclick="full_screen_new_page('explanation_5/20_7.png')"
+    width="878"
+    height="1040">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.06437394739696622"></svg>
+</div>
+<div class="gallery-slide" id="slide_1_13" >
+  <div class="gallery-text">14 / 15<hr style="margin: 2px;">20_8</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.016234984011753495"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/20_8.86b037a73112e886.jpg"
+    onclick="full_screen('explanation_5/20_8.png')"
+    onauxclick="full_screen_new_page('explanation_5/20_8.png')"
+    width="812"
+    height="1040">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.016234984011753495"></svg>
+</div>
+<div class="gallery-slide" id="slide_1_14" >
+  <div class="gallery-text">15 / 15<hr style="margin: 2px;">20_9</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.21480214960478117"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/20_9.2894843b99857a45.jpg"
+    onclick="full_screen('explanation_5/20_9.png')"
+    onauxclick="full_screen_new_page('explanation_5/20_9.png')"
+    width="1040"
+    height="919">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.21480214960478117"></svg>
+</div>
+<a class="gallery-prev" onclick="gallery_plus(1, -1)">&#10094;</a>
+<a class="gallery-next" onclick="gallery_plus(1, 1)">&#10095;</a>
+</div>
+<div class="gallery-row">
+  <div class="gallery-column" style="width: 6.666666666666667%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.09202538104218194"></svg>
+    <img class="gallery-demo not-default gallery-active" src="/processed_images/3_0.71e798399129bf2f.jpg"
+      id="demo_1_0"
+      onclick="gallery_set(1, 0)"
+      width="921" height="1040">
+    <svg class="gallery-svg" viewBox="0 0 1 0.09202538104218194"></svg>
+  </div>
+  <div class="gallery-column" style="width: 6.666666666666667%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.052680176049880734"></svg>
+    <img class="gallery-demo not-default" src="/processed_images/3_1.ed542075a251fcce.jpg"
+      id="demo_1_1"
+      onclick="gallery_set(1, 1)"
+      width="861" height="1040">
+    <svg class="gallery-svg" viewBox="0 0 1 0.052680176049880734"></svg>
+  </div>
+  <div class="gallery-column" style="width: 6.666666666666667%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.218648303450935"></svg>
+    <img class="gallery-demo not-default" src="/processed_images/5_1.e280234ae35608de.jpg"
+      id="demo_1_2"
+      onclick="gallery_set(1, 2)"
+      width="1040" height="911">
+    <svg class="gallery-svg" viewBox="0 0 1 0.218648303450935"></svg>
+  </div>
+  <div class="gallery-column" style="width: 6.666666666666667%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+    <img class="gallery-demo not-default" src="/processed_images/5_2.d1c18a3ee2466dcb.jpg"
+      id="demo_1_3"
+      onclick="gallery_set(1, 3)"
+      width="798" height="1040">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  </div>
+  <div class="gallery-column" style="width: 6.666666666666667%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.22105214960478115"></svg>
+    <img class="gallery-demo not-default" src="/processed_images/6_1.28c2be2edd7cf310.jpg"
+      id="demo_1_4"
+      onclick="gallery_set(1, 4)"
+      width="1040" height="906">
+    <svg class="gallery-svg" viewBox="0 0 1 0.22105214960478115"></svg>
+  </div>
+  <div class="gallery-column" style="width: 6.666666666666667%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.18932138037401192"></svg>
+    <img class="gallery-demo not-default" src="/processed_images/10_3.7265694d78a516db.jpg"
+      id="demo_1_5"
+      onclick="gallery_set(1, 5)"
+      width="1040" height="972">
+    <svg class="gallery-svg" viewBox="0 0 1 0.18932138037401192"></svg>
+  </div>
+  <div class="gallery-column" style="width: 6.666666666666667%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.04486436679935124"></svg>
+    <img class="gallery-demo not-default" src="/processed_images/20_1.8221e21999b5d66a.jpg"
+      id="demo_1_6"
+      onclick="gallery_set(1, 6)"
+      width="850" height="1040">
+    <svg class="gallery-svg" viewBox="0 0 1 0.04486436679935124"></svg>
+  </div>
+  <div class="gallery-column" style="width: 6.666666666666667%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.12219947350390359"></svg>
+    <img class="gallery-demo not-default" src="/processed_images/20_2.6d85f803ad2364bb.jpg"
+      id="demo_1_7"
+      onclick="gallery_set(1, 7)"
+      width="973" height="1040">
+    <svg class="gallery-svg" viewBox="0 0 1 0.12219947350390359"></svg>
+  </div>
+  <div class="gallery-column" style="width: 6.666666666666667%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.18499445729708885"></svg>
+    <img class="gallery-demo not-default" src="/processed_images/20_3.37b2eb8843a27d72.jpg"
+      id="demo_1_8"
+      onclick="gallery_set(1, 8)"
+      width="1040" height="981">
+    <svg class="gallery-svg" viewBox="0 0 1 0.18499445729708885"></svg>
+  </div>
+  <div class="gallery-column" style="width: 6.666666666666667%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.23884061114324268"></svg>
+    <img class="gallery-demo not-default" src="/processed_images/20_4.fb9d5d1fd873daf3.jpg"
+      id="demo_1_9"
+      onclick="gallery_set(1, 9)"
+      width="1040" height="869">
+    <svg class="gallery-svg" viewBox="0 0 1 0.23884061114324268"></svg>
+  </div>
+  <div class="gallery-column" style="width: 6.666666666666667%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.23547522652785807"></svg>
+    <img class="gallery-demo not-default" src="/processed_images/20_5.65dba0d741d6a0f6.jpg"
+      id="demo_1_10"
+      onclick="gallery_set(1, 10)"
+      width="1040" height="876">
+    <svg class="gallery-svg" viewBox="0 0 1 0.23547522652785807"></svg>
+  </div>
+  <div class="gallery-column" style="width: 6.666666666666667%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.20374445729708884"></svg>
+    <img class="gallery-demo not-default" src="/processed_images/20_6.748a7f0e332e97b0.jpg"
+      id="demo_1_11"
+      onclick="gallery_set(1, 11)"
+      width="1040" height="942">
+    <svg class="gallery-svg" viewBox="0 0 1 0.20374445729708884"></svg>
+  </div>
+  <div class="gallery-column" style="width: 6.666666666666667%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.06437394739696622"></svg>
+    <img class="gallery-demo not-default" src="/processed_images/20_7.0b62dff55adc70d9.jpg"
+      id="demo_1_12"
+      onclick="gallery_set(1, 12)"
+      width="878" height="1040">
+    <svg class="gallery-svg" viewBox="0 0 1 0.06437394739696622"></svg>
+  </div>
+  <div class="gallery-column" style="width: 6.666666666666667%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.016234984011753495"></svg>
+    <img class="gallery-demo not-default" src="/processed_images/20_8.86b037a73112e886.jpg"
+      id="demo_1_13"
+      onclick="gallery_set(1, 13)"
+      width="812" height="1040">
+    <svg class="gallery-svg" viewBox="0 0 1 0.016234984011753495"></svg>
+  </div>
+  <div class="gallery-column" style="width: 6.666666666666667%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.21480214960478117"></svg>
+    <img class="gallery-demo not-default" src="/processed_images/20_9.2894843b99857a45.jpg"
+      id="demo_1_14"
+      onclick="gallery_set(1, 14)"
+      width="1040" height="919">
+    <svg class="gallery-svg" viewBox="0 0 1 0.21480214960478117"></svg>
+  </div>
+</div>
+<script>
+slide_index[1] = 0;
+slide_count[1] = 15;
+</script>
+<p>Downsides of this solution:</p>
+<ul>
+<li>It only works for regular polygons.</li>
+<li>It requires deriving <strong>even more complicated</strong> formulas.</li>
+<li>It has most of the downsides of the bad solution for the simple Pythagoras tree.</li>
+</ul>
+<h2 id="the-good-way-using-the-library"><a class="anchor" href="#the-good-way-using-the-library">#<sup>2</sup></a>The good way, using the library</h2>
+<p>This may seem surprising, but compared to the previous good solution, this one differs only a little. The main differences: the shape's coordinates are no longer written as <code>a</code>, <code>b</code>, <code>c</code>, but stored in an array. There are also a few lines for computing a regular polygon.</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="cpp"><code data-lang="cpp"><span class="giallo-l"><span style="color: #668F14;">void</span><span style="color: #C23F31;"> draw_pythagoras_tree</span><span>(</span><span style="color: #668F14;">const</span><span style="color: #C23F31;"> space2</span><span style="color: #668F14;">&amp;</span><span style="color: #5597D6;"> space</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">	// Exit the recursion if one of the axes (and likewise the side of the square) is shorter than 2</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">	if</span><span> (</span><span style="color: #5597D6;">space</span><span>.</span><span style="color: #5597D6;">i</span><span>.</span><span style="color: #C23F31;">length</span><span>()</span><span style="color: #72AB00;"> &lt;</span><span style="color: #B3933A;"> 2</span><span>)</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">		return</span><span>;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;">	// Compute a regular polygon</span></span>
+<span class="giallo-l"><span style="color: #668F14;">	const int</span><span style="color: #5597D6;"> n</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 5</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #668F14;">	const int</span><span style="color: #5597D6;"> m</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 1</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">	std</span><span>::</span><span style="color: #C23F31;">vector</span><span>&lt;</span><span style="color: #C23F31;">vec2</span><span>&gt;</span><span style="color: #5597D6;"> poly</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">	for</span><span> (</span><span style="color: #668F14;">int</span><span style="color: #5597D6;"> i</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0</span><span>;</span><span style="color: #5597D6;"> i</span><span style="color: #72AB00;"> &lt;</span><span style="color: #5597D6;"> n</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span>;</span><span style="color: #72AB00;"> ++</span><span style="color: #5597D6;">i</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #668F14;">		double</span><span style="color: #5597D6;"> angle</span><span style="color: #72AB00;"> =</span><span style="color: #C23F31;"> deg2rad</span><span>(</span><span style="color: #B3933A;">360.0</span><span style="color: #72AB00;">/</span><span style="color: #5597D6;">n</span><span style="color: #72AB00;"> *</span><span style="color: #5597D6;"> i</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">		poly</span><span>.</span><span style="color: #C23F31;">push_back</span><span>(</span><span style="color: #C23F31;">vec2</span><span>(</span><span style="color: #C23F31;">cos</span><span>(</span><span style="color: #5597D6;">angle</span><span>),</span><span style="color: #C23F31;"> sin</span><span>(</span><span style="color: #5597D6;">angle</span><span>)));</span></span>
+<span class="giallo-l"><span>	}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;">	// Transform the coordinates so that its first edge lies on the X axis</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">	space2</span><span style="color: #5597D6;"> poly_line</span><span style="color: #72AB00;"> =</span><span style="color: #C23F31;"> makeLine2</span><span>(</span><span style="color: #5597D6;">poly</span><span>[</span><span style="color: #B3933A;">0</span><span>],</span><span style="color: #5597D6;"> poly</span><span>[</span><span style="color: #B3933A;">1</span><span>]);</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">	poly</span><span style="color: #72AB00;"> =</span><span style="color: #C23F31;"> toMas</span><span>(</span><span style="color: #5597D6;">poly_line</span><span>,</span><span style="color: #5597D6;"> poly</span><span>);</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;">	// Compute the coordinates of a right triangle whose hypotenuse lies on the X axis, with base angle alpha</span></span>
+<span class="giallo-l"><span style="color: #668F14;">	double</span><span style="color: #5597D6;"> alpha</span><span style="color: #72AB00;"> =</span><span style="color: #C23F31;"> spob</span><span>::</span><span style="color: #C23F31;">deg2rad</span><span>(</span><span style="color: #B3933A;">45</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">	std</span><span>::</span><span style="color: #C23F31;">vector</span><span>&lt;</span><span style="color: #C23F31;">vec2</span><span>&gt;</span><span style="color: #5597D6;"> triangle</span><span style="color: #72AB00;"> =</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">		vec2</span><span>(</span><span style="color: #B3933A;">0</span><span>,</span><span style="color: #B3933A;"> 0</span><span>), </span></span>
+<span class="giallo-l"><span style="color: #C23F31;">		vec2</span><span>(</span><span style="color: #B3933A;">1</span><span>,</span><span style="color: #B3933A;"> 0</span><span>), </span></span>
+<span class="giallo-l"><span style="color: #C23F31;">		rotate</span><span>(</span><span style="color: #C23F31;">vec2</span><span>(</span><span style="color: #C23F31;">cos</span><span>(</span><span style="color: #5597D6;">alpha</span><span>),</span><span style="color: #B3933A;"> 0</span><span>),</span><span style="color: #C23F31;"> vec2</span><span>(</span><span style="color: #B3933A;">0</span><span>),</span><span style="color: #5597D6;"> alpha</span><span>)</span></span>
+<span class="giallo-l"><span>	};</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;">	// Transform the polygon from the current coordinates to the coordinates of the given space</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">	poly</span><span style="color: #72AB00;"> =</span><span style="color: #C23F31;"> fromMas</span><span>(</span><span style="color: #5597D6;">space</span><span>,</span><span style="color: #5597D6;"> poly</span><span>);</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;">	// Draw the polygon</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">	for</span><span> (</span><span style="color: #668F14;">int</span><span style="color: #5597D6;"> i</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0</span><span>;</span><span style="color: #5597D6;"> i</span><span style="color: #72AB00;"> &lt;</span><span style="color: #5597D6;"> poly</span><span>.</span><span style="color: #C23F31;">size</span><span>()</span><span style="color: #72AB00;"> -</span><span style="color: #B3933A;"> 1</span><span>;</span><span style="color: #5597D6;"> i</span><span style="color: #72AB00;">++</span><span>)</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">		draw_line</span><span>(</span><span style="color: #5597D6;">poly</span><span>[</span><span style="color: #5597D6;">i</span><span>],</span><span style="color: #5597D6;"> poly</span><span>[</span><span style="color: #5597D6;">i</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span>]);</span></span>
+<span class="giallo-l"><span>	</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">	// Build a space that lies on the m-th side of the polygon</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">	space2</span><span style="color: #5597D6;"> tr_line</span><span style="color: #72AB00;"> =</span><span style="color: #C23F31;"> makeLine2</span><span>(</span><span style="color: #5597D6;">poly</span><span>[</span><span style="color: #5597D6;">m</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span>],</span><span style="color: #5597D6;"> poly</span><span>[</span><span style="color: #5597D6;">m</span><span>]);</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;">	// Convert the triangle&#39;s coordinates to this space</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">	triangle</span><span style="color: #72AB00;"> =</span><span style="color: #C23F31;"> fromMas</span><span>(</span><span style="color: #5597D6;">tr_line</span><span>,</span><span style="color: #5597D6;"> triangle</span><span>);</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;">	// Build spaces that lie on both legs of this triangle</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">	space2</span><span style="color: #5597D6;"> l1</span><span style="color: #72AB00;"> =</span><span style="color: #C23F31;"> makeLine2</span><span>(</span><span style="color: #5597D6;">triangle</span><span>[</span><span style="color: #B3933A;">0</span><span>],</span><span style="color: #5597D6;"> triangle</span><span>[</span><span style="color: #B3933A;">2</span><span>]);</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">	space2</span><span style="color: #5597D6;"> l2</span><span style="color: #72AB00;"> =</span><span style="color: #C23F31;"> makeLine2</span><span>(</span><span style="color: #5597D6;">triangle</span><span>[</span><span style="color: #B3933A;">2</span><span>],</span><span style="color: #5597D6;"> triangle</span><span>[</span><span style="color: #B3933A;">1</span><span>]);</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;">	// Recursively build the tree in these spaces</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">	draw_pythagoras_tree</span><span>(</span><span style="color: #5597D6;">l1</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">	draw_pythagoras_tree</span><span>(</span><span style="color: #5597D6;">l2</span><span>);</span></span>
+<span class="giallo-l"><span>}</span></span></code></pre>
+<p>A step-by-step explanation of how the polygon is created:</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1204"     height="366"     src="/processed_images/explanation_poly.5f006b5ceae2202c.webp"     onclick="full_screen('explanation_5/explanation_poly.png')"     onauxclick="full_screen_new_page('explanation_5/explanation_poly.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<ol>
+<li>First, the most important part: building the coordinates of a regular polygon:<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="cpp"><code data-lang="cpp"><span class="giallo-l"><span style="color: #668F14;">const int</span><span style="color: #5597D6;"> n</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 5</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #668F14;">const int</span><span style="color: #5597D6;"> m</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 1</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">std</span><span>::</span><span style="color: #5597D6;">vector</span><span style="color: #72AB00;">&lt;</span><span style="color: #5597D6;">vec2</span><span style="color: #72AB00;">&gt;</span><span style="color: #5597D6;"> poly</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">for</span><span> (</span><span style="color: #668F14;">int</span><span style="color: #5597D6;"> i</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0</span><span>;</span><span style="color: #5597D6;"> i</span><span style="color: #72AB00;"> &lt;</span><span style="color: #5597D6;"> n</span><span>;</span><span style="color: #72AB00;"> ++</span><span style="color: #5597D6;">i</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #668F14;">	double</span><span style="color: #5597D6;"> angle</span><span style="color: #72AB00;"> =</span><span style="color: #C23F31;"> deg2rad</span><span>(</span><span style="color: #B3933A;">360.0</span><span style="color: #72AB00;">/</span><span style="color: #5597D6;">n</span><span style="color: #72AB00;"> *</span><span style="color: #5597D6;"> i</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">	poly</span><span>.</span><span style="color: #C23F31;">push_back</span><span>(</span><span style="color: #C23F31;">vec2</span><span>(</span><span style="color: #C23F31;">cos</span><span>(</span><span style="color: #5597D6;">angle</span><span>),</span><span style="color: #C23F31;"> sin</span><span>(</span><span style="color: #5597D6;">angle</span><span>)));</span></span>
+<span class="giallo-l"><span>}</span></span></code></pre>You may notice that this is just the Wikipedia formula above, simplified as much as possible: no radius, no offset angle. But unfortunately the resulting polygon lacks an important property: having one side lie entirely on the X axis.</li>
+<li>So first we create a coordinate system from the first side of the polygon<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="cpp"><code data-lang="cpp"><span class="giallo-l"><span style="color: #5597D6;">space2 poly_line</span><span style="color: #72AB00;"> =</span><span style="color: #C23F31;"> makeLine2</span><span>(</span><span style="color: #5597D6;">poly</span><span>[</span><span style="color: #B3933A;">0</span><span>],</span><span style="color: #5597D6;"> poly</span><span>[</span><span style="color: #B3933A;">1</span><span>]);</span></span></code></pre></li>
+<li>And then we convert every point of this polygon to this coordinate system.<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="cpp"><code data-lang="cpp"><span class="giallo-l"><span style="color: #5597D6;">poly</span><span style="color: #72AB00;"> =</span><span style="color: #C23F31;"> toMas</span><span>(</span><span style="color: #5597D6;">poly_line</span><span>,</span><span style="color: #5597D6;"> poly</span><span>);</span></span></code></pre>As a result, our polygon now lies with its base entirely on the X axis, and we can use it for building.</li>
+</ol>
+<p>By the way, the triangle could have been created in exactly the same way:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="cpp"><code data-lang="cpp"><span class="giallo-l"><span style="color: #C23F31;">std</span><span>::</span><span style="color: #5597D6;">vector</span><span style="color: #72AB00;">&lt;</span><span style="color: #5597D6;">vec2</span><span style="color: #72AB00;">&gt;</span><span style="color: #5597D6;"> triangle</span><span style="color: #72AB00;"> =</span><span> {</span><span style="color: #C23F31;">vec2</span><span>(</span><span style="color: #B3933A;">0</span><span>,</span><span style="color: #B3933A;"> 0</span><span>),</span><span style="color: #C23F31;"> vec2</span><span>(</span><span style="color: #C23F31;">cos</span><span>(</span><span style="color: #5597D6;">alpha</span><span>),</span><span style="color: #B3933A;"> 0</span><span>),</span><span style="color: #C23F31;"> vec2</span><span>(</span><span style="color: #B3933A;">0</span><span>,</span><span style="color: #C23F31;"> sin</span><span>(</span><span style="color: #5597D6;">alpha</span><span>))};</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">space2 triangle_line</span><span style="color: #72AB00;"> =</span><span style="color: #C23F31;"> makeLine2</span><span>(</span><span style="color: #5597D6;">triangle</span><span>[</span><span style="color: #B3933A;">1</span><span>],</span><span style="color: #5597D6;"> triangle</span><span>[</span><span style="color: #B3933A;">2</span><span>]);</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">triangle</span><span style="color: #72AB00;"> =</span><span style="color: #C23F31;"> toMas</span><span>(</span><span style="color: #5597D6;">triangle_line</span><span>,</span><span style="color: #5597D6;"> triangle</span><span>);</span></span></code></pre>
+<p>After all, it's much easier to understand the coordinates of a triangle defined so that its right angle is at the origin and its legs point along the axes.</p>
+<p>The <code>toMas</code> function is used here to shorten the code. It does the same as the following:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="cpp"><code data-lang="cpp"><span class="giallo-l"><span style="color: #72AB00;">for</span><span> (</span><span style="color: #668F14;">auto&amp;</span><span style="color: #5597D6;"> i</span><span> :</span><span style="color: #5597D6;"> poly</span><span>)</span><span style="color: #5597D6;"> i</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> poly_line</span><span>.</span><span style="color: #C23F31;">to</span><span>(</span><span style="color: #5597D6;">i</span><span>);</span></span></code></pre>
+<p>There's also a little trick: in the loop that generates the regular polygon, the loop runs not up to <code>n</code>, but up to <code>n+1</code>. This is because we can't make the array wrap around to draw all the sides of the polygon. So the last point is a duplicate of the first one.</p>
+<p>A bit of the construction process:</p>
+<div class="container">
+<video class="img-one-two" autoplay loop muted inline>
+  <source src="explanation_5/post_3_1_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<video class="img-one-two" autoplay loop muted inline>
+  <source src="explanation_5/post_5_2_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+</div>
+<p>And now what I think are the most interesting animations of changing the angle for different polygons:</p>
+<video class="img-one" autoplay loop muted inline>
+  <source src="explanation_5/3_1_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<video class="img-one" autoplay loop muted inline>
+  <source src="explanation_5/5_1_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<video class="img-one" autoplay loop muted inline>
+  <source src="explanation_5/5_2_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<h1 id="where-to-go-from-here"><a class="anchor" href="#where-to-go-from-here">#</a>Where to go from here</h1>
+<h2 id="generalization"><a class="anchor" href="#generalization">#<sup>2</sup></a>Generalization</h2>
+<p>Actually, all the fractals drawn here are variations of a single class of fractals, which are all built the same way. So, suppose we have some polygon. One of its sides is the base, and we also specify on which sides to build the fractal. Then the following algorithm is applied recursively:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>Draw the polygon so that its base rests on the given coordinate system</span></span>
+<span class="giallo-l"><span>Get the spaces of all the specified sides of the polygon</span></span>
+<span class="giallo-l"><span>Apply the recursion to all these spaces</span></span></code></pre>
+<p>Then for the Pythagoras tree, this polygon is the union of a square and a right triangle. The sides to draw on are the legs of the triangle.</p>
+<p>All the sides on which the fractal is built must be shorter than the base. If they are longer than or equal to the base, the fractal will be infinitely large, and it may grow in size with each iteration.</p>
+<h2 id="improving-efficiency"><a class="anchor" href="#improving-efficiency">#<sup>2</sup></a>Improving efficiency</h2>
+<p>Generally speaking, this solution is very crude and isn't efficient enough at small angles. Here are my old measurements of frame generation time depending on the base angle of the right triangle, for the standard Pythagoras tree:</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="828"     height="661"     src="/processed_images/time.4.3.fd40303bf6f3337e.webp"     onclick="full_screen('img/time.4.3.png')"     onauxclick="full_screen_new_page('img/time.4.3.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<p>These spikes in time happen when drawing with a very small angle, or an angle close to 90 degrees. In that case the tree looks something like this:</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="540"     height="373"     src="/processed_images/angle_2.ae54a37eb6934608.jpg"     onclick="full_screen('img/angle_2.png')"     onauxclick="full_screen_new_page('img/angle_2.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<p>Mind you, the maximum depth here is set to 1000. The computation takes so long because the tree is too big.</p>
+<p>To optimize this, you can use the self-similarity of this fractal: first draw it into an image at low resolution, and then simply redraw this picture instead of computing coordinates for each branch and drawing every square separately. Then apply this recursively somehow, to increase the precision of the image with each iteration.</p>
+<p>But this is only a rough idea. It also applies to the general solution.</p>
+<h1 id="conclusions"><a class="anchor" href="#conclusions">#</a>Conclusions</h1>
+<p>You can see that in my code the problem is solved completely from scratch every time, as if nothing at all exists except this problem, and there are no plans to extend the problem in any way. Because of this, complicated formulas were derived that can't be applied to anything but this one problem. This is a bad method: programming would never have developed to the level it's at now if everyone kept using such a crude approach. Also, nothing was extracted into functions to simplify the code.</p>
+<p>So what's radically different about the new solution? It raises the level of abstraction. When writing the first solution, I thought strictly in terms of coordinates and of formulas that use these coordinates (at a low level), while in the new solution I use some abstract objects: "coordinate systems", "vectors", and apply an abstract procedure like "coordinate transformation" (and that's already a higher level of abstraction). As you can see, this made the code much simpler: not only is it easy to write, but another person can also understand it. And it doesn't use any formulas at all, only human-readable function names.</p>
+<p>Also, in the old code, a slight complication of the problem (going from a square to a regular polygon) made the code much, much more complicated. In the new solution, it took only a few lines to solve the new problem.</p>
+<p>This is the essence of a higher level of abstraction: we don't think about low-level things like formulas, but think in terms of more complex abstract objects that let us solve the problem more efficiently.</p>
+<p>Of course, this efficiency also depends on how well the library is written. For some problems, a slight complication leads to slight changes, and sometimes it's quite the opposite.</p>
+<h1 id="how-this-library-came-to-be"><a class="anchor" href="#how-this-library-came-to-be">#</a>How this library came to be</h1>
+<p>At first, as you can see, I didn't use any abstractions at all. Then, in a GUI project, <code>GraphWinApi</code>, I created a <code>Point</code> class, which was just an ordinary two-dimensional vector. I only wrote trivial methods for it, like <code>move</code>, <code>rotate</code>, <code>+</code>, <code>*</code>, etc., but then I was surprised how easy it is to draw rotated objects with the <code>rotate</code> function.</p>
+<p>Next, in the <code>TinyWindowsGraphics</code> library, I wrote a <code>PointBase</code> class with essentially the same methods, only a bit better, plus the <code>toBasis</code> and <code>fromBasis</code> methods. And I even wrote code that generates a fractal on a line using these functions:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="cpp"><code data-lang="cpp"><span class="giallo-l"><span style="color: #668F14;">template</span><span>&lt;</span><span style="color: #668F14;">class</span><span style="color: #C23F31;"> Draw</span><span>&gt;</span></span>
+<span class="giallo-l"><span style="color: #668F14;">void</span><span style="color: #C23F31;"> drawFractal</span><span>(</span><span style="color: #C23F31;">ImageDrawing_aa</span><span style="color: #668F14;">&amp;</span><span style="color: #5597D6;"> img</span><span>, </span></span>
+<span class="giallo-l"><span style="color: #C23F31;">				 Polygon_d</span><span style="color: #668F14;">&amp;</span><span style="color: #5597D6;"> poly</span><span>,</span><span style="color: #668F14;"> const</span><span> </span></span>
+<span class="giallo-l"><span style="color: #C23F31;">				 Draw</span><span style="color: #668F14;">&amp;</span><span style="color: #5597D6;"> draw</span><span>, </span></span>
+<span class="giallo-l"><span style="color: #C23F31;">				 int8u</span><span style="color: #5597D6;"> maxDepth</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 30</span><span>, </span></span>
+<span class="giallo-l"><span style="color: #668F14;">				 double</span><span style="color: #5597D6;"> minRadius</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0.5</span><span>, </span></span>
+<span class="giallo-l"><span style="color: #C23F31;">				 int32u</span><span style="color: #5597D6;"> depth</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">	if</span><span> (</span><span style="color: #5597D6;">depth</span><span style="color: #72AB00;"> &lt;</span><span style="color: #5597D6;"> maxDepth</span><span style="color: #72AB00;"> &amp;&amp;</span><span> (</span><span style="color: #5597D6;">poly</span><span>.</span><span style="color: #5597D6;">array</span><span>[</span><span style="color: #B3933A;">1</span><span>]</span><span style="color: #72AB00;">-</span><span style="color: #5597D6;">poly</span><span>.</span><span style="color: #5597D6;">array</span><span>[</span><span style="color: #B3933A;">0</span><span>]).</span><span style="color: #C23F31;">getLength</span><span>()</span><span style="color: #72AB00;"> &gt;</span><span style="color: #5597D6;"> minRadius</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">		draw</span><span>(</span><span style="color: #5597D6;">poly</span><span>,</span><span style="color: #5597D6;"> depth</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">		for</span><span> (</span><span style="color: #5597D6;">int8u i</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0</span><span>;</span><span style="color: #5597D6;"> i</span><span style="color: #72AB00;"> &lt;</span><span style="color: #5597D6;"> poly</span><span>.</span><span style="color: #5597D6;">array</span><span>.</span><span style="color: #C23F31;">size</span><span>()</span><span style="color: #72AB00;">-</span><span style="color: #B3933A;">1</span><span>;</span><span style="color: #72AB00;"> ++</span><span style="color: #5597D6;">i</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">			Polygon_d</span><span style="color: #5597D6;"> poly1</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> poly</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">			poly1</span><span>.</span><span style="color: #C23F31;">move</span><span>(</span><span style="color: #72AB00;">-</span><span style="color: #5597D6;">poly1</span><span>.</span><span style="color: #5597D6;">array</span><span>[</span><span style="color: #B3933A;">0</span><span>]);</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #C23F31;">			Point_d</span><span style="color: #5597D6;"> ox</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> poly</span><span>.</span><span style="color: #5597D6;">array</span><span>[</span><span style="color: #5597D6;">poly</span><span>.</span><span style="color: #5597D6;">array</span><span>.</span><span style="color: #C23F31;">size</span><span>()</span><span style="color: #72AB00;">-</span><span style="color: #B3933A;">1</span><span>]</span><span style="color: #72AB00;">-</span><span style="color: #5597D6;">poly</span><span>.</span><span style="color: #5597D6;">array</span><span>[</span><span style="color: #B3933A;">0</span><span>];</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">			ox</span><span style="color: #72AB00;"> /=</span><span style="color: #5597D6;"> ox</span><span>.</span><span style="color: #C23F31;">getLength</span><span>();</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">			Point_d</span><span style="color: #5597D6;"> oy</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> ox</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">			oy</span><span>.</span><span style="color: #C23F31;">rotate</span><span>(</span><span style="color: #5597D6;">pi</span><span style="color: #72AB00;">/</span><span style="color: #B3933A;">2.0</span><span>);</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #5597D6;">			poly1</span><span>.</span><span style="color: #C23F31;">toBasis</span><span>(</span><span style="color: #5597D6;">ox</span><span>,</span><span style="color: #5597D6;"> oy</span><span>);</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #C23F31;">			Point_d</span><span style="color: #5597D6;"> nx</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> poly</span><span>.</span><span style="color: #5597D6;">array</span><span>[</span><span style="color: #5597D6;">i</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span>]</span><span style="color: #72AB00;"> -</span><span style="color: #5597D6;"> poly</span><span>.</span><span style="color: #5597D6;">array</span><span>[</span><span style="color: #5597D6;">i</span><span>];</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">			nx</span><span style="color: #72AB00;"> /=</span><span> (</span><span style="color: #5597D6;">poly</span><span>.</span><span style="color: #5597D6;">array</span><span>[</span><span style="color: #5597D6;">poly</span><span>.</span><span style="color: #5597D6;">array</span><span>.</span><span style="color: #C23F31;">size</span><span>()</span><span style="color: #72AB00;">-</span><span style="color: #B3933A;">1</span><span>]</span><span style="color: #72AB00;">-</span><span style="color: #5597D6;">poly</span><span>.</span><span style="color: #5597D6;">array</span><span>[</span><span style="color: #B3933A;">0</span><span>]).</span><span style="color: #C23F31;">getLength</span><span>();</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">			Point_d</span><span style="color: #5597D6;"> ny</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> nx</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">			ny</span><span>.</span><span style="color: #C23F31;">rotate</span><span>(</span><span style="color: #5597D6;">pi</span><span style="color: #72AB00;">/</span><span style="color: #B3933A;">2.0</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">			poly1</span><span>.</span><span style="color: #C23F31;">fromBasis</span><span>(</span><span style="color: #5597D6;">nx</span><span>,</span><span style="color: #5597D6;"> ny</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">			poly1</span><span>.</span><span style="color: #C23F31;">move</span><span>(</span><span style="color: #5597D6;">poly</span><span>.</span><span style="color: #5597D6;">array</span><span>[</span><span style="color: #5597D6;">i</span><span>]);</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #C23F31;">			drawFractal</span><span>(</span><span style="color: #5597D6;">img</span><span>,</span><span style="color: #5597D6;"> poly1</span><span>,</span><span style="color: #5597D6;"> draw</span><span>,</span><span style="color: #5597D6;"> maxDepth</span><span>,</span><span style="color: #5597D6;"> minRadius</span><span>,</span><span style="color: #5597D6;"> depth</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span>);</span></span>
+<span class="giallo-l"><span>		}</span></span>
+<span class="giallo-l"><span>	}</span></span>
+<span class="giallo-l"><span>}</span></span></code></pre>
+<p>Actually, I could have written an article about that solution, but it's not that pretty, and back then I hadn't yet grasped the whole point.</p>
+<p>Somewhere around this time I remembered linear algebra, and the idea got stuck in my head that coordinate systems are pretty handy in lots of problems.</p>
+<p>Then, in a secret project, under the influence of this idea, the concept of a coordinate system was born; coordinate transformation was the very foundation of it there. At first this took the form of ugly functions <code>toCoordSystem()</code> and <code>fromCoordSystem()</code>, then, through many waves of refactoring, it evolved into what it is today. Because it was so convenient, I started using this code in all my other projects. And I had to drag the whole code of this secret project everywhere just for the coordinate transformations. That's when I realized that this part is so independent of the project itself that it should be extracted into a separate library.</p>
+<p>Well, and as I said at the beginning, when I started coming up with examples for this library, I realized how powerful it is, and how well it applies to my old projects.</p>
+<p>That's exactly why I've shown you this whole journey from nightmarish code to code that uses abstractions, using the simple example of a single fractal.</p>
+<p>Raise the level of abstraction. See you!</p>
+
+</div>
+</article>
+
+  </section>
+  
+
+</td><td>
+<!-- TOC -->
+<input type="checkbox" id="toc-trigger" class="toc-trigger" />
+<label for="toc-trigger">
+  <span class="menu-icon">
+    <div class="side-button"><img src="/ico/right.svg"></div>
+  </span>
+</label>
+
+<nav class="section-nav">
+ <h2>Contents</h2>
+ <ul class="first">
+ 
+ 
+  <li>
+   <a href="#introduction">Introduction</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#drawing-the-pythagoras-tree">Drawing the Pythagoras tree</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#how-to-build-it">How to build it</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#the-hard-and-bad-way">The hard and bad way</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#a-better-way-using-the-library">A better way, using the library</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#drawing-the-pythagoras-tree-on-an-arbitrary-polygon">Drawing the Pythagoras tree on an arbitrary polygon</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#the-old-and-nightmarish-solution">The old and nightmarish solution</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#the-good-way-using-the-library">The good way, using the library</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#where-to-go-from-here">Where to go from here</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#generalization">Generalization</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#improving-efficiency">Improving efficiency</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#conclusions">Conclusions</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#how-this-library-came-to-be">How this library came to be</a>
+   
+  </li>
+ 
+ </ul>
+</nav>
+</td></tr></table>
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="section second-section">
+If you like what I do, follow me on <a href="https://t.me/optozorax_dev">Telegram</a> and <a href="https://www.youtube.com/c/optozorax">YouTube</a>.
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="comments section second-section">
+
+<script src="https://utteranc.es/client.js"
+        repo="optozorax/optozorax.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+
+  <hr class="enabled-on-phone">
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <footer class="site-footer section second-section">
+  
+    <center>
+    <div style="margin-bottom: 10px;">© Ilya Sheprut. License: <a href="https://creativecommons.org/licenses/by/3.0/deed.en">CC-BY</a>.</div>
+    <table style="border: 0px; display: contents;">
+    <tr><td style="border: 0px; padding: 0.2rem;">
+    <!-- SVG icons from https://iconmonstr.com -->
+
+    <span class="my-span-icon">
+  <a 
+    href="https://github.com/optozorax" 
+    aria-label="optozorax's GitHub" 
+    title="optozorax's GitHub">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/github.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's GitHub">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://t.me/optozorax_dev" 
+    aria-label="optozorax's Telegram channel" 
+    title="optozorax's Telegram channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/tg.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Telegram channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://www.youtube.com/c/optozorax" 
+    aria-label="optozorax's YouTube channel" 
+    title="optozorax's YouTube channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/youtube.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's YouTube channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://boosty.to/optozorax" 
+    aria-label="optozorax's donate page" 
+    title="optozorax's donate page">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/donate.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's donate page">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="/en/atom.xml" 
+    aria-label="optozorax's Atom Feed" 
+    title="optozorax's Atom Feed">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/rss.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Atom Feed">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="mailto:optozorax@gmail.com" 
+    aria-label="optozorax's email" 
+    title="optozorax's email">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/contact.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's email">
+  </a>
+</span>
+
+    </td><td style="border: 0px; padding: 0.2rem;">
+
+    </td></tr>
+    </table>
+    <div class="small-info">
+      Made with <a href="https://www.getzola.org/">Zola</a> | Theme based on <a href="https://github.com/lorepirri/cayman-blog">Cayman Blog</a> | <a href="https://github.com/optozorax/blog_zola">Site sources</a>
+      <a rel="me" href="https://mathstodon.xyz/@optozorax" style="display: none;">Mastodon</a>
+    </div>
+    </center>
+  
+  </footer>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+</body>
+</html>

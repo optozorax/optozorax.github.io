@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Fonts preload -->
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nFrXyi0A.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nBrXw.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxTcwhsk.woff2" crossOrigin="anonymous">
+  <!-- --- -->
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/main.css">
+  <!-- --- -->
+
+  <!-- Non social metatags -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link rel="canonical" href="https://optozorax.github.io/en/p/blog-optimization/">
+  <link rel="alternate" hreflang="en" href="https://optozorax.github.io/en/p/blog-optimization/">
+  <link rel="alternate" hreflang="ru" href="https://optozorax.github.io/p/blog-optimization/">
+  <link rel="alternate" hreflang="x-default" href="https://optozorax.github.io/p/blog-optimization/">
+  <meta name="robots" content="noarchive">
+  <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/en/atom.xml"> 
+  <!-- --- -->
+
+  <!-- Social metatags -->
+  
+
+<meta name="author" content="optozorax">
+<meta name="title" content="Speeding up a static website — optozorax&#39;s blog">
+<meta name="description" content="My blog used to load slowly and lag a lot, even though it was a static site. Here is how I got maximum loading speed, minimal traffic and a score of 100 in Lighthouse.">
+<meta name="image" content="https://optozorax.github.io/en/p/blog-optimization/preview.png">
+
+<meta name="keywords" itemprop="tags" content="meta, blog, optimization, zola">
+
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://optozorax.github.io/en/p/blog-optimization/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Speeding up a static website — optozorax&#39;s blog">
+<meta property="og:description" content="My blog used to load slowly and lag a lot, even though it was a static site. Here is how I got maximum loading speed, minimal traffic and a score of 100 in Lighthouse.">
+<meta property="og:image" content="https://optozorax.github.io/en/p/blog-optimization/preview.png">
+<meta property="og:locale" content="en">
+
+
+<meta property="article:published_time" content="2021-08-30">
+
+
+
+
+<meta property="article:tag" content="meta">
+
+<meta property="article:tag" content="blog">
+
+<meta property="article:tag" content="optimization">
+
+<meta property="article:tag" content="zola">
+
+
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="optozorax.github.io">
+<meta property="twitter:url" content="https://optozorax.github.io/en/p/blog-optimization/">
+<meta name="twitter:title" content="Speeding up a static website — optozorax&#39;s blog">
+<meta name="twitter:description" content="My blog used to load slowly and lag a lot, even though it was a static site. Here is how I got maximum loading speed, minimal traffic and a score of 100 in Lighthouse.">
+<meta name="twitter:image" content="https://optozorax.github.io/en/p/blog-optimization/preview.png">
+<meta name="twitter:creator" content="optozorax">
+
+  <!-- --- -->
+
+  <!-- Extra head declarations -->
+  
+
+<script type="text/javascript" src="/js/hammer.min.js"></script>
+<script type="text/javascript" src="/js/toc.js"></script>
+<script type="text/javascript" src="/js/gallery.js"></script>
+<script type="text/javascript" src="/js/full_screen.js"></script>
+<script type="text/javascript" src="/js/word_wrap.js"></script>
+
+  <!-- --- -->
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+  <!-- --- -->
+
+  <title>Speeding up a static website — optozorax&#39;s blog</title>
+</head>
+
+<body>
+  <!-- FullScreen block -->
+  <div id="img_modal" class="modal" style="display: none;">
+      <img id="img_modal_01" src="/ico/loading.gif">
+      <span class="close" id="img_modal_close">&times;</span>
+  </div>
+  <!-- --- -->
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <header class="site-header" role="banner">
+  
+  <div class="wrapper">
+    <a class="site-title" href="/en/">optozorax.blog</a>
+
+    <div class="lang-switch">
+      <span class="lang-switch-item lang-switch-current" lang="en" title="English"><span class="lang-switch-flag">🇬🇧</span>EN</span>
+      <a class="lang-switch-item" href="/p/blog-optimization/" hreflang="ru" lang="ru" title="Русский"><span class="lang-switch-flag">🇷🇺</span>RU</a>
+    </div>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <img src="/ico/menu.svg" width="13px" height="15px">
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          <a class="page-link" href="/en/">Blog</a>
+        
+          <a class="page-link" href="/en/e">Collections</a>
+        
+          <a class="page-link" href="/en/tags">Tags</a>
+        
+          <a class="page-link" href="/en/about">About me</a>
+        
+      </div>
+    </nav>
+  </div>
+  
+  </header>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+  
+  <section class="page-header">
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+<h1 class="project-name">Speeding up a static website</h1>
+
+<h2 class="project-tagline">My blog used to load slowly and lag a lot, even though it was a static site. Here is how I got maximum loading speed, minimal traffic and a score of 100 in Lighthouse.</h2>
+
+
+
+<span style="margin-bottom: 10px;">
+  
+    <a href="/en/tags#meta"><code class="tag"><nobr>#meta</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#blog"><code class="tag"><nobr>#blog</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#optimization"><code class="tag"><nobr>#optimization</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#zola"><code class="tag"><nobr>#zola</nobr></code></a>&nbsp;
+  
+</span>
+
+
+<center>
+<table style="margin-top: 8px;">
+<tr>
+
+
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+  <time datetime="2021-08-30" itemprop="datePublished">
+    
+    
+    
+    
+    <span class="post-date">30 August 2021</span>
+  </time>
+</h2>
+</td>
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+    <span class="post-date" style="font-style: normal">| 🕑 16 min</span>
+</h2>
+</td>
+
+
+
+<td style="padding-left: 10px;">
+  
+  
+  <a href="https://t.me/optozorax_dev/503">
+  <code class="tag">Post on Telegram</code>
+  </a>
+  
+  
+  (18 💬)
+  
+</td>
+
+</tr>
+</table>
+
+
+<div class="translation-note">
+  <svg class="translation-note-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+  <span>Translated from 🇷🇺 Russian</span>
+  <span class="translation-note-sep">·</span>
+  <span>Translation by Claude Opus 5.5</span>
+  <span class="translation-note-sep">·</span>
+  <a href="/p/blog-optimization/" hreflang="ru" lang="ru">Original</a>
+</div>
+
+
+
+</center>
+
+
+</td><td>
+</td></tr></table>
+
+
+
+  </section>
+  
+  
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <section class="main-content section">
+  
+<article itemscope itemtype="http://schema.org/BlogPosting">
+<div itemprop="articleBody" id="content">
+<style>
+.speed-bad { color: #ff4e41; } /* 0-49 */
+.speed-avg { color: #ffa400; } /* 50-89 */
+.speed-good { color: #0dce6b; } /* 90-100 */
+</style>
+<h1 id="introduction"><a class="anchor" href="#introduction">#</a>Introduction</h1>
+<p>The software world obviously doesn't work as efficiently as it could:</p>
+<ul>
+<li>mobile apps keep getting bigger and bigger,</li>
+<li>traffic and computing power consumption keep bloating for no apparent reason,</li>
+<li><a href="https://www.electronjs.org/">Electron</a>.</li>
+</ul>
+<p>Some people take this too much to heart and start fighting for fast software:</p>
+<ul>
+<li>They use and promote the <a href="https://gemini.circumlunar.space/">Gemini</a> protocol.</li>
+<li>They disable JS on some sites and demand that sites work without JS.</li>
+<li>They use lightweight alternatives, for example:
+<ul>
+<li><a href="https://nitter.net/optozorax">Nitter</a> — an alternative Twitter frontend.</li>
+<li><a href="https://yewtu.be/channel/UCIsVwdLhYrrs3K8MOXEZdhQ">yewtu.be</a> (running <a href="https://github.com/iv-org/invidious">Invidious</a>) — an alternative YouTube frontend.</li>
+<li><a href="https://bibliogram.art/">Bibliogram</a> — an alternative Instagram frontend.</li>
+<li>And there's a whole list of them: <a href="https://github.com/mendel5/alternative-front-ends">alternative-front-ends</a>.</li>
+</ul>
+</li>
+</ul>
+<p>I understand these people and even support them, but not fanatically. I'm also against the bloated web, but I think some things are worth their overhead, for example images and videos, which Gemini rejects. I love it when posts have lots of illustrations: they make reading much more pleasant and easier to follow.</p>
+<p>So my optimizations are aimed first of all against bloat, but they won't go as far as me ripping all the images and videos out of the site.</p>
+<p>If you're interested in what other features my blog has besides the ones described in this post, you can read the post <a href="/en/p/new-features/">New features of this blog</a>.</p>
+<h2 id="why-i-decided-to-optimize"><a class="anchor" href="#why-i-decided-to-optimize">#<sup>2</sup></a>Why I decided to optimize</h2>
+<p>When I started moving my blog to <a href="https://www.getzola.org/">Zola</a>, I discovered not only the chance to add a bunch of cool new features, but also the chance to optimize: it turns out Zola can resize images automatically. I pulled on that thread, and my appetite grew a lot. I mean, I had reasons to do this before, but the specific trigger was exactly this Zola feature.</p>
+<h1 id="tools"><a class="anchor" href="#tools">#</a>Tools</h1>
+<p>To find out how fast my site loads and runs, I use:</p>
+<ul>
+<li>Common sense.</li>
+<li>The Console and Network tabs in the developer tools.</li>
+<li><a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a>.</li>
+</ul>
+<p>The last tool analyzes your page for mobile and desktop and suggests every possible way to improve performance along the way. I prefer the web version over the Lighthouse built into Chrome, so that I test under production conditions right away.</p>
+<h1 id="optimizing-internal-requests"><a class="anchor" href="#optimizing-internal-requests">#</a>Optimizing internal requests</h1>
+<h2 id="image-optimization"><a class="anchor" href="#image-optimization">#<sup>2</sup></a>Image optimization</h2>
+<p>Zola has the <a href="https://www.getzola.org/documentation/content/image-processing/"><code>resize_image</code></a> function, which can re-encode a given image to a different resolution, a different format and a lower quality. I started using it in my posts:</p>
+<ul>
+<li>I downscale to a maximum size of 1280×1280</li>
+<li>Format <code>webp</code></li>
+<li>Quality <code>75/100</code></li>
+</ul>
+<p>I chose <code>webp</code> because it's a more modern format, made specifically for the web: it compresses better than <code>jpg</code> and doesn't look as crunchy. It also supports transparency, so you can safely convert <code>png</code> to it. It's <a href="https://caniuse.com/webp">not supported everywhere</a>, though, but I think we can live with that(?).</p>
+<div class="admonition violet-bg violet-border-left">
+<div class="admonition-title violet-bg violet-border">Usage in Zola</div>
+<div class="admonition-content">
+<p>In my posts I insert images into markdown not with <code>![]()</code>, but with the <code>image.html</code> shortcode:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="zola"><code data-lang="zola"><span class="giallo-l"><span>{{ image(path=&quot;my_image.jpg&quot;) }}</span></span></code></pre></div></div>
+<p>Some examples of how the sizes changed:</p>
+<table><thead><tr><th>Comment</th><th>Old format</th><th>Old resolution / 1280</th><th>Old size</th><th>New size</th><th>Compressed N times</th></tr></thead><tbody>
+<tr><td>A photo of my keyboard</td><td>jpg</td><td>×1.3</td><td>533 KB</td><td>39 KB</td><td>×13.7</td></tr>
+<tr><td>An image of the most complex layer of my layout</td><td>png</td><td>×2.3</td><td>333 KB</td><td>27 KB</td><td>×12.3</td></tr>
+<tr><td>A screenshot of a monoportal</td><td>png</td><td>×1.4</td><td>314 KB</td><td>34 KB</td><td>×9.2</td></tr>
+<tr><td>A photo of the Planck keyboard</td><td>jpg</td><td>×1</td><td>47 KB</td><td>25 KB</td><td>×1.9</td></tr>
+<tr><td>A street photo</td><td>jpg</td><td>×1</td><td>219 KB</td><td>239 KB</td><td>×0.9</td></tr>
+</tbody></table>
+<p>The overall trend is clear: for large images, bigger than 1280, the traffic savings are huge. <code>png</code> images also come out great. Sometimes it doesn't work out so well, as with the street photo, but that's rare and not critical. And all this at the cost of only minor changes in quality.</p>
+<p>Any image can be opened in its original size and original format if you want to see more detail. More on that in my post <a href="/p/new-features">about the blog's new features</a>.</p>
+<div class="admonition green2-bg green2-border-left">
+<div class="admonition-title green2-bg green2-border">Result</div>
+<div class="admonition-content">
+<p>My folders contain 50 MB of <code>jpg</code> and <code>png</code> images, and the processed result in <code>webp</code> format weighs 11 MB.</p>
+<p>That's <strong>≈5 times</strong> less!</p>
+</div></div>
+<div class="admonition blue2-bg blue2-border-left">
+<div class="admonition-title blue2-bg blue2-border">By the way,</div>
+<div class="admonition-content">
+<p>on the home page every post has an image on the side, so that it's not only the titles that catch your eye.</p>
+<p>Previously, these small images were requested in their original huge resolution, so the home page could take a long time to load and really weighed a lot.</p>
+<p>Now, with this image optimization feature, I resize the images specifically for the home page to a maximum resolution of 200×200, and now the home page loads instantly, even with all the images.</p>
+<p>Without this feature in Zola I definitely wouldn't have bothered so much with small images.</p>
+</div></div>
+<h2 id="video-optimization"><a class="anchor" href="#video-optimization">#<sup>2</sup></a>Video optimization</h2>
+<p>HTML5 has the <code>&lt;video&gt;</code> tag, which lets you embed video playback without any hacks or JS. I sometimes use it to put videos in my posts.</p>
+<p>Videos shouldn't have too high a resolution either. For example, you shoot in 4K on your phone: why keep that quality on your page and waste traffic for nothing? Especially if the video is just a small demo clip.</p>
+<p>Also, videos have to be encoded in a particular way so that they play in all browsers and on all devices.</p>
+<p>I convert videos with <a href="https://www.ffmpeg.org/"><code>ffmpeg</code></a> using the following script:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="shellscript"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #7F8989;">#!/bin/bash</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;"># First argument: input file (may be another video, gif or folder with pictures,</span></span>
+<span class="giallo-l"><span style="color: #7F8989;"># read ffmpeg docs).</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">#</span></span>
+<span class="giallo-l"><span style="color: #7F8989;"># Second argument optional: quality. for default it is 35 (averagely bad </span></span>
+<span class="giallo-l"><span style="color: #7F8989;"># quality), you can provide 22 as nice quality.</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">#</span></span>
+<span class="giallo-l"><span style="color: #7F8989;"># Third argument optional: can be &quot;mute&quot; to mute or anything else to not to.</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">#</span></span>
+<span class="giallo-l"><span style="color: #7F8989;"># Out is file with `_web` postfix and `mp4` format scaled down to 1280 max </span></span>
+<span class="giallo-l"><span style="color: #7F8989;"># width or height or not scaled if initial size is smaller</span></span>
+<span class="giallo-l"><span style="color: #7F8989;"># </span></span>
+<span class="giallo-l"><span style="color: #7F8989;"># Command get from https://gist.github.com/jaydenseric/220c785d6289bcfd7366</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #5597D6;">filename</span><span style="color: #72AB00;">=</span><span>$(</span><span style="color: #C23F31;">basename</span><span style="color: #AEB52B;"> --</span><span style="color: #D07711;"> &quot;</span><span style="color: #ACB3C2;">$1</span><span style="color: #D07711;">&quot;</span><span>)</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">extension</span><span style="color: #72AB00;">=</span><span style="color: #D07711;">&quot;${</span><span style="color: #ACB3C2;">filename</span><span style="color: #72AB00;">##*</span><span style="color: #D07711;">.}&quot;</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">filename</span><span style="color: #72AB00;">=</span><span style="color: #D07711;">&quot;${</span><span style="color: #ACB3C2;">filename</span><span style="color: #72AB00;">%</span><span style="color: #D07711;">.</span><span style="color: #72AB00;">*</span><span style="color: #D07711;">}&quot;</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">path</span><span style="color: #72AB00;">=</span><span style="color: #D07711;">&quot;</span><span style="color: #ACB3C2;">${1</span><span style="color: #72AB00;">%/*</span><span style="color: #ACB3C2;">}</span><span style="color: #D07711;">&quot;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">if</span><span> [</span><span style="color: #5597D6;"> ${3</span><span style="color: #72AB00;">:-</span><span style="color: #D07711;">&quot;preserve_audio&quot;</span><span style="color: #5597D6;">}</span><span style="color: #72AB00;"> ==</span><span style="color: #D07711;"> &quot;mute&quot;</span><span> ]</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">then</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">	audio</span><span style="color: #72AB00;">=</span><span style="color: #D07711;">&quot;-an&quot;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">else</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">	audio</span><span style="color: #72AB00;">=</span><span style="color: #D07711;">&quot;-c:a aac -strict experimental&quot;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">fi</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #C23F31;">ffmpeg</span><span style="color: #AEB52B;"> -y</span><span style="color: #B3933A;"> \</span></span>
+<span class="giallo-l"><span style="color: #AEB52B;">       -i</span><span style="color: #5597D6;"> $1</span><span style="color: #B3933A;"> \</span></span>
+<span class="giallo-l"><span style="color: #AEB52B;">       -c:v</span><span style="color: #D07711;"> libx264</span><span style="color: #B3933A;"> \</span></span>
+<span class="giallo-l"><span style="color: #AEB52B;">       -pix_fmt</span><span style="color: #D07711;"> yuv420p</span><span style="color: #B3933A;"> \</span></span>
+<span class="giallo-l"><span style="color: #AEB52B;">       -profile:v</span><span style="color: #D07711;"> baseline</span><span style="color: #B3933A;"> \</span></span>
+<span class="giallo-l"><span style="color: #AEB52B;">       -level 3.0</span><span style="color: #B3933A;"> \</span></span>
+<span class="giallo-l"><span style="color: #AEB52B;">       -crf</span><span style="color: #5597D6;"> ${2</span><span style="color: #72AB00;">:-</span><span style="color: #5597D6;">35}</span><span style="color: #B3933A;"> \</span></span>
+<span class="giallo-l"><span style="color: #AEB52B;">       -preset</span><span style="color: #D07711;"> veryslow</span><span style="color: #B3933A;"> \</span></span>
+<span class="giallo-l"><span style="color: #AEB52B;">       -vf</span><span style="color: #D07711;"> &quot;scale=ceil(iw*min(1\,1280/iw)/2)*2:ceil(ow/dar/2)*2&quot;</span><span style="color: #B3933A;"> \</span></span>
+<span class="giallo-l"><span>       ${</span><span style="color: #5597D6;">audio</span><span>}</span><span style="color: #B3933A;"> \</span></span>
+<span class="giallo-l"><span style="color: #AEB52B;">       -movflags</span><span style="color: #D07711;"> +faststart</span><span style="color: #B3933A;"> \</span></span>
+<span class="giallo-l"><span style="color: #AEB52B;">       -threads 0</span><span style="color: #B3933A;"> \</span></span>
+<span class="giallo-l"><span>       ${</span><span style="color: #5597D6;">path</span><span>}</span><span style="color: #D07711;">/</span><span>${</span><span style="color: #5597D6;">filename</span><span>}</span><span style="color: #D07711;">_web.mp4</span></span></code></pre>
+<p>The arguments and the script's source are described in its comments, so help yourself. The resulting video is optimized for the browser and also works on phones. A naive <code>mp4</code> simply won't play on a phone.</p>
+<div class="admonition green2-bg green2-border-left">
+<div class="admonition-title green2-bg green2-border">Result</div>
+<div class="admonition-content">
+<p>No exact measurements here, but rest assured that the savings are big too, and most importantly, the videos will play everywhere.</p>
+</div></div>
+<div class="admonition orange-bg orange-border-left">
+<div class="admonition-title orange-bg orange-border">Additional information</div>
+<div class="admonition-content">
+<p>You can also convert videos to the AV1 codec, since it's more modern, faster and better; but it isn't supported everywhere, and you need to provide <code>mp4</code> fallbacks, so I didn't bother with it.</p>
+<p>On this topic you can read Andrey Sitnik's article <a href="https://habr.com/ru/post/442020/">"The new AV1 codec: speeding up video loading in the browser"</a> (in Russian).</p>
+</div></div>
+<h2 id="converting-gif-to-video"><a class="anchor" href="#converting-gif-to-video">#<sup>2</sup></a>Converting gif to video</h2>
+<p><code>GIF</code> is a horribly outdated format. Everything about it is bad: compression, encoding/decoding speed and the number of colors. So you shouldn't use <code>gif</code> directly; it's better to re-encode it into a video and embed the video with the right parameters so that it plays like a gif.</p>
+<p>For the conversion I use the script from the previous section; it works with gifs too.</p>
+<div class="admonition violet-bg violet-border-left">
+<div class="admonition-title violet-bg violet-border">Usage in Zola</div>
+<div class="admonition-content">
+<p>To insert videos as gifs, I use the <code>video_gif.html</code> shortcode:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="zola"><code data-lang="zola"><span class="giallo-l"><span>{{ video_gif(path=&quot;my_gif_web.mp4&quot;) }}</span></span></code></pre></div></div>
+<div class="admonition green2-bg green2-border-left">
+<div class="admonition-title green2-bg green2-border">Result</div>
+<div class="admonition-content">
+<p>All the <code>gif</code>s weigh 84 MB, and the processed result in <code>mp4</code> format weighs 10 MB.</p>
+<p>That's <strong>≈8.4 times</strong> less!!!</p>
+</div></div>
+<h1 id="optimizing-external-requests"><a class="anchor" href="#optimizing-external-requests">#</a>Optimizing external requests</h1>
+<p>The whole point of this section is to cut the number of requests to external sites down to zero. Requests to external sites aren't made right away and can take a long time, so it's better to optimize them as much as possible.</p>
+<h2 id="fonts"><a class="anchor" href="#fonts">#<sup>2</sup></a>Fonts</h2>
+<p>These days everyone uses <a href="https://developers.google.com/fonts/docs/getting_started">Google Fonts</a> to add fonts to their site, simply by adding this to <code>&lt;head&gt;</code>:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="html"><code data-lang="html"><span class="giallo-l"><span style="color: #6486AB;">&lt;link rel=</span><span style="color: #D07711;">&quot;stylesheet&quot;</span><span style="color: #6486AB;"> href=</span><span style="color: #D07711;">&quot;//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700</span><span style="color: #AEB52B;">&amp;amp;</span><span style="color: #D07711;">lang=en&quot;</span><span style="color: #6486AB;"> /&gt;</span></span></code></pre>
+<p>But in that case, first a request goes to Google, and then the fonts listed in the received document are downloaded from Google again. Why do that every time, if in 99% of use cases your site will have the same font?</p>
+<p>So I simply downloaded the corresponding <code>css</code> and font files locally for all the fonts I use.</p>
+<p>I don't think I've ever heard of a license forbidding this.</p>
+<h2 id="js-and-css"><a class="anchor" href="#js-and-css">#<sup>2</sup></a>JS and CSS</h2>
+<p>I use <a href="https://hammerjs.github.io/">hammerjs</a> and <a href="https://katex.org/">KaTeX</a>. They require including extra JS code, and the second one also needs CSS with custom fonts.</p>
+<p>When people include scripts like these, they just link to some external site that hosts them. With my Kazakhstani internet, one site took forever to load because of <code>jquery</code>, which was downloading very slowly from some external source.</p>
+<p>They even add a hash in the <code>integrity</code> attribute to guarantee that exactly the right script arrives:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="html"><code data-lang="html"><span class="giallo-l"><span style="color: #6486AB;">&lt;script </span></span>
+<span class="giallo-l"><span style="color: #6486AB;">	defer </span></span>
+<span class="giallo-l"><span style="color: #6486AB;">	src=</span><span style="color: #D07711;">&quot;https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js&quot;</span><span style="color: #6486AB;"> </span></span>
+<span class="giallo-l"><span style="color: #6486AB;">	integrity=</span><span style="color: #D07711;">&quot;sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx&quot;</span><span style="color: #6486AB;"> </span></span>
+<span class="giallo-l"><span style="color: #6486AB;">	crossorigin=</span><span style="color: #D07711;">&quot;anonymous&quot;</span><span style="color: #6486AB;">&gt;</span><span style="color: #6486AB;background-color: #B0B3BA14;">&lt;</span><span style="color: #6486AB;">/script&gt;</span></span></code></pre>
+<p>And again, why all these delays and hashes, if you can simply download it all locally?</p>
+<h2 id="youtube"><a class="anchor" href="#youtube">#<sup>2</sup></a>YouTube</h2>
+<p>Okay, the jokes are over, time to get to the serious stuff.</p>
+<p>We all know that YouTube videos can be embedded like this:</p>
+<div class="magnifier-container img-two-three"> <img     class="not-default full-screen-img"     width="853"     height="480"     src="/processed_images/embed.3dc4fc4246e10d70.webp"     onclick="full_screen('embed.png')"     onauxclick="full_screen_new_page('embed.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.7<br>png</div> </div> </div>
+<p>But behind this lies the main horror of this post...</p>
+<p>Honestly, at first I didn't even suspect that YouTube was such a sinner. I only noticed that it eats a lot of traffic and slows down my pages thanks to <strong>Google's own</strong> <a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a> tool!</p>
+<p>I measured it, and on my pages with a couple of YouTube videos it added <strong>2 megabytes</strong> of extra traffic. And that's when my biggest and heaviest page, the one about <a href="/en/p/my-keyboard-layout/">my keyboard layout</a>, weighs 3.8 megabytes after image optimization. So for the other pages this is simply unacceptable overhead, and it means that all my previous steps are just a drop in the ocean compared to what YouTube adds.</p>
+<p>And when I tried to measure the <a href="/en/e/emergevolution/">Emergevolution</a> page, which had 37 embedded videos, <a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a> simply refused to give a report. Apparently it couldn't download everything.</p>
+<p>So this absolutely has to be optimized. And there are several options here.</p>
+<h3 id="the-simplest-way-to-embed-a-youtube-video"><a class="anchor" href="#the-simplest-way-to-embed-a-youtube-video">#<sup>3</sup></a>The simplest way to embed a YouTube video</h3>
+<p><a href="https://stackoverflow.com/questions/11804820/how-can-i-embed-a-youtube-video-on-github-wiki-pages">Insert an image that links to the video</a>:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="markdown"><code data-lang="markdown"><span class="giallo-l"><span>[</span><span style="color: #D07711;">![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)</span><span>](https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)</span></span></code></pre>
+<p>It looks like this:</p>
+<p><a href="https://www.youtube.com/watch?v=1q0sHf_n_2Y"><img src="0.jpg"></a></p>
+<div class="pros">
+<span style="color: #090"><big><b>Pros:</b></big></span>
+<ul>
+<li>Cheap and cheerful</li>
+<li>Fast</li>
+<li>Little traffic</li>
+</ul>
+</div>
+<div class="cons">
+<span style="color: #c00"><big><b>Cons:</b></big></span>
+<ul>
+<li>Ugly</li>
+<li>It's not obvious that this image belongs to a video</li>
+<li>It's not obvious that you can click it to go to the YouTube video</li>
+<li>No information about the video title and the channel</li>
+</ul>
+</div>
+<h3 id="my-way"><a class="anchor" href="#my-way">#<sup>3</sup></a>My way</h3>
+<p>So I made my own YouTube embed <del>with blackjack and...</del>, which works in several stages.</p>
+<div class="admonition violet-bg violet-border-left">
+<div class="admonition-title violet-bg violet-border">Usage in Zola</div>
+<div class="admonition-content">
+<p>In my posts I use the <code>youtube.html</code> shortcode:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="zola"><code data-lang="zola"><span class="giallo-l"><span>{{ youtube(id=&quot;1q0sHf_n_2Y&quot;) }}</span></span></code></pre>
+<p>On top of that, I download the metadata and the thumbnail locally. There's more on this in the <a href="/p/new-features/#embedding-youtube">post about the features</a>.</p>
+</div></div>
+<p>And then it looks like this:</p>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=1q0sHf_n_2Y">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/1q0sHf_n_2Y.webp" width="336" height="188">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=1q0sHf_n_2Y">Решение главного парадокса порталов</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCIsVwdLhYrrs3K8MOXEZdhQ">optozorax</a>
+</div>
+<div class="yt-duration">23:59</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=1q0sHf_n_2Y">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<p>It's just a piece of HTML with a locally downloaded image and metadata. Clicking it opens the corresponding video in a new tab. You can also click the channel to go straight to it. Unfortunately, <code>youtube-dl</code> can't get the channel's avatar, so the channel is just written as text here.</p>
+<p>I decided to add the video's duration here, which even the regular YouTube player doesn't show! I think that's a pretty fair trade for losing the author's avatar.</p>
+<div class="admonition green2-bg green2-border-left">
+<div class="admonition-title green2-bg green2-border">Result</div>
+<div class="admonition-content">
+<p>As the results here, I'll give the scores from <a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a>.</p>
+<p>The "Before YouTube optimization" column shows the results when images, gifs and videos are already optimized, and fonts and scripts are already downloaded locally.</p>
+<p>The "After YouTube optimization" column shows the results after optimizing YouTube this way and preloading fonts (more on that later).</p>
+<p>The table cells contain, in order:</p>
+<ul>
+<li>the mobile score;</li>
+<li>the desktop score;</li>
+<li>the page weight together with the loaded resources.</li>
+</ul>
+<table><thead><tr><th>Page</th><th>Comment</th><th>Before YouTube optimization</th><th><strong>After YouTube optimization</strong></th></tr></thead><tbody>
+<tr><td><a href="/portals">Portals</a></td><td>Lots of <code>&lt;video&gt;</code> and images, the page is fairly large, and only 2 YouTube videos are embedded.</td><td><span class="speed-bad">42</span>; <span class="speed-avg">60</span>; 4.9 MB</td><td><span class="speed-avg">61</span>; <span class="speed-good">91</span>; 2.8 MB</td></tr>
+<tr><td><a href="/emergevolution">Emergevolution</a></td><td>37 YouTube videos embedded.</td><td>Google choked on it</td><td><span class="speed-good">97</span>; <span class="speed-good">99</span>; 2.8 MB</td></tr>
+</tbody></table>
+<p>Now the page that Google itself couldn't manage to measure shows incredibly high scores. I think it was clearly worth it.</p>
+<p>And you can also see that the portals page shed <strong>2.1 MB of traffic</strong>.</p>
+</div></div>
+<div class="admonition blue2-bg blue2-border-left">
+<div class="admonition-title blue2-bg blue2-border">Fun fact</div>
+<div class="admonition-content">
+<p>If you put YouTube itself into <a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a>, you get these scores: <span class="speed-bad">32</span>; <span class="speed-bad">43</span>; 1.3 MB.</p>
+</div></div>
+<h2 id="other-embeds"><a class="anchor" href="#other-embeds">#<sup>2</sup></a>Other embeds</h2>
+<p>On my blog I also occasionally embedded posts from Telegram and Twitter. Inventing something of my own here, like with YouTube, just doesn't make sense. So here I simply insert a screenshot of the embed. For example, for Twitter:</p>
+<figure>
+<div class="magnifier-container img-two-three"> <img     class="not-default full-screen-img"     width="673"     height="853"     src="/processed_images/twitter_1415392339586129928.99007b14317021b2.webp"     onclick="full_screen('twitter_1415392339586129928.png')"     onauxclick="full_screen_new_page('twitter_1415392339586129928.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.8<br>png</div> </div> </div>
+<figcaption><a href="https://twitter.com/optozorax/status/1415392339586129928">Link to the tweet</a></figcaption>
+</figure>
+<p>A dumb solution, but it works well. And even if the original tweet gets deleted, the information from it will stay on my blog!</p>
+<p>And a wall of text can be inserted as plain text, as for example <a href="/p/how-i-write-programs/#vazhnee-chto-to-ne-delat">here</a>.</p>
+<div class="admonition blue2-bg blue2-border-left">
+<div class="admonition-title blue2-bg blue2-border">Fun fact</div>
+<div class="admonition-content">
+<p>When you embed a Telegram post, a non-minified script is requested.</p>
+</div></div>
+<h1 id="optimizing-request-depth"><a class="anchor" href="#optimizing-request-depth">#</a>Optimizing request depth</h1>
+<p>Nothing special here: <a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a> just scolded me that my <code>.woff2</code> font files themselves aren't downloaded right away when the page loads, but only after the <code>main.css</code> file is downloaded. That is, the fonts have a depth of 2. It also suggested adding this to my page:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="html"><code data-lang="html"><span class="giallo-l"><span style="color: #6486AB;">&lt;link rel=</span><span style="color: #D07711;">&quot;preload&quot;</span><span style="color: #6486AB;"> as=</span><span style="color: #D07711;">&quot;font&quot;</span><span style="color: #6486AB;"> href=</span><span style="color: #D07711;">&quot;/fonts/Rubik/iJWKBXyIfDnIV7nFrXyi0A.woff2&quot;</span><span style="color: #6486AB;"> crossOrigin=</span><span style="color: #D07711;">&quot;anonymous&quot;</span><span style="color: #6486AB;">&gt;</span></span></code></pre>
+<p>I didn't even suspect that request depth was something you could optimize. I hope you find this useful, and I hope my blog now loads at least a few milliseconds faster.</p>
+<h1 id="optimizing-nice-to-haves"><a class="anchor" href="#optimizing-nice-to-haves">#</a>Optimizing nice-to-haves</h1>
+<p>One obstacle on the way to optimization is our nice-to-haves. For example, while reading the YouTube section, you might have thought: "well yes, it loads faster, but now you have to open the video in a new tab and watch it there, you can't watch it right on the site", or "you can't click the 'Watch later' button". Another problem with local embeds is that if the original video or post changes, my copy won't reflect it.</p>
+<p>Yes, these are real downsides. I can't say anything here except that <strong>you have to cut down on nice-to-haves</strong>. Personally, I think these conveniences aren't worth their downsides.</p>
+<p>If you manage to tame your desires and make compromises, you can optimize a lot.</p>
+<p>On this point I want to refer to my post <a href="/p/how-i-write-programs/#srazu-otbrasyvat-slozhnye-fichi">"How I write programs", section "Discard complex features right away"</a>. In that section I tell how I cut down on my nice-to-haves and managed to quickly write a program that I now use actively.</p>
+<h1 id="what-isn-t-optimized"><a class="anchor" href="#what-isn-t-optimized">#</a>What isn't optimized</h1>
+<h2 id="yandex-metrica"><a class="anchor" href="#yandex-metrica">#<sup>2</sup></a>Yandex.Metrica</h2>
+<p>Since I don't host the blog myself, I have no other way to measure how many visitors I have, which post was viewed the most, and so on. And I can't do without that: how else am I supposed to get my well-deserved dopamine?</p>
+<p><a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a> complains about Yandex.Metrica, but unfortunately I'll have to live with this evil for now.</p>
+<p>I'm planning to move from Yandex.Metrica to my own server with <a href="https://plausible.io/">Plausible</a>. It's open-source analytics whose JS script weighs less than 1 KB. It's also as anonymous as possible and doesn't use cookies.</p>
+<h2 id="github-pages"><a class="anchor" href="#github-pages">#<sup>2</sup></a>GitHub Pages</h2>
+<p><a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a> also complained a lot that the resource cache lifetime is set to a measly 10 minutes. That is, you visit the site, download the styles, scripts and fonts, and 10 minutes later you have to download them again.</p>
+<p>This is a drawback of <a href="https://pages.github.com/">GitHub Pages</a>, where I host this blog. It can't be configured. So here it's better to move to your own server, or look for an alternative such as:</p>
+<ul>
+<li><a href="https://www.getzola.org/documentation/deployment/sourcehut/">Sourcehut Pages</a></li>
+<li><a href="https://www.getzola.org/documentation/deployment/netlify/">Netlify</a></li>
+<li><a href="https://www.getzola.org/documentation/deployment/gitlab-pages/">GitLab Pages</a></li>
+<li><a href="https://www.getzola.org/documentation/deployment/vercel/">Vercel</a></li>
+<li><a href="https://www.getzola.org/documentation/deployment/cloudflare-pages/">Cloudflare Pages</a></li>
+</ul>
+<p>Or I'll just buy a server and host the blog on it with nginx.</p>
+<h1 id="the-js-i-use"><a class="anchor" href="#the-js-i-use">#</a>The JS I use</h1>
+<p>By the standards of the modern web, you could say I hardly use JS at all. There's an opinion that JS is bad because it slows pages down and lets sites track users. If you disable JS, my blog is quite usable, except for a few things:</p>
+<ul>
+<li>Galleries can't be flipped through. Here I already <a href="/p/new-features/#chistyi-css">want to make a gallery in pure CSS</a>.</li>
+<li>You can't open images in full resolution. Some hack with <code>&lt;a href=""&gt;</code> that doesn't get in the way of the normal behavior could work here, but I need to think about it.</li>
+<li>The table of contents can't be scrolled and doesn't scroll automatically. Sorry, folks, unfortunately this just can't be done without JS (or it can, but I don't know something, or haven't done enough research).</li>
+<li>Math formulas won't render. I don't like that JS is used here either; I'd like the math to be parsed when the site is generated, but Zola has no features for this yet. And generating <code>svg</code> images in advance is quite complicated and inconvenient.</li>
+</ul>
+<p>If you'd like to make a Pull Request that lets one of these things work without JS, I'll be happy to accept it!</p>
+<h1 id="conclusion"><a class="anchor" href="#conclusion">#</a>Conclusion</h1>
+<h2 id="final-numbers"><a class="anchor" href="#final-numbers">#<sup>2</sup></a>Final numbers</h2>
+<p>So, what did I gain from all this optimization?</p>
+<div class="admonition green2-bg green2-border-left">
+<div class="admonition-title green2-bg green2-border">Result</div>
+<div class="admonition-content">
+<p>Here are the dry numbers from the sections above:</p>
+<ul>
+<li>Images are <strong>≈5 times</strong> smaller.</li>
+<li>Gifs are <strong>≈8.4 times</strong> smaller.</li>
+<li>YouTube videos: <strong>2.1 MB</strong> saved on a single page.</li>
+</ul>
+</div></div>
+<div class="admonition green2-bg green2-border-left">
+<div class="admonition-title green2-bg green2-border">Result</div>
+<div class="admonition-content">
+<p>And once again, the <a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a> scores and the page size.</p>
+<p>I'll compare against my old blog with absolutely no optimizations, where:</p>
+<ul>
+<li>Regular videos were already optimized.</li>
+<li>Images weren't resized automatically.</li>
+<li>Gifs were actual <code>gif</code> files.</li>
+<li>The font was loaded from Google, not downloaded locally.</li>
+<li>MathJax was used, loaded from an external site (now it's <a href="https://katex.org/">KaTeX</a>, stored locally).</li>
+<li>YouTube was embedded directly, or inserted with <a href="https://optozorax.github.io/en/p/blog-optimization/#the-simplest-way-to-embed-a-youtube-video">the image approach</a>.</li>
+<li>Yandex.Metrica was used.</li>
+</ul>
+<table><thead><tr><th>#</th><th>Page</th><th>What this page tests</th><th>Before optimization</th><th><strong>After optimization</strong></th></tr></thead><tbody>
+<tr><td>1</td><td><a href="/">Home page</a></td><td>Post preview images were requested in their original resolution.</td><td><span class="speed-bad">49</span>; <span class="speed-good">95</span>; 3.6 MB</td><td><span class="speed-good">100</span>; <span class="speed-good">100</span>; 460 KB</td></tr>
+<tr><td>2</td><td><a href="/p/linear-algebra/">A notation for linear algebra</a></td><td>Lots of math formulas, which need special scripts, styles and fonts.</td><td><span class="speed-avg">56</span>; <span class="speed-avg">75</span>; 429 KB</td><td><span class="speed-avg">86</span>; <span class="speed-good">100</span>; 363 KB</td></tr>
+<tr><td>3</td><td><a href="/p/portals/">Portals</a></td><td>Lots of <code>&lt;video&gt;</code> and images, 2 embedded YouTube videos.</td><td><span class="speed-bad">27</span>; <span class="speed-avg">64</span>; 12 MB</td><td><span class="speed-avg">61</span>; <span class="speed-good">91</span>; 2.7 MB</td></tr>
+<tr><td>4</td><td><a href="/p/my-keyboard-layout/">Ilya Sheprut's keyboard layout</a></td><td>My biggest post, with tons of images.</td><td><span class="speed-bad">12</span>; <span class="speed-bad">46</span>; 25 MB</td><td><span class="speed-avg">65</span>; <span class="speed-good">97</span>; 3.4 MB</td></tr>
+<tr><td>5</td><td><a href="/e/emergevolution/">Emergevolution</a></td><td>Lots of embedded videos. Though in the old version they weren't embedded, just inserted as images.</td><td><span class="speed-avg">69</span>; <span class="speed-avg">88</span>; 5.1 MB</td><td><span class="speed-good">97</span>; <span class="speed-good">99</span>; 2.8 MB</td></tr>
+<tr><td>6</td><td><a href="/p/space-objects/">About my Space Objects library and the Pythagoras tree</a></td><td>Lots of heavy gifs.</td><td><span class="speed-avg">62</span>; <span class="speed-good">97</span>; 47 MB</td><td><span class="speed-avg">87</span>; <span class="speed-good">99</span>; 12 MB</td></tr>
+</tbody></table>
+<p>Conclusions for each page:</p>
+<ul>
+<li><code>1</code>, <code>3</code>, <code>4</code>: shrinking the images does its job, cutting megabytes dramatically.</li>
+<li><code>2</code>: thanks to downloading fonts, styles and scripts locally, it now loads much better.</li>
+<li><code>3</code>, <code>4</code>: since there's no YouTube embed anymore, the stats are better.</li>
+<li><code>5</code>: the page with 37 YouTube videos gets the best scores after the home page, thanks to storing the metadata and thumbnails locally.</li>
+<li><code>6</code>: the gif optimization pays off nicely, the size changes a lot, but the final size is still large.</li>
+</ul>
+</div></div>
+<div class="admonition red-bg red-border-left">
+<div class="admonition-title red-bg red-border">❗️ Attention</div>
+<div class="admonition-content">
+<p>Sorry, I measured all the pages of the new blog without Yandex.Metrica, and the old blog with it. It lowers the scores a bit. For example, with it, item <code>4</code> on the new blog gets: <span class="speed-avg">50</span>, <span class="speed-avg">81</span>, 3.4 MB.</p>
+<p>So the results here aren't entirely fair. Re-measuring everything properly at this point would be too much work. And since I'm going to leave Yandex.Metrica soon anyway, these results can be considered the planned ones.</p>
+</div></div>
+<h2 id="takeaways"><a class="anchor" href="#takeaways">#<sup>2</sup></a>Takeaways</h2>
+<ul>
+<li>I made my blog as fast as possible.</li>
+<li>I got rid of <strong>all</strong> external requests: now, to read my blog, you only need access to the blog itself.</li>
+<li>In the process I didn't lose a single important feature.</li>
+<li>Embedding YouTube is cancer.</li>
+<li>Use <a href="https://www.getzola.org/">Zola</a>, because its image resizing is fire.</li>
+</ul>
+<p>As for why speed matters, I also want to refer to the post <a href="https://t.me/nikitonsky_pub/64">"Stand under the boom"/64</a> (in Russian). It's not entirely relevant, since it talks about software and I have a blog, but the general idea fits.</p>
+<p>And finally, a meme:</p>
+<figure>
+<div class="magnifier-container img-two-three"> <img     class="not-default full-screen-img"     width="853"     height="682"     src="/processed_images/future_meme.en.ee0d01f8497b991e.webp"     onclick="full_screen('future_meme.en.jpg')"     onauxclick="full_screen_new_page('future_meme.en.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.2<br>jpg</div> </div> </div>
+<figcaption><a href="https://t.me/optozorax_dev_chat/6228">Not my words</a>. The text says: “The world if everyone fussed over optimization as much as optozorax.blog:”</figcaption>
+</figure>
+
+</div>
+</article>
+
+  </section>
+  
+
+</td><td>
+<!-- TOC -->
+<input type="checkbox" id="toc-trigger" class="toc-trigger" />
+<label for="toc-trigger">
+  <span class="menu-icon">
+    <div class="side-button"><img src="/ico/right.svg"></div>
+  </span>
+</label>
+
+<nav class="section-nav">
+ <h2>Contents</h2>
+ <ul class="first">
+ 
+ 
+  <li>
+   <a href="#introduction">Introduction</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#why-i-decided-to-optimize">Why I decided to optimize</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#tools">Tools</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#optimizing-internal-requests">Optimizing internal requests</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#image-optimization">Image optimization</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#video-optimization">Video optimization</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#converting-gif-to-video">Converting gif to video</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#optimizing-external-requests">Optimizing external requests</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#fonts">Fonts</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#js-and-css">JS and CSS</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#youtube">YouTube</a>
+       
+       <ul class="third">
+        
+         
+         <li>
+          <a href="#the-simplest-way-to-embed-a-youtube-video">The simplest way to embed a YouTube video</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#my-way">My way</a>
+          
+         </li>
+        
+       </ul>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#other-embeds">Other embeds</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#optimizing-request-depth">Optimizing request depth</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#optimizing-nice-to-haves">Optimizing nice-to-haves</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#what-isn-t-optimized">What isn&#39;t optimized</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#yandex-metrica">Yandex.Metrica</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#github-pages">GitHub Pages</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#the-js-i-use">The JS I use</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#conclusion">Conclusion</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#final-numbers">Final numbers</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#takeaways">Takeaways</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ </ul>
+</nav>
+</td></tr></table>
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="section second-section">
+If you like what I do, follow me on <a href="https://t.me/optozorax_dev">Telegram</a> and <a href="https://www.youtube.com/c/optozorax">YouTube</a>.
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="comments section second-section">
+
+<script src="https://utteranc.es/client.js"
+        repo="optozorax/optozorax.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+
+  <hr class="enabled-on-phone">
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <footer class="site-footer section second-section">
+  
+    <center>
+    <div style="margin-bottom: 10px;">© Ilya Sheprut. License: <a href="https://creativecommons.org/licenses/by/3.0/deed.en">CC-BY</a>.</div>
+    <table style="border: 0px; display: contents;">
+    <tr><td style="border: 0px; padding: 0.2rem;">
+    <!-- SVG icons from https://iconmonstr.com -->
+
+    <span class="my-span-icon">
+  <a 
+    href="https://github.com/optozorax" 
+    aria-label="optozorax's GitHub" 
+    title="optozorax's GitHub">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/github.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's GitHub">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://t.me/optozorax_dev" 
+    aria-label="optozorax's Telegram channel" 
+    title="optozorax's Telegram channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/tg.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Telegram channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://www.youtube.com/c/optozorax" 
+    aria-label="optozorax's YouTube channel" 
+    title="optozorax's YouTube channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/youtube.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's YouTube channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://boosty.to/optozorax" 
+    aria-label="optozorax's donate page" 
+    title="optozorax's donate page">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/donate.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's donate page">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="/en/atom.xml" 
+    aria-label="optozorax's Atom Feed" 
+    title="optozorax's Atom Feed">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/rss.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Atom Feed">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="mailto:optozorax@gmail.com" 
+    aria-label="optozorax's email" 
+    title="optozorax's email">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/contact.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's email">
+  </a>
+</span>
+
+    </td><td style="border: 0px; padding: 0.2rem;">
+
+    </td></tr>
+    </table>
+    <div class="small-info">
+      Made with <a href="https://www.getzola.org/">Zola</a> | Theme based on <a href="https://github.com/lorepirri/cayman-blog">Cayman Blog</a> | <a href="https://github.com/optozorax/blog_zola">Site sources</a>
+      <a rel="me" href="https://mathstodon.xyz/@optozorax" style="display: none;">Mastodon</a>
+    </div>
+    </center>
+  
+  </footer>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+</body>
+</html>

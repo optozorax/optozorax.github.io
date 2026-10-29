@@ -1,0 +1,32 @@
+# 2021.08.26
+
+Moved this page to the new blog on Zola.
+
+# 2019.10.06
+
+Added more ideas for:
+* Telegram
+
+Wrote ideas for:
+* Yandex.Radio
+* Sublime
+	* Remote sublime
+	* Plain Tasks
+* Education
+
+# 2019.06.12
+
+Added more ideas for:
+* Telegram
+
+Wrote ideas for:
+* YouTube
+* Multi-feed
+
+Also:
+* General principles behind these ideas
+* A few observations about ideas
+
+# 2019.06.10
+
+First release.

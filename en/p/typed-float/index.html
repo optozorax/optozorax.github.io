@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Fonts preload -->
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nFrXyi0A.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nBrXw.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxTcwhsk.woff2" crossOrigin="anonymous">
+  <!-- --- -->
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/main.css">
+  <!-- --- -->
+
+  <!-- Non social metatags -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link rel="canonical" href="https://optozorax.github.io/en/p/typed-float/">
+  <link rel="alternate" hreflang="en" href="https://optozorax.github.io/en/p/typed-float/">
+  <link rel="alternate" hreflang="ru" href="https://optozorax.github.io/p/typed-float/">
+  <link rel="alternate" hreflang="x-default" href="https://optozorax.github.io/p/typed-float/">
+  <meta name="robots" content="noarchive">
+  <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/en/atom.xml"> 
+  <!-- --- -->
+
+  <!-- Social metatags -->
+  
+
+<meta name="author" content="optozorax">
+<meta name="title" content="Float is dynamic typing at the processor level — optozorax&#39;s blog">
+<meta name="description" content="Why working with floating-point numbers brings so much suffering, and a crazy idea for improving it with new data types.">
+<meta name="image" content="https://optozorax.github.io/en/p/typed-float/typed-float.png">
+
+<meta name="keywords" itemprop="tags" content="rust, math, thoughts, typing">
+
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://optozorax.github.io/en/p/typed-float/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Float is dynamic typing at the processor level — optozorax&#39;s blog">
+<meta property="og:description" content="Why working with floating-point numbers brings so much suffering, and a crazy idea for improving it with new data types.">
+<meta property="og:image" content="https://optozorax.github.io/en/p/typed-float/typed-float.png">
+<meta property="og:locale" content="en">
+
+
+<meta property="article:published_time" content="2020-06-20">
+
+
+
+
+<meta property="article:tag" content="rust">
+
+<meta property="article:tag" content="math">
+
+<meta property="article:tag" content="thoughts">
+
+<meta property="article:tag" content="typing">
+
+
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="optozorax.github.io">
+<meta property="twitter:url" content="https://optozorax.github.io/en/p/typed-float/">
+<meta name="twitter:title" content="Float is dynamic typing at the processor level — optozorax&#39;s blog">
+<meta name="twitter:description" content="Why working with floating-point numbers brings so much suffering, and a crazy idea for improving it with new data types.">
+<meta name="twitter:image" content="https://optozorax.github.io/en/p/typed-float/typed-float.png">
+<meta name="twitter:creator" content="optozorax">
+
+  <!-- --- -->
+
+  <!-- Extra head declarations -->
+  
+
+<script type="text/javascript" src="/js/hammer.min.js"></script>
+<script type="text/javascript" src="/js/toc.js"></script>
+<script type="text/javascript" src="/js/gallery.js"></script>
+<script type="text/javascript" src="/js/full_screen.js"></script>
+<script type="text/javascript" src="/js/word_wrap.js"></script>
+
+  <!-- --- -->
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+  <!-- --- -->
+
+  <title>Float is dynamic typing at the processor level — optozorax&#39;s blog</title>
+</head>
+
+<body>
+  <!-- FullScreen block -->
+  <div id="img_modal" class="modal" style="display: none;">
+      <img id="img_modal_01" src="/ico/loading.gif">
+      <span class="close" id="img_modal_close">&times;</span>
+  </div>
+  <!-- --- -->
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <header class="site-header" role="banner">
+  
+  <div class="wrapper">
+    <a class="site-title" href="/en/">optozorax.blog</a>
+
+    <div class="lang-switch">
+      <span class="lang-switch-item lang-switch-current" lang="en" title="English"><span class="lang-switch-flag">🇬🇧</span>EN</span>
+      <a class="lang-switch-item" href="/p/typed-float/" hreflang="ru" lang="ru" title="Русский"><span class="lang-switch-flag">🇷🇺</span>RU</a>
+    </div>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <img src="/ico/menu.svg" width="13px" height="15px">
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          <a class="page-link" href="/en/">Blog</a>
+        
+          <a class="page-link" href="/en/e">Collections</a>
+        
+          <a class="page-link" href="/en/tags">Tags</a>
+        
+          <a class="page-link" href="/en/about">About me</a>
+        
+      </div>
+    </nav>
+  </div>
+  
+  </header>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+  
+  <section class="page-header">
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+<h1 class="project-name">Float is dynamic typing at the processor level</h1>
+
+<h2 class="project-tagline">Why working with floating-point numbers brings so much suffering, and a crazy idea for improving it with new data types.</h2>
+
+
+
+<span style="margin-bottom: 10px;">
+  
+    <a href="/en/tags#rust"><code class="tag"><nobr>#rust</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#math"><code class="tag"><nobr>#math</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#thoughts"><code class="tag"><nobr>#thoughts</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#typing"><code class="tag"><nobr>#typing</nobr></code></a>&nbsp;
+  
+</span>
+
+
+<center>
+<table style="margin-top: 8px;">
+<tr>
+
+
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+  <time datetime="2020-06-20" itemprop="datePublished">
+    
+    
+    
+    
+    <span class="post-date">20 June 2020</span>
+  </time>
+</h2>
+</td>
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+    <span class="post-date" style="font-style: normal">| 🕑 4 min</span>
+</h2>
+</td>
+
+
+
+<td style="padding-left: 10px;">
+  
+  
+  <a href="https://t.me/optozorax_dev/226">
+  <code class="tag">Post on Telegram</code>
+  </a>
+  
+  
+</td>
+
+</tr>
+</table>
+
+
+<div class="translation-note">
+  <svg class="translation-note-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+  <span>Translated from 🇷🇺 Russian</span>
+  <span class="translation-note-sep">·</span>
+  <span>Translation by Claude Opus 5.5</span>
+  <span class="translation-note-sep">·</span>
+  <a href="/p/typed-float/" hreflang="ru" lang="ru">Original</a>
+</div>
+
+
+
+</center>
+
+
+</td><td>
+</td></tr></table>
+
+
+
+  </section>
+  
+  
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <section class="main-content section">
+  
+<article itemscope itemtype="http://schema.org/BlogPosting">
+<div itemprop="articleBody" id="content">
+<h1 id="introduction"><a class="anchor" href="#introduction">#</a>Introduction</h1>
+<p>This article assumes that you're familiar with Rust and know what algebraic data types (ADTs) are.</p>
+<p>Compare these two code examples:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="javascript"><code data-lang="javascript"><span class="giallo-l"><span style="color: #668F14;">function</span><span style="color: #C23F31;"> something</span><span>(</span><span style="color: #5597D6;">a</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">    if</span><span> (</span><span style="color: #72AB00;">typeof</span><span style="color: #5597D6;"> a</span><span style="color: #72AB00;"> ===</span><span style="color: #D07711;"> &quot;number&quot;</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        return</span><span style="color: #5597D6;"> a</span><span style="color: #72AB00;">*</span><span style="color: #B3933A;">3</span><span style="color: #72AB00;"> +</span><span style="color: #B3933A;"> 2</span><span>;</span></span>
+<span class="giallo-l"><span>    }</span><span style="color: #72AB00;"> else if</span><span> (</span><span style="color: #72AB00;">typeof</span><span style="color: #5597D6;"> a</span><span style="color: #72AB00;"> ===</span><span style="color: #D07711;"> &quot;string&quot;</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        return</span><span style="color: #B3933A;"> 0</span><span>;</span></span>
+<span class="giallo-l"><span>    }</span></span>
+<span class="giallo-l"><span>}</span></span></code></pre><pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="rust"><code data-lang="rust"><span class="giallo-l"><span style="color: #72AB00;">fn</span><span style="color: #C23F31;"> something</span><span>(</span><span style="color: #5597D6;">a</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> f64</span><span>)</span><span style="color: #72AB00;"> -&gt;</span><span style="color: #C23F31;"> f64</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">    if</span><span style="color: #5597D6;"> a</span><span style="color: #72AB00;">.</span><span style="color: #C23F31;">is_nan</span><span>() {</span></span>
+<span class="giallo-l"><span style="color: #B3933A;">        0.0</span></span>
+<span class="giallo-l"><span>    }</span><span style="color: #72AB00;"> else if !</span><span style="color: #5597D6;">a</span><span style="color: #72AB00;">.</span><span style="color: #C23F31;">is_finite</span><span>() {</span></span>
+<span class="giallo-l"><span style="color: #B3933A;">        1.0</span></span>
+<span class="giallo-l"><span>    }</span><span style="color: #72AB00;"> else if</span><span style="color: #5597D6;"> a</span><span style="color: #72AB00;"> ==</span><span style="color: #B3933A;"> 0.0</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #B3933A;">        1.0</span></span>
+<span class="giallo-l"><span>    }</span><span style="color: #72AB00;"> else</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #B3933A;">        1</span><span style="color: #72AB00;"> /</span><span style="color: #5597D6;"> a</span><span style="color: #72AB00;">.</span><span style="color: #C23F31;">abs</span><span>()</span></span>
+<span class="giallo-l"><span>    }</span></span>
+<span class="giallo-l"><span>}</span></span></code></pre>
+<p>You'd think these are two completely different languages, and yet the code looks so similar: everything gets <strong>validated</strong> (for those not in the know: you should <a href="https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/">parse, don't validate</a>). Yes, the thing is that floating-point numbers are, in essence, dynamic typing at the processor level. A float variable can hold many states, and we have to check them if we want to know what's stored there. There is also implicit type coercion between "different" categories, for example <code>1.0 + NaN = NaN</code>.</p>
+<p>What did people do about dynamic typing in JavaScript? They came up with TypeScript. And life got good. So can we do the same with floating-point numbers?</p>
+<h1 id="nan"><a class="anchor" href="#nan">#</a>NaN</h1>
+<p>The most basic problem of floating-point numbers is <code>NaN</code>. It has a really nasty property: it isn't equal to itself.</p>
+<p>Because of this, in Rust we can't store floats in a tree or sort an array of them, that is, we can't implement the <code>Eq</code> and <code>Ord</code> traits.</p>
+<p>If you take <code>NaN</code> out of a float, it immediately becomes well-behaved. Schematically, this can be written like this:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="rust"><code data-lang="rust"><span class="giallo-l"><span style="color: #668F14;">enum</span><span style="color: #C23F31;"> Float</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    NaN</span><span>,</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    NotNanFloat</span><span>(</span><span style="color: #C23F31;">NotNanFloat</span><span>),</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">enum</span><span style="color: #C23F31;"> NotNanFloat</span><span> {</span><span style="color: #7F8989;"> /* ... */</span><span> }</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">impl</span><span style="color: #C23F31;"> Eq</span><span style="color: #72AB00;"> for</span><span style="color: #C23F31;"> NotNanFloat</span><span> {</span><span style="color: #7F8989;"> /* ... */</span><span> }</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">impl</span><span style="color: #C23F31;"> Ord</span><span style="color: #72AB00;"> for</span><span style="color: #C23F31;"> NotNanFloat</span><span> {</span><span style="color: #7F8989;"> /* ... */</span><span> }</span></span></code></pre>
+<p>And we can state that an array stores only <code>NotNanFloat</code>.</p>
+<p>When I was writing <a href="https://github.com/optozorax/confidence">github:confidence</a>, I really missed being able to match on a data structure like this, or to say that I accept only <code>NotNanFloat</code>.</p>
+<p>The catch is that some operations on <code>NotNanFloat</code> can lead to <code>NaN</code>, for example: multiplying infinity by zero, dividing by zero. So after any arithmetic we have to convert the type from the wider <code>Float</code> back to <code>NotNanFloat</code>:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="rust"><code data-lang="rust"><span class="giallo-l"><span style="color: #668F14;">let</span><span style="color: #5597D6;"> a</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> NotNanFloat</span><span style="color: #72AB00;"> = ...</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #668F14;">let</span><span style="color: #5597D6;"> b</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> NotNanFloat</span><span style="color: #72AB00;"> = ...</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #668F14;">let</span><span style="color: #5597D6;"> c</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> Float</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> a</span><span style="color: #72AB00;"> *</span><span style="color: #5597D6;"> b</span><span style="color: #72AB00;"> /</span><span> (</span><span style="color: #5597D6;">a</span><span style="color: #72AB00;"> +</span><span style="color: #5597D6;"> b</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #668F14;">let</span><span style="color: #5597D6;"> d</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> NotNanFloat</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> c</span><span style="color: #72AB00;">.</span><span style="color: #C23F31;">try_into</span><span>()</span><span style="color: #72AB00;">.</span><span style="color: #C23F31;">unwrap</span><span>();</span></span></code></pre>
+<p>On the one hand, this is actually good, because we won't keep junk in our arrays, and we won't find out at the very end that a huge matrix has been multiplied 100 times with <code>NaN</code>s in it: we'll get an error much earlier.</p>
+<h1 id="the-madness-continues"><a class="anchor" href="#the-madness-continues">#</a>The madness continues</h1>
+<p>We can go further and split floats up even more:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="rust"><code data-lang="rust"><span class="giallo-l"><span style="color: #668F14;">enum</span><span style="color: #C23F31;"> NotNanFloat</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    InfiniteFloat</span><span>(</span><span style="color: #C23F31;">InfiniteFloat</span><span>),</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    FiniteFloat</span><span>(</span><span style="color: #C23F31;">FiniteFloat</span><span>),</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">enum</span><span style="color: #C23F31;"> InfiniteFloat</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    Negative</span><span>,</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    Positive</span><span>,</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">enum</span><span style="color: #C23F31;"> FiniteFloat</span><span> {</span><span style="color: #7F8989;"> /* ... */</span><span> }</span></span></code></pre>
+<p>But there's no longer as serious a reason for this as there was for separating out <code>NaN</code>. This kind of split can be used for stricter type checking at compile time.</p>
+<p>For example, you can create a type <code>FloatFrom0ToInf</code> that contains all positive numbers, zero included. And then say that <code>fn div_one(down: FloatFrom0ToInf) -&gt; FloatFrom0ToInf</code>. And in general, work out which types every operation produces from which, and write all of it down in the type system.</p>
+<p>Or <code>NotNanFloat</code> can be broken down like this:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="rust"><code data-lang="rust"><span class="giallo-l"><span style="color: #668F14;">enum</span><span style="color: #C23F31;"> NotNanFloat</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    PositiveFloat</span><span>(</span><span style="color: #C23F31;">PositiveFloat</span><span>),</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    NegativeFloat</span><span>(</span><span style="color: #C23F31;">NegativeFloat</span><span>),</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">enum</span><span style="color: #C23F31;"> PositiveFloat</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    Infinity</span><span>,</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    FinitePositiveFloat</span><span>(</span><span style="color: #C23F31;">FinitePositiveFloat</span><span>),</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">enum</span><span style="color: #C23F31;"> FinitePositiveFloat</span><span> {</span><span style="color: #7F8989;"> /* ... */</span><span> }</span></span></code></pre>
+<p>Here we can make a method:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="rust"><code data-lang="rust"><span class="giallo-l"><span style="color: #72AB00;">fn</span><span style="color: #C23F31;"> mul</span><span>(</span><span style="color: #C23F31;">PositiveFiniteFloat</span><span>,</span><span style="color: #C23F31;"> PositiveFiniteFloat</span><span>)</span><span style="color: #72AB00;"> -&gt;</span><span style="color: #C23F31;"> PositiveFloat</span><span>;</span></span></code></pre>
+<p>Or separate zero from everything else, and you get a division that shouldn't produce <code>NaN</code>:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="rust"><code data-lang="rust"><span class="giallo-l"><span style="color: #72AB00;">fn</span><span style="color: #C23F31;"> div</span><span>(</span><span style="color: #C23F31;">FiniteFloat</span><span>,</span><span style="color: #C23F31;"> NonZeroFiniteFloat</span><span>)</span><span style="color: #72AB00;"> -&gt;</span><span style="color: #C23F31;"> NonZeroFiniteFloat</span><span>;</span></span></code></pre>
+<p>And you could also have cool error messages when you try to convert a wider type into a narrower one:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="rust"><code data-lang="rust"><span class="giallo-l"><span style="color: #668F14;">let</span><span style="color: #5597D6;"> a</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> Float</span><span style="color: #72AB00;"> = -</span><span style="color: #B3933A;">1.2</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #668F14;">let</span><span style="color: #5597D6;"> b</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> PositiveFiniteFloat</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> a</span><span style="color: #72AB00;">.</span><span style="color: #C23F31;">float_unwrap</span><span>();</span><span style="color: #7F8989;"> // &quot;Can&#39;t convert negative float `-1.2` to positive number in line N&quot;</span></span></code></pre>
+<p>Types like these could be very handy in all sorts of library functions. For example, a function that computes the area of a triangle from its three sides and accepts only finite positive numbers, so that it doesn't have to <strong>validate</strong> them inside:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="rust"><code data-lang="rust"><span class="giallo-l"><span style="color: #72AB00;">fn</span><span style="color: #C23F31;"> triangle_area</span><span>(</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">    a</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> PositiveNonZeroFiniteFloat</span><span>, </span></span>
+<span class="giallo-l"><span style="color: #5597D6;">    b</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> PositiveNonZeroFiniteFloat</span><span>, </span></span>
+<span class="giallo-l"><span style="color: #5597D6;">    c</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> PositiveNonZeroFiniteFloat</span><span>,</span></span>
+<span class="giallo-l"><span>)</span><span style="color: #72AB00;"> -&gt;</span><span style="color: #C23F31;"> Option</span><span>&lt;</span><span style="color: #C23F31;">PositiveNonZeroFiniteFloat</span><span>&gt; {</span><span style="color: #7F8989;"> /* ... */</span><span> }</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">// This function returns `Option&lt;_&gt;` because infinity can come up during the calculations.</span></span></code></pre>
+<p>And there are very many ways to break down <code>NotNanFloat</code> like this. For that, Rust would probably need a whole new language construct, a <code>safe union</code>, that lets you switch between these representations of <code>Float</code>, because they are completely equivalent.</p>
+<h1 id="the-same-thing-but-at-the-type-level"><a class="anchor" href="#the-same-thing-but-at-the-type-level">#</a>The same thing, but at the type level</h1>
+<p>Or this split can be written down differently:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="rust"><code data-lang="rust"><span class="giallo-l"><span style="color: #668F14;">struct</span><span style="color: #C23F31;"> Yes</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #668F14;">struct</span><span style="color: #C23F31;"> No</span><span>;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">trait</span><span style="color: #C23F31;"> IsFloatParameter</span><span> {}</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">impl</span><span style="color: #C23F31;"> IsFloatParameter</span><span style="color: #72AB00;"> for</span><span style="color: #C23F31;"> Yes</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">impl</span><span style="color: #C23F31;"> IsFloatParameter</span><span style="color: #72AB00;"> for</span><span style="color: #C23F31;"> No</span><span>;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">struct</span><span style="color: #C23F31;"> Float</span><span>&lt;</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    HasNan</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> IsFloatParameter</span><span>,</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    HasNegativeInfinity</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> IsFloatParameter</span><span>,</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #C23F31;">    HasNegativeFrom1</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> IsFloatParameter</span><span>,</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    HasNegative1</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> IsFloatParameter</span><span>,</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    HasNegativeFrom0To1</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> IsFloatParameter</span><span>,</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    HasNegative0</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> IsFloatParameter</span><span>,</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #C23F31;">    HasPositive0</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> IsFloatParameter</span><span>,</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    HasPositiveFrom0To1</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> IsFloatParameter</span><span>,</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    HasPositive1</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> IsFloatParameter</span><span>,</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    HasPositiveFrom1</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> IsFloatParameter</span><span>,</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #C23F31;">    HasPositiveInfinity</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> IsFloatParameter</span><span>,</span></span>
+<span class="giallo-l"><span>&gt;(</span><span style="color: #C23F31;">f64</span><span>);</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">type</span><span style="color: #C23F31;"> NotNanFloat</span><span style="color: #72AB00;"> =</span><span style="color: #C23F31;"> Float</span><span>&lt;</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    No</span><span>, </span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #C23F31;">    Yes</span><span>, </span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    Yes</span><span>,</span><span style="color: #C23F31;"> Yes</span><span>,</span><span style="color: #C23F31;"> Yes</span><span>,</span><span style="color: #C23F31;"> Yes</span><span>, </span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    Yes</span><span>,</span><span style="color: #C23F31;"> Yes</span><span>,</span><span style="color: #C23F31;"> Yes</span><span>,</span><span style="color: #C23F31;"> Yes</span><span>, </span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    Yes</span><span>,</span></span>
+<span class="giallo-l"><span>&gt;;</span></span></code></pre>
+<p>But then you lose the ability to match on the data structure to get the range you need. I don't know which is better.</p>
+<p>For a representation like this, the ability to program complex computations at the type level would come in very handy, so that all possible conversions for all possible combinations of floats are derived automatically.</p>
+<p>Doing it by hand would take a huge amount of code. Perhaps it would make more sense to solve this problem with dependent types? Or do we need a new abstraction, more powerful than ADTs?</p>
+<h1 id="compiler-support"><a class="anchor" href="#compiler-support">#</a>Compiler support</h1>
+<p>Also, if such a system ever exists, say, in Rust, it has to be supported by the compiler, like <code>NonNull</code> is, so that pattern matching on a float compiles down to the most efficient assembly check instructions, and so that storing such a float in the <code>PositiveFloat</code> and <code>NotNanFloat</code> enums doesn't waste extra memory.</p>
+<h1 id="conclusion"><a class="anchor" href="#conclusion">#</a>Conclusion</h1>
+<p>Maybe that's why, even in statically typed languages, floating-point numbers with their infinities and <code>NaN</code>s cause so much suffering? Maybe these data types would make life a little easier? I don't know. It's just an idea that grew out of a bad case of static typing on the brain.</p>
+<p>Dynamic typing in JS easily reduces to static typing, because logically no operation on an <code>int</code> should accidentally produce a <code>string</code>. With floating-point numbers it's more complicated: all the values are very tightly connected to each other, so simply adding two finite numbers can give infinity, and the ratio of two finite numbers can give <code>NaN</code>.</p>
+<p>I hope this idea has inspired you.</p>
+<p>And if you want to have <code>NotNanFloat</code> in your Rust code, you can search for a crate with the keywords <code>ordered float</code>.</p>
+
+</div>
+</article>
+
+  </section>
+  
+
+</td><td>
+<!-- TOC -->
+<input type="checkbox" id="toc-trigger" class="toc-trigger" />
+<label for="toc-trigger">
+  <span class="menu-icon">
+    <div class="side-button"><img src="/ico/right.svg"></div>
+  </span>
+</label>
+
+<nav class="section-nav">
+ <h2>Contents</h2>
+ <ul class="first">
+ 
+ 
+  <li>
+   <a href="#introduction">Introduction</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#nan">NaN</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#the-madness-continues">The madness continues</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#the-same-thing-but-at-the-type-level">The same thing, but at the type level</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#compiler-support">Compiler support</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#conclusion">Conclusion</a>
+   
+  </li>
+ 
+ </ul>
+</nav>
+</td></tr></table>
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="section second-section">
+If you like what I do, follow me on <a href="https://t.me/optozorax_dev">Telegram</a> and <a href="https://www.youtube.com/c/optozorax">YouTube</a>.
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="comments section second-section">
+
+<script src="https://utteranc.es/client.js"
+        repo="optozorax/optozorax.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+
+  <hr class="enabled-on-phone">
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <footer class="site-footer section second-section">
+  
+    <center>
+    <div style="margin-bottom: 10px;">© Ilya Sheprut. License: <a href="https://creativecommons.org/licenses/by/3.0/deed.en">CC-BY</a>.</div>
+    <table style="border: 0px; display: contents;">
+    <tr><td style="border: 0px; padding: 0.2rem;">
+    <!-- SVG icons from https://iconmonstr.com -->
+
+    <span class="my-span-icon">
+  <a 
+    href="https://github.com/optozorax" 
+    aria-label="optozorax's GitHub" 
+    title="optozorax's GitHub">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/github.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's GitHub">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://t.me/optozorax_dev" 
+    aria-label="optozorax's Telegram channel" 
+    title="optozorax's Telegram channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/tg.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Telegram channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://www.youtube.com/c/optozorax" 
+    aria-label="optozorax's YouTube channel" 
+    title="optozorax's YouTube channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/youtube.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's YouTube channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://boosty.to/optozorax" 
+    aria-label="optozorax's donate page" 
+    title="optozorax's donate page">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/donate.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's donate page">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="/en/atom.xml" 
+    aria-label="optozorax's Atom Feed" 
+    title="optozorax's Atom Feed">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/rss.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Atom Feed">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="mailto:optozorax@gmail.com" 
+    aria-label="optozorax's email" 
+    title="optozorax's email">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/contact.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's email">
+  </a>
+</span>
+
+    </td><td style="border: 0px; padding: 0.2rem;">
+
+    </td></tr>
+    </table>
+    <div class="small-info">
+      Made with <a href="https://www.getzola.org/">Zola</a> | Theme based on <a href="https://github.com/lorepirri/cayman-blog">Cayman Blog</a> | <a href="https://github.com/optozorax/blog_zola">Site sources</a>
+      <a rel="me" href="https://mathstodon.xyz/@optozorax" style="display: none;">Mastodon</a>
+    </div>
+    </center>
+  
+  </footer>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+</body>
+</html>

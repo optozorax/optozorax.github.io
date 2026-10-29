@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Fonts preload -->
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nFrXyi0A.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nBrXw.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxTcwhsk.woff2" crossOrigin="anonymous">
+  <!-- --- -->
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/main.css">
+  <!-- --- -->
+
+  <!-- Non social metatags -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link rel="canonical" href="https://optozorax.github.io/en/p/the-tenet-of-life/">
+  <link rel="alternate" hreflang="en" href="https://optozorax.github.io/en/p/the-tenet-of-life/">
+  <link rel="alternate" hreflang="ru" href="https://optozorax.github.io/p/the-tenet-of-life/">
+  <link rel="alternate" hreflang="x-default" href="https://optozorax.github.io/p/the-tenet-of-life/">
+  <meta name="robots" content="noarchive">
+  <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/en/atom.xml"> 
+  <!-- --- -->
+
+  <!-- Social metatags -->
+  
+
+<meta name="author" content="optozorax">
+<meta name="title" content="A cellular automaton based on the film &quot;Tenet&quot; — optozorax&#39;s blog">
+<meta name="description" content="Is it possible to create an automaton that has particles moving forward in time and backward in time at the same time? Yes, and I made such an automaton: this post is about it.">
+<meta name="image" content="https://optozorax.github.io/en/p/the-tenet-of-life/preview.jpg">
+
+<meta name="keywords" itemprop="tags" content="cellular-automata, reversible-automata, programming">
+
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://optozorax.github.io/en/p/the-tenet-of-life/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A cellular automaton based on the film &quot;Tenet&quot; — optozorax&#39;s blog">
+<meta property="og:description" content="Is it possible to create an automaton that has particles moving forward in time and backward in time at the same time? Yes, and I made such an automaton: this post is about it.">
+<meta property="og:image" content="https://optozorax.github.io/en/p/the-tenet-of-life/preview.jpg">
+<meta property="og:locale" content="en">
+
+
+<meta property="article:published_time" content="2020-10-29">
+
+
+
+
+<meta property="article:tag" content="cellular-automata">
+
+<meta property="article:tag" content="reversible-automata">
+
+<meta property="article:tag" content="programming">
+
+
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="optozorax.github.io">
+<meta property="twitter:url" content="https://optozorax.github.io/en/p/the-tenet-of-life/">
+<meta name="twitter:title" content="A cellular automaton based on the film &quot;Tenet&quot; — optozorax&#39;s blog">
+<meta name="twitter:description" content="Is it possible to create an automaton that has particles moving forward in time and backward in time at the same time? Yes, and I made such an automaton: this post is about it.">
+<meta name="twitter:image" content="https://optozorax.github.io/en/p/the-tenet-of-life/preview.jpg">
+<meta name="twitter:creator" content="optozorax">
+
+  <!-- --- -->
+
+  <!-- Extra head declarations -->
+  
+
+<script type="text/javascript" src="/js/hammer.min.js"></script>
+<script type="text/javascript" src="/js/toc.js"></script>
+<script type="text/javascript" src="/js/gallery.js"></script>
+<script type="text/javascript" src="/js/full_screen.js"></script>
+<script type="text/javascript" src="/js/word_wrap.js"></script>
+
+  <!-- --- -->
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+  <!-- --- -->
+
+  <title>A cellular automaton based on the film &quot;Tenet&quot; — optozorax&#39;s blog</title>
+</head>
+
+<body>
+  <!-- FullScreen block -->
+  <div id="img_modal" class="modal" style="display: none;">
+      <img id="img_modal_01" src="/ico/loading.gif">
+      <span class="close" id="img_modal_close">&times;</span>
+  </div>
+  <!-- --- -->
+
+  
+
+
+  <header class="site-header" role="banner">
+  
+  <div class="wrapper">
+    <a class="site-title" href="/en/">optozorax.blog</a>
+
+    <div class="lang-switch">
+      <span class="lang-switch-item lang-switch-current" lang="en" title="English"><span class="lang-switch-flag">🇬🇧</span>EN</span>
+      <a class="lang-switch-item" href="/p/the-tenet-of-life/" hreflang="ru" lang="ru" title="Русский"><span class="lang-switch-flag">🇷🇺</span>RU</a>
+    </div>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <img src="/ico/menu.svg" width="13px" height="15px">
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          <a class="page-link" href="/en/">Blog</a>
+        
+          <a class="page-link" href="/en/e">Collections</a>
+        
+          <a class="page-link" href="/en/tags">Tags</a>
+        
+          <a class="page-link" href="/en/about">About me</a>
+        
+      </div>
+    </nav>
+  </div>
+  
+  </header>
+  
+
+
+
+  
+  
+  <section class="page-header">
+  
+
+
+<h1 class="project-name">A cellular automaton based on the film &quot;Tenet&quot;</h1>
+
+<h2 class="project-tagline">Is it possible to create an automaton that has particles moving forward in time and backward in time at the same time? Yes, and I made such an automaton: this post is about it.</h2>
+
+
+
+<span style="margin-bottom: 10px;">
+  
+    <a href="/en/tags#cellular-automata"><code class="tag"><nobr>#cellular-automata</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#reversible-automata"><code class="tag"><nobr>#reversible-automata</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#programming"><code class="tag"><nobr>#programming</nobr></code></a>&nbsp;
+  
+</span>
+
+
+<center>
+<table style="margin-top: 8px;">
+<tr>
+
+
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+  <time datetime="2020-10-29" itemprop="datePublished">
+    
+    
+    
+    
+    <span class="post-date">29 October 2020</span>
+  </time>
+</h2>
+</td>
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+    <span class="post-date" style="font-style: normal">| 🕑 6 min</span>
+</h2>
+</td>
+
+
+
+<td style="padding-left: 10px;">
+  
+  
+  <a href="https://t.me/optozorax_dev/252">
+  <code class="tag">Post on Telegram</code>
+  </a>
+  
+  
+  (29 💬)
+  
+</td>
+
+</tr>
+</table>
+
+
+<div class="translation-note">
+  <svg class="translation-note-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+  <span>Translated from 🇷🇺 Russian</span>
+  <span class="translation-note-sep">·</span>
+  <span>Translation by Claude Opus 5.5</span>
+  <span class="translation-note-sep">·</span>
+  <a href="/p/the-tenet-of-life/" hreflang="ru" lang="ru">Original</a>
+</div>
+
+
+
+</center>
+
+
+
+
+  </section>
+  
+  
+
+  
+
+
+  <section class="main-content section">
+  
+<article itemscope itemtype="http://schema.org/BlogPosting">
+<div itemprop="articleBody" id="content">
+<p>As soon as cinemas reopened here, I ran to see Nolan's "Tenet". I liked it a lot. The rest of this post is based on a concept from the film, so if you don't like spoilers, you'd better not read any further. Although maybe my spoilers go no further than the trailer, idk, I don't watch trailers because I hate spoilers of any kind. Anyway, you've been warned.</p>
+<p>I'm not particularly interested in characters and other meatbags, but concepts and ideas — very much so. That's why I liked this film SOOO much. And "Tenet" shows just that: a VERY interesting concept where matter moving backward in time exists alongside matter moving forward in time. You can't even call it time travel, because it's not that cheating with git branches that other films show us; it's a very organic, complex, paradoxical and interesting thing. Right after the film I had one single main question: is it possible to simulate this, and how?! I'm interested at least in whether it can be simulated with a cellular automaton, never mind physics. By a nice coincidence, a couple of months earlier I had finally <a href="/en/p/critters/">implemented the reversible Critters automaton and explored it a bit</a>. I immediately thought that the reversibility of Critters should somehow help with the Tenet concept, but in the first few days I couldn't come up with anything.</p>
+<p>I also started thinking about how the past could know what the future would be, so surely you would have to solve some astronomically huge system of equations to implement something like "Tenet", which means the usual concept of a step-by-step simulation might not apply here.</p>
+<p>Then I started thinking purposefully about how to simulate it, and finally figured it out. The reversibility of Critters really did help, and based on it I made a reversible cellular automaton in which three kinds of matter exist at the same time:</p>
+<ul>
+<li>void — black cells,</li>
+<li>matter moving forward in time — blue cells,</li>
+<li>matter moving backward in time — red cells.</li>
+</ul>
+<p>Damn, looks like my colors don't match the film :(</p>
+<p>Moreover:</p>
+<ul>
+<li>If you swap red and blue and do one more little thing, then simulating time forward gives the same result as simulating time backward before the swap. That is, all states correctly move in time in the right direction, and the direction of time is relative! To the red cells it seems that they are moving forward and the blue ones backward in time, and to the blue cells it seems that they are moving forward and the red ones backward.</li>
+<li>Combinations of cells that consist of void, red and blue cells are handled correctly.</li>
+<li>While the rules of ordinary Critters have size <code>2^4</code>, in my automaton they have size <code>2*3^4</code>. Such a large size also makes designing the rules somewhat difficult.</li>
+</ul>
+<p>I gave this automaton a proud name, out of respect for its inspiration: The Tenet Of Life (Critters is the closest analogue of The Game Of Life in the world of reversible automata, so it makes sense).</p>
+<p>There were interesting problems and solutions along the way, so I want to describe all of it in detail, with pictures, but right now I have neither the time nor the motivation. I hope I'll get around to it someday.</p>
+<p>Okay, and now it's picture time!</p>
+<hr />
+<p>In the previous post about Critters I didn't manage to implement mouse controls, so the pictures there were of really potato quality, and you couldn't even make out the glider. Well, I've fixed that sad state of affairs: now there are mouse controls, and you can zoom and pan. There's also a UI instead of keyboard shortcuts.</p>
+<video class="img-one" controls>
+  <source src="article_1_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<hr />
+<p>This is a glider in the ordinary Critters automaton. Since it's blue, you can see that it's moving forward in time. Here you can see this glider moving in the direction it points. The grid is shown here too, so you can see how the block rules of ordinary Critters, which I described earlier, work.</p>
+<video class="img-one" controls>
+  <source src="article_2_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<hr />
+<p>And here are two gliders with different directions of time at once. The red glider points left but moves right, because it's inverted in time. Actually, this gif is a bit reminiscent of the car scene from the film :) I'm thinking of making it the logo of my automaton.</p>
+<video class="img-one" controls>
+  <source src="article_3_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<hr />
+<p>And here's just a bunch of cells from different times interacting somehow...</p>
+<video class="img-one" controls>
+  <source src="article_4_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<hr />
+<p>And this is how the rules are written in the code :))))))))))000)0 Of course, these arrays are computed. It's just that other code does the computing.</p>
+<div class="magnifier-container img-one-two"> <img     class="not-default full-screen-img"     width="546"     height="640"     src="/processed_images/article_5.bc4b365ad7293014.webp"     onclick="full_screen('article_5.jpg')"     onauxclick="full_screen_new_page('article_5.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.2<br>jpg</div> </div> </div>
+<hr />
+<p>And this is me designing the rules in draw.io. Don't try to understand it, it's just a sneak peek; I'll explain it in detail in the future.</p>
+<div class="magnifier-container img-one-two"> <img     class="not-default full-screen-img"     width="396"     height="640"     src="/processed_images/article_6.d169c649e5d5202b.webp"     onclick="full_screen('article_6.jpg')"     onauxclick="full_screen_new_page('article_6.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×2<br>jpg</div> </div> </div>
+<hr />
+<p>I don't think I saw anything interesting or revolutionary. Red and blue cells just bustle around and have nice mathematical properties. So the most interesting part is how I made it, not the result itself. The results are not interesting because the original Critters automaton itself is not very interesting. Other reversible automata should be explored with this approach.</p>
+<p>Another reason the results aren't very interesting is that I don't have the most important feature of the film: a device that inverts in time everything that enters it. After all, it's exactly this device that creates the interesting paradoxes and the mind-blowing stuff. And judging by what I got, the mere parallel existence of two temporal kinds of matter is not very interesting and not very paradoxical.</p>
+<p>I think introducing cells that do this kind of inversion is either impossible, or requires solving an astronomical system of equations, or is just very hard. And if you do introduce it, you have to compute the universe in advance so that it's consistent with this device, because it has to take as input two identical objects with different directions of time. That is, you have to send both a backward and a forward glider into this machine in advance, so that they enter it and disappear; then the machine's output will be like in the film.</p>
+<p>If you manage to build such a machine and send a forward glider into it but don't send a backward one, then I think the machine will create a lot of noise even before the glider enters, and the noise will annihilate with the glider, so it dies without ever getting back in time.</p>
+<p>Also, regarding plain reversible automata, I can recommend watching these:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=FiO6jkNkrb4">A big overview of cellular automata by Onigiri</a> (in Russian)</li>
+<li><a href="https://www.youtube.com/watch?v=Quj5fP2Lqio">Quantum computers and reversible computing by Onigiri</a> (in Russian)</li>
+<li><a href="https://en.wikipedia.org/wiki/Landauer%27s_principle">Landauer's principle on Wikipedia</a></li>
+</ul>
+<p>I know Onigiri personally, and funnily enough, completely by chance our topics with these automata overlapped both in timing and in content in the videos I recommended :) Unfortunately, his videos don't go deep into complex details and are aimed at a younger audience, but overall you can learn a lot of new things from them :)</p>
+
+</div>
+</article>
+
+  </section>
+  
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<section class="section second-section">
+If you like what I do, follow me on <a href="https://t.me/optozorax_dev">Telegram</a> and <a href="https://www.youtube.com/c/optozorax">YouTube</a>.
+</section>
+
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<section class="comments section second-section">
+
+<script src="https://utteranc.es/client.js"
+        repo="optozorax/optozorax.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</section>
+
+
+
+
+
+  <hr class="enabled-on-phone">
+
+  
+
+
+  <footer class="site-footer section second-section">
+  
+    <center>
+    <div style="margin-bottom: 10px;">© Ilya Sheprut. License: <a href="https://creativecommons.org/licenses/by/3.0/deed.en">CC-BY</a>.</div>
+    <table style="border: 0px; display: contents;">
+    <tr><td style="border: 0px; padding: 0.2rem;">
+    <!-- SVG icons from https://iconmonstr.com -->
+
+    <span class="my-span-icon">
+  <a 
+    href="https://github.com/optozorax" 
+    aria-label="optozorax's GitHub" 
+    title="optozorax's GitHub">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/github.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's GitHub">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://t.me/optozorax_dev" 
+    aria-label="optozorax's Telegram channel" 
+    title="optozorax's Telegram channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/tg.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Telegram channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://www.youtube.com/c/optozorax" 
+    aria-label="optozorax's YouTube channel" 
+    title="optozorax's YouTube channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/youtube.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's YouTube channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://boosty.to/optozorax" 
+    aria-label="optozorax's donate page" 
+    title="optozorax's donate page">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/donate.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's donate page">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="/en/atom.xml" 
+    aria-label="optozorax's Atom Feed" 
+    title="optozorax's Atom Feed">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/rss.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Atom Feed">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="mailto:optozorax@gmail.com" 
+    aria-label="optozorax's email" 
+    title="optozorax's email">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/contact.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's email">
+  </a>
+</span>
+
+    </td><td style="border: 0px; padding: 0.2rem;">
+
+    </td></tr>
+    </table>
+    <div class="small-info">
+      Made with <a href="https://www.getzola.org/">Zola</a> | Theme based on <a href="https://github.com/lorepirri/cayman-blog">Cayman Blog</a> | <a href="https://github.com/optozorax/blog_zola">Site sources</a>
+      <a rel="me" href="https://mathstodon.xyz/@optozorax" style="display: none;">Mastodon</a>
+    </div>
+    </center>
+  
+  </footer>
+  
+
+
+
+  
+</body>
+</html>

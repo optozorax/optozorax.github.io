@@ -18,7 +18,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#157878">
-  <link rel="canonical" href="https://optozorax.github.io/">
+  <link rel="canonical" href="https://optozorax.github.io/p/typed-float/">
+  <link rel="alternate" hreflang="en" href="https://optozorax.github.io/en/p/typed-float/">
+  <link rel="alternate" hreflang="ru" href="https://optozorax.github.io/p/typed-float/">
+  <link rel="alternate" hreflang="x-default" href="https://optozorax.github.io/p/typed-float/">
   <meta name="robots" content="noarchive">
   <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/atom.xml"> 
   <!-- --- -->
@@ -111,6 +114,11 @@
   
   <div class="wrapper">
     <a class="site-title" href="/">optozorax.blog</a>
+
+    <div class="lang-switch">
+      <a class="lang-switch-item" href="/en/p/typed-float/" hreflang="en" lang="en" title="English"><span class="lang-switch-flag">🇬🇧</span>EN</a>
+      <span class="lang-switch-item lang-switch-current" lang="ru" title="Русский"><span class="lang-switch-flag">🇷🇺</span>RU</span>
+    </div>
 
     <nav class="site-nav">
       <input type="checkbox" id="nav-trigger" class="nav-trigger" />
@@ -248,7 +256,7 @@
 <span class="giallo-l"><span style="color: #B3933A;">        1</span><span style="color: #72AB00;"> /</span><span style="color: #5597D6;"> a</span><span style="color: #72AB00;">.</span><span style="color: #C23F31;">abs</span><span>()</span></span>
 <span class="giallo-l"><span>    }</span></span>
 <span class="giallo-l"><span>}</span></span></code></pre>
-<p>Казалось, бы, два совершенно разных языка, а код выглядит так одинаково: всё <strong>валидируется</strong> (кто не в теме, надо <a href="https://habr.com/ru/post/498042/">парсить, а не валидировать</a>). Да, всё дело в том, что вещественные числа - это, по сути, динамическая типизация на уровне процессора. У нас в переменной вещественного числа может храниться множество состояний, которые мы должны проверять, если хотим узнать что там хранится. Так же там присутствует неявное приведение типов из "разных" категорий, например <code>1.0 + NaN = NaN</code>.</p>
+<p>Казалось бы, два совершенно разных языка, а код выглядит так одинаково: всё <strong>валидируется</strong> (кто не в теме, надо <a href="https://habr.com/ru/post/498042/">парсить, а не валидировать</a>). Да, всё дело в том, что вещественные числа - это, по сути, динамическая типизация на уровне процессора. У нас в переменной вещественного числа может храниться множество состояний, которые мы должны проверять, если хотим узнать что там хранится. Также там присутствует неявное приведение типов из "разных" категорий, например <code>1.0 + NaN = NaN</code>.</p>
 <p>Что люди сделали с динамической типизацией в JavaScript? Они придумали TypeScript. И стало хорошо. Получается то же самое можно сделать с вещественными числами?</p>
 <h1 id="nan"><a class="anchor" href="#nan">#</a>NaN</h1>
 <p>Самая базовая проблема вещественных чисел - это <code>NaN</code>. Он обладает очень противным свойством: не равен самому себе.</p>
@@ -312,7 +320,7 @@
 <span class="giallo-l"><span style="color: #5597D6;">    c</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> PositiveNonZeroFiniteFloat</span><span>,</span></span>
 <span class="giallo-l"><span>)</span><span style="color: #72AB00;"> -&gt;</span><span style="color: #C23F31;"> Option</span><span>&lt;</span><span style="color: #C23F31;">PositiveNonZeroFiniteFloat</span><span>&gt; {</span><span style="color: #7F8989;"> /* ... */</span><span> }</span></span>
 <span class="giallo-l"><span style="color: #7F8989;">// В этой функции возвращается `Option&lt;_&gt;`, потому что в процессе вычислений может возникнуть бесконечность.</span></span></code></pre>
-<p>И таких способов расписать <code>NotNanFloat</code> существует очень много. Для этого, бы, наверное, в Rust пришлось создать целую языковую конструкцию <code>safe union</code>, которая позволяет переключаться между этими представлениями <code>Float</code>, потому что они абсолютно эквивалентны.</p>
+<p>И таких способов расписать <code>NotNanFloat</code> существует очень много. Для этого бы, наверное, в Rust пришлось создать целую языковую конструкцию <code>safe union</code>, которая позволяет переключаться между этими представлениями <code>Float</code>, потому что они абсолютно эквивалентны.</p>
 <h1 id="to-zhe-samoe-no-na-tipakh"><a class="anchor" href="#to-zhe-samoe-no-na-tipakh">#</a>То же самое, но на типах</h1>
 <p>Или это разделение можно записывать по-другому:</p>
 <pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="rust"><code data-lang="rust"><span class="giallo-l"><span style="color: #668F14;">struct</span><span style="color: #C23F31;"> Yes</span><span>;</span></span>

@@ -18,7 +18,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#157878">
-  <link rel="canonical" href="https://optozorax.github.io/">
+  <link rel="canonical" href="https://optozorax.github.io/p/std-function/">
+  <link rel="alternate" hreflang="en" href="https://optozorax.github.io/en/p/std-function/">
+  <link rel="alternate" hreflang="ru" href="https://optozorax.github.io/p/std-function/">
+  <link rel="alternate" hreflang="x-default" href="https://optozorax.github.io/p/std-function/">
   <meta name="robots" content="noarchive">
   <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/atom.xml"> 
   <!-- --- -->
@@ -107,6 +110,11 @@
   
   <div class="wrapper">
     <a class="site-title" href="/">optozorax.blog</a>
+
+    <div class="lang-switch">
+      <a class="lang-switch-item" href="/en/p/std-function/" hreflang="en" lang="en" title="English"><span class="lang-switch-flag">🇬🇧</span>EN</a>
+      <span class="lang-switch-item lang-switch-current" lang="ru" title="Русский"><span class="lang-switch-flag">🇷🇺</span>RU</span>
+    </div>
 
     <nav class="site-nav">
       <input type="checkbox" id="nav-trigger" class="nav-trigger" />
@@ -299,7 +307,7 @@
 <span class="giallo-l"><span style="color: #72AB00;">		return</span><span> (</span><span style="color: #72AB00;">-</span><span style="color: #C23F31;">f</span><span>(</span><span style="color: #5597D6;">x</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">2</span><span style="color: #72AB00;">*</span><span style="color: #5597D6;">h</span><span>)</span><span style="color: #72AB00;"> +</span><span style="color: #B3933A;"> 16</span><span style="color: #72AB00;">*</span><span style="color: #C23F31;">f</span><span>(</span><span style="color: #5597D6;">x</span><span style="color: #72AB00;">+</span><span style="color: #5597D6;">h</span><span>)</span><span style="color: #72AB00;"> -</span><span style="color: #B3933A;"> 30</span><span style="color: #72AB00;">*</span><span style="color: #C23F31;">f</span><span>(</span><span style="color: #5597D6;">x</span><span>)</span><span style="color: #72AB00;"> +</span><span style="color: #B3933A;"> 16</span><span style="color: #72AB00;">*</span><span style="color: #C23F31;">f</span><span>(</span><span style="color: #5597D6;">x</span><span style="color: #72AB00;">-</span><span style="color: #5597D6;">h</span><span>)</span><span style="color: #72AB00;"> -</span><span style="color: #C23F31;"> f</span><span>(</span><span style="color: #5597D6;">x</span><span style="color: #72AB00;">-</span><span style="color: #B3933A;">2</span><span style="color: #72AB00;">*</span><span style="color: #5597D6;">h</span><span>))</span><span style="color: #72AB00;">/</span><span>(</span><span style="color: #B3933A;">12</span><span style="color: #72AB00;">*</span><span style="color: #5597D6;">h</span><span style="color: #72AB00;">*</span><span style="color: #5597D6;">h</span><span>);</span></span>
 <span class="giallo-l"><span>	};</span></span>
 <span class="giallo-l"><span>}</span></span></code></pre>
-<p>Может показаться, что если уменьшить величину <code>0.001</code>, то точность повысится, но это не так, на практике у меня точность только падала, а при этом значении уже очень хорошо расчитывается производная.</p>
+<p>Может показаться, что если уменьшить величину <code>0.001</code>, то точность повысится, но это не так, на практике у меня точность только падала, а при этом значении уже очень хорошо рассчитывается производная.</p>
 <h1 id="primer-ispol-zovaniia-std-bind"><a class="anchor" href="#primer-ispol-zovaniia-std-bind">#</a>Пример использования <code>std::bind</code></h1>
 <p>Окей, у нас существует функция для расчета производной одномерной функции, но что если у нас функция принимает два аргумента, например <code>f(x, y)</code>. Как посчитать её производную по одному параметру?</p>
 <p>На помощь приходит <code>std::bind</code> - функция, которая получает функцию, список аргументов и возвращает другую функцию. И лучше увидеть пример, чтобы понять как он работает:</p>
@@ -337,7 +345,7 @@
 <p>В таком предмете, как УМФ требуется решить следующее дифференциальное уравнение:</p>
 <p><code>-div(lambda * grad u) + gamma * u + sigma * du/dt = f</code>,</p>
 <p>где <code>u = u(x, y, t)</code> является неизвестной функцией. Для численного решения используется Метод Конечных Элементов.</p>
-<p>Для декартовых координат это уравнение раскладывается в <code>lambda*(d^2 u/dx^2 + d^2 u/dy^2)  + gamma * u + sigma * du/dt = f</code></p>
+<p>Для декартовых координат это уравнение раскладывается в <code>-lambda*(d^2 u/dx^2 + d^2 u/dy^2)  + gamma * u + sigma * du/dt = f</code></p>
 <p>Для тестирования программы-решателя мы придумываем некоторую функцию <code>u</code>, например: <code>u = x*x + y*y + t</code>, придумываем значения констант <code>lambda</code>, <code>gamma</code>, <code>sigma</code>, и согласно верхнему уравнению можно вычислить функцию <code>f</code>, при которой дифференциальное уравнение превращается в тождество.</p>
 <p>Для того, чтобы тестировать нашу программу на широком спектре функций, можно написать функцию, которая будет автоматически рассчитывать эту правую часть на основе вышеописанных функций для вычисления производных:</p>
 <pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="cpp"><code data-lang="cpp"><span class="giallo-l"><span style="color: #72AB00;">typedef</span><span style="color: #C23F31;"> std</span><span>::</span><span style="color: #5597D6;">function</span><span style="color: #72AB00;">&lt;</span><span style="color: #668F14;">double</span><span>(</span><span style="color: #668F14;">double</span><span>,</span><span style="color: #668F14;"> double</span><span>,</span><span style="color: #668F14;"> double</span><span>)</span><span style="color: #72AB00;">&gt;</span><span style="color: #A2A001;"> function_3d_t</span><span>;</span></span>
@@ -428,7 +436,7 @@
 <span class="giallo-l"><span style="color: #72AB00;">typedef</span><span style="color: #C23F31;"> std</span><span>::</span><span style="color: #5597D6;">function</span><span style="color: #72AB00;">&lt;</span><span style="color: #668F14;">double</span><span>(</span><span style="color: #668F14;">double</span><span>)</span><span style="color: #72AB00;">&gt;</span><span style="color: #A2A001;"> function_1d_t</span><span>; </span></span>
 <span class="giallo-l"></span>
 <span class="giallo-l"><span style="color: #668F14;">double</span><span style="color: #C23F31;"> calc_integral_gauss3</span><span>(</span></span>
-<span class="giallo-l"><span style="color: #668F14;">	double</span><span style="color: #5597D6;"> a</span><span>,</span><span style="color: #668F14;"> double</span><span style="color: #5597D6;"> b</span><span>,</span><span style="color: #668F14;"> int</span><span style="color: #5597D6;"> n</span><span>,</span><span style="color: #7F8989;"> // n - количество внутренных узлов</span></span>
+<span class="giallo-l"><span style="color: #668F14;">	double</span><span style="color: #5597D6;"> a</span><span>,</span><span style="color: #668F14;"> double</span><span style="color: #5597D6;"> b</span><span>,</span><span style="color: #668F14;"> int</span><span style="color: #5597D6;"> n</span><span>,</span><span style="color: #7F8989;"> // n - количество внутренних узлов</span></span>
 <span class="giallo-l"><span style="color: #668F14;">	const</span><span style="color: #A2A001;"> function_1d_t</span><span style="color: #668F14;">&amp;</span><span style="color: #5597D6;"> f</span></span>
 <span class="giallo-l"><span>);</span></span></code></pre>
 <p>Тогда двойной интеграл двумерной функции можно вычислить следующим образом:</p>
@@ -501,9 +509,9 @@
 <p>Код взят из <a href="https://github.com/optozorax/optimization_methods/blob/feb65cda80b43145a58ada90b6de7c5ae8e777a4/2/methods.h#L18">2 лабораторной по МО</a>.</p>
 <h1 id="pattern-listener"><a class="anchor" href="#pattern-listener">#</a>Паттерн listener</h1>
 <p>Иногда бывает так, что вам нужно выводить информацию о внутреннем состоянии метода, например, вы решаете задачу оптимизации, и вам надо на каждой итерации выводить текущее решение, значение градиента функции в этой точке итд, чтобы строить таблицу. Вместо того, чтобы делать это явно, можно передавать в функцию метода функцию <code>listener</code>, которая будет получать всё внутреннее состояние метода, и уже у себя внутри решать что с этим делать.</p>
-<p>В одном случае она может выводить это на экран, в другом случае - в файл, а в третьем, когда нужная максимальная производительность - ничего не делать с этой информацией.</p>
+<p>В одном случае она может выводить это на экран, в другом случае - в файл, а в третьем, когда нужна максимальная производительность - ничего не делать с этой информацией.</p>
 <p>На самом деле я не использовал это на практике, а пример этого паттерна взял из библиотеки <a href="https://github.com/optozorax/differential-evolution/blob/9cfefc0b36ed3bf4ca6c37d786244d56c0b3b2ba/de_test/tutorial.cpp#L71">дифференциальной эволюции</a>.</p>
-<p>Там же можно увидеть <strong>паттерн termination strategy</strong>, при помощи которого можно передавать в метод функцию, которая будет решать когда завершать метод. Но в рамках нашей учебной программы это излишная абстракция, и различные стратегии завершения метода никогда не применятся.</p>
+<p>Там же можно увидеть <strong>паттерн termination strategy</strong>, при помощи которого можно передавать в метод функцию, которая будет решать когда завершать метод. Но в рамках нашей учебной программы это излишняя абстракция, и различные стратегии завершения метода никогда не применятся.</p>
 <h1 id="inkapsuliruem-s-pomoshch-iu-std-function"><a class="anchor" href="#inkapsuliruem-s-pomoshch-iu-std-function">#</a>Инкапсулируем с помощью <code>std::function</code></h1>
 <p>В УМФ у нас есть задача получить конечно-элементную аппроксимацию функции на основе правой части дифференциального уравнения и сетки конечных элементов. Учитывая эту информацию, решатель МКЭ может выглядеть следующим образом:</p>
 <pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="cpp"><code data-lang="cpp"><span class="giallo-l"><span style="color: #A2A001;">vector_t</span><span style="color: #C23F31;"> solve_differential_equation</span><span>(</span></span>

@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Fonts preload -->
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nFrXyi0A.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nBrXw.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxTcwhsk.woff2" crossOrigin="anonymous">
+  <!-- --- -->
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/main.css">
+  <!-- --- -->
+
+  <!-- Non social metatags -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link rel="canonical" href="https://optozorax.github.io/en/p/new-features/">
+  <link rel="alternate" hreflang="en" href="https://optozorax.github.io/en/p/new-features/">
+  <link rel="alternate" hreflang="ru" href="https://optozorax.github.io/p/new-features/">
+  <link rel="alternate" hreflang="x-default" href="https://optozorax.github.io/p/new-features/">
+  <meta name="robots" content="noarchive">
+  <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/en/atom.xml"> 
+  <!-- --- -->
+
+  <!-- Social metatags -->
+  
+
+<meta name="author" content="optozorax">
+<meta name="title" content="New features of this blog — optozorax&#39;s blog">
+<meta name="description" content="My blog now has a bunch of features that make it easier to write unusual posts and add handy functionality for the reader. Mostly I&#39;m just bragging, but you can also steal these features for yourself.">
+<meta name="image" content="https://optozorax.github.io/en/p/new-features/preview.jpeg">
+
+<meta name="keywords" itemprop="tags" content="meta, blog, zola">
+
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://optozorax.github.io/en/p/new-features/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="New features of this blog — optozorax&#39;s blog">
+<meta property="og:description" content="My blog now has a bunch of features that make it easier to write unusual posts and add handy functionality for the reader. Mostly I&#39;m just bragging, but you can also steal these features for yourself.">
+<meta property="og:image" content="https://optozorax.github.io/en/p/new-features/preview.jpeg">
+<meta property="og:locale" content="en">
+
+
+<meta property="article:published_time" content="2021-08-30">
+
+
+
+
+<meta property="article:tag" content="meta">
+
+<meta property="article:tag" content="blog">
+
+<meta property="article:tag" content="zola">
+
+
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="optozorax.github.io">
+<meta property="twitter:url" content="https://optozorax.github.io/en/p/new-features/">
+<meta name="twitter:title" content="New features of this blog — optozorax&#39;s blog">
+<meta name="twitter:description" content="My blog now has a bunch of features that make it easier to write unusual posts and add handy functionality for the reader. Mostly I&#39;m just bragging, but you can also steal these features for yourself.">
+<meta name="twitter:image" content="https://optozorax.github.io/en/p/new-features/preview.jpeg">
+<meta name="twitter:creator" content="optozorax">
+
+  <!-- --- -->
+
+  <!-- Extra head declarations -->
+  
+
+<link rel="preload" as="font" href="/fonts/KaTeX/KaTeX_Size4-Regular.woff2" crossOrigin="anonymous">
+<link rel="preload" as="font" href="/fonts/KaTeX/KaTeX_Math-Italic.woff2" crossOrigin="anonymous">
+<link rel="preload" as="font" href="/fonts/KaTeX/KaTeX_Main-Bold.woff2" crossOrigin="anonymous">
+<link rel="preload" as="font" href="/fonts/KaTeX/KaTeX_Main-Regular.woff2" crossOrigin="anonymous">
+<link rel="preload" as="font" href="/fonts/KaTeX/KaTeX_AMS-Regular.woff2" crossOrigin="anonymous">
+
+<link rel="stylesheet" href="/katex.min.css">
+<script defer src="/js/katex.min.js"></script>
+<script defer src="/js/mathtex-script-type.min.js"></script>
+
+<script type="text/javascript" src="/js/hammer.min.js"></script>
+<script type="text/javascript" src="/js/toc.js"></script>
+<script type="text/javascript" src="/js/gallery.js"></script>
+<script type="text/javascript" src="/js/full_screen.js"></script>
+<script type="text/javascript" src="/js/word_wrap.js"></script>
+
+  <!-- --- -->
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+  <!-- --- -->
+
+  <title>New features of this blog — optozorax&#39;s blog</title>
+</head>
+
+<body>
+  <!-- FullScreen block -->
+  <div id="img_modal" class="modal" style="display: none;">
+      <img id="img_modal_01" src="/ico/loading.gif">
+      <span class="close" id="img_modal_close">&times;</span>
+  </div>
+  <!-- --- -->
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <header class="site-header" role="banner">
+  
+  <div class="wrapper">
+    <a class="site-title" href="/en/">optozorax.blog</a>
+
+    <div class="lang-switch">
+      <span class="lang-switch-item lang-switch-current" lang="en" title="English"><span class="lang-switch-flag">🇬🇧</span>EN</span>
+      <a class="lang-switch-item" href="/p/new-features/" hreflang="ru" lang="ru" title="Русский"><span class="lang-switch-flag">🇷🇺</span>RU</a>
+    </div>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <img src="/ico/menu.svg" width="13px" height="15px">
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          <a class="page-link" href="/en/">Blog</a>
+        
+          <a class="page-link" href="/en/e">Collections</a>
+        
+          <a class="page-link" href="/en/tags">Tags</a>
+        
+          <a class="page-link" href="/en/about">About me</a>
+        
+      </div>
+    </nav>
+  </div>
+  
+  </header>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+  
+  <section class="page-header">
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+<h1 class="project-name">New features of this blog</h1>
+
+<h2 class="project-tagline">My blog now has a bunch of features that make it easier to write unusual posts and add handy functionality for the reader. Mostly I&#39;m just bragging, but you can also steal these features for yourself.</h2>
+
+
+
+<span style="margin-bottom: 10px;">
+  
+    <a href="/en/tags#meta"><code class="tag"><nobr>#meta</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#blog"><code class="tag"><nobr>#blog</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#zola"><code class="tag"><nobr>#zola</nobr></code></a>&nbsp;
+  
+</span>
+
+
+<center>
+<table style="margin-top: 8px;">
+<tr>
+
+
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+  <time datetime="2021-08-30" itemprop="datePublished">
+    
+    
+    
+    
+    <span class="post-date">30 August 2021</span>
+  </time>
+</h2>
+</td>
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+    <span class="post-date" style="font-style: normal">| 🕑 28 min</span>
+</h2>
+</td>
+
+
+
+<td style="padding-left: 10px;">
+  
+  
+  <a href="https://t.me/optozorax_dev/500">
+  <code class="tag">Post on Telegram</code>
+  </a>
+  
+  
+  (56 💬)
+  
+</td>
+
+</tr>
+</table>
+
+
+<div class="translation-note">
+  <svg class="translation-note-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+  <span>Translated from 🇷🇺 Russian</span>
+  <span class="translation-note-sep">·</span>
+  <span>Translation by Claude Opus 5.5</span>
+  <span class="translation-note-sep">·</span>
+  <a href="/p/new-features/" hreflang="ru" lang="ru">Original</a>
+</div>
+
+
+
+</center>
+
+
+</td><td>
+</td></tr></table>
+
+
+
+  </section>
+  
+  
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <section class="main-content section">
+  
+<article itemscope itemtype="http://schema.org/BlogPosting">
+<div itemprop="articleBody" id="content">
+<h1 id="foreword"><a class="anchor" href="#foreword">#</a>Foreword</h1>
+<p>I moved my blog to a new static site generator, <a href="https://www.getzola.org/">Zola</a>, and implemented a lot of new features along the way. Some of them make writing posts easier, and some are about everything else. First I will:</p>
+<ul>
+<li>brag about all the features in a short list with pictures,</li>
+<li>show the syntax for using them</li>
+<li>leave links to the technical parts of each feature, in case you want to steal it for yourself.</li>
+</ul>
+<p>And then I'll tell you:</p>
+<ul>
+<li>the story behind them,</li>
+<li>the difficulties of implementing them,</li>
+<li>how Zola helped.</li>
+</ul>
+<p>Ideally, open this post on both desktop and mobile to check out all the features side by side.</p>
+<div class="admonition red-bg red-border-left">
+<div class="admonition-title red-bg red-border">❗️ Please note</div>
+<div class="admonition-content">
+<p>I don't guarantee that I've left all the information needed to add each feature to your blog. If you can't get something to work, look at the sources or DM me. If there are too many requests, I'll write posts on how to add the most wanted features.</p>
+</div></div>
+<h1 id="features-in-brief"><a class="anchor" href="#features-in-brief">#</a>Features in brief</h1>
+<h2 id="shortcodes"><a class="anchor" href="#shortcodes">#<sup>2</sup></a>Shortcodes</h2>
+<p>The features in this section can be used inside a Markdown post with the special syntax of <a href="https://www.getzola.org/documentation/content/shortcodes/">shortcodes</a>, a feature of Zola. In other words, they are a custom extension of Markdown.</p>
+<h3 id="image"><a class="anchor" href="#image">#<sup>3</sup></a>Images</h3>
+<p>This feature inserts an image with a bunch of extra goodies. Usage example:</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1280"     height="530"     src="/processed_images/base.f3907917e26f79f4.webp"     onclick="full_screen('base.png')"     onauxclick="full_screen_new_page('base.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×2.3<br>png</div> </div> </div>
+<div class="admonition blue-bg blue-border-left">
+<div class="admonition-title blue-bg blue-border">Usage</div>
+<div class="admonition-content">
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="zola"><code data-lang="zola"><span class="giallo-l"><span>{{ image(path=&quot;base.png&quot;) }}</span></span></code></pre></div></div>
+<div class="admonition green2-bg green2-border-left">
+<div class="admonition-title green2-bg green2-border">Features</div>
+<div class="admonition-content">
+<ul>
+<li>It's centered, and its corners are rounded to look nice.</li>
+<li>It's automatically resized to at most 1280×1280 pixels in <code>webp</code> format with quality <code>75</code>, and it's this version that goes into the post. This saves a lot of traffic. You can read more about resizing and saving traffic in <a href="/p/blog-optimization/#optimizatsiia-kartinok">another post</a>.
+<ul>
+<li>If the <code>scale</code> parameter is passed, the resulting image will have a maximum size of <code>(scale × 1280)²</code>.</li>
+</ul>
+</li>
+<li>Its <code>width</code> and <code>height</code> are written into the attributes automatically! This means that an image that hasn't loaded yet won't push the whole page down when it does load.</li>
+<li>The following features will be covered later in the post:
+<ul>
+<li>The ability to <a href="https://optozorax.github.io/en/p/new-features/#full-screen">open the image in full resolution</a>.</li>
+<li>The ability to <a href="https://optozorax.github.io/en/p/new-features/#scale">set the image scale relative to the page</a>.</li>
+</ul>
+</li>
+</ul>
+</div></div>
+<div class="admonition gray-bg gray-border-left">
+<div class="admonition-title gray-bg gray-border">Under the hood</div>
+<div class="admonition-content">
+<ul>
+<li>Shortcodes: <a href="https://github.com/optozorax/blog_zola/blob/c3eb0f2d9e4e7fdb78acc9bc5ea7af0d844c8c22/templates/shortcodes/image.html"><code>image.html</code></a>.</li>
+<li>Styles: <a href="https://github.com/optozorax/blog_zola/blob/master/sass/shortcodes/_image.scss"><code>_image.scss</code></a>.</li>
+</ul>
+</div></div>
+<h3 id="gallery"><a class="anchor" href="#gallery">#<sup>3</sup></a>Gallery</h3>
+<p>The gallery has all the features of a regular image, but also lets you flip through images. Usage example:</p>
+<div class="gallery-container">
+<div class="gallery-slide" id="slide_1_0" style="display:block;">
+  <div class="gallery-text">1 / 4<hr style="margin: 2px;">A triple portal, side view</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/368.1bc58ffe76a320f4.webp"
+    onclick="full_screen('../portals/368.png')"
+    onauxclick="full_screen_new_page('../portals/368.png')"
+    width="1280"
+    height="871">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1.5<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+</div>
+<div class="gallery-slide" id="slide_1_1" >
+  <div class="gallery-text">2 / 4<hr style="margin: 2px;">A triple portal, top view</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/369.6ed7a9908501ed37.webp"
+    onclick="full_screen('../portals/369.png')"
+    onauxclick="full_screen_new_page('../portals/369.png')"
+    width="1280"
+    height="871">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1.5<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+</div>
+<div class="gallery-slide" id="slide_1_2" >
+  <div class="gallery-text">3 / 4<hr style="margin: 2px;">The triple portal is unfolded and its parts point into itself</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/370.4bb57fed73c669e3.webp"
+    onclick="full_screen('../portals/370.png')"
+    onauxclick="full_screen_new_page('../portals/370.png')"
+    width="1280"
+    height="871">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1.5<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+</div>
+<div class="gallery-slide" id="slide_1_3" >
+  <div class="gallery-text">4 / 4<hr style="margin: 2px;">The triple portal has gathered for a team huddle before a big game, just like in the movies. This creates a recursive picture.</div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  <div class="magnifier-container">
+  <img class="gallery-img full-screen-img not-default"
+    src="/processed_images/371.c305eb082b6372cc.webp"
+    onclick="full_screen('../portals/371.png')"
+    onauxclick="full_screen_new_page('../portals/371.png')"
+    width="1280"
+    height="871">
+  <div class="magnifier-display">
+  <img class="magnifier" src="/ico/magnifier.svg">
+  <div class="magnifier-info">×1.5<br>png</div>
+  </div>
+  </div>
+  <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+</div>
+<a class="gallery-prev" onclick="gallery_plus(1, -1)">&#10094;</a>
+<a class="gallery-next" onclick="gallery_plus(1, 1)">&#10095;</a>
+</div>
+<div class="gallery-row">
+  <div class="gallery-column" style="width: 25%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+    <img class="gallery-demo not-default gallery-active" src="/processed_images/368.1bc58ffe76a320f4.webp"
+      id="demo_1_0"
+      onclick="gallery_set(1, 0)"
+      width="1280" height="871">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  </div>
+  <div class="gallery-column" style="width: 25%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+    <img class="gallery-demo not-default" src="/processed_images/369.6ed7a9908501ed37.webp"
+      id="demo_1_1"
+      onclick="gallery_set(1, 1)"
+      width="1280" height="871">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  </div>
+  <div class="gallery-column" style="width: 25%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+    <img class="gallery-demo not-default" src="/processed_images/370.4bb57fed73c669e3.webp"
+      id="demo_1_2"
+      onclick="gallery_set(1, 2)"
+      width="1280" height="871">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  </div>
+  <div class="gallery-column" style="width: 25%;">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+    <img class="gallery-demo not-default" src="/processed_images/371.c305eb082b6372cc.webp"
+      id="demo_1_3"
+      onclick="gallery_set(1, 3)"
+      width="1280" height="871">
+    <svg class="gallery-svg" viewBox="0 0 1 0.0050000000000000044"></svg>
+  </div>
+</div>
+<script>
+slide_index[1] = 0;
+slide_count[1] = 4;
+</script>
+<div class="admonition blue-bg blue-border-left">
+<div class="admonition-title blue-bg blue-border">Usage</div>
+<div class="admonition-content">
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="zola"><code data-lang="zola"><span class="giallo-l"><span>{{ gallery(images=[</span></span>
+<span class="giallo-l"><span>	&quot;../portals/368.png&quot;, </span></span>
+<span class="giallo-l"><span>	&quot;../portals/369.png&quot;, </span></span>
+<span class="giallo-l"><span>	&quot;../portals/370.png&quot;, </span></span>
+<span class="giallo-l"><span>	&quot;../portals/371.png&quot;, </span></span>
+<span class="giallo-l"><span>], alts=[</span></span>
+<span class="giallo-l"><span>	&quot;A triple portal, side view&quot;,</span></span>
+<span class="giallo-l"><span>	&quot;A triple portal, top view&quot;,</span></span>
+<span class="giallo-l"><span>	&quot;The triple portal is unfolded and its parts point into itself&quot;,</span></span>
+<span class="giallo-l"><span>	&quot;The triple portal has gathered for a team huddle before a big game, just like in the movies. This creates a recursive picture.&quot;,</span></span>
+<span class="giallo-l"><span>]) }}</span></span></code></pre></div></div>
+<div class="admonition green2-bg green2-border-left">
+<div class="admonition-title green2-bg green2-border">Features</div>
+<div class="admonition-content">
+<ul>
+<li>Just like “Images”, it's resized to a smaller size and has its dimensions in the attributes.</li>
+<li>The image number is shown in the top left.</li>
+<li>You can pick the image you want at the bottom.</li>
+<li>All images are centered vertically, so the page doesn't jump around when you flip through them.</li>
+<li>You can add captions to the images, with <code>markdown</code> support. Or you can leave out the captions entirely by not specifying the <code>alts</code> field.</li>
+<li>The following features will be covered later in the post:
+<ul>
+<li>The ability to <a href="https://optozorax.github.io/en/p/new-features/#full-screen">open the image in full resolution</a>.</li>
+</ul>
+</li>
+</ul>
+</div></div>
+<div class="admonition gray-bg gray-border-left">
+<div class="admonition-title gray-bg gray-border">Under the hood</div>
+<div class="admonition-content">
+<p>The basis is taken from <a href="https://www.w3schools.com/howto/howto_js_slideshow_gallery.asp">this tutorial</a>.</p>
+<ul>
+<li>Shortcodes: <a href="https://github.com/optozorax/blog_zola/blob/c3eb0f2d9e4e7fdb78acc9bc5ea7af0d844c8c22/templates/shortcodes/gallery.html"><code>gallery.html</code></a>.</li>
+<li>Styles: <a href="https://github.com/optozorax/blog_zola/blob/master/sass/shortcodes/_gallery.scss"><code>_gallery.scss</code></a>.</li>
+<li>Scripts: <a href="https://github.com/optozorax/blog_zola/blob/master/static/js/gallery.js"><code>gallery.js</code></a>.</li>
+</ul>
+</div></div>
+<h3 id="scale"><a class="anchor" href="#scale">#<sup>3</sup></a>Scale relative to the page</h3>
+<p>The <a href="https://optozorax.github.io/en/p/new-features/#image">“Images”</a>, <a href="https://optozorax.github.io/en/p/new-features/#other-image">“Other images”</a>, <a href="https://optozorax.github.io/en/p/new-features/#video-gif">“Video GIF”</a> and <a href="https://optozorax.github.io/en/p/new-features/#video">“Video”</a> features let you set a scale. The scale says how much smaller than the content width the object should be; for example, a scale of <code>1/2</code> means the object should take up half the width of the post.</p>
+<div class="admonition green2-bg green2-border-left">
+<div class="admonition-title green2-bg green2-border">Features</div>
+<div class="admonition-content">
+<ul>
+<li>The scale is set with the <code>scale</code> parameter.</li>
+<li><code>scale</code> can take the following string values:
+<ul>
+<li><code>1</code></li>
+<li><code>1/2</code></li>
+<li><code>3/4</code></li>
+<li><code>1/4</code></li>
+<li><code>2/3</code></li>
+<li><code>1/3</code></li>
+</ul>
+</li>
+<li>On desktops, objects really take up the size written here.</li>
+<li>But on medium-sized screens they're larger, some of them up to 100%.</li>
+<li>And on phone screens they're larger still.</li>
+</ul>
+</div></div>
+<div class="admonition gray-bg gray-border-left">
+<div class="admonition-title gray-bg gray-border">Under the hood</div>
+<div class="admonition-content">
+<ul>
+<li>Macros: <a href="https://github.com/optozorax/blog_zola/blob/master/templates/macros.html"><code>scale_macros.html</code></a>.</li>
+<li>Styles: <a href="https://github.com/optozorax/blog_zola/blob/master/sass/shortcodes/_image.scss"><code>_image.scss</code></a>.</li>
+</ul>
+</div></div>
+<h3 id="full-screen"><a class="anchor" href="#full-screen">#<sup>3</sup></a>Viewing enlarged images</h3>
+<p>The <a href="https://optozorax.github.io/en/p/new-features/#image">“Images”</a> and <a href="https://optozorax.github.io/en/p/new-features/#gallery">“Gallery”</a> features get a big extra feature: the ability to open images in full resolution.</p>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="349"     height="347"     src="/processed_images/magnifier.fa88c1879844a632.webp"     onclick="full_screen('magnifier.png')"     onauxclick="full_screen_new_page('magnifier.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<figcaption>When you hover the mouse over an image, the option to enlarge it and some meta information appear to its right.</figcaption>
+</figure>
+<figure>
+<div class="magnifier-container img-one-two"> <img     class="not-default full-screen-img"     width="640"     height="614"     src="/processed_images/full_screen.b67f4d89f7382e7d.webp"     onclick="full_screen('full_screen.png')"     onauxclick="full_screen_new_page('full_screen.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×2<br>png</div> </div> </div>
+<figcaption>If you left-click the image, the full-resolution version opens across the whole screen.</figcaption>
+</figure>
+<div class="admonition green2-bg green2-border-left">
+<div class="admonition-title green2-bg green2-border">Features</div>
+<div class="admonition-content">
+<ul>
+<li>When you hover the mouse over an image, you see on its right:
+<ul>
+<li>a magnifying glass icon,</li>
+<li>how much larger the original resolution is than the current version,</li>
+<li>the format of the original image.</li>
+</ul>
+</li>
+<li>If you middle-click the image, it opens in a new tab.</li>
+<li>If you left-click the image, it opens on the current page. I called this mode <code>full-screen</code>.
+<ul>
+<li>The image in its original resolution and format fills the whole screen, and the rest of the screen is dimmed.</li>
+<li>You can close it by clicking the dark background or the close button (handy when the image is zoomed in too far).</li>
+<li>You can zoom and pan the image with the mouse.</li>
+<li>You can zoom and pan the image with your fingers!</li>
+<li>A loading animation is shown until the image has loaded.</li>
+</ul>
+</li>
+</ul>
+</div></div>
+<div class="admonition gray-bg gray-border-left">
+<div class="admonition-title gray-bg gray-border">Under the hood</div>
+<div class="admonition-content">
+<p>The basis is taken from <a href="https://www.w3schools.com/howto/howto_css_modal_images.asp">this tutorial</a> and <a href="https://codepen.io/josephmaynard/pen/OjWvNP">this demo</a>.</p>
+<ul>
+<li>Styles: <a href="https://github.com/optozorax/blog_zola/blob/master/sass/shortcodes/_full_screen.scss"><code>_full_screen.scss</code></a>.</li>
+<li>Scripts: <a href="https://github.com/optozorax/blog_zola/blob/master/static/js/full_screen.js"><code>full_screen.js</code></a> (<a href="https://codepen.io/josephmaynard/pen/OjWvNP">source</a>), <a href="https://github.com/optozorax/blog_zola/blob/master/static/js/hammer.min.js"><code>hammer.min.js</code></a> (<a href="https://hammerjs.github.io/">website</a>).</li>
+<li>Resources: <a href="https://github.com/optozorax/blog_zola/blob/master/static/ico/loading.gif"><code>loading.gif</code></a> (<a href="https://icons8.com/preloaders/">source</a>), <a href="https://github.com/optozorax/blog_zola/blob/master/static/ico/magnifier.svg"><code>magnifier.svg</code></a> (<a href="https://iconmonstr.com/magnifier-7-svg/">source</a>)</li>
+</ul>
+</div></div>
+<h3 id="other-image"><a class="anchor" href="#other-image">#<sup>3</sup></a>Other images</h3>
+<p>If you need to insert an image without automatic resizing (for example, if resizing fails with an error, or you have a <code>gif</code> or an <code>svg</code>), you can use the following shortcode:</p>
+<div class="admonition blue-bg blue-border-left">
+<div class="admonition-title blue-bg blue-border">Usage</div>
+<div class="admonition-content">
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="zola"><code data-lang="zola"><span class="giallo-l"><span>{{ other_image(path=&quot;...&quot;, scale=&quot;1/2&quot;) }}</span></span></code></pre></div></div>
+<div class="admonition green2-bg green2-border-left">
+<div class="admonition-title green2-bg green2-border">Features</div>
+<div class="admonition-content">
+<ul>
+<li>Writes the image dimensions into the <code>width</code> and <code>height</code> attributes.</li>
+<li><a href="https://optozorax.github.io/en/p/new-features/#scale">Lets you set the scale</a>.</li>
+</ul>
+</div></div>
+<div class="admonition gray-bg gray-border-left">
+<div class="admonition-title gray-bg gray-border">Under the hood</div>
+<div class="admonition-content">
+<ul>
+<li>Shortcodes: <a href="https://github.com/optozorax/blog_zola/blob/c3eb0f2d9e4e7fdb78acc9bc5ea7af0d844c8c22/templates/shortcodes/other_image.html"><code>other_image.html</code></a>.</li>
+</ul>
+</div></div>
+<h3 id="video-gif"><a class="anchor" href="#video-gif">#<sup>3</sup></a>Video GIF</h3>
+<p>I hardly ever use GIFs, in the name of saving space and traffic. So almost all my GIFs are re-encoded into <code>mp4</code>, which is then embedded in the page with autoplay on. Below you can see an example of such a GIF:</p>
+<video class="img-one-three" autoplay loop muted inline>
+  <source src="../space-objects/explanation_5/post_3_1_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<div class="admonition blue-bg blue-border-left">
+<div class="admonition-title blue-bg blue-border">Usage</div>
+<div class="admonition-content">
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="zola"><code data-lang="zola"><span class="giallo-l"><span>{{ video_gif(path=&quot;../space-objects/explanation_5/post_3_1_web.mp4&quot;, scale=&quot;1/3&quot;) }}</span></span></code></pre></div></div>
+<div class="admonition green2-bg green2-border-left">
+<div class="admonition-title green2-bg green2-border">Features</div>
+<div class="admonition-content">
+<ul>
+<li>Supports <code>scale</code> just like images, but without automatic resizing.</li>
+</ul>
+</div></div>
+<div class="admonition gray-bg gray-border-left">
+<div class="admonition-title gray-bg gray-border">Under the hood</div>
+<div class="admonition-content">
+<ul>
+<li>Shortcodes: <a href="https://github.com/optozorax/blog_zola/blob/c3eb0f2d9e4e7fdb78acc9bc5ea7af0d844c8c22/templates/shortcodes/video_gif.html"><code>video_gif.html</code></a>.</li>
+</ul>
+</div></div>
+<h3 id="video"><a class="anchor" href="#video">#<sup>3</sup></a>Video</h3>
+<p>In the same way you can insert regular videos, with sound and controls:</p>
+<video class="img-two-three" controls>
+  <source src="../my-keyboard-layout/startup_sound_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<div class="admonition blue-bg blue-border-left">
+<div class="admonition-title blue-bg blue-border">Usage</div>
+<div class="admonition-content">
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="zola"><code data-lang="zola"><span class="giallo-l"><span>{{ video(path=&quot;../my-keyboard-layout/startup_sound_web.mp4&quot;, scale=&quot;2/3&quot;) }}</span></span></code></pre></div></div>
+<div class="admonition green2-bg green2-border-left">
+<div class="admonition-title green2-bg green2-border">Features</div>
+<div class="admonition-content">
+<ul>
+<li>Supports <code>scale</code> just like images, but without automatic resizing.</li>
+</ul>
+</div></div>
+<div class="admonition gray-bg gray-border-left">
+<div class="admonition-title gray-bg gray-border">Under the hood</div>
+<div class="admonition-content">
+<ul>
+<li>Shortcodes: <a href="https://github.com/optozorax/blog_zola/blob/c3eb0f2d9e4e7fdb78acc9bc5ea7af0d844c8c22/templates/shortcodes/video.html"><code>video.html</code></a>.</li>
+</ul>
+</div></div>
+<h3 id="youtube-embed"><a class="anchor" href="#youtube-embed">#<sup>3</sup></a>YouTube embed</h3>
+<p>The most lightweight possible replacement for a YouTube embed. It downloads nothing from YouTube's servers when the page loads:</p>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=1q0sHf_n_2Y&t=490">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/1q0sHf_n_2Y.webp" width="336" height="188">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=1q0sHf_n_2Y&t=490">Решение главного парадокса порталов</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCIsVwdLhYrrs3K8MOXEZdhQ">optozorax</a>
+</div>
+<div class="yt-duration">23:59</div>
+<div class="yt-timecode">Timecode 8:10</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=1q0sHf_n_2Y&t=490">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<div class="admonition blue-bg blue-border-left">
+<div class="admonition-title blue-bg blue-border">Usage</div>
+<div class="admonition-content">
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="zola"><code data-lang="zola"><span class="giallo-l"><span>{{ youtube(id=&quot;1q0sHf_n_2Y&quot;, timecode=490) }}</span></span></code></pre><div class="admonition blue2-bg blue2-border-left">
+<div class="admonition-title blue2-bg blue2-border">Extra steps</div>
+<div class="admonition-content">
+<p>You need to install my script <a href="https://github.com/optozorax/youtube-zola"><code>youtube-zola</code></a>, which depends on <a href="https://github.com/ytdl-org/youtube-dl"><code>youtube-dl</code></a>, and run it with the ID of each video, so that it downloads the metadata and the thumbnail locally:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="shellscript"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #C23F31;">youtube-zola</span><span style="color: #D07711;"> 1q0sHf_n_2Y</span></span></code></pre>
+<p>As a result, the meta information is downloaded to <code>static/<wbr>youtube/<wbr>1q0sHf_n_2Y.<wbr>json</code> and the thumbnail to <code>static/<wbr>youtube/<wbr>1q0sHf_n_2Y.<wbr>webp</code>.</p>
+</div></div>
+</div></div>
+<div class="admonition green2-bg green2-border-left">
+<div class="admonition-title green2-bg green2-border">Features</div>
+<div class="admonition-content">
+<ul>
+<li>Downloads nothing from external servers when the page loads; all downloading happens only locally, on the post author's machine.</li>
+<li>Doesn't track you.</li>
+<li>Looks almost like the real YouTube player.</li>
+<li>When clicked, it simply opens the corresponding video in a new tab.</li>
+<li>Shows the length of the video (which the regular YouTube player can't do).</li>
+<li>With the <code>timecode</code> parameter you can pass the timecode the video should start from. It's shown on the video and added to the link.</li>
+</ul>
+</div></div>
+<div class="admonition gray-bg gray-border-left">
+<div class="admonition-title gray-bg gray-border">Under the hood</div>
+<div class="admonition-content">
+<ul>
+<li>Shortcodes: <a href="https://github.com/optozorax/blog_zola/blob/c3eb0f2d9e4e7fdb78acc9bc5ea7af0d844c8c22/templates/shortcodes/myyoutube.html"><code>myyoutube.html</code></a>.</li>
+<li>Styles: <a href="https://github.com/optozorax/blog_zola/blob/master/sass/shortcodes/_youtube.scss"><code>_youtube.scss</code></a>.</li>
+<li>Dependencies: <a href="https://github.com/optozorax/youtube-zola"><code>youtube-zola</code></a>, <a href="https://github.com/ytdl-org/youtube-dl"><code>youtube-dl</code></a>.</li>
+</ul>
+</div></div>
+<h3 id="math-formulas"><a class="anchor" href="#math-formulas">#<sup>3</sup></a>Math formulas</h3>
+<p>You can insert math formulas:</p>
+<div style="font-size: 30px;">
+<script type="math/tex;mode=display">\infty^0 - 1 \neq \textrm{NaN}</script>
+</div>
+<div class="admonition blue-bg blue-border-left">
+<div class="admonition-title blue-bg blue-border">Usage</div>
+<div class="admonition-content">
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="zola"><code data-lang="zola"><span class="giallo-l"><span>{{ katex(body=&quot;\infty^0 - 1 \neq \textrm{NaN}&quot;, block=true) }}</span></span></code></pre><div class="admonition blue2-bg blue2-border-left">
+<div class="admonition-title blue2-bg blue2-border">Extra steps</div>
+<div class="admonition-content">
+<p>Also, on a page with math formulas you need to add the following lines to the front matter. This is so that pages without formulas don't get links to the scripts, styles and fonts, and don't waste traffic for nothing.</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="toml"><code data-lang="toml"><span class="giallo-l"><span>[</span><span style="color: #C23F31;">extra</span><span>]</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">use_katex</span><span> =</span><span style="color: #B3933A;"> true</span></span></code></pre></div></div>
+</div></div>
+<div class="admonition green2-bg green2-border-left">
+<div class="admonition-title green2-bg green2-border">Features</div>
+<div class="admonition-content">
+<ul>
+<li>Uses <a href="https://katex.org/">KaTeX</a>.</li>
+<li>The scripts, styles and fonts are hosted locally.</li>
+<li>To center the formula, specify <code>block=true</code>; otherwise it's an inline formula that can sit inside the text.</li>
+</ul>
+</div></div>
+<div class="admonition gray-bg gray-border-left">
+<div class="admonition-title gray-bg gray-border">Under the hood</div>
+<div class="admonition-content">
+<ul>
+<li>Shortcodes: <a href="https://github.com/optozorax/blog_zola/blob/c3eb0f2d9e4e7fdb78acc9bc5ea7af0d844c8c22/templates/shortcodes/katex.html"><code>katex.html</code></a>.</li>
+<li>Styles: <a href="https://github.com/optozorax/blog_zola/blob/master/static/katex.min.css"><code>katex.min.css</code></a>.</li>
+<li>Fonts: <a href="https://github.com/optozorax/blog_zola/tree/master/static/fonts/KaTeX"><code>fonts/KaTeX</code></a>.</li>
+<li>Scripts: <a href="https://github.com/optozorax/blog_zola/blob/master/static/js/mathtex-script-type.min.js"><code>mathtex-script-type.min.js</code></a>, <a href="https://github.com/optozorax/blog_zola/blob/master/static/js/katex.min.js"><code>katex.js</code></a> (<a href="https://katex.org/">website</a>).</li>
+</ul>
+</div></div>
+<h3 id="colored-blocks"><a class="anchor" href="#colored-blocks">#<sup>3</sup></a>Colored blocks</h3>
+<div class="admonition red-bg red-border-left">
+<div class="admonition-title red-bg red-border">❗️ Please note</div>
+<div class="admonition-content">
+<p>These text blocks are very cute and pretty.</p>
+</div></div>
+<div class="admonition blue-bg blue-border-left">
+<div class="admonition-title blue-bg blue-border">Usage</div>
+<div class="admonition-content">
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="zola"><code data-lang="zola"><span class="giallo-l"><span>{{ admonition_start(color=&quot;red&quot;, title=&quot;❗️ Please note&quot;) }}</span></span>
+<span class="giallo-l"><span>These text blocks are very cute and pretty.</span></span>
+<span class="giallo-l"><span>{{ admonition_end() }}</span></span></code></pre></div></div>
+<div class="admonition gray-bg gray-border-left">
+<div class="admonition-title gray-bg gray-border">Features</div>
+<div class="admonition-content">
+<div class="admonition red2-bg red2-border-left">
+<div class="admonition-title red2-bg red2-border">❗️ The color of the features block is changed here</div>
+<div class="admonition-content">
+<p>Because these blocks have a semi-transparent color that stacks when they're nested, it's gray here to make them easier to see.</p>
+</div></div>
+<div class="admonition violet-bg violet-border-left">
+<div class="admonition-title violet-bg violet-border">Lots of colors</div>
+<div class="admonition-content">
+<ul>
+<li><code>red</code>, <code>red2</code>, <code>red3</code></li>
+<li><code>green</code>, <code>green2</code>, <code>green3</code></li>
+<li><code>blue</code>, <code>blue2</code>, <code>blue3</code></li>
+<li><code>orange</code></li>
+<li><code>violet</code></li>
+<li><code>gray</code></li>
+</ul>
+</div></div>
+<div class="admonition orange-bg orange-border-left">
+<div class="admonition-title orange-bg orange-border">They support <code>markdown</code> <em>inside</em> the title</div>
+<div class="admonition-content">
+<p>And this is the <code>orange</code> color.</p>
+</div></div>
+<div class="admonition green-bg green-border-left">
+<div class="admonition-title green-bg green-border">Proudly stolen</div>
+<div class="admonition-content">
+<p>from the <a href="https://hugoloveit.com/theme-documentation-extended-shortcodes/#4-admonition">LoveIt</a> theme</p>
+</div></div>
+</div></div>
+<div class="admonition gray-bg gray-border-left">
+<div class="admonition-title gray-bg gray-border">Under the hood</div>
+<div class="admonition-content">
+<ul>
+<li>Shortcodes: <a href="https://github.com/optozorax/blog_zola/blob/c3eb0f2d9e4e7fdb78acc9bc5ea7af0d844c8c22/templates/shortcodes/admonition_start.html"><code>admonition_start.html</code></a>, <a href="https://github.com/optozorax/blog_zola/blob/c3eb0f2d9e4e7fdb78acc9bc5ea7af0d844c8c22/templates/shortcodes/admonition_end.html"><code>admonition_end.html</code></a>.</li>
+<li>Styles: <a href="https://github.com/optozorax/blog_zola/blob/master/sass/shortcodes/_admonition.scss"><code>_admonition.scss</code></a>.</li>
+</ul>
+</div></div>
+<h3 id="pros-and-cons"><a class="anchor" href="#pros-and-cons">#<sup>3</sup></a>Pros and cons</h3>
+<div class="pros">
+<span style="color: #090"><big><b>Pros: (<em>features</em>)</b></big></span>
+<ul>
+<li>They look very pretty.</li>
+<li>Green and red.</li>
+<li>They're made from regular lists.</li>
+<li>The “Pros:” and “Cons:” labels are the default, but you can change them with the <code>text</code> option.</li>
+<li>They also support <code>markdown</code> in the title.</li>
+<li>You can use pros on their own when there are no cons, and vice versa.</li>
+<li>The second line of text wraps with an indent, just like in a regular list.</li>
+<li>And I came up with this shortcode myself, I haven't seen anything like it anywhere!
+<ul>
+<li>You can also use nested lists.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="cons">
+<span style="color: #c00"><big><b>Cons:</b></big></span>
+<ul>
+<li>I had to draw the SVG icons for the plus and the minus by hand, in code: Google was no help, and the in-browser SVG editors are bad too.</li>
+<li>They can't be used as a shortcode with a body, because shortcodes with a body are poorly made in Zola, but more on that in the <a href="/en/p/zola/#shortcodes-with-a-body">next post</a>.</li>
+<li>Sometimes you have to pull pros and cons out of thin air to get a pretty picture like this.</li>
+</ul>
+</div>
+<div class="admonition blue-bg blue-border-left">
+<div class="admonition-title blue-bg blue-border">Usage</div>
+<div class="admonition-content">
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="zola"><code data-lang="zola"><span class="giallo-l"><span>{{ pros_start(text=&quot;Pros: (_features_)&quot;) }}</span></span>
+<span class="giallo-l"><span>* pro1</span></span>
+<span class="giallo-l"><span>* pro2</span></span>
+<span class="giallo-l"><span>{{ pros_end() }}</span></span></code></pre><pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="zola"><code data-lang="zola"><span class="giallo-l"><span>{{ cons_start() }}</span></span>
+<span class="giallo-l"><span>* con1</span></span>
+<span class="giallo-l"><span>* con2</span></span>
+<span class="giallo-l"><span>{{ cons_end() }}</span></span></code></pre></div></div>
+<div class="admonition gray-bg gray-border-left">
+<div class="admonition-title gray-bg gray-border">Under the hood</div>
+<div class="admonition-content">
+<ul>
+<li>Shortcodes: <a href="https://github.com/optozorax/blog_zola/blob/c3eb0f2d9e4e7fdb78acc9bc5ea7af0d844c8c22/templates/shortcodes/pros_start.html"><code>pros_start.html</code></a>, <a href="https://github.com/optozorax/blog_zola/blob/c3eb0f2d9e4e7fdb78acc9bc5ea7af0d844c8c22/templates/shortcodes/pros_end.html"><code>pros_end.html</code></a>, <a href="https://github.com/optozorax/blog_zola/blob/c3eb0f2d9e4e7fdb78acc9bc5ea7af0d844c8c22/templates/shortcodes/cons_start.html"><code>cons_start.html</code></a>, <a href="https://github.com/optozorax/blog_zola/blob/c3eb0f2d9e4e7fdb78acc9bc5ea7af0d844c8c22/templates/shortcodes/cons_end.html"><code>cons_end.html</code></a>.</li>
+<li>Styles: <a href="https://github.com/optozorax/blog_zola/blob/master/sass/shortcodes/_pros_cons.scss"><code>_pros_cons.scss</code></a>.</li>
+<li>Resources: <a href="https://github.com/optozorax/blog_zola/blob/master/static/ico/green_plus.svg"><code>green_plus.svg</code></a>, <a href="https://github.com/optozorax/blog_zola/blob/master/static/ico/red_minus.svg"><code>red_minus.svg</code></a>.</li>
+</ul>
+</div></div>
+<h3 id="image-caption"><a class="anchor" href="#image-caption">#<sup>3</sup></a>Image caption</h3>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="334"     height="256"     src="/processed_images/preview.7a23700782ccce50.webp"     onclick="full_screen('preview.jpeg')"     onauxclick="full_screen_new_page('preview.jpeg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<figcaption>The fluffy wolf is magnificent and his paws are mighty. And there's <code>markdown</code> here too.</figcaption>
+</figure>
+<div class="admonition blue-bg blue-border-left">
+<div class="admonition-title blue-bg blue-border">Usage</div>
+<div class="admonition-content">
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="zola"><code data-lang="zola"><span class="giallo-l"><span>{{ figure_start() }}</span></span>
+<span class="giallo-l"><span>{{ image(path=&quot;preview.jpeg&quot;) }}</span></span>
+<span class="giallo-l"><span>{{ figure_end(caption=&quot;The fluffy wolf is magnificent and his paws are mighty. And there&#39;s `markdown` here too.&quot;) }}</span></span></code></pre></div></div>
+<div class="admonition gray-bg gray-border-left">
+<div class="admonition-title gray-bg gray-border">Under the hood</div>
+<div class="admonition-content">
+<ul>
+<li>Shortcodes: <a href="https://github.com/optozorax/blog_zola/blob/c3eb0f2d9e4e7fdb78acc9bc5ea7af0d844c8c22/templates/shortcodes/figure_start.html"><code>figure_start.html</code></a>, <a href="https://github.com/optozorax/blog_zola/blob/c3eb0f2d9e4e7fdb78acc9bc5ea7af0d844c8c22/templates/shortcodes/figure_end.html"><code>figure_end.html</code></a>.</li>
+<li>Styles: <a href="https://github.com/optozorax/blog_zola/blob/master/sass/shortcodes/_figure.scss"><code>_figure.scss</code></a>.</li>
+</ul>
+</div></div>
+<h3 id="container-for-multiple-images"><a class="anchor" href="#container-for-multiple-images">#<sup>3</sup></a>Container for multiple images</h3>
+<p>On a desktop you should see 3 fluffy wolves in one row here, and on a phone 2 wolves in one row:</p>
+<div class="container">
+<div class="magnifier-container img-one-three"> <img     class="not-default full-screen-img"     width="334"     height="256"     src="/processed_images/preview.2f343ba96823c0f9.webp"     onclick="full_screen('preview.jpeg')"     onauxclick="full_screen_new_page('preview.jpeg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<div class="magnifier-container img-one-three"> <img     class="not-default full-screen-img"     width="334"     height="256"     src="/processed_images/preview.2f343ba96823c0f9.webp"     onclick="full_screen('preview.jpeg')"     onauxclick="full_screen_new_page('preview.jpeg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<div class="magnifier-container img-one-three"> <img     class="not-default full-screen-img"     width="334"     height="256"     src="/processed_images/preview.2f343ba96823c0f9.webp"     onclick="full_screen('preview.jpeg')"     onauxclick="full_screen_new_page('preview.jpeg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+</div>
+<div class="admonition blue-bg blue-border-left">
+<div class="admonition-title blue-bg blue-border">Usage</div>
+<div class="admonition-content">
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="zola"><code data-lang="zola"><span class="giallo-l"><span>{{ container_start() }}</span></span>
+<span class="giallo-l"><span>{{ image(path=&quot;preview.jpeg&quot;, scale=&quot;1/3&quot;) }}</span></span>
+<span class="giallo-l"><span>{{ image(path=&quot;preview.jpeg&quot;, scale=&quot;1/3&quot;) }}</span></span>
+<span class="giallo-l"><span>{{ image(path=&quot;preview.jpeg&quot;, scale=&quot;1/3&quot;) }}</span></span>
+<span class="giallo-l"><span>{{ container_end() }}</span></span></code></pre></div></div>
+<div class="admonition gray-bg gray-border-left">
+<div class="admonition-title gray-bg gray-border">Under the hood</div>
+<div class="admonition-content">
+<ul>
+<li>Shortcodes: <a href="https://github.com/optozorax/blog_zola/blob/c3eb0f2d9e4e7fdb78acc9bc5ea7af0d844c8c22/templates/shortcodes/container_start.html"><code>container_start.html</code></a>, <a href="https://github.com/optozorax/blog_zola/blob/c3eb0f2d9e4e7fdb78acc9bc5ea7af0d844c8c22/templates/shortcodes/container_end.html"><code>container_end.html</code></a>.</li>
+<li>Styles: <a href="https://github.com/optozorax/blog_zola/blob/master/sass/shortcodes/_container.scss"><code>_container.scss</code></a>.</li>
+</ul>
+</div></div>
+<h3 id="details"><a class="anchor" href="#details">#<sup>3</sup></a>Details</h3>
+<details>
+<summary>The details are inside</summary>
+<div class="details-content">
+<p>Lets you make an element like this one, which can be collapsed and expanded.</p>
+</div>
+</details>
+<div class="admonition blue-bg blue-border-left">
+<div class="admonition-title blue-bg blue-border">Usage</div>
+<div class="admonition-content">
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="zola"><code data-lang="zola"><span class="giallo-l"><span>{{ details_start(summary=&quot;The details are inside&quot;) }}</span></span>
+<span class="giallo-l"><span>Lets you make an element like this one, which can be collapsed and expanded.</span></span>
+<span class="giallo-l"><span>{{ details_end() }}</span></span></code></pre></div></div>
+<div class="admonition green2-bg green2-border-left">
+<div class="admonition-title green2-bg green2-border">Features</div>
+<div class="admonition-content">
+<ul>
+<li>You can use <code>markdown</code> in <code>summary</code>.</li>
+<li>The arrow rotation is animated with CSS, but there's no animation for opening and closing the element itself, because that needs JS, and I'm too lazy and don't want to weigh the page down.</li>
+</ul>
+</div></div>
+<div class="admonition gray-bg gray-border-left">
+<div class="admonition-title gray-bg gray-border">Under the hood</div>
+<div class="admonition-content">
+<ul>
+<li>Shortcodes: <a href="https://github.com/optozorax/blog_zola/blob/c3eb0f2d9e4e7fdb78acc9bc5ea7af0d844c8c22/templates/shortcodes/details_start.html"><code>details_start.html</code></a>, <a href="https://github.com/optozorax/blog_zola/blob/c3eb0f2d9e4e7fdb78acc9bc5ea7af0d844c8c22/templates/shortcodes/details_end.html"><code>details_end.html</code></a>.</li>
+<li>Styles: <a href="https://github.com/optozorax/blog_zola/blob/master/sass/shortcodes/_details.scss"><code>_details.scss</code></a>.</li>
+</ul>
+</div></div>
+<h3 id="hide-from-the-table-of-contents"><a class="anchor" href="#hide-from-the-table-of-contents">#<sup>3</sup></a>Hide from the table of contents</h3>
+<p>This shortcode is used to hide something from the table of contents. It can be useful inside the <code>details</code> shortcode.</p>
+<div class="admonition gray-bg gray-border-left">
+<div class="admonition-title gray-bg gray-border">The feature in action</div>
+<div class="admonition-content">
+<p>For example, this heading:</p>
+<h1 id="this-heading-is-not-in-the-table-of-contents">This heading is not in the table of contents</h1>
+<h2 id="and-neither-is-its-child">And neither is its child</h2>
+<h3 id="and-they-also-have-no-links-to-themselves">And they also have no links to themselves</h3>
+</div></div>
+<div class="admonition blue-bg blue-border-left">
+<div class="admonition-title blue-bg blue-border">Usage</div>
+<div class="admonition-content">
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="zola"><code data-lang="zola"><span class="giallo-l"><span>{% not_in_toc() %}</span></span>
+<span class="giallo-l"><span># This heading is not in the table of contents</span></span>
+<span class="giallo-l"><span>## And neither is its child</span></span>
+<span class="giallo-l"><span>### And they also have no links to themselves</span></span>
+<span class="giallo-l"><span>{% end %}</span></span></code></pre></div></div>
+<div class="admonition gray-bg gray-border-left">
+<div class="admonition-title gray-bg gray-border">Under the hood</div>
+<div class="admonition-content">
+<ul>
+<li>Shortcodes: <a href="https://github.com/optozorax/blog_zola/blob/c3eb0f2d9e4e7fdb78acc9bc5ea7af0d844c8c22/templates/shortcodes/not_in_toc.html"><code>not_in_toc.html</code></a>.</li>
+</ul>
+</div></div>
+<h2 id="everything-else"><a class="anchor" href="#everything-else">#<sup>2</sup></a>Everything else</h2>
+<p>These features aren't directly about writing posts, but rather about the rest of the blog.</p>
+<h3 id="table-of-contents"><a class="anchor" href="#table-of-contents">#<sup>3</sup></a>Table of contents</h3>
+<p>Posts have a table of contents. Posts are long. So you can take that table of contents and show it somewhere. I did that, and depending on your device, the table of contents may look different for you:</p>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1280"     height="939"     src="/processed_images/toc_pc.fe80e12e5d76dade.webp"     onclick="full_screen('toc_pc.png')"     onauxclick="full_screen_new_page('toc_pc.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.2<br>png</div> </div> </div>
+<figcaption>The table of contents on a desktop. It's to the right of the post.</figcaption>
+</figure>
+<figure>
+<div class="container">
+<div class="magnifier-container img-one-two"> <img     class="not-default full-screen-img"     width="378"     height="640"     src="/processed_images/toc_phone.f8158c1a61b35c5a.webp"     onclick="full_screen('toc_phone.jpg')"     onauxclick="full_screen_new_page('toc_phone.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×2.9<br>jpg</div> </div> </div>
+<div class="magnifier-container img-one-two"> <img     class="not-default full-screen-img"     width="378"     height="640"     src="/processed_images/toc_phone_2.f430a1a1e109fdd6.webp"     onclick="full_screen('toc_phone_2.jpg')"     onauxclick="full_screen_new_page('toc_phone_2.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×2.9<br>jpg</div> </div> </div>
+</div>
+<figcaption>On a phone, the table of contents slides out with a button in the bottom right.</figcaption>
+</figure>
+<div class="admonition green2-bg green2-border-left">
+<div class="admonition-title green2-bg green2-border">Features</div>
+<div class="admonition-content">
+<ul>
+<li>On all platforms:
+<ul>
+<li>Generated automatically for all posts.</li>
+<li>Turned off if the table of contents is empty.</li>
+<li>The current item and its parents are highlighted.</li>
+<li>Highlighting the current section requires JS.</li>
+</ul>
+</li>
+<li>On a desktop
+<ul>
+<li>If you have a very large screen, the post is centered.</li>
+<li>If your screen isn't that large, the post is aligned to the left so that the table of contents fits.</li>
+<li>It's a sticky panel on the right.</li>
+<li>If the current item in the table of contents is below the middle of the screen, the table of contents scrolls up automatically.</li>
+<li>For very long posts, you can scroll the table of contents up and down with the mouse wheel to pick the section you need.</li>
+<li>Yes, the fact that you can scroll it above the main content isn't a bug, it's a feature.</li>
+<li>Scrolling up and down requires JS.</li>
+</ul>
+</li>
+<li>On a phone
+<ul>
+<li>The button that slides out the table of contents is at the bottom, on the side, so it doesn't block much of the main content.</li>
+<li>You can scroll the menu up and down with your fingers.</li>
+<li>Works without JS, in pure CSS + HTML.</li>
+</ul>
+</li>
+</ul>
+</div></div>
+<div class="admonition gray-bg gray-border-left">
+<div class="admonition-title gray-bg gray-border">Under the hood</div>
+<div class="admonition-content">
+<ul>
+<li>Styles: <a href="https://github.com/optozorax/blog_zola/blob/master/sass/_toc.scss"><code>_toc.scss</code></a>.</li>
+<li>Scripts: <a href="https://github.com/optozorax/blog_zola/blob/master/static/js/toc.js"><code>toc.js</code></a>.</li>
+</ul>
+</div></div>
+<h3 id="justified-text"><a class="anchor" href="#justified-text">#<sup>3</sup></a>Justified text</h3>
+<p>Justified text is when the text tries to fill the whole width of the line by widening spaces or hyphenating words.</p>
+<div class="admonition green2-bg green2-border-left">
+<div class="admonition-title green2-bg green2-border">Features</div>
+<div class="admonition-content">
+<ul>
+<li>Firefox supports automatic hyphenation for wrapping text.
+<ul>
+<li>So justification is turned on for all screen sizes.</li>
+<li>Also, all words are hyphenated, which looks very nice.</li>
+</ul>
+</li>
+<li>Chrome and the others don't support automatic hyphenation for Russian.
+<ul>
+<li>So for large and medium screens, regular justification with wider spaces is turned on. You won't notice it, because the lines are fairly long and the spaces change relatively little.</li>
+<li>And on phones with Chrome, text is aligned to the left, the way everyone is used to.</li>
+</ul>
+</li>
+</ul>
+</div></div>
+<div class="admonition gray-bg gray-border-left">
+<div class="admonition-title gray-bg gray-border">Under the hood</div>
+<div class="admonition-content">
+<ul>
+<li>Styles: <a href="https://github.com/optozorax/blog_zola/blob/master/sass/_justify.scss"><code>_justify.scss</code></a>.</li>
+</ul>
+</div></div>
+<h3 id="code-block"><a class="anchor" href="#code-block">#<sup>3</sup></a>Code block</h3>
+<p>Depending on your device, the following code block will look different for you:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="rust"><code data-lang="rust"><span class="giallo-l"><span style="color: #72AB00;">fn</span><span style="color: #C23F31;"> main</span><span>() {</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    println!</span><span>(</span><span style="color: #D07711;">&quot;very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very long line, {}&quot;</span><span>,</span><span style="color: #D07711;"> &quot;hello world&quot;</span><span>);</span></span>
+<span class="giallo-l"><span>}</span></span></code></pre><div class="container">
+<div class="magnifier-container img-one-four"> <img     class="not-default full-screen-img"     width="320"     height="223"     src="/processed_images/code1.2fe2464f274126ab.webp"     onclick="full_screen('code1.png')"     onauxclick="full_screen_new_page('code1.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.1<br>png</div> </div> </div>
+<div class="magnifier-container img-one-four"> <img     class="not-default full-screen-img"     width="320"     height="211"     src="/processed_images/code2.98e9478fb529dac5.webp"     onclick="full_screen('code2.png')"     onauxclick="full_screen_new_page('code2.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.1<br>png</div> </div> </div>
+<div class="magnifier-container img-one-four"> <img     class="not-default full-screen-img"     width="320"     height="151"     src="/processed_images/code3.7bb5e1456ca314f3.webp"     onclick="full_screen('code3.png')"     onauxclick="full_screen_new_page('code3.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.2<br>png</div> </div> </div>
+<div class="magnifier-container img-one-four"> <img     class="not-default full-screen-img"     width="320"     height="182"     src="/processed_images/code4.223c4f6d875196ee.webp"     onclick="full_screen('code4.png')"     onauxclick="full_screen_new_page('code4.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.1<br>png</div> </div> </div>
+</div>
+<div class="admonition green2-bg green2-border-left">
+<div class="admonition-title green2-bg green2-border">Features</div>
+<div class="admonition-content">
+<ul>
+<li>On large and medium screens, code is word-wrapped.</li>
+<li>And it's not plain word wrap, it automatically indents the second and following lines!</li>
+<li>The second and following lines get an extra indent, just like in Sublime.</li>
+<li>On small phone screens, the usual horizontal scrolling of code is turned on, because word wrap looks bad there.</li>
+<li>And now the language of the code is shown.</li>
+</ul>
+</div></div>
+<div class="admonition gray-bg gray-border-left">
+<div class="admonition-title gray-bg gray-border">Under the hood</div>
+<div class="admonition-content">
+<ul>
+<li>Styles: <a href="https://github.com/optozorax/blog_zola/blob/master/sass/_word_wrap.scss"><code>_word_wrap.scss</code></a>.</li>
+<li>Scripts: <a href="https://github.com/optozorax/blog_zola/blob/master/static/js/word_wrap.js"><code>word_wrap.js</code></a>.</li>
+</ul>
+</div></div>
+<h3 id="new-fonts"><a class="anchor" href="#new-fonts">#<sup>3</sup></a>New fonts</h3>
+<ul>
+<li>The main text now uses the <a href="https://fonts.google.com/specimen/Rubik">Rubik</a> font. I really love its shapes, it was simply love at first sight.</li>
+<li><tt>Code and this line use <a href="https://www.jetbrains.com/lp/mono/">JetBrains Mono</a>. It's the font in my code editor, and I like it more than any other monospaced font.</tt></li>
+</ul>
+<h3 id="small-things"><a class="anchor" href="#small-things">#<sup>3</sup></a>Small things</h3>
+<div class="admonition green2-bg green2-border-left">
+<div class="admonition-title green2-bg green2-border">Features</div>
+<div class="admonition-content">
+<ul>
+<li>Every heading now has a link to itself next to it.
+<ul>
+<li>Nested headings are shown with a power: a second-level heading is #², a third-level heading is #³. I find that really cool and mathematical :)))</li>
+</ul>
+</li>
+<li>There's now an <a href="/en/atom.xml">Atom feed</a>.</li>
+<li>The home page now shows an approximate reading time next to each post. It lets you compare the length of different posts.</li>
+</ul>
+</div></div>
+<h2 id="structural"><a class="anchor" href="#structural">#<sup>2</sup></a>Structural</h2>
+<h3 id="created-a-separate-category-for-editable-pages"><a class="anchor" href="#created-a-separate-category-for-editable-pages">#<sup>3</sup></a>Created a separate category for “editable pages”</h3>
+<p>The header now has a <a href="/en/e/">“Collections”</a> link, which leads to pages that may be edited a lot.</p>
+<div class="admonition green2-bg green2-border-left">
+<div class="admonition-title green2-bg green2-border">Features</div>
+<div class="admonition-content">
+<ul>
+<li>There's no publication date, because it would be meaningless.</li>
+<li>Each page is a repository and is included via <code>git submodule</code>.</li>
+<li>Each page has a mandatory changelog in a separate file.</li>
+<li>These pages aren't mixed with regular posts and don't mislead the reader.</li>
+</ul>
+</div></div>
+<h3 id="removed-repository-pages"><a class="anchor" href="#removed-repository-pages">#<sup>3</sup></a>Removed repository pages</h3>
+<p>Some of my posts used to be just READMEs from repositories, included via <code>git submodule</code>; I've now removed that.</p>
+<div class="admonition green2-bg green2-border-left">
+<div class="admonition-title green2-bg green2-border">Features</div>
+<div class="admonition-content">
+<ul>
+<li>I removed all these pages, because it was a mistake.</li>
+<li>But I kept these as posts in the blog:
+<ul>
+<li><a href="/en/p/my-keyboard-layout/">Ilya Sheprut's keyboard layout</a>.</li>
+<li><a href="/en/p/std-function/">Uses of std::function</a>.</li>
+</ul>
+</li>
+<li>And I kept these as editable pages:
+<ul>
+<li><a href="/en/e/emergevolution/">Emergevolution</a>.</li>
+<li><a href="/en/e/4d/">4D</a>.</li>
+<li><a href="/en/e/hyperbolic/">Hyperbolic geometry</a>.</li>
+</ul>
+</li>
+<li>What used to be in the blog now redirects to the corresponding repository, for example:
+<ul>
+<li><a href="/university_latex_template">/university_<wbr>latex_<wbr>template</a>.</li>
+</ul>
+</li>
+</ul>
+</div></div>
+<hr />
+<hr />
+<hr />
+<h1 id="the-story"><a class="anchor" href="#the-story">#</a>The story</h1>
+<p>Okay, the impersonal bragging is over; now it's time to tell you what difficulties came up while building these features, and what's special about some of them.</p>
+<h2 id="why-so-many-features"><a class="anchor" href="#why-so-many-features">#<sup>2</sup></a>Why so many features</h2>
+<p>So how did it happen that I didn't even have the beginnings of all this before, and now I do?</p>
+<p>I've just moved to a different static site generator, and there's <a href="/en/p/zola/">a separate post about that</a>. My previous static site generator was <a href="https://jekyllrb.com/">Jekyll</a>. I chose it only because GitHub built it into a site right out of the box, and back then I thought Jekyll was good enough, since, like, GitHub itself chose it. Now I've switched to Zola, I generate the site locally and host it on <a href="https://pages.github.com/">GitHub Pages</a>.</p>
+<p>The cool thing is that Zola lets you create so-called <a href="https://www.getzola.org/documentation/content/shortcodes/">shortcodes</a>. They let you insert some HTML into your Markdown post with a short syntax. For example, you've written a shortcode for embedding YouTube videos, and then in your post you call it like this:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="zola"><code data-lang="zola"><span class="giallo-l"><span>{{ youtube(id=&quot;1q0sHf_n_2Y&quot;) }}</span></span></code></pre>
+<p>And the right HTML gets inserted by itself when the site is built. It's an incredible capability. Now you can greatly extend Markdown, and with it what you can do when writing posts.</p>
+<p>And it all started when I began playing around with making a <a href="https://optozorax.github.io/en/p/new-features/#gallery">gallery</a> as a Zola shortcode; then I couldn't stop, and in the end I made all these features and moved to Zola completely.</p>
+<h2 id="traffic-optimization"><a class="anchor" href="#traffic-optimization">#<sup>2</sup></a>Traffic optimization</h2>
+<p>My images are automatically resized to a smaller size, YouTube is embedded from local data, and all GIFs are converted to <code>mp4</code>. What ties all of this together is that it was made to save traffic, and there's <a href="/p/blog-optimization">a separate post</a> about that too. It also explains how I encode videos so that they work in the browser.</p>
+<h2 id="gallery-1"><a class="anchor" href="#gallery-1">#<sup>2</sup></a>Gallery</h2>
+<h3 id="vertical-centering"><a class="anchor" href="#vertical-centering">#<sup>3</sup></a>Vertical centering</h3>
+<p>The gallery has this interesting feature, “vertical centering”. It's implemented in a very interesting way. Since Zola can find out image dimensions at build time with the <a href="https://www.getzola.org/documentation/templates/overview/#get-image-metadata"><code>get_image_metadata</code></a> function, I compute the dimensions of all the gallery images in advance and find the maximum size. Then for each image I compute how large the vertical padding above and below should be, and simulate it with an inserted <code>svg</code> image of the right size:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="html"><code data-lang="html"><span class="giallo-l"><span style="color: #6486AB;">&lt;svg</span><span style="color: #C23F31;"> class</span><span>=</span><span style="color: #D07711;">&quot;gallery-svg&quot;</span><span style="color: #C23F31;"> viewBox</span><span>=</span><span style="color: #D07711;">&quot;0 0 1 {{ height }}&quot;</span><span style="color: #6486AB;">&gt;&lt;/svg&gt;</span></span></code></pre>
+<p>This image gets <code>width: 100%</code>, and all images are vertically centered relative to the maximum size, so the page below doesn't jump when you flip through the images, and the gallery has a fixed size.</p>
+<h3 id="pure-css"><a class="anchor" href="#pure-css">#<sup>3</sup></a>Pure CSS</h3>
+<p>This gallery is made with a small amount of JS code that switches the images. But in general it can be done in pure CSS with radio buttons, like <a href="https://codepen.io/ashikjs/pen/qXQEqV">here</a>. I think I might bother doing that in the future. That way the gallery would also work for people who are against JS.</p>
+<h3 id="swipe"><a class="anchor" href="#swipe">#<sup>3</sup></a>Swipe</h3>
+<p>People tell me I should make it possible to swipe images in the gallery. But I don't want to do it, because it's too much work. If you do it with the hammerjs library, feel free to send a pull request, I'll gladly accept it.</p>
+<h2 id="viewing-enlarged-images"><a class="anchor" href="#viewing-enlarged-images">#<sup>2</sup></a>Viewing enlarged images</h2>
+<p>I'm glad I finally have this feature, and that you can even zoom and pan the image with your fingers!</p>
+<h3 id="magnifying-glass"><a class="anchor" href="#magnifying-glass">#<sup>3</sup></a>Magnifying glass</h3>
+<p>I stole the idea of showing a magnifying glass in the top right corner of an image from <a href="http://joyreactor.cc/">joyreactor.cc</a> (in Russian).</p>
+<p>At the same time I thought it would be nice to show right away why you might need the enlarged image at all. So next to it I wrote how many times larger the original is than what you see now, and what format the original has. Just in case you want to save an image from this post and it matters to you that the original is a <code>png</code>.</p>
+<h3 id="loading-animation"><a class="anchor" href="#loading-animation">#<sup>3</sup></a>Loading animation</h3>
+<p>When you open images in full resolution, you may notice that a loading animation is shown:</p>
+<figure>
+<img class="not-default img-one" width="64" height="64" src="/en/p/new-features/loading.gif">
+<figcaption>This is the loading animation. It has already loaded.</figcaption>
+</figure>
+<p>Actually, I don't track any requests for the image in JS: this animation is simply the default <code>src</code> of the <code>&lt;img&gt;</code>. In JS I only change the <code>src</code> field, and the animation disappears by itself when the browser gets the new image.</p>
+<p>By the way, finding this animation was <strong>very hard</strong> for me. You know, I google “loading gif”, and it returns so much garbage that it's just impossible. Most of the GIFs are 500×500 and have been compressed a thousand times, first as <code>mp4</code>, then as <code>gif</code>. I got this image thanks to the <a href="https://icons8.com/preloaders/">icons8</a> website, where you can <em>customize</em> the animation and then download the <code>gif</code> for free. Unfortunately, their generator has a problem with transparent backgrounds, as you can see in the animation above, so I just gave up and used this GIF as it is.</p>
+<p>If anyone knows how to google things like loading animations, please let me know in the comments.</p>
+<h2 id="colored-blocks-1"><a class="anchor" href="#colored-blocks-1">#<sup>2</sup></a>Colored blocks</h2>
+<p>I really love this feature!!! You've probably noticed that from this very post. Originally I used something like this in the post <a href="/en/p/my-keyboard-layout/">Ilya Sheprut's keyboard layout</a>. In the old blog I just used blockquotes there, but now with these colored blocks that post looks super pretty! Be sure to check it out if you haven't read it yet.</p>
+<h2 id="pros-and-cons-1"><a class="anchor" href="#pros-and-cons-1">#<sup>2</sup></a>Pros and cons</h2>
+<p>I came up with this feature myself. I think when green and red icons are drawn next to the pros and cons, it looks awesome.</p>
+<h2 id="image-caption-container-for-multiple-images-details"><a class="anchor" href="#image-caption-container-for-multiple-images-details">#<sup>2</sup></a>Image caption, Container for multiple images, Details</h2>
+<p>These are just concepts we think in, but which vanilla Markdown doesn't have, which is why reading and writing posts is sometimes painful. I'm glad I finally fixed that.</p>
+<h2 id="hide-from-the-table-of-contents-1"><a class="anchor" href="#hide-from-the-table-of-contents-1">#<sup>2</sup></a>Hide from the table of contents</h2>
+<p>This is the only feature that uses the syntax of a shortcode with a body, rather than a shortcode made of two parts like all the others. The problem is that shortcodes with a body are broken: they can't properly render nested shortcodes or call the image resizing functions. Also, nothing written inside them makes it into the table of contents, and that's exactly what I use. That's precisely why all my shortcodes consist of two parts. But more on that in <a href="/en/p/zola/#shortcodes-with-a-body">another post</a>.</p>
+<h2 id="table-of-contents-1"><a class="anchor" href="#table-of-contents-1">#<sup>2</sup></a>Table of contents</h2>
+<p>Hooray! At last! It happened!</p>
+<p><strong>At last my posts have a very convenient, automatically generated, scrollable table of contents!!!</strong></p>
+<p>Before, to generate a table of contents, I used hacks for Jekyll, plus <a href="https://gist.github.com/optozorax/2501ed8cd9fce4c903f38298c3923b75">this thing</a> for posts included via <code>git submodule</code>.</p>
+<p>All these features, automatic scrolling and scrolling with fingers and the mouse, are all for the sake of my long posts. I love writing long posts, and their table of contents sometimes doesn't fit on the screen. That's why all of this is very important.</p>
+<p>In general, the main credit for this table of contents being so good goes to CSS+JS, not to Zola specifically. Zola's only merit is that it provided solid features for generating the table of contents.</p>
+<p>There is one small problem with the table of contents right now, though: on a phone, when you scroll it up and down in Firefox, the stupid address bar pops up and breaks the rendering, cutting off the table of contents. I turned off the automatic hiding of this bottom bar on my phone for good, and I recommend you do the same. Or maybe you know how to make up and down swipes not cause this bottom bar to hide? <code>preventDefault</code> doesn't help :(.</p>
+<p>Just look at how my biggest post, <a href="/en/p/my-keyboard-layout/">Ilya Sheprut's keyboard layout</a>, now looks with the table of contents and the gallery. You can see the main content right away and start reading it!</p>
+<div class="magnifier-container img-two-three"> <img     class="not-default full-screen-img"     width="846"     height="853"     src="/processed_images/my-keyboard-layout-new.45cbe8f31edc115f.webp"     onclick="full_screen('my-keyboard-layout-new.png')"     onauxclick="full_screen_new_page('my-keyboard-layout-new.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×2.3<br>png</div> </div> </div>
+<p>And now, what the old post looked like. Just look how much you had to scroll before reaching the actual post, how many screens! I sure did great, putting such a huge obstacle in front of my flagship post, but now everything is a million times better.</p>
+<div class="container">
+<div class="magnifier-container img-one-three"> <img     class="not-default full-screen-img"     width="168"     height="426"     src="/processed_images/my-keyboard-layout-old-1.9abbf418063aeb10.webp"     onclick="full_screen('my-keyboard-layout-old-1.jpg')"     onauxclick="full_screen_new_page('my-keyboard-layout-old-1.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×3.1<br>jpg</div> </div> </div>
+<div class="magnifier-container img-one-three"> <img     class="not-default full-screen-img"     width="207"     height="426"     src="/processed_images/my-keyboard-layout-old-2.e47992d6488e909a.webp"     onclick="full_screen('my-keyboard-layout-old-2.jpg')"     onauxclick="full_screen_new_page('my-keyboard-layout-old-2.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×3.1<br>jpg</div> </div> </div>
+</div>
+<p>And for such a huge post it's extremely important to have a table of contents on the side that you can scroll. What if someone doesn't want to read everything, but only wants to see specific parts? They'll be able to.</p>
+<p>By the way, if you still haven't read that post, now is the time, because it's now improved as much as it can be.</p>
+<h2 id="justified-text-1"><a class="anchor" href="#justified-text-1">#<sup>2</sup></a>Justified text</h2>
+<p>Nowadays almost all text on the web is aligned to the left, and not because it's easier to read, but simply because it's the easiest thing to do.</p>
+<p>I think justified text looks beautiful. The text then seems evenly distributed, and it's just like in books.</p>
+<p>But classic justification creates huge spaces that turn the text into something ugly, while the empty space at the end of lines isn't that terrible. That's why nobody uses classic justification.</p>
+<p>But there's improved justification, where some words are hyphenated so that the spaces change as little as possible. That's what books use, and it looks good. Yes, it exists, but with a couple of caveats.</p>
+<p>The problem is that Chrome supports it only for English, while Firefox supports it for many languages. So you can't make the text look good everywhere. Here I just want to give Firefox props for supporting so many languages, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/hyphens#browser_compatibility">just look at this</a>.</p>
+<p>So I tried to give each browser and screen size its own alignment, whichever is the least annoying. I'm glad my blog now looks a bit like a book.</p>
+<h2 id="code-block-1"><a class="anchor" href="#code-block-1">#<sup>2</sup></a>Code block</h2>
+<p>Oooh. This feature really frayed my nerves.</p>
+<p>So, as a reminder: I made long lines in code blocks wrap to a new line, but in such a way that the wrapped lines keep their indentation. All decent code editors do this, and people hate word wrap precisely because of the wrong way of doing it, which ignores the indentation.</p>
+<p>There's no simple CSS solution for this feature, so you have to come up with something yourself. The first solution that comes to mind: make a table for each line, put the indentation in the first column and the rest of the line in the second column. And yes, it works, and everything wraps the way it should.</p>
+<p>There's just one tiny problem: when you copy the text, a tab character <code>\t</code> gets inserted between the indentation and the text. Simply because it's a table, that's always done, for your convenience. It's impossible to turn off.</p>
+<p>Okay, fine. Then let's make the table with CSS instead of the <code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;td&gt;</code> tags. Okay, we do it, and again a tab appears when copying.</p>
+<p>Fine, what else do we have. Flexbox? Let's try it. We run it and... When copying, a newline gets inserted. Even better. It's impossible to turn off too.</p>
+<p>You know, to google my way to all of this, I went through so much stress and googled so much that I seem to have leveled up my already incredibly developed googling skill.</p>
+<p>Okay, so what do we do? It turns out that if you completely disable text selection in one of the table's columns, no tab character gets inserted there when you copy and paste.</p>
+<p>Now we can do the following: put the indentation into the first column so that it indents the code, then put the whole line with its indentation into the second column, <strong>but</strong> hide that indentation with <code>font-size: 0px</code>.</p>
+<p>As a result, the selection looks awful, but pasting is fine:</p>
+<div class="magnifier-container img-one-four"> <img     class="not-default full-screen-img"     width="320"     height="211"     src="/processed_images/code2.98e9478fb529dac5.webp"     onclick="full_screen('code2.png')"     onauxclick="full_screen_new_page('code2.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.1<br>png</div> </div> </div>
+<p>And I also added an extra indent for the second wrapped line, so that it looks like in Sublime.</p>
+<p>Ideally, this feature would be built into Zola, since it's a modification of the <code>html</code>, but it isn't there, so for now it happens in JS when the page loads.</p>
+<p>I wrote a feature request <a href="https://zola.discourse.group/t/word-wrap-in-code-with-indent/1020">on the Zola forum</a>, go there and leave a like.</p>
+<h3 id="showing-the-code-language-with-pure-css"><a class="anchor" href="#showing-the-code-language-with-pure-css">#<sup>3</sup></a>Showing the code language with pure CSS</h3>
+<p>I didn't know this was possible, but it turns out CSS can read the attributes of <code>html</code> elements, so with the following code I made code blocks show their language:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="scss"><code data-lang="scss"><span class="giallo-l"><span style="color: #7F902A;">pre</span><span>[</span><span style="color: #7F902A;">data-lang</span><span>] {</span></span>
+<span class="giallo-l"><span style="color: #C5AF75;">	padding-top</span><span>:</span><span style="color: #CA7840;"> 1.8</span><span style="color: #72AB00;">rem</span><span>;</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F902A;">pre</span><span>[</span><span style="color: #7F902A;">data-lang</span><span>]</span><span style="color: #7F902A;">::before</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #C5AF75;">	display</span><span>:</span><span style="color: #949175;"> block</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #7F902A;">	content</span><span>:</span><span style="color: #B39F04;"> attr</span><span>(</span><span style="color: #5597D6;">data-lang</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #C5AF75;">	float</span><span>:</span><span style="color: #949175;"> left</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #C5AF75;">	background</span><span>:</span><span style="color: #5597D6;"> $background-color</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #C5AF75;">	color</span><span>:</span><span style="color: #5597D6;"> $text-color</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #C5AF75;">	padding</span><span>:</span><span style="color: #CA7840;"> 0.2</span><span style="color: #72AB00;">em</span><span style="color: #CA7840;"> 0.5</span><span style="color: #72AB00;">em</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #C5AF75;">	font-weight</span><span>:</span><span style="color: #949175;"> bold</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #C5AF75;">	font-size</span><span>:</span><span style="color: #CA7840;"> 1</span><span style="color: #72AB00;">rem</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #C5AF75;">	border-radius</span><span>:</span><span style="color: #CA7840;"> 0 0 8</span><span style="color: #72AB00;">px</span><span style="color: #CA7840;"> 0</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #C5AF75;">	margin-top</span><span>:</span><span style="color: #CA7840;"> -1.8</span><span style="color: #72AB00;">rem</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #C5AF75;">	margin-left</span><span>:</span><span style="color: #CA7840;"> -0.5</span><span style="color: #72AB00;">rem</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #C5AF75;">	border-right</span><span>:</span><span style="color: #CA7840;"> 1</span><span style="color: #72AB00;">px</span><span style="color: #5597D6;"> $border-color</span><span style="color: #949175;"> solid</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #C5AF75;">	border-bottom</span><span>:</span><span style="color: #CA7840;"> 1</span><span style="color: #72AB00;">px</span><span style="color: #5597D6;"> $border-color</span><span style="color: #949175;"> solid</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #C5AF75;">	z-index</span><span>:</span><span style="color: #CA7840;"> 10</span><span>;</span></span>
+<span class="giallo-l"><span>}</span></span></code></pre>
+<p>Yes, in theory it would be simpler to insert a <code>div</code> with the name of the language, but Zola doesn't let you configure that, so our only friend is CSS.</p>
+<h2 id="reading-time"><a class="anchor" href="#reading-time">#<sup>2</sup></a>Reading time</h2>
+<p>Every post now has an approximate reading time next to it. It lets you judge which post is longer than which, and which ones may take a long time to read.</p>
+<p>But this feature has one small problem: you can't exclude some parts from the count. And that's critical for the post <a href="/en/p/how-i-write-programs/">How I write programs</a>, since it has a lot of text hidden under collapsible menus, which is there just as an illustration, not for reading.</p>
+<p>I <a href="https://zola.discourse.group/t/tag-to-disable-counting-of-words-and-reading-time/1021/2">requested this feature on the Zola forum</a>, so leave a like.</p>
+<h2 id="created-a-separate-category-for-editable-pages-1"><a class="anchor" href="#created-a-separate-category-for-editable-pages-1">#<sup>2</sup></a>Created a separate category for “editable pages”</h2>
+<p>My site used to have pages that weren't regular posts but could be edited at any time. Some were at the top in the menu (Ideas, Repositories), and others were among the posts (Emergevolution, 4D, Hyperbolic geometry). Now I've realized that they're the same kind of thing, and put them in one place. And since I learned to work with <code>git submodule</code> in an earlier post, <a href="/en/p/submodules-jekyll/">One repository = One blog post</a>, I was able to give each page in this category its own repository, so that you can see the change history and suggest changes with GitHub's tools.</p>
+<h2 id="removed-repository-pages-1"><a class="anchor" href="#removed-repository-pages-1">#<sup>2</sup></a>Removed repository pages</h2>
+<p>Honestly, this was a mistake. It was a mistake to put READMEs, even ones formatted as posts, into the blog among regular posts. Especially through this <code>git submodule</code> mechanism. They only discredited the regular posts, and nobody read them anyway. Originally I did it so that it would, like, get indexed and people would find me on Google or Yandex, but that didn't happen. But I didn't break the old links: I made them redirect to the original repositories.</p>
+<h1 id="features-that-didn-t-make-it"><a class="anchor" href="#features-that-didn-t-make-it">#</a>Features that didn't make it</h1>
+<p>Sometimes I like to use tools for things they weren't meant for. For example, I already <a href="/en/p/submodules-jekyll/">made</a> Jekyll automatically use posts from other repositories via <code>git submodule</code>.</p>
+<p>And I wanted to hack Zola in a similar way too. Well, not hack, no. My intentions are always good. I just want more features and convenience for myself, and doing hacks like this is fun.</p>
+<p>For example, at some point I wanted math formulas to be inserted not via KaTeX, which parses them with JS in your browser, so I was thinking about how to make it possible to write a formula in Zola and have it, bam, inserted straight as an <code>svg</code> image!</p>
+<p>I thought and thought, and realized there was no way around a dedicated feature here. I wrote a request for such a feature <a href="https://zola.discourse.group/t/run-commands/1018">on the Zola forum</a> and waited for an answer. And the author tells me that this goes against Zola's philosophy, “forget dependencies, everything you need is in one binary”, and rejected it. And I got a bit sad.</p>
+<p>And then, after reading the documentation, I found a suitable loophole. It turns out Zola can make <code>http</code> requests. The documentation showed a harmless example of downloading an <code>html</code> page, but I immediately realized where the real potential was, and got down to hacking.</p>
+<p>In the end I set up a local service: when you send it a math formula, it calls another program, generates an <code>svg</code> and puts it into a folder, similar to how <code>resize_image</code> works in Zola itself.</p>
+<p>It worked, and it was cool that it worked, but it was somehow too complicated to set up, and after reinstalling the OS you have to download that program for converting formulas to <code>svg</code> again. So I gave up on the idea. The idea of “forgetting about dependencies” is tempting. But I <a href="https://zola.discourse.group/t/run-commands/1018/3?u=optozorax">left detailed instructions on how to do it</a>, so leave a like, and use it if you really, really need it.</p>
+<h1 id="what-i-won-t-do"><a class="anchor" href="#what-i-won-t-do">#</a>What I won't do</h1>
+<h2 id="dark-theme"><a class="anchor" href="#dark-theme">#<sup>2</sup></a>Dark theme</h2>
+<p>Yes, I'd like to have a dark theme, but no. For a design amateur like me it's too much work. And I don't really like dark themes for text. White text on a dark background burns my eyes. If you want, you can make a pull request with a dark theme, I'll try to accept it.</p>
+<h1 id="conclusion"><a class="anchor" href="#conclusion">#</a>Conclusion</h1>
+<p>Lots of new features, and I like them! They greatly improve the user experience and make writing posts much easier for me, and they add colors and shapes. Steal them to your heart's content! If you can't get something to work in your blog, message me directly and I'll help.</p>
+<p>Thanks to these shortcodes, I managed to get rid of <code>html</code> in my posts almost entirely.</p>
+<p>And while creating all these wonderful features, I felt like this:</p>
+<figure>
+<div class="magnifier-container img-two-three"> <img     class="not-default full-screen-img"     width="334"     height="256"     src="/processed_images/preview.a5a7041440aa11c8.webp"     onclick="full_screen('preview.jpeg')"     onauxclick="full_screen_new_page('preview.jpeg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<figcaption><a href="https://t.me/optozorax_dev_chat/6184">It wasn't me who said that</a> (in Russian)</figcaption>
+</figure>
+
+</div>
+</article>
+
+  </section>
+  
+
+</td><td>
+<!-- TOC -->
+<input type="checkbox" id="toc-trigger" class="toc-trigger" />
+<label for="toc-trigger">
+  <span class="menu-icon">
+    <div class="side-button"><img src="/ico/right.svg"></div>
+  </span>
+</label>
+
+<nav class="section-nav">
+ <h2>Contents</h2>
+ <ul class="first">
+ 
+ 
+  <li>
+   <a href="#foreword">Foreword</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#features-in-brief">Features in brief</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#shortcodes">Shortcodes</a>
+       
+       <ul class="third">
+        
+         
+         <li>
+          <a href="#image">Images</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#gallery">Gallery</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#scale">Scale relative to the page</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#full-screen">Viewing enlarged images</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#other-image">Other images</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#video-gif">Video GIF</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#video">Video</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#youtube-embed">YouTube embed</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#math-formulas">Math formulas</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#colored-blocks">Colored blocks</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#pros-and-cons">Pros and cons</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#image-caption">Image caption</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#container-for-multiple-images">Container for multiple images</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#details">Details</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#hide-from-the-table-of-contents">Hide from the table of contents</a>
+          
+         </li>
+        
+       </ul>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#everything-else">Everything else</a>
+       
+       <ul class="third">
+        
+         
+         <li>
+          <a href="#table-of-contents">Table of contents</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#justified-text">Justified text</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#code-block">Code block</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#new-fonts">New fonts</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#small-things">Small things</a>
+          
+         </li>
+        
+       </ul>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#structural">Structural</a>
+       
+       <ul class="third">
+        
+         
+         <li>
+          <a href="#created-a-separate-category-for-editable-pages">Created a separate category for “editable pages”</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#removed-repository-pages">Removed repository pages</a>
+          
+         </li>
+        
+       </ul>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#the-story">The story</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#why-so-many-features">Why so many features</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#traffic-optimization">Traffic optimization</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#gallery-1">Gallery</a>
+       
+       <ul class="third">
+        
+         
+         <li>
+          <a href="#vertical-centering">Vertical centering</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#pure-css">Pure CSS</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#swipe">Swipe</a>
+          
+         </li>
+        
+       </ul>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#viewing-enlarged-images">Viewing enlarged images</a>
+       
+       <ul class="third">
+        
+         
+         <li>
+          <a href="#magnifying-glass">Magnifying glass</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#loading-animation">Loading animation</a>
+          
+         </li>
+        
+       </ul>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#colored-blocks-1">Colored blocks</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#pros-and-cons-1">Pros and cons</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#image-caption-container-for-multiple-images-details">Image caption, Container for multiple images, Details</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#hide-from-the-table-of-contents-1">Hide from the table of contents</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#table-of-contents-1">Table of contents</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#justified-text-1">Justified text</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#code-block-1">Code block</a>
+       
+       <ul class="third">
+        
+         
+         <li>
+          <a href="#showing-the-code-language-with-pure-css">Showing the code language with pure CSS</a>
+          
+         </li>
+        
+       </ul>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#reading-time">Reading time</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#created-a-separate-category-for-editable-pages-1">Created a separate category for “editable pages”</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#removed-repository-pages-1">Removed repository pages</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#features-that-didn-t-make-it">Features that didn&#39;t make it</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#what-i-won-t-do">What I won&#39;t do</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#dark-theme">Dark theme</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#conclusion">Conclusion</a>
+   
+  </li>
+ 
+ </ul>
+</nav>
+</td></tr></table>
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="section second-section">
+If you like what I do, follow me on <a href="https://t.me/optozorax_dev">Telegram</a> and <a href="https://www.youtube.com/c/optozorax">YouTube</a>.
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="comments section second-section">
+
+<script src="https://utteranc.es/client.js"
+        repo="optozorax/optozorax.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+
+  <hr class="enabled-on-phone">
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <footer class="site-footer section second-section">
+  
+    <center>
+    <div style="margin-bottom: 10px;">© Ilya Sheprut. License: <a href="https://creativecommons.org/licenses/by/3.0/deed.en">CC-BY</a>.</div>
+    <table style="border: 0px; display: contents;">
+    <tr><td style="border: 0px; padding: 0.2rem;">
+    <!-- SVG icons from https://iconmonstr.com -->
+
+    <span class="my-span-icon">
+  <a 
+    href="https://github.com/optozorax" 
+    aria-label="optozorax's GitHub" 
+    title="optozorax's GitHub">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/github.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's GitHub">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://t.me/optozorax_dev" 
+    aria-label="optozorax's Telegram channel" 
+    title="optozorax's Telegram channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/tg.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Telegram channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://www.youtube.com/c/optozorax" 
+    aria-label="optozorax's YouTube channel" 
+    title="optozorax's YouTube channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/youtube.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's YouTube channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://boosty.to/optozorax" 
+    aria-label="optozorax's donate page" 
+    title="optozorax's donate page">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/donate.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's donate page">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="/en/atom.xml" 
+    aria-label="optozorax's Atom Feed" 
+    title="optozorax's Atom Feed">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/rss.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Atom Feed">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="mailto:optozorax@gmail.com" 
+    aria-label="optozorax's email" 
+    title="optozorax's email">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/contact.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's email">
+  </a>
+</span>
+
+    </td><td style="border: 0px; padding: 0.2rem;">
+
+    </td></tr>
+    </table>
+    <div class="small-info">
+      Made with <a href="https://www.getzola.org/">Zola</a> | Theme based on <a href="https://github.com/lorepirri/cayman-blog">Cayman Blog</a> | <a href="https://github.com/optozorax/blog_zola">Site sources</a>
+      <a rel="me" href="https://mathstodon.xyz/@optozorax" style="display: none;">Mastodon</a>
+    </div>
+    </center>
+  
+  </footer>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+</body>
+</html>

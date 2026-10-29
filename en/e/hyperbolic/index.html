@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Fonts preload -->
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nFrXyi0A.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nBrXw.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxTcwhsk.woff2" crossOrigin="anonymous">
+  <!-- --- -->
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/main.css">
+  <!-- --- -->
+
+  <!-- Non social metatags -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link rel="canonical" href="https://optozorax.github.io/en/e/hyperbolic/">
+  <link rel="alternate" hreflang="en" href="https://optozorax.github.io/en/e/hyperbolic/">
+  <link rel="alternate" hreflang="ru" href="https://optozorax.github.io/e/hyperbolic/">
+  <link rel="alternate" hreflang="x-default" href="https://optozorax.github.io/e/hyperbolic/">
+  <meta name="robots" content="noarchive">
+  <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/en/atom.xml"> 
+  <!-- --- -->
+
+  <!-- Social metatags -->
+  
+
+<meta name="author" content="optozorax">
+<meta name="title" content="Hyperbolic geometry — optozorax&#39;s blog">
+<meta name="description" content="A collection of information about hyperbolic geometry.">
+<meta name="image" content="https://optozorax.github.io/en/e/hyperbolic/img/Poincare_disc_hyperbolic_parallel_lines.svg.png">
+
+<meta name="keywords" itemprop="tags" content="hyperbolic-geometry, systematization">
+
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://optozorax.github.io/en/e/hyperbolic/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hyperbolic geometry — optozorax&#39;s blog">
+<meta property="og:description" content="A collection of information about hyperbolic geometry.">
+<meta property="og:image" content="https://optozorax.github.io/en/e/hyperbolic/img/Poincare_disc_hyperbolic_parallel_lines.svg.png">
+<meta property="og:locale" content="en">
+
+
+
+
+
+<meta property="article:tag" content="hyperbolic-geometry">
+
+<meta property="article:tag" content="systematization">
+
+
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="optozorax.github.io">
+<meta property="twitter:url" content="https://optozorax.github.io/en/e/hyperbolic/">
+<meta name="twitter:title" content="Hyperbolic geometry — optozorax&#39;s blog">
+<meta name="twitter:description" content="A collection of information about hyperbolic geometry.">
+<meta name="twitter:image" content="https://optozorax.github.io/en/e/hyperbolic/img/Poincare_disc_hyperbolic_parallel_lines.svg.png">
+<meta name="twitter:creator" content="optozorax">
+
+  <!-- --- -->
+
+  <!-- Extra head declarations -->
+  
+
+<script type="text/javascript" src="/js/hammer.min.js"></script>
+<script type="text/javascript" src="/js/toc.js"></script>
+<script type="text/javascript" src="/js/gallery.js"></script>
+<script type="text/javascript" src="/js/full_screen.js"></script>
+<script type="text/javascript" src="/js/word_wrap.js"></script>
+
+  <!-- --- -->
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+  <!-- --- -->
+
+  <title>Hyperbolic geometry — optozorax&#39;s blog</title>
+</head>
+
+<body>
+  <!-- FullScreen block -->
+  <div id="img_modal" class="modal" style="display: none;">
+      <img id="img_modal_01" src="/ico/loading.gif">
+      <span class="close" id="img_modal_close">&times;</span>
+  </div>
+  <!-- --- -->
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <header class="site-header" role="banner">
+  
+  <div class="wrapper">
+    <a class="site-title" href="/en/">optozorax.blog</a>
+
+    <div class="lang-switch">
+      <span class="lang-switch-item lang-switch-current" lang="en" title="English"><span class="lang-switch-flag">🇬🇧</span>EN</span>
+      <a class="lang-switch-item" href="/e/hyperbolic/" hreflang="ru" lang="ru" title="Русский"><span class="lang-switch-flag">🇷🇺</span>RU</a>
+    </div>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <img src="/ico/menu.svg" width="13px" height="15px">
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          <a class="page-link" href="/en/">Blog</a>
+        
+          <a class="page-link" href="/en/e">Collections</a>
+        
+          <a class="page-link" href="/en/tags">Tags</a>
+        
+          <a class="page-link" href="/en/about">About me</a>
+        
+      </div>
+    </nav>
+  </div>
+  
+  </header>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+  
+  <section class="page-header">
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+<h1 class="project-name">Hyperbolic geometry</h1>
+
+<h2 class="project-tagline">A collection of information about hyperbolic geometry.</h2>
+
+
+
+<span style="margin-bottom: 10px;">
+  
+    <a href="/en/tags#hyperbolic-geometry"><code class="tag"><nobr>#hyperbolic-geometry</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#systematization"><code class="tag"><nobr>#systematization</nobr></code></a>&nbsp;
+  
+</span>
+
+
+<center>
+<table style="margin-top: 8px;">
+<tr>
+
+
+
+
+<td style="padding-left: 10px;">
+  
+  <a href="https://vk.com/wall-169103586_31">
+  <code class="tag">Post on VK</code>
+  </a>
+  
+  
+  
+</td>
+
+</tr>
+</table>
+
+
+<div class="translation-note">
+  <svg class="translation-note-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+  <span>Translated from 🇷🇺 Russian</span>
+  <span class="translation-note-sep">·</span>
+  <span>Translation by Claude Opus 5.5</span>
+  <span class="translation-note-sep">·</span>
+  <a href="/e/hyperbolic/" hreflang="ru" lang="ru">Original</a>
+</div>
+
+
+
+<br><a href="https://github.com/optozorax/hyperbolic" class="btn" style="margin: 0px;">Repository of this page</a>
+
+</center>
+
+
+</td><td>
+</td></tr></table>
+
+
+
+  </section>
+  
+  
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <section class="main-content section">
+  
+<article itemscope itemtype="http://schema.org/BlogPosting">
+<div itemprop="articleBody" id="content">
+<h1 id="lobachevsky-geometry-hyperbolic-geometry"><a class="anchor" href="#lobachevsky-geometry-hyperbolic-geometry">#</a>Lobachevsky geometry (hyperbolic geometry)</h1>
+<p>From here on I'll just call it hyperbolic geometry for short.</p>
+<p>The 2D space with hyperbolic geometry is denoted H<sup>2</sup>, and likewise the 3D one is H<sup>3</sup>. Ordinary Euclidean space is denoted by the letter E, for example: E, E<sup>2</sup>, E<sup>3</sup>, E<sup>4</sup>.</p>
+<p>This is where I'll organize interesting material from our chat: <a href="https://t.me/metageometria">https://t.me/metageometria</a> (in Russian)</p>
+<h1 id="theorems-and-axioms-of-this-geometry"><a class="anchor" href="#theorems-and-axioms-of-this-geometry">#</a>Theorems and axioms of this geometry</h1>
+<p>Ordinary Euclidean geometry has 5 axioms from which everything else is derived. And among them is the fifth axiom:</p>
+<blockquote>
+<p>In a plane, through a point not lying on a given line, one and only one line parallel to the given one can be drawn.</p>
+</blockquote>
+<p>In hyperbolic geometry this axiom is negated:</p>
+<blockquote>
+<p>Through a point not lying on a given line, there pass at least two lines that lie in the same plane as the given line and don't intersect it.</p>
+</blockquote>
+<p>Once again: <strong>here parallel lines don't intersect!</strong> They intersect in spherical geometry.</p>
+<p>It follows from this axiom that infinitely many lines pass through the given point without intersecting the given line. It's drawn like this:</p>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="298"     height="298"     src="/processed_images/5_axiom.4f6ab523b331fcf9.webp"     onclick="full_screen('img/5_axiom.png')"     onauxclick="full_screen_new_page('img/5_axiom.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<figcaption><a href="https://commons.wikimedia.org/wiki/File:Klein_model.svg">Source</a></figcaption>
+</figure>
+<p>There are also pictures that nicely show the main differences between all three known geometries:</p>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="400"     height="268"     src="/processed_images/comparison_spaces.fdd877076bb5efdf.webp"     onclick="full_screen('img/comparison_spaces.png')"     onauxclick="full_screen_new_page('img/comparison_spaces.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<figcaption><a href="https://web.archive.org/web/20180715221111/http://pmrb.net/blog/tag/non-euclidean-geometry/">Source</a></figcaption>
+</figure>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="450"     height="132"     src="/processed_images/triangles_spaces.fd0caa7e332db8b8.webp"     onclick="full_screen('img/triangles_spaces.png')"     onauxclick="full_screen_new_page('img/triangles_spaces.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<figcaption><a href="https://web.archive.org/web/20180715221111/http://pmrb.net/blog/tag/non-euclidean-geometry/">Source</a></figcaption>
+</figure>
+<h1 id="books"><a class="anchor" href="#books">#</a>Books</h1>
+<p>The book <a href="https://t.me/metageometria/417">L. S. Atanasyan, Lobachevsky Geometry</a> (in Russian)</p>
+<p>The book <a href="https://t.me/metageometria/418">V. V. Prasolov, Lobachevsky Geometry</a> (in Russian)</p>
+<h1 id="visualization"><a class="anchor" href="#visualization">#</a>Visualization</h1>
+<p>Think about it: how do we visualize Euclidean geometry? Very easily! We just take a 2D sheet of paper and draw on it, because our world is Euclidean! But with hyperbolic geometry it won't be that easy: for it you have to come up with special projections that bend straight lines into curves. Just like perspective projection changes distances and sizes of 3D objects.</p>
+<h2 id="poincare-disk"><a class="anchor" href="#poincare-disk">#<sup>2</sup></a>Poincaré disk</h2>
+<p><a href="https://en.wikipedia.org/wiki/Poincar%C3%A9_disk_model">On Wikipedia.</a></p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="300"     height="300"     src="/processed_images/Poincare_disc_hyperbolic_parallel_lines.svg.94a351655c4010b4.webp"     onclick="full_screen('img/Poincare_disc_hyperbolic_parallel_lines.svg.png')"     onauxclick="full_screen_new_page('img/Poincare_disc_hyperbolic_parallel_lines.svg.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<h2 id="upper-half-plane"><a class="anchor" href="#upper-half-plane">#<sup>2</sup></a>Upper half-plane</h2>
+<p><a href="https://en.wikipedia.org/wiki/Poincar%C3%A9_half-plane_model">On Wikipedia.</a></p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="350"     height="170"     src="/processed_images/350px-Parallel_rays_in_Poincare_model_of_hyperbolic_geometry.svg.85b09c9fea94bb8e.webp"     onclick="full_screen('img/350px-Parallel_rays_in_Poincare_model_of_hyperbolic_geometry.svg.png')"     onauxclick="full_screen_new_page('img/350px-Parallel_rays_in_Poincare_model_of_hyperbolic_geometry.svg.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<p>A line is represented as a semicircle with its center on the line y=0. So to construct a line through two points, you need to construct a circle through these two points. Luckily, the constraint that the center lies on that line reduces the number of unknowns to two. Or else the line is a vertical ray.</p>
+<p>Hyperbolic circles are projected as circles, but the coordinates of the center and the radius are calculated differently: (x, y cosh(r)), r = y sinh(r)</p>
+<p>The conversion to the Poincaré disk is done with the <a href="https://en.wikipedia.org/wiki/Cayley_transform#Complex_homography">Cayley transform</a></p>
+<p>I even visualized this <a href="https://twitter.com/optozorax/status/1207637170191785986">here</a> and <a href="https://twitter.com/optozorax/status/1207647487252729858">here</a> (a slightly different transformation, to make it prettier).</p>
+<h2 id="band-model"><a class="anchor" href="#band-model">#<sup>2</sup></a>Band model</h2>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1199"     height="507"     src="/processed_images/band.bc71a00079cb2e4b.webp"     onclick="full_screen('img/band.png')"     onauxclick="full_screen_new_page('img/band.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<figcaption><a href="http://bulatov.org/math/1001/index.html#(12)">Source</a></figcaption>
+</figure>
+<h2 id="ray-tracing"><a class="anchor" href="#ray-tracing">#<sup>2</sup></a>Ray tracing</h2>
+<p>But to depict H<sup>3</sup>, you can use the same methods as for visualizing E<sup>3</sup>, for example perspective projection and ray tracing. Which is exactly what they did in the following video:</p>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=ivHG4AOkhYA">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/ivHG4AOkhYA.webp" width="1280" height="720">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=ivHG4AOkhYA">Non-euclidean virtual reality using ray marching</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UC4zzTEL5tuIgGMvzjk1Ozbg">Henry Segerman</a>
+</div>
+<div class="yt-duration">3:00</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=ivHG4AOkhYA">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<h2 id="what-if"><a class="anchor" href="#what-if">#<sup>2</sup></a>What if</h2>
+<p>What if we project H<sup>3</sup> onto a piece of H<sup>2</sup> with a perspective projection? Will straight lines be straight there? And in general, which projection of H<sup>3</sup> onto H<sup>2</sup> has the largest number of nice properties?</p>
+<h1 id="computations"><a class="anchor" href="#computations">#</a>Computations</h1>
+<p><a href="http://library.msri.org/books/Book31/files/cannon.pdf">Zeno Rogue recommends this paper for computations in hyperbolic space.</a></p>
+<h2 id="where-i-started"><a class="anchor" href="#where-i-started">#<sup>2</sup></a>Where I started</h2>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="300"     height="300"     src="/processed_images/life.2effc0f0def58a74.webp"     onclick="full_screen('img/life.gif')"     onauxclick="full_screen_new_page('img/life.gif')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>gif</div> </div> </div>
+<p>An article that explains very well how to simulate the Lobachevsky plane: <a href="https://habr.com/ru/post/168421/">Life on the Lobachevsky plane</a> (in Russian). It has a lot of other interesting stuff too, for example, space wrapping around onto itself; I need to look into that.</p>
+<p>With its help I drew my first tiling and GIFs of the interpolation between the upper half-plane model and the Poincaré disk.</p>
+<h2 id="motion-on-the-poincare-disk"><a class="anchor" href="#motion-on-the-poincare-disk">#<sup>2</sup></a>Motion on the Poincaré disk</h2>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="729"     height="544"     src="/processed_images/calc.47ff4d8d15d2b781.webp"     onclick="full_screen('img/calc.png')"     onauxclick="full_screen_new_page('img/calc.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<figcaption><a href="https://math.stackexchange.com/questions/308339/rigid-body-motion-on-the-poincare-disc-model-of-the-hyperbolic-plane">Source</a></figcaption>
+</figure>
+<p><a href="https://t.me/metageometria/520">Animation of motion along the X axis.</a></p>
+<p>And to move along an axis at an arbitrary angle, you just multiply these matrices like this:</p>
+<p>if we denote the first matrix as M(x) and the second as R(φ), then we need to build the matrix</p>
+<p>R(φ) * M(x) * R(-φ)</p>
+<p><a href="https://t.me/metageometria/522">Animation of motion at 45 degrees.</a></p>
+<h1 id="tilings"><a class="anchor" href="#tilings">#</a>Tilings</h1>
+<p>You probably know that the ordinary two-dimensional space can be tiled with regular polygons:</p>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="616"     height="287"     src="/processed_images/tiling.en.7694836b96f547f6.webp"     onclick="full_screen('img/tiling.en.png')"     onauxclick="full_screen_new_page('img/tiling.en.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<figcaption><a href="https://ru.wikipedia.org/wiki/%D0%97%D0%B0%D0%BC%D0%BE%D1%89%D0%B5%D0%BD%D0%B8%D0%B5_%28%D0%B3%D0%B5%D0%BE%D0%BC%D0%B5%D1%82%D1%80%D0%B8%D1%8F%29">Source</a> (in Russian)</figcaption>
+</figure>
+<p>In hyperbolic geometry there is much more freedom for this, because there a regular polygon can have almost any angle: the bigger the polygon, the smaller its angle.</p>
+<p>This happens because the 5th axiom implies that triangles are congruent if their angles are equal. In ordinary geometry, on the other hand, triangles are similar if their angles are equal. It follows that in hyperbolic geometry there is no similarity, and the angles of a regular polygon uniquely determine its size.</p>
+<p>Thanks to this, you can go wild with all kinds of tilings by changing the size of the shapes. For example, in this tiling the angle of the regular pentagons is 90 degrees:</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="500"     height="500"     src="/processed_images/pentagon.43fb5890820e0ce7.webp"     onclick="full_screen('img/pentagon.jpg')"     onauxclick="full_screen_new_page('img/pentagon.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<p>A lecture about tilings of the hyperbolic plane:</p>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=YpKWa8vrULk">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/YpKWa8vrULk.webp" width="336" height="188">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=YpKWa8vrULk">Bridges 2018 talk - Visualizing hyperbolic honeycombs</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UC4zzTEL5tuIgGMvzjk1Ozbg">Henry Segerman</a>
+</div>
+<div class="yt-duration">31:42</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=YpKWa8vrULk">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<h1 id="a-game-in-hyperbolic-geometry"><a class="anchor" href="#a-game-in-hyperbolic-geometry">#</a>A game in hyperbolic geometry</h1>
+<h2 id="minecraft"><a class="anchor" href="#minecraft">#<sup>2</sup></a>Minecraft</h2>
+<p>I'd like to make Minecraft in H<sup>3</sup>, using the tiling of space with cubes <a href="https://en.wikipedia.org/wiki/Order-5_cubic_honeycomb">{4, 3, 5}</a>.</p>
+<p><a href="https://t.me/metageometria/314">My first idea</a> (in Russian) was to make the horizontal plane H<sup>2</sup> and the vertical direction ordinary E, so that height works the way we're used to perceiving it, that is, the space H<sup>2</sup>×E. But then I realized that this looks very ugly: distant objects look squashed horizontally and very tall. This is what it looks like:</p>
+<p><a href="https://www.youtube.com/watch?v=PnJ21XSjqpo">Zeno Rogue H<sup>2</sup>×E video</a></p>
+<p><a href="https://github.com/henryseg/H2xE_VR">VR implementation of H^2 x E geometry</a></p>
+<p>So I decided that it looks ugly, and I want to make Minecraft in H<sup>3</sup> space. Gravity there will point perpendicular to the floor. I'll lay out the floor <a href="https://t.me/metageometria/378">roughly like this</a> (in Russian).</p>
+<p>It can be rendered with ray tracing.</p>
+<h2 id="memory-limits"><a class="anchor" href="#memory-limits">#<sup>2</sup></a>Memory limits</h2>
+<p>While in our familiar Euclidean world the area of a circle grows in proportion to the square of its size, in hyperbolic space everything is much worse:</p>
+<p>According to <a href="https://www.maths.gla.ac.uk/wws/cabripages/hyperbolic/circleformulae.html">this</a> source, the area of a circle there grows as:</p>
+<p>S = 4 pi sinh<sup>2</sup>(r/2).</p>
+<p>For those who don't know, the hyperbolic sine is calculated like this:</p>
+<p>sinh(x) = (e<sup>x</sup> - e<sup>-x</sup>)/2.</p>
+<p>And this means that the area of a circle grows roughly in proportion to the square of an exponential, which is a lot.</p>
+<p>If we want to store a Minecraft world as blocks, then already for a circle of radius <code>30</code> we'll have so many blocks inside that they won't fit into the memory of any personal computer. By the way, to get the same number of blocks in Euclidean Minecraft, we'd need a circle with a radius of <code>32 million</code> blocks.</p>
+<p>So in hyperbolic Minecraft we can't afford such a luxury as generating a world that you can modify. We'll have to settle for:</p>
+<ul>
+<li>either a flat world where the user can place a finite number of blocks;</li>
+<li>or an auto-generated world where nothing can be changed.</li>
+</ul>
+<p>The game <a href="http://www.roguetemple.com/z/hyper/">HyperRogue</a> chose the second option, but it takes place on a 2D plane.</p>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=xAFrKKApHTY">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/xAFrKKApHTY.webp" width="1280" height="720">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=xAFrKKApHTY">HyperRogue trailer</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCfCtbgiDxwFtlqrbEralvTw">ZenoTheRogue</a>
+</div>
+<div class="yt-duration">1:57</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=xAFrKKApHTY">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<h2 id="compression"><a class="anchor" href="#compression">#<sup>2</sup></a>Compression</h2>
+<p>The circumference of a circle in hyperbolic space is also expressed in terms of the exponential:</p>
+<p>L = 2 pi sinh(r)</p>
+<p>And this means that at a distance of 20, about e<sup>20</sup> blocks will fit, so we'll see the world in the distance as very compressed. And moving through such a world won't look like ordinary movement, but like zooming, because everything will grow in size very quickly.</p>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=twrn6CW-szo">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/twrn6CW-szo.webp" width="336" height="188">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=twrn6CW-szo">HyperRogue in first person perspective (V2)</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCfCtbgiDxwFtlqrbEralvTw">ZenoTheRogue</a>
+</div>
+<div class="yt-duration">2:16</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=twrn6CW-szo">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<h1 id="curiosities"><a class="anchor" href="#curiosities">#</a>Curiosities</h1>
+<h2 id="discrete-coordinates-for-tilings-in-hyperbolic-geometry"><a class="anchor" href="#discrete-coordinates-for-tilings-in-hyperbolic-geometry">#<sup>2</sup></a>Discrete coordinates for tilings in hyperbolic geometry</h2>
+<p>These are three related articles:</p>
+<p><a href="http://vlad-shcherbina.github.io/2015/01/04/coordinates.html">What does it mean to introduce coordinate system on a regular tiling?</a></p>
+<p><a href="http://vlad-shcherbina.github.io/2015/01/05/heptagrid-coordinates.html">Coordinate system for heptagonal tiling of hyperbolic plane</a></p>
+<p><a href="http://vlad-shcherbina.github.io/2015/01/12/adjacent-heptagons.html">Adjacent heptagons on hyperbolic plane</a></p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="300"     height="300"     src="/processed_images/coords1.1fea95f91d5d2b8a.webp"     onclick="full_screen('img/coords1.png')"     onauxclick="full_screen_new_page('img/coords1.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="300"     height="301"     src="/processed_images/coords2.e715fd271629a75c.webp"     onclick="full_screen('img/coords2.png')"     onauxclick="full_screen_new_page('img/coords2.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<p><a href="https://arxiv.org/pdf/1101.0530.pdf">Something else about discrete coordinates, saved here so I don't lose it</a></p>
+<h2 id="demos-on-the-hyperbolic-plane"><a class="anchor" href="#demos-on-the-hyperbolic-plane">#<sup>2</sup></a>Demos on the hyperbolic plane</h2>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="524"     height="378"     src="/processed_images/demo1.6c0254f463dcac69.webp"     onclick="full_screen('img/demo1.png')"     onauxclick="full_screen_new_page('img/demo1.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<figcaption><a href="https://www.shadertoy.com/view/wtj3Ry">Source</a></figcaption>
+</figure>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="525"     height="375"     src="/processed_images/demo2.4450fc8ad2cfaff5.webp"     onclick="full_screen('img/demo2.png')"     onauxclick="full_screen_new_page('img/demo2.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<figcaption><a href="https://www.shadertoy.com/view/3tBGDD">Source</a></figcaption>
+</figure>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="525"     height="378"     src="/processed_images/demo3.8a2535a669292879.webp"     onclick="full_screen('img/demo3.png')"     onauxclick="full_screen_new_page('img/demo3.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<figcaption><a href="https://www.shadertoy.com/view/3llXR4">Source</a></figcaption>
+</figure>
+<p>Animation of objects moving in a square tiling:</p>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="525"     height="386"     src="/processed_images/demo4.bde2eafffb02c7f1.webp"     onclick="full_screen('img/demo4.png')"     onauxclick="full_screen_new_page('img/demo4.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<figcaption><a href="https://www.shadertoy.com/view/ldsfD8">Source</a></figcaption>
+</figure>
+<h1 id="memes"><a class="anchor" href="#memes">#</a>Memes</h1>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="458"     height="604"     src="/processed_images/meme1.en.60ce1ec18136c698.webp"     onclick="full_screen('img/meme1.en.jpg')"     onauxclick="full_screen_new_page('img/meme1.en.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="650"     height="403"     src="/processed_images/meme2.en.691fbfff54353bae.webp"     onclick="full_screen('img/meme2.en.jpg')"     onauxclick="full_screen_new_page('img/meme2.en.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<h1 id="unsorted-links"><a class="anchor" href="#unsorted-links">#</a>Unsorted links</h1>
+<p><a href="http://bulatov.org/math/1001/index.html">A cool presentation about mapping hyperbolic space onto different shapes.</a></p>
+<p><a href="https://medium.com/@ZenoRogue/non-euclidean-geometry-and-games-fb46989320d4">An article with lots of examples of games and visualizations of hyperbolic space.</a></p>
+<p><a href="http://page.math.tu-berlin.de/~sullivan/L/03W/Vis/curved-sp.pdf">An article with beautiful pictures</a></p>
+<p><a href="https://www.physicsforums.com/threads/coordinates-in-hyperbolic-geometry.311320/">An article about real-valued coordinates</a></p>
+
+</div>
+</article>
+
+  </section>
+  
+
+</td><td>
+<!-- TOC -->
+<input type="checkbox" id="toc-trigger" class="toc-trigger" />
+<label for="toc-trigger">
+  <span class="menu-icon">
+    <div class="side-button"><img src="/ico/right.svg"></div>
+  </span>
+</label>
+
+<nav class="section-nav">
+ <h2>Contents</h2>
+ <ul class="first">
+ 
+ 
+  <li>
+   <a href="#lobachevsky-geometry-hyperbolic-geometry">Lobachevsky geometry (hyperbolic geometry)</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#theorems-and-axioms-of-this-geometry">Theorems and axioms of this geometry</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#books">Books</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#visualization">Visualization</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#poincare-disk">Poincaré disk</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#upper-half-plane">Upper half-plane</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#band-model">Band model</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#ray-tracing">Ray tracing</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#what-if">What if</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#computations">Computations</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#where-i-started">Where I started</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#motion-on-the-poincare-disk">Motion on the Poincaré disk</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#tilings">Tilings</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#a-game-in-hyperbolic-geometry">A game in hyperbolic geometry</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#minecraft">Minecraft</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#memory-limits">Memory limits</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#compression">Compression</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#curiosities">Curiosities</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#discrete-coordinates-for-tilings-in-hyperbolic-geometry">Discrete coordinates for tilings in hyperbolic geometry</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#demos-on-the-hyperbolic-plane">Demos on the hyperbolic plane</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#memes">Memes</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#unsorted-links">Unsorted links</a>
+   
+  </li>
+ 
+ </ul>
+</nav>
+</td></tr></table>
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="section second-section">
+If you like what I do, follow me on <a href="https://t.me/optozorax_dev">Telegram</a> and <a href="https://www.youtube.com/c/optozorax">YouTube</a>.
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="comments section second-section main-content">
+<h1 class="archive-year">Changelog</h1>
+
+<h1 id="2021-08-26">2021.08.26</h1>
+<p>Moved this page to the new blog on Zola.</p>
+<h1 id="2020-11-16">2020.11.16</h1>
+<p>Moved this page to <a href="/en/p/submodules-jekyll/">submodules + jekyll</a>.</p>
+<h1 id="2020-01-06">2020.01.06</h1>
+<p>First publication.</p>
+
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="comments section second-section">
+
+<script src="https://utteranc.es/client.js"
+        repo="optozorax/optozorax.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+
+
+  <hr class="enabled-on-phone">
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <footer class="site-footer section second-section">
+  
+    <center>
+    <div style="margin-bottom: 10px;">© Ilya Sheprut. License: <a href="https://creativecommons.org/licenses/by/3.0/deed.en">CC-BY</a>.</div>
+    <table style="border: 0px; display: contents;">
+    <tr><td style="border: 0px; padding: 0.2rem;">
+    <!-- SVG icons from https://iconmonstr.com -->
+
+    <span class="my-span-icon">
+  <a 
+    href="https://github.com/optozorax" 
+    aria-label="optozorax's GitHub" 
+    title="optozorax's GitHub">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/github.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's GitHub">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://t.me/optozorax_dev" 
+    aria-label="optozorax's Telegram channel" 
+    title="optozorax's Telegram channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/tg.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Telegram channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://www.youtube.com/c/optozorax" 
+    aria-label="optozorax's YouTube channel" 
+    title="optozorax's YouTube channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/youtube.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's YouTube channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://boosty.to/optozorax" 
+    aria-label="optozorax's donate page" 
+    title="optozorax's donate page">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/donate.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's donate page">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="/en/atom.xml" 
+    aria-label="optozorax's Atom Feed" 
+    title="optozorax's Atom Feed">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/rss.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Atom Feed">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="mailto:optozorax@gmail.com" 
+    aria-label="optozorax's email" 
+    title="optozorax's email">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/contact.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's email">
+  </a>
+</span>
+
+    </td><td style="border: 0px; padding: 0.2rem;">
+
+    </td></tr>
+    </table>
+    <div class="small-info">
+      Made with <a href="https://www.getzola.org/">Zola</a> | Theme based on <a href="https://github.com/lorepirri/cayman-blog">Cayman Blog</a> | <a href="https://github.com/optozorax/blog_zola">Site sources</a>
+      <a rel="me" href="https://mathstodon.xyz/@optozorax" style="display: none;">Mastodon</a>
+    </div>
+    </center>
+  
+  </footer>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+</body>
+</html>

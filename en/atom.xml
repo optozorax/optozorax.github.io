@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title>optozorax.blog</title>
+	<subtitle>My programs and the results of their work</subtitle>
+	<link href="https://optozorax.github.io/en/atom.xml" rel="self" type="application/atom+xml"/>
+  	<link href="https://optozorax.github.io/en/"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2023-06-07T00:00:00+00:00</updated>
+	<author>
+        <name>optozorax</name>
+        <uri>https://optozorax.github.io/</uri>
+    </author>
+	<icon>https://optozorax.github.io/favicon/android-chrome-192x192.png</icon>
+	<id>https://optozorax.github.io/en/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Approximating a data distribution with a polynomial</title>
+		<published>2023-06-07T00:00:00+00:00</published>
+		<updated>2023-06-07T00:00:00+00:00</updated>
+		<link href="https://optozorax.github.io/en/p/polynom-distribution/" type="text/html"/>
+		<id>https://optozorax.github.io/en/p/polynom-distribution/</id>
+		<summary type="html">I had a lot of flight data from a micro drone and wanted to make a nice smooth plot... I couldn&#39;t find a ready-made solution on the internet.</summary>
+		<category term="math"/>
+		<category term="programming"/>
+		<category term="rust"/>
+	</entry>
+	<entry xml:lang="en">
+		<title>An idea for teaching GPT-4 to think, with programming problems as an example</title>
+		<published>2023-05-12T00:00:02+00:00</published>
+		<updated>2023-05-12T00:00:02+00:00</updated>
+		<link href="https://optozorax.github.io/en/p/gpt4/" type="text/html"/>
+		<id>https://optozorax.github.io/en/p/gpt4/</id>
+		<summary type="html">I propose how GPT-4 could be improved so that it can think and iteratively get better at solving competitive programming problems.</summary>
+		<category term="ideas"/>
+		<category term="neural-networks"/>
+		<category term="programming"/>
+		<category term="thoughts"/>
+	</entry>
+	<entry xml:lang="en">
+		<title>fopply — my program for step-by-step algebraic calculations</title>
+		<published>2021-09-06T00:00:00+00:00</published>
+		<updated>2021-09-06T00:00:00+00:00</updated>
+		<link href="https://optozorax.github.io/en/p/fopply/" type="text/html"/>
+		<id>https://optozorax.github.io/en/p/fopply/</id>
+		<summary type="html">This program lets you do algebraic calculations step by step and stay in control of them. It works by smartly applying formulas to the original expression. Here is the devlog of the program together with a description of the idea behind it.</summary>
+		<category term="ideas"/>
+		<category term="math"/>
+		<category term="fopply"/>
+		<category term="programming"/>
+		<category term="rust"/>
+	</entry>
+	<entry xml:lang="en">
+		<title>Moving my blog to Zola and why it&#39;s better than Jekyll</title>
+		<published>2021-08-30T00:00:02+00:00</published>
+		<updated>2021-08-30T00:00:02+00:00</updated>
+		<link href="https://optozorax.github.io/en/p/zola/" type="text/html"/>
+		<id>https://optozorax.github.io/en/p/zola/</id>
+		<summary type="html">Zola is a great static site generator. I moved my blog to it, and it inspired me to implement many cool features and to speed up the blog. This article focuses on the pros and cons of Zola as a static site generator.</summary>
+		<category term="meta"/>
+		<category term="blog"/>
+		<category term="review"/>
+		<category term="zola"/>
+	</entry>
+	<entry xml:lang="en">
+		<title>Speeding up a static website</title>
+		<published>2021-08-30T00:00:01+00:00</published>
+		<updated>2021-08-30T00:00:01+00:00</updated>
+		<link href="https://optozorax.github.io/en/p/blog-optimization/" type="text/html"/>
+		<id>https://optozorax.github.io/en/p/blog-optimization/</id>
+		<summary type="html">My blog used to load slowly and lag a lot, even though it was a static site. Here is how I got maximum loading speed, minimal traffic and a score of 100 in Lighthouse.</summary>
+		<category term="meta"/>
+		<category term="blog"/>
+		<category term="optimization"/>
+		<category term="zola"/>
+	</entry>
+	<entry xml:lang="en">
+		<title>New features of this blog</title>
+		<published>2021-08-30T00:00:00+00:00</published>
+		<updated>2021-08-30T00:00:00+00:00</updated>
+		<link href="https://optozorax.github.io/en/p/new-features/" type="text/html"/>
+		<id>https://optozorax.github.io/en/p/new-features/</id>
+		<summary type="html">My blog now has a bunch of features that make it easier to write unusual posts and add handy functionality for the reader. Mostly I&#39;m just bragging, but you can also steal these features for yourself.</summary>
+		<category term="meta"/>
+		<category term="blog"/>
+		<category term="zola"/>
+	</entry>
+	<entry xml:lang="en">
+		<title>Portals</title>
+		<published>2021-08-18T00:00:00+00:00</published>
+		<updated>2021-08-18T00:00:00+00:00</updated>
+		<link href="https://optozorax.github.io/en/p/portals/" type="text/html"/>
+		<id>https://optozorax.github.io/en/p/portals/</id>
+		<summary type="html">Everything about the discoveries I made about portals; how I developed software to visualize them; what happens if you put a portal inside a portal; monoportals; a triple portal. I break your brain and space with portals.</summary>
+		<category term="programming"/>
+		<category term="rust"/>
+		<category term="graphics"/>
+		<category term="portals"/>
+		<category term="ray-tracing"/>
+		<category term="youtube"/>
+	</entry>
+	<entry xml:lang="en">
+		<title>How I write programs</title>
+		<published>2021-08-16T00:00:00+00:00</published>
+		<updated>2021-08-16T00:00:00+00:00</updated>
+		<link href="https://optozorax.github.io/en/p/how-i-write-programs/" type="text/html"/>
+		<id>https://optozorax.github.io/en/p/how-i-write-programs/</id>
+		<summary type="html">I show it with two examples and cover everything: collecting ideas, planning, data structures, todo lists, writing code.</summary>
+		<category term="programming"/>
+		<category term="ideas"/>
+	</entry>
+	<entry xml:lang="en">
+		<title>How I made graphical applications for the first time in my life: pros and cons of ImGui</title>
+		<published>2021-08-14T00:00:00+00:00</published>
+		<updated>2021-08-14T00:00:00+00:00</updated>
+		<link href="https://optozorax.github.io/en/p/imgui/" type="text/html"/>
+		<id>https://optozorax.github.io/en/p/imgui/</id>
+		<summary type="html">About a tool that will change how you think about programming graphical interfaces. If your pet projects used to be limited to console utilities, now you can confidently start making graphical ones with about the same amount of effort.</summary>
+		<category term="programming"/>
+		<category term="rust"/>
+	</entry>
+	<entry xml:lang="en">
+		<title>A program for learning English words</title>
+		<published>2021-08-01T00:00:00+00:00</published>
+		<updated>2021-08-01T00:00:00+00:00</updated>
+		<link href="https://optozorax.github.io/en/p/learn-words-post/" type="text/html"/>
+		<id>https://optozorax.github.io/en/p/learn-words-post/</id>
+		<summary type="html">How this program works, why I made it, and what advantages it has over the others.</summary>
+		<category term="programming"/>
+		<category term="program"/>
+		<category term="language"/>
+		<category term="interface"/>
+	</entry>
+	<entry xml:lang="en">
+		<title>Properties of reversible 1D automata</title>
+		<published>2021-07-28T00:00:00+00:00</published>
+		<updated>2021-07-28T00:00:00+00:00</updated>
+		<link href="https://optozorax.github.io/en/p/invertible-1d-automata/" type="text/html"/>
+		<id>https://optozorax.github.io/en/p/invertible-1d-automata/</id>
+		<summary type="html">I study the properties of one-dimensional reversible cellular automata and find trivial transformations and 4 groups of automata.</summary>
+		<category term="math"/>
+		<category term="cellular-automata"/>
+		<category term="programming"/>
+		<category term="reversible-automata"/>
+	</entry>
+	<entry xml:lang="en">
+		<title>Two doesn&#39;t exist</title>
+		<published>2021-06-06T00:00:00+00:00</published>
+		<updated>2021-06-06T00:00:00+00:00</updated>
+		<link href="https://optozorax.github.io/en/p/two-doesnt-exists/" type="text/html"/>
+		<id>https://optozorax.github.io/en/p/two-doesnt-exists/</id>
+		<summary type="html">I refute, wholesale, the argument that something abstract and mathematical doesn&#39;t exist.</summary>
+		<category term="thoughts"/>
+		<category term="math"/>
+	</entry>
+	<entry xml:lang="en">
+		<title>We shouldn&#39;t draw any conclusions about our everyday life from genetic research</title>
+		<published>2021-05-31T00:00:00+00:00</published>
+		<updated>2021-05-31T00:00:00+00:00</updated>
+		<link href="https://optozorax.github.io/en/p/genes/" type="text/html"/>
+		<id>https://optozorax.github.io/en/p/genes/</id>
+		<summary type="html"></summary>
+		<category term="thoughts"/>
+	</entry>
+	<entry xml:lang="en">
+		<title>There should be no &quot;Spam&quot; folder</title>
+		<published>2021-02-09T00:00:00+00:00</published>
+		<updated>2021-02-09T00:00:00+00:00</updated>
+		<link href="https://optozorax.github.io/en/p/spam/" type="text/html"/>
+		<id>https://optozorax.github.io/en/p/spam/</id>
+		<summary type="html">It&#39;s an incredibly terrible solution, and I propose a more sensible one.</summary>
+		<category term="thoughts"/>
+		<category term="ideas"/>
+		<category term="interface"/>
+	</entry>
+	<entry xml:lang="en">
+		<title>Ilya Sheprut&#39;s keyboard layout</title>
+		<published>2021-01-16T00:00:00+00:00</published>
+		<updated>2021-01-16T00:00:00+00:00</updated>
+		<link href="https://optozorax.github.io/en/p/my-keyboard-layout/" type="text/html"/>
+		<id>https://optozorax.github.io/en/p/my-keyboard-layout/</id>
+		<summary type="html">My layout, the story of how I arrived at it, and an explanation of every design decision.</summary>
+		<category term="keyboard-layout"/>
+		<category term="keyboards"/>
+		<category term="ideas"/>
+	</entry>
+	<entry xml:lang="en">
+		<title>One repository = One blog post</title>
+		<published>2020-11-16T00:00:00+00:00</published>
+		<updated>2020-11-16T00:00:00+00:00</updated>
+		<link href="https://optozorax.github.io/en/p/submodules-jekyll/" type="text/html"/>
+		<id>https://optozorax.github.io/en/p/submodules-jekyll/</id>
+		<summary type="html">Making it possible with `git submodules` on Jekyll + GitHub Pages.</summary>
+		<category term="meta"/>
+		<category term="blog"/>
+		<category term="git"/>
+	</entry>
+	<entry xml:lang="en">
+		<title>How to write a permutation as a number</title>
+		<published>2020-11-08T00:00:00+00:00</published>
+		<updated>2020-11-08T00:00:00+00:00</updated>
+		<link href="https://optozorax.github.io/en/p/permutation-into-number/" type="text/html"/>
+		<id>https://optozorax.github.io/en/p/permutation-into-number/</id>
+		<summary type="html">How to represent any permutation as a number from 1 to N! and, conversely, get a permutation from any number.</summary>
+		<category term="math"/>
+		<category term="reversible-automata"/>
+	</entry>
+	<entry xml:lang="en">
+		<title>A cellular automaton based on the film &quot;Tenet&quot;</title>
+		<published>2020-10-29T00:00:00+00:00</published>
+		<updated>2020-10-29T00:00:00+00:00</updated>
+		<link href="https://optozorax.github.io/en/p/the-tenet-of-life/" type="text/html"/>
+		<id>https://optozorax.github.io/en/p/the-tenet-of-life/</id>
+		<summary type="html">Is it possible to create an automaton that has particles moving forward in time and backward in time at the same time? Yes, and I made such an automaton: this post is about it.</summary>
+		<category term="cellular-automata"/>
+		<category term="reversible-automata"/>
+		<category term="programming"/>
+	</entry>
+	<entry xml:lang="en">
+		<title>The 5-point rating scale is wrong</title>
+		<published>2020-08-26T00:00:00+00:00</published>
+		<updated>2020-08-26T00:00:00+00:00</updated>
+		<link href="https://optozorax.github.io/en/p/5-point-ratings-are-wrong/" type="text/html"/>
+		<id>https://optozorax.github.io/en/p/5-point-ratings-are-wrong/</id>
+		<summary type="html">The whole world is wrong again, and once again I have a brilliant solution.</summary>
+		<category term="ideas"/>
+		<category term="notation"/>
+	</entry>
+	<entry xml:lang="en">
+		<title>The subscription problem</title>
+		<published>2020-08-04T00:00:00+00:00</published>
+		<updated>2020-08-04T00:00:00+00:00</updated>
+		<link href="https://optozorax.github.io/en/p/subscription-problem/" type="text/html"/>
+		<id>https://optozorax.github.io/en/p/subscription-problem/</id>
+		<summary type="html">Thoughts on why it&#39;s so hard to unsubscribe</summary>
+		<category term="thoughts"/>
+		<category term="ideas"/>
+		<category term="interface"/>
+	</entry>
+	<entry xml:lang="en">
+		<title>Reversible cellular automata</title>
+		<published>2020-07-27T00:00:00+00:00</published>
+		<updated>2020-07-27T00:00:00+00:00</updated>
+		<link href="https://optozorax.github.io/en/p/critters/" type="text/html"/>
+		<id>https://optozorax.github.io/en/p/critters/</id>
+		<summary type="html">How changes in the present can affect the past, with the Critters automaton as an example.</summary>
+		<category term="cellular-automata"/>
+		<category term="reversible-automata"/>
+		<category term="programming"/>
+	</entry>
+	<entry xml:lang="en">
+		<title>Float is dynamic typing at the processor level</title>
+		<published>2020-06-20T00:00:00+00:00</published>
+		<updated>2020-06-20T00:00:00+00:00</updated>
+		<link href="https://optozorax.github.io/en/p/typed-float/" type="text/html"/>
+		<id>https://optozorax.github.io/en/p/typed-float/</id>
+		<summary type="html">Why working with floating-point numbers brings so much suffering, and a crazy idea for improving it with new data types.</summary>
+		<category term="rust"/>
+		<category term="math"/>
+		<category term="thoughts"/>
+		<category term="typing"/>
+	</entry>
+	<entry xml:lang="en">
+		<title>Symmetric probabilities, or Confidences</title>
+		<published>2020-06-18T00:00:00+00:00</published>
+		<updated>2020-06-18T00:00:00+00:00</updated>
+		<link href="https://optozorax.github.io/en/p/symmetric-probabilities/" type="text/html"/>
+		<id>https://optozorax.github.io/en/p/symmetric-probabilities/</id>
+		<summary type="html">Ordinary probabilities give the chance that some event will happen. But how do you describe a person&#39;s confidence that an event will happen? And how do you describe that the probability increases given some event? I propose an interesting idea of &quot;confidences&quot;, which are meant to solve this.</summary>
+		<category term="math"/>
+		<category term="programming"/>
+	</entry>
+	<entry xml:lang="en">
+		<title>Arbitrary neural network</title>
+		<published>2020-01-06T00:00:00+00:00</published>
+		<updated>2020-01-06T00:00:00+00:00</updated>
+		<link href="https://optozorax.github.io/en/p/arbitrary-nn/" type="text/html"/>
+		<id>https://optozorax.github.io/en/p/arbitrary-nn/</id>
+		<summary type="html">What you can do with a neural network whose neurons are connected haphazardly: roughly the way it should be in our brain.</summary>
+		<category term="notation"/>
+		<category term="neural-networks"/>
+	</entry>
+	<entry xml:lang="en">
+		<title>A notation for linear algebra</title>
+		<published>2019-11-09T00:00:00+00:00</published>
+		<updated>2019-11-09T00:00:00+00:00</updated>
+		<link href="https://optozorax.github.io/en/p/linear-algebra/" type="text/html"/>
+		<id>https://optozorax.github.io/en/p/linear-algebra/</id>
+		<summary type="html">A notation system that makes linear algebra with vectors easier to understand.</summary>
+		<category term="math"/>
+		<category term="notation"/>
+		<category term="linear-algebra"/>
+	</entry>
+	<entry xml:lang="en">
+		<title>Evolved Virtual Creatures (a video from 1994)</title>
+		<published>2019-09-09T00:00:00+00:00</published>
+		<updated>2019-09-09T00:00:00+00:00</updated>
+		<link href="https://optozorax.github.io/en/p/evolution-virtual-creatures/" type="text/html"/>
+		<id>https://optozorax.github.io/en/p/evolution-virtual-creatures/</id>
+		<summary type="html">I list the sources, explain how it works and share my ideas.</summary>
+		<category term="youtube"/>
+		<category term="evolution"/>
+		<category term="ideas"/>
+	</entry>
+	<entry xml:lang="en">
+		<title>Fractals in Newton&#39;s method</title>
+		<published>2019-05-27T00:00:00+00:00</published>
+		<updated>2019-05-27T00:00:00+00:00</updated>
+		<link href="https://optozorax.github.io/en/p/newtons-fractal/" type="text/html"/>
+		<id>https://optozorax.github.io/en/p/newtons-fractal/</id>
+		<summary type="html">Newton basins can be drawn not only for complex numbers but for real numbers too. I show what that looks like.</summary>
+		<category term="math"/>
+		<category term="fractals"/>
+		<category term="graphics"/>
+	</entry>
+	<entry xml:lang="en">
+		<title>About my Space Objects library and the Pythagoras tree</title>
+		<published>2019-04-21T00:00:00+00:00</published>
+		<updated>2019-04-21T00:00:00+00:00</updated>
+		<link href="https://optozorax.github.io/en/p/space-objects/" type="text/html"/>
+		<id>https://optozorax.github.io/en/p/space-objects/</id>
+		<summary type="html">An article about a new library, with lots of beautiful pictures, interesting code, and raising the level of abstraction!</summary>
+		<category term="programming"/>
+		<category term="fractals"/>
+		<category term="graphics"/>
+		<category term="pythagoras-tree"/>
+	</entry>
+	<entry xml:lang="en">
+		<title>The Russian word for &#39;lie&#39; has too many meanings.</title>
+		<published>2019-04-07T00:00:00+00:00</published>
+		<updated>2019-04-07T00:00:00+00:00</updated>
+		<link href="https://optozorax.github.io/en/p/lie/" type="text/html"/>
+		<id>https://optozorax.github.io/en/p/lie/</id>
+		<summary type="html">There are at least three. Using one word for such different meanings creates confusion.</summary>
+		<category term="thoughts"/>
+		<category term="language"/>
+	</entry>
+	<entry xml:lang="en">
+		<title>What happens if Pinocchio says &#39;My nose will grow now&#39;?</title>
+		<published>2019-03-23T00:00:00+00:00</published>
+		<updated>2019-03-23T00:00:00+00:00</updated>
+		<link href="https://optozorax.github.io/en/p/pinoccio/" type="text/html"/>
+		<id>https://optozorax.github.io/en/p/pinoccio/</id>
+		<summary type="html">My reasoning on the question. Spoiler: no &#39;the universe explodes&#39; answers here, logic comes first.</summary>
+		<category term="thoughts"/>
+	</entry>
+	<entry xml:lang="en">
+		<title>Uses of std::function</title>
+		<published>2019-01-30T00:00:00+00:00</published>
+		<updated>2019-01-30T00:00:00+00:00</updated>
+		<link href="https://optozorax.github.io/en/p/std-function/" type="text/html"/>
+		<id>https://optozorax.github.io/en/p/std-function/</id>
+		<summary type="html">How to improve code quality with the function data type and lambda functions.</summary>
+		<category term="programming"/>
+		<category term="c++"/>
+	</entry>
+	<entry xml:lang="en">
+		<title>The &#39;Apollonian circles&#39; fractal. First experiments.</title>
+		<published>2018-07-20T00:00:00+00:00</published>
+		<updated>2018-07-20T00:00:00+00:00</updated>
+		<link href="https://optozorax.github.io/en/p/apollon-circles/" type="text/html"/>
+		<id>https://optozorax.github.io/en/p/apollon-circles/</id>
+		<summary type="html">I draw a fractal based on endlessly constructing tangent circles.</summary>
+		<category term="programming"/>
+		<category term="fractals"/>
+		<category term="graphics"/>
+		<category term="apollonian-circles"/>
+	</entry>
+</feed>

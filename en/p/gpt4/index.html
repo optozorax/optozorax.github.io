@@ -1,0 +1,2132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Fonts preload -->
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nFrXyi0A.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nBrXw.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxTcwhsk.woff2" crossOrigin="anonymous">
+  <!-- --- -->
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/main.css">
+  <!-- --- -->
+
+  <!-- Non social metatags -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link rel="canonical" href="https://optozorax.github.io/en/p/gpt4/">
+  <link rel="alternate" hreflang="en" href="https://optozorax.github.io/en/p/gpt4/">
+  <link rel="alternate" hreflang="ru" href="https://optozorax.github.io/p/gpt4/">
+  <link rel="alternate" hreflang="x-default" href="https://optozorax.github.io/p/gpt4/">
+  <meta name="robots" content="noarchive">
+  <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/en/atom.xml"> 
+  <!-- --- -->
+
+  <!-- Social metatags -->
+  
+
+<meta name="author" content="optozorax">
+<meta name="title" content="An idea for teaching GPT-4 to think, with programming problems as an example — optozorax&#39;s blog">
+<meta name="description" content="I propose how GPT-4 could be improved so that it can think and iteratively get better at solving competitive programming problems.">
+<meta name="image" content="https://optozorax.github.io/en/p/gpt4/preview.png">
+
+<meta name="keywords" itemprop="tags" content="ideas, neural-networks, programming, thoughts">
+
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://optozorax.github.io/en/p/gpt4/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="An idea for teaching GPT-4 to think, with programming problems as an example — optozorax&#39;s blog">
+<meta property="og:description" content="I propose how GPT-4 could be improved so that it can think and iteratively get better at solving competitive programming problems.">
+<meta property="og:image" content="https://optozorax.github.io/en/p/gpt4/preview.png">
+<meta property="og:locale" content="en">
+
+
+<meta property="article:published_time" content="2023-05-12">
+
+
+
+
+<meta property="article:tag" content="ideas">
+
+<meta property="article:tag" content="neural-networks">
+
+<meta property="article:tag" content="programming">
+
+<meta property="article:tag" content="thoughts">
+
+
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="optozorax.github.io">
+<meta property="twitter:url" content="https://optozorax.github.io/en/p/gpt4/">
+<meta name="twitter:title" content="An idea for teaching GPT-4 to think, with programming problems as an example — optozorax&#39;s blog">
+<meta name="twitter:description" content="I propose how GPT-4 could be improved so that it can think and iteratively get better at solving competitive programming problems.">
+<meta name="twitter:image" content="https://optozorax.github.io/en/p/gpt4/preview.png">
+<meta name="twitter:creator" content="optozorax">
+
+  <!-- --- -->
+
+  <!-- Extra head declarations -->
+  
+
+<link rel="preload" as="font" href="/fonts/KaTeX/KaTeX_Size4-Regular.woff2" crossOrigin="anonymous">
+<link rel="preload" as="font" href="/fonts/KaTeX/KaTeX_Math-Italic.woff2" crossOrigin="anonymous">
+<link rel="preload" as="font" href="/fonts/KaTeX/KaTeX_Main-Bold.woff2" crossOrigin="anonymous">
+<link rel="preload" as="font" href="/fonts/KaTeX/KaTeX_Main-Regular.woff2" crossOrigin="anonymous">
+<link rel="preload" as="font" href="/fonts/KaTeX/KaTeX_AMS-Regular.woff2" crossOrigin="anonymous">
+
+<link rel="stylesheet" href="/katex.min.css">
+<script defer src="/js/katex.min.js"></script>
+<script defer src="/js/mathtex-script-type.min.js"></script>
+
+<script type="text/javascript" src="/js/hammer.min.js"></script>
+<script type="text/javascript" src="/js/toc.js"></script>
+<script type="text/javascript" src="/js/gallery.js"></script>
+<script type="text/javascript" src="/js/full_screen.js"></script>
+<script type="text/javascript" src="/js/word_wrap.js"></script>
+
+  <!-- --- -->
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+  <!-- --- -->
+
+  <title>An idea for teaching GPT-4 to think, with programming problems as an example — optozorax&#39;s blog</title>
+</head>
+
+<body>
+  <!-- FullScreen block -->
+  <div id="img_modal" class="modal" style="display: none;">
+      <img id="img_modal_01" src="/ico/loading.gif">
+      <span class="close" id="img_modal_close">&times;</span>
+  </div>
+  <!-- --- -->
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <header class="site-header" role="banner">
+  
+  <div class="wrapper">
+    <a class="site-title" href="/en/">optozorax.blog</a>
+
+    <div class="lang-switch">
+      <span class="lang-switch-item lang-switch-current" lang="en" title="English"><span class="lang-switch-flag">🇬🇧</span>EN</span>
+      <a class="lang-switch-item" href="/p/gpt4/" hreflang="ru" lang="ru" title="Русский"><span class="lang-switch-flag">🇷🇺</span>RU</a>
+    </div>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <img src="/ico/menu.svg" width="13px" height="15px">
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          <a class="page-link" href="/en/">Blog</a>
+        
+          <a class="page-link" href="/en/e">Collections</a>
+        
+          <a class="page-link" href="/en/tags">Tags</a>
+        
+          <a class="page-link" href="/en/about">About me</a>
+        
+      </div>
+    </nav>
+  </div>
+  
+  </header>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+  
+  <section class="page-header">
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+<h1 class="project-name">An idea for teaching GPT-4 to think, with programming problems as an example</h1>
+
+<h2 class="project-tagline">I propose how GPT-4 could be improved so that it can think and iteratively get better at solving competitive programming problems.</h2>
+
+
+
+<span style="margin-bottom: 10px;">
+  
+    <a href="/en/tags#ideas"><code class="tag"><nobr>#ideas</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#neural-networks"><code class="tag"><nobr>#neural-networks</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#programming"><code class="tag"><nobr>#programming</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#thoughts"><code class="tag"><nobr>#thoughts</nobr></code></a>&nbsp;
+  
+</span>
+
+
+<center>
+<table style="margin-top: 8px;">
+<tr>
+
+
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+  <time datetime="2023-05-12" itemprop="datePublished">
+    
+    
+    
+    
+    <span class="post-date">12 May 2023</span>
+  </time>
+</h2>
+</td>
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+    <span class="post-date" style="font-style: normal">| 🕑 59 min</span>
+</h2>
+</td>
+
+
+
+</tr>
+</table>
+
+
+<div class="translation-note">
+  <svg class="translation-note-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+  <span>Translated from 🇷🇺 Russian</span>
+  <span class="translation-note-sep">·</span>
+  <span>Translation by Claude Opus 5.5</span>
+  <span class="translation-note-sep">·</span>
+  <a href="/p/gpt4/" hreflang="ru" lang="ru">Original</a>
+</div>
+
+
+
+</center>
+
+
+</td><td>
+</td></tr></table>
+
+
+
+  </section>
+  
+  
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <section class="main-content section">
+  
+<article itemscope itemtype="http://schema.org/BlogPosting">
+<div itemprop="articleBody" id="content">
+<h1 id="what-this-article-is-about"><a class="anchor" href="#what-this-article-is-about">#</a>What this article is about</h1>
+<p>I took one competitive programming problem and decided to look at which key ideas GPT-4 arrives at when solving it, which hints can steer it toward the correct solution, and which techniques (few-shot learning, for example) help it reach the correct solution of this problem. Based on all that, I analyze GPT-4's intelligence and how it could be improved. Then I propose a system for solving competitive programming problems based on a specially trained LLM. I give ideas on how the huge set of problems on CodeForces and similar sites could be used to collect high-quality training data and to improve this system iteratively and automatically.</p>
+<p>Keep in mind that this article is no more than an idea with a bit of analysis, so it won't give you anything that works out of the box, but it will give you an interesting direction of thought. Please read it in exactly that light.</p>
+<h1 id="introduction"><a class="anchor" href="#introduction">#</a>Introduction</h1>
+<p>You've all seen those wonderful examples where ChatGPT is given a Leetcode problem and immediately writes a solution that works. It can even solve some medium or hard problems from after 2021, which couldn't have been in its training set. That's impressive, but I want to show that such systems have much more potential than just the "write code that solves this problem" pattern.</p>
+<h1 id="the-problem"><a class="anchor" href="#the-problem">#</a>The problem</h1>
+<p>I took the following problem: <a href="https://codeforces.com/edu/course/2/lesson/3/4/practice/contest/272262/problem/H">ITMO Academy: pilot course » Z-function » Step 4 » Practice » H. Sum of lengths of distinct substrings</a></p>
+<blockquote>
+<p><em>Solve this problem using the z-function of a string. There are many ways to solve it, but as an exercise in using the z-function, try to come up with and implement exactly this kind of solution.</em></p>
+<p>You are given a string s. Print the total length of all possible distinct substrings of this string.</p>
+<p><strong>Input:</strong> the only line of input contains s — a sequence of uppercase and lowercase Latin letters. The length of s does not exceed 8000 characters.</p>
+<p><strong>Output:</strong> print a single integer — the total length of all distinct substrings.</p>
+<p><strong>Examples:</strong> "BOBR" - 19, "ABACABA" - 73.</p>
+</blockquote>
+<details>
+<summary>What the Z-function is</summary>
+<div class="details-content">
+<p>It's a function that takes a string and returns an array of numbers of the same length as the string. This array describes how many characters of the current suffix match the beginning of the string. This array can be computed in O(n) with a clever trick. The Z-function can be used to find a substring in a string in O(n), and in lots of other string problems.</p>
+<p>Example: for the string <code>ABACABA</code> the Z-function is <code>[0, 0, 1, 0, 3, 0, 1]</code>, because:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>* 0 - the first element is always equal to       0 by definition</span></span>
+<span class="giallo-l"><span>* 0 - string BACABA matches ABACABA in the first 0 characters</span></span>
+<span class="giallo-l"><span>* 1 - string  ACABA matches ABACABA in the first 1 characters</span></span>
+<span class="giallo-l"><span>* 0 - string   CABA matches ABACABA in the first 0 characters</span></span>
+<span class="giallo-l"><span>* 3 - string    ABA matches ABACABA in the first 3 characters</span></span>
+<span class="giallo-l"><span>* 0 - string     BA matches ABACABA in the first 0 characters</span></span>
+<span class="giallo-l"><span>* 1 - string      A matches ABACABA in the first 1 characters</span></span></code></pre>
+<p>Suppose we want to find the string <code>ab</code> in the string <code>abacaba</code>. Then we can concatenate them with a unique character in between: <code>ab$abacaba</code>, and compute the z-function:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>a b $ a b a c a b a</span></span>
+<span class="giallo-l"><span>0 0 0 2 0 1 0 2 0 1</span></span></code></pre>
+<p>The places where 2 (the length of the string we're looking for) occurs are exactly the places where <code>ab</code> is a substring of <code>abacaba</code>.</p>
+</div>
+</details>
+<p>I chose this problem because:</p>
+<ul>
+<li>Most likely neither it nor anything similar is in the training set, because it's hidden behind a registration wall.</li>
+<li>There's little information about the Z-function on the internet, so we can test not the memorized thinking patterns of people from the internet, but the neural network's own thinking abilities.</li>
+<li>It's relatively simple and relatively hard at the same time, ideal for testing machine intelligence.</li>
+<li>I solved it once (not with the most optimal method, by the way).</li>
+</ul>
+<details>
+<summary>The gist of the solution</summary>
+<div class="details-content">
+<p>Every substring of the string starts at some position; let's look at one such position:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>abacababa</span></span>
+<span class="giallo-l"><span>    a</span></span>
+<span class="giallo-l"><span>    ab</span></span>
+<span class="giallo-l"><span>    aba</span></span>
+<span class="giallo-l"><span>    abab</span></span>
+<span class="giallo-l"><span>    ababa</span></span></code></pre>
+<p>Let's compute the Z-function of the suffix where all these strings start:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>a b a b a</span></span>
+<span class="giallo-l"><span>0 0 3 0 1</span></span></code></pre>
+<p>Here 3 means that the string aba matches the beginning of this string, and so do all its prefixes: <code>a</code>, <code>ab</code>, <code>aba</code>.</p>
+<p>So if we're looking for unique strings, we can use the value of the Z-function to cross out the ones that will come up later:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>abacababa</span></span>
+<span class="giallo-l"><span>    a - - (counted twice)</span></span>
+<span class="giallo-l"><span>    ab -</span></span>
+<span class="giallo-l"><span>    aba -</span></span>
+<span class="giallo-l"><span>    abab</span></span>
+<span class="giallo-l"><span>    ababa</span></span></code></pre>
+<p>Then this suffix has only 2 unique strings: <code>abab</code> and <code>ababa</code>, and we can add up their lengths. The strings <code>a</code>, <code>ab</code>, <code>aba</code> will be counted when we look at the following suffixes.</p>
+<p>Notice that we only need the maximum of the Z-function, and the sum of lengths can be computed with the arithmetic progression formula: take the sum of lengths of all prefixes of the suffix and subtract the sum of lengths of the repeated strings at its beginning.</p>
+</div>
+</details>
+<p>Key points:</p>
+<ul>
+<li>Iterate over every suffix and compute its Z-function.</li>
+<li>Find the maximum value of the Z-function (excluding the zeroth element).</li>
+<li>If M is the length of the current suffix, add <code>M(M+1)/2 - Z_max*(Z_max+1)/2</code> to the answer (I'll call this "the formula" for short).</li>
+</ul>
+<p>These are the three key points you have to figure out to solve the problem correctly. In my analysis the neural network stumbled on every one of them, and I had to bend over backwards to make it use each next element in its solution.</p>
+<p>This solution takes O(n^2) time and O(n) memory.</p>
+<h1 id="solving-the-problem"><a class="anchor" href="#solving-the-problem">#</a>Solving the problem</h1>
+<p>In the dialogues with the neural network it's worth reading my prompts, while ChatGPT's answers can be skimmed; I've <span class="red-bg example">highlighted in red</span> the most important parts.</p>
+<h2 id="chatgpt-solving-it-straight-away"><a class="anchor" href="#chatgpt-solving-it-straight-away">#<sup>2</sup></a>ChatGPT, solving it straight away</h2>
+<p>Let's just go ahead and ask ChatGPT straight away how to solve this problem, without the Z-function restriction:</p>
+<details>
+<summary>Dialogue</summary>
+<div class="details-content">
+<p><strong><center>USER</center></strong></p>
+<p>You have this competitive programming task:</p>
+<blockquote>
+<p>Given string S, calculate sum of lengths of unique substrings of that string.</p>
+</blockquote>
+<p>How it can be solved in most efficient way? Write solution in C++.</p>
+<hr />
+<p><strong><center>ChatGPT</center></strong></p>
+<p>One efficient solution to this problem is <span class="red-bg example">to use a data structure called a trie</span>. A trie is a tree-like data structure that is commonly used for efficiently storing and searching for strings. We can construct a trie for the given string S, and then traverse the trie to count the total length of all unique substrings.</p>
+<p>Here is the C++ code to solve this problem using a trie:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="cpp"><code data-lang="cpp"><span class="giallo-l"><span style="color: #72AB00;">#include</span><span style="color: #D07711;"> &lt;bits/stdc++.h&gt;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">using</span><span style="color: #668F14;"> namespace</span><span style="color: #C23F31;"> std</span><span>;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">const int</span><span style="color: #5597D6;"> MAXN</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 1</span><span style="color: #72AB00;">e</span><span style="color: #B3933A;">6</span><span style="color: #72AB00;"> +</span><span style="color: #B3933A;"> 5</span><span>;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">struct</span><span style="color: #C23F31;"> TrieNode</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #668F14;">    int</span><span style="color: #5597D6;"> child</span><span>[</span><span style="color: #B3933A;">26</span><span>];</span></span>
+<span class="giallo-l"><span style="color: #668F14;">    bool</span><span style="color: #5597D6;"> is_end</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    TrieNode</span><span>() {</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">        memset</span><span>(</span><span style="color: #5597D6;">child</span><span>,</span><span style="color: #72AB00;"> -</span><span style="color: #B3933A;">1</span><span>,</span><span style="color: #72AB00;"> sizeof</span><span>(</span><span style="color: #5597D6;">child</span><span>));</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">        is_end</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> false</span><span>;</span></span>
+<span class="giallo-l"><span>    }</span></span>
+<span class="giallo-l"><span>};</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #5597D6;">TrieNode trie</span><span>[</span><span style="color: #5597D6;">MAXN</span><span>];</span></span>
+<span class="giallo-l"><span style="color: #668F14;">int</span><span style="color: #5597D6;"> node_cnt</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 1</span><span>;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">void</span><span style="color: #C23F31;"> insert</span><span>(</span><span style="color: #C23F31;">string</span><span style="color: #668F14;">&amp;</span><span style="color: #5597D6;"> s</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #668F14;">    int</span><span style="color: #5597D6;"> node</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">    for</span><span> (</span><span style="color: #668F14;">char</span><span style="color: #5597D6;"> c</span><span> :</span><span style="color: #5597D6;"> s</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #668F14;">        int</span><span style="color: #5597D6;"> ch</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> c</span><span style="color: #72AB00;"> -</span><span style="color: #D07711;"> &#39;a&#39;</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        if</span><span> (</span><span style="color: #5597D6;">trie</span><span>[</span><span style="color: #5597D6;">node</span><span>].</span><span style="color: #5597D6;">child</span><span>[</span><span style="color: #5597D6;">ch</span><span>]</span><span style="color: #72AB00;"> == -</span><span style="color: #B3933A;">1</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">            trie</span><span>[</span><span style="color: #5597D6;">node</span><span>].</span><span style="color: #5597D6;">child</span><span>[</span><span style="color: #5597D6;">ch</span><span>]</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> node_cnt</span><span style="color: #72AB00;">++</span><span>;</span></span>
+<span class="giallo-l"><span>        }</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">        node</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> trie</span><span>[</span><span style="color: #5597D6;">node</span><span>].</span><span style="color: #5597D6;">child</span><span>[</span><span style="color: #5597D6;">ch</span><span>];</span></span>
+<span class="giallo-l"><span>    }</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">    trie</span><span>[</span><span style="color: #5597D6;">node</span><span>].</span><span style="color: #5597D6;">is_end</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> true</span><span>;</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">int</span><span style="color: #C23F31;"> dfs</span><span>(</span><span style="color: #668F14;">int</span><span style="color: #5597D6;"> node</span><span>,</span><span style="color: #668F14;"> int</span><span style="color: #5597D6;"> depth</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #668F14;">    int</span><span style="color: #5597D6;"> len</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">    for</span><span> (</span><span style="color: #668F14;">int</span><span style="color: #5597D6;"> i</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0</span><span>;</span><span style="color: #5597D6;"> i</span><span style="color: #72AB00;"> &lt;</span><span style="color: #B3933A;"> 26</span><span>;</span><span style="color: #5597D6;"> i</span><span style="color: #72AB00;">++</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #668F14;">        int</span><span style="color: #5597D6;"> child</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> trie</span><span>[</span><span style="color: #5597D6;">node</span><span>].</span><span style="color: #5597D6;">child</span><span>[</span><span style="color: #5597D6;">i</span><span>];</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        if</span><span> (</span><span style="color: #5597D6;">child</span><span style="color: #72AB00;"> != -</span><span style="color: #B3933A;">1</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">            len</span><span style="color: #72AB00;"> +=</span><span style="color: #C23F31;"> dfs</span><span>(</span><span style="color: #5597D6;">child</span><span>,</span><span style="color: #5597D6;"> depth</span><span style="color: #72AB00;"> +</span><span style="color: #B3933A;"> 1</span><span>);</span></span>
+<span class="giallo-l"><span>        }</span></span>
+<span class="giallo-l"><span>    }</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">    if</span><span> (</span><span style="color: #5597D6;">trie</span><span>[</span><span style="color: #5597D6;">node</span><span>].</span><span style="color: #5597D6;">is_end</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">        len</span><span style="color: #72AB00;"> +=</span><span style="color: #5597D6;"> depth</span><span>;</span></span>
+<span class="giallo-l"><span>    }</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">    return</span><span style="color: #5597D6;"> len</span><span>;</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">int</span><span style="color: #C23F31;"> main</span><span>() {</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    string</span><span style="color: #5597D6;"> s</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">    cin</span><span style="color: #72AB00;"> &gt;&gt;</span><span style="color: #5597D6;"> s</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #668F14;">    int</span><span style="color: #5597D6;"> n</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> s</span><span>.</span><span style="color: #C23F31;">size</span><span>();</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">    for</span><span> (</span><span style="color: #668F14;">int</span><span style="color: #5597D6;"> i</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0</span><span>;</span><span style="color: #5597D6;"> i</span><span style="color: #72AB00;"> &lt;</span><span style="color: #5597D6;"> n</span><span>;</span><span style="color: #5597D6;"> i</span><span style="color: #72AB00;">++</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">        string</span><span style="color: #5597D6;"> sub</span><span style="color: #72AB00;"> =</span><span style="color: #D07711;"> &quot;&quot;</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        for</span><span> (</span><span style="color: #668F14;">int</span><span style="color: #5597D6;"> j</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> i</span><span>;</span><span style="color: #5597D6;"> j</span><span style="color: #72AB00;"> &lt;</span><span style="color: #5597D6;"> n</span><span>;</span><span style="color: #5597D6;"> j</span><span style="color: #72AB00;">++</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">            sub</span><span style="color: #72AB00;"> +=</span><span style="color: #5597D6;"> s</span><span>[</span><span style="color: #5597D6;">j</span><span>];</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">            insert</span><span>(</span><span style="color: #5597D6;">sub</span><span>);</span></span>
+<span class="giallo-l"><span>        }</span></span>
+<span class="giallo-l"><span>    }</span></span>
+<span class="giallo-l"><span style="color: #668F14;">    int</span><span style="color: #5597D6;"> ans</span><span style="color: #72AB00;"> =</span><span style="color: #C23F31;"> dfs</span><span>(</span><span style="color: #B3933A;">0</span><span>,</span><span style="color: #B3933A;"> 0</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">    cout</span><span style="color: #72AB00;"> &lt;&lt;</span><span style="color: #5597D6;"> ans</span><span style="color: #72AB00;"> &lt;&lt;</span><span style="color: #5597D6;"> endl</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">    return</span><span style="color: #B3933A;"> 0</span><span>;</span></span>
+<span class="giallo-l"><span>}</span></span></code></pre>
+<p>In this solution, we first define a struct <code>TrieNode</code> to represent the nodes in the trie. Each node has an array <code>child</code> of size 26 (one for each possible lowercase letter) to store its children, and a boolean <code>is_end</code> to indicate whether the node represents the end of a word.</p>
+<p>We then define a function <code>insert</code> to insert a string into the trie. Starting from the root node (which has index 0), we traverse the trie by following the appropriate child for each character in the string. If a child node does not exist for a particular character, we create a new node and assign it a new index <code>node_cnt++</code>. Finally, we set the <code>is_end</code> flag of the last node in the string to true.</p>
+<p>After constructing the trie, we define a function <code>dfs</code> to recursively traverse the trie and count the total length of all unique substrings. We start from the root node and iterate over all its children. For each child node, we recursively call <code>dfs</code> with a depth incremented by 1, and add the returned value to <code>len</code>. If the current node represents the end of a word (i.e., <code>is_end</code> is true), we also add the current depth to <code>len</code>. Finally, we return <code>len</code>.</p>
+<p>In the <code>main</code> function, we read in the input string <code>s</code>, and for each possible substring of <code>s</code>, we call the <code>insert</code> function to insert it into the trie. We then call <code>dfs</code> with the root node and depth 0, and output the returned value as the answer.</p>
+<p>This solution has a time complexity of O(n^2), where n is the length of[MAX TOKENS REACHED]</p>
+<hr />
+<p><strong><center>USER</center></strong></p>
+<p>Can you please using dynamic allocation to create a trie, and allow every possible char symbol instead of 26 small latin letters, and use long long to store result instead of int.</p>
+<hr />
+<p><strong><center>ChatGPT</center></strong></p>
+<p>Sure! Here's the modified code that uses dynamic allocation to create the trie, supports all possible characters, and uses a <code>long long</code> to store the result:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="cpp"><code data-lang="cpp"><span class="giallo-l"><span style="color: #72AB00;">#include</span><span style="color: #D07711;"> &lt;bits/stdc++.h&gt;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">using</span><span style="color: #668F14;"> namespace</span><span style="color: #C23F31;"> std</span><span>;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">const int</span><span style="color: #5597D6;"> MAXN</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 1</span><span style="color: #72AB00;">e</span><span style="color: #B3933A;">6</span><span style="color: #72AB00;"> +</span><span style="color: #B3933A;"> 5</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #668F14;">const int</span><span style="color: #5597D6;"> MAXCHAR</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 256</span><span>;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">struct</span><span style="color: #C23F31;"> TrieNode</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #668F14;">    int*</span><span style="color: #5597D6;"> child</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #668F14;">    bool</span><span style="color: #5597D6;"> is_end</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    TrieNode</span><span>() {</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">        child</span><span style="color: #72AB00;"> = new</span><span style="color: #668F14;"> int</span><span>[</span><span style="color: #5597D6;">MAXCHAR</span><span>];</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">        memset</span><span>(</span><span style="color: #5597D6;">child</span><span>,</span><span style="color: #72AB00;"> -</span><span style="color: #B3933A;">1</span><span>,</span><span style="color: #72AB00;"> sizeof</span><span>(</span><span style="color: #668F14;">int</span><span>)</span><span style="color: #72AB00;"> *</span><span style="color: #5597D6;"> MAXCHAR</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">        is_end</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> false</span><span>;</span></span>
+<span class="giallo-l"><span>    }</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    ~TrieNode</span><span>() {</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        delete[]</span><span style="color: #5597D6;"> child</span><span>;</span></span>
+<span class="giallo-l"><span>    }</span></span>
+<span class="giallo-l"><span>};</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #5597D6;">TrieNode</span><span style="color: #72AB00;">*</span><span style="color: #5597D6;"> trie</span><span>[</span><span style="color: #5597D6;">MAXN</span><span>];</span></span>
+<span class="giallo-l"><span style="color: #668F14;">int</span><span style="color: #5597D6;"> node_cnt</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 1</span><span>;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">void</span><span style="color: #C23F31;"> insert</span><span>(</span><span style="color: #C23F31;">string</span><span style="color: #668F14;">&amp;</span><span style="color: #5597D6;"> s</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #668F14;">    int</span><span style="color: #5597D6;"> node</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">    for</span><span> (</span><span style="color: #668F14;">char</span><span style="color: #5597D6;"> c</span><span> :</span><span style="color: #5597D6;"> s</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #668F14;">        int</span><span style="color: #5597D6;"> ch</span><span style="color: #72AB00;"> =</span><span> (</span><span style="color: #668F14;">int</span><span>)</span><span style="color: #5597D6;">c</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        if</span><span> (</span><span style="color: #5597D6;">trie</span><span>[</span><span style="color: #5597D6;">node</span><span>]-&gt;</span><span style="color: #5597D6;">child</span><span>[</span><span style="color: #5597D6;">ch</span><span>]</span><span style="color: #72AB00;"> == -</span><span style="color: #B3933A;">1</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">            trie</span><span>[</span><span style="color: #5597D6;">node</span><span>]-&gt;</span><span style="color: #5597D6;">child</span><span>[</span><span style="color: #5597D6;">ch</span><span>]</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> node_cnt</span><span style="color: #72AB00;">++</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">            trie</span><span>[</span><span style="color: #5597D6;">node_cnt</span><span style="color: #72AB00;"> -</span><span style="color: #B3933A;"> 1</span><span>]</span><span style="color: #72AB00;"> = new</span><span style="color: #C23F31;"> TrieNode</span><span>();</span></span>
+<span class="giallo-l"><span>        }</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">        node</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> trie</span><span>[</span><span style="color: #5597D6;">node</span><span>]-&gt;</span><span style="color: #5597D6;">child</span><span>[</span><span style="color: #5597D6;">ch</span><span>];</span></span>
+<span class="giallo-l"><span>    }</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">    trie</span><span>[</span><span style="color: #5597D6;">node</span><span>]-&gt;</span><span style="color: #5597D6;">is_end</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> true</span><span>;</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">long long</span><span style="color: #C23F31;"> dfs</span><span>(</span><span style="color: #668F14;">int</span><span style="color: #5597D6;"> node</span><span>,</span><span style="color: #668F14;"> int</span><span style="color: #5597D6;"> depth</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #668F14;">    long long</span><span style="color: #5597D6;"> len</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">    for</span><span> (</span><span style="color: #668F14;">int</span><span style="color: #5597D6;"> i</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0</span><span>;</span><span style="color: #5597D6;"> i</span><span style="color: #72AB00;"> &lt;</span><span style="color: #5597D6;"> MAXCHAR</span><span>;</span><span style="color: #5597D6;"> i</span><span style="color: #72AB00;">++</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #668F14;">        int</span><span style="color: #5597D6;"> child</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> trie</span><span>[</span><span style="color: #5597D6;">node</span><span>]-&gt;</span><span style="color: #5597D6;">child</span><span>[</span><span style="color: #5597D6;">i</span><span>];</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        if</span><span> (</span><span style="color: #5597D6;">child</span><span style="color: #72AB00;"> != -</span><span style="color: #B3933A;">1</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">            len</span><span style="color: #72AB00;"> +=</span><span style="color: #C23F31;"> dfs</span><span>(</span><span style="color: #5597D6;">child</span><span>,</span><span style="color: #5597D6;"> depth</span><span style="color: #72AB00;"> +</span><span style="color: #B3933A;"> 1</span><span>);</span></span>
+<span class="giallo-l"><span>        }</span></span>
+<span class="giallo-l"><span>    }</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">    if</span><span> (</span><span style="color: #5597D6;">trie</span><span>[</span><span style="color: #5597D6;">node</span><span>]-&gt;</span><span style="color: #5597D6;">is_end</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">        len</span><span style="color: #72AB00;"> +=</span><span> (</span><span style="color: #668F14;">long long</span><span>)</span><span style="color: #5597D6;">depth</span><span>;</span></span>
+<span class="giallo-l"><span>    }</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">    return</span><span style="color: #5597D6;"> len</span><span>;</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">int</span><span style="color: #C23F31;"> main</span><span>() {</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    string</span><span style="color: #5597D6;"> s</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">    cin</span><span style="color: #72AB00;"> &gt;&gt;</span><span style="color: #5597D6;"> s</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #668F14;">    int</span><span style="color: #5597D6;"> n</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> s</span><span>.</span><span style="color: #C23F31;">size</span><span>();</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">    trie</span><span>[</span><span style="color: #B3933A;">0</span><span>]</span><span style="color: #72AB00;"> = new</span><span style="color: #C23F31;"> TrieNode</span><span>();</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">    for</span><span> (</span><span style="color: #668F14;">int</span><span style="color: #5597D6;"> i</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0</span><span>;</span><span style="color: #5597D6;"> i</span><span style="color: #72AB00;"> &lt;</span><span style="color: #5597D6;"> n</span><span>;</span><span style="color: #5597D6;"> i</span><span style="color: #72AB00;">++</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">        string</span><span style="color: #5597D6;"> sub</span><span style="color: #72AB00;"> =</span><span style="color: #D07711;"> &quot;&quot;</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        for</span><span> (</span><span style="color: #668F14;">int</span><span style="color: #5597D6;"> j</span><span style="color: #72AB00;"> =</span><span style="color: #5597D6;"> i</span><span>;</span><span style="color: #5597D6;"> j</span><span style="color: #72AB00;"> &lt;</span><span style="color: #5597D6;"> n</span><span>;</span><span style="color: #5597D6;"> j</span><span style="color: #72AB00;">++</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">            sub</span><span style="color: #72AB00;"> +=</span><span style="color: #5597D6;"> s</span><span>[</span><span style="color: #5597D6;">j</span><span>];</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">            insert</span><span>(</span><span style="color: #5597D6;">sub</span><span>);</span></span>
+<span class="giallo-l"><span>        }</span></span>
+<span class="giallo-l"><span>    }</span></span>
+<span class="giallo-l"><span style="color: #668F14;">    long long</span><span style="color: #5597D6;"> ans</span><span style="color: #72AB00;"> =</span><span style="color: #C23F31;"> dfs</span><span>(</span><span style="color: #B3933A;">0</span><span>,</span><span style="color: #B3933A;"> 0</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">    cout</span><span style="color: #72AB00;"> &lt;&lt;</span><span style="color: #5597D6;"> ans</span><span style="color: #72AB00;"> &lt;&lt;</span><span style="color: #5597D6;"> endl</span><span>;</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">    for</span><span> (</span><span style="color: #668F14;">int</span><span style="color: #5597D6;"> i</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0</span><span>;</span><span style="color: #5597D6;"> i</span><span style="color: #72AB00;"> &lt;</span><span style="color: #5597D6;"> node_cnt</span><span>;</span><span style="color: #5597D6;"> i</span><span style="color: #72AB00;">++</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        delete</span><span style="color: #5597D6;"> trie</span><span>[</span><span style="color: #5597D6;">i</span><span>];</span></span>
+<span class="giallo-l"><span>    }</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">    return</span><span style="color: #B3933A;"> 0</span><span>;</span></span>
+<span class="giallo-l"><span>}</span></span></code></pre>
+<p>In this modified solution, we define a struct <code>TrieNode</code> as before, but now the <code>child</code> array is dynamically allocated using the <code>new</code> operator, and its size is set to <code>MAXCHAR</code>. We also add a destructor to the <code>TrieNode</code> class to properly deallocate the <code>child</code> array using the <code>delete[]</code> operator.</p>
+<p>In the <code>insert</code> function, we use <code>(int)c</code> to convert the character <code>c</code> to an integer before indexing into the <code>child</code> array, since we now support all possible characters.</p>
+<p>In the <code>dfs</code> function, we use a <code>long long</code> variable to store the total length of all unique substrings, since the sum can potentially exceed the range of an <code>int</code>. We also cast the <code>depth</code> variable to a <code>long long</code> when adding it to <code>len</code>, to avoid integer overflow.</p>
+<p>In the <code>main</code> function, we initialize the root node of the trie using the <code>new</code> operator, and set its index to 0. After constructing the trie, we call the <code>dfs</code> function with the root node and depth 0, and output the returned value as the answer. Finally, we properly deallocate all dynamically allocated memory using the <code>delete</code> operator.</p>
+<p>This solution has a time complexity of O(n^2), where n is the length of the input string <code>s</code>. The space complexity is also O(n^2), since there can be up to n^2 nodes in the trie[MAX TOKENS REACHED]</p>
+</div>
+</details>
+<p>(Well, it wasn't quite straight away: I had to regenerate the answer several times and change the prompt. But in fact the network gives this solution often: I kept seeing that it wants to use exactly this one, and it talks about it from different angles.)</p>
+<p>ChatGPT immediately writes a solution based on a suffix tree (a trie), and by the way it works correctly, but it needs a few tweaks, which I ask for in the next prompt. The trouble with this solution, though, is that it doesn't fit into the memory limit, because it needs O(n^2) memory. Even if you go to great lengths, 8000 characters squared still won't fit into 512 MB.</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1280"     height="145"     src="/processed_images/cf.en.696219b92b0cd8b5.webp"     onclick="full_screen('cf.en.png')"     onauxclick="full_screen_new_page('cf.en.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.2<br>png</div> </div> </div>
+<p>This solution was probably in the training set; it produced it way too easily.</p>
+<p>Right here we can see the typical pattern of how LLMs solve programming problems: they write code straight away, with no reasoning and no analysis. How could this solution have been born inside matrix multiplications? I have no idea, and I don't believe such a function can be found and approximated well enough. I think this is the wrong way to do it: solving a problem should start with reasoning in the form of text, and only after the reasoning should the code be written. That way you'd get many more good solutions.</p>
+<p>By the way, the magic prompt "think step by step" doesn't help much either.</p>
+<h2 id="chatgpt-using-the-z-function"><a class="anchor" href="#chatgpt-using-the-z-function">#<sup>2</sup></a>ChatGPT, using the Z-function</h2>
+<p>Now let's ask it to solve this problem using the Z-function:</p>
+<details>
+<summary>Dialogue</summary>
+<div class="details-content">
+<p><strong><center>USER</center></strong></p>
+<p>You have that competitive programming task:</p>
+<blockquote>
+<p>Given string S, calculate sum of lengths of unique substrings of that string.</p>
+</blockquote>
+<p>How would you solve it using Z-function in most efficient way? Think step-by-step.</p>
+<hr />
+<p><strong><center>ChatGPT</center></strong></p>
+<p>To solve this problem efficiently using the Z-function, we can follow the steps given below:</p>
+<ol>
+<li>
+<p>First, we create an array <code>z</code> of the same length as the input string <code>S</code>. The <code>z</code> array will hold the Z-values for each position in the string.</p>
+</li>
+<li>
+<p>For each position <code>i</code> in the input string <code>S</code>, we compute the Z-value for the substring starting at that position. To do this, we compare the prefix of <code>S</code> starting at position <code>i</code> with the entire string <code>S</code> and count the number of characters that match. We stop when we encounter a non-matching character or reach the end of the string.</p>
+</li>
+<li>
+<p><span class="red-bg example">We sum up the Z-values for all positions</span> in the <code>z</code> array, except for the first position, which corresponds to the entire input string <code>S</code>.</p>
+</li>
+<li>
+<p>The sum obtained in the previous step is the desired result.</p>
+</li>
+</ol>
+<p>Here's the Python code to implement this approach:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="python"><code data-lang="python"><span class="giallo-l"><span style="color: #668F14;">def</span><span style="color: #C23F31;"> z_function</span><span>(</span><span style="color: #5597D6;">s</span><span>):</span></span>
+<span class="giallo-l"><span>    n</span><span style="color: #72AB00;"> =</span><span style="color: #B39F04;"> len</span><span>(s)</span></span>
+<span class="giallo-l"><span>    z</span><span style="color: #72AB00;"> =</span><span> [</span><span style="color: #B3933A;">0</span><span>]</span><span style="color: #72AB00;"> *</span><span> n</span></span>
+<span class="giallo-l"><span>    l, r</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0</span><span>,</span><span style="color: #B3933A;"> 0</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">    for</span><span> i</span><span style="color: #72AB00;"> in</span><span style="color: #B39F04;"> range</span><span>(</span><span style="color: #B3933A;">1</span><span>, n):</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        if</span><span> i</span><span style="color: #72AB00;"> &lt;=</span><span> r:</span></span>
+<span class="giallo-l"><span>            z[i]</span><span style="color: #72AB00;"> =</span><span style="color: #B39F04;"> min</span><span>(r</span><span style="color: #72AB00;"> -</span><span> i</span><span style="color: #72AB00;"> +</span><span style="color: #B3933A;"> 1</span><span>, z[i</span><span style="color: #72AB00;"> -</span><span> l])</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        while</span><span> i</span><span style="color: #72AB00;"> +</span><span> z[i]</span><span style="color: #72AB00;"> &lt;</span><span> n</span><span style="color: #72AB00;"> and</span><span> s[z[i]]</span><span style="color: #72AB00;"> ==</span><span> s[i</span><span style="color: #72AB00;"> +</span><span> z[i]]:</span></span>
+<span class="giallo-l"><span>            z[i]</span><span style="color: #72AB00;"> +=</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        if</span><span> i</span><span style="color: #72AB00;"> +</span><span> z[i]</span><span style="color: #72AB00;"> -</span><span style="color: #B3933A;"> 1</span><span style="color: #72AB00;"> &gt;</span><span> r:</span></span>
+<span class="giallo-l"><span>            l, r</span><span style="color: #72AB00;"> =</span><span> i, i</span><span style="color: #72AB00;"> +</span><span> z[i]</span><span style="color: #72AB00;"> -</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">    return</span><span> z</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">def</span><span style="color: #C23F31;"> unique_substring_lengths</span><span>(</span><span style="color: #5597D6;">s</span><span>):</span></span>
+<span class="giallo-l"><span>    z</span><span style="color: #72AB00;"> =</span><span> z_function(s)</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">    return</span><span style="color: #B39F04;"> sum</span><span>(z[</span><span style="color: #B3933A;">1</span><span>:])</span><span style="color: #72AB00;"> +</span><span style="color: #B39F04;"> len</span><span>(s)</span></span></code></pre>
+<p>In this implementation, the <code>z_function</code> function computes the Z-values for the input string <code>s</code>, and the <code>unique_substring_lengths</code> function computes the sum of lengths of unique substrings of <code>s</code>. The <code>z</code> array is used to keep track of the Z-values for each position in <code>s</code>. The sum of the Z-values for all positions in <code>z</code>, except for the first position, is the sum of lengths of all unique substrings of <code>s</code>. Adding the length of <code>s</code> itself gives us the total sum of lengths of all substrings of <code>s</code>.</p>
+</div>
+</details>
+<p>It gives a solution that:</p>
+<ul>
+<li>Doesn't iterate over every suffix.</li>
+<li>Computes a sum and doesn't think about the maximum at all.</li>
+<li>And of course, there's no "formula" whatsoever.</li>
+</ul>
+<p>The problem is that the network can't say "I don't know". I can't even imagine how, technically, it could ever tell what it knows and what it doesn't. It's not even a matter of training. Ideally, it should always say that it doesn't know exactly how to solve the problem with a given approach, and analyze every problem from scratch, instead of spitting out a solution straight away like this.</p>
+<h2 id="gpt-4-using-the-z-function"><a class="anchor" href="#gpt-4-using-the-z-function">#<sup>2</sup></a>GPT-4, using the Z-function</h2>
+<p>Now let's try the more advanced GPT-4:</p>
+<details>
+<summary>Dialogue</summary>
+<div class="details-content">
+<p><strong><center>USER</center></strong></p>
+<p>You have that competitive programming task:</p>
+<blockquote>
+<p>Given string S, calculate sum of lengths of unique substrings of that string.</p>
+</blockquote>
+<p>How would you solve it using Z-function in most efficient way? Think step-by-step.</p>
+<hr />
+<p><strong><center>GPT-4</center></strong></p>
+<p>Using the Z-function is a great choice for this problem. Here's a step-by-step guide on how to solve this competitive programming task most efficiently with the Z-function:</p>
+<ol>
+<li>
+<p>Understand the problem:
+Given a string S, we need to calculate the sum of lengths of unique substrings of that string.</p>
+</li>
+<li>
+<p>Prepare the Z-function:
+The Z-function for a string S is an array of length n, where Z[i] is the length of the longest common prefix between S and the suffix of S starting at position i. The Z-function can be calculated in O(n) time complexity using Z-algorithm.</p>
+</li>
+<li>
+<p>Initialize variables:
+Create a variable to store the sum of lengths of unique substrings, let's call it <code>sum_lengths</code>.</p>
+</li>
+<li>
+<p>Iterate through the string S:
+For each index i (0 &lt;= i &lt; n), where n is the length of the string S, do the following:</p>
+<p>a. <span class="red-bg example">Calculate the Z-array for the suffix</span> starting at position i by using the Z-algorithm. This can be done by calling a helper function, e.g., <code>z_array = calculate_z_array(S[i:])</code>.</p>
+<p>b. <span class="red-bg example">For each element in the calculated Z-array, add the value to the <code>sum_lengths</code> variable.</span> Since the Z-array represents the longest common prefix between the original string and the suffixes, adding those values would result in the sum of lengths of unique substrings. Be careful not to count the Z[0] value, as it represents the entire suffix.</p>
+</li>
+<li>
+<p>Return the result:
+Return the <code>sum_lengths</code> variable, which contains the sum of lengths of unique substrings of the given string S.</p>
+</li>
+</ol>
+<p>Here's a Python implementation of the approach described above:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="python"><code data-lang="python"><span class="giallo-l"><span style="color: #668F14;">def</span><span style="color: #C23F31;"> calculate_z_array</span><span>(</span><span style="color: #5597D6;">s</span><span>):</span></span>
+<span class="giallo-l"><span>    n</span><span style="color: #72AB00;"> =</span><span style="color: #B39F04;"> len</span><span>(s)</span></span>
+<span class="giallo-l"><span>    z</span><span style="color: #72AB00;"> =</span><span> [</span><span style="color: #B3933A;">0</span><span>]</span><span style="color: #72AB00;"> *</span><span> n</span></span>
+<span class="giallo-l"><span>    l, r</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0</span><span>,</span><span style="color: #B3933A;"> 0</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">    for</span><span> i</span><span style="color: #72AB00;"> in</span><span style="color: #B39F04;"> range</span><span>(</span><span style="color: #B3933A;">1</span><span>, n):</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        if</span><span> i</span><span style="color: #72AB00;"> &gt;</span><span> r:</span></span>
+<span class="giallo-l"><span>            l, r</span><span style="color: #72AB00;"> =</span><span> i, i</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">            while</span><span> r</span><span style="color: #72AB00;"> &lt;</span><span> n</span><span style="color: #72AB00;"> and</span><span> s[r</span><span style="color: #72AB00;"> -</span><span> l]</span><span style="color: #72AB00;"> ==</span><span> s[r]:</span></span>
+<span class="giallo-l"><span>                r</span><span style="color: #72AB00;"> +=</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"><span>            z[i]</span><span style="color: #72AB00;"> =</span><span> r</span><span style="color: #72AB00;"> -</span><span> l</span></span>
+<span class="giallo-l"><span>            r</span><span style="color: #72AB00;"> -=</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        else</span><span>:</span></span>
+<span class="giallo-l"><span>            k</span><span style="color: #72AB00;"> =</span><span> i</span><span style="color: #72AB00;"> -</span><span> l</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">            if</span><span> z[k]</span><span style="color: #72AB00;"> &lt;</span><span> r</span><span style="color: #72AB00;"> -</span><span> i</span><span style="color: #72AB00;"> +</span><span style="color: #B3933A;"> 1</span><span>:</span></span>
+<span class="giallo-l"><span>                z[i]</span><span style="color: #72AB00;"> =</span><span> z[k]</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">            else</span><span>:</span></span>
+<span class="giallo-l"><span>                l</span><span style="color: #72AB00;"> =</span><span> i</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">                while</span><span> r</span><span style="color: #72AB00;"> &lt;</span><span> n</span><span style="color: #72AB00;"> and</span><span> s[r</span><span style="color: #72AB00;"> -</span><span> l]</span><span style="color: #72AB00;"> ==</span><span> s[r]:</span></span>
+<span class="giallo-l"><span>                    r</span><span style="color: #72AB00;"> +=</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"><span>                z[i]</span><span style="color: #72AB00;"> =</span><span> r</span><span style="color: #72AB00;"> -</span><span> l</span></span>
+<span class="giallo-l"><span>                r</span><span style="color: #72AB00;"> -=</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">    return</span><span> z</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">def</span><span style="color: #C23F31;"> sum_unique_substrings_lengths</span><span>(</span><span style="color: #5597D6;">s</span><span>):</span></span>
+<span class="giallo-l"><span>    sum_lengths</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0</span></span>
+<span class="giallo-l"><span>    n</span><span style="color: #72AB00;"> =</span><span style="color: #B39F04;"> len</span><span>(s)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">    for</span><span> i</span><span style="color: #72AB00;"> in</span><span style="color: #B39F04;"> range</span><span>(n):</span></span>
+<span class="giallo-l"><span>        z_array</span><span style="color: #72AB00;"> =</span><span> calculate_z_array(s[i:])</span></span>
+<span class="giallo-l"><span>        sum_lengths</span><span style="color: #72AB00;"> +=</span><span style="color: #B39F04;"> sum</span><span>(z_array[</span><span style="color: #B3933A;">1</span><span>:])</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">    return</span><span> sum_lengths</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;"># Example usage</span></span>
+<span class="giallo-l"><span>S</span><span style="color: #72AB00;"> =</span><span style="color: #D07711;"> &quot;ababa&quot;</span></span>
+<span class="giallo-l"><span style="color: #B39F04;">print</span><span>(sum_unique_substrings_lengths(S))</span><span style="color: #7F8989;">  # Output: 14</span></span></code></pre>
+<p>This implementation has a time complexity of O(n^2), as we calculate the Z-array for each suffix of the string.</p>
+</div>
+</details>
+<p>Interestingly, GPT-4 somehow figures out that this problem can't be solved in O(n) with a single Z-function computation, and starts iterating over all possible suffixes! At that moment I thought I was wasting my time on nonsense, and that maybe the answer to every question really is to stack more layers and feed in more input data?</p>
+<details>
+<summary>Possible reasons</summary>
+<div class="details-content">
+<p>After writing this article I googled it and found that there are lots of articles on the internet about how to find the number of unique substrings using the Z-function, for example:</p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/72304669/z-function-and-unique-substrings-broken-algorithm-parroted-everywhere">stackoverflow</a></li>
+<li><a href="https://cp-algorithms.com/string/z-function.html#number-of-distinct-substrings-in-a-string">cp-algorithms</a></li>
+<li><a href="https://codeforces.com/blog/entry/19144">codeforces</a></li>
+</ul>
+<p>It's also obvious where the network got the trie solutions from:</p>
+<ul>
+<li><a href="https://www.geeksforgeeks.org/count-distinct-substrings-string-using-suffix-array/">geeksforgeeks</a></li>
+</ul>
+<p>And I haven't even looked at the Leetcode discussions, which hold a million different variations of solutions to the same problem; this locked problem surely has something about the Z-function too: <a href="https://leetcode.com/problems/number-of-distinct-substrings-in-a-string/">leetcode</a>.</p>
+<p>Perhaps, thanks to the larger number of parameters, the network finally memorized one of the solutions described somewhere here, along with solutions to other similar problems.</p>
+</div>
+</details>
+<p>But then it goes back to summing the values of the Z-function, so the robot uprising is postponed.</p>
+<p>And by the way, the solution looks like valid reasoning, but in fact it's just a nicely formatted output of a "ready-made" answer. No "think step by step" at all.</p>
+<p>The solution was stated here:</p>
+<blockquote>
+<p>b. For each element in the calculated Z-array, add the value to the <code>sum_lengths</code> variable.</p>
+</blockquote>
+<p>And everything after that is just a justification of this solution; luckily, the network is good at inventing plausible justifications for anything:</p>
+<blockquote>
+<p>Since the Z-array represents the longest common prefix between the original string and the suffixes, adding those values would result in the sum of lengths of unique substrings.</p>
+</blockquote>
+<p>After that I kept talking to the network, running its solution and sometimes giving hints:</p>
+<details>
+<summary>Dialogue</summary>
+<div class="details-content">
+<p><strong><center>USER</center></strong></p>
+<p>For string "BOBR" it should output 19, but this program outputs 1. Where is the mistake?</p>
+<hr />
+<p><strong><center>GPT-4</center></strong></p>
+<p>Apologies for the confusion. I made an error in my previous response. You're correct that the output should be 19 for the string "BOBR". Here's the corrected solution using the Z-function:</p>
+<ol>
+<li>
+<p>Initialize the variable <code>sum_lengths</code> to store the sum of lengths of unique substrings.</p>
+</li>
+<li>
+<p>Iterate through the string S:
+For each index i (0 &lt;= i &lt; n), where n is the length of the string S, do the following:</p>
+<p>a. Calculate the Z-array for the suffix starting at position i by using the Z-algorithm. This can be done by calling a helper function, e.g., <code>z_array = calculate_z_array(S[i:])</code>.</p>
+<p>b. <span class="red-bg example">Instead of summing up the Z-array values, we need to find the count of unique lengths in the Z-array. This can be achieved by creating a set and adding all Z-array values to it except the first value (Z[0]).</span></p>
+</li>
+<li>
+<p>Return the result:
+Return the sum of all elements in the set, which contains the unique lengths of common prefixes.</p>
+</li>
+</ol>
+<p>Here's the corrected Python implementation of the approach:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="python"><code data-lang="python"><span class="giallo-l"><span style="color: #668F14;">def</span><span style="color: #C23F31;"> calculate_z_array</span><span>(</span><span style="color: #5597D6;">s</span><span>):</span></span>
+<span class="giallo-l"><span>    n</span><span style="color: #72AB00;"> =</span><span style="color: #B39F04;"> len</span><span>(s)</span></span>
+<span class="giallo-l"><span>    z</span><span style="color: #72AB00;"> =</span><span> [</span><span style="color: #B3933A;">0</span><span>]</span><span style="color: #72AB00;"> *</span><span> n</span></span>
+<span class="giallo-l"><span>    l, r</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0</span><span>,</span><span style="color: #B3933A;"> 0</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">    for</span><span> i</span><span style="color: #72AB00;"> in</span><span style="color: #B39F04;"> range</span><span>(</span><span style="color: #B3933A;">1</span><span>, n):</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        if</span><span> i</span><span style="color: #72AB00;"> &gt;</span><span> r:</span></span>
+<span class="giallo-l"><span>            l, r</span><span style="color: #72AB00;"> =</span><span> i, i</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">            while</span><span> r</span><span style="color: #72AB00;"> &lt;</span><span> n</span><span style="color: #72AB00;"> and</span><span> s[r</span><span style="color: #72AB00;"> -</span><span> l]</span><span style="color: #72AB00;"> ==</span><span> s[r]:</span></span>
+<span class="giallo-l"><span>                r</span><span style="color: #72AB00;"> +=</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"><span>            z[i]</span><span style="color: #72AB00;"> =</span><span> r</span><span style="color: #72AB00;"> -</span><span> l</span></span>
+<span class="giallo-l"><span>            r</span><span style="color: #72AB00;"> -=</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        else</span><span>:</span></span>
+<span class="giallo-l"><span>            k</span><span style="color: #72AB00;"> =</span><span> i</span><span style="color: #72AB00;"> -</span><span> l</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">            if</span><span> z[k]</span><span style="color: #72AB00;"> &lt;</span><span> r</span><span style="color: #72AB00;"> -</span><span> i</span><span style="color: #72AB00;"> +</span><span style="color: #B3933A;"> 1</span><span>:</span></span>
+<span class="giallo-l"><span>                z[i]</span><span style="color: #72AB00;"> =</span><span> z[k]</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">            else</span><span>:</span></span>
+<span class="giallo-l"><span>                l</span><span style="color: #72AB00;"> =</span><span> i</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">                while</span><span> r</span><span style="color: #72AB00;"> &lt;</span><span> n</span><span style="color: #72AB00;"> and</span><span> s[r</span><span style="color: #72AB00;"> -</span><span> l]</span><span style="color: #72AB00;"> ==</span><span> s[r]:</span></span>
+<span class="giallo-l"><span>                    r</span><span style="color: #72AB00;"> +=</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"><span>                z[i]</span><span style="color: #72AB00;"> =</span><span> r</span><span style="color: #72AB00;"> -</span><span> l</span></span>
+<span class="giallo-l"><span>                r</span><span style="color: #72AB00;"> -=</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">    return</span><span> z</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">def</span><span style="color: #C23F31;"> sum_unique_substrings_lengths</span><span>(</span><span style="color: #5597D6;">s</span><span>):</span></span>
+<span class="giallo-l"><span>    sum_lengths</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0</span></span>
+<span class="giallo-l"><span>    n</span><span style="color: #72AB00;"> =</span><span style="color: #B39F04;"> len</span><span>(s)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">    for</span><span> i</span><span style="color: #72AB00;"> in</span><span style="color: #B39F04;"> range</span><span>(n):</span></span>
+<span class="giallo-l"><span>        z_array</span><span style="color: #72AB00;"> =</span><span> calculate_z_array(s[i:])</span></span>
+<span class="giallo-l"><span>        unique_lengths</span><span style="color: #72AB00;"> =</span><span style="color: #A2A001;"> set</span><span>(z_array[</span><span style="color: #B3933A;">1</span><span>:])</span></span>
+<span class="giallo-l"><span>        sum_lengths</span><span style="color: #72AB00;"> +=</span><span style="color: #B39F04;"> sum</span><span>(unique_lengths)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">    return</span><span> sum_lengths</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;"># Example usage</span></span>
+<span class="giallo-l"><span>S</span><span style="color: #72AB00;"> =</span><span style="color: #D07711;"> &quot;BOBR&quot;</span></span>
+<span class="giallo-l"><span style="color: #B39F04;">print</span><span>(sum_unique_substrings_lengths(S))</span><span style="color: #7F8989;">  # Output: 19</span></span></code></pre>
+<p>This implementation still has a time complexity of O(n^2), but now it should provide the correct output for the given input strings.</p>
+<hr />
+<p><strong><center>USER</center></strong></p>
+<p>It still outputs 1. Note, that Z-function for "BOBR" is [0, 0, 1, 0], so you can't use sum of values of Z-function. You should use another approach.</p>
+<hr />
+<p><strong><center>GPT-4</center></strong></p>
+<p>You are correct. I apologize for my misunderstanding. I appreciate your patience. Let's try a different approach using the Z-function, which allows us to calculate the number of unique substrings in a more efficient manner.</p>
+<ol>
+<li>
+<p>Initialize a variable <code>sum_lengths</code> to store the sum of lengths of unique substrings.</p>
+</li>
+<li>
+<p>Iterate through the string S:</p>
+<p>For each index i (0 &lt;= i &lt; n), where n is the length of the string S, do the following:</p>
+<p>a. <span class="red-bg example">Create a new string <code>temp</code> by concatenating the original string S with a unique delimiter and the substring S[i:].</span>
+For example, if S = "BOBR" and i = 1, then temp = "BOBR$OBR".</p>
+<p>b. Calculate the Z-array for the new string <code>temp</code> using the Z-algorithm.</p>
+<p>c. Iterate through the Z-array and for each Z[i] value, <span class="red-bg example">check if Z[i] + i &lt;= n</span>, where n is the length of the original string S. If this condition is satisfied, it means that the common prefix is a unique substring. Add the length of this common prefix (Z[i]) to <code>sum_lengths</code>.</p>
+</li>
+<li>
+<p>Return the result:
+Return the <code>sum_lengths</code> variable, which contains the sum of lengths of unique substrings of the given string S.</p>
+</li>
+</ol>
+<p>Here's the Python implementation for this approach:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="python"><code data-lang="python"><span class="giallo-l"><span style="color: #668F14;">def</span><span style="color: #C23F31;"> calculate_z_array</span><span>(</span><span style="color: #5597D6;">s</span><span>):</span></span>
+<span class="giallo-l"><span>    n</span><span style="color: #72AB00;"> =</span><span style="color: #B39F04;"> len</span><span>(s)</span></span>
+<span class="giallo-l"><span>    z</span><span style="color: #72AB00;"> =</span><span> [</span><span style="color: #B3933A;">0</span><span>]</span><span style="color: #72AB00;"> *</span><span> n</span></span>
+<span class="giallo-l"><span>    l, r</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0</span><span>,</span><span style="color: #B3933A;"> 0</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">    for</span><span> i</span><span style="color: #72AB00;"> in</span><span style="color: #B39F04;"> range</span><span>(</span><span style="color: #B3933A;">1</span><span>, n):</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        if</span><span> i</span><span style="color: #72AB00;"> &gt;</span><span> r:</span></span>
+<span class="giallo-l"><span>            l, r</span><span style="color: #72AB00;"> =</span><span> i, i</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">            while</span><span> r</span><span style="color: #72AB00;"> &lt;</span><span> n</span><span style="color: #72AB00;"> and</span><span> s[r</span><span style="color: #72AB00;"> -</span><span> l]</span><span style="color: #72AB00;"> ==</span><span> s[r]:</span></span>
+<span class="giallo-l"><span>                r</span><span style="color: #72AB00;"> +=</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"><span>            z[i]</span><span style="color: #72AB00;"> =</span><span> r</span><span style="color: #72AB00;"> -</span><span> l</span></span>
+<span class="giallo-l"><span>            r</span><span style="color: #72AB00;"> -=</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        else</span><span>:</span></span>
+<span class="giallo-l"><span>            k</span><span style="color: #72AB00;"> =</span><span> i</span><span style="color: #72AB00;"> -</span><span> l</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">            if</span><span> z[k]</span><span style="color: #72AB00;"> &lt;</span><span> r</span><span style="color: #72AB00;"> -</span><span> i</span><span style="color: #72AB00;"> +</span><span style="color: #B3933A;"> 1</span><span>:</span></span>
+<span class="giallo-l"><span>                z[i]</span><span style="color: #72AB00;"> =</span><span> z[k]</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">            else</span><span>:</span></span>
+<span class="giallo-l"><span>                l</span><span style="color: #72AB00;"> =</span><span> i</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">                while</span><span> r</span><span style="color: #72AB00;"> &lt;</span><span> n</span><span style="color: #72AB00;"> and</span><span> s[r</span><span style="color: #72AB00;"> -</span><span> l]</span><span style="color: #72AB00;"> ==</span><span> s[r]:</span></span>
+<span class="giallo-l"><span>                    r</span><span style="color: #72AB00;"> +=</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"><span>                z[i]</span><span style="color: #72AB00;"> =</span><span> r</span><span style="color: #72AB00;"> -</span><span> l</span></span>
+<span class="giallo-l"><span>                r</span><span style="color: #72AB00;"> -=</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">    return</span><span> z</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">def</span><span style="color: #C23F31;"> sum_unique_substrings_lengths</span><span>(</span><span style="color: #5597D6;">s</span><span>):</span></span>
+<span class="giallo-l"><span>    sum_lengths</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0</span></span>
+<span class="giallo-l"><span>    n</span><span style="color: #72AB00;"> =</span><span style="color: #B39F04;"> len</span><span>(s)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">    for</span><span> i</span><span style="color: #72AB00;"> in</span><span style="color: #B39F04;"> range</span><span>(n):</span></span>
+<span class="giallo-l"><span>        temp</span><span style="color: #72AB00;"> =</span><span> s</span><span style="color: #72AB00;"> +</span><span style="color: #D07711;"> &#39;$&#39;</span><span style="color: #72AB00;"> +</span><span> s[i:]</span></span>
+<span class="giallo-l"><span>        z_array</span><span style="color: #72AB00;"> =</span><span> calculate_z_array(temp)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">        for</span><span> j</span><span style="color: #72AB00;"> in</span><span style="color: #B39F04;"> range</span><span>(</span><span style="color: #B39F04;">len</span><span>(z_array)):</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">            if</span><span> z_array[j]</span><span style="color: #72AB00;"> +</span><span> j</span><span style="color: #72AB00;"> &lt;=</span><span> n:</span></span>
+<span class="giallo-l"><span>                sum_lengths</span><span style="color: #72AB00;"> +=</span><span> z_array[j]</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">    return</span><span> sum_lengths</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;"># Example usage</span></span>
+<span class="giallo-l"><span>S</span><span style="color: #72AB00;"> =</span><span style="color: #D07711;"> &quot;BOBR&quot;</span></span>
+<span class="giallo-l"><span style="color: #B39F04;">print</span><span>(sum_unique_substrings_lengths(S))</span><span style="color: #7F8989;">  # Output: 19</span></span></code></pre>
+<p>This implementation has a time complexity of O(n^2) and should provide the correct output for the given input strings.</p>
+<hr />
+<p><strong><center>USER</center></strong></p>
+<p>This now outputs 4, which is better, but still wrong. Can you think which information Z-function tells us? Maybe we should not add Z-function, but substract? How many there are substrings of a string with length N? Can you use that information?</p>
+<hr />
+<p><strong><center>GPT-4</center></strong></p>
+<p>I apologize for the confusion in my previous responses. Let's approach the problem with a better understanding of the Z-function and the task at hand.</p>
+<p><span class="red-bg example">For a string of length N, there are (N * (N + 1)) / 2 total substrings.</span> This includes both unique and non-unique substrings. To find the sum of lengths of unique substrings, we can calculate the total number of substrings and subtract the number of repeated substrings. The Z-function helps us identify these repeated substrings.</p>
+<p>Here's the step-by-step approach:</p>
+<ol>
+<li>
+<p>Initialize a variable <code>sum_lengths</code> to store the sum of lengths of unique substrings. Set its initial value to (N * (N + 1)) / 2, where N is the length of the string S.</p>
+</li>
+<li>
+<p>Iterate through the string S:</p>
+<p>For each index i (0 &lt;= i &lt; n), where n is the length of the string S, do the following:</p>
+<p>a. Create a new string <code>temp</code> by concatenating the original string S with a unique delimiter and the substring S[i:].
+For example, if S = "BOBR" and i = 1, then temp = "BOBR$OBR".</p>
+<p>b. Calculate the Z-array for the new string <code>temp</code> using the Z-algorithm.</p>
+<p>c. Iterate through the Z-array and for each Z[i] value, check if Z[i] + i &lt;= n, where n is the length of the original string S. If this condition is satisfied, it means that the common prefix is a repeated substring. Subtract the length of this common prefix (Z[i]) from <code>sum_lengths</code>.</p>
+</li>
+<li>
+<p>Return the result:
+Return the <code>sum_lengths</code> variable, which contains the sum of lengths of unique substrings of the given string S.</p>
+</li>
+</ol>
+<p>Here's the Python implementation for this approach:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="python"><code data-lang="python"><span class="giallo-l"><span style="color: #668F14;">def</span><span style="color: #C23F31;"> calculate_z_array</span><span>(</span><span style="color: #5597D6;">s</span><span>):</span></span>
+<span class="giallo-l"><span>    n</span><span style="color: #72AB00;"> =</span><span style="color: #B39F04;"> len</span><span>(s)</span></span>
+<span class="giallo-l"><span>    z</span><span style="color: #72AB00;"> =</span><span> [</span><span style="color: #B3933A;">0</span><span>]</span><span style="color: #72AB00;"> *</span><span> n</span></span>
+<span class="giallo-l"><span>    l, r</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0</span><span>,</span><span style="color: #B3933A;"> 0</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">    for</span><span> i</span><span style="color: #72AB00;"> in</span><span style="color: #B39F04;"> range</span><span>(</span><span style="color: #B3933A;">1</span><span>, n):</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        if</span><span> i</span><span style="color: #72AB00;"> &gt;</span><span> r:</span></span>
+<span class="giallo-l"><span>            l, r</span><span style="color: #72AB00;"> =</span><span> i, i</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">            while</span><span> r</span><span style="color: #72AB00;"> &lt;</span><span> n</span><span style="color: #72AB00;"> and</span><span> s[r</span><span style="color: #72AB00;"> -</span><span> l]</span><span style="color: #72AB00;"> ==</span><span> s[r]:</span></span>
+<span class="giallo-l"><span>                r</span><span style="color: #72AB00;"> +=</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"><span>            z[i]</span><span style="color: #72AB00;"> =</span><span> r</span><span style="color: #72AB00;"> -</span><span> l</span></span>
+<span class="giallo-l"><span>            r</span><span style="color: #72AB00;"> -=</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        else</span><span>:</span></span>
+<span class="giallo-l"><span>            k</span><span style="color: #72AB00;"> =</span><span> i</span><span style="color: #72AB00;"> -</span><span> l</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">            if</span><span> z[k]</span><span style="color: #72AB00;"> &lt;</span><span> r</span><span style="color: #72AB00;"> -</span><span> i</span><span style="color: #72AB00;"> +</span><span style="color: #B3933A;"> 1</span><span>:</span></span>
+<span class="giallo-l"><span>                z[i]</span><span style="color: #72AB00;"> =</span><span> z[k]</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">            else</span><span>:</span></span>
+<span class="giallo-l"><span>                l</span><span style="color: #72AB00;"> =</span><span> i</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">                while</span><span> r</span><span style="color: #72AB00;"> &lt;</span><span> n</span><span style="color: #72AB00;"> and</span><span> s[r</span><span style="color: #72AB00;"> -</span><span> l]</span><span style="color: #72AB00;"> ==</span><span> s[r]:</span></span>
+<span class="giallo-l"><span>                    r</span><span style="color: #72AB00;"> +=</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"><span>                z[i]</span><span style="color: #72AB00;"> =</span><span> r</span><span style="color: #72AB00;"> -</span><span> l</span></span>
+<span class="giallo-l"><span>                r</span><span style="color: #72AB00;"> -=</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">    return</span><span> z</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">def</span><span style="color: #C23F31;"> sum_unique_substrings_lengths</span><span>(</span><span style="color: #5597D6;">s</span><span>):</span></span>
+<span class="giallo-l"><span>    n</span><span style="color: #72AB00;"> =</span><span style="color: #B39F04;"> len</span><span>(s)</span></span>
+<span class="giallo-l"><span>    sum_lengths</span><span style="color: #72AB00;"> =</span><span> (n</span><span style="color: #72AB00;"> *</span><span> (n</span><span style="color: #72AB00;"> +</span><span style="color: #B3933A;"> 1</span><span>))</span><span style="color: #72AB00;"> //</span><span style="color: #B3933A;"> 2</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">    for</span><span> i</span><span style="color: #72AB00;"> in</span><span style="color: #B39F04;"> range</span><span>(n):</span></span>
+<span class="giallo-l"><span>        temp</span><span style="color: #72AB00;"> =</span><span> s</span><span style="color: #72AB00;"> +</span><span style="color: #D07711;"> &#39;$&#39;</span><span style="color: #72AB00;"> +</span><span> s[i:]</span></span>
+<span class="giallo-l"><span>        z_array</span><span style="color: #72AB00;"> =</span><span> calculate_z_array(temp)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">        for</span><span> j</span><span style="color: #72AB00;"> in</span><span style="color: #B39F04;"> range</span><span>(</span><span style="color: #B39F04;">len</span><span>(z_array)):</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">            if</span><span> z_array[j]</span><span style="color: #72AB00;"> +</span><span> j</span><span style="color: #72AB00;"> &lt;=</span><span> n:</span></span>
+<span class="giallo-l"><span>                sum_lengths</span><span style="color: #72AB00;"> -=</span><span> z_array[j]</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">    return</span><span> sum_lengths</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;"># Example usage</span></span>
+<span class="giallo-l"><span>S</span><span style="color: #72AB00;"> =</span><span style="color: #D07711;"> &quot;BOBR&quot;</span></span>
+<span class="giallo-l"><span style="color: #B39F04;">print</span><span>(sum_unique_substrings_lengths(S))</span><span style="color: #7F8989;">  # Output: 19</span></span></code></pre>
+<p>This implementation has a time complexity of O(n^2) and should now provide the correct output for the given input strings.</p>
+</div>
+</details>
+<p>It started producing some nonsense about a set of Z-function values, then some strange concatenation. After that it came up with a piece of the formula (with my hint), but applied it completely wrong.</p>
+<p>I continue the conversation:</p>
+<details>
+<summary>Dialogue</summary>
+<div class="details-content">
+<p><strong><center>USER</center></strong></p>
+<p>This now outputs 6. Still not correct answer. Can you please explain how exactly does Z-function helps us identify repeated strings, based on a definition of the Z-function? Maybe it's maximum, or minimum can help us?</p>
+<hr />
+<p><strong><center>GPT-4</center></strong></p>
+<p>I apologize for the previous mistakes. <span class="red-bg example">Upon further analysis, I realize that using the Z-function in this context is not the most efficient way to solve the problem. Let's switch to another approach that works more efficiently: the Trie data structure.</span></p>
+<p>A Trie is a tree-like data structure that is used to store a dynamic set of strings. The key benefit of using a Trie is that it allows for efficient searching and insertion of strings.</p>
+<p>Here's the step-by-step approach:</p>
+<ol>
+<li>Implement a Trie data structure:
+[INTERRUPTED]</li>
+</ol>
+<hr />
+<p><strong><center>USER</center></strong></p>
+<p>Z-function is most efficient, it takes O(n^2) time, but O(n) memory, when Trie uses same O(n^2) time, but O(n^2) memory, my programming competition don't allowed that much memory.</p>
+<hr />
+<p><strong><center>GPT-4</center></strong></p>
+<p>You're correct that the Z-function has better memory complexity than a Trie. I apologize for the confusion earlier. Let's return to the Z-function approach and refine it.</p>
+<p>To calculate the sum of lengths of unique substrings using the Z-function, <span class="red-bg example">we can calculate the number of repeated substrings for each index and subtract that count from the total substrings. We can utilize the maximum value of the Z-array to calculate the number of repeated substrings.</span></p>
+<p>Here's the step-by-step approach:</p>
+<ol>
+<li>
+<p>Initialize a variable <code>sum_lengths</code> to store the sum of lengths of unique substrings. Set its initial value to (N * (N + 1)) / 2, where N is the length of the string S.</p>
+</li>
+<li>
+<p>Iterate through the string S:</p>
+<p>For each index i (0 &lt;= i &lt; n), where n is the length of the string S, do the following:</p>
+<p>a. Calculate the Z-array for the suffix starting at position i by using the Z-algorithm.</p>
+<p>b. Find the maximum value in the Z-array (ignoring the first element, Z[0]).</p>
+<p>c. Subtract the maximum value from the total substrings for the current index (n - i), and add the result to <code>sum_lengths</code>.</p>
+</li>
+<li>
+<p>Return the result:
+Return the <code>sum_lengths</code> variable, which contains the sum of lengths of unique substrings of the given string S.</p>
+</li>
+</ol>
+<p>Here's the Python implementation for this approach:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="python"><code data-lang="python"><span class="giallo-l"><span style="color: #668F14;">def</span><span style="color: #C23F31;"> calculate_z_array</span><span>(</span><span style="color: #5597D6;">s</span><span>):</span></span>
+<span class="giallo-l"><span>    n</span><span style="color: #72AB00;"> =</span><span style="color: #B39F04;"> len</span><span>(s)</span></span>
+<span class="giallo-l"><span>    z</span><span style="color: #72AB00;"> =</span><span> [</span><span style="color: #B3933A;">0</span><span>]</span><span style="color: #72AB00;"> *</span><span> n</span></span>
+<span class="giallo-l"><span>    l, r</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0</span><span>,</span><span style="color: #B3933A;"> 0</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">    for</span><span> i</span><span style="color: #72AB00;"> in</span><span style="color: #B39F04;"> range</span><span>(</span><span style="color: #B3933A;">1</span><span>, n):</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        if</span><span> i</span><span style="color: #72AB00;"> &gt;</span><span> r:</span></span>
+<span class="giallo-l"><span>            l, r</span><span style="color: #72AB00;"> =</span><span> i, i</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">            while</span><span> r</span><span style="color: #72AB00;"> &lt;</span><span> n</span><span style="color: #72AB00;"> and</span><span> s[r</span><span style="color: #72AB00;"> -</span><span> l]</span><span style="color: #72AB00;"> ==</span><span> s[r]:</span></span>
+<span class="giallo-l"><span>                r</span><span style="color: #72AB00;"> +=</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"><span>            z[i]</span><span style="color: #72AB00;"> =</span><span> r</span><span style="color: #72AB00;"> -</span><span> l</span></span>
+<span class="giallo-l"><span>            r</span><span style="color: #72AB00;"> -=</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        else</span><span>:</span></span>
+<span class="giallo-l"><span>            k</span><span style="color: #72AB00;"> =</span><span> i</span><span style="color: #72AB00;"> -</span><span> l</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">            if</span><span> z[k]</span><span style="color: #72AB00;"> &lt;</span><span> r</span><span style="color: #72AB00;"> -</span><span> i</span><span style="color: #72AB00;"> +</span><span style="color: #B3933A;"> 1</span><span>:</span></span>
+<span class="giallo-l"><span>                z[i]</span><span style="color: #72AB00;"> =</span><span> z[k]</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">            else</span><span>:</span></span>
+<span class="giallo-l"><span>                l</span><span style="color: #72AB00;"> =</span><span> i</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">                while</span><span> r</span><span style="color: #72AB00;"> &lt;</span><span> n</span><span style="color: #72AB00;"> and</span><span> s[r</span><span style="color: #72AB00;"> -</span><span> l]</span><span style="color: #72AB00;"> ==</span><span> s[r]:</span></span>
+<span class="giallo-l"><span>                    r</span><span style="color: #72AB00;"> +=</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"><span>                z[i]</span><span style="color: #72AB00;"> =</span><span> r</span><span style="color: #72AB00;"> -</span><span> l</span></span>
+<span class="giallo-l"><span>                r</span><span style="color: #72AB00;"> -=</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">    return</span><span> z</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">def</span><span style="color: #C23F31;"> sum_unique_substrings_lengths</span><span>(</span><span style="color: #5597D6;">s</span><span>):</span></span>
+<span class="giallo-l"><span>    n</span><span style="color: #72AB00;"> =</span><span style="color: #B39F04;"> len</span><span>(s)</span></span>
+<span class="giallo-l"><span>    sum_lengths</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">    for</span><span> i</span><span style="color: #72AB00;"> in</span><span style="color: #B39F04;"> range</span><span>(n):</span></span>
+<span class="giallo-l"><span>        z_array</span><span style="color: #72AB00;"> =</span><span> calculate_z_array(s[i:])</span></span>
+<span class="giallo-l"><span>        max_z</span><span style="color: #72AB00;"> =</span><span style="color: #B39F04;"> max</span><span>(z_array[</span><span style="color: #B3933A;">1</span><span>:])</span></span>
+<span class="giallo-l"><span>        sum_lengths</span><span style="color: #72AB00;"> +=</span><span> (n</span><span style="color: #72AB00;"> -</span><span> i)</span><span style="color: #72AB00;"> -</span><span> max_z</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">    return</span><span> sum_lengths</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;"># Example usage</span></span>
+<span class="giallo-l"><span>S</span><span style="color: #72AB00;"> =</span><span style="color: #D07711;"> &quot;BOBR&quot;</span></span>
+<span class="giallo-l"><span style="color: #B39F04;">print</span><span>(sum_unique_substrings_lengths(S))</span><span style="color: #7F8989;">  # Output: 19</span></span></code></pre>
+<p>This implementation has a time complexity of O(n^2) and memory complexity of O(n), which should be suitable for the given programming competition constraints.</p>
+</div>
+</details>
+<p>It realized that life is futile and somehow started talking about the trie approach, for which it actually knows the solution. I stopped it and said that this approach needs O(n^2) memory, so it doesn't suit us.</p>
+<p>And then, wow, it seems my words about the maximum gave it a bright idea. But the formula is still wrong, although conceptually it's very much on the right track!</p>
+<blockquote>
+<p>sum_lengths += (n - i) - max_z</p>
+</blockquote>
+<p>I figured I'd soon run out of the 8k-token context, so I decided to see what would happen if I gave it the correct formula without any explanation:</p>
+<details>
+<summary>Dialogue</summary>
+<div class="details-content">
+<p><strong><center>USER</center></strong></p>
+<p>This prints 8, which is not correct. The correct formula is <code>sum_lengths += (n-i)*(n-i+1)/2 - max_z*(max_z+1)/2</code>.</p>
+<hr />
+<p><strong><center>GPT-4</center></strong></p>
+<p>I apologize for the confusion earlier. You are correct, the formula you provided accounts for the lengths of unique substrings more accurately. Here's the corrected implementation using the Z-function and the formula you provided:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="python"><code data-lang="python"><span class="giallo-l"><span style="color: #668F14;">def</span><span style="color: #C23F31;"> calculate_z_array</span><span>(</span><span style="color: #5597D6;">s</span><span>):</span></span>
+<span class="giallo-l"><span>    n</span><span style="color: #72AB00;"> =</span><span style="color: #B39F04;"> len</span><span>(s)</span></span>
+<span class="giallo-l"><span>    z</span><span style="color: #72AB00;"> =</span><span> [</span><span style="color: #B3933A;">0</span><span>]</span><span style="color: #72AB00;"> *</span><span> n</span></span>
+<span class="giallo-l"><span>    l, r</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0</span><span>,</span><span style="color: #B3933A;"> 0</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">    for</span><span> i</span><span style="color: #72AB00;"> in</span><span style="color: #B39F04;"> range</span><span>(</span><span style="color: #B3933A;">1</span><span>, n):</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        if</span><span> i</span><span style="color: #72AB00;"> &gt;</span><span> r:</span></span>
+<span class="giallo-l"><span>            l, r</span><span style="color: #72AB00;"> =</span><span> i, i</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">            while</span><span> r</span><span style="color: #72AB00;"> &lt;</span><span> n</span><span style="color: #72AB00;"> and</span><span> s[r</span><span style="color: #72AB00;"> -</span><span> l]</span><span style="color: #72AB00;"> ==</span><span> s[r]:</span></span>
+<span class="giallo-l"><span>                r</span><span style="color: #72AB00;"> +=</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"><span>            z[i]</span><span style="color: #72AB00;"> =</span><span> r</span><span style="color: #72AB00;"> -</span><span> l</span></span>
+<span class="giallo-l"><span>            r</span><span style="color: #72AB00;"> -=</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        else</span><span>:</span></span>
+<span class="giallo-l"><span>            k</span><span style="color: #72AB00;"> =</span><span> i</span><span style="color: #72AB00;"> -</span><span> l</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">            if</span><span> z[k]</span><span style="color: #72AB00;"> &lt;</span><span> r</span><span style="color: #72AB00;"> -</span><span> i</span><span style="color: #72AB00;"> +</span><span style="color: #B3933A;"> 1</span><span>:</span></span>
+<span class="giallo-l"><span>                z[i]</span><span style="color: #72AB00;"> =</span><span> z[k]</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">            else</span><span>:</span></span>
+<span class="giallo-l"><span>                l</span><span style="color: #72AB00;"> =</span><span> i</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">                while</span><span> r</span><span style="color: #72AB00;"> &lt;</span><span> n</span><span style="color: #72AB00;"> and</span><span> s[r</span><span style="color: #72AB00;"> -</span><span> l]</span><span style="color: #72AB00;"> ==</span><span> s[r]:</span></span>
+<span class="giallo-l"><span>                    r</span><span style="color: #72AB00;"> +=</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"><span>                z[i]</span><span style="color: #72AB00;"> =</span><span> r</span><span style="color: #72AB00;"> -</span><span> l</span></span>
+<span class="giallo-l"><span>                r</span><span style="color: #72AB00;"> -=</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">    return</span><span> z</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">def</span><span style="color: #C23F31;"> sum_unique_substrings_lengths</span><span>(</span><span style="color: #5597D6;">s</span><span>):</span></span>
+<span class="giallo-l"><span>    n</span><span style="color: #72AB00;"> =</span><span style="color: #B39F04;"> len</span><span>(s)</span></span>
+<span class="giallo-l"><span>    sum_lengths</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">    for</span><span> i</span><span style="color: #72AB00;"> in</span><span style="color: #B39F04;"> range</span><span>(n):</span></span>
+<span class="giallo-l"><span>        z_array</span><span style="color: #72AB00;"> =</span><span> calculate_z_array(s[i:])</span></span>
+<span class="giallo-l"><span>        max_z</span><span style="color: #72AB00;"> =</span><span style="color: #B39F04;"> max</span><span>(z_array[</span><span style="color: #B3933A;">1</span><span>:])</span></span>
+<span class="giallo-l"><span>        sum_lengths</span><span style="color: #72AB00;"> +=</span><span> (n</span><span style="color: #72AB00;"> -</span><span> i)</span><span style="color: #72AB00;"> *</span><span> (n</span><span style="color: #72AB00;"> -</span><span> i</span><span style="color: #72AB00;"> +</span><span style="color: #B3933A;"> 1</span><span>)</span><span style="color: #72AB00;"> //</span><span style="color: #B3933A;"> 2</span><span style="color: #72AB00;"> -</span><span> max_z</span><span style="color: #72AB00;"> *</span><span> (max_z</span><span style="color: #72AB00;"> +</span><span style="color: #B3933A;"> 1</span><span>)</span><span style="color: #72AB00;"> //</span><span style="color: #B3933A;"> 2</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">    return</span><span> sum_lengths</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;"># Example usage</span></span>
+<span class="giallo-l"><span>S</span><span style="color: #72AB00;"> =</span><span style="color: #D07711;"> &quot;BOBR&quot;</span></span>
+<span class="giallo-l"><span style="color: #B39F04;">print</span><span>(sum_unique_substrings_lengths(S))</span><span style="color: #7F8989;">  # Output: 19</span></span></code></pre>
+<p>This implementation has a time complexity of O(n^2) and memory complexity of O(n), which should be suitable for the given programming competition constraints. The output for the input string "BOBR" is now correct.</p>
+<hr />
+<p><strong><center>USER</center></strong></p>
+<p>It fails:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>    max_z = max(z_array[1:])</span></span>
+<span class="giallo-l"><span>ValueError: max() arg is an empty sequence</span></span></code></pre>
+<hr />
+<p><strong><center>GPT-4</center></strong></p>
+<p>I apologize for the oversight. To handle the case where the z_array has only one element, we can add a conditional check to ensure it has more than one element before finding the max. Here's the updated implementation:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="python"><code data-lang="python"><span class="giallo-l"><span style="color: #668F14;">def</span><span style="color: #C23F31;"> calculate_z_array</span><span>(</span><span style="color: #5597D6;">s</span><span>):</span></span>
+<span class="giallo-l"><span>    n</span><span style="color: #72AB00;"> =</span><span style="color: #B39F04;"> len</span><span>(s)</span></span>
+<span class="giallo-l"><span>    z</span><span style="color: #72AB00;"> =</span><span> [</span><span style="color: #B3933A;">0</span><span>]</span><span style="color: #72AB00;"> *</span><span> n</span></span>
+<span class="giallo-l"><span>    l, r</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0</span><span>,</span><span style="color: #B3933A;"> 0</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">    for</span><span> i</span><span style="color: #72AB00;"> in</span><span style="color: #B39F04;"> range</span><span>(</span><span style="color: #B3933A;">1</span><span>, n):</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        if</span><span> i</span><span style="color: #72AB00;"> &gt;</span><span> r:</span></span>
+<span class="giallo-l"><span>            l, r</span><span style="color: #72AB00;"> =</span><span> i, i</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">            while</span><span> r</span><span style="color: #72AB00;"> &lt;</span><span> n</span><span style="color: #72AB00;"> and</span><span> s[r</span><span style="color: #72AB00;"> -</span><span> l]</span><span style="color: #72AB00;"> ==</span><span> s[r]:</span></span>
+<span class="giallo-l"><span>                r</span><span style="color: #72AB00;"> +=</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"><span>            z[i]</span><span style="color: #72AB00;"> =</span><span> r</span><span style="color: #72AB00;"> -</span><span> l</span></span>
+<span class="giallo-l"><span>            r</span><span style="color: #72AB00;"> -=</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        else</span><span>:</span></span>
+<span class="giallo-l"><span>            k</span><span style="color: #72AB00;"> =</span><span> i</span><span style="color: #72AB00;"> -</span><span> l</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">            if</span><span> z[k]</span><span style="color: #72AB00;"> &lt;</span><span> r</span><span style="color: #72AB00;"> -</span><span> i</span><span style="color: #72AB00;"> +</span><span style="color: #B3933A;"> 1</span><span>:</span></span>
+<span class="giallo-l"><span>                z[i]</span><span style="color: #72AB00;"> =</span><span> z[k]</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">            else</span><span>:</span></span>
+<span class="giallo-l"><span>                l</span><span style="color: #72AB00;"> =</span><span> i</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">                while</span><span> r</span><span style="color: #72AB00;"> &lt;</span><span> n</span><span style="color: #72AB00;"> and</span><span> s[r</span><span style="color: #72AB00;"> -</span><span> l]</span><span style="color: #72AB00;"> ==</span><span> s[r]:</span></span>
+<span class="giallo-l"><span>                    r</span><span style="color: #72AB00;"> +=</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"><span>                z[i]</span><span style="color: #72AB00;"> =</span><span> r</span><span style="color: #72AB00;"> -</span><span> l</span></span>
+<span class="giallo-l"><span>                r</span><span style="color: #72AB00;"> -=</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">    return</span><span> z</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">def</span><span style="color: #C23F31;"> sum_unique_substrings_lengths</span><span>(</span><span style="color: #5597D6;">s</span><span>):</span></span>
+<span class="giallo-l"><span>    n</span><span style="color: #72AB00;"> =</span><span style="color: #B39F04;"> len</span><span>(s)</span></span>
+<span class="giallo-l"><span>    sum_lengths</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">    for</span><span> i</span><span style="color: #72AB00;"> in</span><span style="color: #B39F04;"> range</span><span>(n):</span></span>
+<span class="giallo-l"><span>        z_array</span><span style="color: #72AB00;"> =</span><span> calculate_z_array(s[i:])</span></span>
+<span class="giallo-l"><span>        max_z</span><span style="color: #72AB00;"> =</span><span style="color: #B39F04;"> max</span><span>(z_array[</span><span style="color: #B3933A;">1</span><span>:])</span><span style="color: #72AB00;"> if</span><span style="color: #B39F04;"> len</span><span>(z_array)</span><span style="color: #72AB00;"> &gt;</span><span style="color: #B3933A;"> 1</span><span style="color: #72AB00;"> else</span><span style="color: #B3933A;"> 0</span></span>
+<span class="giallo-l"><span>        sum_lengths</span><span style="color: #72AB00;"> +=</span><span> (n</span><span style="color: #72AB00;"> -</span><span> i)</span><span style="color: #72AB00;"> *</span><span> (n</span><span style="color: #72AB00;"> -</span><span> i</span><span style="color: #72AB00;"> +</span><span style="color: #B3933A;"> 1</span><span>)</span><span style="color: #72AB00;"> //</span><span style="color: #B3933A;"> 2</span><span style="color: #72AB00;"> -</span><span> max_z</span><span style="color: #72AB00;"> *</span><span> (max_z</span><span style="color: #72AB00;"> +</span><span style="color: #B3933A;"> 1</span><span>)</span><span style="color: #72AB00;"> //</span><span style="color: #B3933A;"> 2</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">    return</span><span> sum_lengths</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;"># Example usage</span></span>
+<span class="giallo-l"><span>S</span><span style="color: #72AB00;"> =</span><span style="color: #D07711;"> &quot;BOBR&quot;</span></span>
+<span class="giallo-l"><span style="color: #B39F04;">print</span><span>(sum_unique_substrings_lengths(S))</span><span style="color: #7F8989;">  # Output: 19</span></span></code></pre>
+<p>This implementation should now work correctly for all cases, including cases where the z_array has only one element. The time complexity remains O(n^2), and the memory complexity is O(n), which should be suitable for the programming competition constraints.</p>
+<hr />
+<p><strong><center>USER</center></strong></p>
+<p>That code is correct. Can you explain formula, why exactly it uses max_z, what is that thing is squaring it, and why it sums something and substracts something? I can't understand what that has to do with sum of lengths of unique substrings.</p>
+<hr />
+<p><strong><center>GPT-4</center></strong></p>
+<p>Certainly! Let's break down the formula and explain its components:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>sum_lengths += (n - i) * (n - i + 1) // 2 - max_z * (max_z + 1) // 2</span></span></code></pre>
+<p>The formula calculates the sum of lengths of unique substrings for each suffix of the input string S. We iterate through the string, starting with the entire string as a suffix and moving towards shorter suffixes.</p>
+<p><strong>(n - i) * (n - i + 1) // 2</strong>: This part of the formula calculates the total number of substrings for the current suffix. We use the formula for the sum of the first n natural numbers (n * (n + 1) / 2) to calculate this. Here, <code>n - i</code> represents the length of the current suffix. For example, if the input string is "BOBR" and i = 1, we are considering the suffix "OBR", which has a length of 3. The total number of substrings for this suffix is 3 * (3 + 1) / 2 = 6.</p>
+<p><strong>max_z</strong>: This variable represents the length of the longest common prefix between the current suffix and any of its smaller substrings. By calculating the Z-array for the current suffix, we can find the maximum value (excluding Z[0]), which represents the longest repeated substring within the current suffix.</p>
+<p><strong>max_z * (max_z + 1) // 2</strong>: <span class="red-bg example">This part of the formula calculates the sum of lengths of the repeated substrings (non-unique substrings) for the current suffix.</span> We multiply max_z by (max_z + 1) / 2, which is the sum of the first max_z natural numbers. This gives us the total length of the repeated substrings.</p>
+<p>Finally, we subtract the sum of lengths of the repeated substrings from the total number of substrings for the current suffix to obtain the sum of lengths of unique substrings for that suffix:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>sum_lengths += (n - i) * (n - i + 1) // 2 - max_z * (max_z + 1) // 2</span></span></code></pre>
+<p>By iterating through the string and performing this calculation for each suffix, we can compute the sum of lengths of unique substrings for the entire input string S.</p>
+</div>
+</details>
+<p>In the end it made a small runtime error, but managed to fix the code and give a fully working, correct and optimal solution. And then it also explained well why the formula is the way it is.</p>
+<p>We can see that the network can't think: it gives an answer straight away, but it's still very smart! It can find the solution if you give it the right hints, and it can fix code based on an error message. It's an incredible foundation, and it seems that only a little effort in the right direction is needed to make it even smarter.</p>
+<p>From here on in the analysis I'll only talk to GPT-4.</p>
+<h2 id="summarizing-the-solution"><a class="anchor" href="#summarizing-the-solution">#<sup>2</sup></a>Summarizing the solution</h2>
+<p>Next I thought the network would be able to summarize the whole solution well in one sentence, so that I could give it this sentence as input and it would produce the solution in another dialogue. This is about my attempts to generate training data, which I'll describe in more detail later.</p>
+<p>In the end I couldn't make it give the solution in one sentence, even after very many attempts. Even when I wrote such a sentence by hand myself, it didn't work.</p>
+<p>One of the examples:</p>
+<details>
+<summary>Dialogue</summary>
+<div class="details-content">
+<p><strong><center>USER</center></strong></p>
+<p>Can you please summarize full idea to solve that task in one sentence?</p>
+<hr />
+<p><strong><center>GPT-4</center></strong>
+Compute the sum of lengths of unique substrings for an input string S by iterating through its suffixes, calculating the Z-array for each suffix, and subtracting the sum of lengths of repeated substrings (represented by max_z) from the total number of substrings for each suffix.</p>
+</div>
+</details>
+<h2 id="few-shot-learning"><a class="anchor" href="#few-shot-learning">#<sup>2</sup></a>Few-shot learning</h2>
+<p>I saw this technique somewhere: first you give a good solution to a similar problem, then your problem, and the network performs much better by working by analogy.</p>
+<p>I decided to try the same. I found a similar problem about palindromes and the Z-function, and then took the hard road: first I wrote a solution to the current problem and asked it to solve the palindrome problem, and then I gave the network the palindrome solution, written in the right style, to solve the sum problem. Not quite the right way to do it, but it is what it is.</p>
+<details>
+<summary>Dialogue</summary>
+<div class="details-content">
+<p><strong><center>USER</center></strong></p>
+<p>Teacher: You have that competitive programming task: "You given string S, find length of the longest its substing that is a palindrome.". How would you solve it using Z-function in most efficient way? Think step-by-step.</p>
+<p>Gaalian: Let's consider different usages of Z-function in this task:</p>
+<ol>
+<li>Z-function of just the string.</li>
+<li>Z-function of all suffixes of the string.</li>
+<li>Z-function of the reversed string concatenated to the original string with a special character in between.</li>
+<li>Z-function of each prefix and its reversed version concatenated.</li>
+</ol>
+<p>Let's analyze them:</p>
+<ol>
+<li>This is not useful since Z-function is related to the longest common prefix and has nothing to do with palindromes.</li>
+<li>Similar to option 1, this also doesn't provide any useful information about palindromes.</li>
+<li>This option seems interesting. Suppose the original string is S, and we create a new string R = S + '$' + S[::-1]. Let's consider some examples:</li>
+</ol>
+<ul>
+<li>S = "abba", R = "abba$abba". In this case, the Z-function can detect the whole palindrome, but it doesn't work for odd length palindromes.</li>
+<li>S = "aba", R = "aba$aba". The Z-function will not be able to detect the longest palindrome here.
+So, while this approach may work for even length palindromes, it doesn't work for odd length palindromes.</li>
+</ul>
+<ol start="4">
+<li>This option allows us to find the longest palindrome for each prefix of the string. For each prefix, we can create a new string R = P + '$' + P[::-1], where P is the current prefix of S. Then, we calculate the Z-function for R. The longest palindrome can be found by calculating the longest common prefix between P and its reversed version. The only issue with this approach is that it has a time complexity of O(n^2), as we need to calculate the Z-function for each prefix.</li>
+</ol>
+<p>Considering the options, the most efficient way possible using only Z-function seems to be option 4.</p>
+<p>So, the complete solution using Z-function will look like this:</p>
+<ul>
+<li>Initialize a variable max_palindrome_length to store the longest palindrome length</li>
+<li>Iterate through each prefix of the string S
+<ul>
+<li>Create a new string R by concatenating the current prefix, a special character, and the reversed prefix</li>
+<li>Calculate the Z-function for R</li>
+<li>Find the maximum value in the Z-function array (ignoring the first element)</li>
+<li>Update max_palindrome_length with the maximum of the current maximum value and the previously stored max_palindrome_length</li>
+</ul>
+</li>
+<li>The max_palindrome_length variable now stores the length of the longest palindrome substring in S</li>
+</ul>
+<p>Teacher: Good. Now solve another competitive programming task: "Given string S, calculate sum of lengths of unique substrings of that string.". Solve it in the most efficient way possible using only Z-function.</p>
+<p><code>---</code></p>
+<p>Can you answer as the Gaalian with the same style of thinking?</p>
+<hr />
+<p><strong><center>GPT-4</center></strong></p>
+<p>Gaalian: Let's consider different usages of Z-function in this task:</p>
+<ol>
+<li>Z-function of just the string.</li>
+<li><span class="red-bg example">Z-function of all suffixes of the string.</span></li>
+<li>Z-function of each prefix and its reversed version concatenated.</li>
+<li>Z-function of the reversed string concatenated to the original string with a special character in between.</li>
+</ol>
+<p>Let's analyze them:</p>
+<ol>
+<li>This is not useful since Z-function is related to the longest common prefix and has nothing to do with unique substrings directly.</li>
+<li>This option allows us to find the longest common prefix for each suffix of the string. By calculating the Z-function for each suffix of S, <span class="red-bg example">we can determine the number of unique substrings for each suffix.</span> This method can help us to calculate the sum of lengths of unique substrings efficiently.</li>
+<li>This option, similar to option 1, doesn't provide any useful information about unique substrings.</li>
+<li>This option is also not helpful in calculating the sum of lengths of unique substrings.</li>
+</ol>
+<p>Considering the options, the most efficient way possible using only Z-function seems to be option 2.</p>
+<p>So, the complete solution using Z-function will look like this:</p>
+<ul>
+<li>Initialize a variable sum_of_unique_substrings_length to store the sum of lengths of unique substrings</li>
+<li>Iterate through each suffix of the string S
+<ul>
+<li>Calculate the Z-function for the current suffix</li>
+<li><span class="red-bg example">The number of unique substrings for the current suffix is equal to the length of the suffix minus the maximum value in the Z-function array (ignoring the first element)</span></li>
+<li>Update sum_of_unique_substrings_length by adding the number of unique substrings for the current suffix</li>
+</ul>
+</li>
+<li>The sum_of_unique_substrings_length variable now stores the sum of lengths of unique substrings in S</li>
+</ul>
+</div>
+</details>
+<p>In the end it arrived at the maximum, but not at the "formula", and it didn't even consider examples the way it was done in the original prompt. Although even in the original prompt GPT-4 wrote the examples just for show, in mine they were at least somehow used inside the reasoning.</p>
+<p>Then I asked it to analyze this solution and compare it with the naive one on the string "BOBR", and it produced the following masterpiece:</p>
+<details>
+<summary>Dialogue</summary>
+<div class="details-content">
+<p><strong><center>USER</center></strong></p>
+<p>Can you find sum of lengths of unique substrings of string "BOBR" using that algorithm, and then check if you right using naive approach, and then correct yourself if you are not right.</p>
+<hr />
+<p><strong><center>GPT-4</center></strong></p>
+<p>Let's first use the Z-function-based algorithm to find the sum of lengths of unique substrings for the string "BOBR":</p>
+<ol>
+<li>
+<p>For suffix "BOBR" (z = [0, 0, 1, 0]):
+Unique substrings: "B", "O", "R", "BO", "OB", "BR", "BOB", "OBR", "BOBR" (9 substrings)
+Number of unique substrings = length of the suffix (4) - max value in the Z-function array (1) = 3</p>
+</li>
+<li>
+<p>For suffix "OBR" (z = [0, 0, 0]):
+Unique substrings: "O", "B", "R", "OB", "BR", "OBR" (6 substrings)
+Number of unique substrings = length of the suffix (3) - max value in the Z-function array (0) = 3</p>
+</li>
+<li>
+<p>For suffix "BR" (z = [0, 0]):
+Unique substrings: "B", "R", "BR" (3 substrings)
+Number of unique substrings = length of the suffix (2) - max value in the Z-function array (0) = 2</p>
+</li>
+<li>
+<p>For suffix "R" (z = [0]):
+Unique substrings: "R" (1 substring)
+Number of unique substrings = length of the suffix (1) - max value in the Z-function array (0) = 1</p>
+</li>
+</ol>
+<p>Sum of lengths of unique substrings = <span class="red-bg example">3 + 3 + 2 + 1 = 9</span></p>
+<p>Now, let's use the naive approach to confirm the result:</p>
+<p>All possible substrings of "BOBR":</p>
+<ol>
+<li>"B"</li>
+<li>"O"</li>
+<li>"R"</li>
+<li>"BO"</li>
+<li>"OB"</li>
+<li>"BR"</li>
+<li>"BOB"</li>
+<li>"OBR"</li>
+<li>"BOBR"</li>
+</ol>
+<p>All substrings are unique, so the sum of lengths of unique substrings is equal to the total length of all substrings = <span class="red-bg example">1 + 1 + 1 + 2 + 2 + 2 + 3 + 3 + 4 = 9</span></p>
+<p><span class="red-bg example">Both the Z-function-based algorithm and the naive approach produce the same result, which is 9. The algorithm seems to work correctly for the given input.</span></p>
+</div>
+</details>
+<p>This is just beautiful: <code>1 + 1 + 1 + 2 + 2 + 2 + 3 + 3 + 4 = 9</code>. Apparently the training set had too many comparisons of two solutions where both always turned out to be correct, so the network fell for this terrible cognitive bias. And this result reproduced for me time after time: the network always said that both the naive and the proposed solutions were correct.</p>
+<p>All in all, this didn't really work: the network did what I did, but just for show, not for reasoning. It didn't help it invent the formula, it only helped it arrive at the maximum (and even the maximum was already in the previous problem), which it had arrived at before anyway.</p>
+<h2 id="continuing-a-pre-written-solution"><a class="anchor" href="#continuing-a-pre-written-solution">#<sup>2</sup></a>Continuing a pre-written solution</h2>
+<p>I decided to take one last path: I'd write by hand all the reasoning that leads to the correct solution, and then gradually remove sentences from the end to see from which point the network is able to reach the correct solution. I recommend reading the prompt carefully.</p>
+<details>
+<summary>Dialogue</summary>
+<div class="details-content">
+<p><strong><center>USER</center></strong></p>
+<p>Teacher: You have that competitive programming task: "Given string S, calculate sum of lengths of unique substrings of that string.". How would you solve it using Z-function in most efficient way? Think step-by-step.</p>
+<p>Gaalian: We can consider different usages of Z-function in that task:</p>
+<ol>
+<li>Z-function of just the string.</li>
+<li>Z-function of all suffixes of the string.</li>
+</ol>
+<p>Let's analyze them:</p>
+<ol>
+<li>That can be used only on definition, and definition of Z-function has nothing about unique substrings or sum of their lengths, so it wouldn't give us much.</li>
+<li>That can tell us how many strings match with currenct suffix, and that's interesting. For suffix "ababa" we will get Z-function [0, 0, 2, 0, 1]. If we consider all prefixes of that suffix, then we will get "a", "ab", "aba", "abab", "ababa". And we know that "a" and "ab" is repeated in the other suffixes. We can sum lengths of current prefix and substract lengths of strings that repeated in the current suffix. We have only two useful numbers in Z-function: 2 and 1, first number means strings "ab" and "a", second number means "a". Each number, that is smaller than the maximum will not be useful, because it's already considered in the maximum number. So we will need to use only maximum number of the suffix Z-function. So, we need to calc sum of lengths of current prefixes minus sum of lengths of repeated strings. Will be "ab" and "a" considered as unique strings later? Yes, when they will be current suffix to analyze.</li>
+</ol>
+<p>So, the complete solution will look like this:</p>
+<ul>
+<li>Iterate through each suffix, length of current suffix is M.</li>
+<li>For each suffix calculate Z-function.
+...</li>
+</ul>
+<p><code>---</code></p>
+<p>Can you please continue Gaalian solution?</p>
+<hr />
+<p><strong><center>GPT-4</center></strong></p>
+<p>Certainly! Continuing with Gaalian's solution:</p>
+<ul>
+<li>
+<p>For each suffix, calculate the Z-function.</p>
+</li>
+<li>
+<p>Find the maximum value in the Z-function array, excluding the first element (which is always the length of the string itself). Let this value be <code>max_z</code>.</p>
+</li>
+<li>
+<p>Calculate the sum of lengths of all unique substrings for the current suffix. This can be done as the sum of all integers from 1 to M (the length of the current suffix), then subtract the sum of all integers from 1 to <code>max_z</code>. The formula for the sum of first N integers is <code>N * (N + 1) / 2</code>.</p>
+</li>
+<li>
+<p>Add the result to the total sum of unique substrings.</p>
+</li>
+<li>
+<p>Repeat the process for all suffixes of the string.</p>
+</li>
+<li>
+<p>Return the total sum of unique substrings.</p>
+</li>
+</ul>
+<p>Here's a Python implementation of the above solution:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="python"><code data-lang="python"><span class="giallo-l"><span style="color: #668F14;">def</span><span style="color: #C23F31;"> z_function</span><span>(</span><span style="color: #5597D6;">s</span><span>):</span></span>
+<span class="giallo-l"><span>    n</span><span style="color: #72AB00;"> =</span><span style="color: #B39F04;"> len</span><span>(s)</span></span>
+<span class="giallo-l"><span>    z</span><span style="color: #72AB00;"> =</span><span> [</span><span style="color: #B3933A;">0</span><span>]</span><span style="color: #72AB00;"> *</span><span> n</span></span>
+<span class="giallo-l"><span>    l, r</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0</span><span>,</span><span style="color: #B3933A;"> 0</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">    for</span><span> i</span><span style="color: #72AB00;"> in</span><span style="color: #B39F04;"> range</span><span>(</span><span style="color: #B3933A;">1</span><span>, n):</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        if</span><span> i</span><span style="color: #72AB00;"> &gt;</span><span> r:</span></span>
+<span class="giallo-l"><span>            l, r</span><span style="color: #72AB00;"> =</span><span> i, i</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">            while</span><span> r</span><span style="color: #72AB00;"> &lt;</span><span> n</span><span style="color: #72AB00;"> and</span><span> s[r</span><span style="color: #72AB00;"> -</span><span> l]</span><span style="color: #72AB00;"> ==</span><span> s[r]:</span></span>
+<span class="giallo-l"><span>                r</span><span style="color: #72AB00;"> +=</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"><span>            z[i]</span><span style="color: #72AB00;"> =</span><span> r</span><span style="color: #72AB00;"> -</span><span> l</span></span>
+<span class="giallo-l"><span>            r</span><span style="color: #72AB00;"> -=</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        else</span><span>:</span></span>
+<span class="giallo-l"><span>            k</span><span style="color: #72AB00;"> =</span><span> i</span><span style="color: #72AB00;"> -</span><span> l</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">            if</span><span> z[k]</span><span style="color: #72AB00;"> &lt;</span><span> r</span><span style="color: #72AB00;"> -</span><span> i</span><span style="color: #72AB00;"> +</span><span style="color: #B3933A;"> 1</span><span>:</span></span>
+<span class="giallo-l"><span>                z[i]</span><span style="color: #72AB00;"> =</span><span> z[k]</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">            else</span><span>:</span></span>
+<span class="giallo-l"><span>                l</span><span style="color: #72AB00;"> =</span><span> i</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">                while</span><span> r</span><span style="color: #72AB00;"> &lt;</span><span> n</span><span style="color: #72AB00;"> and</span><span> s[r</span><span style="color: #72AB00;"> -</span><span> l]</span><span style="color: #72AB00;"> ==</span><span> s[r]:</span></span>
+<span class="giallo-l"><span>                    r</span><span style="color: #72AB00;"> +=</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"><span>                z[i]</span><span style="color: #72AB00;"> =</span><span> r</span><span style="color: #72AB00;"> -</span><span> l</span></span>
+<span class="giallo-l"><span>                r</span><span style="color: #72AB00;"> -=</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">    return</span><span> z</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">def</span><span style="color: #C23F31;"> unique_substrings</span><span>(</span><span style="color: #5597D6;">s</span><span>):</span></span>
+<span class="giallo-l"><span>    total_sum</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">    for</span><span> i</span><span style="color: #72AB00;"> in</span><span style="color: #B39F04;"> range</span><span>(</span><span style="color: #B39F04;">len</span><span>(s)):</span></span>
+<span class="giallo-l"><span>        suffix</span><span style="color: #72AB00;"> =</span><span> s[i:]</span></span>
+<span class="giallo-l"><span>        z_arr</span><span style="color: #72AB00;"> =</span><span> z_function(suffix)</span></span>
+<span class="giallo-l"><span>        max_z</span><span style="color: #72AB00;"> =</span><span style="color: #B39F04;"> max</span><span>(z_arr[</span><span style="color: #B3933A;">1</span><span>:])</span></span>
+<span class="giallo-l"><span>        M</span><span style="color: #72AB00;"> =</span><span style="color: #B39F04;"> len</span><span>(suffix)</span></span>
+<span class="giallo-l"><span>        total_sum</span><span style="color: #72AB00;"> +=</span><span> (M</span><span style="color: #72AB00;"> *</span><span> (M</span><span style="color: #72AB00;"> +</span><span style="color: #B3933A;"> 1</span><span>)</span><span style="color: #72AB00;"> //</span><span style="color: #B3933A;"> 2</span><span>)</span><span style="color: #72AB00;"> -</span><span> (max_z</span><span style="color: #72AB00;"> *</span><span> (max_z</span><span style="color: #72AB00;"> +</span><span style="color: #B3933A;"> 1</span><span>)</span><span style="color: #72AB00;"> //</span><span style="color: #B3933A;"> 2</span><span>)</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">    return</span><span> total_sum</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>S</span><span style="color: #72AB00;"> =</span><span style="color: #D07711;"> &quot;ababa&quot;</span></span>
+<span class="giallo-l"><span style="color: #B39F04;">print</span><span>(unique_substrings(S))</span></span></code></pre>
+<p>This implementation calculates the sum of lengths of unique substrings for the given string <code>S</code> using the Z-function in an efficient way.</p>
+</div>
+</details>
+<p>Legendary! It came up with the "formula" from a text description!!! Hooray, I managed to make it do this at least somehow. Now there's motivation to keep going.</p>
+<p>Next I'll remove sentences little by little; the removed text will be struck through. This is to save your time and attention.</p>
+<details>
+<summary>Dialogue</summary>
+<div class="details-content">
+<p><strong><center>USER</center></strong></p>
+<p>Teacher: You have that competitive programming task: "Given string S, calculate sum of lengths of unique substrings of that string.". How would you solve it using Z-function in most efficient way? Think step-by-step.</p>
+<p>Gaalian: We can consider different usages of Z-function in that task:</p>
+<ol>
+<li>Z-function of just the string.</li>
+<li>Z-function of all suffixes of the string.</li>
+</ol>
+<p>Let's analyze them:</p>
+<ol>
+<li>That can be used only on definition, and definition of Z-function has nothing about unique substrings or sum of their lengths, so it wouldn't give us much.</li>
+<li>That can tell us how many strings match with currenct suffix, and that's interesting. For suffix "ababa" we will get Z-function [0, 0, 2, 0, 1]. If we consider all prefixes of that suffix, then we will get "a", "ab", "aba", "abab", "ababa". And we know that "a" and "ab" is repeated in the other suffixes. We can sum lengths of current prefix and substract lengths of strings that repeated in the current suffix. We have only two useful numbers in Z-function: 2 and 1, first number means strings "ab" and "a", second number means "a". Each number, that is smaller than the maximum will not be useful, because it's already considered in the maximum number. So we will need to use only maximum number of the suffix Z-function. So, we need to calc sum of lengths of current prefixes minus sum of lengths of repeated strings. Will be "ab" and "a" considered as unique strings later? ... <del>Yes, when they will be current suffix to analyze.</del></li>
+</ol>
+<p><del>So, the complete solution will look like this:</del></p>
+<ul>
+<li><del>Iterate through each suffix, length of current suffix is M.</del></li>
+<li><del>For each suffix calculate Z-function.</del></li>
+</ul>
+<p><code>---</code></p>
+<p>Can you please continue Gaalian solution from "..."?</p>
+<hr />
+<p><strong><center>GPT-4</center></strong></p>
+<p>Yes, let's continue Gaalian's solution from "...":</p>
+<p>So, to reiterate, we have determined that we should focus on the maximum value of the Z-function for each suffix. Now, let's proceed with the algorithm:</p>
+<ol>
+<li>
+<p>Initialize a variable <code>total_unique_substrings</code> to store the sum of lengths of unique substrings. Set its initial value to 0.</p>
+</li>
+<li>
+<p>Iterate through the string <code>S</code> from the beginning to the end. For each character at position <code>i</code>, consider the suffix of the string starting at position <code>i</code>. Calculate the Z-function for that suffix.</p>
+</li>
+<li>
+<p>Find the maximum value of the Z-function for the current suffix, excluding the first element (which is always equal to the length of the string). Let's call this value <code>max_z</code>.</p>
+</li>
+<li>
+<p>Calculate the sum of lengths of all possible substrings within the current suffix. This can be found using the formula <code>n * (n + 1) / 2</code>, where <code>n</code> is the length of the current suffix.</p>
+</li>
+<li>
+<p>Calculate the sum of lengths of the substrings repeated in the current suffix. This can be found using the formula <code>max_z * (max_z + 1) / 2</code>.</p>
+</li>
+<li>
+<p>Subtract the sum of lengths of the repeated substrings (from step 5) from the sum of lengths of all possible substrings within the current suffix (from step 4). This will give you the sum of lengths of unique substrings for the current suffix.</p>
+</li>
+<li>
+<p>Add the sum of lengths of unique substrings for the current suffix (from step 6) to the <code>total_unique_substrings</code>.</p>
+</li>
+<li>
+<p>Repeat steps 2-7 for all characters in the string <code>S</code>.</p>
+</li>
+<li>
+<p>After iterating through the entire string, the value of <code>total_unique_substrings</code> will be the sum of lengths of unique substrings in the given string <code>S</code>.</p>
+</li>
+</ol>
+<p>By following this algorithm, we efficiently calculate the sum of lengths of unique substrings using the Z-function.</p>
+</div>
+</details>
+<p>It managed to continue to the correct solution. I'm removing more, but I had to add a little to make it work, because I saw that the network just wasn't getting going (oh, prompt engineering):</p>
+<details>
+<summary>Dialogue</summary>
+<div class="details-content">
+<p><strong><center>USER</center></strong></p>
+<p>Teacher: You have that competitive programming task: "Given string S, calculate sum of lengths of unique substrings of that string.". How would you solve it using Z-function in most efficient way? Think step-by-step.</p>
+<p>Gaalian: We can consider different usages of Z-function in that task:</p>
+<ol>
+<li>Z-function of just the string.</li>
+<li>Z-function of all suffixes of the string.</li>
+</ol>
+<p>Let's analyze them:</p>
+<ol>
+<li>That can be used only on definition, and definition of Z-function has nothing about unique substrings or sum of their lengths, so it wouldn't give us much.</li>
+<li>That can tell us how many strings match with currenct suffix, and that's interesting. For suffix "ababa" we will get Z-function [0, 0, 2, 0, 1]. If we consider all prefixes of that suffix, then we will get "a", "ab", "aba", "abab", "ababa". And we know that "a" and "ab" is repeated in the other suffixes. We can sum lengths of current prefix and substract lengths of strings that repeated in the current suffix. We have only two useful numbers in Z-function: 2 and 1, first number means strings "ab" and "a", second number means "a". <span class="green-bg example">"a" is already considered in 2, so 1 ...</span> <del>Each number, that is smaller than the maximum will not be useful, because it's already considered in the maximum number. So we will need to use only maximum number of the suffix Z-function. So, we need to calc sum of lengths of current prefixes minus sum of lengths of repeated strings. Will be "ab" and "a" considered as unique strings later? Yes, when they will be current suffix to analyze.</del></li>
+</ol>
+<p><del>So, the complete solution will look like this:</del></p>
+<ul>
+<li><del>Iterate through each suffix, length of current suffix is M.</del></li>
+<li><del>For each suffix calculate Z-function.</del></li>
+</ul>
+<p><code>---</code></p>
+<p>Can you please continue Gaalian solution from "..."?</p>
+<hr />
+<p><strong><center>GPT-4</center></strong></p>
+<p>Gaalian: Sure. <span class="red-bg example">So 1 doesn't give us any new information. Hence, we should only consider the maximum value from the Z-function of the current suffix.</span> In this case, it's 2. Now let's calculate the sum of lengths of unique substrings for the current suffix "ababa":</p>
+<p>Total lengths of all prefixes: 1 + 2 + 3 + 4 + 5 = 15
+Lengths of repeated substrings: 1 + 2 = 3</p>
+<p>Sum of lengths of unique substrings for "ababa": 15 - 3 = 12</p>
+<p>We can apply this approach to all the suffixes of the string S.</p>
+<p>Here's the step-by-step solution using Z-function:</p>
+<ol>
+<li>Initialize the total_sum variable to 0.</li>
+<li>Iterate through all suffixes of the given string S:
+<ul>
+<li>a. For each suffix, calculate its Z-function.</li>
+<li>b. <span class="red-bg example">Find the maximum value in the Z-function of the current suffix.</span></li>
+<li>c. Calculate the sum of lengths of all prefixes of the current suffix.</li>
+<li>d. <span class="red-bg example">Subtract the sum of lengths of repeated substrings</span> (based on the maximum value from the Z-function) from the sum of lengths of all prefixes.</li>
+<li>e. Add the result to the total_sum.</li>
+</ul>
+</li>
+<li>Return the total_sum, which is the sum of lengths of unique substrings of the given string S.</li>
+</ol>
+<p>By following this algorithm, we can efficiently calculate the sum of lengths of unique substrings using the Z-function.</p>
+<hr />
+<p><strong><center>USER</center></strong></p>
+<p>Can you tell how exactly to do step 2 d?</p>
+<hr />
+<p><strong><center>GPT-4</center></strong></p>
+<p>Certainly! In step 2d, we need to subtract the sum of lengths of repeated substrings from the sum of lengths of all prefixes. Here's how to do it:</p>
+<ol>
+<li>
+<p>Calculate the sum of lengths of all prefixes of the current suffix.
+This can be done by simply using the formula: <span class="red-bg example">n * (n + 1) / 2</span>, where n is the length of the current suffix.</p>
+</li>
+<li>
+<p>Calculate the sum of lengths of repeated substrings based on the maximum value from the Z-function.
+Let's call the maximum value from the Z-function max_z. This max_z value represents the longest repeated substring present in the current suffix. The substrings that are repeated will have lengths from 1 to max_z. To calculate the sum of lengths of these repeated substrings, we can again use the formula: <span class="red-bg example">max_z * (max_z + 1) / 2</span>.</p>
+</li>
+<li>
+<p>Subtract the sum of lengths of repeated substrings from the sum of lengths of all prefixes.
+To do this, simply subtract the result from step 2 from the result of step 1.</p>
+</li>
+</ol>
+<p>Here's the updated step 2d:</p>
+<p>2d. Subtract the sum of lengths of repeated substrings (based on the maximum value from the Z-function) from the sum of lengths of all prefixes:</p>
+<ul>
+<li>i.  Calculate the sum of lengths of all prefixes using the formula: n * (n + 1) / 2, where n is the length of the current suffix.</li>
+<li>ii. Calculate the sum of lengths of repeated substrings using the formula: max_z * (max_z + 1) / 2, where max_z is the maximum value from the Z-function of the current suffix.</li>
+<li>iii. Subtract the result from step ii from the result of step i to get the sum of lengths of unique substrings for the current suffix.</li>
+</ul>
+<p>Following these steps will help you perform step 2d correctly in the algorithm.</p>
+</div>
+</details>
+<p>This is the limit beyond which it can still arrive at the maximum, but can't come up with the formula. I'm especially impressed by how exactly it guessed the maximum from such a hint.</p>
+<p>And let me stress once again that GPT-4 is extremely smart! Being able to continue a correct solution from this kind of text reasoning is good work. All that's left is to teach it to think this way, and it will be able to solve problems.</p>
+<details>
+<summary>Self-criticism</summary>
+<div class="details-content">
+<p>I realized all this only after writing this article. Redoing it is too expensive, and it seems you can always find nitpicks like these and never get an article like this done. But I can't leave out the self-criticism.</p>
+<p>It was able to come up with the formula because I wrote <code>We can sum lengths of current prefix and substract lengths of strings that repeated in the current suffix</code>, and as I can see, I didn't derive this from my previous reasoning in any way. My reasoning is aimed only at arriving at taking the maximum. So it came up with the formula in a not entirely fair way. You could say I fell for a cognitive bias and kept searching until I saw what I wanted to see.</p>
+<p>Also, my "reasoning" (post-factum reasoning, so to speak) about solving this problem isn't written in the best way; a much more elegant and correct iterative line of reasoning is given on <a href="https://e-maxx.ru/algo/z_function#header_9">e-maxx.ru</a> (in Russian):</p>
+<blockquote>
+<p>Given a string <code>s</code> of length <code>n</code>. We need to count the number of its distinct substrings.</p>
+<p>We will solve this problem iteratively. Namely, we will learn how, knowing the current number of distinct substrings, to recompute this number when one character is appended to the end.</p>
+<p>So, let <code>k</code> be the current number of distinct substrings of the string <code>s</code>, and we append the character <code>c</code> to the end. Obviously, as a result some new substrings ending in this new character <code>c</code> could have appeared (namely, all substrings ending in this character that haven't occurred before).</p>
+<p>Take the string <code>t=s+c</code> and reverse it (write its characters in reverse order). Our task is to count how many prefixes of the string t do not occur anywhere else in it. But if we compute the Z-function for the string <code>t</code> and find its maximum value <code>z_max</code>, then, obviously, the prefix of <code>t</code> of length <code>z_max</code> occurs in <code>t</code> (not at the beginning), but no longer prefix does. Clearly, the shorter prefixes certainly occur in it as well.</p>
+<p>So we've found that the number of new substrings that appear when the character <code>c</code> is appended equals <code>len - z_max</code>, where <code>len</code> is the current length of the string after appending the character <code>c</code>.</p>
+<p>Consequently, the asymptotic complexity of the solution for a string of length n is O(n^2).</p>
+<p>It's worth noting that in exactly the same way the number of distinct substrings can be recomputed in O(n) when a character is added to the beginning, as well as when a character is removed from the end or from the beginning.</p>
+</blockquote>
+</div>
+</details>
+<h1 id="philosophy"><a class="anchor" href="#philosophy">#</a>Philosophy</h1>
+<h2 id="why-competitive-programming-problems"><a class="anchor" href="#why-competitive-programming-problems">#<sup>2</sup></a>Why competitive programming problems?</h2>
+<p>In general, my goal is to somehow teach LLMs to think, in order to get closer to AGI. So why did I choose competitive programming problems, and not math, physics, geometry, chemistry or any other natural science field? Because the field of competitive programming problems:</p>
+<ul>
+<li>Is hard enough that solutions aren't trivial and require abstract thinking.</li>
+<li>Yields to logic and reasoning, like math, but unlike physics: physics requires physical experiments and the intuition of an agent living in the physical world.</li>
+<li>Lets you validate solutions automatically with tests or sites like CodeForces, unlike math.</li>
+<li>Lets you generate problems and validators automatically, by coming up with problems that have a trivial naive solution and a very complex fast solution; even ChatGPT can already write the naive solution today.</li>
+</ul>
+<h2 id="is-it-really-intelligence-and-not-memorization-of-the-whole-internet"><a class="anchor" href="#is-it-really-intelligence-and-not-memorization-of-the-whole-internet">#<sup>2</sup></a>Is it really intelligence, and not memorization of the whole internet?</h2>
+<p>Now let's answer the question: has the neural network learned the whole internet and is just retelling it cleverly and skillfully, while we simply can't google well enough to find, for every question, the ready-made answer it has learned?</p>
+<p>No. This is proven by the fact that the network can solve problems it has never seen before:</p>
+<details>
+<summary>Dialogue</summary>
+<div class="details-content">
+<p><strong><center>USER</center></strong></p>
+<p>You have this competitive programming task:</p>
+<blockquote>
+<p>Given string S, calculate sum of lengths of unique substrings of that string.</p>
+</blockquote>
+<p>Could you please solve that task for string "BOBR" without writing any code?</p>
+<hr />
+<p><strong><center>ChatGPT</center></strong></p>
+<p>Sure, I can help you solve this task without writing any code.</p>
+<p>The string "BOBR" has the following unique substrings:</p>
+<ul>
+<li>"B"</li>
+<li>"O"</li>
+<li>"R"</li>
+<li>"BO"</li>
+<li>"OB"</li>
+<li>"BR"</li>
+<li>"BOB"</li>
+<li>"OBR"</li>
+</ul>
+<p>Therefore, the sum of the lengths of these unique substrings is:</p>
+<p>1 + 1 + 1 + 2 + 2 + 2 + 3 + 3 = 15</p>
+<p>So the answer for the given string "BOBR" is 15.</p>
+<hr />
+<p><strong><center>USER</center></strong></p>
+<p>You forgot "BOBR" itself</p>
+<hr />
+<p><strong><center>ChatGPT</center></strong></p>
+<p>You're right, I apologize for the oversight.</p>
+<p>In addition to the substrings I listed earlier, "BOBR" itself is also a unique substring of the given string "BOBR". Therefore, the sum of the lengths of all unique substrings of "BOBR" is:</p>
+<p>1 + 1 + 1 + 2 + 2 + 2 + 3 + 3 + 4 = 19</p>
+<p><span class="red-bg example">So the answer for the given string "BOBR" is 19.</span></p>
+</div>
+</details>
+<p>Was this problem on the internet? Of course not. Here you can see that the network is capable of some mental computation in the process of simply predicting the next word. Granted, the specific problem analyzed here is more questionable: some pieces of it are on the internet. But don't we all build our solutions out of pieces of what we've understood before?</p>
+<h2 id="llms-as-system-1"><a class="anchor" href="#llms-as-system-1">#<sup>2</sup></a>LLMs as System 1</h2>
+<p>If you've read "Thinking, Fast and Slow" by Daniel Kahneman, you're familiar with the concepts of System 1 (intuition) and System 2 (thinking).</p>
+<p>In my view, all neural networks are intuition. They give an answer instantly. If we compare this with human intuition, we can use such an instant answer very often, but not always. Sometimes you have to think. Moreover, thinking is built using intuition, and intuition is trained to give thinking the right directions to reason in, to stop it in time and to criticize it. That is, in a human they were trained together, which is why they can work together; you can't take some abstract intuition trained to predict who knows what and get working thinking out of it.</p>
+<p>At this point I'd like to quote <a href="https://arxiv.org/abs/2303.12712">a research paper analyzing GPT-4</a>:</p>
+<details>
+<summary>Quote</summary>
+<div class="details-content">
+<p>These examples illustrate some of the limitations of the next-word prediction paradigm, which manifest
+as the model’s lack of planning, working memory, ability to backtrack, and reasoning abilities. The model
+relies on a local and greedy process of generating the next word, without any global or deep understanding of
+the task or the output. Thus, the model is good at producing fluent and coherent texts, but has limitations
+with regards to solving complex or creative problems which cannot be approached in a sequential manner.
+This points to the distinction between two types of intellectual tasks:</p>
+<p><strong>Incremental tasks.</strong> These are tasks which can be solved in a gradual or continuous way, by adding one
+word or sentence at a time that constitutes progress in the direction of the solution. Those tasks can be
+solved via content generation which does not require any major conceptual shifts or insights, but rather relies
+on applying existing knowledge and skills to the given topic or problem. Examples of incremental tasks are
+writing a summary of a text, answering factual questions, composing a poem based on a given rhyme scheme,
+or solving a math problem that follows a standard procedure.</p>
+<p><strong>Discontinuous tasks.</strong> These are tasks where the content generation cannot be done in a gradual or contin-
+uous way, but instead requires a certain ”Eureka” idea that accounts for a discontinuous leap in the progress
+towards the solution of the task. The content generation involves discovering or inventing a new way of looking
+at or framing the problem, that enables the generation of the rest of the content. Examples of discontinuous
+tasks are solving a math problem that requires a novel or creative application of a formula, writing a joke or
+a riddle, coming up with a scientific hypothesis or a philosophical argument, or creating a new genre or style
+of writing.</p>
+<p>One possible way to interpret these limitations is to draw an analogy between the model and the concepts
+of fast and slow thinking, as proposed by Kahneman in [Kah11]. Fast thinking is a mode of thinking that is
+automatic, intuitive, and effortless, but also prone to errors and biases. Slow thinking is a mode of thinking
+that is controlled, rational, and effortful, but also more accurate and reliable. Kahneman argues that human
+cognition is a mixture of these two modes of thinking, and that we often rely on fast thinking when we should
+use slow thinking, or vice versa. The model can be seen as able to perform “fast thinking” operations to
+a very impressive extent, but is missing the “slow thinking” component which oversees the thought process,
+uses the fast-thinking component as a subroutine together with working memory and an organized thinking
+scheme. We note that a similar argument was made by LeCun in [LeC22], where a different architecture is
+proposed to overcome these limitations.</p>
+</div>
+</details>
+<p>We already have examples of neural networks that form thinking: AlphaGoZero. If you don't know how it works, I recommend reading an article about it on Habr: <a href="https://habr.com/ru/articles/343590/">AlphaGo Zero in really simple terms</a> (in Russian). In AlphaGo the neural network is the intuition, and the Monte Carlo Tree Search algorithm (MCTS from here on) together with the neural network forms the thinking. I fell in love with this idea as soon as I read that article, back in 2017.</p>
+<p>GPT networks are pure intuition, and moreover, intuition that wasn't trained together with any particular kind of thinking. That's why they can solve problems a little, and can even write code for what was in the training set, but they stumble over other, unfamiliar problems of the same difficulty.</p>
+<p>Also, when a person actively strains their thinking to solve some problems, their intuition somehow develops along the way, so that it gives thinking more correct answers and lets it skip more reasoning steps. That is, in humans intuition and thinking combined create an endless stream of self-improvement when they face problems. I'd like to replicate this wonderful property of thinking.</p>
+<h2 id="there-won-t-be-enough-data-for-agi"><a class="anchor" href="#there-won-t-be-enough-data-for-agi">#<sup>2</sup></a>There won't be enough data for AGI</h2>
+<p>I believe that no scaling laws will work: you can't teach GPT to think without deliberately building this into it, without high-quality data, or without giving it an environment where it gets feedback automatically. You can't feed it the whole internet, all the books, all the pictures, all the videos without any effort and get AGI. This requires deliberate work and inventing new techniques. It's roughly like expecting the neural network from AlphaGoZero to output the best move probabilities straight away, without MCTS (by the way, has anyone researched that 🤔).</p>
+<p>I also believe that the stated task can't be solved with a specialized, very large dataset, the way <a href="https://www.deepmind.com/blog/competitive-programming-with-alphacode">AlphaCode</a> did it. Yes, they created a super-intuition that can write code from a problem statement without reasoning, but it's still not thinking. And on top of that, they sample a million solutions there. I've never liked that paper at all.</p>
+<p>There's also no adequate data showing how to think properly; such datasets have to be written by hand. Or the data does exist, but the network doesn't read it, doesn't understand it, doesn't analyze it, it just learns to predict the next word in it. Maybe if it ran some analysis prompts over every sentence on the internet and created training data from its own analyses, it would have learned to think long ago.</p>
+<p>We don't have an infinite source of high-quality data that works in practice, so we need some way to generate it automatically. I propose using sites like CodeForces, where the network would try to solve simple problems (that it has never seen before), go through many approaches and many solutions, and then add information to the dataset about which approaches worked and which didn't.</p>
+<h2 id="summary"><a class="anchor" href="#summary">#<sup>2</sup></a>Summary</h2>
+<ul>
+<li>GPT networks are mostly System 1 (intuition).</li>
+<li>System 2 doesn't appear on its own, only in combination with some thinking algorithm.</li>
+<li>Stacking more layers won't work: there isn't that much high-quality data, and IMHO it's impossible to extract thinking from the current data with the next-word prediction approach.</li>
+<li>Training has to go through a feedback system, such as compilers or online judges.</li>
+</ul>
+<h1 id="how-a-system-for-solving-competitive-programming-problems-should-work"><a class="anchor" href="#how-a-system-for-solving-competitive-programming-problems-should-work">#</a>How a system for solving competitive programming problems should work</h1>
+<p>Such a system should think like a human: go through possible approaches, work through examples on paper, find insights.</p>
+<p>It could look roughly like my last prompt, where the reasoning about solving the problem with the Z-function was written out. But of course it needs to be expanded.</p>
+<p>To solve a problem, we need to find all approaches to solving it with the prompt "suggest several ideas for how this problem could be solved". This query can be run many times, and then the neural network can be used to remove duplicates.</p>
+<p>An example of how ChatGPT answers such a prompt:</p>
+<details>
+<summary>Dialogue</summary>
+<div class="details-content">
+<p><strong><center>USER</center></strong></p>
+<p>Please tell me how to solve this competitive programming task: given string S, you should calculate sum of lengths of all unique substrings of that string. For example, for string 'BOBR', you will get unique substrings: 'B', 'BO', 'BOB', 'BOBR', 'O', 'OB', 'OBR', 'BR', 'R'; sum of their length is 19. Please only tell list of ideas that can help to solve that task, without writing the code or writing explanation for each idea.</p>
+<hr />
+<p><strong><center>ChatGPT</center></strong></p>
+<p>Sure, here are some possible ideas that could help in solving this task:</p>
+<ol>
+<li>Generate all possible substrings of the given string.</li>
+<li>Store each unique substring in a set or a hash table.</li>
+<li>Iterate over the set of unique substrings and sum their lengths.</li>
+<li><span class="red-bg example">Use a trie data structure to efficiently store and count unique substrings.</span></li>
+<li>Use dynamic programming to efficiently generate and count unique substrings.</li>
+<li>Utilize a rolling hash or some other hashing technique to quickly check for duplicate substrings.</li>
+<li>Sort the substrings lexicographically, and then use two pointers to count the unique ones.</li>
+<li><span class="red-bg example">Use the formula n*(n+1)/2, where n is the length of the string, to calculate the sum of all substrings, and then subtract the sum of lengths of duplicate substrings.</span></li>
+</ol>
+<p>Note that some of these ideas might be more efficient or feasible than others depending on the length of the string and the constraints of the problem.</p>
+</div>
+</details>
+<p>By the way, idea 8 is absolutely spot on: in the end that's exactly how the problem is solved with the Z-function.</p>
+<p>Next, for each approach we ask it to generate all possible ways of using that approach. We've already seen the methods for the Z-function, so I'll write some for dynamic programming:</p>
+<ul>
+<li>A one-dimensional array, <code>DP[i]</code> means how many unique strings there are in the suffix of size i.</li>
+<li>A two-dimensional array, <code>DP[i][j]</code> means whether a string is unique</li>
+</ul>
+<p>Then an analysis can be run for each approach + way of using that approach.</p>
+<p>The following prompts can be useful in the analysis:</p>
+<ul>
+<li>What properties does the resulting object have?</li>
+<li>Try to come up with input data that would refute this idea?</li>
+</ul>
+<p>Inside the analysis we need to run not only general reasoning, but also an exploration of the approach on a concrete example. For example, the network makes up input data and tries to go through the edge cases:</p>
+<ul>
+<li>An empty string</li>
+<li>A string of one character</li>
+<li>A palindrome string</li>
+<li>A string of 8000 identical letters</li>
+<li>A string of random characters</li>
+</ul>
+<p>And then for each case it works through the example "on paper" and sees how the idea works, maybe finding insights.</p>
+<p>Then the insights can be extracted from each example and given to the network as input:</p>
+<blockquote>
+<p><strong>Solve the following problem:</strong> find the sum of lengths of distinct substrings.</p>
+<p><strong>Using:</strong> the Z-function, as follows: computing the Z-function for every suffix of the string.</p>
+<p><strong>Insights:</strong></p>
+<ul>
+<li>you need to use the maximum of the Z-function;</li>
+<li>at each iteration, add the sum of lengths of the substrings in the current suffix minus the sum of lengths of the repeated strings;</li>
+<li>for the sum of lengths you can use the formula n*(n+1)/2;</li>
+</ul>
+</blockquote>
+<p>Then we try to solve the problem with all possible approaches and all possible methods, generating several solutions for each leaf of the tree, and check them first on the data from the problem statement, and then on data we came up with ourselves (prompts can be devised for this too).</p>
+<p>Next, for each solution we can estimate its time and memory complexity, both with the neural network and with data we may have generated earlier, or with a program we generated that comes up with large input data.</p>
+<p>We submit the solutions and study the information about which one turned out to be correct, and which one failed and for what reason.</p>
+<p>This is a foundation that can be extended with many different ideas. For example, subproblems can arise inside a single problem; for them you need to formulate a statement and ask the network to solve that problem separately. And of course this needs to be debugged in practice, because the possible facets of human thinking can be very numerous.</p>
+<h1 id="how-to-collect-data-for-such-a-system"><a class="anchor" href="#how-to-collect-data-for-such-a-system">#</a>How to collect data for such a system</h1>
+<p>For such a system to work, you need good data that describes the solutions to many problems in exactly this way. No cutting corners here: to begin with, such data has to be written by hand. You need to choose many different kinds of problems and have professionals write out their solutions. You may have to create lots of your own simple problems with an automatic checking system, just to make sure this works to any degree at all.</p>
+<p>Suppose we've written plenty of data, trained the system, and it has solved its first problem outside the training set. What next?</p>
+<p>We look at the logs of all the approaches to the problem that were tried and create new training data from them, which will develop the network's intuition:</p>
+<ul>
+<li>When an approach was being chosen, in the end we know which approach led somewhere, and what ended up working optimally and what was too slow or ate too much memory; then we create data:
+<ul>
+<li>"&lt;Problem statement&gt;, if you solve this with the 'trie' approach, it will <strong>most likely</strong> be optimal in time, but not optimal in memory."</li>
+<li>"&lt;Problem statement&gt;, if you solve this with the 'dynamic programming' approach, you <strong>most likely</strong> won't be able to find a solution."</li>
+<li>The key phrase is <strong>most likely</strong>, because we're developing the network's intuition, and nobody can know this straight away without doing computation on the problem.</li>
+<li>Later this could probably be used to cut down on computation, or such data might somehow improve the network's intuition globally, in other domains.</li>
+</ul>
+</li>
+<li>The same as the previous point, for when a method was being chosen for an approach to the problem.</li>
+<li>You can take the problem statement, then write the prompt "give a potential solution straight away, without reasoning", and write the correct code.</li>
+<li>We write the problem statement, then the code, and the prompt "determine the solution method from the code straight away", and write the solution method that produced this code.</li>
+<li>Run different methods of the same complexity on the same large data, measure their relative running time, and then train the network to estimate which solution is the fastest in terms of the constant factor, for example:
+<ul>
+<li>"For &lt;problem statement&gt;, the 'trie' method is 1.5 times slower than the 'Z-function' method."</li>
+<li>"For &lt;problem statement&gt;, the 'trie' method takes 20 times more memory than the 'Z-function + a two-dimensional bool array marking whether a string is unique' method."</li>
+</ul>
+</li>
+</ul>
+<p>Next, we have many solutions for one approach/method, and we know which of them worked and which didn't. They can be used for training in the RLHF (Reinforcement Learning from Human Feedback) format, except that here the feedback comes from an automatic testing system.</p>
+<p>By the way, the idea of producing a short text description of a solution from its code looks like a very promising direction, because then you can use all those millions of solutions that are publicly available on CodeForces to mine high-quality data about approaches to solving problems, which can later be used as hints in the system's normal problem-solving process. By the way, that's exactly why I don't like AlphaCode: they just train the network on people's solutions, without mining from them the useful, high-quality data that a human mines when looking at other people's solutions.</p>
+<p>There's hope that from some point on, such a system could be let loose to bang its head against every possible problem on CodeForces, and after each new round of fine-tuning on data from newly solved problems, it would get smarter and smarter and solve more and more problems.</p>
+<p>Fortunately, such a system will be extremely easy to <strong>interpret</strong>, because all its reasoning will be written in human language, and you'll be able to understand which exact aspect of the system needs tuning for a particular problem to get solved. Unlike AlphaCode, again. Here it will be very easy to involve people in improving the system.</p>
+<h1 id="how-this-might-not-work"><a class="anchor" href="#how-this-might-not-work">#</a>How this might not work</h1>
+<p>It may turn out that even GPT-4 is extremely rigid, and teaching it to think this way may require a huge amount of hand-written data.</p>
+<p>The next problem I'm afraid of: we'll have to write the same thing from different points of view, in different wordings, because that's the only way a neural network can learn something well enough, or forget its old wrong solution patterns.</p>
+<p>Or it may turn out that even if we teach it to solve very many problems at the level of a good competitive programmer, it won't be able to keep getting smarter, because solving new problems won't give it the intuition for solving harder ones.</p>
+<h1 id="conclusion"><a class="anchor" href="#conclusion">#</a>Conclusion</h1>
+<p>The proposed way of solving the problem is purely an engineering one and requires practically nothing on the machine learning side: no new architectures, no tricky math. It seems we've reached the point in progress where something like this could work.</p>
+<p>Of course, I've only examined one problem this way (and it took me several weeks of working on weekends), and every new problem may bring new unusual difficulties that I can't cover in this article. I wrote it to pass on to you an idea and a philosophy that can be developed further as they collide with reality.</p>
+<p>What do you think, is this a good direction to develop?</p>
+<hr />
+<h1 id="update-after-the-release-of-o1-december-6-2024"><a class="anchor" href="#update-after-the-release-of-o1-december-6-2024">#</a>Update after the release of o1, December 6, 2024</h1>
+<p>Literally yesterday a new version of o1 came out, and it managed to solve this problem!</p>
+<p>But I had to add to the prompt after each of its mistakes.</p>
+<p>Without all these prompt additions it kept trying to slip off toward a suffix array. Without that, it tried to make an <code>O(n)</code> solution with all sorts of tricks (which, of course, were wrong). Its mistakes were usually caught on the simplest example: <code>ABB</code>, so I added that to the prompt too. And once that happened, it finally managed.</p>
+<p>Of course, the "Self-criticism" and "Possible reasons" sections still stand: part of this was already on the internet, so it got lucky figuring it out. Plus it writes itself that it's a "well-known formula". And I had to derive this formula myself :((</p>
+<p>This isn't the kind of thinking I expected, but it's clearly a big step in the right direction! And, as I said, stacking more layers won't work; there's a good reason they added RL. I hope that at some point it starts thinking about how to refute its own thoughts; then it will be able to come up with <code>ABB</code> on its own. And of course we're waiting for it to get tools, so that it can write a naive version itself and then compare itself against the naive solution by running its code.</p>
+<p>An even bigger problem for this model: how do you give it the ability to think for many hours, for example? Because stuffing EVERYTHING into the context is a bad way to do it. We'll need to come up with ways for it to compress the knowledge it has found into a short text and restart itself with a fresh context.</p>
+<p>Now I need to find a new problem and evaluate models on it :)</p>
+<details>
+<summary>Dialogue</summary>
+<div class="details-content">
+<p><strong><center>USER</center></strong></p>
+<p>You have that competitive programming task:</p>
+<blockquote>
+<p>Given string S, calculate sum of lengths of unique substrings of that string.</p>
+</blockquote>
+<p>How would you solve it using Z-function in most efficient way? You should use Z-function, not suffix array, not LCP, not hashing.</p>
+<p>Result time complexity should be O(n^2), this task can't be solved in O(n).</p>
+<p>After your solution please write a Python code of it.</p>
+<p>For string ABA it should output 9, for string ABB 9 too.</p>
+<p><strong><center>o1</center></strong></p>
+<p><code>Thinking for 1m 16s</code></p>
+<p><strong>Idea</strong></p>
+<p>We want to find the sum of lengths of all <em>distinct</em> substrings of a given string <script type="math/tex"> S </script>.</p>
+<p>A well-known formula (from suffix arrays and LCP arrays) for counting distinct substrings is:</p>
+<ul>
+<li>The total number of distinct substrings of a string <script type="math/tex"> S </script> of length <script type="math/tex"> n </script> is:</li>
+</ul>
+<script type="math/tex;mode=display">
+\frac{n(n+1)}{2} - \sum LCP
+</script>
+<p>where <script type="math/tex"> LCP </script> is the Longest Common Prefix array from the suffix array construction. Similarly, there is a known formula for the sum of lengths of distinct substrings:</p>
+<script type="math/tex;mode=display">
+\text{sum\_of\_lengths\_of\_distinct} = \sum_{i=1}^{n} \frac{(n - SA[i]) (n - SA[i] + 1)}{2} - \frac{LCP[i](LCP[i] + 1)}{2}
+</script>
+<p>But we are forbidden from using suffix arrays or LCP arrays directly. We must use the Z-function and the solution is allowed to be <script type="math/tex">O(n^2)</script>.</p>
+<p><strong>Key Insight Using Z-function</strong></p>
+<p>We can avoid building the suffix array. Instead, we can use the following trick:</p>
+<ol>
+<li>
+<p>Consider suffixes of <script type="math/tex"> S </script>: <script type="math/tex"> S[i..n-1] </script> for <script type="math/tex"> i = 0,1,\ldots,n-1 </script>.</p>
+</li>
+<li>
+<p>For each suffix <script type="math/tex"> i </script>, consider the string:</p>
+<script type="math/tex;mode=display">
+T = S[i..n-1] + \# + S
+</script>
+<p>where <script type="math/tex">#</script> is a separator character not in the alphabet of <script type="math/tex"> S </script>.</p>
+<p>Compute the Z-function for <script type="math/tex"> T </script>.</p>
+<p>The part after <script type="math/tex">#</script> corresponds to the original string <script type="math/tex"> S </script>. The Z-values in that part tell us how much of the prefix of <script type="math/tex"> S[i..] </script> appears starting at various positions in <script type="math/tex"> S </script>.</p>
+</li>
+<li>
+<p>We are interested only in occurrences <em>before</em> <script type="math/tex"> i </script> (to detect previously seen substrings). That is, we look at the part of <script type="math/tex"> S </script> in <script type="math/tex"> T </script> corresponding to indices that represent starting positions in <script type="math/tex"> S[0..i-1] </script>.</p>
+<p>Formally, in <script type="math/tex"> T </script>:</p>
+<ul>
+<li><script type="math/tex"> T[0..(n-i-1)] = S[i..n-1] </script>
+</li>
+<li><script type="math/tex"> T[n-i] = \# </script>
+</li>
+<li><script type="math/tex"> T[n-i+1..n-i+n] = S[0..n-1] </script>
+</li>
+</ul>
+<p>The segment <script type="math/tex"> T[n-i+1..n-i+i] </script> corresponds to <script type="math/tex"> S[0..i-1] </script>.</p>
+<p>We take the maximum Z-value in this segment (call it <script type="math/tex"> \text{maxZ}_i </script>). This <script type="math/tex"> \text{maxZ}_i </script> tells us the longest prefix of <script type="math/tex"> S[i..] </script> that has appeared before position <script type="math/tex"> i </script>.</p>
+</li>
+<li>
+<p>The number of new distinct substrings introduced by suffix <script type="math/tex"> S[i..] </script> is:</p>
+<script type="math/tex;mode=display">
+(n - i) - \text{maxZ}_i
+</script>
+<p>But we need the sum of lengths of these new distinct substrings.</p>
+<p>The substrings contributed by suffix <script type="math/tex"> i </script> that are <em>new</em> are those from length <script type="math/tex">\text{maxZ}_i + 1</script> up to <script type="math/tex">(n - i)</script>.</p>
+<p>The sum of these lengths is:</p>
+<script type="math/tex;mode=display">
+\sum_{\ell = \text{maxZ}_i + 1}^{n - i} \ell = \frac{(n - i)(n - i + 1)}{2} - \frac{\text{maxZ}_i(\text{maxZ}_i + 1)}{2}
+</script>
+</li>
+<li>
+<p>Summing this over all suffixes <script type="math/tex"> i </script> gives the total sum of lengths of distinct substrings.</p>
+</li>
+</ol>
+<p><strong>Complexity</strong></p>
+<ul>
+<li>For each <script type="math/tex"> i </script>, we construct <script type="math/tex"> T </script> of length approximately <script type="math/tex"> 2n - i </script> and compute the Z-function in <script type="math/tex"> O(|T|) = O(n) </script>.</li>
+<li>Summation over <script type="math/tex"> i </script> results in <script type="math/tex"> O(n^2) </script> time.</li>
+</ul>
+<p>This meets the requirement and uses only Z-function.</p>
+<p><strong>Example Check</strong></p>
+<p>For <script type="math/tex"> S = \text{'ABA'} </script>:</p>
+<ul>
+<li><script type="math/tex"> n=3 </script>
+</li>
+<li>For <script type="math/tex"> i=0 </script>:
+<ul>
+<li><script type="math/tex"> T = 'ABA#ABA' </script>
+</li>
+<li>No previous occurrences can appear before <script type="math/tex"> i=0 </script>, so <script type="math/tex"> \text{maxZ}_0=0 </script>.</li>
+<li>Contribution = <script type="math/tex">\frac{3 \cdot 4}{2}-0 = 6</script>.</li>
+</ul>
+</li>
+<li>For <script type="math/tex"> i=1 </script>:
+<ul>
+<li><script type="math/tex"> T = 'BA#ABA' </script>
+</li>
+<li>Check first <script type="math/tex"> i=1 </script> positions in <script type="math/tex"> S </script>-part of <script type="math/tex"> T </script>: found <script type="math/tex">\text{maxZ}_1=0 </script></li>
+<li>Contribution = <script type="math/tex">\frac{2 \cdot 3}{2}-0=3</script></li>
+</ul>
+</li>
+<li>For <script type="math/tex"> i=2 </script>:
+<ul>
+<li><script type="math/tex"> T = 'A#ABA' </script>
+</li>
+<li>Check first <script type="math/tex"> i=2 </script> positions: <script type="math/tex">\text{maxZ}_2=1</script></li>
+<li>Contribution = <script type="math/tex">\frac{1 \cdot 2}{2}-\frac{1 \cdot 2}{2}=1-1=0</script></li>
+</ul>
+</li>
+</ul>
+<p>Sum = 6+3+0=9, matches the sample.</p>
+<p><strong>Code Implementation</strong></p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="python"><code data-lang="python"><span class="giallo-l"><span style="color: #668F14;">def</span><span style="color: #C23F31;"> z_function</span><span>(</span><span style="color: #5597D6;">s</span><span>):</span></span>
+<span class="giallo-l"><span>    n</span><span style="color: #72AB00;"> =</span><span style="color: #B39F04;"> len</span><span>(s)</span></span>
+<span class="giallo-l"><span>    z</span><span style="color: #72AB00;"> =</span><span> [</span><span style="color: #B3933A;">0</span><span>]</span><span style="color: #72AB00;">*</span><span>n</span></span>
+<span class="giallo-l"><span>    l, r</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0</span><span>,</span><span style="color: #B3933A;"> 0</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">    for</span><span> i</span><span style="color: #72AB00;"> in</span><span style="color: #B39F04;"> range</span><span>(</span><span style="color: #B3933A;">1</span><span>, n):</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        if</span><span> i</span><span style="color: #72AB00;"> &lt;=</span><span> r:</span></span>
+<span class="giallo-l"><span>            z[i]</span><span style="color: #72AB00;"> =</span><span style="color: #B39F04;"> min</span><span>(r</span><span style="color: #72AB00;"> -</span><span> i</span><span style="color: #72AB00;"> +</span><span style="color: #B3933A;"> 1</span><span>, z[i</span><span style="color: #72AB00;"> -</span><span> l])</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        while</span><span> i</span><span style="color: #72AB00;">+</span><span>z[i]</span><span style="color: #72AB00;"> &lt;</span><span> n</span><span style="color: #72AB00;"> and</span><span> s[z[i]]</span><span style="color: #72AB00;"> ==</span><span> s[i</span><span style="color: #72AB00;">+</span><span>z[i]]:</span></span>
+<span class="giallo-l"><span>            z[i]</span><span style="color: #72AB00;"> +=</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        if</span><span> i</span><span style="color: #72AB00;">+</span><span>z[i]</span><span style="color: #72AB00;">-</span><span style="color: #B3933A;">1</span><span style="color: #72AB00;"> &gt;</span><span> r:</span></span>
+<span class="giallo-l"><span>            l, r</span><span style="color: #72AB00;"> =</span><span> i, i</span><span style="color: #72AB00;">+</span><span>z[i]</span><span style="color: #72AB00;">-</span><span style="color: #B3933A;">1</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">    return</span><span> z</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">def</span><span style="color: #C23F31;"> solve</span><span>():</span></span>
+<span class="giallo-l"><span>    S</span><span style="color: #72AB00;"> =</span><span style="color: #B39F04;"> input</span><span>().strip()</span></span>
+<span class="giallo-l"><span>    n</span><span style="color: #72AB00;"> =</span><span style="color: #B39F04;"> len</span><span>(S)</span></span>
+<span class="giallo-l"><span>    ans</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">    for</span><span> i</span><span style="color: #72AB00;"> in</span><span style="color: #B39F04;"> range</span><span>(n):</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">        # Build T = S[i..] + &#39;#&#39; + S</span></span>
+<span class="giallo-l"><span>        T</span><span style="color: #72AB00;"> =</span><span> S[i:]</span><span style="color: #72AB00;"> +</span><span style="color: #D07711;"> &#39;#&#39;</span><span style="color: #72AB00;"> +</span><span> S</span></span>
+<span class="giallo-l"><span>        Z</span><span style="color: #72AB00;"> =</span><span> z_function(T)</span></span>
+<span class="giallo-l"><span>        </span></span>
+<span class="giallo-l"><span style="color: #7F8989;">        # We want max Z-value in T that corresponds to an occurrence before i in S</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">        # Those positions are T-index from (n-i+1) to (n-i+i)=n, inclusive.</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">        # i.e., T indices corresponding to S[0..i-1].</span></span>
+<span class="giallo-l"><span>        </span></span>
+<span class="giallo-l"><span>        start</span><span style="color: #72AB00;"> =</span><span> n</span><span style="color: #72AB00;"> -</span><span> i</span><span style="color: #72AB00;"> +</span><span style="color: #B3933A;"> 1</span></span>
+<span class="giallo-l"><span>        end</span><span style="color: #72AB00;"> =</span><span> start</span><span style="color: #72AB00;"> +</span><span> i</span><span style="color: #72AB00;"> -</span><span style="color: #B3933A;"> 1</span><span style="color: #7F8989;">  # last index corresponding to S[i-1]</span></span>
+<span class="giallo-l"><span>        maxZ_i</span><span style="color: #72AB00;"> =</span><span style="color: #B3933A;"> 0</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">        if</span><span> i</span><span style="color: #72AB00;"> &gt;</span><span style="color: #B3933A;"> 0</span><span>:</span><span style="color: #7F8989;">  # If i=0, there&#39;s no previous suffix</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">            for</span><span> t</span><span style="color: #72AB00;"> in</span><span style="color: #B39F04;"> range</span><span>(start, end</span><span style="color: #72AB00;">+</span><span style="color: #B3933A;">1</span><span>):</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">                if</span><span> Z[t]</span><span style="color: #72AB00;"> &gt;</span><span> maxZ_i:</span></span>
+<span class="giallo-l"><span>                    maxZ_i</span><span style="color: #72AB00;"> =</span><span> Z[t]</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;">        # Calculate contribution</span></span>
+<span class="giallo-l"><span>        length_all</span><span style="color: #72AB00;"> =</span><span> (n</span><span style="color: #72AB00;"> -</span><span> i)</span><span style="color: #72AB00;">*</span><span>(n</span><span style="color: #72AB00;"> -</span><span> i</span><span style="color: #72AB00;"> +</span><span style="color: #B3933A;"> 1</span><span>)</span><span style="color: #72AB00;">//</span><span style="color: #B3933A;">2</span></span>
+<span class="giallo-l"><span>        length_old</span><span style="color: #72AB00;"> =</span><span> maxZ_i</span><span style="color: #72AB00;">*</span><span>(maxZ_i</span><span style="color: #72AB00;"> +</span><span style="color: #B3933A;"> 1</span><span>)</span><span style="color: #72AB00;">//</span><span style="color: #B3933A;">2</span></span>
+<span class="giallo-l"><span>        ans</span><span style="color: #72AB00;"> +=</span><span> length_all</span><span style="color: #72AB00;"> -</span><span> length_old</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #B39F04;">    print</span><span>(ans)</span></span></code></pre>
+<p><strong>Explanation of Code</strong></p>
+<ul>
+<li>We define a standard Z-function computation routine.</li>
+<li>For each suffix <script type="math/tex"> i </script>, we form <script type="math/tex"> T </script> and compute Z.</li>
+<li>We find <code>maxZ_i</code> by looking only at the portion of Z corresponding to suffixes starting in <code>S[0..i-1]</code>.</li>
+<li>Use the formula to accumulate the result.</li>
+<li>Print the final sum.</li>
+</ul>
+<p>This will yield the correct answer in <script type="math/tex"> O(n^2) </script> time, uses only Z-function, and matches the provided test cases.</p>
+</div>
+</details>
+
+</div>
+</article>
+
+  </section>
+  
+
+</td><td>
+<!-- TOC -->
+<input type="checkbox" id="toc-trigger" class="toc-trigger" />
+<label for="toc-trigger">
+  <span class="menu-icon">
+    <div class="side-button"><img src="/ico/right.svg"></div>
+  </span>
+</label>
+
+<nav class="section-nav">
+ <h2>Contents</h2>
+ <ul class="first">
+ 
+ 
+  <li>
+   <a href="#what-this-article-is-about">What this article is about</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#introduction">Introduction</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#the-problem">The problem</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#solving-the-problem">Solving the problem</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#chatgpt-solving-it-straight-away">ChatGPT, solving it straight away</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#chatgpt-using-the-z-function">ChatGPT, using the Z-function</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#gpt-4-using-the-z-function">GPT-4, using the Z-function</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#summarizing-the-solution">Summarizing the solution</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#few-shot-learning">Few-shot learning</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#continuing-a-pre-written-solution">Continuing a pre-written solution</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#philosophy">Philosophy</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#why-competitive-programming-problems">Why competitive programming problems?</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#is-it-really-intelligence-and-not-memorization-of-the-whole-internet">Is it really intelligence, and not memorization of the whole internet?</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#llms-as-system-1">LLMs as System 1</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#there-won-t-be-enough-data-for-agi">There won&#39;t be enough data for AGI</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#summary">Summary</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#how-a-system-for-solving-competitive-programming-problems-should-work">How a system for solving competitive programming problems should work</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#how-to-collect-data-for-such-a-system">How to collect data for such a system</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#how-this-might-not-work">How this might not work</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#conclusion">Conclusion</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#update-after-the-release-of-o1-december-6-2024">Update after the release of o1, December 6, 2024</a>
+   
+  </li>
+ 
+ </ul>
+</nav>
+</td></tr></table>
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="section second-section">
+If you like what I do, follow me on <a href="https://t.me/optozorax_dev">Telegram</a> and <a href="https://www.youtube.com/c/optozorax">YouTube</a>.
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="comments section second-section">
+
+<script src="https://utteranc.es/client.js"
+        repo="optozorax/optozorax.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+
+  <hr class="enabled-on-phone">
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <footer class="site-footer section second-section">
+  
+    <center>
+    <div style="margin-bottom: 10px;">© Ilya Sheprut. License: <a href="https://creativecommons.org/licenses/by/3.0/deed.en">CC-BY</a>.</div>
+    <table style="border: 0px; display: contents;">
+    <tr><td style="border: 0px; padding: 0.2rem;">
+    <!-- SVG icons from https://iconmonstr.com -->
+
+    <span class="my-span-icon">
+  <a 
+    href="https://github.com/optozorax" 
+    aria-label="optozorax's GitHub" 
+    title="optozorax's GitHub">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/github.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's GitHub">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://t.me/optozorax_dev" 
+    aria-label="optozorax's Telegram channel" 
+    title="optozorax's Telegram channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/tg.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Telegram channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://www.youtube.com/c/optozorax" 
+    aria-label="optozorax's YouTube channel" 
+    title="optozorax's YouTube channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/youtube.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's YouTube channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://boosty.to/optozorax" 
+    aria-label="optozorax's donate page" 
+    title="optozorax's donate page">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/donate.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's donate page">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="/en/atom.xml" 
+    aria-label="optozorax's Atom Feed" 
+    title="optozorax's Atom Feed">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/rss.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Atom Feed">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="mailto:optozorax@gmail.com" 
+    aria-label="optozorax's email" 
+    title="optozorax's email">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/contact.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's email">
+  </a>
+</span>
+
+    </td><td style="border: 0px; padding: 0.2rem;">
+
+    </td></tr>
+    </table>
+    <div class="small-info">
+      Made with <a href="https://www.getzola.org/">Zola</a> | Theme based on <a href="https://github.com/lorepirri/cayman-blog">Cayman Blog</a> | <a href="https://github.com/optozorax/blog_zola">Site sources</a>
+      <a rel="me" href="https://mathstodon.xyz/@optozorax" style="display: none;">Mastodon</a>
+    </div>
+    </center>
+  
+  </footer>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+</body>
+</html>

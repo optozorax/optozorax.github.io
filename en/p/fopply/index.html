@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Fonts preload -->
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nFrXyi0A.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nBrXw.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxTcwhsk.woff2" crossOrigin="anonymous">
+  <!-- --- -->
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/main.css">
+  <!-- --- -->
+
+  <!-- Non social metatags -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link rel="canonical" href="https://optozorax.github.io/en/p/fopply/">
+  <link rel="alternate" hreflang="en" href="https://optozorax.github.io/en/p/fopply/">
+  <link rel="alternate" hreflang="ru" href="https://optozorax.github.io/p/fopply/">
+  <link rel="alternate" hreflang="x-default" href="https://optozorax.github.io/p/fopply/">
+  <meta name="robots" content="noarchive">
+  <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/en/atom.xml"> 
+  <!-- --- -->
+
+  <!-- Social metatags -->
+  
+
+<meta name="author" content="optozorax">
+<meta name="title" content="fopply — my program for step-by-step algebraic calculations — optozorax&#39;s blog">
+<meta name="description" content="This program lets you do algebraic calculations step by step and stay in control of them. It works by smartly applying formulas to the original expression. Here is the devlog of the program together with a description of the idea behind it.">
+<meta name="image" content="https://optozorax.github.io/en/p/fopply/246.jpg">
+
+<meta name="keywords" itemprop="tags" content="ideas, math, fopply, programming, rust">
+
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://optozorax.github.io/en/p/fopply/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="fopply — my program for step-by-step algebraic calculations — optozorax&#39;s blog">
+<meta property="og:description" content="This program lets you do algebraic calculations step by step and stay in control of them. It works by smartly applying formulas to the original expression. Here is the devlog of the program together with a description of the idea behind it.">
+<meta property="og:image" content="https://optozorax.github.io/en/p/fopply/246.jpg">
+<meta property="og:locale" content="en">
+
+
+<meta property="article:published_time" content="2021-09-06">
+
+
+
+
+<meta property="article:tag" content="ideas">
+
+<meta property="article:tag" content="math">
+
+<meta property="article:tag" content="fopply">
+
+<meta property="article:tag" content="programming">
+
+<meta property="article:tag" content="rust">
+
+
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="optozorax.github.io">
+<meta property="twitter:url" content="https://optozorax.github.io/en/p/fopply/">
+<meta name="twitter:title" content="fopply — my program for step-by-step algebraic calculations — optozorax&#39;s blog">
+<meta name="twitter:description" content="This program lets you do algebraic calculations step by step and stay in control of them. It works by smartly applying formulas to the original expression. Here is the devlog of the program together with a description of the idea behind it.">
+<meta name="twitter:image" content="https://optozorax.github.io/en/p/fopply/246.jpg">
+<meta name="twitter:creator" content="optozorax">
+
+  <!-- --- -->
+
+  <!-- Extra head declarations -->
+  
+
+<script type="text/javascript" src="/js/hammer.min.js"></script>
+<script type="text/javascript" src="/js/toc.js"></script>
+<script type="text/javascript" src="/js/gallery.js"></script>
+<script type="text/javascript" src="/js/full_screen.js"></script>
+<script type="text/javascript" src="/js/word_wrap.js"></script>
+
+  <!-- --- -->
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+  <!-- --- -->
+
+  <title>fopply — my program for step-by-step algebraic calculations — optozorax&#39;s blog</title>
+</head>
+
+<body>
+  <!-- FullScreen block -->
+  <div id="img_modal" class="modal" style="display: none;">
+      <img id="img_modal_01" src="/ico/loading.gif">
+      <span class="close" id="img_modal_close">&times;</span>
+  </div>
+  <!-- --- -->
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <header class="site-header" role="banner">
+  
+  <div class="wrapper">
+    <a class="site-title" href="/en/">optozorax.blog</a>
+
+    <div class="lang-switch">
+      <span class="lang-switch-item lang-switch-current" lang="en" title="English"><span class="lang-switch-flag">🇬🇧</span>EN</span>
+      <a class="lang-switch-item" href="/p/fopply/" hreflang="ru" lang="ru" title="Русский"><span class="lang-switch-flag">🇷🇺</span>RU</a>
+    </div>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <img src="/ico/menu.svg" width="13px" height="15px">
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          <a class="page-link" href="/en/">Blog</a>
+        
+          <a class="page-link" href="/en/e">Collections</a>
+        
+          <a class="page-link" href="/en/tags">Tags</a>
+        
+          <a class="page-link" href="/en/about">About me</a>
+        
+      </div>
+    </nav>
+  </div>
+  
+  </header>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+  
+  <section class="page-header">
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+<h1 class="project-name">fopply — my program for step-by-step algebraic calculations</h1>
+
+<h2 class="project-tagline">This program lets you do algebraic calculations step by step and stay in control of them. It works by smartly applying formulas to the original expression. Here is the devlog of the program together with a description of the idea behind it.</h2>
+
+
+
+<span style="margin-bottom: 10px;">
+  
+    <a href="/en/tags#ideas"><code class="tag"><nobr>#ideas</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#math"><code class="tag"><nobr>#math</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#fopply"><code class="tag"><nobr>#fopply</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#programming"><code class="tag"><nobr>#programming</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#rust"><code class="tag"><nobr>#rust</nobr></code></a>&nbsp;
+  
+</span>
+
+
+<center>
+<table style="margin-top: 8px;">
+<tr>
+
+
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+  <time datetime="2021-09-06" itemprop="datePublished">
+    
+    
+    
+    
+    <span class="post-date">06 September 2021</span>
+  </time>
+</h2>
+</td>
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+    <span class="post-date" style="font-style: normal">| 🕑 20 min</span>
+</h2>
+</td>
+
+
+
+</tr>
+</table>
+
+
+<div class="translation-note">
+  <svg class="translation-note-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+  <span>Translated from 🇷🇺 Russian</span>
+  <span class="translation-note-sep">·</span>
+  <span>Translation by Claude Opus 5.5</span>
+  <span class="translation-note-sep">·</span>
+  <a href="/p/fopply/" hreflang="ru" lang="ru">Original</a>
+</div>
+
+
+
+</center>
+
+
+</td><td>
+</td></tr></table>
+
+
+
+  </section>
+  
+  
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <section class="main-content section">
+  
+<article itemscope itemtype="http://schema.org/BlogPosting">
+<div itemprop="articleBody" id="content">
+<h1 id="introduction"><a class="anchor" href="#introduction">#</a>Introduction</h1>
+<p>This article is a collection of all my posts about fopply from Telegram. I gathered them in one place so that they're easier to read, the information doesn't get lost, and search engines can index it.</p>
+<p>Each individual post is marked by its publication date. After the heading there is a link to the Telegram posts it was taken from.</p>
+<h1 id="12-03-2020"><a class="anchor" href="#12-03-2020">#</a>12.03.2020</h1>
+<blockquote>
+<p><strong>Source (in Russian):</strong>
+<a href="https://t.me/optozorax_dev/83"><code>tg/83</code></a>,
+<a href="https://t.me/optozorax_dev/84"><code>tg/84</code></a>.</p>
+</blockquote>
+<p>This morning I got an irresistible urge to write a small piece of a calculator that works on formulas. Here's the gist of it: we have formulas and expressions. We can apply formulas to expressions to transform them into a different form.</p>
+<p>I threw together a program that parses formulas and expressions from strings and performs this "formula application".</p>
+<p>For example, we have the formula:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>a+b &lt;-&gt; b+a  </span></span></code></pre>
+<p>where the <code>&lt;-&gt;</code> symbol means that we can transform the left side into the right side and vice versa.</p>
+<p>Then if we apply this formula to the expression:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>x*y*(c+d) + a*b*c</span></span></code></pre>
+<p>we get:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>a*b*c + x*y*(c+d)  </span></span></code></pre>
+<p>Which is exactly what my program does.</p>
+<p><a href="https://github.com/optozorax/fopply/tree/f95111d40a2c3a6a729c2a907f2d1ec750022106">Here's the code</a>. It came out small: 168 lines of code.</p>
+<p>To represent an expression I used the following enum:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="rust"><code data-lang="rust"><span class="giallo-l"><span style="color: #668F14;">enum</span><span style="color: #C23F31;"> Tree</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    Function</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">        name</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> String</span><span>,</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">        args</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> Vec</span><span>&lt;</span><span style="color: #C23F31;">Tree</span><span>&gt;,</span></span>
+<span class="giallo-l"><span>    },</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    Variable</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">        name</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> String</span><span>,</span></span>
+<span class="giallo-l"><span>    }</span></span>
+<span class="giallo-l"><span>}</span></span></code></pre>
+<p>Where <code>Function::name</code> can be <code>"+"</code>, <code>"*"</code>, <code>"sin"</code>, or really any function at all.</p>
+<p>First, using <a href="https://github.com/kevinmehall/rust-peg">rust-peg</a>, I parse the formula string into this data structure.</p>
+<p>Then there's the <code>find_bindings</code> function, which takes a formula and an expression and returns which variables of the formula correspond to which subexpressions of the main expression. It's best shown with an example:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>find_bindings(&quot;a+b&quot;, &quot;x*y*(c+d) + a*b*c&quot;) -&gt; </span></span>
+<span class="giallo-l"><span>[</span></span>
+<span class="giallo-l"><span>  (&quot;a&quot;, &quot;x*y*(c+d)&quot;),</span></span>
+<span class="giallo-l"><span>  (&quot;b&quot;, &quot;a*b*c&quot;)</span></span>
+<span class="giallo-l"><span>]</span></span></code></pre>
+<p>Then there's the <code>apply</code> function, which takes these bindings and the other side of the formula, and replaces every occurrence of the variables in the formula with the expressions:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>apply(&quot;b+a&quot;, bindings) -&gt; &quot;a*b*c + x*y*(c+d)&quot;  </span></span></code></pre>
+<p>Essentially, these two functions are the core of all the computation. They're written in a functional, recursive style, which turned out really cool, but also scary (for the uninitiated).</p>
+<p>Plans for further development:</p>
+<ul>
+<li>I want to make it possible to derive some formulas from others,</li>
+<li>writing all of this in a text file (see <code>formulas.txt</code>)</li>
+<li>grow it to match the functionality of my old project for transforming expressions (which, God willing, I'll tell you about later)</li>
+</ul>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="988"     height="430"     src="/processed_images/84.353fc4a19df63cc1.webp"     onclick="full_screen('84.jpg')"     onauxclick="full_screen_new_page('84.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<figcaption>This is what the program's output looks like</figcaption>
+</figure>
+<h1 id="15-03-2020"><a class="anchor" href="#15-03-2020">#</a>15.03.2020</h1>
+<blockquote>
+<p><strong>Source (in Russian):</strong>
+<a href="https://t.me/optozorax_dev/93"><code>tg/93</code></a>,
+<a href="https://t.me/optozorax_dev/94"><code>tg/94</code></a>,
+<a href="https://t.me/optozorax_dev/95"><code>tg/95</code></a>,
+<a href="https://t.me/optozorax_dev/97"><code>tg/97</code></a>,
+<a href="https://t.me/optozorax_dev/98"><code>tg/98</code></a>.</p>
+</blockquote>
+<p>So, in my calculator program I added grammar rules so that subtraction and division get parsed, and then I improved how formulas are printed.</p>
+<p>Previously a formula could only be applied to the expression itself, not to some inner part of it.</p>
+<p>So I wrote a function that applies a formula somewhere inside the expression, recursively walking through it.</p>
+<p>Then I took these formulas:</p>
+<ol>
+<li><code>a/b*c &lt;-&gt; a*c/b </code></li>
+<li><code>a/b/c &lt;-&gt; a/(b*c)</code></li>
+</ol>
+<p>The first one, obviously, lets you move a divisor to the right within the expression.</p>
+<p>And the second one lets you merge two divisors into one.</p>
+<p>Then I took the expression:</p>
+<p><code>a*b/c/(1+2)/3*a*d/e/f</code></p>
+<p>So, first I made the program apply the first formula for as long as it could be applied, and got this:<br />
+<code>a*b*a*d/c/(1+2)/3/e/f</code></p>
+<p>Then I made the second formula apply in the same way, and in the end I got:<br />
+<code>a*b*a*d/(c*(1+2)*3*e*f)</code></p>
+<p>In short, with two simple formulas I got a program that can reduce an arbitrary expression with division and multiplication to a form with a single numerator and denominator!!! \0/</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1182"     height="678"     src="/processed_images/94.9d8e0dc17c81be04.webp"     onclick="full_screen('94.jpg')"     onauxclick="full_screen_new_page('94.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<p>I added a whole bunch of formulas:</p>
+<p><strong>Converting to a fraction:</strong></p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>a/b*c &lt;-&gt; a*c/b</span></span>
+<span class="giallo-l"><span>a/b/c &lt;-&gt; a/(b*c)</span></span></code></pre>
+<p><strong>Adding fractions:</strong></p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>a/b + c/d &lt;-&gt; (a*d+c*b)/(b*d)</span></span>
+<span class="giallo-l"><span>a + c/d &lt;-&gt; (a*d+c)/d</span></span>
+<span class="giallo-l"><span>a/b + c &lt;-&gt; (a+c*b)/b</span></span></code></pre>
+<p><strong>Expanding brackets:</strong></p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>c*(a+b) &lt;-&gt; (a+b)*c</span></span>
+<span class="giallo-l"><span>(a+b)*c &lt;-&gt; a*c+b*c</span></span></code></pre>
+<p><strong>The simplest optimization:</strong></p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>1*a &lt;-&gt; a</span></span>
+<span class="giallo-l"><span>a*1 &lt;-&gt; a</span></span></code></pre>
+<p>And made all of them apply to the expression:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>c*(a+b)+1/2</span></span></code></pre>
+<p>In the end, the program reduced it to:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>(2ac + 2bc + 1)/2</span></span></code></pre>
+<p>!!! 🎉 !!!</p>
+<p>(I deliberately converted it to a more readable form and removed the extra multiplication signs)</p>
+<p>So basically, it learned to expand brackets and add fractions!</p>
+<p>Here are some more examples of it at work:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>1/(a+b)+1/(c+d) ---&gt; (c+d+a+b)/(ca+da+cb+db)</span></span>
+<span class="giallo-l"><span>(x+1)*(x+2) ---&gt; x*x + 2x + x + 2</span></span></code></pre>
+<p>Of course, it still struggles with some examples, both because of the internal representation of expressions and because some extra logic has to be bolted on, but the results are already impressive!</p>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="636"     height="415"     src="/processed_images/97.d5872ccf2ce6807d.webp"     onclick="full_screen('97.jpg')"     onauxclick="full_screen_new_page('97.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<figcaption>I also colored the output a bit to make it easier to read. Sorry about the colors: the terminal has a limited palette, so it is what it is.</figcaption>
+</figure>
+<p>So here I am, struggling with an arithmetic grammar, and the library I'm using already has tools for parsing things with operator precedence!</p>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1280"     height="919"     src="/processed_images/98.d4179649b0a19952.webp"     onclick="full_screen('98.jpg')"     onauxclick="full_screen_new_page('98.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<figcaption>A grammar for parsing arithmetic expressions</figcaption>
+</figure>
+<p>Notice how the parentheses around <code>@</code> are placed: they differ only for <code>^</code>, because:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>a-b-c = (a-b)-c</span></span>
+<span class="giallo-l"><span>a^b^c = a^(b^c)</span></span></code></pre><h1 id="99"><a class="anchor" href="#99">#</a>16.03.2020</h1>
+<blockquote>
+<p><strong>Source (in Russian):</strong>
+<a href="https://t.me/optozorax_dev/99"><code>tg/99</code></a>,
+<a href="https://t.me/optozorax_dev/100"><code>tg/100</code></a>.</p>
+</blockquote>
+<p>Meanwhile:</p>
+<ul>
+<li>I moved all the parsing I could to precedence!{}, described in the previous post.</li>
+<li>Added parsing of functions like f(a, b, c, ...)</li>
+<li>Added parsing of
+<ul>
+<li>a &amp; b - logical functions</li>
+<li>a = b - equalities, inequalities
+But that's not all that interesting, and you'll be able to see it in the next screenshot.</li>
+</ul>
+</li>
+</ul>
+<p>And so that this post has something interesting in it, I'll describe some cool functions on which a lot of things will be built in the future!</p>
+<p>First, let's agree to treat the operations <code>+</code>, <code>-</code>, <code>*</code> etc. as functions of two arguments:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>a+b = sum(a, b)</span></span>
+<span class="giallo-l"><span>a-b-c = sub(sub(a, b), c)</span></span></code></pre><h2 id="the-many-function"><a class="anchor" href="#the-many-function">#<sup>2</sup></a>The many function</h2>
+<p>This function takes as input two of anything, of the same type, and it means that the two values exist in parallel. Its property is that, when it's inside any function, it can get out of it. It's easier to show with an example:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>1+many(1, 2) = many(1+1, 1+2)</span></span>
+<span class="giallo-l"><span>sin(many(pi, 0)) = many(sin(pi), sin(0))</span></span></code></pre><h2 id="the-ifval-function"><a class="anchor" href="#the-ifval-function">#<sup>2</sup></a>The ifval function</h2>
+<p>The first argument of this function is some expression, and the second is a logical condition. This function lets you specify a value that exists only under some condition. Its properties also include being able to get out of almost any function (I don't know yet how it should get out of logical functions). Once again, examples are king:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>1+ifval(a, a != 0) = ifval(1+a, a != 0)</span></span></code></pre>
+<p>By combining these two functions you can define lots of interesting things, for example, the absolute value!</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>abs(x) = many(ifval(x, x &gt;= 0), ifval(-x, x &lt; 0))</span></span></code></pre>
+<p>Or the roots of a quadratic equation:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>x = (-b + many(D, -D))/(2a)</span></span></code></pre>
+<p>Or safely introducing new variables.
+To explain this, let's remember how we sometimes solved problems in math class: we added some expression at the end and then subtracted it:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>a = a+b-b</span></span></code></pre>
+<p>Then we used this, for example, to complete the square:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>x^2+2x = x^2+2x + 1 - 1 = (x+1)^2 - 1</span></span></code></pre>
+<p>Introducing multiplication and division isn't that simple, because we might accidentally multiply and divide by zero! So the formula for introducing multiplication looks like this:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>a &lt;-&gt; many(ifval(a, b == 0), ifval(b*a/b, b != 0))</span></span></code></pre>
+<p>Thanks to this formula we can safely do further calculations without losing or breaking anything. This formula also works in both directions.</p>
+<p>The standard formula works in only one direction, and so it breaks the equivalence of the input and the output:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>a -&gt; b*a/b</span></span></code></pre><div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1134"     height="1012"     src="/processed_images/100.876f571ce025052f.webp"     onclick="full_screen('100.png')"     onauxclick="full_screen_new_page('100.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<p>In the screenshot above:</p>
+<ol>
+<li>Pulling many out of all functions</li>
+<li>What was there before (did you notice the dot as the multiplication sign? :) )</li>
+<li>Parsing functions</li>
+<li>Parsing logical expressions, inequalities and equalities.</li>
+</ol>
+<h1 id="101"><a class="anchor" href="#101">#</a>17.03.2020</h1>
+<blockquote>
+<p><strong>Source (in Russian):</strong>
+<a href="https://t.me/optozorax_dev/101"><code>tg/101</code></a>,
+<a href="https://t.me/optozorax_dev/102"><code>tg/102</code></a>.</p>
+</blockquote>
+<p>Just now I was figuring out how to define my own syntax highlighting in Sublime Text. If anyone wants to do the same, I recommend these resources:</p>
+<ul>
+<li><a href="http://ilkinulas.github.io/programming/2016/02/05/sublime-text-syntax-highlighting.html">http://ilkinulas.github.io/programming/2016/02/05/sublime-text-syntax-highlighting.html</a></li>
+<li><a href="https://www.sublimetext.com/docs/3/syntax.html">https://www.sublimetext.com/docs/3/syntax.html</a></li>
+<li><a href="https://www.sublimetext.com/docs/3/scope_naming.html">https://www.sublimetext.com/docs/3/scope_naming.html</a></li>
+</ul>
+<p>I made it highlight my formulas in a file, because from now on I plan to read formulas from a file, and do my thinking there too. In parallel I'm also thinking about new features, namely <strong>built-in functions.</strong> Take a look at the screenshot below.</p>
+<p>From here on I'll use the term "the pattern matched", which means the same thing as "the formula can be applied". It's just that I now call a formula a pattern.</p>
+<p>First, about those dollar signs in the screenshot. A dollar sign before a variable name means that when the formula is applied, the variable must have exactly that name. That is, <code>"a"</code> is a pattern in the formula <code>"a+b"</code>. But <code>"$true"</code> in the formula <code>"$true &amp; a"</code> is a specific variable named <code>true</code>.</p>
+<p>With functions it's the other way around. For them, <code>"sin(x)"</code> by default means that the function has a specific name. If we want to write a formula for any function, we need hacks, namely the dollar sign. So <code>"$f(a, b)"</code> will match any function of two arguments, be it <code>"a+b"</code> or <code>"atan2(y, x)"</code>.</p>
+<p>There are also functions with two dollar signs, and these are the ones that will denote something built-in. For example, the function <code>"$$anypos(x)"</code> will match any function with any number of arguments, but only if at least one argument matches the pattern <code>x</code>. Then this pattern is taken, and the transformation is applied to this function only inside that argument. It's better if I show an example. Suppose we have this formula:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>$$anypos(many(a, b)) = many($$anypos(a), $$anypos(b));  </span></span></code></pre>
+<p>Then by this formula:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>myfunc(many(a, b), y, z) = many(myfunc(a, y, z), myfunc(b, y, z))  </span></span></code></pre>
+<p>In this case <code>myfunc</code> matched <code>$$anypos</code>, and its first argument matched <code>many(..)</code>, and when the formula was used, all the other arguments of <code>myfunc</code> stayed unchanged.</p>
+<p>I also think there should be a built-in function that evaluates arithmetic expressions, and there should be type matching via two dollar signs; for example, <code>$$n</code> should match any number.</p>
+<p>As you can see, I want to move all the logic of working with math into formulas and my own language, and keep the code as abstracted from math as possible. I think the good thing about this approach is that my language will let you describe, for example, abstract algebra. And it will be safer than encoding all that in code, though it will also be slow.</p>
+<p>I still need to think about how to write down derivations of some formulas from others.</p>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1280"     height="635"     src="/processed_images/102.71f2581f91651f2b.webp"     onclick="full_screen('102.jpg')"     onauxclick="full_screen_new_page('102.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<figcaption>On the left is the formula code, on the right is the code that defines the syntax for Sublime.</figcaption>
+</figure>
+<h1 id="22-03-2020"><a class="anchor" href="#22-03-2020">#</a>22.03.2020</h1>
+<blockquote>
+<p><strong>Source (in Russian):</strong>
+<a href="https://t.me/optozorax_dev/106"><code>tg/106</code></a>,
+<a href="https://t.me/optozorax_dev/107"><code>tg/107</code></a>,
+<a href="https://t.me/optozorax_dev/109"><code>tg/109</code></a>,
+<a href="https://t.me/optozorax_dev/110"><code>tg/110</code></a>,
+<a href="https://t.me/optozorax_dev/111"><code>tg/111</code></a>.</p>
+</blockquote>
+<p>So, for my coursework I was given the task of redoing last year's coursework with different basis functions. I had linear ones, and now I have to use quadratic ones.</p>
+<p>The problem is that the textbook that describes all the theory has the matrices for linear functions, but for quadratic ones it only describes in words how to obtain them. And to obtain them, you have to take a lot of integrals.</p>
+<p>As you might have guessed from my automation of mouse clicking in a program, I really don't like doing things by hand, so I wrote a Python program that uses sympy to take these integrals.</p>
+<p>In short, it computed the integrals for 81 matrix elements, which took a very long time; I'll show the result in the next picture.</p>
+<p>While I was doing this, I realized that sympy is weak; you can't:</p>
+<ul>
+<li>Split a matrix with sums inside into a sum of matrices</li>
+<li>Factor a common multiplier out of a matrix</li>
+</ul>
+<p>You have to do it with hacks: multiplying by an inverse value that I set myself and then simplifying, or saving elements from the guts of the computation into different matrices.</p>
+<p>If you know any decent libraries for symbolic computation, or programs that let you work with it interactively, please share.</p>
+<p>And since I don't know any such libraries or programs yet, I'm gradually moving towards creating my own, which I described in previous posts (fopply).</p>
+<p>And honestly, I can't imagine doing calculations like these on paper, it's nuts! In general, I think that at university or even at school, in parallel with the math course, they should teach how to solve all the problems in something like sympy.</p>
+<p>And if I have subscribers who still have a lot of calculus ahead of them in life: learn sympy! Make your life easier, write calculators for different operations. For example, for one course I had calculators for computing some special things: <a href="https://github.com/optozorax/math_modeling_controllable_systems">@optozorax/math_modeling_controllable_systems</a></p>
+<p>And here's the code that computes these matrices, for anyone interested:</p>
+<details>
+<summary>integrate_fem_3.py <a class='right' href='https://github.com/optozorax/labs_emf/blob/3c1285218149ed732155c0e8b00082984015c7aa/coursework2/integrate_fem_3.py'>link</a></summary>
+<div class="details-content">
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="python"><code data-lang="python"><span class="giallo-l"><span style="color: #72AB00;">from</span><span> sympy</span><span style="color: #72AB00;"> import *</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">import</span><span> copy</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>a, b, c</span><span style="color: #72AB00;"> =</span><span> symbols(</span><span style="color: #D07711;">&quot;a b c&quot;</span><span>)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>x, y</span><span style="color: #72AB00;"> =</span><span> symbols(</span><span style="color: #D07711;">&quot;x y&quot;</span><span>)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">def</span><span style="color: #C23F31;"> get_function</span><span>(</span><span style="color: #5597D6;">list</span><span>,</span><span style="color: #5597D6;"> var</span><span>,</span><span style="color: #5597D6;"> xy</span><span>,</span><span style="color: #5597D6;"> h</span><span>):</span></span>
+<span class="giallo-l"><span>	a1</span><span style="color: #72AB00;"> =</span><span> solve([</span></span>
+<span class="giallo-l"><span>		a</span><span style="color: #72AB00;">*</span><span>xy</span><span style="color: #72AB00;">*</span><span>xy</span><span style="color: #72AB00;"> +</span><span> b</span><span style="color: #72AB00;">*</span><span>xy</span><span style="color: #72AB00;"> +</span><span> c</span><span style="color: #72AB00;"> -</span><span> list[</span><span style="color: #B3933A;">0</span><span>], </span></span>
+<span class="giallo-l"><span>		a</span><span style="color: #72AB00;">*</span><span>(xy</span><span style="color: #72AB00;"> +</span><span> h</span><span style="color: #72AB00;">/</span><span style="color: #B3933A;">2</span><span>)</span><span style="color: #72AB00;">*</span><span>(xy</span><span style="color: #72AB00;"> +</span><span> h</span><span style="color: #72AB00;">/</span><span style="color: #B3933A;">2</span><span>)</span><span style="color: #72AB00;"> +</span><span> b</span><span style="color: #72AB00;">*</span><span>(xy</span><span style="color: #72AB00;"> +</span><span> h</span><span style="color: #72AB00;">/</span><span style="color: #B3933A;">2</span><span>)</span><span style="color: #72AB00;"> +</span><span> c</span><span style="color: #72AB00;"> -</span><span> list[</span><span style="color: #B3933A;">1</span><span>], </span></span>
+<span class="giallo-l"><span>		a</span><span style="color: #72AB00;">*</span><span>(xy</span><span style="color: #72AB00;"> +</span><span> h)</span><span style="color: #72AB00;">*</span><span>(xy</span><span style="color: #72AB00;"> +</span><span> h)</span><span style="color: #72AB00;"> +</span><span> b</span><span style="color: #72AB00;">*</span><span>(xy</span><span style="color: #72AB00;"> +</span><span> h)</span><span style="color: #72AB00;"> +</span><span> c</span><span style="color: #72AB00;"> -</span><span> list[</span><span style="color: #B3933A;">2</span><span>]</span></span>
+<span class="giallo-l"><span>	], (a, b, c))</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">	return</span><span> a1[a]</span><span style="color: #72AB00;">*</span><span>var</span><span style="color: #72AB00;">*</span><span>var</span><span style="color: #72AB00;"> +</span><span> a1[b]</span><span style="color: #72AB00;">*</span><span>var</span><span style="color: #72AB00;"> +</span><span> a1[c]</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>x_p, h_x</span><span style="color: #72AB00;"> =</span><span> symbols(</span><span style="color: #D07711;">&quot;x_p h_x&quot;</span><span>)</span></span>
+<span class="giallo-l"><span>x_p1</span><span style="color: #72AB00;"> =</span><span> x_p</span><span style="color: #72AB00;"> +</span><span> h_x</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>y_p, h_y</span><span style="color: #72AB00;"> =</span><span> symbols(</span><span style="color: #D07711;">&quot;y_p h_y&quot;</span><span>)</span></span>
+<span class="giallo-l"><span>y_p1</span><span style="color: #72AB00;"> =</span><span> y_p</span><span style="color: #72AB00;"> +</span><span> h_y</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>X1</span><span style="color: #72AB00;"> =</span><span> get_function([</span><span style="color: #B3933A;">1</span><span>,</span><span style="color: #B3933A;"> 0</span><span>,</span><span style="color: #B3933A;"> 0</span><span>], x, x_p, h_x)</span></span>
+<span class="giallo-l"><span>X2</span><span style="color: #72AB00;"> =</span><span> get_function([</span><span style="color: #B3933A;">0</span><span>,</span><span style="color: #B3933A;"> 1</span><span>,</span><span style="color: #B3933A;"> 0</span><span>], x, x_p, h_x)</span></span>
+<span class="giallo-l"><span>X3</span><span style="color: #72AB00;"> =</span><span> get_function([</span><span style="color: #B3933A;">0</span><span>,</span><span style="color: #B3933A;"> 0</span><span>,</span><span style="color: #B3933A;"> 1</span><span>], x, x_p, h_x)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>Y1</span><span style="color: #72AB00;"> =</span><span> get_function([</span><span style="color: #B3933A;">1</span><span>,</span><span style="color: #B3933A;"> 0</span><span>,</span><span style="color: #B3933A;"> 0</span><span>], y, y_p, h_y)</span></span>
+<span class="giallo-l"><span>Y2</span><span style="color: #72AB00;"> =</span><span> get_function([</span><span style="color: #B3933A;">0</span><span>,</span><span style="color: #B3933A;"> 1</span><span>,</span><span style="color: #B3933A;"> 0</span><span>], y, y_p, h_y)</span></span>
+<span class="giallo-l"><span>Y3</span><span style="color: #72AB00;"> =</span><span> get_function([</span><span style="color: #B3933A;">0</span><span>,</span><span style="color: #B3933A;"> 0</span><span>,</span><span style="color: #B3933A;"> 1</span><span>], y, y_p, h_y)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>f</span><span style="color: #72AB00;"> =</span><span> []</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">for</span><span> i</span><span style="color: #72AB00;"> in</span><span> [Y1, Y2, Y3]:</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">	for</span><span> j</span><span style="color: #72AB00;"> in</span><span> [X1, X2, X3]:</span></span>
+<span class="giallo-l"><span>		f.append(j</span><span style="color: #72AB00;">*</span><span>i)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>G1</span><span style="color: #72AB00;"> =</span><span> zeros(</span><span style="color: #B39F04;">len</span><span>(f))</span></span>
+<span class="giallo-l"><span>G2</span><span style="color: #72AB00;"> =</span><span> zeros(</span><span style="color: #B39F04;">len</span><span>(f))</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72AB00;">for</span><span> i, a</span><span style="color: #72AB00;"> in</span><span style="color: #B39F04;"> enumerate</span><span>(f):</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">	for</span><span> j, b</span><span style="color: #72AB00;"> in</span><span style="color: #B39F04;"> enumerate</span><span>(f):</span></span>
+<span class="giallo-l"><span>		temp</span><span style="color: #72AB00;"> =</span><span> simplify(</span></span>
+<span class="giallo-l"><span>			integrate(</span></span>
+<span class="giallo-l"><span>				integrate(</span></span>
+<span class="giallo-l"><span>					diff(a, x)</span><span style="color: #72AB00;"> *</span><span> diff(b, x)</span><span style="color: #72AB00;"> +</span><span> diff(a, y)</span><span style="color: #72AB00;"> *</span><span> diff(b, y),</span></span>
+<span class="giallo-l"><span>					(y, y_p, y_p</span><span style="color: #72AB00;"> +</span><span> h_y)</span></span>
+<span class="giallo-l"><span>				),</span></span>
+<span class="giallo-l"><span>				(x, x_p, x_p</span><span style="color: #72AB00;"> +</span><span> h_x)</span></span>
+<span class="giallo-l"><span>			)</span></span>
+<span class="giallo-l"><span>		)</span></span>
+<span class="giallo-l"><span>		(first, second)</span><span style="color: #72AB00;"> =</span><span> temp.args</span></span>
+<span class="giallo-l"><span>		(coef, up, down)</span><span style="color: #72AB00;"> =</span><span> first.args</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">		if</span><span> up</span><span style="color: #72AB00;"> ==</span><span> h_x:</span></span>
+<span class="giallo-l"><span>			G1[i, j], G2[i, j]</span><span style="color: #72AB00;"> =</span><span> first, second</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">		else</span><span>:</span></span>
+<span class="giallo-l"><span>			G1[i, j], G2[i, j]</span><span style="color: #72AB00;"> =</span><span> second, first</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>M</span><span style="color: #72AB00;"> =</span><span> zeros(</span><span style="color: #B39F04;">len</span><span>(f))</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">for</span><span> i, a</span><span style="color: #72AB00;"> in</span><span style="color: #B39F04;"> enumerate</span><span>(f):</span></span>
+<span class="giallo-l"><span style="color: #72AB00;">	for</span><span> j, b</span><span style="color: #72AB00;"> in</span><span style="color: #B39F04;"> enumerate</span><span>(f):</span></span>
+<span class="giallo-l"><span>		M[i, j]</span><span style="color: #72AB00;"> =</span><span> simplify(</span></span>
+<span class="giallo-l"><span>			integrate(</span></span>
+<span class="giallo-l"><span>				integrate(</span></span>
+<span class="giallo-l"><span>					a</span><span style="color: #72AB00;"> *</span><span> b,</span></span>
+<span class="giallo-l"><span>					(y, y_p, y_p</span><span style="color: #72AB00;"> +</span><span> h_y)</span></span>
+<span class="giallo-l"><span>				),</span></span>
+<span class="giallo-l"><span>				(x, x_p, x_p</span><span style="color: #72AB00;"> +</span><span> h_x)</span></span>
+<span class="giallo-l"><span>			)</span></span>
+<span class="giallo-l"><span>		)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>first</span><span style="color: #72AB00;"> =</span><span> h_x</span><span style="color: #72AB00;">/</span><span>(h_y</span><span style="color: #72AB00;">*</span><span style="color: #B3933A;">6</span><span style="color: #72AB00;">*</span><span style="color: #B3933A;">15</span><span>)</span></span>
+<span class="giallo-l"><span>second</span><span style="color: #72AB00;"> =</span><span> h_y</span><span style="color: #72AB00;">/</span><span>(h_x</span><span style="color: #72AB00;">*</span><span style="color: #B3933A;">6</span><span style="color: #72AB00;">*</span><span style="color: #B3933A;">15</span><span>)</span></span>
+<span class="giallo-l"><span>G1</span><span style="color: #72AB00;"> =</span><span> simplify(G1</span><span style="color: #72AB00;"> /</span><span> first)</span></span>
+<span class="giallo-l"><span>G2</span><span style="color: #72AB00;"> =</span><span> simplify(G2</span><span style="color: #72AB00;"> /</span><span> second)</span></span>
+<span class="giallo-l"><span>l</span><span style="color: #72AB00;"> =</span><span> Symbol(</span><span style="color: #D07711;">&quot;lambda&quot;</span><span>)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #B39F04;">print</span><span>(</span><span style="color: #D07711;">&quot;G = </span><span style="color: #AEB52B;">{}\\</span><span style="color: #D07711;">cdot</span><span style="color: #AEB52B;">{}</span><span style="color: #D07711;"> + </span><span style="color: #AEB52B;">{}\\</span><span style="color: #D07711;">cdot</span><span style="color: #AEB52B;">{}</span><span style="color: #D07711;">&quot;</span><span>.format(latex(l</span><span style="color: #72AB00;"> *</span><span> first), latex(G1), latex(l</span><span style="color: #72AB00;"> *</span><span> second), latex(G2)))</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>multiplier</span><span style="color: #72AB00;"> =</span><span> h_x</span><span style="color: #72AB00;">*</span><span>h_y</span><span style="color: #72AB00;">/</span><span style="color: #B3933A;">36</span><span style="color: #72AB00;">/</span><span style="color: #B3933A;">25</span></span>
+<span class="giallo-l"><span>M</span><span style="color: #72AB00;"> =</span><span> simplify(M</span><span style="color: #72AB00;"> /</span><span> multiplier)</span></span>
+<span class="giallo-l"><span>g</span><span style="color: #72AB00;"> =</span><span> Symbol(</span><span style="color: #D07711;">&quot;gamma&quot;</span><span>)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #B39F04;">print</span><span>(</span><span style="color: #D07711;">&quot;M = </span><span style="color: #AEB52B;">{}\\</span><span style="color: #D07711;">cdot</span><span style="color: #AEB52B;">{}</span><span style="color: #D07711;">&quot;</span><span>.format(latex(g</span><span style="color: #72AB00;"> *</span><span> multiplier), latex(M)))</span></span></code></pre></div>
+</details>
+<figure>
+<div class="magnifier-container img-one-two"> <img     class="not-default full-screen-img"     width="430"     height="640"     src="/processed_images/107.20bcf2db5304bd54.webp"     onclick="full_screen('107.jpg')"     onauxclick="full_screen_new_page('107.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.5<br>jpg</div> </div> </div>
+<figcaption>Each element of these matrices is the solution of some double integral.</figcaption>
+</figure>
+<p>Well, I've finished this work, <a href="https://github.com/optozorax/labs_emf/commit/72e893134ee23ff39607e02c94b3a30d05cd4a53">the branch is merged</a>. There isn't much more to say about it, because there's too much context here. And I basically just redid last year's work for a slightly different basis.</p>
+<p>So just admire the god-tier auto-generated LaTeX reports with royal-grade research that I used to make: <a href="https://github.com/optozorax/labs_emf/raw/master/coursework2/report/report.pdf">link to pdf</a> (in Russian).</p>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="619"     height="153"     src="/processed_images/111.178383077378d70c.webp"     onclick="full_screen('111.jpg')"     onauxclick="full_screen_new_page('111.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<figcaption>😊</figcaption>
+</figure>
+<h1 id="1-07-2020"><a class="anchor" href="#1-07-2020">#</a>1.07.2020</h1>
+<blockquote>
+<p><strong>Source (in Russian):</strong>
+<a href="https://t.me/optozorax_dev/230"><code>tg/230</code></a>,
+<a href="https://t.me/optozorax_dev/231"><code>tg/231</code></a>,
+<a href="https://t.me/optozorax_dev/232"><code>tg/232</code></a>.</p>
+</blockquote>
+<p>I've just realized that the functions I came up with back then, <code>ifval</code> and <code>many</code>, which have the property of "getting out of any other function", actually contradict themselves.</p>
+<p>Let me remind you that in these terms the absolute value function can be described as follows:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>abs(x) = many(ifval(x, x &gt;= 0), ifval(-x, x &lt; 0))</span></span></code></pre>
+<p>And with the properties I gave these functions, you can arrive at <code>abs(x)</code> always being the empty set.</p>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1048"     height="456"     src="/processed_images/231.1c0273aa781d4999.webp"     onclick="full_screen('231.jpg')"     onauxclick="full_screen_new_page('231.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<figcaption>The proof of this fact</figcaption>
+</figure>
+<p>That's how you can turn the absolute value into the empty set. So the notation I came up with for defining piecewise functions, like the absolute value, division by zero, etc., doesn't work. I need to look for other ways to formalize piecewise functions, and to figure out by what right we can turn such piecewise functions into systems of equations without piecewise functions.</p>
+<p>At school we don't think about this, we just follow a gazillion rules that resemble business logic rules, so when it comes to formalizing it or trying to write a program, we run into difficulties like these. Maybe school algebra was formalized long ago and all these difficulties have been solved there, and I just need to google it.</p>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="980"     height="332"     src="/processed_images/232.3cb9fe010d4e2827.webp"     onclick="full_screen('232.jpg')"     onauxclick="full_screen_new_page('232.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<figcaption>Here's what I mean by “turning a piecewise function into a system of equations”.</figcaption>
+</figure>
+<p>I wonder by which exact rules of math we can just take the conditions of the absolute value and pull them out of the absolute value itself, up to the level of the equation, and where the limits of this pulling out are.</p>
+<h1 id="26-08-2020"><a class="anchor" href="#26-08-2020">#</a>26.08.2020</h1>
+<blockquote>
+<p><strong>Source (in Russian):</strong>
+<a href="https://t.me/optozorax_dev/246"><code>tg/246</code></a>,
+<a href="https://t.me/optozorax_dev/247"><code>tg/247</code></a>,
+<a href="https://t.me/optozorax_dev/248"><code>tg/248</code></a>.</p>
+</blockquote>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1200"     height="630"     src="/processed_images/246.527bc82549470b5d.webp"     onclick="full_screen('246.jpg')"     onauxclick="full_screen_new_page('246.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<figcaption>Me when I need to solve the fundamental problems of mathematics before writing a single line of code.</figcaption>
+</figure>
+<p>Also, I've finally solved the "fundamental problems of mathematics" that I described earlier.</p>
+<p><strong>To recap:</strong> I want to write a program for symbolic (analytical) computation. I want it to be able to derive formulas from axioms and other formulas. For that I need to write down axioms for the standard operations and functions. All the commutativity/associativity stuff for addition, division and multiplication I wrote down easily. The problems started when I had to come up with a representation for piecewise-defined functions, for example: the absolute value, the sign function. How do you define such functions so that you can perform operations on them, and how do you axiomatize their structure?</p>
+<p>I came up with operators like <code>ifval</code> and <code>many</code>, which are described in detail in <a href="https://optozorax.github.io/en/p/fopply/#99">/99</a>. I hoped to write a piecewise-defined function as a combination of these operators. In the end it turned out that these operators are so broad that they lead to contradictions, and in practice they're impossible to use.</p>
+<p>After that I got stuck: I couldn't move on with development because of this problem, since it lies at the very foundation. I tried to come up with one-way formulas, thought about a type system, nothing helped.</p>
+<p>But recently, after releasing the evolution repository, I sat down with <code>fopply</code>, thought a bit, and found a solution!</p>
+<p>You need to introduce a single function for this: <code>part(cond, then, else)</code>. That is, this function returns <code>then</code> if <code>cond</code> is <code>$true</code>, and <code>else</code> otherwise.</p>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1280"     height="338"     src="/processed_images/247.5172ee2c884c7704.webp"     onclick="full_screen('247.jpg')"     onauxclick="full_screen_new_page('247.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<figcaption>The properties of this function are shown here.</figcaption>
+</figure>
+<p>Let me remind you that formulas can be used both in the forward and in the reverse direction. Here I wrote down the basic properties of this function and how it can be turned into logical operators.</p>
+<p>The last formula, though, already requires me to implement a type system that distinguishes between numbers and booleans, otherwise it won't make sense if you turn an absolute value into a logical structure in the middle of an ordinary formula.</p>
+<p>With this function I was able to write the absolute value and <code>sign</code>, and I was even able to derive this formula from the basic ones: <code>a &lt;-&gt; part(b == 0, a, a*b/b)</code> (you can add multiplication and division by something to a formula, if that something isn't zero). And since I was able to formally derive something this exotic, I'm on the right track.</p>
+<p>I also got rid of a concept like <code>anypos</code>, whose principle is described in <a href="https://optozorax.github.io/en/p/fopply/#101">/101</a>. I tried to encode right into the structure of a formula that it can match inside any argument of a function. That is, if you write <code>$$anypos(x+1)</code>, it can match the function <code>f(y-2, z+3, 2+1)</code> in the third argument. Then I invented lots of ways to write it when there are two such arguments, how to write permutations, etc. But then I realized that preparing an expression into a form where it can match a formula is the user's job. That is, if the user has the function <code>f(y-2, z+3, 2+1)</code>, they make the substitution <code>g(x) := f(y-2, z+3, x)</code> and then write <code>g(2+1)</code>, which easily matches a formula that works on one-argument functions. In the same way you can make formulas work deep inside an expression, not just in some argument. Thanks to this, the core of the program will become much simpler.</p>
+<p>Anyway, I feel like I can finally start writing code and getting my dopamine.</p>
+<h1 id="6-09-2020"><a class="anchor" href="#6-09-2020">#</a>6.09.2020</h1>
+<blockquote>
+<p><strong>Source (in Russian):</strong>
+<a href="https://t.me/optozorax_dev/249"><code>tg/249</code></a>,
+<a href="https://t.me/optozorax_dev/250"><code>tg/250</code></a>.</p>
+</blockquote>
+<p>Meanwhile, I have a big update on <code>fopply</code>!!!</p>
+<p><em>First, the design stuff.</em></p>
+<h2 id="binding"><a class="anchor" href="#binding">#<sup>2</sup></a>Binding.</h2>
+<p>Suppose we have the formula <code>part(x, a, a) &lt;-&gt; a</code> and the expression <code>x+1</code>, and I want to apply this formula right-to-left. Then what should <code>x</code> from the formula be? In theory it could be anything, since when I apply the formula left-to-right, the information about <code>x</code> is simply erased.</p>
+<p>I came up with the idea of manually specifying what the unknown variables of the formula are equal to, like this: <code>x := x = 0</code> (this is what I call a binding), and then the result is <code>part(x = 0, x+1, x+1)</code>. The formula and the expression each have their own namespace, so the x on one side doesn't collide with the x on the other.</p>
+<h2 id="specifying-the-position"><a class="anchor" href="#specifying-the-position">#<sup>2</sup></a>Specifying the position</h2>
+<p>For example, we have the formula <code>a+b &lt;-&gt; b+a</code> and the expression <code>2*(3+4)</code>. How do I apply this formula inside the expression? You can manually write the position as an array, <code>[1]</code>, and apply the formula to the inner part. But that's inconvenient for the user, so I came up with the following notation:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>2*(3+4)  </span></span>
+<span class="giallo-l"><span>. ^^^  </span></span></code></pre>
+<p>When parsing, all the information about where the parts of the formula are located will be saved, and we'll be able to reconstruct the position as an array from such notation. The dot at the beginning is needed because I'm too lazy to parse indentation for now; it's there to mark the start.</p>
+<p>Although yesterday a friend suggested that you could specify the position right inside the formula, for example like this: <code>2+({3+4})</code>.</p>
+<p><em>Note:</em> you can't write:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>1+2+3+4  </span></span>
+<span class="giallo-l"><span>. ^^^  </span></span></code></pre>
+<p>because the formula is represented by a tree of the following form: <code>+(1, +(2, +(3, 4)))</code>. So this tree has no subtree that would be equal to <code>+(2, 3)</code>. Here the only option is to transform the original expression.</p>
+<h2 id="matching-an-arbitrary-function"><a class="anchor" href="#matching-an-arbitrary-function">#<sup>2</sup></a>Matching an arbitrary function</h2>
+<p>So, we have the formula <code>a = b &amp; $f(a) &lt;-&gt; a = b &amp; $f(b)</code>. This formula means that if somewhere we have <code>a = b</code>, then in the places joined to this equality by the logical AND operator, we can replace the variable <code>a</code> with the variable <code>b</code>. <code>$f(a)</code> here means "any function with one argument, where the argument matches the pattern <code>a</code>".</p>
+<p>That is, this formula can be applied to:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>1. a = 1 &amp; a  </span></span>
+<span class="giallo-l"><span>2. a = 1 &amp; c+a = 0  </span></span>
+<span class="giallo-l"><span>3. a = 1 &amp; (x*a + b*a + a*a = 0 | x = 5)  </span></span></code></pre>
+<p>The first case is trivial. But what do we do with the second and the third? How do we find the exact place that matches <code>a</code>? The first thing that comes to mind is to take what we know about what it should match, walk through the expression recursively and do the replacement.</p>
+<p>This approach will work for the first two, but the problems begin with the third. Should we match the first occurrence? The second? The third? And what if I want to replace only the second, third and fourth occurrences of <code>a</code> with 1, and leave the first one in <code>x*a</code> alone?</p>
+<p>So for such cases I came up with the idea that you write by hand the pattern that will be treated as <code>$f</code>, for example: <code>$f(x) := a + b*x + x*x | c</code> for the third case.</p>
+<p>In this case it matches as follows:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>a := x*a  </span></span>
+<span class="giallo-l"><span>b := b  </span></span>
+<span class="giallo-l"><span>c := x = 5  </span></span></code></pre>
+<p>Notice that this pattern only needs to describe the structure; you don't have to describe the whole expression one to one.</p>
+<p>For the formula <code>$f(sin(a))</code> and the expression <code>sin(1+2) * sin(1+2)</code> you can write the pattern <code>$f(x) := x * x</code>; as a result it matches with <code>x := sin(a)</code>, and then <code>a</code> matches <code>1+2</code>.</p>
+<p>Of course, in the future there will be an interface for this, so that you can do such things by clicking with the mouse.</p>
+<h2 id="axioms-and-proofs"><a class="anchor" href="#axioms-and-proofs">#<sup>2</sup></a>Axioms and proofs</h2>
+<p>The next thing I came up with is that there should be formulas that are written as axioms, and formulas that are derived from others, which can be proven.</p>
+<p>For such a system, all formulas have to be written in some file, with names and numbers, so that you can refer to them and use them in a derivation, or "proof".</p>
+<p>That's exactly what I did in this file: <a href="https://github.com/optozorax/fopply/blob/753dae7368d4108c0a6aff03458ba7f08c492311/fpl/math.fpl">math.fpl</a>. I've already described all the complex syntax earlier, and the rest of the syntax in this file is self-explanatory.</p>
+<p>By the way, I planted a formula <code>unsafe</code> there for the future, which looks like this: <code>a &lt;-&gt; b</code>, so with it you can replace anything with anything 😄</p>
+<p>In this file I wrote down basic formulas and even proofs, using everything I described earlier. So now the main task is to code the reading of this file into an internal structure, and the checking of proofs.</p>
+<h2 id="programming-progress"><a class="anchor" href="#programming-progress">#<sup>2</sup></a>Programming progress</h2>
+<p>And I did that checking, and everything described above, and it all works! 🎉🎉🎉</p>
+<p>You can go to the <a href="https://github.com/optozorax/fopply/tree/753dae7368d4108c0a6aff03458ba7f08c492311">repository</a>, modify <code>fpl/math.fpl</code>, write your own axioms and your own proofs, and run the proof checking with <code>cargo run</code>.</p>
+<p>Code-wise it's suboptimal shitcode for now, because I'm trying to save time: everything is made just to work. A proof gets checked, and if you deliberately make a mistake in some step, the program will tell you, but without the location where the error occurred. So please, if you know any articles on how to architect error reporting for your own language, drop them in this channel's newly created chat.</p>
+<p>And the next problem to deal with is how to work with numbers inside formulas, so that you can write down that like terms can be combined, that numbers can be cancelled and multiplied, and also do all of that in the reverse direction.</p>
+<p>Oh, and since I got into a master's program, I should find a supervisor who will agree to take this topic for a master's thesis. I hope I find one, because I don't want to spend my time on some nonsense.</p>
+<h1 id="31-01-2021"><a class="anchor" href="#31-01-2021">#</a>31.01.2021</h1>
+<blockquote>
+<p><strong>Source (in Russian):</strong>
+<a href="https://t.me/optozorax_dev/295"><code>tg/295</code></a>,
+<a href="https://t.me/optozorax_dev/296"><code>tg/296</code></a> (6 💬).</p>
+</blockquote>
+<p>And I remembered that #fopply exists! I <a href="https://github.com/optozorax/fopply/commit/95853742ca3cdc8ecbb28aee440c536795f3c3cd">spent a little time</a> on it and added proper error messages. For that I had to tweak the parser a bit and write a ton of error handling code. In the future I plan to use the <a href="https://github.com/brendanzab/codespan">codespan</a> library for this.</p>
+<p>It prints several error messages at once, all the ones that can be found at the current stage of checking. Some homemade programming languages can't boast of that!</p>
+<p>To get error messages that point to the location of the error, I had to make this little struct:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="rust"><code data-lang="rust"><span class="giallo-l"><span style="color: #668F14;">struct</span><span style="color: #C23F31;"> Spanned</span><span>&lt;</span><span style="color: #C23F31;">T</span><span>&gt; {</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">    span</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> Range</span><span>&lt;</span><span style="color: #C23F31;">usize</span><span>&gt;,</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">    inner</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> T</span><span>,</span></span>
+<span class="giallo-l"><span>}</span></span></code></pre>
+<p>And wrap lots of fields of other structs that make up a formula and a proof in this little struct.<br />
+Also, with the new version, thanks to error messages that point to the problem, I was able to prove <code>(a+b)*(a-b) = a*a-b*b</code>.</p>
+<p>Next, I plan to write an interactive application in which you can apply formulas interactively and find all the possible formulas that fit the current expression. After that, I'm going to use it to start entering as many of the formulas I know as possible, to find the problem spots and better understand how to resolve them in the future.</p>
+<p>And here's what error messages in fopply look like now:</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="720"     height="311"     src="/processed_images/296.2fd007bfee971414.webp"     onclick="full_screen('296.jpg')"     onauxclick="full_screen_new_page('296.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1280"     height="619"     src="/processed_images/297.76e26540eb893cfe.webp"     onclick="full_screen('297.jpg')"     onauxclick="full_screen_new_page('297.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<h1 id="27-03-2021"><a class="anchor" href="#27-03-2021">#</a>27.03.2021</h1>
+<blockquote>
+<p><strong>Source (in Russian):</strong>
+<a href="https://t.me/optozorax_dev/391"><code>tg/391</code></a> (9 💬).</p>
+</blockquote>
+<p>Recently on Twitter I saw this gorgeous animation about an idea for an interesting interface for algebra. This animation shows the level of step-by-step granularity I want for fopply. Although in his animation the interface is heavily optimized for basic algebra: for example, when you grab an exponent and drag it to the other side of the equation, it turns into a square root. That's probably overkill already, but it looks cool.</p>
+<p>He also says it would be really cool to see what happens if babies play with a program like this: what if they develop intuition and a sense of beauty in math at such an early age? Would we get another Ramanujan? I'm also very interested in this application of formal step-by-step algebraic systems. I had an idea of representing something like trigonometry not as formulas but as geometric structures in 3D, so that operations on the structures would simply be trigonometric formulas. Would a game built on this be interesting to people, and to children in particular? Could we teach them to love math through games like this? 🤔</p>
+<figure>
+<video class="img-one" controls>
+  <source src="1374291155869966336_1_web.mp4" type="video/mp4">
+  Your browser is not supporting video.
+</video>
+<figcaption>The video from the tweet below, for your convenience</figcaption>
+</figure>
+<figure>
+<div class="magnifier-container img-two-three"> <img     class="not-default full-screen-img"     width="669"     height="853"     src="/processed_images/twitter_1374291155869966336.48ac7bb3ab1768d3.webp"     onclick="full_screen('twitter_1374291155869966336.png')"     onauxclick="full_screen_new_page('twitter_1374291155869966336.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.9<br>png</div> </div> </div>
+<figcaption><a href="https://twitter.com/elzr/status/1374291155869966336">Link to the tweet</a></figcaption>
+</figure>
+
+</div>
+</article>
+
+  </section>
+  
+
+</td><td>
+<!-- TOC -->
+<input type="checkbox" id="toc-trigger" class="toc-trigger" />
+<label for="toc-trigger">
+  <span class="menu-icon">
+    <div class="side-button"><img src="/ico/right.svg"></div>
+  </span>
+</label>
+
+<nav class="section-nav">
+ <h2>Contents</h2>
+ <ul class="first">
+ 
+ 
+  <li>
+   <a href="#introduction">Introduction</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#12-03-2020">12.03.2020</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#15-03-2020">15.03.2020</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#99">16.03.2020</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#the-many-function">The many function</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#the-ifval-function">The ifval function</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#101">17.03.2020</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#22-03-2020">22.03.2020</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#1-07-2020">1.07.2020</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#26-08-2020">26.08.2020</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#6-09-2020">6.09.2020</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#binding">Binding.</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#specifying-the-position">Specifying the position</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#matching-an-arbitrary-function">Matching an arbitrary function</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#axioms-and-proofs">Axioms and proofs</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#programming-progress">Programming progress</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#31-01-2021">31.01.2021</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#27-03-2021">27.03.2021</a>
+   
+  </li>
+ 
+ </ul>
+</nav>
+</td></tr></table>
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="section second-section">
+If you like what I do, follow me on <a href="https://t.me/optozorax_dev">Telegram</a> and <a href="https://www.youtube.com/c/optozorax">YouTube</a>.
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="comments section second-section">
+
+<script src="https://utteranc.es/client.js"
+        repo="optozorax/optozorax.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+
+  <hr class="enabled-on-phone">
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <footer class="site-footer section second-section">
+  
+    <center>
+    <div style="margin-bottom: 10px;">© Ilya Sheprut. License: <a href="https://creativecommons.org/licenses/by/3.0/deed.en">CC-BY</a>.</div>
+    <table style="border: 0px; display: contents;">
+    <tr><td style="border: 0px; padding: 0.2rem;">
+    <!-- SVG icons from https://iconmonstr.com -->
+
+    <span class="my-span-icon">
+  <a 
+    href="https://github.com/optozorax" 
+    aria-label="optozorax's GitHub" 
+    title="optozorax's GitHub">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/github.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's GitHub">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://t.me/optozorax_dev" 
+    aria-label="optozorax's Telegram channel" 
+    title="optozorax's Telegram channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/tg.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Telegram channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://www.youtube.com/c/optozorax" 
+    aria-label="optozorax's YouTube channel" 
+    title="optozorax's YouTube channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/youtube.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's YouTube channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://boosty.to/optozorax" 
+    aria-label="optozorax's donate page" 
+    title="optozorax's donate page">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/donate.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's donate page">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="/en/atom.xml" 
+    aria-label="optozorax's Atom Feed" 
+    title="optozorax's Atom Feed">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/rss.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Atom Feed">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="mailto:optozorax@gmail.com" 
+    aria-label="optozorax's email" 
+    title="optozorax's email">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/contact.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's email">
+  </a>
+</span>
+
+    </td><td style="border: 0px; padding: 0.2rem;">
+
+    </td></tr>
+    </table>
+    <div class="small-info">
+      Made with <a href="https://www.getzola.org/">Zola</a> | Theme based on <a href="https://github.com/lorepirri/cayman-blog">Cayman Blog</a> | <a href="https://github.com/optozorax/blog_zola">Site sources</a>
+      <a rel="me" href="https://mathstodon.xyz/@optozorax" style="display: none;">Mastodon</a>
+    </div>
+    </center>
+  
+  </footer>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+</body>
+</html>

@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Fonts preload -->
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nFrXyi0A.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nBrXw.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxTcwhsk.woff2" crossOrigin="anonymous">
+  <!-- --- -->
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/main.css">
+  <!-- --- -->
+
+  <!-- Non social metatags -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link rel="canonical" href="https://optozorax.github.io/en/p/invertible-1d-automata/">
+  <link rel="alternate" hreflang="en" href="https://optozorax.github.io/en/p/invertible-1d-automata/">
+  <link rel="alternate" hreflang="ru" href="https://optozorax.github.io/p/invertible-1d-automata/">
+  <link rel="alternate" hreflang="x-default" href="https://optozorax.github.io/p/invertible-1d-automata/">
+  <meta name="robots" content="noarchive">
+  <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/en/atom.xml"> 
+  <!-- --- -->
+
+  <!-- Social metatags -->
+  
+
+<meta name="author" content="optozorax">
+<meta name="title" content="Properties of reversible 1D automata — optozorax&#39;s blog">
+<meta name="description" content="I study the properties of one-dimensional reversible cellular automata and find trivial transformations and 4 groups of automata.">
+<meta name="image" content="https://optozorax.github.io/en/p/invertible-1d-automata/preview.png">
+
+<meta name="keywords" itemprop="tags" content="math, cellular-automata, programming, reversible-automata">
+
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://optozorax.github.io/en/p/invertible-1d-automata/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Properties of reversible 1D automata — optozorax&#39;s blog">
+<meta property="og:description" content="I study the properties of one-dimensional reversible cellular automata and find trivial transformations and 4 groups of automata.">
+<meta property="og:image" content="https://optozorax.github.io/en/p/invertible-1d-automata/preview.png">
+<meta property="og:locale" content="en">
+
+
+<meta property="article:published_time" content="2021-07-28">
+
+
+
+
+<meta property="article:tag" content="math">
+
+<meta property="article:tag" content="cellular-automata">
+
+<meta property="article:tag" content="programming">
+
+<meta property="article:tag" content="reversible-automata">
+
+
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="optozorax.github.io">
+<meta property="twitter:url" content="https://optozorax.github.io/en/p/invertible-1d-automata/">
+<meta name="twitter:title" content="Properties of reversible 1D automata — optozorax&#39;s blog">
+<meta name="twitter:description" content="I study the properties of one-dimensional reversible cellular automata and find trivial transformations and 4 groups of automata.">
+<meta name="twitter:image" content="https://optozorax.github.io/en/p/invertible-1d-automata/preview.png">
+<meta name="twitter:creator" content="optozorax">
+
+  <!-- --- -->
+
+  <!-- Extra head declarations -->
+  
+
+<script type="text/javascript" src="/js/hammer.min.js"></script>
+<script type="text/javascript" src="/js/toc.js"></script>
+<script type="text/javascript" src="/js/gallery.js"></script>
+<script type="text/javascript" src="/js/full_screen.js"></script>
+<script type="text/javascript" src="/js/word_wrap.js"></script>
+
+  <!-- --- -->
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+  <!-- --- -->
+
+  <title>Properties of reversible 1D automata — optozorax&#39;s blog</title>
+</head>
+
+<body>
+  <!-- FullScreen block -->
+  <div id="img_modal" class="modal" style="display: none;">
+      <img id="img_modal_01" src="/ico/loading.gif">
+      <span class="close" id="img_modal_close">&times;</span>
+  </div>
+  <!-- --- -->
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <header class="site-header" role="banner">
+  
+  <div class="wrapper">
+    <a class="site-title" href="/en/">optozorax.blog</a>
+
+    <div class="lang-switch">
+      <span class="lang-switch-item lang-switch-current" lang="en" title="English"><span class="lang-switch-flag">🇬🇧</span>EN</span>
+      <a class="lang-switch-item" href="/p/invertible-1d-automata/" hreflang="ru" lang="ru" title="Русский"><span class="lang-switch-flag">🇷🇺</span>RU</a>
+    </div>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <img src="/ico/menu.svg" width="13px" height="15px">
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          <a class="page-link" href="/en/">Blog</a>
+        
+          <a class="page-link" href="/en/e">Collections</a>
+        
+          <a class="page-link" href="/en/tags">Tags</a>
+        
+          <a class="page-link" href="/en/about">About me</a>
+        
+      </div>
+    </nav>
+  </div>
+  
+  </header>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+  
+  <section class="page-header">
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+<h1 class="project-name">Properties of reversible 1D automata</h1>
+
+<h2 class="project-tagline">I study the properties of one-dimensional reversible cellular automata and find trivial transformations and 4 groups of automata.</h2>
+
+
+
+<span style="margin-bottom: 10px;">
+  
+    <a href="/en/tags#math"><code class="tag"><nobr>#math</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#cellular-automata"><code class="tag"><nobr>#cellular-automata</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#programming"><code class="tag"><nobr>#programming</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#reversible-automata"><code class="tag"><nobr>#reversible-automata</nobr></code></a>&nbsp;
+  
+</span>
+
+
+<center>
+<table style="margin-top: 8px;">
+<tr>
+
+
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+  <time datetime="2021-07-28" itemprop="datePublished">
+    
+    
+    
+    
+    <span class="post-date">28 July 2021</span>
+  </time>
+</h2>
+</td>
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+    <span class="post-date" style="font-style: normal">| 🕑 16 min</span>
+</h2>
+</td>
+
+
+
+<td style="padding-left: 10px;">
+  
+  
+  <a href="https://t.me/optozorax_dev/484">
+  <code class="tag">Post on Telegram</code>
+  </a>
+  
+  
+  (59 💬)
+  
+</td>
+
+</tr>
+</table>
+
+
+<div class="translation-note">
+  <svg class="translation-note-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+  <span>Translated from 🇷🇺 Russian</span>
+  <span class="translation-note-sep">·</span>
+  <span>Translation by Claude Opus 5.5</span>
+  <span class="translation-note-sep">·</span>
+  <a href="/p/invertible-1d-automata/" hreflang="ru" lang="ru">Original</a>
+</div>
+
+
+
+</center>
+
+
+</td><td>
+</td></tr></table>
+
+
+
+  </section>
+  
+  
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <section class="main-content section">
+  
+<article itemscope itemtype="http://schema.org/BlogPosting">
+<div itemprop="articleBody" id="content">
+<style>
+.container { 
+  display: flex; 
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 90%;
+  border: 1px solid gray;
+  padding: 10px;
+  margin: 5px;
+}
+.automata-col {
+  border: 1px solid rgba(39,41,43,0.1); 
+  background-color: rgba(39,41,43,0.03);
+  padding: 10px;
+  margin: 5px;
+  min-width: 110px;
+  flex: 1 0 0%;
+}
+.pixelated {
+  -ms-interpolation-mode: nearest-neighbor;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.skip-img {
+  display: none;
+}
+
+.skip-img, .both-img, .any-img {
+  width: 150px;
+  margin: 2px;
+  border-radius: 0px;
+}
+.automata-name {
+  font-size: 12pt;
+  font-family: monospace;
+}
+.svg {
+}
+</style>
+<h1 id="introduction"><a class="anchor" href="#introduction">#</a>Introduction</h1>
+<p>This article assumes that you already know what a cellular automaton is and are familiar with Rule <code>110</code> or Rule <code>30</code>.</p>
+<p>If not, I recommend reading these two articles:</p>
+<ul>
+<li><a href="https://habr.com/ru/post/273393/">The simplest cellular automata and their practical applications</a> (in Russian)</li>
+<li><a href="https://writings.stephenwolfram.com/2019/10/announcing-the-rule-30-prizes/">$30,000 for solving problems about Rule 30 for cellular automata — a contest by Stephen Wolfram</a></li>
+</ul>
+<p>It also assumes that you know what a <strong>reversible</strong> cellular automaton is. If not, I recommend reading this Wikipedia article:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Critters_(cellular_automaton)">Critters</a></li>
+</ul>
+<p>I also wrote about reversible automata in my Telegram channel (in Russian), starting here: <a href="https://t.me/optozorax_dev/235">optozorax_dev/235</a>, 7 posts in total.</p>
+<h1 id="table-of-automata"><a class="anchor" href="#table-of-automata">#</a>Table of automata</h1>
+<p>In this article, much like in the ones above, I want to look at one-dimensional cellular automata, but reversible ones, and figure out their properties.</p>
+<p>There are many ways to get reversible cellular automata, but I'll pick the one Critters is built with, namely the Margolus neighborhood. In the one-dimensional case it is 2 bits in size, so the number of possible states is 2² = 4, and the number of possible rules is 2²! = 24.</p>
+<p>You can see all these automata in the table below. Each one starts with a random row of zeros and ones whose end wraps around to its beginning. Then the rules of the automaton are applied to it, and each resulting row is appended to the bottom of the picture. So in the pictures time runs downward, while space runs left and right. The number of the automaton (from 0 to 23) is written above, and its rule, that is, a permutation of the numbers <code>[0, 1, 2, 3]</code>, is written below.</p>
+<center>
+<div class="container">
+<div class="automata-col trivial trivial_two time_symmetricale anti_time_symmetricale self_mirror self_inverse save_count">
+<span class="automata-name"><b>0</b></span><br>
+<img class="pixelated skip-img" src="img/0_skip.png">
+<img class="pixelated both-img" src="img/0_both.png">
+<span class="automata-name">[0 1 2 3]</span>
+</div>
+<div class="automata-col time_symmetricale">
+<span class="automata-name"><b>1</b></span><br>
+<img class="pixelated skip-img" src="img/1_skip.png">
+<img class="pixelated both-img" src="img/1_both.png">
+<span class="automata-name">[0 1 3 2]</span>
+</div>
+<div class="automata-col time_symmetricale anti_time_symmetricale self_mirror self_inverse save_count">
+<span class="automata-name"><b>2</b></span><br>
+<img class="pixelated skip-img" src="img/2_skip.png">
+<img class="pixelated both-img" src="img/2_both.png">
+<span class="automata-name">[0 2 1 3]</span>
+</div>
+<div class="automata-col">
+<span class="automata-name"><b>3</b></span><br>
+<img class="pixelated skip-img" src="img/3_skip.png">
+<img class="pixelated both-img" src="img/3_both.png">
+<span class="automata-name">[0 2 3 1]</span>
+</div>
+<div class="automata-col">
+<span class="automata-name"><b>4</b></span><br>
+<img class="pixelated skip-img" src="img/4_skip.png">
+<img class="pixelated both-img" src="img/4_both.png">
+<span class="automata-name">[0 3 1 2]</span>
+</div>
+<div class="automata-col time_symmetricale">
+<span class="automata-name"><b>5</b></span><br>
+<img class="pixelated skip-img" src="img/5_skip.png">
+<img class="pixelated both-img" src="img/5_both.png">
+<span class="automata-name">[0 3 2 1]</span>
+</div>
+<div class="automata-col time_symmetricale">
+<span class="automata-name"><b>6</b></span><br>
+<img class="pixelated skip-img" src="img/6_skip.png">
+<img class="pixelated both-img" src="img/6_both.png">
+<span class="automata-name">[1 0 2 3]</span>
+</div>
+<div class="automata-col trivial_two time_symmetricale anti_time_symmetricale self_inverse">
+<span class="automata-name"><b>7</b></span><br>
+<img class="pixelated skip-img" src="img/7_skip.png">
+<img class="pixelated both-img" src="img/7_both.png">
+<span class="automata-name">[1 0 3 2]</span>
+</div>
+<div class="automata-col">
+<span class="automata-name"><b>8</b></span><br>
+<img class="pixelated skip-img" src="img/8_skip.png">
+<img class="pixelated both-img" src="img/8_both.png">
+<span class="automata-name">[1 2 0 3]</span>
+</div>
+<div class="automata-col anti_time_symmetricale">
+<span class="automata-name"><b>9</b></span><br>
+<img class="pixelated skip-img" src="img/9_skip.png">
+<img class="pixelated both-img" src="img/9_both.png">
+<span class="automata-name">[1 2 3 0]</span>
+</div>
+<div class="automata-col self_inverse save_count">
+<span class="automata-name"><b>10</b></span><br>
+<img class="pixelated skip-img" src="img/10_skip.png">
+<img class="pixelated both-img" src="img/10_both.png">
+<span class="automata-name">[1 3 0 2]</span>
+</div>
+<div class="automata-col">
+<span class="automata-name"><b>11</b></span><br>
+<img class="pixelated skip-img" src="img/11_skip.png">
+<img class="pixelated both-img" src="img/11_both.png">
+<span class="automata-name">[1 3 2 0]</span>
+</div>
+<div class="automata-col">
+<span class="automata-name"><b>12</b></span><br>
+<img class="pixelated skip-img" src="img/12_skip.png">
+<img class="pixelated both-img" src="img/12_both.png">
+<span class="automata-name">[2 0 1 3]</span>
+</div>
+<div class="automata-col self_inverse save_count">
+<span class="automata-name"><b>13</b></span><br>
+<img class="pixelated skip-img" src="img/13_skip.png">
+<img class="pixelated both-img" src="img/13_both.png">
+<span class="automata-name">[2 0 3 1]</span>
+</div>
+<div class="automata-col time_symmetricale">
+<span class="automata-name"><b>14</b></span><br>
+<img class="pixelated skip-img" src="img/14_skip.png">
+<img class="pixelated both-img" src="img/14_both.png">
+<span class="automata-name">[2 1 0 3]</span>
+</div>
+<div class="automata-col">
+<span class="automata-name"><b>15</b></span><br>
+<img class="pixelated skip-img" src="img/15_skip.png">
+<img class="pixelated both-img" src="img/15_both.png">
+<span class="automata-name">[2 1 3 0]</span>
+</div>
+<div class="automata-col trivial_two time_symmetricale anti_time_symmetricale self_inverse">
+<span class="automata-name"><b>16</b></span><br>
+<img class="pixelated skip-img" src="img/16_skip.png">
+<img class="pixelated both-img" src="img/16_both.png">
+<span class="automata-name">[2 3 0 1]</span>
+</div>
+<div class="automata-col anti_time_symmetricale">
+<span class="automata-name"><b>17</b></span><br>
+<img class="pixelated skip-img" src="img/17_skip.png">
+<img class="pixelated both-img" src="img/17_both.png">
+<span class="automata-name">[2 3 1 0]</span>
+</div>
+<div class="automata-col anti_time_symmetricale">
+<span class="automata-name"><b>18</b></span><br>
+<img class="pixelated skip-img" src="img/18_skip.png">
+<img class="pixelated both-img" src="img/18_both.png">
+<span class="automata-name">[3 0 1 2]</span>
+</div>
+<div class="automata-col">
+<span class="automata-name"><b>19</b></span><br>
+<img class="pixelated skip-img" src="img/19_skip.png">
+<img class="pixelated both-img" src="img/19_both.png">
+<span class="automata-name">[3 0 2 1]</span>
+</div>
+<div class="automata-col">
+<span class="automata-name"><b>20</b></span><br>
+<img class="pixelated skip-img" src="img/20_skip.png">
+<img class="pixelated both-img" src="img/20_both.png">
+<span class="automata-name">[3 1 0 2]</span>
+</div>
+<div class="automata-col time_symmetricale anti_time_symmetricale self_mirror self_inverse save_count">
+<span class="automata-name"><b>21</b></span><br>
+<img class="pixelated skip-img" src="img/21_skip.png">
+<img class="pixelated both-img" src="img/21_both.png">
+<span class="automata-name">[3 1 2 0]</span>
+</div>
+<div class="automata-col anti_time_symmetricale">
+<span class="automata-name"><b>22</b></span><br>
+<img class="pixelated skip-img" src="img/22_skip.png">
+<img class="pixelated both-img" src="img/22_both.png">
+<span class="automata-name">[3 2 0 1]</span>
+</div>
+<div class="automata-col trivial trivial_two time_symmetricale anti_time_symmetricale self_mirror self_inverse save_count">
+<span class="automata-name"><b>23</b></span><br>
+<img class="pixelated skip-img" src="img/23_skip.png">
+<img class="pixelated both-img" src="img/23_both.png">
+<span class="automata-name">[3 2 1 0]</span>
+</div>
+</div>
+</center>
+<p>Since the Margolus neighborhood requires applying the rules starting from even cells on even steps and starting from odd cells on odd steps, I added a way to turn the display of odd steps on and off. Some automata behave identically on even steps, for example <code>0</code> ~ <code>23</code>, <code>2</code> ~ <code>10</code> ~ <code>13</code> ~ <code>21</code>. You can toggle it here:<br></p>
+<p><label><input type="checkbox" id="img_intermediate" name="img_intermediate" checked> Show odd steps</label></p>
+<h1 id="various-properties"><a class="anchor" href="#various-properties">#</a>Various properties</h1>
+<p>The table can also show various properties of the automata. Pick a property and scroll up: the automata that have it will be highlighted in red.</p>
+<form name="properties_radio">
+<label><input type="radio" name="prop" value="all" checked > No property</label><br>
+<label><input type="radio" name="prop" value="trivial" /> Preserve the current state</label><br>
+<label><input type="radio" name="prop" value="trivial_two" /> Repeat the state every two steps</label><br>
+<label><input type="radio" name="prop" value="self_mirror" /> Mirroring the rule gives the same rule</label><br>
+<label><input type="radio" name="prop" value="save_count" /> Preserve the number of filled cells</label><br>
+<label><input type="radio" name="prop" value="time_symmetricale" /> Same laws for simulating backward and forward in time</label><br>
+<label><input type="radio" name="prop" value="anti_time_symmetricale" /> The rule for simulating backward in time equals the current one with inverted colors</label><br>
+<label><input type="radio" name="prop" value="self_inverse" /> Inverting the colors of the rule gives the same rule</label><br>
+</form>
+<p>All properties are computed for automata over 2 steps, that is, after an even and an odd step. I don't think it's very useful to evaluate the properties of an automaton after 1 step without knowing whether the previous step was even or odd: there are too many variants, and almost no properties are left. I'll explain some of the properties below:</p>
+<p>The most boring automata are the ones that <strong>preserve the current state</strong>. These are automata <code>0</code> and <code>23</code>. They do nothing.</p>
+<p>Slightly less boring are the automata that <strong>repeat the state every two steps</strong>. Relative to the current step, their step into the past and their step into the future must be the same. As a result, they return to the initial state after at most 4 steps. This adds two more automata: <code>7</code> and <code>16</code>.</p>
+<p>Slightly less boring still are the automata that <strong>map to themselves when mirrored</strong>. That is, they can't tell left from right. Here <code>2</code> and <code>21</code> join the trivial <code>0</code> and <code>23</code>.</p>
+<p><strong>Same laws for simulating backward and forward in time</strong>: I think this property is analogous to <a href="https://en.wikipedia.org/wiki/T-symmetry">T-symmetry</a>, although I don't know how fair it is to draw such analogies. This includes the triangle-forming <code>1</code> and the automata derived from it (we'll see this later).</p>
+<p><strong>The rule for simulating backward in time equals the current one with inverted colors</strong>: the same as the previous property, only inverted. This property is interesting because Critters is exactly such a rule. That is, if you invert the whole grid in Critters, gliders will appear that consist of empty cells instead of filled ones, and these gliders will move backward in time rather than forward.</p>
+<p><strong>Inverting the colors of the rule gives the same rule</strong>: the interesting ones here are automata <code>10</code> and <code>13</code>, because they have no other special properties.</p>
+<p>Let's list the non-trivial automata that have a unique property of their own:</p>
+<ul>
+<li><code>{1, 5, 6, 14}</code> can't tell the direction of time.</li>
+<li><code>{9, 17, 18, 22}</code> move backward in time when the colors are inverted.</li>
+<li><code>{2, 21}</code> can't tell left from right.</li>
+<li><code>{10, 13}</code> can't tell white from black.</li>
+</ul>
+<h1 id="beautiful-automata"><a class="anchor" href="#beautiful-automata">#</a>Beautiful automata</h1>
+<ul>
+<li><code>1</code> is similar to Rule <code>30</code> of ordinary automata: it also forms triangles, only rotated by 90°.</li>
+<li><code>2</code> looks like a shirt pattern.</li>
+<li><code>21</code> looks like the <a href="https://en.wikipedia.org/wiki/Block_cellular_automaton#Tron">Tron rule</a>.</li>
+</ul>
+<center>
+<div class="container">
+<div class="automata-col">
+<span class="automata-name"><b>1</b></span><br>
+<img class="pixelated any-img" src="img/1_both.png">
+</div>
+<div class="automata-col">
+<span class="automata-name"><b>2</b></span><br>
+<img class="pixelated any-img" src="img/2_both.png">
+</div>
+<div class="automata-col">
+<span class="automata-name"><b>21</b></span><br>
+<img class="pixelated any-img" src="img/21_both.png">
+</div>
+</div>
+</center>
+<h1 id="deriving-rules"><a class="anchor" href="#deriving-rules">#</a>Deriving rules</h1>
+<p>If you go back to the beginning and look at all the automata, you'll notice that for automaton <code>1</code>, <code>5</code> is its mirror image, <code>6</code> is its inversion, and <code>14</code> is both its inversion and its mirror image.</p>
+<center>
+<div class="container">
+<div class="automata-col">
+<span class="automata-name"><b>1</b></span><br>
+<img class="pixelated any-img" src="img/1_both.png">
+</div>
+<div class="automata-col">
+<span class="automata-name"><b>5</b></span><br>
+<img class="pixelated any-img" src="img/5_both.png">
+</div>
+<div class="automata-col">
+<span class="automata-name"><b>6</b></span><br>
+<img class="pixelated any-img" src="img/6_both.png">
+</div>
+<div class="automata-col">
+<span class="automata-name"><b>14</b></span><br>
+<img class="pixelated any-img" src="img/14_both.png">
+</div>
+</div>
+</center>
+<p>So one may wonder: which automata can be derived from which by various operations on rules?</p>
+<h2 id="trivial-derivations"><a class="anchor" href="#trivial-derivations">#<sup>2</sup></a>Trivial derivations</h2>
+<p>Let's take the rule transformations about which we can say for sure: yes, this is the same rule, just a little different.</p>
+<ul>
+<li>Swap left and right. Shown in <span style="color: green; font-weight: bold;">green</span>.</li>
+<li>Invert white and black. Shown in <span style="color: red; font-weight: bold;">red</span>.</li>
+<li>Invert the rules so that they simulate backward in time. Shown in <span style="font-weight: bold;">black</span>.</li>
+</ul>
+<p>Then all the rules have the following connections:</p>
+<div class="container">
+<img class="svg" src="svg/3.svg">
+<img class="svg" src="svg/4.svg">
+<img class="svg" src="svg/5.svg">
+<img class="svg" src="svg/6.svg">
+<img class="svg" src="svg/7.svg">
+<img class="svg" src="svg/8.svg">
+</div>
+<p>Something is wrong here. For some reason <code>0</code> and <code>23</code> aren't connected at all, and neither are <code>2</code> and <code>21</code>, even though they are the same if you skip odd steps:</p>
+<center>
+<div class="container">
+<div class="automata-col">
+<span class="automata-name"><b>0</b></span><br>
+<img class="pixelated any-img" src="img/0_skip.png">
+</div>
+<div class="automata-col">
+<span class="automata-name"><b>23</b></span><br>
+<img class="pixelated any-img" src="img/23_skip.png">
+</div>
+<div class="automata-col">
+<span class="automata-name"><b>2</b></span><br>
+<img class="pixelated any-img" src="img/2_skip.png">
+</div>
+<div class="automata-col">
+<span class="automata-name"><b>21</b></span><br>
+<img class="pixelated any-img" src="img/21_skip.png">
+</div>
+</div>
+</center>
+<p>On the other hand, automata <code>1</code>, <code>5</code>, <code>6</code>, <code>14</code> are connected to each other, which is nice.</p>
+<p>So we need to come up with one more operation for deriving new rules, so that the others can be connected too.</p>
+<h2 id="half-inversion"><a class="anchor" href="#half-inversion">#<sup>2</sup></a>Half-inversion</h2>
+<p>Let's add an operation implemented by half-inversion. If a rule is written in the form <code>[00, 01, 10, 11] → [11, 01, 00, 10]</code>, then ordinary inversion inverts the bits on both sides, while half-inversion inverts them only on the right side. We'll show it in <span style="color: purple; font-weight: bold;">purple</span>. Then our graphs look like this:</p>
+<div class="container">
+<img class="svg" src="svg/9.svg">
+<img class="svg" src="svg/10.svg">
+<img class="svg" src="svg/11.svg">
+<img class="svg" src="svg/12.svg">
+</div>
+<p>Here's an interesting thing. The cluster of rules derived from <code>1</code> got connected to the cluster of rules derived from <code>22</code>. And they are indeed quite similar:</p>
+<center>
+<div class="container">
+<div class="automata-col">
+<span class="automata-name"><b>1</b></span><br>
+<img class="pixelated any-img" src="img/1_both.png">
+</div>
+<div class="automata-col">
+<span class="automata-name"><b>22</b></span><br>
+<img class="pixelated any-img" src="img/22_both.png">
+</div>
+</div>
+</center>
+<p>And the cluster of rules derived from <code>3</code> got connected to the cluster derived from <code>20</code>. They look alike when odd steps are skipped:</p>
+<center>
+<div class="container">
+<div class="automata-col">
+<span class="automata-name"><b>3</b></span><br>
+<img class="pixelated any-img" src="img/3_skip.png">
+</div>
+<div class="automata-col">
+<span class="automata-name"><b>20</b></span><br>
+<img class="pixelated any-img" src="img/20_skip.png">
+</div>
+</div>
+</center>
+<p>If you look at how the new operation connects rules, you can say that it simply computes <code>23-x</code>. That is, with this operation we can get any rule from <code>12</code> onward if we know all the rules up to 11. That's good, because we can throw away half of the rules, knowing that this half is symmetric to the first half under half-inversion.</p>
+<p>But rules <code>2</code> and <code>10</code> are still not connected, even though they are simply identical without odd steps:</p>
+<center>
+<div class="container">
+<div class="automata-col">
+<span class="automata-name"><b>2</b></span><br>
+<img class="pixelated any-img" src="img/2_skip.png">
+</div>
+<div class="automata-col">
+<span class="automata-name"><b>10</b></span><br>
+<img class="pixelated any-img" src="img/10_skip.png">
+</div>
+</div>
+</center>
+<h2 id="the-strange-operation"><a class="anchor" href="#the-strange-operation">#<sup>2</sup></a>The strange operation</h2>
+<p>I couldn't find any combination of time reversal, mirroring, inversion, their half versions and all their combinations that would connect rules <code>2</code> and <code>10</code>. The only thing I found is this operation: swap elements 0 and 1 and swap elements 2 and 3 in the rule array (written in square brackets in the table). Let's call it the <strong>strange operation</strong> and show it in <span style="color: cyan; font-weight: bold;">cyan</span>.</p>
+<p>Then we get the following set of graphs:</p>
+<div class="container">
+<img class="svg" src="svg/13.svg">
+<img class="svg" src="svg/14.svg">
+<img class="svg" src="svg/15.svg">
+<img class="svg" src="svg/16.svg">
+</div>
+<p>Hooray! Now the trivial automata <code>{0, 7, 16, 23}</code> are connected, and so are the slightly more complex but still very simple <code>{2, 10, 13, 21}</code>. As for the other automata, nothing special happened to them. Whatever was already connected by the previous operations stays connected by them.</p>
+<p>So in total we get 4 groups of automata that can be obtained by fairly simple operations that don't change the behavior of an automaton much. You could say that if we study the properties of automaton <code>1</code>, then in principle we can extrapolate its properties, taking half-inversion into account, to automaton <code>22</code>.</p>
+<p>I don't like this <strong>strange operation</strong> at all, though. Because I don't understand what happens if you generalize it to:</p>
+<ul>
+<li>Automata with a larger block size (3 or more)</li>
+<li>Automata with more colors (3 or more)</li>
+<li>Automata with more dimensions (2 or more)</li>
+</ul>
+<p>So if you have any ideas what to do with it, let me know.</p>
+<h1 id="2d-time"><a class="anchor" href="#2d-time">#</a>2D time</h1>
+<p>The next study of properties was inspired by an article about how to create 2D time for irreversible cellular automata:</p>
+<ul>
+<li><a href="http://dmishin.blogspot.com/2014/06/cellular-automata-with-2-temporal.html">CELLULAR AUTOMATA WITH 2 TEMPORAL DIMENSIONS</a></li>
+</ul>
+<p>There the author proposes the idea of 2D time, which requires two functions \(f, g\) that give the same result regardless of the order in which they are applied: \(f(g(x)) = g(f(x))\). So we can check all the automata and find out which ones commute with which. First of all, I should say that automata <code>{0, 23, 7, 16}</code> commute with everything, and they are completely trivial and uninteresting, so I excluded them from the graph. And I got the following result:</p>
+<div class="container">
+<img class="svg" src="svg/commute0.svg">
+<img class="svg" src="svg/commute1.svg">
+<img class="svg" src="svg/commute2.svg">
+</div>
+<p>Only rules from the groups derived from <code>2</code> and <code>3</code> are involved here, and there are no automata derived from the triangle-forming <code>1</code>, which is rather sad.</p>
+<p>The result is roughly the same as in that article: apart from the trivial ones, only fairly boring automata commute with each other.</p>
+<p>The idea of drawing graphs between rules was inspired by this article:</p>
+<ul>
+<li><a href="http://dmishin.blogspot.com/2016/01/graph-of-commuting-elementary-cellular.html">GRAPH OF COMMUTING ELEMENTARY CELLULAR AUTOMATA</a></li>
+</ul>
+<p>To find out whether two rules commute or not, I simply take a very long string of 10k bits and check the formula <code>f(g(x)) = g(f(x))</code> on that one string. So my results aren't perfect, but the probability of an error is extremely low.</p>
+<h1 id="source-code"><a class="anchor" href="#source-code">#</a>Source code</h1>
+<p>The source code for computing the pictures, properties and graphs for this article is in the repository <a href="https://github.com/optozorax/time_2d_inversible_automata">optozorax/time_2d_inversible_automata</a>.</p>
+<h1 id="future-work"><a class="anchor" href="#future-work">#</a>Future work</h1>
+<p>I think there should be very interesting rules among:</p>
+<ul>
+<li>Reversible one-dimensional automata with <strong>3</strong> colors and block size <strong>2</strong></li>
+<li>Reversible one-dimensional automata with <strong>2</strong> colors and block size <strong>3</strong></li>
+</ul>
+<p>In the first case there are 3²! = 362_880 automata, and in the second 2³! = 40_320, which is also a lot...</p>
+<p>This will require writing software to find connected components in the graphs. And doing more thinking. But I think the number of groups from which everything else can be derived shouldn't be that large. After that, the groups can be studied for commutativity. Maybe among these variants there are interesting rules that allow two-dimensional time.</p>
+<script>
+function highlight(name) {
+  let elements = document.getElementsByClassName(name);
+  for (var i = elements.length - 1; i >= 0; i--) {
+    elements[i].style["background-color"] = 'rgba(255,41,43,0.20)';
+  }
+}
+function leave(name) {
+  let elements = document.getElementsByClassName(name);
+  for (var i = elements.length - 1; i >= 0; i--) {
+    elements[i].style["background-color"] = "rgba(39,41,43,0.03)";
+  }
+}
+function show(skip_img, both_img) {
+  let elements = document.getElementsByClassName("skip-img");
+  for (var i = elements.length - 1; i >= 0; i--) {
+    elements[i].style.display = skip_img;
+  }
+
+  elements = document.getElementsByClassName("both-img");
+  for (var i = elements.length - 1; i >= 0; i--) {
+    elements[i].style.display = both_img;
+  }
+}
+
+show("none", "block");
+
+let rad = document.properties_radio.prop;
+let prev = { value: 'all' };
+for (var i = 0; i < rad.length; i++) {
+    rad[i].addEventListener('change', function() {
+        if (this !== prev) {
+            leave(prev.value);
+            highlight(this.value);
+        }
+        prev = this;
+    });
+}
+
+document.getElementById('img_intermediate').addEventListener('change', function() {
+    if (this.checked) {
+      show("none", "block");
+    } else {
+      show("block", "none");
+    }
+});
+</script>
+
+</div>
+</article>
+
+  </section>
+  
+
+</td><td>
+<!-- TOC -->
+<input type="checkbox" id="toc-trigger" class="toc-trigger" />
+<label for="toc-trigger">
+  <span class="menu-icon">
+    <div class="side-button"><img src="/ico/right.svg"></div>
+  </span>
+</label>
+
+<nav class="section-nav">
+ <h2>Contents</h2>
+ <ul class="first">
+ 
+ 
+  <li>
+   <a href="#introduction">Introduction</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#table-of-automata">Table of automata</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#various-properties">Various properties</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#beautiful-automata">Beautiful automata</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#deriving-rules">Deriving rules</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#trivial-derivations">Trivial derivations</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#half-inversion">Half-inversion</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#the-strange-operation">The strange operation</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#2d-time">2D time</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#source-code">Source code</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#future-work">Future work</a>
+   
+  </li>
+ 
+ </ul>
+</nav>
+</td></tr></table>
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="section second-section">
+If you like what I do, follow me on <a href="https://t.me/optozorax_dev">Telegram</a> and <a href="https://www.youtube.com/c/optozorax">YouTube</a>.
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="comments section second-section">
+
+<script src="https://utteranc.es/client.js"
+        repo="optozorax/optozorax.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+
+  <hr class="enabled-on-phone">
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <footer class="site-footer section second-section">
+  
+    <center>
+    <div style="margin-bottom: 10px;">© Ilya Sheprut. License: <a href="https://creativecommons.org/licenses/by/3.0/deed.en">CC-BY</a>.</div>
+    <table style="border: 0px; display: contents;">
+    <tr><td style="border: 0px; padding: 0.2rem;">
+    <!-- SVG icons from https://iconmonstr.com -->
+
+    <span class="my-span-icon">
+  <a 
+    href="https://github.com/optozorax" 
+    aria-label="optozorax's GitHub" 
+    title="optozorax's GitHub">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/github.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's GitHub">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://t.me/optozorax_dev" 
+    aria-label="optozorax's Telegram channel" 
+    title="optozorax's Telegram channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/tg.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Telegram channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://www.youtube.com/c/optozorax" 
+    aria-label="optozorax's YouTube channel" 
+    title="optozorax's YouTube channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/youtube.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's YouTube channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://boosty.to/optozorax" 
+    aria-label="optozorax's donate page" 
+    title="optozorax's donate page">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/donate.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's donate page">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="/en/atom.xml" 
+    aria-label="optozorax's Atom Feed" 
+    title="optozorax's Atom Feed">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/rss.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Atom Feed">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="mailto:optozorax@gmail.com" 
+    aria-label="optozorax's email" 
+    title="optozorax's email">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/contact.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's email">
+  </a>
+</span>
+
+    </td><td style="border: 0px; padding: 0.2rem;">
+
+    </td></tr>
+    </table>
+    <div class="small-info">
+      Made with <a href="https://www.getzola.org/">Zola</a> | Theme based on <a href="https://github.com/lorepirri/cayman-blog">Cayman Blog</a> | <a href="https://github.com/optozorax/blog_zola">Site sources</a>
+      <a rel="me" href="https://mathstodon.xyz/@optozorax" style="display: none;">Mastodon</a>
+    </div>
+    </center>
+  
+  </footer>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+</body>
+</html>

@@ -18,7 +18,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#157878">
-  <link rel="canonical" href="https://optozorax.github.io/">
+  <link rel="canonical" href="https://optozorax.github.io/p/imgui/">
+  <link rel="alternate" hreflang="en" href="https://optozorax.github.io/en/p/imgui/">
+  <link rel="alternate" hreflang="ru" href="https://optozorax.github.io/p/imgui/">
+  <link rel="alternate" hreflang="x-default" href="https://optozorax.github.io/p/imgui/">
   <meta name="robots" content="noarchive">
   <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/atom.xml"> 
   <!-- --- -->
@@ -107,6 +110,11 @@
   
   <div class="wrapper">
     <a class="site-title" href="/">optozorax.blog</a>
+
+    <div class="lang-switch">
+      <a class="lang-switch-item" href="/en/p/imgui/" hreflang="en" lang="en" title="English"><span class="lang-switch-flag">🇬🇧</span>EN</a>
+      <span class="lang-switch-item lang-switch-current" lang="ru" title="Русский"><span class="lang-switch-flag">🇷🇺</span>RU</span>
+    </div>
 
     <nav class="site-nav">
       <input type="checkbox" id="nav-trigger" class="nav-trigger" />
@@ -223,7 +231,7 @@
 <article itemscope itemtype="http://schema.org/BlogPosting">
 <div itemprop="articleBody" id="content">
 <h1 id="chto-eto-takoe"><a class="anchor" href="#chto-eto-takoe">#</a>Что это такое</h1>
-<p><a href="https://en.wikipedia.org/wiki/Immediate_mode_GUI">Immediate Mode Graphical User Interface (ImGui)</a> это паттерн/концепция/идея того как можно организовать реализовать библиотеку для графического интерфейса. Эту концепцию реализуют библиотеки, которые можно подключить и использовать в коде.</p>
+<p><a href="https://en.wikipedia.org/wiki/Immediate_mode_GUI">Immediate Mode Graphical User Interface (ImGui)</a> это паттерн/концепция/идея того как можно организовать/реализовать библиотеку для графического интерфейса. Эту концепцию реализуют библиотеки, которые можно подключить и использовать в коде.</p>
 <p>Пример библиотек:</p>
 <ul>
 <li><a href="https://github.com/ocornut/imgui">Dear ImGui</a> — самая популярная библиотека. Все называют её просто ImGui 😑, из-за чего возникает много путаницы. Библиотека изначально написана для C++, но существуют биндинги для <a href="https://github.com/flyover/imgui-js">JS</a>, <a href="https://github.com/hoffstadt/DearPyGui">Python</a>, <a href="https://github.com/imgui-rs/imgui-rs">Rust</a>, <a href="https://github.com/mellinoe/ImGui.NET">.NET</a>. Я её не использовал.
@@ -340,7 +348,7 @@
 <ul>
 <li>У вас будет тратиться процессор.</li>
 <li>Ваши окна не смогут нормально реагировать на ресайзинг.</li>
-<li>Вы будете размещать все виджеты сверху-вниз справа-налево, никакого ручного плейсинга по координатам.</li>
+<li>Вы будете размещать все виджеты сверху-вниз слева-направо, никакого ручного плейсинга по координатам.</li>
 <li>Ваши окошки будут расти в высоту, а не в ширину, из-за того что вы не сможете адекватно использовать пространство сбоку.</li>
 </ul>
 <p>Надо с этим просто смириться, и думать об интерфейсах в этих ограничениях. Тогда вы можете максимально эффективно использовать ImGui в своей жизни. Ведь не бывает такой простоты за бесплатно.</p>
@@ -362,7 +370,7 @@
 <p>Скажем, вы делаете свою программу для задания раскладки клавиатуры по типу <a href="https://ru.wikipedia.org/wiki/Microsoft_Keyboard_Layout_Creator">MSKLC</a>. Сколько в вашей программе суммарно будет сидеть каждый пользователь? Дай бог за всю свою жизнь каждый пользователь просидит в вашей программе 5 часов. Ибо он один-два раза настроит свою раскладку, и успокоится.</p>
 <p>Учитывая такое маленькое время использования, можно пойти на очень много жертв, чтобы не тратить слишком много времени на разработку. Тут можно и сделать программу, которая жрёт батарею, выглядит не идеально, не может нормально ресайзиться и так далее.</p>
 <h2 id="prototip"><a class="anchor" href="#prototip">#<sup>2</sup></a>Прототип</h2>
-<p>Я недавно написал <a href="/learn-words-post">программу для изучения английских слов</a>, и только после того как я её написал и попопользовался несколько дней, я понял какие фичи прям позарез нужны. И до этих фич я бы не смог додуматься без написания программы, каким умным бы я ни был.</p>
+<p>Я недавно написал <a href="/learn-words-post">программу для изучения английских слов</a>, и только после того как я её написал и попользовался несколько дней, я понял какие фичи прям позарез нужны. И до этих фич я бы не смог додуматься без написания программы, каким умным бы я ни был.</p>
 <p>В нашем мире сейчас всё идёт к тому, что истина только в прототипах. Надо как можно раньше выпускать продукт на пользователей и допиливать только после обратной связи.</p>
 <p>Это означает что на ImGui можно написать прототип серьёзной программы или какой-то фичи, опробовать её на практике, найти недостающие фичи, и только потом писать серьёзно, на миллионы пользователей, в retained mode.</p>
 <h1 id="chto-ia-sdelal-na-imgui"><a class="anchor" href="#chto-ia-sdelal-na-imgui">#</a>Что я сделал на ImGui</h1>
@@ -371,7 +379,7 @@
 <div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1042"     height="577"     src="/processed_images/critters.ceb2142e9620f6c3.webp"     onclick="full_screen('critters.png')"     onauxclick="full_screen_new_page('critters.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
 <p>Казалось бы такая простота, а это кардинально изменило юзабельность программы, ведь раньше все мои программы с графикой управлялись исключительно через нажатия букв на клавиатуре, которые написаны в текстовом файле <code>help.txt</code>. Например, так было в <a href="/net-creater#%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%BE%D0%B9">моей программе из 2015 года</a>.</p>
 <h2 id="portal-explorer"><a class="anchor" href="#portal-explorer">#<sup>2</sup></a>Portal Explorer</h2>
-<p>Я рисовал сцены с порталами через код при помощи рейтрейсинга. Чтобы подвинуть или повернуть что-то мне приходилось редактировать код и перекомпилировать проект. В один момент мне это надело и я захотел поворачивать вещи в реальном времени.</p>
+<p>Я рисовал сцены с порталами через код при помощи рейтрейсинга. Чтобы подвинуть или повернуть что-то мне приходилось редактировать код и перекомпилировать проект. В один момент мне это надоело и я захотел поворачивать вещи в реальном времени.</p>
 <p>Сделал чтобы через интерфейс можно было вращать матрицы и это отображалось в реальном времени.</p>
 <p>Это показалось слишком просто, я почувствовал силушку богатырскую, взял и напилил целый визуальный редактор на ImGui:</p>
 <figure>

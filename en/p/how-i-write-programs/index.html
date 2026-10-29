@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Fonts preload -->
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nFrXyi0A.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nBrXw.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxTcwhsk.woff2" crossOrigin="anonymous">
+  <!-- --- -->
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/main.css">
+  <!-- --- -->
+
+  <!-- Non social metatags -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link rel="canonical" href="https://optozorax.github.io/en/p/how-i-write-programs/">
+  <link rel="alternate" hreflang="en" href="https://optozorax.github.io/en/p/how-i-write-programs/">
+  <link rel="alternate" hreflang="ru" href="https://optozorax.github.io/p/how-i-write-programs/">
+  <link rel="alternate" hreflang="x-default" href="https://optozorax.github.io/p/how-i-write-programs/">
+  <meta name="robots" content="noarchive">
+  <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/en/atom.xml"> 
+  <!-- --- -->
+
+  <!-- Social metatags -->
+  
+
+<meta name="author" content="optozorax">
+<meta name="title" content="How I write programs — optozorax&#39;s blog">
+<meta name="description" content="I show it with two examples and cover everything: collecting ideas, planning, data structures, todo lists, writing code.">
+<meta name="image" content="https://optozorax.github.io/en/p/how-i-write-programs/preview.en.png">
+
+<meta name="keywords" itemprop="tags" content="programming, ideas">
+
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://optozorax.github.io/en/p/how-i-write-programs/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How I write programs — optozorax&#39;s blog">
+<meta property="og:description" content="I show it with two examples and cover everything: collecting ideas, planning, data structures, todo lists, writing code.">
+<meta property="og:image" content="https://optozorax.github.io/en/p/how-i-write-programs/preview.en.png">
+<meta property="og:locale" content="en">
+
+
+<meta property="article:published_time" content="2021-08-16">
+
+
+
+
+<meta property="article:tag" content="programming">
+
+<meta property="article:tag" content="ideas">
+
+
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="optozorax.github.io">
+<meta property="twitter:url" content="https://optozorax.github.io/en/p/how-i-write-programs/">
+<meta name="twitter:title" content="How I write programs — optozorax&#39;s blog">
+<meta name="twitter:description" content="I show it with two examples and cover everything: collecting ideas, planning, data structures, todo lists, writing code.">
+<meta name="twitter:image" content="https://optozorax.github.io/en/p/how-i-write-programs/preview.en.png">
+<meta name="twitter:creator" content="optozorax">
+
+  <!-- --- -->
+
+  <!-- Extra head declarations -->
+  
+
+<script type="text/javascript" src="/js/hammer.min.js"></script>
+<script type="text/javascript" src="/js/toc.js"></script>
+<script type="text/javascript" src="/js/gallery.js"></script>
+<script type="text/javascript" src="/js/full_screen.js"></script>
+<script type="text/javascript" src="/js/word_wrap.js"></script>
+
+  <!-- --- -->
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+  <!-- --- -->
+
+  <title>How I write programs — optozorax&#39;s blog</title>
+</head>
+
+<body>
+  <!-- FullScreen block -->
+  <div id="img_modal" class="modal" style="display: none;">
+      <img id="img_modal_01" src="/ico/loading.gif">
+      <span class="close" id="img_modal_close">&times;</span>
+  </div>
+  <!-- --- -->
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <header class="site-header" role="banner">
+  
+  <div class="wrapper">
+    <a class="site-title" href="/en/">optozorax.blog</a>
+
+    <div class="lang-switch">
+      <span class="lang-switch-item lang-switch-current" lang="en" title="English"><span class="lang-switch-flag">🇬🇧</span>EN</span>
+      <a class="lang-switch-item" href="/p/how-i-write-programs/" hreflang="ru" lang="ru" title="Русский"><span class="lang-switch-flag">🇷🇺</span>RU</a>
+    </div>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <img src="/ico/menu.svg" width="13px" height="15px">
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          <a class="page-link" href="/en/">Blog</a>
+        
+          <a class="page-link" href="/en/e">Collections</a>
+        
+          <a class="page-link" href="/en/tags">Tags</a>
+        
+          <a class="page-link" href="/en/about">About me</a>
+        
+      </div>
+    </nav>
+  </div>
+  
+  </header>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+  
+  <section class="page-header">
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+<h1 class="project-name">How I write programs</h1>
+
+<h2 class="project-tagline">I show it with two examples and cover everything: collecting ideas, planning, data structures, todo lists, writing code.</h2>
+
+
+
+<span style="margin-bottom: 10px;">
+  
+    <a href="/en/tags#programming"><code class="tag"><nobr>#programming</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#ideas"><code class="tag"><nobr>#ideas</nobr></code></a>&nbsp;
+  
+</span>
+
+
+<center>
+<table style="margin-top: 8px;">
+<tr>
+
+
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+  <time datetime="2021-08-16" itemprop="datePublished">
+    
+    
+    
+    
+    <span class="post-date">16 August 2021</span>
+  </time>
+</h2>
+</td>
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+    <span class="post-date" style="font-style: normal">| 🕑 27 min</span>
+</h2>
+</td>
+
+
+
+<td style="padding-left: 10px;">
+  
+  
+  <a href="https://t.me/optozorax_dev/493">
+  <code class="tag">Post on Telegram</code>
+  </a>
+  
+  
+  (209 💬)
+  
+</td>
+
+</tr>
+</table>
+
+
+<div class="translation-note">
+  <svg class="translation-note-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+  <span>Translated from 🇷🇺 Russian</span>
+  <span class="translation-note-sep">·</span>
+  <span>Translation by Claude Opus 5.5</span>
+  <span class="translation-note-sep">·</span>
+  <a href="/p/how-i-write-programs/" hreflang="ru" lang="ru">Original</a>
+</div>
+
+
+
+</center>
+
+
+</td><td>
+</td></tr></table>
+
+
+
+  </section>
+  
+  
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <section class="main-content section">
+  
+<article itemscope itemtype="http://schema.org/BlogPosting">
+<div itemprop="articleBody" id="content">
+<h1 id="introduction"><a class="anchor" href="#introduction">#</a>Introduction</h1>
+<p>Programming is not only writing code, it's also planning the code: deciding which features are needed and which aren't. I have my own system that defines how to plan programs and features, how to organize myself, and how not to forget ideas. In this article I want to tell you about it. Some parts of this system I came up with myself, some I stole from other people.</p>
+<p>This article may be useful for beginner programmers.</p>
+<h1 id="example-a-program-for-learning-english-words"><a class="anchor" href="#example-a-program-for-learning-english-words">#</a>Example: a program for learning English words</h1>
+<p>Recently I made a GUI program <a href="/en/p/learn-words-post/">for learning English words</a>. Before I started it, I decided right away that I'd write this article, so from the very beginning I measured the time of every action and documented the writing of code, the ideas and the completion of todo items.</p>
+<p>In the end I brought this program to an absolute finish in ≈40 hours of net time. I don't need any more features, nothing bothers me. That's very unusual for a pet project: their main property is that they get started but never get finished.</p>
+<h2 id="building-the-product"><a class="anchor" href="#building-the-product">#<sup>2</sup></a>Building the product</h2>
+<h3 id="collecting-ideas"><a class="anchor" href="#collecting-ideas">#<sup>3</sup></a>Collecting ideas</h3>
+<p>Before you start a project, you always know that you want a program with some specific features: if you do this, that should happen. You don't know how it should work in every specific detail, but you know for sure that without certain details there's no point in making it at all. All of this needs to be written down and organized, so you can build on it later when writing code.</p>
+<h4 id="chaotic-idea-collection"><a class="anchor" href="#chaotic-idea-collection">#<sup>4</sup></a>Chaotic idea collection</h4>
+<p>I take a file and name it <code>ideas.md</code>. From now on, all ideas for this project will live in it.</p>
+<p>First you just dump everything that's in your head, without any order. I dumped it all, then reread it many times and added the things I hadn't written down yet. And I wrote down all ideas, even the craziest ones: you never know what might come in handy or happen later.</p>
+<p>The chaotic idea collection took 20 minutes, and the result was this file:</p>
+<p>(better not to read it, just get a sense of its size)</p>
+<details>
+<summary>@341bd26/ideas.md <a class='right' href='https://github.com/optozorax/learn_words/commit/341bd26b133ef3d0a4c9e3b9ee47f7127c07b468'>diff</a></summary>
+<div class="details-content">
+<ul>
+<li>I'd like to load words from text and from subtitles, so there should be a button that reads the clipboard
+<ul>
+<li>So that when adding subtitles or text, all the words are looked through, and those that are already known or learned aren't added, while new words are shown for further adding</li>
+</ul>
+</li>
+<li>Word adding interface
+<ul>
+<li>Known or learned words are filtered out</li>
+<li>The English word is shown</li>
+<li>You're offered to add its Russian translation manually</li>
+<li>Or there's a button "I already know this word"</li>
+</ul>
+</li>
+<li>So that for a given word you can see the context it's used in</li>
+<li>So that in a special file you can set up the keyboard layout, so the layout adapts automatically without switching layouts.</li>
+<li>You can swap the language of the questions and the answers</li>
+<li>How words are typed:
+<ul>
+<li>A word that has never been typed must first be typed n times</li>
+<li>Words that were answered correctly 5 times are considered done for today</li>
+<li>Words that are answered incorrectly get a rating of -2</li>
+<li>The date when the person answered and how they answered is also tracked. If some word hasn't been typed for a long time, it needs to be repeated, and if repetition worked well before, the priority is lower.</li>
+<li>Only when a word earns a rating that's a multiple of 5 is the date when it happened recorded</li>
+</ul>
+</li>
+<li>Priority of words for typing: each category is sorted in random order
+<ul>
+<li>Words that haven't been typed 5 times</li>
+<li>Words that have a negative rating</li>
+<li>Words that have a rating less than 5</li>
+<li>Words that have a rating above 5, but all of this rating was earned more than 5 days ago</li>
+<li>Words that have a rating above 10, but all of this rating was earned more than 5 days ago</li>
+<li>Words that have a rating above 15, but all of this rating was earned more than 20 days ago (words that haven't been repeated for a long time)</li>
+<li>Words that have a rating above 20, but all of this rating was earned more than 20 days ago</li>
+<li>That's it, definitely nothing more is needed</li>
+</ul>
+</li>
+<li>In the center of the screen there's the word to translate, below it the answer options are written as "____ __", and the _ must be separate
+<ul>
+<li>Doesn't go well with words having multiple meanings, let it just be N fields of any length</li>
+</ul>
+</li>
+<li>How to deal with words having multiple meanings
+<ul>
+<li>For a given English word, a set of pairs of Russian words is stored, and likewise the other way around</li>
+<li>If an English word with multiple meanings is shown now, then below you need to type all of its added Russian meanings</li>
+<li>The statistics evaluate a pair (Russian word, English word)</li>
+<li>If some meaning of a word with multiple meanings is already learned or doesn't need repetition, it isn't shown for typing, it's just shown as text, so you can understand which meanings are typed and which aren't</li>
+</ul>
+</li>
+<li>Statistics
+<ul>
+<li>For each word, remember how many times it was typed, how many times correctly, how many times incorrectly.</li>
+<li>For each day, remember how many words were fully worked through today, how many words were worked on at all, etc.</li>
+<li>Try drawing the statistics with egui plots.</li>
+<li>Track the number of new words added per day</li>
+<li>Somewhere there should be a window to just see the number of all words in the system, the number of learned words and the number of words being learned</li>
+</ul>
+</li>
+<li>When adding new words, you can say: I know this word; I don't know this one. So as not to learn already known words for nothing, and so that they aren't added as unknown from other texts.</li>
+</ul>
+</div>
+</details>
+<p>By the way, at this stage it's extremely nice to be a fast touch typist, so you can write a lot of text without getting distracted by the typing itself.</p>
+<h4 id="organizing-the-ideas"><a class="anchor" href="#organizing-the-ideas">#<sup>4</sup></a>Organizing the ideas</h4>
+<p>I have a principle: you should organize something and sort it into categories only in two cases:</p>
+<ul>
+<li>When you know for sure that this category has been used before and it works.</li>
+<li>You have a critical mass of elements of this category.</li>
+</ul>
+<p>That's why in the previous step the ideas were written down chaotically, and now we can organize them: only now can you see which categories are present and which are absent.</p>
+<p>This took 20 minutes too.</p>
+<p>I wanted to write the program as fast as possible and get a result as fast as possible, so I split the ideas into different categories and tried to pick the ideas so that the first working version (MVP) could be implemented as fast as possible.</p>
+<p>That's why I created a category "hard ideas", where I moved the things I want to implement, but that definitely shouldn't be in the first iteration.</p>
+<p>In the end, the ideas file now looks like this:</p>
+<details>
+<summary>@5387e15/ideas.md <a class='right' href='https://github.com/optozorax/learn_words/commit/5387e1549ec5f543b56f0fc280fc0dc74a9c87da'>diff</a></summary>
+<div class="details-content">
+<h1 id="organized-ideas">organized ideas</h1>
+<p>Implement first</p>
+<ul>
+<li>General interface
+<ul>
+<li>Adding words
+<ul>
+<li>Via subtitles <code>.src</code></li>
+<li>Via text</li>
+</ul>
+</li>
+<li>The window for learning words is always shown and can't be closed, or it's attached to the background altogether</li>
+</ul>
+</li>
+<li>Interface for getting words from text or subtitles
+<ul>
+<li>There are two buttons: "add as text", "add as subtitles"</li>
+</ul>
+</li>
+<li>Word adding interface
+<ul>
+<li>Known or learned words are filtered out</li>
+<li>The English word is shown</li>
+<li>You're offered to add its Russian translation manually (a new line means a new meaning)</li>
+<li>There's a button "add word translations"</li>
+<li>Or there's a button "I already know this word"</li>
+</ul>
+</li>
+<li>Word typing interface
+<ul>
+<li>At the top, the English (or Russian) word is written</li>
+<li>At the bottom, N fields for typing all the meanings of this word</li>
+<li>Some fields may be gray with the words already written in, since these words are learned or don't need repetition right now</li>
+<li>To move down or to check the current word, you can press Enter</li>
+<li>Whether a word was typed correctly or incorrectly is shown only after all the words are typed</li>
+<li>For each word, dots show how many more times it has to be typed today</li>
+</ul>
+</li>
+<li>Word typing order
+<ul>
+<li>The first 2 times the word is typed with a hint from the program</li>
+<li>Then you need to type the word from memory 3 times today</li>
+<li>The next time, you need to type the word 5 times a day later or more</li>
+<li>At this stage the word is considered half-learned</li>
+<li>Then 5 times a week later or more</li>
+<li>Then 5 times a month later or more</li>
+<li>After that the word is considered absolutely learned</li>
+<li>Each mistake adds the need to type this word one more time</li>
+</ul>
+</li>
+<li>Words in the queue
+<ul>
+<li>Russian and English words are given mixed together</li>
+<li>Everything is mixed together</li>
+<li>Every word is iterated over to see whether it needs to be typed today and how many times</li>
+</ul>
+</li>
+<li>How to deal with words having multiple meanings
+<ul>
+<li>For a given English word, a set of pairs of Russian words is stored, and likewise the other way around</li>
+<li>The statistics evaluate a pair (Russian word, English word)</li>
+</ul>
+</li>
+<li>Statistics
+<ul>
+<li>For each word, remember:
+<ul>
+<li>How many times it was typed, how many times correctly, how many times incorrectly</li>
+<li>All the milestone dates: when it was typed on the first day, on the second day, a week later, a month later</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="hard-ideas">hard ideas</h1>
+<p>Implement later</p>
+<ul>
+<li>Interface for getting words from text or subtitles
+<ul>
+<li>The program always sees the clipboard if this window is open</li>
+<li>At the bottom, the text that's currently in the clipboard is written in gray</li>
+<li>Only the first 200 characters of this text are shown, followed by an ellipsis and the number of bytes the whole text takes up</li>
+</ul>
+</li>
+<li>Word adding interface
+<ul>
+<li>So that for a given word you can see the context it's used in</li>
+</ul>
+</li>
+<li>Word statistics interface
+<ul>
+<li>When it was added (date, number of days ago)</li>
+<li>How many times it was typed</li>
+<li>How many times correctly, how many times incorrectly</li>
+<li>All milestones (days after adding)</li>
+</ul>
+</li>
+<li>Word typing interface
+<ul>
+<li>There's a little <code>(i)</code> button next to each word that you can press to see the statistics of this word</li>
+</ul>
+</li>
+<li>Interface of the "keyboard layout" window
+<ul>
+<li>You're asked to switch to the Russian layout and type all the English letters as if the English layout were on</li>
+<li>Likewise, with the English layout on, you're asked to type all the Russian letters</li>
+<li>This way the program learns the keyboard layout and saves it in the settings, to use it later so that you don't have to switch layouts</li>
+</ul>
+</li>
+<li>Statistics
+<ul>
+<li>Try drawing the statistics with egui plots.</li>
+<li>Somewhere there should be a window to just see the number of all words in the system, the number of learned words and the number of words being learned</li>
+<li>For each day, remember:
+<ul>
+<li>How many words were fully worked through today</li>
+<li>How many attempts were made in total, how many correct, how many incorrect</li>
+<li>How much is due today</li>
+<li>How many words were added today</li>
+<li>How long the program was running (idle periods longer than 15 seconds don't count)</li>
+</ul>
+</li>
+<li>You can get the statistics for all time by summing up the statistics for each day</li>
+</ul>
+</li>
+</ul>
+<h1 id="to-sort">to sort</h1>
+</div>
+</details>
+<h3 id="planning-data-structures-and-functions"><a class="anchor" href="#planning-data-structures-and-functions">#<sup>3</sup></a>Planning data structures and functions</h3>
+<p>Only now, when there's some vision of the program, can you start trying to write code. If you write code without the stage of collecting and organizing ideas, you can forget some small details, which you'll later have to squeeze in with a lot of pain.</p>
+<p>And it's best to start the code not with writing actions, but with designing types/data structures and function signatures. By data structures I don't mean lists, trees, etc., but just enums and structs. I even heard this phrase somewhere:</p>
+<blockquote>
+<p>Finding the right data structure is already half the battle.</p>
+</blockquote>
+<p>And I really agree with this statement: how you're going to solve the whole problem really does depend on what your types look like. Enums play an especially important role, they describe the domain really well.</p>
+<p>And that's why I can't understand how people can program in dynamically typed languages, where nobody ever writes types. I just don't understand what you gain by getting rid of types: in the long run it's a huge loss, and in the short run I don't see any gain either.</p>
+<div class="admonition blue2-bg blue2-border-left">
+<div class="admonition-title blue2-bg blue2-border">A good quote from a talk (in Russian)</div>
+<div class="admonition-content">
+<p>My answer to the question of why we need types is perfectly illustrated by a quote from Conor McBride, also a very well-known programming language theorist. In a thread, he complains that for the last 20–30 years programming languages have been designed so that types are inferred from the program, whereas it could have been done the other way around: you could write types, from which programs are then inferred. I think this is a very deep thought. And honestly, when I realized it, I changed my attitude to how I write code a lot. Because in fact types are a perfect projection of your application's domain model onto the code, and this projection will always be more up to date than the code, because if it suddenly stops being up to date, the code doesn't type-check. And from my point of view, this is the most important thing: to write a cool, correct, proper type, as well as your programming language allows. Even if your types aren't very powerful, there's always a way to design your system so that the types in it reflect your domain in the best possible way. Then the implementation becomes a mere technicality. In Idris there's even this thing: if you wrote the type correctly, the code can be derived by itself. But in real life, when we don't use such languages, as a rule, when you have a good type, you just write trivial code and everything is very simple and clear. And that's my answer to why we need types.</p>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=19Iwkey4w8g&t=2359">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/19Iwkey4w8g.jpeg" width="1280" height="720">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=19Iwkey4w8g&t=2359">Системы типов в двух словах (Вячеслав Шебанов)</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UC1imMJYjwg_edTgwpdSDEag">RndTech</a>
+</div>
+<div class="yt-duration">41:18</div>
+<div class="yt-timecode">Timecode 39:19</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=19Iwkey4w8g&t=2359">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+</div></div>
+<p>There's also the idea that to make writing code easier, you should think about how to represent the data in a form in which the problem is solved most naturally, and convert the data into that format:</p>
+<figure>
+<div class="magnifier-container img-two-three"> <img     class="not-default full-screen-img"     width="853"     height="649"     src="/processed_images/twitter_1286677596005171200.0d39f188bd638b16.webp"     onclick="full_screen('twitter_1286677596005171200.png')"     onauxclick="full_screen_new_page('twitter_1286677596005171200.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.5<br>png</div> </div> </div>
+<figcaption><a href="https://twitter.com/jessitron/status/1286677596005171200">Link to the tweet</a></figcaption>
+</figure>
+<p>From here on I'll be throwing commits at you, starting with <code>@</code>. I think the best way to look at them is to open one in a new tab, scroll through the diff and see <em>roughly</em> what happened. Or you can just ignore them, you won't lose much. Looking at what happened in the commits can be useful if you really want the details of how my development went.</p>
+<p>After two commits (<a href="https://github.com/optozorax/learn_words/commit/a8549a3e01ab262b2566bb037cc738954335dbc9">@a8549a3</a>, <a href="https://github.com/optozorax/learn_words/commit/b79f219956d36cd06aecaa554fb096c609646ab0">@b79f219</a>) and 1h 20m, I ended up with the following types, which from then on became the foundation of everything:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="rust"><code data-lang="rust"><span class="giallo-l"><span style="color: #7F8989;">/// An iteration of learning a word: how long to wait since the last learning, how many times to repeat, whether to show the word while typing</span></span>
+<span class="giallo-l"><span style="color: #668F14;">struct</span><span style="color: #C23F31;"> LearnType</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">    /// How many days to wait since the last learning</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">    wait_days</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> i8</span><span>,</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">    count</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> i8</span><span>,</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">    show_word</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> bool</span><span>,</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;">/// Typing statistics for a word, a day or overall</span></span>
+<span class="giallo-l"><span style="color: #668F14;">struct</span><span style="color: #C23F31;"> TypingStats</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">    typed</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> i32</span><span>,</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">    right</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> i32</span><span>,</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">    wrong</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> i32</span><span>,</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;">/// Represents one Russian-English or English-Russian word pair in the statistics</span></span>
+<span class="giallo-l"><span style="color: #668F14;">enum</span><span style="color: #C23F31;"> WordStatus</span><span> {</span></span>
+<span class="giallo-l"><span style="color: #7F8989;">    /// We knew this word before, no need to learn it</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    KnowPreviously</span><span>, </span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;">    /// A trash word, an artifact of the approximate parsing of a text file or subtitles</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    TrashWord</span><span>,</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;">    /// We&#39;re learning this word</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    ToLearn</span><span> { </span></span>
+<span class="giallo-l"><span style="color: #5597D6;">        translation</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> String</span><span>,</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;">        /// When this word was last learned</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">        last_learn</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> Day</span><span>, </span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;">        /// Learning stages of the word; when looking for what needs to be typed, we go through the whole array</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">        learns</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> Vec</span><span>&lt;</span><span style="color: #C23F31;">LearnType</span><span>&gt;, </span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;">        /// Statistics</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">        stats</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> TypingStats</span><span>, </span></span>
+<span class="giallo-l"><span>    },</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;">    /// We know this word</span></span>
+<span class="giallo-l"><span style="color: #C23F31;">    Learned</span><span> { </span></span>
+<span class="giallo-l"><span style="color: #5597D6;">        translation</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> String</span><span>,</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #7F8989;">        /// Statistics</span></span>
+<span class="giallo-l"><span style="color: #5597D6;">        stats</span><span style="color: #72AB00;">:</span><span style="color: #C23F31;"> TypingStats</span><span>, </span></span>
+<span class="giallo-l"><span>    },</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #668F14;">struct</span><span style="color: #C23F31;"> WordsSaved</span><span>(</span><span style="color: #C23F31;">BTreeMap</span><span>&lt;</span><span style="color: #C23F31;">String</span><span>,</span><span style="color: #C23F31;"> Vec</span><span>&lt;</span><span style="color: #C23F31;">WordStatus</span><span>&gt;&gt;);</span></span></code></pre>
+<p>A lot of ideas were built into these structures right away, including the statistics. While writing this code, I reread all the ideas many times, checking that nothing got lost and everything was accounted for from the very beginning.</p>
+<p>Next I started planning the structures and methods for the GUI. I write the interface with ImGui, which I wrote <a href="/en/p/imgui/">a separate article</a> about. So I'll spend minimal time on the interface, and planning it is as easy as it gets.</p>
+<p>I planned the interface in 32m: <a href="https://github.com/optozorax/learn_words/commit/0cab89035f5ccea042ec9d677f345d1685e4e1c2">@0cab890</a>, and after this planning even the main data structures got a little better.</p>
+<h3 id="writing-code"><a class="anchor" href="#writing-code">#<sup>3</sup></a>Writing code</h3>
+<p>Then in 1h I wrote the logic code: <a href="https://github.com/optozorax/learn_words/commit/96eb6087b0bfbde62ad2e5791926157371a3e707">@96eb608</a>.</p>
+<p>Then in 2h 45m I wrote the interface code up to a minimally working state: <a href="https://github.com/optozorax/learn_words/commit/7b8de3d5eb39a074da39ffac97c12de24674fc0d">@7b8de3d</a>.</p>
+<p>By the way, writing working code on top of planned functions and types is extremely pleasant, the code flows so easily and quickly.</p>
+<p>So, the net time is at 6h 16m, and the program looks like this:</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="820"     height="655"     src="/processed_images/min-working.a55064314e2862a0.webp"     onclick="full_screen('min-working.png')"     onauxclick="full_screen_new_page('min-working.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<p>Only three windows and the basic functionality work here.</p>
+<h3 id="todo-lists"><a class="anchor" href="#todo-lists">#<sup>3</sup></a>Todo lists</h3>
+<p>So, I've written the most minimal prototype. In theory, it's already usable.</p>
+<p>We don't need the ideas file that much anymore, so we remove everything that's implemented from it: (it became really small)</p>
+<details>
+<summary>@47b0669/ideas.md <a class='right' href='https://github.com/optozorax/learn_words/commit/47b06697533bc12aea0dc5bbd15d5fcdc6b1fa63'>diff</a></summary>
+<div class="details-content">
+<h1 id="ideas-of-unknown-usefulness">ideas of unknown usefulness</h1>
+<ul>
+<li>So that when adding words, their frequency is measured, even the frequency of the known ones, and it's simply added to what's already stored, so that you can see the frequency of the learned words. Although this would also require building some complicated interface.</li>
+<li>Word adding interface
+<ul>
+<li>So that for a given word you can see the context it's used in</li>
+</ul>
+</li>
+<li>Word typing interface
+<ul>
+<li>There's a little <code>(i)</code> button next to each word that you can press to see the statistics of this word</li>
+</ul>
+</li>
+<li>Word statistics interface
+<ul>
+<li>When it was added (date, number of days ago)</li>
+<li>How many times it was typed</li>
+<li>How many times correctly, how many times incorrectly</li>
+<li>All milestones (days after adding)</li>
+</ul>
+</li>
+</ul>
+</div>
+</details>
+<p>And we create a todo file, where we'll put specific todo items to be done:</p>
+<details>
+<summary>@47b0669/learn_words.todo <a class='right' href='https://github.com/optozorax/learn_words/commit/47b06697533bc12aea0dc5bbd15d5fcdc6b1fa63'>diff</a></summary>
+<div class="details-content">
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>general:</span></span>
+<span class="giallo-l"><span>  ✔ make it easy to navigate the word writing interface @done (21-07-29 23:34)</span></span>
+<span class="giallo-l"><span>  ✔ subtitles should be able to return an error, and it should be shown in the window @done (21-07-29 23:41)</span></span>
+<span class="giallo-l"><span>  ☐ make it possible to navigate the word typing interface with enter</span></span>
+<span class="giallo-l"><span>  ☐ make every word know its current level</span></span>
+<span class="giallo-l"><span>  ☐ read the (Words, Settings) combination from the file, and save it the same way</span></span>
+<span class="giallo-l"><span>  ☐ measuring time in the program</span></span>
+<span class="giallo-l"><span>    + when the mouse or keyboard is idle for more than 15 seconds, the program goes into pause mode and stops measuring time, and this is shown full screen</span></span>
+<span class="giallo-l"><span>    + today&#39;s time in the program is shown at the bottom</span></span>
+<span class="giallo-l"><span>    + the amount of time in the program is remembered for every day</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>layout:</span></span>
+<span class="giallo-l"><span>  ☐ make a window for the keyboard layout</span></span>
+<span class="giallo-l"><span>    + checkbox &quot;use automatic layout switching&quot;, and if it&#39;s checked, then everything else is shown</span></span>
+<span class="giallo-l"><span>    + type all your English characters</span></span>
+<span class="giallo-l"><span>    + type all your Russian characters</span></span>
+<span class="giallo-l"><span>    + if you can&#39;t type a character, put a space</span></span>
+<span class="giallo-l"><span>    + check whether the two different languages happen to have the same characters, and if so, reject such a layout</span></span>
+<span class="giallo-l"><span>    + you can put enter for convenience</span></span>
+<span class="giallo-l"><span>    + compare the number of characters without enter, and say when they match and when they don&#39;t</span></span>
+<span class="giallo-l"><span>    + button &quot;use this layout&quot;</span></span>
+<span class="giallo-l"><span>  ☐ make input field widgets that can detect the current layout and the answer language and automatically substitute the letters</span></span>
+<span class="giallo-l"><span>  ☐ the layout should be stored in settings</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>statistics:</span></span>
+<span class="giallo-l"><span>  ☐ statistics of the number of words in the program:</span></span>
+<span class="giallo-l"><span>    + known</span></span>
+<span class="giallo-l"><span>    + trash</span></span>
+<span class="giallo-l"><span>    + being learned, for each level</span></span>
+<span class="giallo-l"><span>    + fully learned</span></span>
+<span class="giallo-l"><span>  ☐ a basis for measuring every day</span></span>
+<span class="giallo-l"><span>    + measure the number of attempts</span></span>
+<span class="giallo-l"><span>    + new unknown words</span></span>
+<span class="giallo-l"><span>    + updated either manually, or when the program is closed, or when the statistics window is opened</span></span>
+<span class="giallo-l"><span>    + also measure the number of attempts in general</span></span>
+<span class="giallo-l"><span>  ☐ show today&#39;s statistics at the bottom</span></span>
+<span class="giallo-l"><span>  ☐ remember the number of words of each level every day</span></span>
+<span class="giallo-l"><span>  ☐ a contribution grid like on GitHub</span></span>
+<span class="giallo-l"><span>    + you can choose which parameter to show, taking into account everything that&#39;s known for the current day</span></span>
+<span class="giallo-l"><span>  ☐ a graph of the number of memorized words over all days, roughly what area it covers, with stems</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>wasm:</span></span>
+<span class="giallo-l"><span>  ☐ storage in cookies</span></span>
+<span class="giallo-l"><span>  ☐ use quad_rand</span></span>
+<span class="giallo-l"><span>  ☐ save the progress automatically when the tab is closed</span></span>
+<span class="giallo-l"><span>  ☐ buttons for exporting and importing your data, in the menu under Data -&gt; {Import, Export}</span></span></code></pre></div>
+</details>
+<p>Here I should digress a bit about how I keep todo lists. Some people do it with GitHub, others with a phone app, and I do it with a text editor extension. I write in Sublime + <a href="https://packagecontrol.io/packages/PlainTasks">PlainTasks</a>, and there's also a similar extension for VSCode: <a href="https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-todo-plus">Todo+</a>.</p>
+<p>Keep in mind that this file looks really good only in Sublime + PlainTasks; unfortunately, markdown doesn't format it in any way.</p>
+<p>Now you can implement one item at a time and see the result right away.</p>
+<p>I always keep all my tasks as todo items. If it happens that I've done something that isn't there, I just write it down and then immediately mark it as done, and my brain gives me at least a little hit of dopamine for that.</p>
+<p>I also have a <code>.todo</code> file for each project, and I keep all these files in one place, because committing it into the project is weird; and keeping it in the project folder and hiding it with <code>.gitignore</code> is bad, it'll get lost for sure.</p>
+<p>I even have todo files for life, for medicine (which doctors to visit) and so on. Very convenient self-organization.</p>
+<h3 id="the-usual-development-cycle"><a class="anchor" href="#the-usual-development-cycle">#<sup>3</sup></a>The usual development cycle</h3>
+<p>Now I do the todo items and gradually commit the changes they bring. While I'm doing some items, ideas for others may come to mind, and I put them into the todo as well. Something really radical goes into the <code>ideas.md</code> file, so as not to forget it, but also not to force myself to implement it.</p>
+<p>The net-time timer shows 21h 21m, and here's the result:</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1280"     height="760"     src="/processed_images/middle-working.1f5fb7ffb121924e.webp"     onclick="full_screen('middle-working.png')"     onauxclick="full_screen_new_page('middle-working.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.2<br>png</div> </div> </div>
+<p>There are many more features here already, and I started using the program fully myself. But while using it, a lot of pain points came up, and I wrote down even more todo items.</p>
+<p>The timer shows 33h 23m of net time, and I publish <a href="/en/p/learn-words-post/">an article about this program</a>.</p>
+<p>At the 41h mark I publish the second version, which, you could say, is the final version. I don't need anything else from the program, I've done all the main todo items.</p>
+<p>The program can be considered finished.</p>
+<h3 id="what-to-do-with-completed-todo-items"><a class="anchor" href="#what-to-do-with-completed-todo-items">#<sup>3</sup></a>What to do with completed todo items</h3>
+<p>At this point I've done almost everything, and the todo file has a lot of lines marked as done or cancelled. When there are too many of them, I just move them all down to the "Archive" section. I don't delete the lines, simply so as not to lose information, and simply because it's nice to see how much work I've done. Of course, I move the completed items down not only when I finish a project, but whenever there are too many items; this happens from time to time in some of my projects. You can look at the current todo file here:</p>
+<details>
+<summary>@42b5e72/learn_words.todo <a class='right' href='https://github.com/optozorax/learn_words/blob/42b5e72ab0f6f587b3b091b04a7d9613f74cb3fe/learn_words.todo'>link</a></summary>
+<div class="details-content">
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>general:</span></span>
+<span class="giallo-l"><span>  ☐ in the stackplot, put the smallest areas at the very bottom and the largest at the very top</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>articles:</span></span>
+<span class="giallo-l"><span>  ✔ tell about quad-storage @done (21-08-10 21:52)</span></span>
+<span class="giallo-l"><span>  ☐ write an article about how I made this program</span></span>
+<span class="giallo-l"><span>  ☐ on September 1, publish an article about the results of a month of using this program</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>distant future:</span></span>
+<span class="giallo-l"><span>  ☐ https://github.com/emilk/egui/issues/595</span></span>
+<span class="giallo-l"><span>  ☐ depending on what&#39;s turned off in the stackplot legend, exclude it from the calculations; this requires adding a feature to egui</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>refactoring:</span></span>
+<span class="giallo-l"><span>  ✔ tidy up the ui function, move the input fields with all their features into a separate function so there&#39;s no more of this copy-paste, and the data into a separate struct @done (21-08-10 19:27)</span></span>
+<span class="giallo-l"><span>  ☐ to use less memory and make the program faster by reducing the number of allocations, use string ids and store all strings in one structure</span></span>
+<span class="giallo-l"><span>  ☐ change it so that words doesn&#39;t store an array where a word can be either learned or to be learned, but at the top level there&#39;s (trash, known, (learn, and only inside learn there&#39;s an array (either learned or being learned))) (questionable convenience)</span></span>
+<span class="giallo-l"><span>  ☐ try to use GATs</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>-------------------------------------------------------------------------------------------------------------</span></span>
+<span class="giallo-l"><span>-------------------------------------------------------------------------------------------------------------</span></span>
+<span class="giallo-l"><span>-------------------------------------------------------------------------------------------------------------</span></span>
+<span class="giallo-l"><span>ARCHIVE:</span></span>
+<span class="giallo-l"><span>-------------------------------------------------------------------------------------------------------------</span></span>
+<span class="giallo-l"><span>-------------------------------------------------------------------------------------------------------------</span></span>
+<span class="giallo-l"><span>-------------------------------------------------------------------------------------------------------------</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>general:</span></span>
+<span class="giallo-l"><span>  ✔ make it easy to navigate the word writing interface @done (21-07-29 23:34)</span></span>
+<span class="giallo-l"><span>  ✔ subtitles should be able to return an error, and it should be shown in the window @done (21-07-29 23:41)</span></span>
+<span class="giallo-l"><span>  ✔ make every word know its current level @done (21-07-30 14:18)</span></span>
+<span class="giallo-l"><span>  ✔ read the (Words, Settings) combination from the file, and save it the same way @done (21-07-30 14:23)</span></span>
+<span class="giallo-l"><span>  ✔ measuring time in the program @done (21-07-30 15:01)</span></span>
+<span class="giallo-l"><span>    + when the mouse or keyboard is idle for more than 15 seconds, the program goes into pause mode and stops measuring time, and this is shown full screen</span></span>
+<span class="giallo-l"><span>    + today&#39;s time in the program is shown at the bottom</span></span>
+<span class="giallo-l"><span>    + the amount of time in the program is remembered for every day</span></span>
+<span class="giallo-l"><span>  ✔ make it possible to navigate the word typing interface with enter @done (21-07-31 23:24)</span></span>
+<span class="giallo-l"><span>  ✔ make a basic about window @done (21-07-31 23:35)</span></span>
+<span class="giallo-l"><span>  ✔ looks like the clipboard leaks in wasm when Russian characters are used. apparently the number of chars and the length in bytes get mixed up, need to fix it @done (21-08-01 00:10)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>layout:</span></span>
+<span class="giallo-l"><span>  ✔ make a window for the keyboard layout @done (21-07-30 19:30)</span></span>
+<span class="giallo-l"><span>    + checkbox &quot;use automatic layout switching&quot;, and if it&#39;s checked, then everything else is shown</span></span>
+<span class="giallo-l"><span>    + type all your English characters</span></span>
+<span class="giallo-l"><span>    + type all your Russian characters</span></span>
+<span class="giallo-l"><span>    + if you can&#39;t type a character, put a space</span></span>
+<span class="giallo-l"><span>    + check whether the two different languages happen to have the same characters, and if so, reject such a layout</span></span>
+<span class="giallo-l"><span>    + you can put enter for convenience</span></span>
+<span class="giallo-l"><span>    + compare the number of characters without enter, and say when they match and when they don&#39;t</span></span>
+<span class="giallo-l"><span>    + button &quot;use this layout&quot;</span></span>
+<span class="giallo-l"><span>  ✔ make input field widgets that can detect the current layout and the answer language and automatically substitute the letters @done (21-07-30 19:30)</span></span>
+<span class="giallo-l"><span>  ✔ the layout should be stored in settings @done (21-07-30 19:30)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>statistics:</span></span>
+<span class="giallo-l"><span>  ✔ a basis for measuring every day @done (21-07-30 15:34)</span></span>
+<span class="giallo-l"><span>    + measure the number of attempts, correct and incorrect</span></span>
+<span class="giallo-l"><span>    + new unknown words</span></span>
+<span class="giallo-l"><span>    + updated either manually, or when the program is closed, or when the statistics window is opened</span></span>
+<span class="giallo-l"><span>    + also measure the number of attempts in general</span></span>
+<span class="giallo-l"><span>  ✔ show today&#39;s statistics at the bottom @done (21-07-30 15:34)</span></span>
+<span class="giallo-l"><span>  ✔ remember the number of words of each level every day @done (21-07-30 15:34)</span></span>
+<span class="giallo-l"><span>  ✔ statistics of the number of words in the program: @done (21-07-30 16:23)</span></span>
+<span class="giallo-l"><span>    + known</span></span>
+<span class="giallo-l"><span>    + trash</span></span>
+<span class="giallo-l"><span>    + being learned, for each level</span></span>
+<span class="giallo-l"><span>    + fully learned</span></span>
+<span class="giallo-l"><span>    + computed from words when the program starts</span></span>
+<span class="giallo-l"><span>  ✔ a graph of the number of memorized words over all days, roughly what area it covers, with stems, by level @done (21-07-30 17:40)</span></span>
+<span class="giallo-l"><span>  ✔ same as above, a graph of the number of correct and incorrect attempts @done (21-07-30 17:40)</span></span>
+<span class="giallo-l"><span>  ✔ a contribution grid like on GitHub @done (21-07-30 23:36)</span></span>
+<span class="giallo-l"><span>    + you can choose which parameter to show, taking into account everything that&#39;s known for the current day</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>wasm:</span></span>
+<span class="giallo-l"><span>  ✔ buttons for exporting and importing your data, in the menu under Data -&gt; {Import, Export} @done (21-07-30 18:03)</span></span>
+<span class="giallo-l"><span>  ✔ use quad_rand @done (21-07-31 14:51)</span></span>
+<span class="giallo-l"><span>  ✔ storage in cookies @done (21-07-31 22:20)</span></span>
+<span class="giallo-l"><span>    + https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Client-side_storage</span></span>
+<span class="giallo-l"><span>  ✔ try compiling for wasm @done (21-07-31 23:12)</span></span>
+<span class="giallo-l"><span>  ✔ save the progress automatically when the tab is closed @done (21-07-31 23:12)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>refactoring:</span></span>
+<span class="giallo-l"><span>  ✔ make a ClosableWindow trait and a process_window function that handles a window that can be closed, so as not to copy-paste this all the time. or better, a struct that wraps around the window struct, can close itself, constructs the window itself, and itself tracks in the ui function when the window is being closed @done (21-07-30 16:06)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>critical:</span></span>
+<span class="giallo-l"><span>  ✔ if you just press a mouse button without moving the mouse, the pause pops up @done (21-08-02 21:20)</span></span>
+<span class="giallo-l"><span>  ✔ to read the clipboard, the user has to press ctrl+v themselves, so maybe remove the automatic reading of the clipboard, same for ctrl+c @done (21-08-02 21:54)</span></span>
+<span class="giallo-l"><span>  ✔ hints should be given with a space, otherwise the cursor hides them @done (21-08-02 21:55)</span></span>
+<span class="giallo-l"><span>  ✔ autosave after every word @done (21-08-02 21:56)</span></span>
+<span class="giallo-l"><span>  ✔ if you press use this text with an empty text, there&#39;s a panic, file: &quot;src/main.rs&quot;, line: 1185, col: 38 @done (21-08-02 22:01)</span></span>
+<span class="giallo-l"><span>  ✔ looks like you can&#39;t paste text longer than 32768 characters @done (21-08-02 22:37)</span></span>
+<span class="giallo-l"><span>  ✔ redo the settings for the number of learning repetitions, so they aren&#39;t copied into every word but are global @done (21-08-02 23:12)</span></span>
+<span class="giallo-l"><span>    + then they need to be settable in the settings window</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>do next:</span></span>
+<span class="giallo-l"><span>  ✔ when typing a word with a hint, you need to type not only the translation of the word, but the word itself too. this is needed because I&#39;m trying to speed up and don&#39;t read which word with a hint I&#39;m typing @done (21-08-03 17:22)</span></span>
+<span class="giallo-l"><span>  ✔ probably you should learn fewer words per session, not all the added ones. make a setting that lets you take N (let it be 20 for a start) words into a pool and learn them, and only when they run out, continue learning. @done (21-08-03 17:48)</span></span>
+<span class="giallo-l"><span>  ✔ a word editor-viewer window, where you can search for words with fuzzy search, and where the internals are shown right away @done (21-08-03 20:20)</span></span>
+<span class="giallo-l"><span>  ✔ automatically open the word viewer window, filtered by the word currently being added @done (21-08-03 20:20)</span></span>
+<span class="giallo-l"><span>  ✔ a window for editing one word @done (21-08-03 22:16)</span></span>
+<span class="giallo-l"><span>  ✔ make a little pencil next to a word, which opens a window for this word and lets you edit it @done (21-08-03 22:16)</span></span>
+<span class="giallo-l"><span>  ✔ add the feature that shows the context of a specific word after all, and also show how often it occurs in this text @done (21-08-03 23:02)</span></span>
+<span class="giallo-l"><span>  ✔ it should be possible to choose the number of new words and the number of words to repeat @done (21-08-04 14:57)</span></span>
+<span class="giallo-l"><span>  ✔ after adding text or subtitles, a window with info should be shown: @done (21-08-04 17:20)</span></span>
+<span class="giallo-l"><span>    + total words</span></span>
+<span class="giallo-l"><span>    + unique words</span></span>
+<span class="giallo-l"><span>    + filtered out</span></span>
+<span class="giallo-l"><span>      + known (known, trash, learned)</span></span>
+<span class="giallo-l"><span>      + being learned (tolearn)</span></span>
+<span class="giallo-l"><span>    + unknown</span></span>
+<span class="giallo-l"><span>  ✔ synchronous subtitles, where both the Russian and the English versions are shown at the same time @done (21-08-04 23:51)</span></span>
+<span class="giallo-l"><span>    ✔ sort out the text highlighting when searching @done (21-08-04 23:55)</span></span>
+<span class="giallo-l"><span>    ✔ when the input is empty or new results are found, the scroll should jump to the beginning @done (21-08-04 23:57)</span></span>
+<span class="giallo-l"><span>    ✔ 0 always means no scroll @done (21-08-04 23:57)</span></span>
+<span class="giallo-l"><span>    ✔ make the scroll target the label only after the button is pressed @done (21-08-04 23:57)</span></span>
+<span class="giallo-l"><span>    ✔ remove the array in the word search @done (21-08-05 00:03)</span></span>
+<span class="giallo-l"><span>  ✘ extract the common part in the find_whole_word code @cancelled (21-08-05 00:14)</span></span>
+<span class="giallo-l"><span>  ✔ make the zeroth element not shown in the buttons, not highlighted, and impossible to get to @done (21-08-05 00:14)</span></span>
+<span class="giallo-l"><span>  ✔ in the word adding window the context can drift off to the right @done (21-08-05 13:52)</span></span>
+<span class="giallo-l"><span>  ✔ ability to change the scale in the settings @done (21-08-05 14:02)</span></span>
+<span class="giallo-l"><span>  ✔ there should be a checkbox that allows panning the plot @done (21-08-05 14:19)</span></span>
+<span class="giallo-l"><span>  ✔ need a light theme, because the dark one is unpleasant for the eyes @done (21-08-05 14:35)</span></span>
+<span class="giallo-l"><span>    + remember the theme in the settings</span></span>
+<span class="giallo-l"><span>    + draw the whole window white or black depending on the theme</span></span>
+<span class="giallo-l"><span>    + remember the colors for various things like activity depending on the theme</span></span>
+<span class="giallo-l"><span>  ✔ use a proper random generator that&#39;s seeded with the current time @done (21-08-05 19:22)</span></span>
+<span class="giallo-l"><span>  ✔ after typing a word incorrectly, you need to type it again with a hint, and it won&#39;t let you move on until you write it correctly @done (21-08-10 16:34)</span></span>
+<span class="giallo-l"><span>    + after typing a word incorrectly, you need to write it again, even several times</span></span>
+<span class="giallo-l"><span>  ✔ skip the check window for typing with a hint @done (21-08-10 16:34)</span></span>
+<span class="giallo-l"><span>  ✔ after typing a word, it should be possible to invert the correct and incorrect results @done (21-08-10 16:34)</span></span>
+<span class="giallo-l"><span>    + use right_to_left there</span></span>
+<span class="giallo-l"><span>    + for this, attempts need to be registered not after they&#39;re typed, but after the &quot;next&quot; button is pressed</span></span>
+<span class="giallo-l"><span>  ✔ if backspace is pressed on an empty field or a button, the focus should be requested back @done (21-08-10 17:54)</span></span>
+<span class="giallo-l"><span>  ✘ switch Words to storing two different languages, and when choosing words for typing, count only English words @cancelled (21-08-10 18:21)</span></span>
+<span class="giallo-l"><span>  ✘ sort the words for adding not alphabetically but in the order they occur in the text, so as not to read the same sentences again @cancelled (21-08-10 21:51)</span></span>
+<span class="giallo-l"><span>  ---</span></span>
+<span class="giallo-l"><span>  ✔ in the add words window there should be a field where you can add the known translations of this word @done (21-08-10 18:12)</span></span>
+<span class="giallo-l"><span>  ✔ make a button for skipping the words being added @done (21-08-10 18:12)</span></span>
+<span class="giallo-l"><span>  ✔ need a way to undo the previous press when adding a word, otherwise you can be quickly pressing that you know the word, and oops, you skipped one @done (21-08-10 18:12)</span></span>
+<span class="giallo-l"><span>    + remember one word, and remove it from words with the removal method if the back button was pressed</span></span>
+<span class="giallo-l"><span>  ---</span></span>
+<span class="giallo-l"><span>  ✔ when choosing words, add their translations right away, and stop choosing when more than the needed number was collected or all the words ran out @done (21-08-10 19:02)</span></span>
+<span class="giallo-l"><span>  ✔ the oldest words should be chosen first in the word choice window @done (21-08-10 19:02)</span></span>
+<span class="giallo-l"><span>  ✔ write how many more times this word has to be typed today @done (21-08-10 19:12)</span></span>
+<span class="giallo-l"><span>  ✔ pressing backspace on a button should send you back @done (21-08-10 19:16)</span></span>
+<span class="giallo-l"><span>  ✔ there should be a button for canceling the current typing session and the choice of the number of words to learn @done (21-08-10 19:26)</span></span>
+<span class="giallo-l"><span>  ✔ probably it&#39;s better to first type all the words you don&#39;t know with a hint, in random order, and only then type all the words that need to be typed without a hint; and it shouldn&#39;t be just a random choice, the whole array should be properly shuffled, same for everything else, so that the same word never comes twice in a row @done (21-08-10 19:46)</span></span>
+<span class="giallo-l"><span>  ---</span></span>
+<span class="giallo-l"><span>  ✔ when a translation is renamed, it should be renamed properly everywhere @done (21-08-11 18:15)</span></span>
+<span class="giallo-l"><span>  ✔ save everything after a word is changed @done (21-08-11 18:15)</span></span>
+<span class="giallo-l"><span>  ✔ in the edit word window it should be possible to delete a specific translation of a word and to add new ones; in the day setting window today should be set automatically @done (21-08-11 18:25)</span></span>
+<span class="giallo-l"><span>  ---</span></span>
+<span class="giallo-l"><span>  ✔ make it possible to set the levels and the number of repetitions in the settings. @done (21-08-11 18:39)</span></span>
+<span class="giallo-l"><span>  ---</span></span>
+<span class="giallo-l"><span>  ✔ make the current day computed in local time, because at 0:00 my day wasn&#39;t today @done (21-08-11 19:04)</span></span>
+<span class="giallo-l"><span>  ✘ contribute user_dpi to egui-miniquad @cancelled (21-08-11 19:27)</span></span>
+<span class="giallo-l"><span>  ✘ maybe try showing the panic on the screen @cancelled (21-08-11 19:27)</span></span>
+<span class="giallo-l"><span>  ✔ bug: not all words get chosen when you choose for repetition something that has no translation to repeat @done (21-08-11 23:02)</span></span>
+<span class="giallo-l"><span>  ---</span></span>
+<span class="giallo-l"><span>  ✔ move to egui-web, egui-glium @done (21-08-11 22:25)</span></span>
+<span class="giallo-l"><span>  ✔ add the ability to download the export as a file @done (21-08-12 14:58)</span></span>
+<span class="giallo-l"><span>  ✘ add a button that selects everything @cancelled (21-08-12 14:58)</span></span>
+<span class="giallo-l"><span>  ---</span></span>
+<span class="giallo-l"><span>  ✔ optimize the colors in the light theme, maybe via a separate window @done (21-08-13 19:18)</span></span>
+<span class="giallo-l"><span>  ✘ make scale changing work on the web @cancelled (21-08-13 20:24)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>not critical:</span></span>
+<span class="giallo-l"><span>  ✔ looks like the native app doesn&#39;t want to save statistics to a file @done (21-08-01 23:06)</span></span>
+<span class="giallo-l"><span>  ✔ looks like the word adding window doesn&#39;t filter out known words @done (21-08-01 23:12)</span></span>
+<span class="giallo-l"><span>  ✔ it&#39;s impossible to type a space because of the character substitution @done (21-08-02 21:06)</span></span>
+<span class="giallo-l"><span>  ✔ the words should be huge, not a plain label @done (21-08-02 21:06)</span></span>
+<span class="giallo-l"><span>  ✔ make it possible to delete words @done (21-08-03 23:15)</span></span>
+<span class="giallo-l"><span>  ✘ when typing a word, it should be possible to see its statistics @cancelled (21-08-03 23:15)</span></span>
+<span class="giallo-l"><span>  ✘ when typing a word in the attempts, it should be possible to edit this word (like when I sometimes left an extra ending or something like that) @cancelled (21-08-03 23:15)</span></span>
+<span class="giallo-l"><span>  ✔ in the window for adding words from text, show how many were unique and how many were filtered out @done (21-08-05 14:35)</span></span>
+<span class="giallo-l"><span>  ✔ add learned translations to the word adding window @done (21-08-05 14:36)</span></span>
+<span class="giallo-l"><span>  ✘ in the github stat, dim the elements that are 0 down to dim 0 @cancelled (21-08-05 14:39)</span></span>
+<span class="giallo-l"><span>  ✘ it should be possible to add aliases for a word, like if you typed it differently, it still counts as correct. @cancelled (21-08-11 19:04)</span></span>
+<span class="giallo-l"><span>    + then there should be a button after typing a word that not only cancels the wrongness of the current answer, but also adds it to the aliases at the same time</span></span>
+<span class="giallo-l"><span>    + this isn&#39;t needed, since there&#39;s an invert button</span></span></code></pre></div>
+</details>
+<h2 id="time-spent-on-this-program"><a class="anchor" href="#time-spent-on-this-program">#<sup>2</sup></a>Time spent on this program</h2>
+<p>By the way, if you're curious how much time was spent on each item of this program, that information is in the file below. The time measurements were committed together with the feature I was writing, so you can find additional information through the commits and blame.</p>
+<details>
+<summary>@aba59d5/video.md <a class='right' href='https://github.com/optozorax/learn_words/blob/aba59d5f15a23ebbce22ca1a6030b703da95396d/video.md#%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8F'>link</a></summary>
+<div class="details-content">
+<h1 id="information">information</h1>
+<ul>
+<li>(the time doesn't include writing the articles)</li>
+<li>writing down the first ideas: 20 minutes</li>
+<li>organizing them: 20 minutes</li>
+<li>planning the data structures related to the main logic, without the interface: 1 hour 20 minutes</li>
+<li>planning the interface structures and methods: 32m (2:32)</li>
+<li>writing the code of the main logic: 1 hour (3:32)</li>
+<li>writing the interface code up to a minimally working state: 2h 45m (6:16)</li>
+<li><code>6h 16m</code> -------------------------------------------------- Minimally working state</li>
+<li>did two items and planned further ideas in the todo: 45m (7:02)</li>
+<li>the timer got reset by accident</li>
+<li>three general items: 47m (0:47)</li>
+<li>the basis of the statistics: 34m (1:21)</li>
+<li>refactoring the windows: 30m (1:51)</li>
+<li>implementing the statistics and other small improvements: 1h 53m (3:44)</li>
+<li>keyboard layout: 1h 4m (4:48)</li>
+<li>github-like contribution grid: 3h (7:44)</li>
+<li>wrote quad-storage: 1h 49m (9:33)</li>
+<li>made it run in wasm, fixed bugs and made small additions: 1h 50m (11:23)</li>
+<li>reset the timer</li>
+<li>writing the article about the program: 2h 56m</li>
+<li><code>21h 21m</code> -------------------------------------------------- Moderately working state</li>
+<li>finished fixing all the critical items: 1h 30m</li>
+<li>started the timer</li>
+<li>made it possible to choose the number of words: 44 minutes (0:44)</li>
+<li>made it possible to search through all words with fuzzy search, and made it work when adding a word: 1h 2m (1:46)</li>
+<li>made a window for editing one word: 53m (2:39)</li>
+<li>added showing the context of a given word from the text: 46m (3:15)</li>
+<li>for a session, you can choose the number of new words and the number of words to repeat: 21m (3:36)</li>
+<li>added output of the number of words in the text after adding it: 20m (3:56)</li>
+<li>the synchronous subtitles feature: 3h 26m (7:22)</li>
+<li>small features: 57m (8:19)</li>
+<li>switched to another random number generator: 10m (8:29)</li>
+<li>reset the timer</li>
+<li>finished the article about the program, taking into account the new features and usage: 2h 3m</li>
+<li><code>33h 23m</code> -------------------------------------------------- First release</li>
+<li>repeating words after an incorrect input and inverting the results: 1h 48m</li>
+<li>improvements to the add words window: 20m</li>
+<li>choosing translations when choosing words, and choosing the most overdue words: 43m</li>
+<li>word typing improvements: 45m</li>
+<li>edit word window improvements: 30m</li>
+<li>setting the number of repetitions in the settings: 11m</li>
+<li>computing the current day correctly with the time zone in mind: 37m</li>
+<li>moved to egui_template: 2h 13m</li>
+<li>wrote about the second release: 30m</li>
+<li><code>41h</code> -------------------------------------------------- Second release</li>
+<li>added downloading the statistics as a file: 1h 15m</li>
+<li>optimized the colors in the light theme: 1h 2m</li>
+<li>couldn't make scale changing work on the web: 1h</li>
+<li>writing the article about imgui: 2h 44m</li>
+<li>writing the article about how I write programs: 1h</li>
+</ul>
+</div>
+</details>
+<h2 id="an-example-of-a-complex-feature"><a class="anchor" href="#an-example-of-a-complex-feature">#<sup>2</sup></a>An example of a complex feature</h2>
+<p>There was one very complex feature in the program, and its implementation is interesting to look at separately. It's the synchronous subtitles feature. The point of it is that you can load Russian and English subtitles at the same time and view them side by side.</p>
+<p>When it comes to such a complex feature, you need to think it through well.</p>
+<p>And a feature needs not only to be thought through well, you also need to figure out how to add it to the program with minimal effort, so that you have to redo as little as possible. Initially I wanted to add this feature as part of the window for adding words from subtitles, but I realized that this would require having Russian subtitles for every English subtitle file, which didn't fit in well. Then it dawned on me to simply make this feature a separate window, and everything immediately fell into place.</p>
+<p>Here's the result of thinking it through, in the <code>ideas.md</code> file:</p>
+<details>
+<summary>@80a5703/ideas.md <a class='right' href='https://github.com/optozorax/learn_words/commit/80a57032f306e558d157de61fb8edf6a7f3923a1'>diff</a></summary>
+<div class="details-content">
+<p>...</p>
+<h1 id="synchronous-subtitles">synchronous subtitles</h1>
+<ul>
+<li>this will be a separate window that can be given a specific word, and it will search for all of its occurrences in the first provided text</li>
+<li>the window for adding has two text input fields: Lang 1 (to search words), Lang 2 (translation of Lang 1).</li>
+<li>the display window has a method that lets you put the needed word into the search if the window is open. unlike the search window, this window doesn't open automatically</li>
+<li>uses <a href="https://github.com/emilk/egui/blob/master/egui_demo_lib/src/apps/demo/misc_demo_window.rs#L60">column</a> for the window for pasting subtitles</li>
+<li>uses <a href="https://github.com/emilk/egui/blob/master/egui_demo_lib/src/apps/demo/widget_gallery.rs#L60">grid</a> to show them side by side. since there can be empty spaces on both sides.</li>
+<li>uses code similar to <a href="https://github.com/emilk/egui/blob/master/egui_demo_lib/src/apps/demo/scrolling.rs">scrolling</a> to select the element to scroll to</li>
+<li>iterates over both subtitles at the same time and moves the current time pointer; if the current time overlaps with something in the other language, joins them into one</li>
+<li>the window also shows the element number on the left, so the grid consists of 3 columns</li>
+<li>if one phrase in one language overlaps with several in the other language, it's shown only for the first one</li>
+<li>there's a checkbox to search by whole words or by substrings</li>
+</ul>
+<p>...</p>
+</div>
+</details>
+<p>In the process it became clear that this feature is more like a competitive programming problem than ordinary code. The problem is that the subtitles don't owe me anything. I have no guarantee that one line comes after another, or that the phrases in English and Russian will have the same timings. And this had to be taken into account.</p>
+<p>First I planned the algorithm for the case where the subtitles are well-behaved. In the picture below, time goes from right to left, the Russian subtitles are at the bottom, the English ones at the top.</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="602"     height="227"     src="/processed_images/1.c03e067617da625c.webp"     onclick="full_screen('1.jpg')"     onauxclick="full_screen_new_page('1.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<p>Then I picked the worst general case and started planning the subtitle algorithm as in the picture. Everything is the same as in the previous one, only English and Russian are separated by a wavy line. You can see that here the guarantee that all lines in one subtitle file follow one another is violated.</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="539"     height="221"     src="/processed_images/2.14462b87bad3a497.webp"     onclick="full_screen('2.jpg')"     onauxclick="full_screen_new_page('2.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<p>This is where competitive programming skills come in really handy, because you need to:</p>
+<ul>
+<li>Consider the edge cases.</li>
+<li>Find out what guarantees you have about the input data, spot the catch.</li>
+<li>Try to come up with an algorithm without hacks, so that implementing it doesn't take more hours than the contest lasts.</li>
+<li>Make the algorithm run in acceptable time.</li>
+</ul>
+<p>But I decided not to care about the speed of the algorithm, because I don't have billions of lines, a thousand at most. And I looked for each matching line with a dumb linear search. And in practice there are no slowdowns at all when adding synchronous subtitles.</p>
+<p>So I highly recommend leveling up in competitive programming on <a href="https://codeforces.com/">codeforces</a>. LeetCode is rubbish, because it measures the running time of programs badly, and the problems there are weak in general.</p>
+<p>By the way, I use paper only when I need to draw something or write math formulas; in all other cases typing text on a keyboard is a million times faster. So personally I advise you to write down ideas and todo items <strong>not on paper</strong>.</p>
+<h2 id="about-net-time"><a class="anchor" href="#about-net-time">#<sup>2</sup></a>About net time</h2>
+<p>I measured my working time, and you can see that the net time came out to 40 hours. What does that mean? Does it mean I could have made this program in one work week? No.</p>
+<p>My net time was measured only while I was working; I didn't count breaks. Also, I didn't work 8 hours a day, but less: sometimes 2, sometimes 4. And most importantly, between these sessions I had long breaks in the form of rest and sleep. So that may be the reason why I worked so efficiently.</p>
+<p>At a job we work with breaks, so out of an 8-hour working day, the part that's really productive always turns out smaller. They say it's 4–6 hours.</p>
+<p>And even if you wanted to work perfectly for 8 hours every day, so that all these 8 hours were net time, you wouldn't last long. You'd be tired the very next day. And if you aren't, then in the long run burnout and mental health problems await you.</p>
+<p>So all these initiatives to switch to a 4-hour or 6-hour working day make sense.</p>
+<h1 id="example-a-feature-for-portal-explorer"><a class="anchor" href="#example-a-feature-for-portal-explorer">#</a>Example: a feature for Portal Explorer</h1>
+<p>This is an example of how I added a nontrivial feature to another program.</p>
+<p>My task was to make it possible for the camera to switch between different points, so that these points could be set in advance and the user could switch between them. This was needed for upcoming scenes.</p>
+<p>This feature turned out to be one of those where I didn't have the slightest idea how to implement it.</p>
+<p>So first I sat down and started writing out questions and answers to them. The most important thing here is to think through how the feature will fit into the existing structure of the program. I reasoned in the form of text. When some first understanding appeared, I sketched out a few structs and enums. You can see the result of the reasoning and the types in the screenshot below:</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1248"     height="1003"     src="/processed_images/plan.en.fc23026afd5a21c1.webp"     onclick="full_screen('plan.en.png')"     onauxclick="full_screen_new_page('plan.en.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<p>After that I thought about it some more, worked through all the unclear spots and resolved them, the picture came together in my head, and I decided to write down the todo items that need to be implemented for this feature to be fully done; that's the second screenshot.</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1280"     height="369"     src="/processed_images/todo.en.3a0f2f2e32b3021f.webp"     onclick="full_screen('todo.en.png')"     onauxclick="full_screen_new_page('todo.en.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.1<br>png</div> </div> </div>
+<p>Now, after everything became clear and understood in my head, I could start cranking out code very efficiently.</p>
+<p>And then the code was successfully implemented. Of course, I forgot a couple of things during the planning, but there's no way around that.</p>
+<h1 id="about-pet-projects"><a class="anchor" href="#about-pet-projects">#</a>About pet projects</h1>
+<p>A few thoughts about how to do pet projects; I think they fit the spirit of the article.</p>
+<h2 id="looking-for-alternatives"><a class="anchor" href="#looking-for-alternatives">#<sup>2</sup></a>Looking for alternatives</h2>
+<p>My program for learning words is similar to another program: Anki. I found that out only after writing my program, so I want you not to repeat my mistakes.</p>
+<p>Look for alternatives more thoroughly, study them in depth, read articles about them and use them. After all, as everyone knows, the best project is the one you didn't have to make.</p>
+<p>If I had bothered to search properly for programs for learning words, instead of putting up with the inconvenience of Duolingo and the like, I wouldn't have spent all this time writing my own program; I could have written just a separate module for working with subtitles, for example.</p>
+<p>Well, or if your goal is to learn some technology through a pet project, then this advice doesn't apply: here reinventing the wheel once again is a sacred duty.</p>
+<h2 id="not-doing-things-matters-more"><a class="anchor" href="#not-doing-things-matters-more">#<sup>2</sup></a>Not doing things matters more</h2>
+<p>I'll just quote Nikita Prokopov (tonsky):</p>
+<div class="admonition blue2-bg blue2-border-left">
+<div class="admonition-title blue2-bg blue2-border">Telegram post from <a href="https://t.me/nikitonsky_pub/147">“Stand under the boom”/147</a> (in Russian)</div>
+<div class="admonition-content">
+<p>Let me tell you about the main rule of pet projects. The main rule of pet projects: figure out how to do nothing.</p>
+<p>Many programmers might think that doing nothing means automating something. No, on the contrary, automation adds headaches, and we want to avoid them. For example, under my previous post about "passive code is dead code", people recommended that I not torment the user with constant logouts, but create a test user and automate:</p>
+<p>"Scripts. A scheduler in CI runs tests written in pytest/junit/whatever, draws pretty pictures, spams the hell out of you with notifications if something goes wrong. You just need to decide who's responsible for reacting to the notifications."</p>
+<p>This is, of course, the way for normal systems, where programmers are paid a salary so that they sit tight and do what they'd never voluntarily want to do themselves.</p>
+<p>But in pet projects, unfortunately, nobody pays you a salary, so you have to adapt. What's wrong with this suggestion?</p>
+<p>First, it's a lot of work. The scripts have to be written, all this machinery has to be set up. Second, it's a lot of maintenance: you have to keep an eye on the CI and react to the notifications. Third, all of this will break, it has to be looked after, and you clearly won't feel like doing that, because it always breaks at the wrong moment, and you don't have time for the project every week.</p>
+<p>The trick with pet projects is to fool yourself and manage to make something you can show people before you get tired and bored. And you will get tired and bored, trust me. That's why the amount of irrelevant work has to be cut hard and mercilessly. And that's why I'm so happy with the authorization solution: there's no work, and the testing gets done.</p>
+<p>The classic illustration of this principle is "don't write a blog engine". Because you'll get tired before you write the first post. People who host on GitHub Pages with a ready-made template or on WordPress are the ones who are interested in solving the problem; people who write an engine are the ones who are interested in procrastinating. That's why you're reading this text in Telegram and not on some homemade site with its own compiler: I'd still be writing that compiler.</p>
+<p>Another recent example is Roam Research. The guys have been running with no server at all for five or seven years, they just dump everything into Firebase, and it's fine, it works, they've raised money. There isn't a single server in their whole infrastructure. Then the creator of Athens Research came along, decided to clone Roam but bother even less, and didn't even use Firebase. He just made a local client, and even did without authorization. And he still raised 2 million. A legend.</p>
+<p>All this illustrates one principle: the less work you come up with for yourself, the higher the chances that you'll finish it all. And conversely, if you do things "the normal way", "properly", you'll never finish. Because summer, beer, kids, the couch, friends or the PlayStation beat "relaxing with some programming" 100% of the time. Actually, anything at all beats it. And that's normal, there's nothing you can do about it, you just have to figure out how to work under these conditions.</p>
+</div></div>
+<h2 id="prototyping"><a class="anchor" href="#prototyping">#<sup>2</sup></a>Prototyping</h2>
+<p>In the early stages you need to implement as few features as possible, so that you see a result and have a chance of finishing the project; otherwise you'll burn out if seeing the first result takes 40h of net time. After that you should add only the most critical features, so that you see a result again and know that at any moment the program does as much of what you want from it as possible.</p>
+<p>It's also extremely important to get a result quickly and start using it right away, because you can't know whether you need some features until you've actually used the program.</p>
+<p>That's why ImGui works great here, for prototypes or pet projects. It speeds up development.</p>
+<h2 id="throw-away-complex-features-right-away"><a class="anchor" href="#throw-away-complex-features-right-away">#<sup>2</sup></a>Throw away complex features right away</h2>
+<p>How did I manage to make the program for learning English words so quickly?</p>
+<p>Because at the very first stage I threw away the hardest features:</p>
+<ul>
+<li>Having a built-in dictionary</li>
+<li>Word normalization (removing -s, -ing, -ed, etc.)</li>
+<li>A retained-mode interface</li>
+</ul>
+<p>Thanks to this, I spent time only on fighting myself. Without fighting other libraries.</p>
+<p>Such things have to be thrown away in advance, otherwise you'll never finish your project. At first everything should be dumb and manual.</p>
+<p>If your project involves something very complex that can't be thrown away, I advise you to think about whether you should take on this project at all, or do something simpler right now.</p>
+<h1 id="automation"><a class="anchor" href="#automation">#</a>Automation</h1>
+<p>Right now there's all this hype around things like GitHub Copilot, which supposedly write code for programmers, and supposedly blah blah blah, machines will replace programmers.</p>
+<p>Look at this article again. Can this kind of thing be automated? This is real thinking, which programming requires even from a junior. It can't be automated until strong AI is created. And until then, Copilot will only be a tool in a programmer's hands that makes development a little easier.</p>
+<p>And when strong AI is created, any human labor on planet Earth will become pointless, so there's no point in worrying about programmers specifically. We'll all become useless together.</p>
+<h1 id="conclusion"><a class="anchor" href="#conclusion">#</a>Conclusion</h1>
+<p>This method isn't perfect, it's more a collection of ideas than a step-by-step guide to follow every time. I hope this article nudges you to look for your own way of planning programs, one that will make you more efficient.</p>
+
+</div>
+</article>
+
+  </section>
+  
+
+</td><td>
+<!-- TOC -->
+<input type="checkbox" id="toc-trigger" class="toc-trigger" />
+<label for="toc-trigger">
+  <span class="menu-icon">
+    <div class="side-button"><img src="/ico/right.svg"></div>
+  </span>
+</label>
+
+<nav class="section-nav">
+ <h2>Contents</h2>
+ <ul class="first">
+ 
+ 
+  <li>
+   <a href="#introduction">Introduction</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#example-a-program-for-learning-english-words">Example: a program for learning English words</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#building-the-product">Building the product</a>
+       
+       <ul class="third">
+        
+         
+         <li>
+          <a href="#collecting-ideas">Collecting ideas</a>
+          
+          <ul class="fourth">
+           
+            
+            <li>
+             <a href="#chaotic-idea-collection">Chaotic idea collection</a>
+             
+            </li>
+           
+            
+            <li>
+             <a href="#organizing-the-ideas">Organizing the ideas</a>
+             
+            </li>
+           
+          </ul>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#planning-data-structures-and-functions">Planning data structures and functions</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#writing-code">Writing code</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#todo-lists">Todo lists</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#the-usual-development-cycle">The usual development cycle</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#what-to-do-with-completed-todo-items">What to do with completed todo items</a>
+          
+         </li>
+        
+       </ul>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#time-spent-on-this-program">Time spent on this program</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#an-example-of-a-complex-feature">An example of a complex feature</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#about-net-time">About net time</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#example-a-feature-for-portal-explorer">Example: a feature for Portal Explorer</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#about-pet-projects">About pet projects</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#looking-for-alternatives">Looking for alternatives</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#not-doing-things-matters-more">Not doing things matters more</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#prototyping">Prototyping</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#throw-away-complex-features-right-away">Throw away complex features right away</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#automation">Automation</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#conclusion">Conclusion</a>
+   
+  </li>
+ 
+ </ul>
+</nav>
+</td></tr></table>
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="section second-section">
+If you like what I do, follow me on <a href="https://t.me/optozorax_dev">Telegram</a> and <a href="https://www.youtube.com/c/optozorax">YouTube</a>.
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="comments section second-section">
+
+<script src="https://utteranc.es/client.js"
+        repo="optozorax/optozorax.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+
+  <hr class="enabled-on-phone">
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <footer class="site-footer section second-section">
+  
+    <center>
+    <div style="margin-bottom: 10px;">© Ilya Sheprut. License: <a href="https://creativecommons.org/licenses/by/3.0/deed.en">CC-BY</a>.</div>
+    <table style="border: 0px; display: contents;">
+    <tr><td style="border: 0px; padding: 0.2rem;">
+    <!-- SVG icons from https://iconmonstr.com -->
+
+    <span class="my-span-icon">
+  <a 
+    href="https://github.com/optozorax" 
+    aria-label="optozorax's GitHub" 
+    title="optozorax's GitHub">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/github.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's GitHub">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://t.me/optozorax_dev" 
+    aria-label="optozorax's Telegram channel" 
+    title="optozorax's Telegram channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/tg.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Telegram channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://www.youtube.com/c/optozorax" 
+    aria-label="optozorax's YouTube channel" 
+    title="optozorax's YouTube channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/youtube.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's YouTube channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://boosty.to/optozorax" 
+    aria-label="optozorax's donate page" 
+    title="optozorax's donate page">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/donate.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's donate page">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="/en/atom.xml" 
+    aria-label="optozorax's Atom Feed" 
+    title="optozorax's Atom Feed">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/rss.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Atom Feed">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="mailto:optozorax@gmail.com" 
+    aria-label="optozorax's email" 
+    title="optozorax's email">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/contact.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's email">
+  </a>
+</span>
+
+    </td><td style="border: 0px; padding: 0.2rem;">
+
+    </td></tr>
+    </table>
+    <div class="small-info">
+      Made with <a href="https://www.getzola.org/">Zola</a> | Theme based on <a href="https://github.com/lorepirri/cayman-blog">Cayman Blog</a> | <a href="https://github.com/optozorax/blog_zola">Site sources</a>
+      <a rel="me" href="https://mathstodon.xyz/@optozorax" style="display: none;">Mastodon</a>
+    </div>
+    </center>
+  
+  </footer>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+</body>
+</html>

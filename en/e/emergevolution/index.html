@@ -1,0 +1,2288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Fonts preload -->
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nFrXyi0A.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nBrXw.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxTcwhsk.woff2" crossOrigin="anonymous">
+  <!-- --- -->
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/main.css">
+  <!-- --- -->
+
+  <!-- Non social metatags -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link rel="canonical" href="https://optozorax.github.io/en/e/emergevolution/">
+  <link rel="alternate" hreflang="en" href="https://optozorax.github.io/en/e/emergevolution/">
+  <link rel="alternate" hreflang="ru" href="https://optozorax.github.io/e/emergevolution/">
+  <link rel="alternate" hreflang="x-default" href="https://optozorax.github.io/e/emergevolution/">
+  <meta name="robots" content="noarchive">
+  <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/en/atom.xml"> 
+  <!-- --- -->
+
+  <!-- Social metatags -->
+  
+
+<meta name="author" content="optozorax">
+<meta name="title" content="Emergevolution — optozorax&#39;s blog">
+<meta name="description" content="A collection of information about simulating evolution and related topics.">
+<meta name="image" content="https://optozorax.github.io/en/e/emergevolution/img/1.png">
+
+<meta name="keywords" itemprop="tags" content="evolution, ideas, systematization, neural-networks">
+
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://optozorax.github.io/en/e/emergevolution/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Emergevolution — optozorax&#39;s blog">
+<meta property="og:description" content="A collection of information about simulating evolution and related topics.">
+<meta property="og:image" content="https://optozorax.github.io/en/e/emergevolution/img/1.png">
+<meta property="og:locale" content="en">
+
+
+
+
+
+<meta property="article:tag" content="evolution">
+
+<meta property="article:tag" content="ideas">
+
+<meta property="article:tag" content="systematization">
+
+<meta property="article:tag" content="neural-networks">
+
+
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="optozorax.github.io">
+<meta property="twitter:url" content="https://optozorax.github.io/en/e/emergevolution/">
+<meta name="twitter:title" content="Emergevolution — optozorax&#39;s blog">
+<meta name="twitter:description" content="A collection of information about simulating evolution and related topics.">
+<meta name="twitter:image" content="https://optozorax.github.io/en/e/emergevolution/img/1.png">
+<meta name="twitter:creator" content="optozorax">
+
+  <!-- --- -->
+
+  <!-- Extra head declarations -->
+  
+
+<script type="text/javascript" src="/js/hammer.min.js"></script>
+<script type="text/javascript" src="/js/toc.js"></script>
+<script type="text/javascript" src="/js/gallery.js"></script>
+<script type="text/javascript" src="/js/full_screen.js"></script>
+<script type="text/javascript" src="/js/word_wrap.js"></script>
+
+  <!-- --- -->
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+  <!-- --- -->
+
+  <title>Emergevolution — optozorax&#39;s blog</title>
+</head>
+
+<body>
+  <!-- FullScreen block -->
+  <div id="img_modal" class="modal" style="display: none;">
+      <img id="img_modal_01" src="/ico/loading.gif">
+      <span class="close" id="img_modal_close">&times;</span>
+  </div>
+  <!-- --- -->
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <header class="site-header" role="banner">
+  
+  <div class="wrapper">
+    <a class="site-title" href="/en/">optozorax.blog</a>
+
+    <div class="lang-switch">
+      <span class="lang-switch-item lang-switch-current" lang="en" title="English"><span class="lang-switch-flag">🇬🇧</span>EN</span>
+      <a class="lang-switch-item" href="/e/emergevolution/" hreflang="ru" lang="ru" title="Русский"><span class="lang-switch-flag">🇷🇺</span>RU</a>
+    </div>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <img src="/ico/menu.svg" width="13px" height="15px">
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          <a class="page-link" href="/en/">Blog</a>
+        
+          <a class="page-link" href="/en/e">Collections</a>
+        
+          <a class="page-link" href="/en/tags">Tags</a>
+        
+          <a class="page-link" href="/en/about">About me</a>
+        
+      </div>
+    </nav>
+  </div>
+  
+  </header>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+  
+  <section class="page-header">
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+<h1 class="project-name">Emergevolution</h1>
+
+<h2 class="project-tagline">A collection of information about simulating evolution and related topics.</h2>
+
+
+
+<span style="margin-bottom: 10px;">
+  
+    <a href="/en/tags#evolution"><code class="tag"><nobr>#evolution</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#ideas"><code class="tag"><nobr>#ideas</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#systematization"><code class="tag"><nobr>#systematization</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#neural-networks"><code class="tag"><nobr>#neural-networks</nobr></code></a>&nbsp;
+  
+</span>
+
+
+<center>
+<table style="margin-top: 8px;">
+<tr>
+
+
+
+
+<td style="padding-left: 10px;">
+  
+  <a href="https://vk.com/wall-169103586_52">
+  <code class="tag">Post on VK</code>
+  </a>
+  
+  
+  <a href="https://t.me/optozorax_dev/244">
+  <code class="tag">Post on Telegram</code>
+  </a>
+  
+  
+</td>
+
+</tr>
+</table>
+
+
+<div class="translation-note">
+  <svg class="translation-note-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+  <span>Translated from 🇷🇺 Russian</span>
+  <span class="translation-note-sep">·</span>
+  <span>Translation by Claude Opus 5.5</span>
+  <span class="translation-note-sep">·</span>
+  <a href="/e/emergevolution/" hreflang="ru" lang="ru">Original</a>
+</div>
+
+
+
+<br><a href="https://github.com/optozorax/emergevolution" class="btn" style="margin: 0px;">Repository of this page</a>
+
+</center>
+
+
+</td><td>
+</td></tr></table>
+
+
+
+  </section>
+  
+  
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <section class="main-content section">
+  
+<article itemscope itemtype="http://schema.org/BlogPosting">
+<div itemprop="articleBody" id="content">
+<h1 id="what-this-document-and-chat-are-about"><a class="anchor" href="#what-this-document-and-chat-are-about">#</a>What this document and chat are about</h1>
+<p>This document systematizes interesting information on the following topics:</p>
+<ul>
+<li>Evolution simulation</li>
+<li>Artificial life</li>
+<li>Neural networks</li>
+<li>Cellular automata</li>
+<li>Artificial intelligence</li>
+</ul>
+<p><strong>Goal:</strong> to expand your mind, get inspired and write your own simulation of life, of evolution, or of something whose study brings us closer to creating General/Strong AI. Or just to write one for educational purposes.</p>
+<p>It is built on the same principle as the <a href="https://github.com/optozorax/4D">4D</a> (in Russian) and <a href="https://github.com/optozorax/hyperbolic">hyperbolic</a> (in Russian) repositories: there is a chat where these topics are discussed and interesting materials are posted, and then they are systematized into a document like this on GitHub.</p>
+<p><strong>Chat:</strong> <a href="https://t.me/emergevolution">telegram:emergevolution</a> (in Russian)</p>
+<p>Everyone interested is invited to the chat to discuss these topics, and to criticize and improve this document.</p>
+<p><strong>How you can improve it:</strong></p>
+<ul>
+<li>Suggest new material</li>
+<li>Add comments and analysis to the existing material (for example, analyze an article, a video, a program). You can see that comments are lacking in many places here. You can take on this work if you're interested in figuring something out.</li>
+<li>Create comparison tables (for libraries, for different simulations)</li>
+</ul>
+<p>There are also two trends in writing artificial life simulations:</p>
+<ul>
+<li>Focusing on the individual creature, so that it is as smart as possible</li>
+<li>Focusing on the ecosystem: it doesn't matter if the creature ends up dumb, what matters is that the interaction of many of them is interesting</li>
+</ul>
+<p>This chat is more about the evolution of the individual creature. <a href="https://t.me/emergevolution/215">This poll</a> (in Russian) shows it.</p>
+<p>Almost all pictures here are clickable: sometimes they show that it's a YouTube video, sometimes they lead to a website.</p>
+<h1 id="what-is-emergevolution"><a class="anchor" href="#what-is-emergevolution">#</a>What is Emergevolution?</h1>
+<h2 id="etymology"><a class="anchor" href="#etymology">#<sup>2</sup></a>Etymology</h2>
+<p>The word was coined by <code>optozorax</code> from two words: emergence and evolution. He first learned the word "emergence" from this video:</p>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=16W7c0mb-rE">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/16W7c0mb-rE.webp" width="1280" height="720">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=16W7c0mb-rE">Emergence – How Stupid Things Become Smart Together</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCsXVk37bltHxD1rDPwtNM8Q">Kurzgesagt – In a Nutshell</a>
+</div>
+<div class="yt-duration">7:30</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=16W7c0mb-rE">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<p><em>Wikipedia says:</em> <strong>Emergence</strong> in systems theory is the appearance in a system of properties that its elements don't have on their own; the irreducibility of a system's properties to the sum of the properties of its components.</p>
+<h2 id="the-problem"><a class="anchor" href="#the-problem">#<sup>2</sup></a>The problem</h2>
+<p>All evolution simulations known to the author have the property that they converge to some single solution and can't grow endlessly in complexity and in the diversity of their forms, the way it happens in real life and in nature on Earth.</p>
+<p>And this is very sad, because even with huge computing power we can't just run some evolution simulation program, wait a couple of years and get very interesting results: no such programs are known to exist.</p>
+<p>That's why the author is concerned with the problem of getting an evolution simulation that can grow potentially forever, constantly making its creatures more complex.</p>
+<p>And it's this endlessly growing evolution that he called <strong>emergevolution</strong>.</p>
+<p>He wants to create it at least in order to explore it and see what comes out; potentially it could help us understand our own evolution and the development of intelligence.</p>
+<p>Below are examples of how different authors define it in their own way:</p>
+<hr />
+<p>This term was coined long before the author of this document; there's even a Wikipedia page: <a href="https://en.wikipedia.org/wiki/Emergent_evolution">Emergent evolution</a>. Only they describe it not as a type of evolution, but as a hypothesis about the origin of the mind.</p>
+<hr />
+<p>The <a href="https://optozorax.github.io/en/e/emergevolution/#postnauka-video">PostNauka video</a> says:</p>
+<blockquote>
+<p>Even though artificial life has achieved such successes over this time, the main problem it faced still remains unsolved: the problem of how the complexity of organisms can increase in the course of evolution.</p>
+</blockquote>
+<hr />
+<p>It's also called <strong>Open-Ended Evolution</strong>. You can probably search for scientific papers under this name and publish your own.</p>
+<p><a href="https://web.archive.org/web/20190724143915/http://www.evolvingai.org/content/open-ended-evolution">The evolvingai.org website</a> defines this term as:</p>
+<blockquote>
+<p>Creating computational evolutionary processes that--like natural evolution--endlessly produce a diversity of complex, interesting things.</p>
+</blockquote>
+<hr />
+<p>At the 17th minute of the video about the <a href="https://optozorax.github.io/en/e/emergevolution/#tierra">Tierra</a> program, its author says that he also wants to create an evolution that becomes endlessly more complex.</p>
+<h1 id="artificial-life-evolution-simulation"><a class="anchor" href="#artificial-life-evolution-simulation">#</a>Artificial life, evolution simulation</h1>
+<h2 id="table"><a class="anchor" href="#table">#<sup>2</sup></a>Table</h2>
+<p><strong>Turbo</strong> means that the simulation can be run without visualization, so it isn't limited by how fast the screen can refresh and no resources are spent on drawing the picture. You can read about this problem <a href="https://optozorax.github.io/en/e/emergevolution/#simulate-and-draw-separately">here</a>.</p>
+<table><thead><tr><th></th><th>Visualization</th><th>Optimization method</th><th>Task</th><th>Video</th><th>Source code</th><th>Executable</th><th>Brains</th><th>Turbo</th><th>Creatures are made of</th></tr></thead><tbody>
+<tr><td>Tierra</td><td>-</td><td>Natural selection</td><td>Survive</td><td>+</td><td>+</td><td>+</td><td>Program</td><td>?</td><td>RAM</td></tr>
+<tr><td>The Blind Watchmaker</td><td>2D</td><td>Genetic algorithm</td><td>Tell the time</td><td>+</td><td>+</td><td>-</td><td>-</td><td>-</td><td>Clocks</td></tr>
+<tr><td>Evolution with muscles</td><td>2D</td><td>Genetic algorithm</td><td>Walk, jump</td><td>+</td><td>+</td><td>web</td><td>Neural network</td><td>-</td><td>Hinged rectangles</td></tr>
+<tr><td>Fighting circles</td><td>2D</td><td>Genetic algorithm</td><td>Defeat the opponent</td><td>+</td><td>-</td><td>-</td><td>Neural network</td><td>-</td><td>Circles with bullets</td></tr>
+<tr><td>Cars with arbitrary neural networks</td><td>2D</td><td>Evolutionary algorithm</td><td>Drive the track</td><td>+</td><td>-</td><td>-</td><td>Neural network</td><td>-</td><td>Cars</td></tr>
+<tr><td>Learn 2D Stick</td><td>2D</td><td>Genetic algorithm</td><td>Walk, jump</td><td>+</td><td>-</td><td>+</td><td>Neural network</td><td>+</td><td>Hinged rectangles</td></tr>
+<tr><td>foo52ru bots</td><td>2D</td><td>Natural selection</td><td>Survive</td><td>+</td><td>+</td><td>-</td><td>Program</td><td>-</td><td>Square cells</td></tr>
+<tr><td>foo52ru trees</td><td>2D</td><td>Natural selection</td><td>Survive</td><td>+</td><td>+</td><td>-</td><td>-</td><td>-</td><td>Square cells</td></tr>
+<tr><td>foo52ru snakes</td><td>2D</td><td>Manual, Natural selection</td><td>Survive, win</td><td>+</td><td>+</td><td>-</td><td>Neural network</td><td>-</td><td>Square cells</td></tr>
+<tr><td>SnakeAI</td><td>2D</td><td>Genetic algorithm</td><td>Win</td><td>+</td><td>+</td><td>-</td><td>Neural network</td><td></td><td>Square cells</td></tr>
+<tr><td>Tallensy evolution</td><td>2D</td><td>Genetic algorithm</td><td>Drive the track</td><td>-</td><td>-</td><td>+</td><td>-</td><td>-</td><td>Hexagons with wheels</td></tr>
+<tr><td>Amoebas</td><td>2D</td><td>Genetic algorithm</td><td>Defeat the opponent</td><td>-</td><td>-</td><td>+</td><td>Program with genes</td><td>+</td><td>Amoebas</td></tr>
+<tr><td>gencar.co</td><td>2D</td><td>Genetic algorithm</td><td>Drive the track</td><td>-</td><td>+</td><td>web</td><td>-</td><td>+</td><td>Cars with a changeable body</td></tr>
+<tr><td>Cephalopods</td><td>2D</td><td>Genetic algorithm</td><td>Eat more food</td><td>-</td><td>+</td><td>web</td><td>Spiking neural network</td><td>+</td><td>Octopus-like</td></tr>
+<tr><td>Evolved Virtual Creatures</td><td>3D</td><td>Genetic algorithm</td><td>Walk, jump, fight, swim</td><td>+</td><td>-</td><td>-</td><td>Skiping neural network</td><td>-</td><td>Hinged rectangles, 3D</td></tr>
+<tr><td>Flexible Muscle-Based Locomotion for Bipedal Creatures</td><td>3D</td><td>CMA-ES</td><td>Walk</td><td>+</td><td>-</td><td>-</td><td>?</td><td>-</td><td>Rectangles with muscles</td></tr>
+<tr><td>Onigiri</td><td>3D</td><td>Genetic algorithm</td><td>Walk</td><td>+</td><td>+</td><td>-</td><td>Neural network</td><td>?</td><td>Hinged rectangles</td></tr>
+<tr><td>Framsticks</td><td>3D</td><td>?</td><td></td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td></tr>
+<tr><td>Polyworld</td><td>3D</td><td>Natural selection</td><td>Survive</td><td>+</td><td>+</td><td>-</td><td>Neural network</td><td>?</td><td>Hinged rectangles</td></tr>
+</tbody></table>
+<h2 id="without-visualization"><a class="anchor" href="#without-visualization">#<sup>2</sup></a>Without visualization</h2>
+<h3 id="tierra"><a class="anchor" href="#tierra">#<sup>3</sup></a>Tierra</h3>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=Wl5rRGVD0QI">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/Wl5rRGVD0QI.webp" width="336" height="188">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=Wl5rRGVD0QI">Project Tierra</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCFR40ie2UfwJowGAYkoTbmw">Tomasz Dysinski</a>
+</div>
+<div class="yt-duration">22:37</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=Wl5rRGVD0QI">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<p><a href="https://en.wikipedia.org/wiki/Tierra_%28computer_simulation%29">Tierra</a> is one of the very first artificial life simulations, in which parasites and complex forms emerged.</p>
+<p><a href="http://life.ou.edu/tierra/">Project page.</a></p>
+<p>A 244-page <a href="https://t.me/emergevolution/924">document</a> about this program.</p>
+<p>An <a href="https://t.me/emergevolution/925">executable</a> for Windows. Versions for other platforms (and the source code) are on the official website. This is just a copy.</p>
+<p>How the program works: there's an operating system that handles:</p>
+<ul>
+<li>Memory management</li>
+<li>Allocating computation time to each creature</li>
+<li>Counting deaths and births</li>
+<li>A bank of successful genomes</li>
+<li>Automated ecological analysis</li>
+</ul>
+<p>And the programs of this operating system are the creatures.</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>TODO figure out how this works, because it&#39;s some seriously hardcore work that became the starting point for a lot of things</span></span></code></pre><h2 id="2d"><a class="anchor" href="#2d">#<sup>2</sup></a>2D</h2>
+<h3 id="the-blind-watchmaker"><a class="anchor" href="#the-blind-watchmaker">#<sup>3</sup></a>The Blind Watchmaker</h3>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=dN_6B1auRV4">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/dN_6B1auRV4.webp" width="336" height="188">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=dN_6B1auRV4">Слепой часовщик</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCrJvSk1XRUdP1jO4IU9hFaA">cyd2012</a>
+</div>
+<div class="yt-duration">8:37</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=dN_6B1auRV4">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<p>A video (in Russian) originally made as a dig at religious believers, but we're interested in it for its evolution simulation. What's notable here is that this simulation differs from all the others in what its creatures are made of. It also shows very well the graphs of how different types of creatures develop.</p>
+<p>Unfortunately, a lot of things here are murky:</p>
+<ul>
+<li>The selection criteria are unclear</li>
+<li>Little is explained</li>
+<li>The source code is written in MATLAB, of all things</li>
+</ul>
+<h3 id="evolution-with-muscles"><a class="anchor" href="#evolution-with-muscles">#<sup>3</sup></a>Evolution with muscles</h3>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="460"     height="230"     src="/processed_images/1.73ef667931821ac4.webp"     onclick="full_screen('img/1.png')"     onauxclick="full_screen_new_page('img/1.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<p>You can run it on the <a href="https://keiwan.itch.io/evolution">official website</a>.</p>
+<p><strong>How the creature is controlled:</strong> by a neural network with fully connected layers. The number of layers can be adjusted.</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li>Distance from the ground to the creature</li>
+<li>Current speed</li>
+<li>Angular velocity</li>
+<li>Number of points touching the ground</li>
+<li>Average rotation angle of all body parts</li>
+<li>An eye that sees distance with a single ray</li>
+</ul>
+<p><strong>Outputs:</strong></p>
+<ul>
+<li>Control of each muscle, a value from -1 to 1</li>
+<li>Changing the direction of the eye</li>
+</ul>
+<p><strong>Training method:</strong> genetic algorithm</p>
+<p><strong>Has a fast-forward mode:</strong> no.</p>
+<p><strong>The creature's shape can be modified:</strong> yes.</p>
+<p><strong>Inspired by Karl Sims:</strong> yes.</p>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="557"     height="353"     src="/processed_images/funny_muscles.88a6199e85b27566.webp"     onclick="full_screen('img/funny_muscles.png')"     onauxclick="full_screen_new_page('img/funny_muscles.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<figcaption><a href="https://twitter.com/enormepuissance/status/1256978403619745792">Source</a></figcaption>
+</figure>
+<h3 id="fighting-circles"><a class="anchor" href="#fighting-circles">#<sup>3</sup></a>Fighting circles</h3>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=u2t77mQmJiY">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/u2t77mQmJiY.jpeg" width="1280" height="720">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=u2t77mQmJiY">A genetic algorithm learns how to fight!</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UC0BkzA33G4pjrTaCXok9hTw">Ding Nicolas</a>
+</div>
+<div class="yt-duration">2:15</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=u2t77mQmJiY">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<p>Everything is clear from the video (there are no Russian subtitles, so learn English!). Here's what isn't said in the video but is said on the project's official website, with the French put through Google Translate:</p>
+<p>The ranking system, and therefore the corresponding scoring, is a tournament system (everyone plays against everyone else), where each player gets 3 points for a match won, 1 for a draw and 0 for a loss.</p>
+<p>The selection algorithm used is the "roulette wheel".</p>
+<p><strong>How the creature is controlled:</strong> by a neural network with 2 fully connected layers. The number of layers can be adjusted.</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li>The presence of an enemy in its field of view</li>
+<li>The presence of a cannonball in its field of view</li>
+<li>Whether it has already fired a missile or not</li>
+<li>The width (in radians) of its field of view</li>
+</ul>
+<p><strong>Outputs:</strong></p>
+<ul>
+<li>Go straight</li>
+<li>Turn left</li>
+<li>Turn right</li>
+<li>Shoot</li>
+<li>Change the field of view</li>
+</ul>
+<p><strong>Training method:</strong> genetic algorithm</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="908"     height="530"     src="/processed_images/fight_circles.fb6a05e80b96a66d.webp"     onclick="full_screen('img/fight_circles.png')"     onauxclick="full_screen_new_page('img/fight_circles.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<h3 id="cars-with-arbitrary-neural-networks"><a class="anchor" href="#cars-with-arbitrary-neural-networks">#<sup>3</sup></a>Cars with arbitrary neural networks</h3>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=5lJuEW-5vr8">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/5lJuEW-5vr8.webp" width="336" height="188">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=5lJuEW-5vr8">Neuroevolution - Car learns to drive</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCNzV3u9NBUi8m1Q7qp77E2Q">MiorSoft (reexre)</a>
+</div>
+<div class="yt-duration">5:53</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=5lJuEW-5vr8">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<p>Here the video shows the car's current neural network right on screen: you can see that the inputs are the distances from the eyes, and the outputs are the speed and the steering angle.</p>
+<p>You can also notice that the network isn't the usual perceptron, but has some arbitrary structure where, it seems, loops form.</p>
+<p>In the end, the cars learn to drive themselves perfectly.</p>
+<p>There's an <a href="https://optozorax.github.io/en/e/emergevolution/#arbitrary-neural-network">article</a> about "arbitrary neural networks".</p>
+<h3 id="learn-2d-stick"><a class="anchor" href="#learn-2d-stick">#<sup>3</sup></a>Learn 2D Stick</h3>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1020"     height="624"     src="/processed_images/learn_2d_stick.fe4bbfd000b92a8f.webp"     onclick="full_screen('img/learn_2d_stick.png')"     onauxclick="full_screen_new_page('img/learn_2d_stick.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<p>Here we have creatures made of lines with muscles that learn to walk, jump, etc.</p>
+<p><strong>How the creature is controlled:</strong> by a neural network.</p>
+<p><strong>Training method:</strong> genetic algorithm</p>
+<p><strong>Has a fast-forward mode:</strong> yes.</p>
+<p><strong>The creature's shape can be modified:</strong> yes.</p>
+<p>The program has a rich interface and tons of settings; it's probably the most advanced of all the ones presented here. Here's a video this program can generate.</p>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=xcIBoPuNIiw">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/xcIBoPuNIiw.webp" width="336" height="188">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=xcIBoPuNIiw">EVOLUTION [V6] - Learn to Walk (genetic algorithm & Neural Network)</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCNzV3u9NBUi8m1Q7qp77E2Q">MiorSoft (reexre)</a>
+</div>
+<div class="yt-duration">3:09</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=xcIBoPuNIiw">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<p>You can download it <a href="https://miorsoft.github.io/Site/index.html">here</a>.</p>
+<h3 id="foo52ru"><a class="anchor" href="#foo52ru">#<sup>3</sup></a>foo52ru</h3>
+<p><strong>foo52ru</strong> is the nickname of the author in this section.</p>
+<p>What sets this author apart from the others is his independence and original ideas. Usually people steal ideas from each other and use neural networks where they aren't needed, but this author comes up with unusual ideas himself. He has an interesting old-school style.</p>
+<p>This author is more interested in artificial life based on square cells precisely as life, which can have interesting creatures occupying different niches.</p>
+<p>He created the <a href="https://vk.com/cyberbiology">Cyberbiology</a> group (in Russian), where people publish their work, and there's a chat of like-minded people.</p>
+<h3 id="living-square-cells"><a class="anchor" href="#living-square-cells">#<sup>3</sup></a>Living square cells</h3>
+<p>His first and main work (in Russian):</p>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=SfEZSyvbj2w">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/SfEZSyvbj2w.webp" width="336" height="188">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=SfEZSyvbj2w">генетический алгоритм</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCP1JsJgeNs86oqLGnjfGo9Q">foo52ru ТехноШаман</a>
+</div>
+<div class="yt-duration">9:29</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=SfEZSyvbj2w">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<p>In the video above, no evolution algorithm or genetic algorithm is programmed directly; it arises automatically thanks to the environment. This is called "natural selection".</p>
+<p>He uses square "bots" whose behavior is programmed by a program made of numbers. The program is an assembly-like language, and a mutation can change a random instruction. The bots have to collect food and survive next to each other and under a harsh environment. Whether a genome is good or bad is decided by natural selection.</p>
+<p>There are sequels to this life:</p>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=PCx228KcOow">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/PCx228KcOow.webp" width="336" height="188">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=PCx228KcOow">Искусственная жизнь. Генетический алгоритм. Мир №1</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCP1JsJgeNs86oqLGnjfGo9Q">foo52ru ТехноШаман</a>
+</div>
+<div class="yt-duration">20:14</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=PCx228KcOow">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=jXa5IASmlkg">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/jXa5IASmlkg.webp" width="336" height="188">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=jXa5IASmlkg">Технические подробности проекта "Искусственная жизнь. Мир 1"</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCP1JsJgeNs86oqLGnjfGo9Q">foo52ru ТехноШаман</a>
+</div>
+<div class="yt-duration">12:33</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=jXa5IASmlkg">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=yCwttjIkxLs">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/yCwttjIkxLs.webp" width="336" height="188">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=yCwttjIkxLs">Вирус для "искусственной жизни"</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCP1JsJgeNs86oqLGnjfGo9Q">foo52ru ТехноШаман</a>
+</div>
+<div class="yt-duration">9:54</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=yCwttjIkxLs">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<p>This material is also available as <a href="https://habr.com/ru/post/418545/">an article on Habr</a> (in Russian).</p>
+<p>This is what this world looks like:</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="720"     height="384"     src="/processed_images/foo52ru2.c85f78d8414e8ca7.webp"     onclick="full_screen('img/foo52ru2.png')"     onauxclick="full_screen_new_page('img/foo52ru2.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<p>And this is the same world, but showing the amount of energy:</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="720"     height="384"     src="/processed_images/foo52ru3.d5bf47e14f02f357.webp"     onclick="full_screen('img/foo52ru3.png')"     onauxclick="full_screen_new_page('img/foo52ru3.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<h4 id="tree-simulation"><a class="anchor" href="#tree-simulation">#<sup>4</sup></a>Tree simulation</h4>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1280"     height="720"     src="/processed_images/foo52ru1.150ef10f80495c4e.webp"     onclick="full_screen('img/foo52ru1.png')"     onauxclick="full_screen_new_page('img/foo52ru1.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<p>Lately he's been working on a simulation of life based on trees.</p>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=WTh-gNZxTM8">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/WTh-gNZxTM8.jpeg" width="1280" height="720">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=WTh-gNZxTM8">Эволюция цифровых деревьев</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCP1JsJgeNs86oqLGnjfGo9Q">foo52ru ТехноШаман</a>
+</div>
+<div class="yt-duration">8:57</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=WTh-gNZxTM8">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=vv7R1J-qe1c">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/vv7R1J-qe1c.jpeg" width="1280" height="720">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=vv7R1J-qe1c">Моделирование эволюции "цифровых деревьев"</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCP1JsJgeNs86oqLGnjfGo9Q">foo52ru ТехноШаман</a>
+</div>
+<div class="yt-duration">14:22</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=vv7R1J-qe1c">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=ZhcsoK91tyI">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/ZhcsoK91tyI.webp" width="1280" height="720">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=ZhcsoK91tyI">Эволюция "цифровых деревьев". Версия2.</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCP1JsJgeNs86oqLGnjfGo9Q">foo52ru ТехноШаман</a>
+</div>
+<div class="yt-duration">16:38</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=ZhcsoK91tyI">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<p>This material is also available in text form <a href="https://zen.yandex.ru/media/id/5d9846210ce57b00ae024387/evoliuciia-cifrovyh-derevev-5e633082699c9613543b0536">on Yandex Zen</a> (in Russian).</p>
+<h4 id="snake-evolution"><a class="anchor" href="#snake-evolution">#<sup>4</sup></a>Snake evolution</h4>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=dXcIf5YwaUQ">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/dXcIf5YwaUQ.webp" width="336" height="188">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=dXcIf5YwaUQ">Создаём мозг для "змейки". Часть1.</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCP1JsJgeNs86oqLGnjfGo9Q">foo52ru ТехноШаман</a>
+</div>
+<div class="yt-duration">11:22</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=dXcIf5YwaUQ">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=P9w7nFLEAhg">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/P9w7nFLEAhg.webp" width="1280" height="720">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=P9w7nFLEAhg">Создаём мозг для "змейки". Часть 2.</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCP1JsJgeNs86oqLGnjfGo9Q">foo52ru ТехноШаман</a>
+</div>
+<div class="yt-duration">14:04</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=P9w7nFLEAhg">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=n-KDlkv__B8">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/n-KDlkv__B8.webp" width="1280" height="720">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=n-KDlkv__B8">Создаём мозг для "змейки". Часть 3. Идиократия</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCP1JsJgeNs86oqLGnjfGo9Q">foo52ru ТехноШаман</a>
+</div>
+<div class="yt-duration">5:44</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=n-KDlkv__B8">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<h3 id="snakeai"><a class="anchor" href="#snakeai">#<sup>3</sup></a>SnakeAI</h3>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=zIkBYwdkuTk">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/zIkBYwdkuTk.webp" width="1280" height="720">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=zIkBYwdkuTk">Neural Network Learns to Play Snake</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCNyqyqTJVP8B4QUONiGXOpQ">Greer Viau</a>
+</div>
+<div class="yt-duration">7:13</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=zIkBYwdkuTk">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<p>The author trains a neural network to play Snake. The inputs are vision signals: the distance to food, to a wall and to its own body; 24 inputs in total. The output is simply which direction to move in.</p>
+<p>The network is an ordinary fully connected perceptron.</p>
+<p>It's trained with a genetic algorithm.</p>
+<p>The source code and the same thing in text form are in the repository: <a href="https://github.com/greerviau/SnakeAI">github.com/greerviau/SnakeAI</a>.</p>
+<h4 id="snake-problems"><a class="anchor" href="#snake-problems">#<sup>4</sup></a>Snake problems</h4>
+<p>The problem with almost all implementations of snake evolution is that the snake can't remember where it has been before and what shape it has arranged its body into. That means it arranges its body either to get to the food as quickly as possible, or according to a single pattern. But it's unlikely to arrange its body sensibly enough once it has eaten too much food and its body takes up 90% of the board. You can see how a snake should ideally play here:</p>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=kZr8sR9Gwag">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/kZr8sR9Gwag.webp" width="336" height="188">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=kZr8sR9Gwag">The Perfect Snake Game</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UC6I5_NMIwE-ptNDm3LgZarA">Omar Ghatasheh</a>
+</div>
+<div class="yt-duration">2:27</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=kZr8sR9Gwag">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<p>A simple memoryless neural network can't win like that.</p>
+<p>One way to solve this problem is to feed a much larger amount of state into the input, for example a larger area of the board. That way the network can learn the complex patterns it forms itself and how to deal with them. For example, this is how <a href="https://optozorax.github.io/en/e/emergevolution/#snake-evolution">foo52ru</a> did it.</p>
+<p>Another way is to directly give the network the ability to remember, or to plan steps in its head, or to use Monte Carlo Tree Search, but nobody has done that yet.</p>
+<h3 id="tallensy-evolution"><a class="anchor" href="#tallensy-evolution">#<sup>3</sup></a>Tallensy evolution</h3>
+<p><a href="https://t.me/emergevolution/231">Tallensy evolution</a> for Android, plus <a href="https://t.me/emergevolution/237">version 2.0</a>. It doesn't work on newer versions of Android. Here cars made of hexagons and wheels evolve; hexagons of different colors have different functions. Only the shape evolves: the cars have no brain and always drive forward. The goal of evolution is to build a car that gets the farthest on this winding road. The road is very short, so they quickly come up with a decent car.</p>
+<p>Hexagon types:</p>
+<ul>
+<li>Green ones generate energy</li>
+<li>White ones store excess energy</li>
+<li>Purple ones push the car when it gets stuck</li>
+<li>Green ones give speed</li>
+</ul>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="510"     height="323"     src="/processed_images/tallensy1.146b9d4d631ab060.webp"     onclick="full_screen('img/tallensy1.jpg')"     onauxclick="full_screen_new_page('img/tallensy1.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1044"     height="310"     src="/processed_images/tallensy2.bfb1a01c9ef3788c.webp"     onclick="full_screen('img/tallensy2.jpg')"     onauxclick="full_screen_new_page('img/tallensy2.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<h3 id="amoebas"><a class="anchor" href="#amoebas">#<sup>3</sup></a>Amoebas</h3>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>TODO</span></span></code></pre><h3 id="gencar-co"><a class="anchor" href="#gencar-co">#<sup>3</sup></a>gencar.co</h3>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>TODO describe</span></span></code></pre><h3 id="cephalopods"><a class="anchor" href="#cephalopods">#<sup>3</sup></a>Cephalopods</h3>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="400"     height="264"     src="/processed_images/Cephalopods.563b7e7ff8f76351.webp"     onclick="full_screen('img/Cephalopods.png')"     onauxclick="full_screen_new_page('img/Cephalopods.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<figcaption><a href="https://jobtalle.com/Cephalopods/">Source</a></figcaption>
+</figure>
+<p>An <a href="https://jobtalle.com/neuroevolution_in_squids.html">article</a> about it.</p>
+<p>The creatures' task: simply to move forward as fast as possible.</p>
+<p>Unfortunately, the creatures in this simulation have no sensors at all; they can't sense anything. So at the beginning they can't afford the slightest mistake if they are to go perfectly forward, because afterwards a creature won't be able to correct its trajectory or realize that it has gone off course.</p>
+<h4 id="ideas-for-development"><a class="anchor" href="#ideas-for-development">#<sup>4</sup></a>Ideas for development</h4>
+<p>There are a couple of ideas for how this could be developed:</p>
+<ul>
+<li>Give them the ability to sense the density of the particles around them, where the closer the particles, the stronger the density.</li>
+<li>Similarly, a sense of the density of surrounding enemies</li>
+<li>The density works over 360 degrees. You could dedicate 36 neurons to it, for example</li>
+</ul>
+<p>And give them more time on the field, so that they manage to eat these particles and take into account where the enemies go, in order to collect as many as possible</p>
+<p>And then test this on different fields:</p>
+<ul>
+<li>like on that website, where the field has one center</li>
+<li>where there are several centers</li>
+<li>where everything is spread evenly</li>
+</ul>
+<p>Or you could make two rings of density sensing at different distances, feed them to the creature, so that it learns to tell the distance to objects from them. Then we connect a separate neural network that moves in the given direction, visualize this direction and see at a high level what the neural network wants!</p>
+<h2 id="3d"><a class="anchor" href="#3d">#<sup>2</sup></a>3D</h2>
+<h3 id="karl-sims-work"><a class="anchor" href="#karl-sims-work">#<sup>3</sup></a>Karl Sims' work</h3>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=2ZJijzzJzWU">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/2ZJijzzJzWU.webp" width="1280" height="720">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=2ZJijzzJzWU">Эволюция виртуальных существ (перевод)</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCIsVwdLhYrrs3K8MOXEZdhQ">optozorax</a>
+</div>
+<div class="yt-duration">4:09</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=2ZJijzzJzWU">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<p>A masterpiece made in 1994! <code>optozorax</code> wrote a review of this work, where you can find links to the originals and lots of ideas for improving it:</p>
+<p><a href="/en/p/evolution-virtual-creatures/">Evolved Virtual Creatures</a></p>
+<p><strong>MUST READ!</strong></p>
+<h3 id="flexible-muscle-based-locomotion-for-bipedal-creatures"><a class="anchor" href="#flexible-muscle-based-locomotion-for-bipedal-creatures">#<sup>3</sup></a>Flexible Muscle-Based Locomotion for Bipedal Creatures</h3>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=pgaEE27nsQw">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/pgaEE27nsQw.jpeg" width="1280" height="720">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=pgaEE27nsQw">Flexible Muscle-Based Locomotion for Bipedal Creatures</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCOwZa5EtffJa7we4dfMUdng">Thomas Geijtenbeek</a>
+</div>
+<div class="yt-duration">5:21</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=pgaEE27nsQw">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<p>A classic. Here an evolutionary algorithm is used to find muscle control for these complex creatures that makes them walk beautifully and stably. The CMA-ES algorithm is used to search for the optimal solution.</p>
+<p>This work is very interesting because they use lots of muscles, and their creatures move very realistically. You could try reading their paper and using it for your own artificial life simulation.</p>
+<p>This is exactly where that famous meme comes from, the one where a big cube is thrown at a walking person:</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="632"     height="544"     src="/processed_images/flexible_muscles.aab9f5fa5437373d.webp"     onclick="full_screen('img/flexible_muscles.png')"     onauxclick="full_screen_new_page('img/flexible_muscles.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<p><a href="https://www.goatstream.com/research/papers/SA2013/SA2013.pdf">The paper</a> where all this is described in more detail. They used the <a href="https://optozorax.github.io/en/e/emergevolution/#cma-es">CMA-ES</a> algorithm, which promises to be really cool.</p>
+<h3 id="onigiri"><a class="anchor" href="#onigiri">#<sup>3</sup></a>Onigiri</h3>
+<p>Onigiri is a YouTube author. In these videos (in Russian) he trains creatures made of rectangles and gives them the task of moving forward. He uses neural networks for the creatures.</p>
+<p>What's interesting is that his evolution started working better when he added crossover.</p>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=JaPwn-pvHTs">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/JaPwn-pvHTs.webp" width="1280" height="720">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=JaPwn-pvHTs">Сделал генетический алгоритм | симуляция ЭВОЛЮЦИИ</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCzdmz_lLWT_dPqOvFjXAMVg">Onigiri</a>
+</div>
+<div class="yt-duration">7:04</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=JaPwn-pvHTs">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=v5f6fz3a9Ho">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/v5f6fz3a9Ho.jpeg" width="1280" height="720">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=v5f6fz3a9Ho">ИИ учится ходить</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCzdmz_lLWT_dPqOvFjXAMVg">Onigiri</a>
+</div>
+<div class="yt-duration">11:38</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=v5f6fz3a9Ho">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<h3 id="framsticks"><a class="anchor" href="#framsticks">#<sup>3</sup></a>Framsticks</h3>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="640"     height="480"     src="/processed_images/framsticks.7c0b677c939d6f3d.webp"     onclick="full_screen('img/framsticks.jpg')"     onauxclick="full_screen_new_page('img/framsticks.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<figcaption><a href="http://www.framsticks.com/">Source</a></figcaption>
+</figure>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>TODO study</span></span></code></pre><h3 id="polyworld"><a class="anchor" href="#polyworld">#<sup>3</sup></a>Polyworld</h3>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=_m97_kL4ox0">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/_m97_kL4ox0.webp" width="336" height="188">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=_m97_kL4ox0">Polyworld: Using Evolution to Design Artificial Intelligence</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCtXKDgv1AVoG88PLl8nGXmw">Google TechTalks</a>
+</div>
+<div class="yt-duration">66:39</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=_m97_kL4ox0">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<p>Creatures similar to the ones in Karl Sims' video. They were put together in one place to try to survive. That is, their development was left to natural selection. It was inspired by Karl Sims' work.</p>
+<p>In theory, the creatures here should come up with complex behavior. The results are sad: no complex behavior emerged, the complexity of the brain eventually converged to some limit, and in the video itself the author seriously raises this issue.</p>
+<h1 id="about-evolution-in-general"><a class="anchor" href="#about-evolution-in-general">#</a>About evolution in general</h1>
+<h2 id="comic"><a class="anchor" href="#comic">#<sup>2</sup></a>Comic</h2>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="569"     height="338"     src="/processed_images/eye-evolution-preview.73c8179205206543.webp"     onclick="full_screen('img/eye-evolution-preview.png')"     onauxclick="full_screen_new_page('img/eye-evolution-preview.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<figcaption><a href="img/eye-evolution.jpeg">Large version</a></figcaption>
+</figure>
+<p>A fairly simple but big comic (in Russian) that explains well how the eye could potentially have arisen, and shows evidence for evolution that has already been observed.</p>
+<p><strong>MUST READ!</strong></p>
+<h2 id="the-evolution-of-trust"><a class="anchor" href="#the-evolution-of-trust">#<sup>2</sup></a>The Evolution of Trust</h2>
+<p>A game that shows how trust develops between people; it uses a lot of visualization of this process and explains it with game theory.</p>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1200"     height="600"     src="/processed_images/trust_evolution.9c764cb4be06d1d8.webp"     onclick="full_screen('img/trust_evolution.png')"     onauxclick="full_screen_new_page('img/trust_evolution.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<figcaption><a href="https://notdotteam.github.io/trust/">Source</a></figcaption>
+</figure>
+<h2 id="diversity-in-the-real-world"><a class="anchor" href="#diversity-in-the-real-world">#<sup>2</sup></a>Diversity in the real world</h2>
+<p><a href="https://t.me/emergevolution/340">A quote from a chat member:</a></p>
+<blockquote>
+<p>Even in practice, people who breed feeder insects themselves (cockroaches, crickets) for their pets find that after a few generations they become weak, unless you "mix in blood" from other populations</p>
+</blockquote>
+<p>An article about the <a href="https://en.wikipedia.org/wiki/Population_bottleneck">population bottleneck</a>.</p>
+<p>It would be interesting to understand why diversity within a species doesn't play the same role in our programs as it does in the evolution of living things on our planet. Apparently the main thing about reality is that there are tons of different genes, and the adaptability of a species depends on their diversity. In computer programs, on the other hand, we usually have one big gene, and cutting the population down to the best 1% doesn't affect the overall result at all.</p>
+<p>It would also be interesting to understand how to write an evolution simulation in which gene diversity gives a boost to survival.</p>
+<h2 id="why-real-evolution-manages-to-adapt-so-easily"><a class="anchor" href="#why-real-evolution-manages-to-adapt-so-easily">#<sup>2</sup></a>Why real evolution manages to adapt so easily</h2>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1200"     height="630"     src="/processed_images/habr3.594d15346133cfbc.webp"     onclick="full_screen('img/habr3.jpg')"     onauxclick="full_screen_new_page('img/habr3.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<figcaption><a href="https://habr.com/ru/post/370321/">Source</a> (in Russian)</figcaption>
+</figure>
+<p>The gist of the article: evolution in the real world makes its creatures redundant; they have too much "extra" stuff, which lets them adapt quickly to changing conditions.</p>
+<h1 id="about-artificial-life-in-general"><a class="anchor" href="#about-artificial-life-in-general">#</a>About artificial life in general</h1>
+<h2 id="postnauka-video"><a class="anchor" href="#postnauka-video">#<sup>2</sup></a>PostNauka video</h2>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=tGNDQvNND2c">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/tGNDQvNND2c.webp" width="1280" height="720">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=tGNDQvNND2c">Михаил Бурцев - Искусственная жизнь</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCSPd93is2UQsd_jZ6yHBfqQ">ПостНаука</a>
+</div>
+<div class="yt-duration">14:34</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=tGNDQvNND2c">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<p>In this video (in Russian), the speaker mentions two interesting things:</p>
+<ol>
+<li><a href="https://optozorax.github.io/en/e/emergevolution/#von-neumann-automaton">Von Neumann's cellular automaton</a>, which can self-replicate (?).</li>
+<li><a href="https://optozorax.github.io/en/e/emergevolution/#tierra">Tierra</a> - a program about taking over RAM, in which parasites and complex things appeared. Made in the 90s.</li>
+</ol>
+<h1 id="mathematical-foundations"><a class="anchor" href="#mathematical-foundations">#</a>Mathematical foundations</h1>
+<p><strong>Disclaimer:</strong> I explain this in my own words and the way I understand it myself, without trying to write it as formally and correctly as possible, so there will be assumptions in some places and simplifications in others. If you want correct information, read books. What follows is written only to introduce the topic and to form your first associations. P.S. THIS INFORMATION IS PROVIDED "AS IS" AND ITS AUTHOR TAKES NO RESPONSIBILITY FOR IT :D</p>
+<h2 id="derivative-gradient"><a class="anchor" href="#derivative-gradient">#<sup>2</sup></a>Derivative, gradient</h2>
+<p><strong>The derivative of a function</strong> is an operation on a function that returns a new function; the new function shows how strongly the result of the function changes as a given variable changes. For more, see <a href="https://en.wikipedia.org/wiki/Derivative">Wikipedia</a>.</p>
+<p>You can take the derivative only of a function that returns a real number (well, or a complex one, etc., but not a discrete one, not a natural number). You can also take the derivative with respect to different variables of a function, but only those that are real numbers. This is called a <a href="https://en.wikipedia.org/wiki/Partial_derivative">partial derivative</a>.</p>
+<p>Let's say we have a function: <code>run_simulation(alpha, beta, genome) -&gt; score</code>. It shows how many points a creature will earn with the real-number parameters <code>alpha</code> and <code>beta</code>, and with <code>genome</code>, which is not a real number but a set of bits. <code>genome</code> defines some discrete structure of the creature, for example the number of layers and the number of neurons in each layer, all of it laid out in bits, say. The function returns a single real number: the creature's fitness score in this world. The bigger this number, the better.</p>
+<p>Let's try to take the partial derivative of <code>run_simulation</code> with respect to the variable <code>alpha</code>; since it is a real number, we can do that. We get the function <code>run_simulation_d_alpha(alpha, beta, genome) -&gt; dscore</code>. This function shows how strongly the score will change for different values of <code>alpha</code> with the parameters <code>beta</code> and <code>genome</code> fixed.</p>
+<p><strong>The gradient</strong> is almost the same as the derivative, except that it is a vector of derivatives with respect to all possible variables. That is, the new function returns not one number but several at once, one for each parameter: <code>run_simulation_gradient(alpha, beta, genome) -&gt; (d_alpha_score, d_beta_score)</code>. So we take the derivative with respect to all parameters at once.</p>
+<p>The gradient is a vector that points in the direction in which the function increases.</p>
+<p>I didn't go into details like partial derivatives, different coordinates and Jacobian matrices, just to keep things simple. I hope you'll learn all of this yourself when you study at university.</p>
+<p>Gradients are used very heavily in tons of optimization methods (and so in neural networks), which is why I started with them.</p>
+<h2 id="optimization-methods"><a class="anchor" href="#optimization-methods">#<sup>2</sup></a>Optimization methods</h2>
+<p><strong>An optimization method</strong> is a method that finds the minimum/maximum of a given function that returns a single number. From here on we'll say that an optimization method always looks for a minimum, because you can find a maximum through a minimum by simply putting a minus in front of the function.</p>
+<p>That is, this method takes a function that returns a single real number and finds the parameters for which this returned number is at its minimum.</p>
+<p>The process of finding the minimum is called optimization.</p>
+<p>An example with our function <code>run_simulation</code>: an optimization method will find the parameters at which the score reaches its maximum value. And the parameters of this function are the creature's genome. So with this method we'll find the creature that best solves the task we need in the simulation.</p>
+<p>Usually all optimization methods work with functions that take real numbers and return real numbers. So finding the optimal <code>genome</code> in the <code>run_simulation</code> function won't really work (but there's a small "but", which I'll get to <a href="https://optozorax.github.io/en/e/emergevolution/#genetic-algorithm">later</a>).</p>
+<p>Also, optimization methods very often require computing gradients, which is why I started talking about them. Gradient-free optimization methods exist too, but that's a separate topic, and I'll get to it later.</p>
+<p><a href="http://fa.bianp.net/teaching/2018/COMP-652/">An overview of optimization methods with visualizations (!)</a>.</p>
+<p>I also <a href="https://t.me/emergevolution/269">tried to write out the same thing in the chat</a> (in Russian).</p>
+<h3 id="gradient-descent"><a class="anchor" href="#gradient-descent">#<sup>3</sup></a>Gradient descent</h3>
+<p>This method works with a function of many variables. You've probably heard that neural networks are trained with exactly this method.</p>
+<p>All this method needs is a starting point and a way to compute the gradient, and it will find the minimum of a smooth function.</p>
+<p><a href="https://en.wikipedia.org/wiki/Gradient_descent">Wikipedia</a> has great illustrations.</p>
+<p>Once again: gradient descent is not some component of neural networks, it's just an optimization method that happens to perform well. In fact, neural networks can be optimized with anything: a genetic algorithm, the multidimensional Newton's method, random search, anything that can find a minimum. But it's gradient descent that works best from a practical point of view.</p>
+<h3 id="these-are-all-local-search-methods"><a class="anchor" href="#these-are-all-local-search-methods">#<sup>3</sup></a>These are all local search methods</h3>
+<p>There are two kinds of optimization methods: <strong>local</strong> and <strong>global</strong>. A local method finds different minima depending on the starting point and on luck. It won't necessarily find the smallest minimum, because it simply has no information about the other hills, since it's very limited in what it computes.</p>
+<p>A global optimization method can find <strong>all</strong> minima and choose the smallest among them. But in the general case this is exotic, so don't hope that someone will ever invent a global optimization method that is usable in practice.</p>
+<p>Almost all optimization methods aim at finding local minima. If you want to find all possible minima and invent a global optimization method, then <s>you'd better not open this can of worms</s>. First, because local minima should usually be enough, and second, because you can spend way too much effort on finding all the minima and get only, say, a 10% improvement over a local one.</p>
+<h2 id="what-is-a-neural-network"><a class="anchor" href="#what-is-a-neural-network">#<sup>2</sup></a>What is a neural network</h2>
+<p>Some people have this stereotype that modern neural networks are successful precisely because they take the ideas for their structure from the brains of living beings. Not really. Read, for example, the article about the <a href="https://en.wikipedia.org/wiki/Perceptron">perceptron</a>, which is the basis of all modern neural networks. Does this even hypothetically resemble what happens in the brain? Of course not: there are no loops, no memory elements, it's just... something very linear.</p>
+<p>In fact, mathematically the perceptron boils down to multiplying a matrix by a vector and applying an activation function to the vector. So neural networks are more about matrices than about separate functioning elements called neurons.</p>
+<p>If you don't know what matrices are, just think of multiplying a matrix by a vector as a way to write down many multiplications and additions done in parallel.</p>
+<p>And a neural network lets you easily write down an <em>approximation</em> of some function using numbers. For example, you have a complicated function <code>sin(x * ln(cos(x) + 2))</code>, and you want to approximate it on the interval <code>[-1, 1]</code>, knowing only its values. Well, with a neural network you're guaranteed to find some numbers that approximate this function with an error of 0.0001 (or any number you like). So a <strong>neural network</strong> is a way to define a function through numbers.</p>
+<p>Then what is a neural network that takes a picture and returns who is in it, a dog or a cat? It's an approximation of a real function (an oracle) that always correctly tells what is a dog and what is a cat. That is, we don't know the inner workings of the oracle function (and never will), but we can approximate it just by taking its inputs and outputs.</p>
+<p>On the other hand, you can think of it this way: we don't approximate some nonexistent function from its inputs and outputs, we simply minimize a loss function, and thanks to the large number of degrees of freedom of a neural network we do it well. In the end the neural network works well enough for practical purposes.</p>
+<p>Actually, there are a million other ways to define functions through numbers, but matrix multiplication seems the simplest and the most optimal.</p>
+<p>One more important thought: the current success of neural networks, again, isn't a success of neural networks themselves and of taking their structure from the brains of living beings; it's a success of optimization methods and of automatic differentiation methods, which I'll talk about later.</p>
+<p>Just look at these matrix multiplications and at finding the minimum of a function by taking the gradient. Where is the biology here? Where are the processes that actually happen in the brains of living beings? They aren't here: machine learning and "neural networks" have long been a field far removed from biology.</p>
+<p>And in general, I think we should stop calling all this "neural networks" and explaining that a neural network consists of neurons that send signals onward, because this kind of popularization puts the emphasis in the wrong place and confuses the average person.</p>
+<h2 id="computing-the-derivative-and-the-gradient-numerically"><a class="anchor" href="#computing-the-derivative-and-the-gradient-numerically">#<sup>2</sup></a>Computing the derivative and the gradient numerically</h2>
+<p>At school you learned how to take the derivative of a function whose analytic expression you know, for example: <code>f(x) = sin(x) * cos(x^2)</code>, and <code>f'(x) = cos(x) * cos(x^2) - 2 * x * sin(x) * sin(x^2)</code>.</p>
+<p>But how do you take the derivative of a function whose expression you don't know, or which can't be written down at all? The numerical derivative! It's computed by definition:</p>
+<p><code>f'(x) ≈ (f(x+0.00001) - f(x))/0.00001</code></p>
+<p>Where <code>0.00001</code> can be replaced by any other number, depending on your needs.</p>
+<p>So to approximately compute the derivative, you need to compute the function itself 2 times: at the original point and at a point shifted by a constant.</p>
+<p>For our function <code>run_simulation</code>, this means we have to run the simulation twice!</p>
+<p>Okay, and what if we want to compute the gradient? Well, the same thing, only for each variable. So if we want to numerically compute the gradient of a function with <code>N</code> parameters, we'll have to compute the function <code>N+1</code> times with different parameters.</p>
+<p>Smell that burning CPU? Now imagine we have a neural network with 400 parameters, you use this network to tell whether a picture shows a cat or a dog, and the network is being optimized to tell them apart better. Then to get the gradient we'd have to run the network on each picture 401 times! That's very bad.</p>
+<h2 id="backpropagation-for-computing-the-gradient"><a class="anchor" href="#backpropagation-for-computing-the-gradient">#<sup>2</sup></a>Backpropagation for computing the gradient</h2>
+<p>Actually, just look at <a href="https://en.wikipedia.org/wiki/Backpropagation">Wikipedia</a>.</p>
+<p>It's a method that lets you compute the gradients of a neural network with respect to all variables while evaluating the network only once! Sure, the method is complicated and you have to record a lot of information, but the network is still evaluated just 1 TIME!</p>
+<p>It's precisely thanks to the invention of this method that neural networks took off and became a promising field at all. Because nobody is going to compute the gradients of a neural network of size N by evaluating the network N times.</p>
+<h2 id="computational-graph"><a class="anchor" href="#computational-graph">#<sup>2</sup></a>Computational graph</h2>
+<p>So we've learned that for an evaluated neural network the gradients can be computed in <code>O(1)</code> using backpropagation.</p>
+<p>But actually things are much better. We can do the same for any linear (and even nonlinear) computation.</p>
+<p>To compute some formula, you can build a computational graph in advance, where traversing it in one direction in a special way gives us the values, and traversing it in the other direction in another way gives us the gradient. I won't explain how it works, just know that it works like that. For the details, see pages 69-81 of <a href="https://t.me/emergevolution/278">Nikolenko's book "Deep Learning"</a> (in Russian).</p>
+<p>In general, the process of building a computational graph and then taking derivatives through it is called <strong>automatic differentiation</strong>.</p>
+<p>And you can compute gradients with "backpropagation" not only for neural networks but for almost anything, including simulations. For example, <a href="https://optozorax.github.io/en/e/emergevolution/#physics">here's differentiable physics</a>.</p>
+<p>And the pictures below are just to catch your eye:</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1280"     height="846"     src="/processed_images/graph1.en.6c44edfe30654ece.webp"     onclick="full_screen('img/graph1.en.png')"     onauxclick="full_screen_new_page('img/graph1.en.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.3<br>png</div> </div> </div>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1280"     height="1051"     src="/processed_images/graph2.en.688599dbaa9fbac6.webp"     onclick="full_screen('img/graph2.en.png')"     onauxclick="full_screen_new_page('img/graph2.en.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1.3<br>png</div> </div> </div>
+<h2 id="noise"><a class="anchor" href="#noise">#<sup>2</sup></a>Noise</h2>
+<p>Most of the optimization methods here are designed for functions without noise. Gradient descent, for example. It will work well only on a smooth function, where you can always clearly see which way the slope goes. And if your function is very noisy, gradient descent will just stupidly walk in a random direction at every point and get nowhere.</p>
+<p>To get rid of noise, people usually use all sorts of regularization, or switch to an optimization method that is designed to handle noise.</p>
+<p>In a field like training agents, noise is the norm. So when you choose an optimization method, pay attention to this, or run experiments.</p>
+<h2 id="other-optimization-methods"><a class="anchor" href="#other-optimization-methods">#<sup>2</sup></a>Other optimization methods</h2>
+<p>There are a hundred or so other methods for finding the minimum of a function. Here I'll describe the most practically useful ones, and also just so that you know they exist.</p>
+<h3 id="newton-s-method"><a class="anchor" href="#newton-s-method">#<sup>3</sup></a>Newton's method</h3>
+<p>This method requires computing the Hessian matrix, which consists of second partial derivatives and has size <code>NxN</code>. So if your neural network has <code>1 000 000</code> parameters, the matrix has to be of size <code>10^12</code>. Which is a bit much. And computing all of it takes a very long time.</p>
+<p>But on the upside, it converges in fewer iterations than gradient descent, and it finds the direction to move in much more stably.</p>
+<p>For small problems you can quite well use it, if you're too lazy to figure out why gradient descent doesn't converge.</p>
+<h3 id="quasi-newton-methods"><a class="anchor" href="#quasi-newton-methods">#<sup>3</sup></a>Quasi-Newton methods</h3>
+<p>These methods let you avoid storing and computing the Hessian matrix; instead they use an approximation of it, sometimes storing it, sometimes not. To do this, they use only information about the gradients.</p>
+<p>An example of such a method: BFGS.</p>
+<p>If you don't want to deal with tuning gradient descent, you'd better use BFGS; Newton's method, who needs it.</p>
+<h3 id="bayesian-optimization"><a class="anchor" href="#bayesian-optimization">#<sup>3</sup></a>Bayesian optimization</h3>
+<p>This is a global search method that tries to use the minimum number of function evaluations to get the maximum of information.</p>
+<p>Just look at the GIF of how this method works in <a href="https://github.com/fmfn/BayesianOptimization">this repository</a>. All the other information is also there, and I see no point in retelling it.</p>
+<h3 id="cma-es"><a class="anchor" href="#cma-es">#<sup>3</sup></a>CMA-ES</h3>
+<p>A very promising algorithm for optimizing problems where we don't know the gradient and there's a lot of noise. It works on parameters that are real numbers.</p>
+<p><a href="https://t.me/emergevolution/361">The paper.</a></p>
+<p><a href="http://www.cmap.polytechnique.fr/~nikolaus.hansen/cmaesintro.html">A page</a> with tutorials and source code in different languages.</p>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=Z458X7QxccY">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/Z458X7QxccY.webp" width="336" height="188">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=Z458X7QxccY">CMA-ES ΓÇô a Stochastic Second-Order Method for Function-Value FreeNumerical Optimization</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCCb9_Kn8F_Opb3UCGm-lILQ">Microsoft Research</a>
+</div>
+<div class="yt-duration">56:17</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=Z458X7QxccY">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<p><a href="http://www.cmap.polytechnique.fr/~nikolaus.hansen/gecco2012-CMA-ES-tutorial.pdf">Slides</a> from the video above.</p>
+<p>From the slides, you can tell that the algorithm is based on a multivariate normal distribution and, depending on the information it gets, adjusts this distribution so that its ellipse is oriented and shifted towards the region with the highest probability of success. Plus a bunch of other tricks; in theory it should work very well.</p>
+<p>This method is very popular, I recommend it.</p>
+<h3 id="genetic-algorithm"><a class="anchor" href="#genetic-algorithm">#<sup>3</sup></a>Genetic algorithm</h3>
+<p>Remember that all the optimization methods above work only with real numbers, and none of them allows for integers or any kind of discrete structure. Well, this method is a total game changer, because it can work with exactly that: discrete structures (remember <code>genome</code> in the <code>run_simulation</code> function).</p>
+<p>It's based on evolution and mutations. It has already been explained a million times in the videos earlier in this document, so I won't repeat it.</p>
+<p>Let's take the definition from Wikipedia: <strong>A genetic algorithm</strong> is a heuristic search algorithm used to solve optimization and modeling problems by randomly selecting, combining and varying the sought parameters, using mechanisms similar to natural selection in nature.</p>
+<p>An important part of a genetic algorithm is crossover. So when you don't use crossover, formally you can't say that you're using a "genetic algorithm"; formally you're just using an "evolutionary algorithm". But since nobody cares, everyone says "genetic algorithm".</p>
+<p>So if you want to search for the optimal program or the optimal body shape, this method may come in handy. I don't know any other methods for optimizing discrete parameters. If you know of something like that, please, please tell us in the chat.</p>
+<p>Unfortunately, nobody has come up with as huge a science for discrete structures as the one for real numbers: no gradients for you, no line searches. That's probably why everyone strives to turn any discrete structure into a real-valued one. For example, you can represent an arbitrary neural network as a graph (a discrete structure) and try to optimize its structure, or you can represent the neural network as a matrix whose structure is defined entirely by real numbers. Obviously, the second approach will be more successful at solving the optimization problem, because the math there is just plain better.</p>
+<h4 id="about-genetic-algorithms"><a class="anchor" href="#about-genetic-algorithms">#<sup>4</sup></a>About genetic algorithms</h4>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=NyRHlzkGZ6Q">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/NyRHlzkGZ6Q.jpeg" width="1280" height="702">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=NyRHlzkGZ6Q">Генетические алгоритмы</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCqLPYxuAz-WbdEBLBk_Tb7g">Хекслет</a>
+</div>
+<div class="yt-duration">34:54</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=NyRHlzkGZ6Q">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<p>A decent lecture about genetic algorithms (in Russian). I'm not sure how good the video is, because I watched it a long time ago when I was a kid; I liked it back then, but now it seems to me that it's not all that great.</p>
+<h4 id="implementing-genetic-algorithms-in-practice"><a class="anchor" href="#implementing-genetic-algorithms-in-practice">#<sup>4</sup></a>Implementing genetic algorithms in practice</h4>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=OMkCWX5NihA">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/OMkCWX5NihA.webp" width="1280" height="720">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=OMkCWX5NihA">Практика реализации генетических алгоритмов</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCTSUjdap-_tg2Zl7tC_SgmQ">Fox Devs</a>
+</div>
+<div class="yt-duration">45:52</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=OMkCWX5NihA">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<p>This video (in Russian) is pretty weak, not much is clear, you can skip it. But the second part is good:</p>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=S1ADSNWyKwQ">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/S1ADSNWyKwQ.webp" width="1280" height="720">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=S1ADSNWyKwQ">Практика реализации генетических алгоритмов. Часть 2 (Максим Рубцов)</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCTSUjdap-_tg2Zl7tC_SgmQ">Fox Devs</a>
+</div>
+<div class="yt-duration">73:35</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=S1ADSNWyKwQ">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<p>Thanks to this video I learned why crossover is needed and how to do it, so it's a must-watch. In it he shows with an example that crossover in the form of shuffling real numbers works well only for close individuals and makes no sense for distant ones.</p>
+<p>I also really liked how he defined the behavior of a unicycle individual with just 4 points! I would have started hacking together all sorts of neural networks, and he just used 4 points! And on top of that, these 4 points freaking learned to hack the physics!</p>
+<h3 id="when-crossover-is-justified-and-when-it-isn-t"><a class="anchor" href="#when-crossover-is-justified-and-when-it-isn-t">#<sup>3</sup></a>When crossover is justified and when it isn't</h3>
+<p>Whether to use crossover in evolution is a tricky topic: on the one hand it can bring a negative result, on the other a positive one. To figure it out, we can look at a couple of examples:</p>
+<p><a href="https://twitter.com/optozorax/status/1141021230176227328">A Twitter thread</a> about crossover having a negative effect on a genetic algorithm solving the traveling salesman problem.</p>
+<p>A striking example of when crossover comes in handy is <a href="https://www.youtube.com/watch?v=v5f6fz3a9Ho">Onigiri's video</a> (in Russian). Here crossover is applied to the weights of neural networks that are roughly the same. Crossover here can be explained like this: it lets you find a point in the middle between two good <strong>close</strong> points. That is, in this case crossover would have performed very badly if the networks differed too much in their weights: such offspring would simply be unviable.</p>
+<p>And this thought is confirmed <a href="https://optozorax.github.io/en/e/emergevolution/#implementing-genetic-algorithms-in-practice">above</a> too.</p>
+<p>As for crossover of discrete structures, it's a very controversial topic, and it has to be considered separately for each specific case.</p>
+<p>If you're making your own genetic algorithm over discrete structures, better not do crossover.</p>
+<p>Crossover is the kind of thing you should only use when you clearly understand what you're doing. In other cases ordinary mutations are enough.</p>
+<h3 id="natural-selection"><a class="anchor" href="#natural-selection">#<sup>3</sup></a>Natural selection</h3>
+<p>This method is used in artificial life, but it's not really an optimization method.</p>
+<p>This term came up somewhere in the cyberbiologists' chat. It means the following: we create some environment and put creatures into it that can reproduce and die, and even interact with and affect each other. In that case you don't even need to program any optimization algorithm specifically; you only need to define what lets creatures reproduce and what makes them die, and add mutations during reproduction; and they will evolve by themselves. Different generations of creatures will exist at different times, no restrictions are imposed here.</p>
+<p>In a genetic algorithm it's assumed that all creatures of a given generation are born and die at the same time, and are evaluated in the environment independently of each other. On top of that, there's a special function that says how well adapted a given creature is. In natural selection there's nothing like that, and everything is determined by the environment, implicitly.</p>
+<p>With this method we make a kind of soup of simulated creatures that do something. It can lead either to something unusual (as in the case of foo52ru), or to no result at all (as in the case of Polyworld).</p>
+<p>But this method obviously requires a large number of creatures on the field at the same time, and preferably a very, very large field, so that ecosystems can form.</p>
+<h2 id="differentiable-things"><a class="anchor" href="#differentiable-things">#<sup>2</sup></a>Differentiable things</h2>
+<h3 id="physics"><a class="anchor" href="#physics">#<sup>3</sup></a>Physics</h3>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=T7w7QuYa4SQ">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/T7w7QuYa4SQ.webp" width="1280" height="720">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=T7w7QuYa4SQ">Finally, Differentiable Physics is Here!</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCbfYPyITQ-7l4upoX8nvctg">Two Minute Papers</a>
+</div>
+<div class="yt-duration">5:24</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=T7w7QuYa4SQ">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<p>Remember that you can build a computational graph and compute the gradient for any formula in <code>O(1)</code>. The authors of this work did the same, only for physics. So their creatures in the simulated environment can learn directly, without any workarounds like Reinforcement Learning. And the solution is found very quickly.</p>
+<p>For those who didn't know: Reinforcement Learning was invented precisely because in tons of problems we don't have the compute to use something like CMA-ES, and we can't optimize with backpropagation either.</p>
+<p><a href="https://t.me/emergevolution/264">The paper.</a></p>
+<h3 id="ray-tracing"><a class="anchor" href="#ray-tracing">#<sup>3</sup></a>Ray tracing</h3>
+<p><strong>Ray tracing</strong> is a method for rendering three-dimensional objects into an image.</p>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=tGJ4tEwhgo8">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/tGJ4tEwhgo8.webp" width="1280" height="720">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=tGJ4tEwhgo8">Differentiable Rendering is Amazing!</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCbfYPyITQ-7l4upoX8nvctg">Two Minute Papers</a>
+</div>
+<div class="yt-duration">4:56</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=tGJ4tEwhgo8">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<p>In this video the authors made a ray tracer whose gradient can be taken cheaply with backpropagation, thanks to which you can easily tune the parameters of materials and appearance so that the object looks like what you need.</p>
+<h3 id="programming"><a class="anchor" href="#programming">#<sup>3</sup></a>Programming</h3>
+<p>If you generalize this topic even further, you can write fully differentiable programs, so that you can easily find the optimal parameters with modern tools. Maybe this is a very hyped topic, and it will take off in the future.</p>
+<p>The video shows exactly an example of writing such a differentiable program in Julia with some framework:</p>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=YVABTDrQ0eQ">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/YVABTDrQ0eQ.jpeg" width="1280" height="720">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=YVABTDrQ0eQ">From Deep Neural Networks to Fully Differential Programs | Uri Patish</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UC9IuUwwE2xdjQUT_LMLONoA">The Julia Programming Language</a>
+</div>
+<div class="yt-duration">10:31</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=YVABTDrQ0eQ">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<p>And an overview article:</p>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1200"     height="811"     src="/processed_images/differentiable_probabilistic.47e80eac8907a6d8.webp"     onclick="full_screen('img/differentiable_probabilistic.jpg')"     onauxclick="full_screen_new_page('img/differentiable_probabilistic.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<figcaption><a href="https://pathmind.com/wiki/differentiableprogramming">Source</a></figcaption>
+</figure>
+<h1 id="neural-networks"><a class="anchor" href="#neural-networks">#</a>Neural networks</h1>
+<h2 id="general-information"><a class="anchor" href="#general-information">#<sup>2</sup></a>General information</h2>
+<p>A guy explained it in one minute:</p>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=rEDzUT3ymw4">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/rEDzUT3ymw4.webp" width="1280" height="720">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=rEDzUT3ymw4">Explained In A Minute: Neural Networks</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UC_eerU4SleeptEbD2AA_nDw">Samuel Arzt</a>
+</div>
+<div class="yt-duration">1:04</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=rEDzUT3ymw4">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<p>And here are some very long videos from 3Blue1Brown (they have Russian subtitles):</p>
+<p><a href="https://www.youtube.com/watch?v=aircAruvnKk&amp;list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&amp;index=1">Playlist.</a></p>
+<h2 id="wann"><a class="anchor" href="#wann">#<sup>2</sup></a>WANN</h2>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="659"     height="697"     src="/processed_images/wann.054f0252d2e0735c.webp"     onclick="full_screen('img/wann.png')"     onauxclick="full_screen_new_page('img/wann.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<figcaption><a href="https://weightagnostic.github.io/">Source</a></figcaption>
+</figure>
+<p>This presents a way to get a neural network that doesn't really care what its weights are. What the network does is defined by its structure and by the different activation functions in each individual neuron.</p>
+<p>Actually, it's not that every weight can be randomly distributed there; instead, all weights must be equal to the same number from <code>-2.0</code> to <code>2.0</code>.</p>
+<p>It's quite interestingly described how they did the mutation of neural networks.</p>
+<p>They say they wanted to get closer to how real neural networks work, where the structure is most likely defined by genes.</p>
+<p><a href="https://habr.com/ru/post/465369/">A review in Russian.</a></p>
+<h2 id="adversarial-attack-on-a-neural-network"><a class="anchor" href="#adversarial-attack-on-a-neural-network">#<sup>2</sup></a>Adversarial attack on a neural network</h2>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=u5wtoH0_KuA">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/u5wtoH0_KuA.webp" width="1280" height="720">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=u5wtoH0_KuA">This AI Does Nothing In Games…And Still Wins!</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCbfYPyITQ-7l4upoX8nvctg">Two Minute Papers</a>
+</div>
+<div class="yt-duration">6:57</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=u5wtoH0_KuA">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<p>You know all those adversarial attacks on neural networks where someone changes one pixel or adds some noise and gets a completely different result? Well, here they did the same thing, only for two fighting agents. The red agent knows the blue agent's neural network completely and learns to "hypnotize" blue into making losing moves. After all, blue somehow receives information about the state of red's body, so red can influence blue's neural network with its body.</p>
+<p>It seems that neural networks should be designed from the start so that such attacks are impossible: so that only high-level information is available to the next layers, so that you can't tweak the answer with one pixel or with barely visible noise.</p>
+<h2 id="controlling-a-creature"><a class="anchor" href="#controlling-a-creature">#<sup>2</sup></a>Controlling a creature</h2>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=qwAiLBPEt_k">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/qwAiLBPEt_k.webp" width="1280" height="720">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=qwAiLBPEt_k">This AI Controls Virtual Quadrupeds! 🐕</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCbfYPyITQ-7l4upoX8nvctg">Two Minute Papers</a>
+</div>
+<div class="yt-duration">6:26</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=qwAiLBPEt_k">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<p>There they not only create a neural network that can be controlled, but also imitate movements using a GAN; the movements look as if they were simulated by physics, but they actually aren't.</p>
+<h2 id="arbitrary-neural-network"><a class="anchor" href="#arbitrary-neural-network">#<sup>2</sup></a>Arbitrary neural network</h2>
+<p>I wrote an article about a neural network with arbitrary connections, just like in the video with the cars:</p>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="798"     height="400"     src="/processed_images/arbitrary_nn_white_background.7b17dfa76cb8a1bb.webp"     onclick="full_screen('../../p/arbitrary-nn/arbitrary_nn_white_background.png')"     onauxclick="full_screen_new_page('../../p/arbitrary-nn/arbitrary_nn_white_background.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<figcaption><a href="/en/p/arbitrary-nn/">Source</a></figcaption>
+</figure>
+<h1 id="ai"><a class="anchor" href="#ai">#</a>AI</h1>
+<h2 id="alan-turing-s-paper"><a class="anchor" href="#alan-turing-s-paper">#<sup>2</sup></a>Alan Turing's paper</h2>
+<p><a href="https://t.me/emergevolution/348">The paper in fb2 format</a> (in Russian).</p>
+<p>I recommend reading it and understanding what Alan Turing actually meant when he proposed his test for identifying an intelligent machine. It seems to me that society misunderstands this test.</p>
+<h2 id="the-chinese-room"><a class="anchor" href="#the-chinese-room">#<sup>2</sup></a>The Chinese room</h2>
+<p><a href="https://bio.wikireading.ru/6105">In Russian</a>, <a href="http://cogprints.org/7150/1/10.1.1.83.5248.pdf">in English</a> (to make sure that the Russian one is a real translation).</p>
+<p>This is where the terms Weak and Strong AI are introduced. I recommend reading it and forming your own opinion about this thought experiment.</p>
+<h2 id="automata-and-life-kolmogorov"><a class="anchor" href="#automata-and-life-kolmogorov">#<sup>2</sup></a>Automata and Life - Kolmogorov</h2>
+<p><a href="https://www.keldysh.ru/pages/mrbur-web/misc/kolmogorov.html">The article</a> (in Russian).</p>
+<p>In it, he says this interesting thing:</p>
+<blockquote>
+<p>And in any case, this is no objection to raising the question of whether it is possible to create artificial living beings capable of reproduction and progressive evolution, which in their highest forms possess emotion, will and thought.
+This same question was posed elegantly, but formally, by the mathematician Turing in his book "Can a Machine Think?".</p>
+<p>Can one build a machine that could not be distinguished from a human? This formulation seems to be no worse than ours, and it is also simpler and shorter. In fact, however, it does not fully capture the essence of the matter. After all, what is essentially interesting is not the question of whether one can create automata that reproduce the human properties known to us; we want to know whether it is possible to create new life, just as highly organized, though perhaps very peculiar and completely unlike ours.</p>
+</blockquote>
+<h2 id="criticism-of-alphastar"><a class="anchor" href="#criticism-of-alphastar">#<sup>2</sup></a>Criticism of AlphaStar</h2>
+<p><strong>AlphaStar</strong> is a program that uses neural networks to play StarCraft 2, building on the ideas of AlphaGo. The following videos (in Russian) criticize the behavior of this program from the point of view of a professional player:</p>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=FFJRd9l6kW4">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/FFJRd9l6kW4.webp" width="1280" height="720">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=FFJRd9l6kW4">Разоблачение AlphaStar: Что скрыли разработчики DeepMind?</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UC3ptU7hyNeFlJdvQj2nZHJg">Alex007SC2</a>
+</div>
+<div class="yt-duration">64:08</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=FFJRd9l6kW4">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=lzR8zqGHEWo">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/lzR8zqGHEWo.webp" width="1280" height="720">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=lzR8zqGHEWo">AlphaStar НАЙДЕН: Полный анализ новой версии ИИ от Deepmind в StarCraft II</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UC3ptU7hyNeFlJdvQj2nZHJg">Alex007SC2</a>
+</div>
+<div class="yt-duration">52:41</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=lzR8zqGHEWo">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<p>For example, one of the videos showed AlphaStar building a wall in such a way that units walk through it, so the wall is pointless. To a human it's obvious that nobody should be able to walk through a wall, because we take that from our life experience.</p>
+<h2 id="criticism-of-deep-learning"><a class="anchor" href="#criticism-of-deep-learning">#<sup>2</sup></a>Criticism of deep learning</h2>
+<p>An interesting article that soberly examines the problems of the current deep learning approach.</p>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="514"     height="326"     src="/processed_images/critics.91d0f42774009b64.webp"     onclick="full_screen('img/critics.jpg')"     onauxclick="full_screen_new_page('img/critics.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<figcaption><a href="https://habr.com/ru/post/371179/">Source</a> (in Russian)</figcaption>
+</figure>
+<h1 id="cellular-automata"><a class="anchor" href="#cellular-automata">#</a>Cellular automata</h1>
+<h2 id="an-automaton-that-regenerates-into-a-picture"><a class="anchor" href="#an-automaton-that-regenerates-into-a-picture">#<sup>2</sup></a>An automaton that regenerates into a picture</h2>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="560"     height="295"     src="/processed_images/regenerating.8b10cfa7fc62566d.webp"     onclick="full_screen('img/regenerating.png')"     onauxclick="full_screen_new_page('img/regenerating.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<figcaption><a href="https://distill.pub/2020/growing-ca/">Source</a></figcaption>
+</figure>
+<p>This automaton is based on a neural network.</p>
+<h2 id="von-neumann-automaton"><a class="anchor" href="#von-neumann-automaton">#<sup>2</sup></a>Von Neumann automaton</h2>
+<p><a href="https://en.wikipedia.org/wiki/Von_Neumann_cellular_automaton">A wiki link</a>.</p>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="337"     height="225"     src="/processed_images/VonNeumann_CA_demo.871fad14600d87db.webp"     onclick="full_screen('img/VonNeumann_CA_demo.gif')"     onauxclick="full_screen_new_page('img/VonNeumann_CA_demo.gif')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>gif</div> </div> </div>
+<p>According to the <a href="https://optozorax.github.io/en/e/emergevolution/#postnauka-video">PostNauka video</a>, in this automaton you can encode an object that can create a copy of itself; it has to consist of several elements:</p>
+<ul>
+<li>A set of instructions</li>
+<li>A device that can copy the set of instructions</li>
+<li>A device that can reproduce the automaton itself from this set of instructions</li>
+</ul>
+<p>Interestingly, the structure of DNA and how cells use it were discovered only later!</p>
+<p>But of course, such an automaton can't be subjected to evolution that easily, because changing 1 bit in the instructions can break the whole automaton; plus, the environment itself has no factors that would force it to change its "DNA". This is called <em>the digital sterility problem</em>.</p>
+<h2 id="reversible-cellular-automaton"><a class="anchor" href="#reversible-cellular-automaton">#<sup>2</sup></a>Reversible cellular automaton</h2>
+<p>It's an automaton that can easily be simulated backwards, and it has a unique past. An example of such an automaton: <a href="https://en.wikipedia.org/wiki/Critters_(block_cellular_automaton)">Critters</a>.</p>
+<p><code>optozorax</code> wrote a simulation of this automaton and wrote several posts about it, starting here: <a href="https://t.me/optozorax_dev/235">telegram:optozorax_dev/235</a> (in Russian).</p>
+<p>There's an interesting principle related to reversible computing: <a href="https://en.wikipedia.org/wiki/Landauer%27s_principle">Landauer's principle</a>.</p>
+<p>An executable to play with: <a href="https://t.me/emergevolution/728">critters.exe</a>.</p>
+<h2 id="a-cellular-automaton-that-copies-a-picture"><a class="anchor" href="#a-cellular-automaton-that-copies-a-picture">#<sup>2</sup></a>A cellular automaton that copies a picture</h2>
+<p>With these rules for cell birth and death, the automaton for some reason copies the whole image it's given:</p>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="255"     height="300"     src="/processed_images/copier.d785e3c0fef5573c.webp"     onclick="full_screen('img/copier.jpg')"     onauxclick="full_screen_new_page('img/copier.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<figcaption><a href="https://t.me/emergevolution/847">Source</a></figcaption>
+</figure>
+<p>You can watch a video of how it works at <a href="https://t.me/emergevolution/853">telegram:emergevolution/853</a></p>
+<p>It's not yet clear whether it's possible to come up with rules that would let you simulate it backwards, because you can see that it preserves some information.</p>
+<h1 id="writing-your-own-simulation"><a class="anchor" href="#writing-your-own-simulation">#</a>Writing your own simulation</h1>
+<h2 id="things-to-keep-in-mind"><a class="anchor" href="#things-to-keep-in-mind">#<sup>2</sup></a>Things to keep in mind</h2>
+<p>If you're writing a Snake game, you can keep the <a href="https://optozorax.github.io/en/e/emergevolution/#snake-problems">snake problems</a> in mind.</p>
+<h3 id="simulate-and-draw-separately"><a class="anchor" href="#simulate-and-draw-separately">#<sup>3</sup></a>Simulate and draw separately</h3>
+<p>Very many simulations are made so that the simulation runs in real time, with every step shown on the screen. This is bad, because the CPU can usually run the simulation much faster, but it's limited to 60 steps per second. You need to plan the application's architecture from the start so that the simulation is completely decoupled from the display. That way the simulation can be sped up, or turned into a separate console program.</p>
+<p>For visualization, at the first stage you can draw the world into a picture or a GIF; for that you can just add libraries for the corresponding formats. Moreover, if you write the code for drawing the world into a picture right away, you can later adapt it for a GUI, while the other way around won't be as easy.</p>
+<h3 id="defining-a-creature-s-behavior-with-a-program"><a class="anchor" href="#defining-a-creature-s-behavior-with-a-program">#<sup>3</sup></a>Defining a creature's behavior with a program</h3>
+<p>In the <a href="https://optozorax.github.io/en/e/emergevolution/#foo52ru">foo52ru</a> simulation and some others, the behavior of a creature is defined by code. The problem with code is that the slightest change to it changes its result drastically. This is very bad for evolution, because evolution works well with things where small changes give a small result, so that it can feel its way towards something.</p>
+<p>From this point of view, neural networks are very good, because a small change to their numbers changes the result only slightly, so you can feel your way towards the right direction of development.</p>
+<p>The fact that it worked for <a href="https://optozorax.github.io/en/e/emergevolution/#foo52ru">foo52ru</a> is more likely just luck; besides, his task is simple enough to be solved by brute-forcing code. If you solve a harder task, creatures driven by code will never evolve into anything decent.</p>
+<p>So if you want to make your creatures controlled by code, think twice, or try to come up with code where small changes to the code make small changes to the result.</p>
+<p>So far there's this <a href="https://t.me/emergevolution/113">idea</a> (in Russian):</p>
+<p>We have the original algorithm; let's denote it as a function:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>func(input) -&gt; output</span></span></code></pre>
+<p>We make a mutation; the algorithm can change very strongly and becomes:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>funcMutated(input) -&gt; output</span></span></code></pre>
+<p>And then, in order not to introduce this very strong mutation into the algorithm, we do this:</p>
+<pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>funcResult(input) = func(input) * 0.9 + funcMutated(input) * 0.1 -&gt; output</span></span></code></pre>
+<p>So in essence, the mutation has a strong effect, but we dampen its influence and gradually increase its weight.</p>
+<p>You can have many such weighted mutations at the same time.</p>
+<p>The main problem with this idea is that the outputs must be real numbers. If they are discrete, you can't apply this. Although it can work if the function gives the probability of ending up in the right place; then weights fit right in, we just modify the weights. Then again, if these are real numbers anyway, maybe neural networks are better after all?</p>
+<h3 id="a-book-about-evolution-and-neural-networks"><a class="anchor" href="#a-book-about-evolution-and-neural-networks">#<sup>3</sup></a>A book about evolution and neural networks</h3>
+<p><a href="https://t.me/emergevolution/615">Hands-On Neuroevolution with Python. Iaroslav Omelianenko.</a> (The link leads to the Russian edition.)</p>
+<h2 id="platforms-libraries"><a class="anchor" href="#platforms-libraries">#<sup>2</sup></a>Platforms, libraries</h2>
+<h3 id="spiril"><a class="anchor" href="#spiril">#<sup>3</sup></a>spiril</h3>
+<p><a href="https://github.com/Jeffail/spiril">spiril</a> is a library for <code>Rust</code> that makes it very easy to write a genetic algorithm: <a href="https://gist.github.com/optozorax/7e96e26b84e4a3535926af4559293c75">code</a>.</p>
+<h1 id="ideas"><a class="anchor" href="#ideas">#</a>Ideas</h1>
+<h2 id="to-implement"><a class="anchor" href="#to-implement">#<sup>2</sup></a>To implement</h2>
+<h3 id="clinging-to-2d-space"><a class="anchor" href="#clinging-to-2d-space">#<sup>3</sup></a>Clinging to 2D space</h3>
+<div class="yt-container">
+<a target="_blank" href="https://www.youtube.com/watch?v=SBGA2ytJ0DU">
+<div class="yt-image-wrapper">
+<img class="yt-image not-default" src="/youtube/SBGA2ytJ0DU.webp" width="1280" height="720">
+</div>
+</a>
+<div class="yt-title-wrapper">
+<a class="yt-title" target="_blank" href="https://www.youtube.com/watch?v=SBGA2ytJ0DU">2D creature test</a>
+<span class="yt-text">Channel: </span><a target="_blank" class="yt-channel" href="https://www.youtube.com/channel/UCNzV3u9NBUi8m1Q7qp77E2Q">MiorSoft (reexre)</a>
+</div>
+<div class="yt-duration">0:56</div>
+<a target="_blank" href="https://www.youtube.com/watch?v=SBGA2ytJ0DU">
+<svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+</a>
+</div>
+<h3 id="training-neural-networks-in-blocks"><a class="anchor" href="#training-neural-networks-in-blocks">#<sup>3</sup></a>Training neural networks in blocks</h3>
+<p>An idea from my article:</p>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="641"     height="241"     src="/processed_images/combined_brain.c83a6a3123e6a52f.webp"     onclick="full_screen('../../p/evolution-virtual-creatures/combined_brain.png')"     onauxclick="full_screen_new_page('../../p/evolution-virtual-creatures/combined_brain.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<figcaption><a href="/en/p/evolution-virtual-creatures/#moia-ideia-ob-obedinenii-mozgov-ot-raznykh-zadach">Source</a></figcaption>
+</figure>
+<p>An example based on training a "human": if we need a 3D human to learn to walk on two legs, we know that he walks without falling, so first we need to train some block: <em>keeping balance</em>. We can put this human in an upright position with the legs shifted to the side, with some velocity, and make him either keep his balance or get into a position where the balance is kept.</p>
+<p>And then, once we've trained this balance module, combine it with the walking module and train it so that he learns to move his legs forward, somehow keeps his balance, and doesn't fall while doing it. And the balance block can be combined in parallel with the jumping block, etc., so that he learns to keep his balance in completely different situations.</p>
+<p>When he learns to walk, this will help him by keeping him from falling, and the walking block won't have to do the work of keeping balance.</p>
+<h3 id="typing-for-program-genes"><a class="anchor" href="#typing-for-program-genes">#<sup>3</sup></a>Typing for program genes</h3>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="331"     height="316"     src="/processed_images/duck_genes.98302cf768a45d97.webp"     onclick="full_screen('img/duck_genes.jpg')"     onauxclick="full_screen_new_page('img/duck_genes.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<p>In real organisms, protein structures interact with each other thanks to having a certain shape that fits like a key into a lock. In the video about <a href="https://optozorax.github.io/en/e/emergevolution/#tierra">Tierra</a>, at the fifth minute, they suggest doing the same thing, but for computer programs. We need to give them a shape, so that different programs can be joined together like genes.</p>
+<p>This is a bit like the idea of static typing (the input data type must equal the output data type) or like duck typing.</p>
+<h2 id="abstract"><a class="anchor" href="#abstract">#<sup>2</sup></a>Abstract</h2>
+<h3 id="life-without-suffering"><a class="anchor" href="#life-without-suffering">#<sup>3</sup></a>Life without suffering</h3>
+<p>If you think about it, all life on our planet is based on suffering:</p>
+<ul>
+<li>predators eat other creatures</li>
+<li>there's constant competition between creatures</li>
+<li>everyone has to die</li>
+</ul>
+<p>I wonder whether it's possible to come up with a kind of life that doesn't have to suffer like this in order to develop into very complex and even intelligent beings.</p>
+<p>If such life is possible, then it seems to me that the global goal of humanity could be exactly creating and maintaining such life, for example in a simulation.</p>
+<p>This is much harder than creating an evolution where creatures develop endlessly (emergevolution).</p>
+<p>This needs a name.</p>
+<p>Benevolution?</p>
+<h1 id="fun-stuff"><a class="anchor" href="#fun-stuff">#</a>Fun stuff</h1>
+<h2 id="memes"><a class="anchor" href="#memes">#<sup>2</sup></a>Memes</h2>
+<h2 id="funny-things-from-evolution-simulations"><a class="anchor" href="#funny-things-from-evolution-simulations">#<sup>2</sup></a>Funny things from evolution simulations</h2>
+<p>An eye-catching picture: here they evolved the shape and the neural network of a creature so that it would jump higher. But evolution took the easiest path and created a creature that simply falls from a huge height (thanks to its body), which created the effect of a jump, and it survived better than the rest. Clicking the picture takes you to the PDF of the paper it was taken from.</p>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1209"     height="418"     src="/processed_images/anecdotes.cdff749c4a9854bc.webp"     onclick="full_screen('img/anecdotes.png')"     onauxclick="full_screen_new_page('img/anecdotes.png')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>png</div> </div> </div>
+<figcaption><a href="https://t.me/emergevolution/432">Source</a></figcaption>
+</figure>
+<h2 id="professional-deformation-of-data-scientists"><a class="anchor" href="#professional-deformation-of-data-scientists">#<sup>2</sup></a>Professional deformation of data scientists</h2>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1200"     height="630"     src="/processed_images/habr2.531ce58a5aa7e9eb.webp"     onclick="full_screen('img/habr2.jpg')"     onauxclick="full_screen_new_page('img/habr2.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<figcaption><a href="https://habr.com/ru/company/ods/blog/447362/">Source</a> (in Russian)</figcaption>
+</figure>
+<h2 id="evolution-hacks-in-the-real-world"><a class="anchor" href="#evolution-hacks-in-the-real-world">#<sup>2</sup></a>Evolution hacks in the real world</h2>
+<figure>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="1200"     height="630"     src="/processed_images/habr1.b12a01724bc45d11.webp"     onclick="full_screen('img/habr1.jpg')"     onauxclick="full_screen_new_page('img/habr1.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<figcaption><a href="https://habr.com/ru/post/254473/">Source</a> (in Russian)</figcaption>
+</figure>
+<h2 id="strong-ai-will-never-be-created"><a class="anchor" href="#strong-ai-will-never-be-created">#<sup>2</sup></a>Strong AI will never be created</h2>
+<blockquote>
+<p>A repost from somewhere</p>
+<p>Why strong AI will never be created. An article by a respected scientist in Nature:</p>
+<p>https://www.nature.com/articles/s41599-020-0494-4</p>
+</blockquote>
+<p>I just love bold statements like this: Strong AI will never be created!!1</p>
+<p>This claim is demolished by a simple thought experiment:</p>
+<ol>
+<li>We live until the year one million</li>
+<li>We write a physics simulation</li>
+<li>We put a human brain into this simulation</li>
+<li>The human brain is strong AI, and it runs in a computer</li>
+<li>????</li>
+<li>PROFIT!!!</li>
+</ol>
+<div class="magnifier-container img-one"> <img     class="not-default full-screen-img"     width="640"     height="305"     src="/processed_images/meme1.f81a7fd4f7812538.webp"     onclick="full_screen('img/meme1.jpg')"     onauxclick="full_screen_new_page('img/meme1.jpg')"> <div class="magnifier-display"> <img class="magnifier" src="/ico/magnifier.svg"> <div class="magnifier-info">×1<br>jpg</div> </div> </div>
+<p>And the article itself isn't very good IMHO, you can read it here: <a href="https://t.me/emergevolution/739">telegram:emergevolution/739</a>.</p>
+<h1 id="useful-resources-for-improving-this-document"><a class="anchor" href="#useful-resources-for-improving-this-document">#</a>Useful resources for improving this document</h1>
+<p><a href="https://www.tablesgenerator.com/markdown_tables">Online table editor.</a></p>
+
+</div>
+</article>
+
+  </section>
+  
+
+</td><td>
+<!-- TOC -->
+<input type="checkbox" id="toc-trigger" class="toc-trigger" />
+<label for="toc-trigger">
+  <span class="menu-icon">
+    <div class="side-button"><img src="/ico/right.svg"></div>
+  </span>
+</label>
+
+<nav class="section-nav">
+ <h2>Contents</h2>
+ <ul class="first">
+ 
+ 
+  <li>
+   <a href="#what-this-document-and-chat-are-about">What this document and chat are about</a>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#what-is-emergevolution">What is Emergevolution?</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#etymology">Etymology</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#the-problem">The problem</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#artificial-life-evolution-simulation">Artificial life, evolution simulation</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#table">Table</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#without-visualization">Without visualization</a>
+       
+       <ul class="third">
+        
+         
+         <li>
+          <a href="#tierra">Tierra</a>
+          
+         </li>
+        
+       </ul>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#2d">2D</a>
+       
+       <ul class="third">
+        
+         
+         <li>
+          <a href="#the-blind-watchmaker">The Blind Watchmaker</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#evolution-with-muscles">Evolution with muscles</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#fighting-circles">Fighting circles</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#cars-with-arbitrary-neural-networks">Cars with arbitrary neural networks</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#learn-2d-stick">Learn 2D Stick</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#foo52ru">foo52ru</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#living-square-cells">Living square cells</a>
+          
+          <ul class="fourth">
+           
+            
+            <li>
+             <a href="#tree-simulation">Tree simulation</a>
+             
+            </li>
+           
+            
+            <li>
+             <a href="#snake-evolution">Snake evolution</a>
+             
+            </li>
+           
+          </ul>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#snakeai">SnakeAI</a>
+          
+          <ul class="fourth">
+           
+            
+            <li>
+             <a href="#snake-problems">Snake problems</a>
+             
+            </li>
+           
+          </ul>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#tallensy-evolution">Tallensy evolution</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#amoebas">Amoebas</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#gencar-co">gencar.co</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#cephalopods">Cephalopods</a>
+          
+          <ul class="fourth">
+           
+            
+            <li>
+             <a href="#ideas-for-development">Ideas for development</a>
+             
+            </li>
+           
+          </ul>
+          
+         </li>
+        
+       </ul>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#3d">3D</a>
+       
+       <ul class="third">
+        
+         
+         <li>
+          <a href="#karl-sims-work">Karl Sims&#39; work</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#flexible-muscle-based-locomotion-for-bipedal-creatures">Flexible Muscle-Based Locomotion for Bipedal Creatures</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#onigiri">Onigiri</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#framsticks">Framsticks</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#polyworld">Polyworld</a>
+          
+         </li>
+        
+       </ul>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#about-evolution-in-general">About evolution in general</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#comic">Comic</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#the-evolution-of-trust">The Evolution of Trust</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#diversity-in-the-real-world">Diversity in the real world</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#why-real-evolution-manages-to-adapt-so-easily">Why real evolution manages to adapt so easily</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#about-artificial-life-in-general">About artificial life in general</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#postnauka-video">PostNauka video</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#mathematical-foundations">Mathematical foundations</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#derivative-gradient">Derivative, gradient</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#optimization-methods">Optimization methods</a>
+       
+       <ul class="third">
+        
+         
+         <li>
+          <a href="#gradient-descent">Gradient descent</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#these-are-all-local-search-methods">These are all local search methods</a>
+          
+         </li>
+        
+       </ul>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#what-is-a-neural-network">What is a neural network</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#computing-the-derivative-and-the-gradient-numerically">Computing the derivative and the gradient numerically</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#backpropagation-for-computing-the-gradient">Backpropagation for computing the gradient</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#computational-graph">Computational graph</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#noise">Noise</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#other-optimization-methods">Other optimization methods</a>
+       
+       <ul class="third">
+        
+         
+         <li>
+          <a href="#newton-s-method">Newton&#39;s method</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#quasi-newton-methods">Quasi-Newton methods</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#bayesian-optimization">Bayesian optimization</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#cma-es">CMA-ES</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#genetic-algorithm">Genetic algorithm</a>
+          
+          <ul class="fourth">
+           
+            
+            <li>
+             <a href="#about-genetic-algorithms">About genetic algorithms</a>
+             
+            </li>
+           
+            
+            <li>
+             <a href="#implementing-genetic-algorithms-in-practice">Implementing genetic algorithms in practice</a>
+             
+            </li>
+           
+          </ul>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#when-crossover-is-justified-and-when-it-isn-t">When crossover is justified and when it isn&#39;t</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#natural-selection">Natural selection</a>
+          
+         </li>
+        
+       </ul>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#differentiable-things">Differentiable things</a>
+       
+       <ul class="third">
+        
+         
+         <li>
+          <a href="#physics">Physics</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#ray-tracing">Ray tracing</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#programming">Programming</a>
+          
+         </li>
+        
+       </ul>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#neural-networks">Neural networks</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#general-information">General information</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#wann">WANN</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#adversarial-attack-on-a-neural-network">Adversarial attack on a neural network</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#controlling-a-creature">Controlling a creature</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#arbitrary-neural-network">Arbitrary neural network</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#ai">AI</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#alan-turing-s-paper">Alan Turing&#39;s paper</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#the-chinese-room">The Chinese room</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#automata-and-life-kolmogorov">Automata and Life - Kolmogorov</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#criticism-of-alphastar">Criticism of AlphaStar</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#criticism-of-deep-learning">Criticism of deep learning</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#cellular-automata">Cellular automata</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#an-automaton-that-regenerates-into-a-picture">An automaton that regenerates into a picture</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#von-neumann-automaton">Von Neumann automaton</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#reversible-cellular-automaton">Reversible cellular automaton</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#a-cellular-automaton-that-copies-a-picture">A cellular automaton that copies a picture</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#writing-your-own-simulation">Writing your own simulation</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#things-to-keep-in-mind">Things to keep in mind</a>
+       
+       <ul class="third">
+        
+         
+         <li>
+          <a href="#simulate-and-draw-separately">Simulate and draw separately</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#defining-a-creature-s-behavior-with-a-program">Defining a creature&#39;s behavior with a program</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#a-book-about-evolution-and-neural-networks">A book about evolution and neural networks</a>
+          
+         </li>
+        
+       </ul>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#platforms-libraries">Platforms, libraries</a>
+       
+       <ul class="third">
+        
+         
+         <li>
+          <a href="#spiril">spiril</a>
+          
+         </li>
+        
+       </ul>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#ideas">Ideas</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#to-implement">To implement</a>
+       
+       <ul class="third">
+        
+         
+         <li>
+          <a href="#clinging-to-2d-space">Clinging to 2D space</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#training-neural-networks-in-blocks">Training neural networks in blocks</a>
+          
+         </li>
+        
+         
+         <li>
+          <a href="#typing-for-program-genes">Typing for program genes</a>
+          
+         </li>
+        
+       </ul>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#abstract">Abstract</a>
+       
+       <ul class="third">
+        
+         
+         <li>
+          <a href="#life-without-suffering">Life without suffering</a>
+          
+         </li>
+        
+       </ul>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#fun-stuff">Fun stuff</a>
+   
+    <ul class="second">
+     
+      
+      <li>
+       <a href="#memes">Memes</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#funny-things-from-evolution-simulations">Funny things from evolution simulations</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#professional-deformation-of-data-scientists">Professional deformation of data scientists</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#evolution-hacks-in-the-real-world">Evolution hacks in the real world</a>
+       
+      </li>
+     
+      
+      <li>
+       <a href="#strong-ai-will-never-be-created">Strong AI will never be created</a>
+       
+      </li>
+     
+    </ul>
+   
+  </li>
+ 
+ 
+  <li>
+   <a href="#useful-resources-for-improving-this-document">Useful resources for improving this document</a>
+   
+  </li>
+ 
+ </ul>
+</nav>
+</td></tr></table>
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="section second-section">
+If you like what I do, follow me on <a href="https://t.me/optozorax_dev">Telegram</a> and <a href="https://www.youtube.com/c/optozorax">YouTube</a>.
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="comments section second-section main-content">
+<h1 class="archive-year">Changelog</h1>
+
+<h1 id="2021-08-26">2021.08.26</h1>
+<p>Moved this page to the new blog on Zola.</p>
+<h1 id="2020-11-16">2020.11.16</h1>
+<p>Moved this page to <a href="/en/p/submodules-jekyll/">submodules + jekyll</a>.</p>
+<h1 id="2020-08-24">2020.08.24</h1>
+<p>First publication.</p>
+
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<table class="toc-aligmenter"><tr><td>
+
+<section class="comments section second-section">
+
+<script src="https://utteranc.es/client.js"
+        repo="optozorax/optozorax.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</section>
+
+</td><td>
+</td></tr></table>
+
+
+
+
+
+
+  <hr class="enabled-on-phone">
+
+  
+
+<table class="toc-aligmenter"><tr><td>
+
+
+  <footer class="site-footer section second-section">
+  
+    <center>
+    <div style="margin-bottom: 10px;">© Ilya Sheprut. License: <a href="https://creativecommons.org/licenses/by/3.0/deed.en">CC-BY</a>.</div>
+    <table style="border: 0px; display: contents;">
+    <tr><td style="border: 0px; padding: 0.2rem;">
+    <!-- SVG icons from https://iconmonstr.com -->
+
+    <span class="my-span-icon">
+  <a 
+    href="https://github.com/optozorax" 
+    aria-label="optozorax's GitHub" 
+    title="optozorax's GitHub">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/github.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's GitHub">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://t.me/optozorax_dev" 
+    aria-label="optozorax's Telegram channel" 
+    title="optozorax's Telegram channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/tg.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Telegram channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://www.youtube.com/c/optozorax" 
+    aria-label="optozorax's YouTube channel" 
+    title="optozorax's YouTube channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/youtube.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's YouTube channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://boosty.to/optozorax" 
+    aria-label="optozorax's donate page" 
+    title="optozorax's donate page">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/donate.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's donate page">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="/en/atom.xml" 
+    aria-label="optozorax's Atom Feed" 
+    title="optozorax's Atom Feed">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/rss.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Atom Feed">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="mailto:optozorax@gmail.com" 
+    aria-label="optozorax's email" 
+    title="optozorax's email">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/contact.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's email">
+  </a>
+</span>
+
+    </td><td style="border: 0px; padding: 0.2rem;">
+
+    </td></tr>
+    </table>
+    <div class="small-info">
+      Made with <a href="https://www.getzola.org/">Zola</a> | Theme based on <a href="https://github.com/lorepirri/cayman-blog">Cayman Blog</a> | <a href="https://github.com/optozorax/blog_zola">Site sources</a>
+      <a rel="me" href="https://mathstodon.xyz/@optozorax" style="display: none;">Mastodon</a>
+    </div>
+    </center>
+  
+  </footer>
+  
+
+</td><td>
+</td></tr></table>
+
+
+
+  
+</body>
+</html>

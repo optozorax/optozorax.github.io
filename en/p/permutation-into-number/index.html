@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Fonts preload -->
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nFrXyi0A.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/Rubik/iJWKBXyIfDnIV7nBrXw.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2" crossOrigin="anonymous">
+  <link rel="preload" as="font" href="/fonts/JetBrainsMono/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxTcwhsk.woff2" crossOrigin="anonymous">
+  <!-- --- -->
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/main.css">
+  <!-- --- -->
+
+  <!-- Non social metatags -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link rel="canonical" href="https://optozorax.github.io/en/p/permutation-into-number/">
+  <link rel="alternate" hreflang="en" href="https://optozorax.github.io/en/p/permutation-into-number/">
+  <link rel="alternate" hreflang="ru" href="https://optozorax.github.io/p/permutation-into-number/">
+  <link rel="alternate" hreflang="x-default" href="https://optozorax.github.io/p/permutation-into-number/">
+  <meta name="robots" content="noarchive">
+  <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/en/atom.xml"> 
+  <!-- --- -->
+
+  <!-- Social metatags -->
+  
+
+<meta name="author" content="optozorax">
+<meta name="title" content="How to write a permutation as a number — optozorax&#39;s blog">
+<meta name="description" content="How to represent any permutation as a number from 1 to N! and, conversely, get a permutation from any number.">
+<meta name="image" content="https://optozorax.github.io/en/p/permutation-into-number/permutation-into-number.png">
+
+<meta name="keywords" itemprop="tags" content="math, reversible-automata">
+
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://optozorax.github.io/en/p/permutation-into-number/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to write a permutation as a number — optozorax&#39;s blog">
+<meta property="og:description" content="How to represent any permutation as a number from 1 to N! and, conversely, get a permutation from any number.">
+<meta property="og:image" content="https://optozorax.github.io/en/p/permutation-into-number/permutation-into-number.png">
+<meta property="og:locale" content="en">
+
+
+<meta property="article:published_time" content="2020-11-08">
+
+
+
+
+<meta property="article:tag" content="math">
+
+<meta property="article:tag" content="reversible-automata">
+
+
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="optozorax.github.io">
+<meta property="twitter:url" content="https://optozorax.github.io/en/p/permutation-into-number/">
+<meta name="twitter:title" content="How to write a permutation as a number — optozorax&#39;s blog">
+<meta name="twitter:description" content="How to represent any permutation as a number from 1 to N! and, conversely, get a permutation from any number.">
+<meta name="twitter:image" content="https://optozorax.github.io/en/p/permutation-into-number/permutation-into-number.png">
+<meta name="twitter:creator" content="optozorax">
+
+  <!-- --- -->
+
+  <!-- Extra head declarations -->
+  
+
+<script type="text/javascript" src="/js/hammer.min.js"></script>
+<script type="text/javascript" src="/js/toc.js"></script>
+<script type="text/javascript" src="/js/gallery.js"></script>
+<script type="text/javascript" src="/js/full_screen.js"></script>
+<script type="text/javascript" src="/js/word_wrap.js"></script>
+
+  <!-- --- -->
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+  <!-- --- -->
+
+  <title>How to write a permutation as a number — optozorax&#39;s blog</title>
+</head>
+
+<body>
+  <!-- FullScreen block -->
+  <div id="img_modal" class="modal" style="display: none;">
+      <img id="img_modal_01" src="/ico/loading.gif">
+      <span class="close" id="img_modal_close">&times;</span>
+  </div>
+  <!-- --- -->
+
+  
+
+
+  <header class="site-header" role="banner">
+  
+  <div class="wrapper">
+    <a class="site-title" href="/en/">optozorax.blog</a>
+
+    <div class="lang-switch">
+      <span class="lang-switch-item lang-switch-current" lang="en" title="English"><span class="lang-switch-flag">🇬🇧</span>EN</span>
+      <a class="lang-switch-item" href="/p/permutation-into-number/" hreflang="ru" lang="ru" title="Русский"><span class="lang-switch-flag">🇷🇺</span>RU</a>
+    </div>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <img src="/ico/menu.svg" width="13px" height="15px">
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          <a class="page-link" href="/en/">Blog</a>
+        
+          <a class="page-link" href="/en/e">Collections</a>
+        
+          <a class="page-link" href="/en/tags">Tags</a>
+        
+          <a class="page-link" href="/en/about">About me</a>
+        
+      </div>
+    </nav>
+  </div>
+  
+  </header>
+  
+
+
+
+  
+  
+  <section class="page-header">
+  
+
+
+<h1 class="project-name">How to write a permutation as a number</h1>
+
+<h2 class="project-tagline">How to represent any permutation as a number from 1 to N! and, conversely, get a permutation from any number.</h2>
+
+
+
+<span style="margin-bottom: 10px;">
+  
+    <a href="/en/tags#math"><code class="tag"><nobr>#math</nobr></code></a>&nbsp;
+  
+    <a href="/en/tags#reversible-automata"><code class="tag"><nobr>#reversible-automata</nobr></code></a>&nbsp;
+  
+</span>
+
+
+<center>
+<table style="margin-top: 8px;">
+<tr>
+
+
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+  <time datetime="2020-11-08" itemprop="datePublished">
+    
+    
+    
+    
+    <span class="post-date">08 November 2020</span>
+  </time>
+</h2>
+</td>
+<td style="padding-right: 10px; border-right: 0px solid #ffffff;">
+<h2 class="project-date" style="margin-top: 0px;">
+    <span class="post-date" style="font-style: normal">| 🕑 3 min</span>
+</h2>
+</td>
+
+
+
+<td style="padding-left: 10px;">
+  
+  
+  <a href="https://t.me/optozorax_dev/261">
+  <code class="tag">Post on Telegram</code>
+  </a>
+  
+  
+  (5 💬)
+  
+</td>
+
+</tr>
+</table>
+
+
+<div class="translation-note">
+  <svg class="translation-note-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+  <span>Translated from 🇷🇺 Russian</span>
+  <span class="translation-note-sep">·</span>
+  <span>Translation by Claude Opus 5.5</span>
+  <span class="translation-note-sep">·</span>
+  <a href="/p/permutation-into-number/" hreflang="ru" lang="ru">Original</a>
+</div>
+
+
+
+</center>
+
+
+
+
+  </section>
+  
+  
+
+  
+
+
+  <section class="main-content section">
+  
+<article itemscope itemtype="http://schema.org/BlogPosting">
+<div itemprop="articleBody" id="content">
+<p>For an upcoming little program where you can run reversible cellular automata, I want to make it possible to specify arbitrary rules. As I described in <a href="/en/p/critters/">my post about Critters</a>, any permutation of an array from <code>0</code> to <code>N</code> is a valid rule. So there should be a way to specify a permutation as something you can copy-paste into the program.</p>
+<p>On <a href="https://dmishin.github.io/js-revca/index.html">one site with reversible automata</a>, a permutation is specified like this:</p>
+<p><code>0,2,8,3,1,5,6,7,4,9,10,11,12,13,14,15</code></p>
+<p>To me, this is pretty boring and not very convenient.</p>
+<p>So I came up with the idea of showing it as a single number, which you can change by <code>+1</code> or <code>-1</code> and it will still be valid. And then also converting this number to base <code>64</code> to make it even shorter.</p>
+<p>So, for an array of <code>N</code> distinct elements there are <code>N!</code> possible permutations. That means we can somehow number every permutation with a single number. And if we do that, the user can play around by changing the numbers and will always get a valid rule. Unless, of course, they enter a number greater than <code>N!</code>, but that mistake is quite easy to prevent.</p>
+<p>So, the permutation shown at the beginning can be written as the number:</p>
+<p><code>125023449600</code></p>
+<p>Or, if you convert this number to base <code>64</code>:</p>
+<p><code>08D+rQ1</code></p>
+<p>I made a small library to calculate all these things: <a href="https://github.com/optozorax/permutation_string/blob/master/src/lib.rs">permutation_string</a>.</p>
+<p>In my program, you'll be able to specify rules in all three of these ways.</p>
+<p>I also want to make a GUI where you can drag the rules around with the mouse, with all these representations shown next to them. Luckily, with <a href="https://twitter.com/fedor_games/status/1313119249146281986">megaui</a> in <a href="https://twitter.com/fedor_games/status/1313219605981204482">macroquad</a> this is pretty easy to do. By the way, I didn't know Immediate Mode GUI was this simple o_O. It feels like a kind of dissonance after you've built GUIs with all those callbacks. Try reading the code and poking around.</p>
+<p>And now I'll explain exactly how you can turn a permutation into a single number.</p>
+<p>Let's say we have a permutation <code>A</code> of five elements: <code>[4,1,2,3,0]</code>. The main property of any permutation is that all the numbers in it are unique. So we can transform this array into a slightly different one.</p>
+<p>Suppose we also have this array <code>B</code>: <code>[0,1,2,3,4]</code>.</p>
+<p>Next, we take our permutation and ask: at what index is its first element? <code>4</code> is at index <code>4</code>, so that's what we write into array <code>C</code>. We remove the number <code>4</code> from both array <code>B</code> and array <code>A</code>.</p>
+<p><code>A = [1,2,3,0]. B = [0,1,2,3]. C = [4].</code></p>
+<p>Take the next number from <code>A</code>: <code>1</code>. At what index is it? <code>1</code>. We write that down and remove these elements from <code>B</code> and <code>A</code>.</p>
+<p><code>A = [2,3,0]. B = [0,2,3]. C = [4,1].</code></p>
+<p>And now the most interesting part begins. Take the next number from <code>A</code>: <code>2</code>. It is at index <code>1</code>. We write that down and remove it from <code>A</code> and <code>B</code>.</p>
+<p><code>A = [3,0]. B = [0,3]. C = [4,1,1].</code></p>
+<p>Continuing this way, we end up with: <code>A = []. B = []. C = [4,1,1,1,0]</code>.</p>
+<p>What's interesting about array <code>C</code>? With each subsequent element, the maximum possible number decreases by <code>1</code>. That is, the maximum <code>C = [4,3,2,1,0]</code> is achieved for the permutation <code>[4,3,2,1,0]</code>. And <code>C = [0,0,0,0,0]</code> is obtained for the permutation <code>[0,1,2,3,4]</code>.</p>
+<p>So <code>C</code> stores digits in an unusual number system, with a different base for each digit position. And then we can use <code>C</code> to get the number of the permutation:</p>
+<p><code>0*0! + 1*1! + 1*2! + 1*3! + 4*4! = 105.</code></p>
+<p>So this number lies in the range from <code>0</code> to <code>N!-1</code>. And that's how we numbered every permutation.</p>
+<p>By the way, it's not hard to modify the algorithm to handle permutations with repeated elements.</p>
+<hr />
+<p>I've been told that I reinvented the <a href="https://en.wikipedia.org/wiki/Factorial_number_system">factorial number system</a>.</p>
+
+</div>
+</article>
+
+  </section>
+  
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<section class="section second-section">
+If you like what I do, follow me on <a href="https://t.me/optozorax_dev">Telegram</a> and <a href="https://www.youtube.com/c/optozorax">YouTube</a>.
+</section>
+
+
+
+
+<!-- comments -->
+<hr class="enabled-on-phone">
+
+<section class="comments section second-section">
+
+<script src="https://utteranc.es/client.js"
+        repo="optozorax/optozorax.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</section>
+
+
+
+
+
+  <hr class="enabled-on-phone">
+
+  
+
+
+  <footer class="site-footer section second-section">
+  
+    <center>
+    <div style="margin-bottom: 10px;">© Ilya Sheprut. License: <a href="https://creativecommons.org/licenses/by/3.0/deed.en">CC-BY</a>.</div>
+    <table style="border: 0px; display: contents;">
+    <tr><td style="border: 0px; padding: 0.2rem;">
+    <!-- SVG icons from https://iconmonstr.com -->
+
+    <span class="my-span-icon">
+  <a 
+    href="https://github.com/optozorax" 
+    aria-label="optozorax's GitHub" 
+    title="optozorax's GitHub">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/github.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's GitHub">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://t.me/optozorax_dev" 
+    aria-label="optozorax's Telegram channel" 
+    title="optozorax's Telegram channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/tg.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Telegram channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://www.youtube.com/c/optozorax" 
+    aria-label="optozorax's YouTube channel" 
+    title="optozorax's YouTube channel">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/youtube.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's YouTube channel">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="https://boosty.to/optozorax" 
+    aria-label="optozorax's donate page" 
+    title="optozorax's donate page">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/donate.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's donate page">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="/en/atom.xml" 
+    aria-label="optozorax's Atom Feed" 
+    title="optozorax's Atom Feed">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/rss.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's Atom Feed">
+  </a>
+</span>
+
+    <span class="my-span-icon">
+  <a 
+    href="mailto:optozorax@gmail.com" 
+    aria-label="optozorax's email" 
+    title="optozorax's email">
+    <img 
+      class="my-svg-icon" 
+      src="/ico/contact.svg" 
+      width="24" 
+      height="24"
+      alt="optozorax's email">
+  </a>
+</span>
+
+    </td><td style="border: 0px; padding: 0.2rem;">
+
+    </td></tr>
+    </table>
+    <div class="small-info">
+      Made with <a href="https://www.getzola.org/">Zola</a> | Theme based on <a href="https://github.com/lorepirri/cayman-blog">Cayman Blog</a> | <a href="https://github.com/optozorax/blog_zola">Site sources</a>
+      <a rel="me" href="https://mathstodon.xyz/@optozorax" style="display: none;">Mastodon</a>
+    </div>
+    </center>
+  
+  </footer>
+  
+
+
+
+  
+</body>
+</html>

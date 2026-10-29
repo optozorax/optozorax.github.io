@@ -215,7 +215,7 @@
 		<category term="программирование"/>
 	</entry>
 	<entry xml:lang="ru">
-		<title>5-бальная шкала оценки неверна</title>
+		<title>5-балльная шкала оценки неверна</title>
 		<published>2020-08-26T00:00:00+00:00</published>
 		<updated>2020-08-26T00:00:00+00:00</updated>
 		<link href="https://optozorax.github.io/p/5-point-ratings-are-wrong/" type="text/html"/>
@@ -284,7 +284,7 @@
 		<updated>2019-11-09T00:00:00+00:00</updated>
 		<link href="https://optozorax.github.io/p/linear-algebra/" type="text/html"/>
 		<id>https://optozorax.github.io/p/linear-algebra/</id>
-		<summary type="html">Рассказываю о системе обозначений, которая упростит понимание линеной алгебры в области векторов.</summary>
+		<summary type="html">Рассказываю о системе обозначений, которая упростит понимание линейной алгебры в области векторов.</summary>
 		<category term="математика"/>
 		<category term="обозначения"/>
 		<category term="линейная-алгебра"/>

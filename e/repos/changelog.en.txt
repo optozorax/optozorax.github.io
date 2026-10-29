@@ -1,0 +1,7 @@
+# 2021.08.26
+
+Moved this page to the new blog on Zola.
+
+# 2019.06.10
+
+First release.

@@ -18,7 +18,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#157878">
-  <link rel="canonical" href="https://optozorax.github.io/">
+  <link rel="canonical" href="https://optozorax.github.io/p/blog-optimization/">
+  <link rel="alternate" hreflang="en" href="https://optozorax.github.io/en/p/blog-optimization/">
+  <link rel="alternate" hreflang="ru" href="https://optozorax.github.io/p/blog-optimization/">
+  <link rel="alternate" hreflang="x-default" href="https://optozorax.github.io/p/blog-optimization/">
   <meta name="robots" content="noarchive">
   <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/atom.xml"> 
   <!-- --- -->
@@ -111,6 +114,11 @@
   
   <div class="wrapper">
     <a class="site-title" href="/">optozorax.blog</a>
+
+    <div class="lang-switch">
+      <a class="lang-switch-item" href="/en/p/blog-optimization/" hreflang="en" lang="en" title="English"><span class="lang-switch-flag">🇬🇧</span>EN</a>
+      <span class="lang-switch-item lang-switch-current" lang="ru" title="Русский"><span class="lang-switch-flag">🇷🇺</span>RU</span>
+    </div>
 
     <nav class="site-nav">
       <input type="checkbox" id="nav-trigger" class="nav-trigger" />
@@ -267,7 +275,7 @@
 <li>Вкладки Console, Network в инструментах разработчика.</li>
 <li><a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a>.</li>
 </ul>
-<p>Последний инструмент анализирует вашу страницу для мобилок и декстопов, заодно предлагая все возможные пути улучшения производительности. Я предпочитаю именно веб-версию, а не Lighthouse встроенный в Chrome, чтобы сразу тестировать в продакшен условиях.</p>
+<p>Последний инструмент анализирует вашу страницу для мобилок и десктопов, заодно предлагая все возможные пути улучшения производительности. Я предпочитаю именно веб-версию, а не Lighthouse встроенный в Chrome, чтобы сразу тестировать в продакшен условиях.</p>
 <h1 id="optimizatsiia-vnutrennikh-zaprosov"><a class="anchor" href="#optimizatsiia-vnutrennikh-zaprosov">#</a>Оптимизация внутренних запросов</h1>
 <h2 id="optimizatsiia-kartinok"><a class="anchor" href="#optimizatsiia-kartinok">#<sup>2</sup></a>Оптимизация картинок</h2>
 <p>В золе есть возможность вызывать функцию <a href="https://www.getzola.org/documentation/content/image-processing/"><code>resize_image</code></a>, которая способна перекодировать передаваемую картинку в другое разрешение, другой формат и с уменьшением качества. Я стал использовать это в своих статьях:</p>
@@ -284,13 +292,13 @@
 <pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="zola"><code data-lang="zola"><span class="giallo-l"><span>{{ image(path=&quot;my_image.jpg&quot;) }}</span></span></code></pre></div></div>
 <p>Пример изменений в размерах:</p>
 <table><thead><tr><th>Комментарий</th><th>Прошлый формат</th><th>Прошлое разрешение / 1280</th><th>Прошлый размер</th><th>Новый размер</th><th>Пожато в N раз</th></tr></thead><tbody>
-<tr><td>Фотография моей клавитуры</td><td>jpg</td><td>×1.3</td><td>533кб</td><td>39кб</td><td>×13.7</td></tr>
+<tr><td>Фотография моей клавиатуры</td><td>jpg</td><td>×1.3</td><td>533кб</td><td>39кб</td><td>×13.7</td></tr>
 <tr><td>Картинка самого сложного слоя моей раскладки</td><td>png</td><td>×2.3</td><td>333кб</td><td>27кб</td><td>×12.3</td></tr>
 <tr><td>Скриншот монопортала</td><td>png</td><td>×1.4</td><td>314кб</td><td>34кб</td><td>×9.2</td></tr>
 <tr><td>Фотография клавиатуры Planck</td><td>jpg</td><td>×1</td><td>47кб</td><td>25кб</td><td>×1.9</td></tr>
 <tr><td>Фотография улицы</td><td>jpg</td><td>×1</td><td>219кб</td><td>239кб</td><td>×0.9</td></tr>
 </tbody></table>
-<p>Общий тренд видно: для больших картинок, которые больше 1280, экономия трафик колоссальна. Для <code>png</code> картинок тоже отлично получается. Иногда проходит не очень хорошо, как с фотографией улицы, но это редкость и не критично. И это всё для не очень критичных изменений в качестве.</p>
+<p>Общий тренд видно: для больших картинок, которые больше 1280, экономия трафика колоссальна. Для <code>png</code> картинок тоже отлично получается. Иногда проходит не очень хорошо, как с фотографией улицы, но это редкость и не критично. И это всё для не очень критичных изменений в качестве.</p>
 <p>Любую картинку можно открыть в оригинальном размере и оригинальном формате если хочется увидеть больше деталей. Подробнее об этом в моей статье <a href="/p/new-features">про новые фичи блога</a>.</p>
 <div class="admonition green2-bg green2-border-left">
 <div class="admonition-title green2-bg green2-border">Результат</div>
@@ -302,7 +310,7 @@
 <div class="admonition-title blue2-bg blue2-border">Кстати,</div>
 <div class="admonition-content">
 <p>на главной странице у каждой статьи сбоку есть картинка, чтобы не одними заголовками привлекать внимание.</p>
-<p>Раньше для этих маленьких картинок запрашивалось картинка в оригинальном огромном разрешении, поэтому главная страница могла загружаться долго и весить реально много.</p>
+<p>Раньше для этих маленьких картинок запрашивалась картинка в оригинальном огромном разрешении, поэтому главная страница могла загружаться долго и весить реально много.</p>
 <p>Сейчас же, с этой фичей оптимизаций картинок, специально для главной я ресайзю картинки до максимального разрешения 200×200, и теперь главная даже со всеми картинками загружается моментально.</p>
 <p>Без этой фичи в золе я бы точно не стал так заморачиваться с маленькими картинками.</p>
 </div></div>
@@ -351,7 +359,7 @@
 <span class="giallo-l"><span style="color: #AEB52B;">       -movflags</span><span style="color: #D07711;"> +faststart</span><span style="color: #B3933A;"> \</span></span>
 <span class="giallo-l"><span style="color: #AEB52B;">       -threads 0</span><span style="color: #B3933A;"> \</span></span>
 <span class="giallo-l"><span>       ${</span><span style="color: #5597D6;">path</span><span>}</span><span style="color: #D07711;">/</span><span>${</span><span style="color: #5597D6;">filename</span><span>}</span><span style="color: #D07711;">_web.mp4</span></span></code></pre>
-<p>Аргументы и его источник написаны в комментариях к скрипту, так что пользуйтесь наздоровье. Итоговое видео оптмизировано для работы в браузере, а так же работает и с телефона. Наивный <code>mp4</code> просто так на телефоне не запустится.</p>
+<p>Аргументы и его источник написаны в комментариях к скрипту, так что пользуйтесь на здоровье. Итоговое видео оптимизировано для работы в браузере, а также работает и с телефона. Наивный <code>mp4</code> просто так на телефоне не запустится.</p>
 <div class="admonition green2-bg green2-border-left">
 <div class="admonition-title green2-bg green2-border">Результат</div>
 <div class="admonition-content">
@@ -369,7 +377,7 @@
 <div class="admonition violet-bg violet-border-left">
 <div class="admonition-title violet-bg violet-border">Использование в Zola</div>
 <div class="admonition-content">
-<p>Для вставки видео в формате гифок я использу шорткод <code>video_gif.html</code>:</p>
+<p>Для вставки видео в формате гифок я использую шорткод <code>video_gif.html</code>:</p>
 <pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="zola"><code data-lang="zola"><span class="giallo-l"><span>{{ video_gif(path=&quot;my_gif_web.mp4&quot;) }}</span></span></code></pre></div></div>
 <div class="admonition green2-bg green2-border-left">
 <div class="admonition-title green2-bg green2-border">Результат</div>
@@ -433,7 +441,7 @@
 <div class="admonition-content">
 <p>В статьях использую шорткод <code>youtube.html</code>:</p>
 <pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="zola"><code data-lang="zola"><span class="giallo-l"><span>{{ youtube(id=&quot;1q0sHf_n_2Y&quot;) }}</span></span></code></pre>
-<p>И дополнительно скачиваю мета-информацию и преьюшку локально. Об этом подробнее сказано в <a href="/p/new-features/#embedding-youtube">статье про фичи</a>.</p>
+<p>И дополнительно скачиваю мета-информацию и превьюшку локально. Об этом подробнее сказано в <a href="/p/new-features/#embedding-youtube">статье про фичи</a>.</p>
 </div></div>
 <p>И далее это выглядит вот так:</p>
 <div class="yt-container">
@@ -451,7 +459,7 @@
 <svg class="yt-button" height="100%" width="100%" version="1.1" viewBox="0 0 68 48"><path class="yt-button-inner" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
 </a>
 </div>
-<p>Это просто кусок html'я со локально скачанной картинкой и мета-информацией. При нажатии происходит переход на соответствующее видео в новой вкладке. Ещё можно нажать на канал и попасть конкретно на него. К сожалению <code>youtube-dl</code> не умеет находить аватарку канала, поэтому канал здесь пишется просто текстом.</p>
+<p>Это просто кусок html'я с локально скачанной картинкой и мета-информацией. При нажатии происходит переход на соответствующее видео в новой вкладке. Ещё можно нажать на канал и попасть конкретно на него. К сожалению <code>youtube-dl</code> не умеет находить аватарку канала, поэтому канал здесь пишется просто текстом.</p>
 <p>Я решил здесь добавить продолжительность видео, что даже обычный ютуб-плеер не показывает! Считаю что это довольно честный размен с потерей аватарки автора.</p>
 <div class="admonition green2-bg green2-border-left">
 <div class="admonition-title green2-bg green2-border">Результат</div>
@@ -459,7 +467,7 @@
 <p>Тут в качестве результатов представлю баллы из сервиса <a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a>.</p>
 <p>Столбец «До оптимизации» показывает результаты когда картинки, гифки и видео уже оптимизированы; шрифты и скрипты скачаны локально.</p>
 <p>Столбец «После оптимизации» показывает результаты после оптимизации ютуба этим образом и прелоадинга шрифтов (об этом будет далее).</p>
-<p>В графах таблицых будет написано соответственно:</p>
+<p>В графах таблицы будет написано соответственно:</p>
 <ul>
 <li>баллы для мобилок;</li>
 <li>баллы для десктопов;</li>
@@ -498,7 +506,7 @@
 <p>Одним препятствием на пути оптимизаций являются наши хотелки. Например, во время чтения главы про ютуб, вы могли подумать: «ну да, быстрее загружается, но это же надо открывать видео в новой вкладке и смотреть там, нельзя прямо на сайте посмотреть», или «нельзя нажать кнопку "смотреть позже"». А ещё проблема локальных эмбеддингов в том, что если оригинальное видео или пост изменится, то у меня это не отобразится.</p>
 <p>Да, это реальные минусы. Тут я не могу сказать ничего, кроме того что <strong>надо убавить хотелки</strong>. Лично я считаю что эти удобства не стоят своих минусов.</p>
 <p>Если суметь укротить свои желания и идти на компромиссы, то можно оптимизировать очень много.</p>
-<p>На этот счёт хочу сослаться на свою статью <a href="/p/how-i-write-programs/#srazu-otbrasyvat-slozhnye-fichi">«Как я пишу программы», глава «Сразу отбрасывать сложные фичи»</a>. В этой главе я рассказываю как убавил свои хотелки и смог быстро написать програму, которой теперь активно пользуюсь.</p>
+<p>На этот счёт хочу сослаться на свою статью <a href="/p/how-i-write-programs/#srazu-otbrasyvat-slozhnye-fichi">«Как я пишу программы», глава «Сразу отбрасывать сложные фичи»</a>. В этой главе я рассказываю как убавил свои хотелки и смог быстро написать программу, которой теперь активно пользуюсь.</p>
 <h1 id="chto-ne-optimizirovano"><a class="anchor" href="#chto-ne-optimizirovano">#</a>Что не оптимизировано</h1>
 <h2 id="iandeks-metrika"><a class="anchor" href="#iandeks-metrika">#<sup>2</sup></a>Яндекс.Метрика</h2>
 <p>Так как блог хостю не сам, то у меня нет никаких способов замерить сколько посетителей, какую статью смотрели больше всего и так далее. А без этого нельзя, как ещё мне свой заслуженный дофамин получать?</p>
@@ -516,7 +524,7 @@
 </ul>
 <p>Ну или куплю себе сервер и буду хостить на нём через nginx.</p>
 <h1 id="ispol-zuemyi-js"><a class="anchor" href="#ispol-zuemyi-js">#</a>Используемый JS</h1>
-<p>По меркам современного веба можно сказать что JS я практически не использую. Есть мнение что JS плох тем что замедляет страницы и позволяет следить за пользователями. Если отключить JS, то мой блог довольно юзабелен за исключение нескольких вещей:</p>
+<p>По меркам современного веба можно сказать что JS я практически не использую. Есть мнение что JS плох тем что замедляет страницы и позволяет следить за пользователями. Если отключить JS, то мой блог довольно юзабелен за исключением нескольких вещей:</p>
 <ul>
 <li>Галереи не пролистываются. В этом плане я уже <a href="/p/new-features/#chistyi-css">хочу сделать галерею на чистом CSS</a>.</li>
 <li>Нельзя открыть картинки в полном разрешении. Тут можно придумать костыли в виде <code>&lt;a href=""&gt;</code>, которые не будут мешать обычному поведению, но надо подумать.</li>
@@ -556,15 +564,15 @@
 <tr><td>2</td><td><a href="/p/linear-algebra/">Обозначения для линейной алгебры</a></td><td>Здесь много математических формул, которые требуют особых скриптов, стилей и шрифтов.</td><td><span class="speed-avg">56</span>; <span class="speed-avg">75</span>; 429кб</td><td><span class="speed-avg">86</span>; <span class="speed-good">100</span>; 363кб</td></tr>
 <tr><td>3</td><td><a href="/p/portals/">Порталы</a></td><td>Много <code>&lt;video&gt;</code>, картинок, вставлено 2 ютуб-видео.</td><td><span class="speed-bad">27</span>; <span class="speed-avg">64</span>; 12мб</td><td><span class="speed-avg">61</span>; <span class="speed-good">91</span>; 2.7мб</td></tr>
 <tr><td>4</td><td><a href="/p/my-keyboard-layout/">Раскладка Ильи Шепрута</a></td><td>Моя самая большая статья с кучей картинок.</td><td><span class="speed-bad">12</span>; <span class="speed-bad">46</span>; 25мб</td><td><span class="speed-avg">65</span>; <span class="speed-good">97</span>; 3.4мб</td></tr>
-<tr><td>5</td><td><a href="/e/emergevolution/">Эмёрджеволюция</a></td><td>Вставлено очень много видео. Только в старой версии видео всталены не через эмбеддинг, а просто как картинки.</td><td><span class="speed-avg">69</span>; <span class="speed-avg">88</span>; 5.1мб</td><td><span class="speed-good">97</span>; <span class="speed-good">99</span>; 2.8мб</td></tr>
+<tr><td>5</td><td><a href="/e/emergevolution/">Эмёрджеволюция</a></td><td>Вставлено очень много видео. Только в старой версии видео вставлены не через эмбеддинг, а просто как картинки.</td><td><span class="speed-avg">69</span>; <span class="speed-avg">88</span>; 5.1мб</td><td><span class="speed-good">97</span>; <span class="speed-good">99</span>; 2.8мб</td></tr>
 <tr><td>6</td><td><a href="/p/space-objects/">О моей библиотеке Space Objects и дереве Пифагора</a></td><td>Много тяжёлых гифок.</td><td><span class="speed-avg">62</span>; <span class="speed-good">97</span>; 47мб</td><td><span class="speed-avg">87</span>; <span class="speed-good">99</span>; 12мб</td></tr>
 </tbody></table>
 <p>Если делать выводы из каждой страницы, то:</p>
 <ul>
 <li><code>1</code>, <code>3</code>, <code>4</code> — уменьшение картинок делает своё дело, очень сильно сбавляя мегабайты.</li>
-<li><code>2</code> — за счёт скачивания локально: шрифтов, стилей искриптов; теперь грузится намного лучше.</li>
+<li><code>2</code> — за счёт скачивания локально: шрифтов, стилей и скриптов; теперь грузится намного лучше.</li>
 <li><code>3</code>, <code>4</code> — за счёт того что эмбеда ютуба теперь нет, статистика получше.</li>
-<li><code>5</code> — страница с 37 ютуб-видео выдаётся самые лучшие показатели после главной за счёт локального хранения метаданных и превьюшки.</li>
+<li><code>5</code> — страница с 37 ютуб-видео выдаёт самые лучшие показатели после главной за счёт локального хранения метаданных и превьюшки.</li>
 <li><code>6</code> — оптимизация гифок приносит отличные плоды, серьёзное изменение размера, но итоговый размер всё ещё большой.</li>
 </ul>
 </div></div>
@@ -572,7 +580,7 @@
 <div class="admonition-title red-bg red-border">❗️ Внимание</div>
 <div class="admonition-content">
 <p>Простите, я везде замерял страницы в новом блоге без Яндекс.Метрики, а в старом блоге с ней. Она немного ухудшает баллы. Например, для <code>4</code> пункта в новом блоге получается результат: <span class="speed-avg">50</span>, <span class="speed-avg">81</span>, 3.4мб.</p>
-<p>Поэтому результаты здесь не совсем честные. Сейчас проверять по-другому уже слишом трудоёмко. Да и учитывая что я в ближайшее время уйду с Яндекс.Метрики, эти результаты можно считать планируемыми.</p>
+<p>Поэтому результаты здесь не совсем честные. Сейчас проверять по-другому уже слишком трудоёмко. Да и учитывая что я в ближайшее время уйду с Яндекс.Метрики, эти результаты можно считать планируемыми.</p>
 </div></div>
 <h2 id="vyvody"><a class="anchor" href="#vyvody">#<sup>2</sup></a>Выводы</h2>
 <ul>
