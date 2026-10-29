@@ -1,0 +1,258 @@
+**The ball-mouth construction works in \(\mathbb R^5\), using the permitted frozen-chart interpretation.** Below is a completion of the supplied embedding: regular pole charts, an exactly flat exterior, an exactly spherical mouth, and adjustable throat length. It uses complex arithmetic and, in two regions, a bounded scalar cubic solve. There are no square-root branch cuts in the field, sign flips, or multidimensional searches.
+
+The delivered field is piecewise smooth under relaxation (a), rather than one globally smooth pair across its chart switches. The embedded world itself is \(C^\infty\).
+
+**Parameters and cutoff.** Write
+
+\[
+u=x_1+i x_2,\qquad h=x_3,\qquad v=n_1+i n_2,
+\qquad \rho=\sqrt{|u|^2+h^2}.
+\]
+
+Choose \(a,b,\delta>0\) and \(L>b\). The mouth radius is \(R=2a+\delta\). Define the smooth decreasing step
+
+\[
+K(s)=
+\begin{cases}
+1,&s\le0,\\
+\displaystyle\frac{e^{-1/(1-s)}}{e^{-1/s}+e^{-1/(1-s)}},&0<s<1,\\
+0,&s\ge1,
+\end{cases}
+\]
+
+and
+
+\[
+A(\rho)=aK\!\left(\frac{\rho-a}{a}\right),
+\qquad
+C(\rho)=K\!\left(\frac{\rho-2a}{\delta}\right).
+\]
+
+The first cutoff removes the sideways twist between radii \(a\) and \(2a\). The second joins the raised throat to the flat world between radii \(2a\) and \(R\).
+
+**A parametrization specifying the world.** Let \(d=(d_1,d_2,d_3)\in S^2\), \(w=d_1+i d_2\), and \(z=d_3\). Coordinates below are ordered as \((u,h,v)\in\mathbb C\times\mathbb R\times\mathbb C\).
+
+Keep the central piece
+
+\[
+\boxed{X_0(t,d)=\big((t-iaz)w,\;tz,\;L+bw^2\big)}
+\]
+
+for
+
+\[
+|t|\le t_a(d):=a\sqrt{1-z^2(1-z^2)},
+\qquad (t,d)\sim(-t,-d).
+\]
+
+Its boundary has \(|x|=a\). Attach the following collar, parametrized by \(r\ge a\) and \(d\in S^2\):
+
+\[
+\begin{aligned}
+\tau(r,z)&=\sqrt{r^2-A(r)^2z^2(1-z^2)},\\
+\boxed{X_1(r,d)}&=
+\boxed{\big((\tau-iA(r)z)w,\;\tau z,\;C(r)(L+bw^2)\big)}.
+\end{aligned}
+\]
+
+Here \(|x|=r\) exactly, and \(X_1(a,d)=X_0(t_a(d),d)\). For \(r\ge R\), this is exactly \((rd,0)\).
+
+**All field charts and their selection.** Set
+
+\[
+\eta=\frac{v-L}{b},\qquad s=|\eta|,\qquad U=|u|^2.
+\]
+
+For a complex expression \(H\), the notation \(F=H\) means \(F=(\Re H,\Im H)\). Use the **first applicable case** below. Rechoose the chart at each Newton iteration, but freeze it throughout that iteration’s numerical gradient evaluations.
+
+1. **Flat/far chart:** if \(\rho\ge R\), or \(|v|>L+b+a\), use
+
+   \[
+   \boxed{F=v.}
+   \]
+
+2. **Exterior graph chart:** if \(\rho\ge a\), put \(A=A(\rho)\) and find the unique root
+
+   \[
+   T+A^2\frac{h^2}{T}-A^2\frac{h^4}{T^2}=\rho^2,
+   \qquad
+   T\in\left[\max\left(h^2,\rho^2-\frac{A^2}{4}\right),\rho^2\right].
+   \]
+
+   Then use
+
+   \[
+   \boxed{F=v-C(\rho)\left(L+b\frac{T u^2}{(T-iAh)^2}\right).}
+   \]
+
+   This is a cubic after multiplication by \(T^2\). Its displayed left-hand side has derivative at least \(5/6\) on the bracket. When \(\rho\ge2a\), \(A=0\), so **no root solve is needed**: \(T=\rho^2\).
+
+3. **Pole graph chart:** if
+
+   \[
+   s<\frac14,\qquad U<\frac{h^2}{2}+\frac{2a^2}{9},
+   \]
+
+   find the unique \(q\in(2/3,1]\) satisfying
+
+   \[
+   U=\left(\frac{h^2}{q}+a^2q\right)(1-q),
+   \]
+
+   equivalently
+
+   \[
+   a^2q^3-a^2q^2+(h^2+U)q-h^2=0.
+   \]
+
+   Use
+
+   \[
+   \boxed{F=v-L-b\frac{q u^2}{(h-iaq)^2}.}
+   \]
+
+   For Newton, the derivative of \(U-(h^2/q+a^2q)(1-q)\) is
+   \(h^2/q^2+a^2(2q-1)\ge a^2/3\). Thus the chosen root is smooth and uniformly simple.
+
+4. **Main core chart:** otherwise, if \(s>0\), set \(Q=u^2/\eta\) and use
+
+   \[
+   \boxed{
+   F=\left(
+      h+\frac{\Im Q}{2a},\quad
+      a(s-1)+\frac{U/s-\Re Q}{2a}
+   \right).}
+   \]
+
+5. **Empty-region fallback:** otherwise use \(F=(a,0)\). This remaining region contains no world points.
+
+On the world, the main chart is used only for \(s\ge1/4\). Allowing it for smaller nonzero \(s\) when the pole test fails improves projection of perturbed points without introducing zeros.
+
+These rules define the field everywhere. They also give \(F=v\) outside the compact cylinder \(\rho\le R,\ |v|\le L+b+a\).
+
+**Why the equations give exactly this embedded world.** In the main chart, choose either local square root \(w=\sqrt\eta\), solely for this proof, and write
+
+\[
+\frac{u}{w}=t-iaz.
+\]
+
+Its two equations are precisely
+
+\[
+|w|^2+z^2=1,\qquad h=tz.
+\]
+
+Changing the square root changes \((t,d)\) to \((-t,-d)\); hence it changes neither the point nor the field. Conversely, these equations recover \(X_0\) from every main-chart zero.
+
+When \(\eta=0\), the world has \(w=0,\ z=\pm1\). Near those fibres, set \(q=z^2\). Eliminating \(t=h/z\) gives exactly the pole cubic and graph formula. On a world point with \(s<1/4\), \(q=1-s>3/4\), and
+
+\[
+U\le \frac{h^2}{3}+\frac{3a^2}{16}
+<\frac{h^2}{2}+\frac{2a^2}{9}.
+\]
+
+Thus the pole chart covers every pole fibre with a margin. Its graph zeros conversely give \(z=\sqrt q\), \(t=h/\sqrt q\), and \(w=\sqrt q\,u/(h-iaq)\), with \(|w|^2+z^2=1\).
+
+For the exterior, \(T=\tau^2\), \(z=h/\sqrt T\), and \(w=\sqrt T\,u/(T-iAh)\). The bracketed scalar equation guarantees \(|w|^2+z^2=1\) and gives a unique inverse to the collar’s projection onto \(x\). Consequently the exterior is an embedded graph.
+
+In the core, \(v\) determines \(w\) up to sign; then \(u/w\) determines \(t,z\). At \(w=0\), \(h=tz\) uniquely determines the quotient point. This proves injectivity modulo the stated identification. The core and collar meet only at their common boundary, and the cutoffs have matching derivatives of every order there. The resulting embedding is smooth and proper.
+
+**Regularity and conditioning.** Both graph charts have the identity matrix as their derivative with respect to \((n_1,n_2)\), so their Jacobians have rank two. For the main chart, the local change of ambient coordinates to \((t,z,w,h)\) is invertible when \(w\ne0\). The two constraints \(|w|^2+z^2-1\) and \(h-tz\) have independent differentials there. This proves regularity everywhere on the world.
+
+There is a stronger bound with the convenient choice \(a=b\):
+
+\[
+\boxed{\sigma_{\min}(DF)\ge1\quad\text{on all of }W.}
+\]
+
+For graph charts this follows from \(DF=[-D(\text{graph}),I_2]\). For the main chart, put \(q=z^2\), \(s=1-q\), \(\alpha=t/a\), and \(B=(2-q+\alpha^2)/2\). Direct differentiation gives
+
+\[
+DF\,DF^T=
+\frac1{s^2}
+\begin{pmatrix}
+B^2&-\alpha z B\\
+-\alpha z B&1+\alpha^2q
+\end{pmatrix}
+\succeq I_2.
+\]
+
+For example, the determinant of this matrix minus \(I_2\) is
+
+\[
+\frac{q}{s^4}\left[
+\frac{(2-q)q(4-3q)}4+
+\alpha^2\left(1-\frac{q^2}{2}\right)+
+\frac{(2-q)\alpha^4}{4}\right]\ge0,
+\]
+
+and its diagonal entries are nonnegative. The global minimum is exactly one, attained in the flat exterior. This bound concerns the frozen-chart Jacobian, as required by the renderer.
+
+**Topology, handedness, and mouth geometry.** The central piece is a disk bundle in
+
+\[
+E=(\mathbb R\times S^2)/((t,d)\sim(-t,-d)).
+\]
+
+The map \((t,d)\mapsto[d_1:d_2:d_3:t]\) identifies \(E\) with \(\mathbb{RP}^3\) minus one point. Attaching the exterior collar therefore gives \(W\cong\mathbb R^3\#\mathbb{RP}^3\). This standard tautological-line-bundle description also appears in [Nakata’s discussion of \(\mathbb{RP}^3\setminus\{\mathrm{pt}\}\)](https://arxiv.org/pdf/math/0607276).
+
+The involution reverses the orientation of both the \(t\)-line and \(S^2\); its product preserves the three-dimensional orientation. The world is orientable. The core \(t=0\) is the embedded \(\mathbb{RP}^2\)
+
+\[
+(-iaz w,\;0,\;L+bw^2),
+\]
+
+which uses two world coordinates and both extra coordinates.
+
+The field charts can also be consistently co-oriented. On an overlap where the core is a graph, the main chart has
+
+\[
+\det\frac{\partial F}{\partial(n_1,n_2)}
+=\frac{t^2+a^2q(2q-1)}{2b^2s^2}>0.
+\]
+
+This is positive near the poles and near \(\rho=a\), so the graph and main charts agree on normal orientation. No sign-flip cut is required.
+
+A specified through-path enters at \((Rd,0)\), follows \(X_1(r,d)\) inward, follows \(X_0(t,d)\) from \(t_a\) to \(-t_a\), and returns along \(X_1(r,-d)\). It exits **exactly at \((-Rd,0)\)**. Its transported frame preserves handedness, although it may rotate.
+
+For every \(|x|\ge R\), the world is exactly \(n=0\). For \(|x|<R\), every world point has \(n_1>0\), so the flat ball is genuinely replaced by the throat. Every path from the exterior to the core reaches \(n_1\ge L-b\); a complete through-trip therefore has length at least \(2(L-b)\). Increasing \(L\) lengthens the throat while keeping the mouth radius fixed. Taking \(\delta\ll a\) makes the long spherical collar have nearly constant world-coordinate radius.
+
+**Numerical checks.** The implementation and reproducible checks are in [wormhole.py](/mnt/c/Users/optozorax/Desktop/portals/co2sdf/tmp/codex_rp3/wormhole.py), [check_wormhole.py](/mnt/c/Users/optozorax/Desktop/portals/co2sdf/tmp/codex_rp3/check_wormhole.py), and [results.json](/mnt/c/Users/optozorax/Desktop/portals/co2sdf/tmp/codex_rp3/results.json). Run `python3 check_wormhole.py` from this directory. Only NumPy and the Python standard library are needed.
+
+Parameters were \(a=b=1,\ L=6,\ \delta=1\), giving mouth radius \(3\). Seed: `20261028`. Samples included exact poles, near-poles, the equator, chart switches, and cutoff seams.
+
+| Check | Result |
+|---|---:|
+| Parametrized world points | 202,160 |
+| Maximum \(\|F\|_2\) on those points | \(1.1103\times10^{-14}\) |
+| Smallest sampled singular value | \(0.999999999947\) |
+| Largest sampled singular value | \(14.0323\) |
+| Exterior normal-coordinate error | exactly 0 |
+| Antipodal mouth-endpoint error | exactly 0 |
+| Mouth-radius error | \(8.89\times10^{-16}\) |
+
+Singular values used fourth-order centered differences with step \(10^{-5}\). Projection used second-order centered differences with the same step and the requested update
+
+\[
+p\leftarrow p-J^T(JJ^T)^{-1}F(p).
+\]
+
+Each starting point was a sampled world point plus independent Gaussian noise in all five coordinates. No line search or nearest-point optimization was used.
+
+| Noise standard deviation | Trials | Converged to \(\|F\|_2\le10^{-12}\) | Median / maximum iterations | Largest final residual |
+|---:|---:|---:|---:|---:|
+| 0.001 | 50,000 | 50,000 | 2 / 3 | \(9.997\times10^{-13}\) |
+| 0.02 | 20,000 | 20,000 | 3 / 6 | \(9.975\times10^{-13}\) |
+
+There were respectively 42 and 66 trials with chart changes. Independent reconstruction of actual parametrized world points gave maximum distances \(1.066\times10^{-12}\) and \(1.011\times10^{-12}\).
+
+For orientation, two loops crossed the throat and returned along a flat exterior semicircle. Their incoming directions were \((0.48,0.64,0.6)\) and \((0.18,0.24,\sqrt{0.91})\), exercising the main and pole charts respectively. At each step, the frame was projected into the new tangent plane and orthonormalized by the polar factor, without forcing the final determinant’s sign.
+
+| Loop, 9,597 points each | Return-frame determinant | Orthogonality error |
+|---|---:|---:|
+| Main-chart crossing | \(1.0000000000000002\) | \(3.77\times10^{-16}\) |
+| Pole-chart crossing | \(1.0000000000000000\) | \(2.40\times10^{-16}\) |
+
+Doubling the path resolution changed the rotation matrices by \(1.75\times10^{-6}\) and \(5.87\times10^{-7}\) in Frobenius norm. These are proper rotations, consistent with the orientation proof.
+
+**Limits of the result.** This completes the supplied candidate; it is not a shorter root-free replacement. Both scalar solves are cubics, so radical formulas could replace Newton, but selecting the bracketed root is simpler. The hard-switched field uses relaxation (a) and is not a signed-distance field. Projection convergence is local; the numerical tests do not assert a global basin of convergence. The specified fibre paths have antipodal endpoints; arbitrary geodesics need not have exactly antipodal scattering. No separate donut-mouth construction or impossibility claim is supplied.

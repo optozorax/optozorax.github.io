@@ -1,0 +1,156 @@
+/* demo.css — co2sdf widget (full, and .co2-compact for inline illustrations).
+ * Everything is scoped under .co2-demo; the page's own styles are not touched.
+ * Theme it by overriding the variables, e.g. for a dark article:
+ *   .co2-demo { --co2-bg: #16181d; --co2-fg: #e6e6e6; --co2-accent: #ff6b9a; color-scheme: dark; }
+ */
+.co2-demo {
+  --co2-bg: #ffffff;
+  --co2-fg: #1f2328;
+  --co2-accent: #d6336c;
+  --co2-line: rgba(128, 128, 128, 0.35);
+  --co2-panel: rgba(128, 128, 128, 0.08);
+  color: var(--co2-fg);
+  background: var(--co2-bg);
+  border: 1px solid var(--co2-line);
+  border-radius: 10px;
+  padding: 12px;
+  margin: 1.5em 0;
+  font-size: 0.92em;
+  line-height: 1.4;
+  text-align: left;
+}
+.co2-demo *,
+.co2-demo *::before,
+.co2-demo *::after { box-sizing: border-box; }
+.co2-demo [hidden] { display: none !important; }
+
+.co2-demo .co2-bar,
+.co2-demo .co2-params { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 16px; }
+.co2-demo .co2-field { display: inline-flex; align-items: center; gap: 6px; margin: 0; white-space: nowrap; }
+.co2-demo .co2-label { font-weight: 600; }
+.co2-demo select,
+.co2-demo .co2-btn {
+  font: inherit;
+  color: var(--co2-fg);
+  background: var(--co2-bg);
+  border: 1px solid var(--co2-line);
+  border-radius: 6px;
+  padding: 3px 8px;
+  margin: 0;
+  max-width: 100%;
+}
+.co2-demo .co2-btn { cursor: pointer; }
+.co2-demo .co2-btn:hover,
+.co2-demo select:hover { border-color: var(--co2-accent); }
+.co2-demo input[type="range"] { width: 110px; margin: 0; accent-color: var(--co2-accent); }
+.co2-demo output { min-width: 2.8em; font-variant-numeric: tabular-nums; }
+.co2-demo .co2-info { min-height: 1.4em; margin-top: 4px; font-size: 0.9em; opacity: 0.8; }
+.co2-demo .co2-code { margin-top: 4px; font-size: 0.85em; }
+.co2-demo .co2-code summary { cursor: pointer; opacity: 0.8; width: max-content; }
+.co2-demo .co2-code pre {
+  margin: 4px 0 0;
+  padding: 8px 10px;
+  max-height: 22em;
+  overflow: auto;
+  border: 1px solid var(--co2-line);
+  border-radius: 6px;
+  background: var(--co2-panel);
+  font: 0.92em/1.45 ui-monospace, "JetBrains Mono", Menlo, Consolas, monospace;
+  white-space: pre;
+}
+
+.co2-demo .co2-views {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  gap: 14px;
+  margin-top: 6px;
+}
+.co2-demo .co2-view { margin: 0; padding: 0; min-width: 0; }
+.co2-demo .co2-frame { position: relative; }
+.co2-demo .co2-canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  margin: 0;
+  border-radius: 8px;
+  touch-action: none;
+  cursor: grab;
+}
+.co2-demo .co2-canvas:active { cursor: grabbing; }
+.co2-demo .co2-canvas:focus { outline: none; box-shadow: 0 0 0 2px var(--co2-accent); }  /* keys active */
+.co2-demo .co2-outside { background: var(--co2-panel); }
+.co2-demo .co2-cap { margin: 6px 0 0; font-size: 0.85em; font-style: normal; text-align: left; }
+.co2-demo .co2-status { margin-left: 0.6em; opacity: 0.7; font-variant-numeric: tabular-nums; }
+.co2-demo .co2-hint { opacity: 0.7; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* controls over the canvases: r_max readout, curvature legend, projection | slice, the fixed coordinate and its value */
+.co2-demo .co2-overlay {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  font-size: 0.8em;
+  pointer-events: none;           /* only the controls themselves take the pointer */
+}
+.co2-demo .co2-badge {
+  padding: 1px 6px;
+  border: 1px solid var(--co2-line);
+  border-radius: 6px;
+  background: var(--co2-bg);
+  opacity: 0.88;
+  font-variant-numeric: tabular-nums;
+}
+.co2-demo .co2-seg,
+.co2-demo .co2-live { pointer-events: auto; }
+.co2-demo .co2-seg {
+  display: inline-flex;
+  border: 1px solid var(--co2-line);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--co2-bg);
+}
+.co2-demo .co2-seg button {
+  font: inherit;
+  color: var(--co2-fg);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 2px 8px;
+  margin: 0;
+  cursor: pointer;
+}
+.co2-demo .co2-seg button + button { border-left: 1px solid var(--co2-line); }
+.co2-demo .co2-seg button[aria-pressed="true"] { background: var(--co2-accent); color: var(--co2-bg); }
+.co2-demo .co2-overlay input[type="range"] { width: 90px; }
+.co2-demo .co2-slice { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }   /* x | y | z | w, then y = [slider] */
+.co2-demo .co2-legend { display: inline-flex; align-items: center; gap: 5px; }
+.co2-demo .co2-kbar {   /* portal_gravity's curvature colours: negative, zero, positive */
+  display: inline-block;
+  width: 56px;
+  height: 0.7em;
+  border-radius: 3px;
+  background: linear-gradient(to right, rgb(96, 166, 225), rgb(218, 218, 218), rgb(251, 158, 35));
+}
+.co2-demo .co2-overlay output { min-width: 2.6em; }
+
+/* compact: an inline illustration -- views side by side (stacked when narrow), sliders in one row */
+.co2-demo.co2-compact { padding: 8px; }
+.co2-demo.co2-compact .co2-views {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr));
+  gap: 10px;
+  margin-top: 0;
+}
+.co2-demo.co2-compact .co2-cap { margin-top: 3px; }
+.co2-demo.co2-compact .co2-status { display: none; }
+.co2-demo.co2-compact .co2-bar { margin-top: 6px; gap: 4px 12px; font-size: 0.9em; }
+.co2-demo.co2-compact .co2-params { gap: 4px 12px; }
+.co2-demo.co2-compact input[type="range"] { width: 80px; }
+.co2-demo.co2-compact .co2-btn { padding: 0 7px; }
+.co2-demo.co2-compact .co2-info { min-height: 0; margin: 0; }
+
+/* inline (compact) widgets inside an article: vertical swipes scroll the page */
+.co2-demo.co2-compact canvas { touch-action: pan-y; }

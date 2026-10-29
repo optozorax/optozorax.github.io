@@ -1,0 +1,27 @@
+# Research task: an orientable "wormhole into itself" for a 3D world in R^5, as an implicit codimension-2 field
+
+Work only inside this directory (`tmp/codex_rp3/`). Python 3 with numpy is available; write scripts here. Put your final answer in a Markdown report (it will be saved as `last_message.md`).
+
+## Setting
+We render curved worlds as embedded submanifolds of Euclidean space given *implicitly*: a 3D world W in R^5 is the common zero set of two smooth functions F = (f, g): R^5 -> R^2, and the zero set must be *regular* (grad f, grad g linearly independent at every point of W). A ray tracer walks along W by stepping in a tangent direction and projecting back with a Newton step using the 2x2 Gram system of the two (numerical) gradients. Coordinates: x = (x1, x2, x3) for the world directions, n = (n1, n2) for the two extra directions. Outside a compact region the world must be exactly the flat space {n = 0} (for instance F = n there).
+
+Allowed relaxations, used already elsewhere: (a) the field may be defined by several closed-form "charts" in different regions of R^5, switched by a hard test, as long as every chart's zero set agrees with the world where it is used (gradients are then taken with the chart frozen at the evaluation point); (b) a chart may flip the sign of one component across a cut (a world that is one-sided needs this). A 1D root solve (a few Newton steps on a scalar equation) inside a chart is acceptable; a multi-dimensional nearest-point search is the last resort.
+
+## What already works (2D worlds in R^4, for orientation)
+A plane with a "mouth" (disc of radius R) whose throat is a flat tube glued to itself at its far end, every point to the opposite one (a Moebius strip): with u = x1 + i x2 and v = n1 + i n2, the throat is the flat Moebius band { |u|^2 + 4|v|^2 = R^2, arg v = 2 arg u + spin(|u|) }. Field: away from the centre, turn the normal plane by angle = 2 arg u + spin: s = Re(v e^{-i angle}), c = Im(v e^{-i angle}); there the world is "a plane with a squashed dome": world(smooth_union(s, ball(x1, x2, 2 s; R)), c) where world(solid, carrier) = (solid, carrier). Near the centre (|u| < R/2) the turned frame is undefined; there the chart is (ball(x1, x2, 2|v|; R), Im(u * conj(e))) with e = exp(i (arg v - spin)/2) (a sign cut where arg v jumps). This 2D version necessarily mirrors you (RP^2 is one-sided).
+
+## The question
+For 3D worlds, gluing the far end of a spherical throat S^2 x I to itself by the antipodal map gives R^3 # RP^3, which is orientable: a traveller comes back out of the same ball-shaped mouth, at the opposite point, NOT mirrored. (A donut-shaped mouth can also do this: throat T^2 x I with the end glued by a fixed-point-free glide reflection of the flat torus; the end is the twisted I-bundle over the Klein bottle.)
+
+**Find an explicit construction of such an orientable 3D wormhole-into-itself in R^5 as an implicit field F: R^5 -> R^2 meeting the requirements above.** Preferably the ball-mouth version (R^3 # RP^3). Ideally: exactly flat R^3 outside a ball, a mouth, and a throat region of controllable length; formulas short enough to print on a web page; built from simple pieces (balls, smooth unions, rotations of the normal plane by angles depending on position, complex products such as u^2, etc.).
+
+Known obstacles (so you do not rediscover them):
+- The 2D trick (normal plane turned by twice the angle around the mouth, then the dome's top point "blown up" into a circle) relies on pi_1(SO(2)) = Z; around a sphere there is no such winding.
+- The direct real blow-up of R^3 at a point, as a graph n = B(x/|x|), needs the core RP^2 embedded in the normal space alone, i.e. R^4, so codimension 4 (R^7). In R^5 the core RP^2 must use world directions too.
+- One partial idea: the I-bundle X(t, d) = (t d + a d3 J(d1, d2, 0), b (d1 + i d2)^2) for d in S^2, t in R (J = rotation by -90 deg in the x1x2 plane) is an embedded R^3 # RP^3 (asymptotically flat, not flat). Its chart f1 = d3^2 + rho^2 - 1, f2 = x3 - t d3, written through u = x1 + i x2 and eta = (n1 + i n2)/b, is closed-form but singular on the "pole fibres" (eta = 0); there the world is a graph over x that needs a cubic solve. It is also not flat outside. Something cleaner would be very welcome; if you cannot beat it, make it work properly (flat outside, regular, all charts), and say so.
+
+## Deliverables
+1. The construction: formulas for every chart and where each is used; why the zero set is the right manifold (embedded, regular, flat outside, orientable, and that a trip through it returns you unmirrored).
+2. A numerical check in Python: sample many points of the world (from a parametrization if you have one), check F = 0 there (to ~1e-12), project random nearby points with the Newton step and check convergence, report the smallest singular value of the 2x5 Jacobian over the world, and check orientability numerically if you can (transport a frame around a loop through the wormhole).
+3. If you also find a construction for the donut-mouth unmirrored version, or a reason the ball version cannot be done in closed form, include it.
+Keep the report focused: formulas, checks, numbers, and honest caveats.

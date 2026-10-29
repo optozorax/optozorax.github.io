@@ -1,0 +1,121 @@
+{
+  "parameters": {
+    "a": 1.0,
+    "b": 1.0,
+    "depth": 6.0,
+    "width": 1.0
+  },
+  "seed": 20261028,
+  "world_samples": 202160,
+  "world_residual_max": 1.1102251422055052e-14,
+  "jacobian_difference_step": 1e-05,
+  "singular_value_min": 0.9999999999473391,
+  "singular_value_max": 14.032252757884455,
+  "by_chart": {
+    "0": {
+      "count": 33832,
+      "residual_max": 0.0,
+      "singular_min": 1.0,
+      "singular_max": 1.0
+    },
+    "1": {
+      "count": 67489,
+      "residual_max": 1.1102251422055052e-14,
+      "singular_min": 0.9999999999473391,
+      "singular_max": 14.032252757884455
+    },
+    "2": {
+      "count": 86729,
+      "residual_max": 2.0380985511143445e-15,
+      "singular_min": 0.9999999999473391,
+      "singular_max": 5.914672589575958
+    },
+    "3": {
+      "count": 14110,
+      "residual_max": 6.181849635950694e-16,
+      "singular_min": 0.9999999999473391,
+      "singular_max": 1.9999999999969469
+    }
+  },
+  "projection": [
+    {
+      "noise_standard_deviation": 0.001,
+      "count": 50000,
+      "successes": 50000,
+      "iterations_max": 3,
+      "iterations_median": 2.0,
+      "residual_max": 9.996057311650225e-13,
+      "chart_switches": 42,
+      "parametrization_distance_max": 1.065463699117813e-12
+    },
+    {
+      "noise_standard_deviation": 0.02,
+      "count": 20000,
+      "successes": 20000,
+      "iterations_max": 6,
+      "iterations_median": 3.0,
+      "residual_max": 9.974109238289962e-13,
+      "chart_switches": 66,
+      "parametrization_distance_max": 1.0100329342579169e-12
+    }
+  ],
+  "flat_exterior_normal_max": 0.0,
+  "mouth_antipodal_error": 0.0,
+  "mouth_radius_error": 8.881784197001252e-16,
+  "transport": {
+    "middle": {
+      "points": 9597,
+      "determinant": 1.0000000000000002,
+      "orthogonality_error": 3.76150035949845e-16,
+      "normal_leakage": 0.0,
+      "minimum_step_overlap": 0.9998774333660241,
+      "rotation": [
+        [
+          0.2634800923453657,
+          0.17545683288781833,
+          0.9485742673774437
+        ],
+        [
+          0.1281100115530898,
+          -0.9809745579921995,
+          0.14586549116180975
+        ],
+        [
+          0.9561203197702394,
+          0.08308920727137216,
+          -0.28094504401656595
+        ]
+      ],
+      "length": 26.070466769968775,
+      "field_residual": 6.2589899994161904e-15,
+      "coarse_fine_rotation_difference": 1.7460570678622068e-06
+    },
+    "pole": {
+      "points": 9597,
+      "determinant": 1.0,
+      "orthogonality_error": 2.396209490645025e-16,
+      "normal_leakage": 0.0,
+      "minimum_step_overlap": 0.9998753653876316,
+      "rotation": [
+        [
+          0.8235865796877332,
+          0.5645493621561078,
+          0.05467324251764171
+        ],
+        [
+          -0.5629849995577992,
+          0.8019565533625915,
+          0.19978382515033047
+        ],
+        [
+          0.06894226592712141,
+          -0.1953194926471108,
+          0.978313477245872
+        ]
+      ],
+      "length": 26.141209118465788,
+      "field_residual": 6.217903296919679e-15,
+      "coarse_fine_rotation_difference": 5.86200816390527e-07
+    }
+  }
+}
