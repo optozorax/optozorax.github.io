@@ -252,6 +252,9 @@
         <loc>https://optozorax.github.io/en/tags/optimization/</loc>
     </url>
     <url>
+        <loc>https://optozorax.github.io/en/tags/philosophy/</loc>
+    </url>
+    <url>
         <loc>https://optozorax.github.io/en/tags/portals/</loc>
     </url>
     <url>
@@ -265,6 +268,9 @@
     </url>
     <url>
         <loc>https://optozorax.github.io/en/tags/ray-tracing/</loc>
+    </url>
+    <url>
+        <loc>https://optozorax.github.io/en/tags/reasoning/</loc>
     </url>
     <url>
         <loc>https://optozorax.github.io/en/tags/reversible-automata/</loc>
@@ -291,34 +297,10 @@
         <loc>https://optozorax.github.io/en/tags/zola/</loc>
     </url>
     <url>
+        <loc>https://optozorax.github.io/en/v/</loc>
+    </url>
+    <url>
         <loc>https://optozorax.github.io/old/</loc>
-    </url>
-    <url>
-        <loc>https://optozorax.github.io/old/fast-tree-point-in-polygon/</loc>
-    </url>
-    <url>
-        <loc>https://optozorax.github.io/old/keyboard-layout/</loc>
-    </url>
-    <url>
-        <loc>https://optozorax.github.io/old/math-formulas/</loc>
-    </url>
-    <url>
-        <loc>https://optozorax.github.io/old/net-creater/</loc>
-    </url>
-    <url>
-        <loc>https://optozorax.github.io/old/portals-opengl/</loc>
-    </url>
-    <url>
-        <loc>https://optozorax.github.io/old/portals-tracing/</loc>
-    </url>
-    <url>
-        <loc>https://optozorax.github.io/old/ray-tracing/</loc>
-    </url>
-    <url>
-        <loc>https://optozorax.github.io/old/sun-eclipses/</loc>
-    </url>
-    <url>
-        <loc>https://optozorax.github.io/old/university-latex-template/</loc>
     </url>
     <url>
         <loc>https://optozorax.github.io/p/</loc>
@@ -488,6 +470,9 @@
         <loc>https://optozorax.github.io/tags/evoliutsiia/</loc>
     </url>
     <url>
+        <loc>https://optozorax.github.io/tags/filosofiia/</loc>
+    </url>
+    <url>
         <loc>https://optozorax.github.io/tags/fopply/</loc>
     </url>
     <url>
@@ -576,5 +561,8 @@
     </url>
     <url>
         <loc>https://optozorax.github.io/tags/zola/</loc>
+    </url>
+    <url>
+        <loc>https://optozorax.github.io/v/</loc>
     </url>
 </urlset>

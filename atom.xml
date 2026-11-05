@@ -5,13 +5,88 @@
 	<link href="https://optozorax.github.io/atom.xml" rel="self" type="application/atom+xml"/>
   	<link href="https://optozorax.github.io/"/>
 	<generator uri="https://www.getzola.org/">Zola</generator>
-	<updated>2026-07-09T00:00:00+00:00</updated>
+	<updated>2026-10-23T12:17:44+00:00</updated>
 	<author>
         <name>optozorax</name>
         <uri>https://optozorax.github.io/</uri>
     </author>
 	<icon>https://optozorax.github.io/favicon/android-chrome-192x192.png</icon>
 	<id>https://optozorax.github.io/atom.xml</id>
+	<entry xml:lang="ru">
+		<title>Как червоточина выглядела бы в реальном мире?</title>
+		<published>2026-10-23T12:17:44+00:00</published>
+		<updated>2026-10-23T12:17:44+00:00</updated>
+		<link href="https://www.youtube.com/watch?v=4oIUKld4WFg" type="text/html"/>
+		<id>https://optozorax.github.io/v/4oiukld4wfg/</id>
+		<summary type="html">Я сделал собственный движок для рендеринга червоточин и визуализировал как бы они выглядели в реальном мире с помощью него. А так же объясняю как он работает. Приготовьтесь постигать 4D геометрию.</summary>
+	</entry>
+	<entry xml:lang="ru">
+		<title>Сферические порталы объясняют тёмную энергию?</title>
+		<published>2026-07-20T17:55:21+00:00</published>
+		<updated>2026-07-20T17:55:21+00:00</updated>
+		<link href="https://www.youtube.com/watch?v=KKQ3e3B12Lw" type="text/html"/>
+		<id>https://optozorax.github.io/v/kkq3e3b12lw/</id>
+		<summary type="html">Что будет, если сделать портал в форме сферы? Спойлер: ничего... пока не поместить один внутрь другого. Тогда пространство начнёт бесконечно повторяться, физика сойдёт с ума, а гравитация начнёт вести себя как тёмная энергия.</summary>
+	</entry>
+	<entry xml:lang="ru">
+		<title>Стрим: симулирую ВАШИ вопросы в Portal Lab</title>
+		<published>2026-04-04T16:02:37+00:00</published>
+		<updated>2026-04-04T16:02:37+00:00</updated>
+		<link href="https://www.youtube.com/watch?v=p1ETDYwEklA" type="text/html"/>
+		<id>https://optozorax.github.io/v/p1etdywekla/</id>
+		<summary type="html"></summary>
+	</entry>
+	<entry xml:lang="ru">
+		<title>Портал в карманное пространство оказался страшнее, чем я думал...</title>
+		<published>2026-02-28T15:01:45+00:00</published>
+		<updated>2026-02-28T15:01:45+00:00</updated>
+		<link href="https://www.youtube.com/watch?v=uRAnm7HKzlA" type="text/html"/>
+		<id>https://optozorax.github.io/v/uranm7hkzla/</id>
+		<summary type="html">Продолжаю исследовать как порталы влияют на гравитацию - на этот раз рассматриваю замкнутые пространства (тор, бутылка Клейна итд) и карманное пространство (частично замкнутое). В процессе обнаружил неожиданное явление под названием само-сила, которое заставляет реально…</summary>
+	</entry>
+	<entry xml:lang="ru">
+		<title>Порталы не создают вечный двигатель, если телепортировать гравитацию</title>
+		<published>2025-12-10T18:49:44+00:00</published>
+		<updated>2025-12-10T18:49:44+00:00</updated>
+		<link href="https://www.youtube.com/watch?v=qFYeJXKYj_E" type="text/html"/>
+		<id>https://optozorax.github.io/v/qfyejxkyj-e/</id>
+		<summary type="html">Порталы нарушают закон сохранения энергии? На самом деле нет. Просто нужно разрешить гравитации телепортироваться через порталы. Как только мы это сделаем, порталы начинают сохранять энергию и приобретают физический смысл. Но как это сделать? Как это меняет поведение…</summary>
+	</entry>
+	<entry xml:lang="ru">
+		<title>Негативный портал - как он объясняет карманное пространство?</title>
+		<published>2025-07-16T12:14:17+00:00</published>
+		<updated>2025-07-16T12:14:17+00:00</updated>
+		<link href="https://www.youtube.com/watch?v=cKBYQ_kndwg" type="text/html"/>
+		<id>https://optozorax.github.io/v/ckbyq-kndwg/</id>
+		<summary type="html">В прошлом видео мы узнали как создать карманное пространство, когда один портал меньше другого. Но возможно ли это, когда они одинакового размера? В этом видео рассмотрим эту проблему со всех сторон, и создадим мощный подход к симуляции карманного измерения порталов, у…</summary>
+	</entry>
+	<entry xml:lang="ru">
+		<title>Что если поместить маленький портал в большой?</title>
+		<published>2025-04-09T18:32:26+00:00</published>
+		<updated>2025-04-09T18:32:26+00:00</updated>
+		<link href="https://www.youtube.com/watch?v=s3vLAWHjyIY" type="text/html"/>
+		<id>https://optozorax.github.io/v/s3vlawhjyiy/</id>
+		<summary type="html">Что же будет, если взять два портала, один из них уменьшить и поместить другой? Наконец-то было найдено это решение, и согласно ему должно создаться карманное пространство! Чтобы узнать почему - смотрите видео. И в конце обсуждаем физику порталов, так как со всей этой новой…</summary>
+	</entry>
+	<entry xml:lang="ru">
+		<title>31 портал невозможной формы</title>
+		<published>2024-02-18T14:16:33+00:00</published>
+		<updated>2024-02-18T14:16:33+00:00</updated>
+		<link href="https://www.youtube.com/watch?v=o19xXsouJAc" type="text/html"/>
+		<id>https://optozorax.github.io/v/o19xxsoujac/</id>
+		<summary type="html">Обычные порталы плоские, но это не аксиома. И я рассказываю про такие формы порталов, о которых даже догадаться сложно, не то что представить. В частности здесь есть портал в форме: цилиндра, ленты Мёбиуса, узла трилистника и многое другое. Какие-то из показанных порталов…</summary>
+	</entry>
+	<entry xml:lang="ru">
+		<title>unasanu — вселенная как число</title>
+		<published>2023-08-28T00:00:00+00:00</published>
+		<updated>2023-08-28T00:00:00+00:00</updated>
+		<link href="https://unasanu.xyz/ru/" type="text/html"/>
+		<id>https://optozorax.github.io/p/unasanu/</id>
+		<summary type="html">Что если мы живём в симуляции? Философская статья о параллельных вселенных, сознании и бессмертии — через математику, программирование и игру «Жизнь».</summary>
+		<category term="философия"/>
+		<category term="клеточные-автоматы"/>
+		<category term="рассуждения"/>
+	</entry>
 	<entry xml:lang="ru">
 		<title>Аппроксимация распределения данных полиномом</title>
 		<published>2023-06-07T00:00:00+00:00</published>
@@ -140,6 +215,14 @@
 		<category term="клеточные-автоматы"/>
 		<category term="программирование"/>
 		<category term="обратимые-автоматы"/>
+	</entry>
+	<entry xml:lang="ru">
+		<title>Что будет если поместить портал в портал? Объяснение</title>
+		<published>2021-07-14T13:51:41+00:00</published>
+		<updated>2021-07-14T13:51:41+00:00</updated>
+		<link href="https://www.youtube.com/watch?v=1q0sHf_n_2Y" type="text/html"/>
+		<id>https://optozorax.github.io/v/1q0shf-n-2y/</id>
+		<summary type="html">В этом видео показывается решение самой сложной загадки, связанной с порталами: «Что будет если поместить один портал в другой?». Очень подробно объясняется как это работает, и как это запрограммировано.</summary>
 	</entry>
 	<entry xml:lang="ru">
 		<title>Двойки не существует</title>
@@ -277,6 +360,14 @@
 		<summary type="html">Статья о том что можно сделать с нейросетью, где нейроны соединены беспорядочным образом: примерно так, как должно быть у нас в мозге.</summary>
 		<category term="обозначения"/>
 		<category term="нейронные-сети"/>
+	</entry>
+	<entry xml:lang="ru">
+		<title>This happens when you put one portal inside another</title>
+		<published>2019-11-24T16:45:25+00:00</published>
+		<updated>2019-11-24T16:45:25+00:00</updated>
+		<link href="https://www.youtube.com/watch?v=fWkAfa96OmI" type="text/html"/>
+		<id>https://optozorax.github.io/v/fwkafa96omi/</id>
+		<summary type="html">This video shows solving for portal paradox: what if we put a portal inside another. I made it by simulating this process and render the result.</summary>
 	</entry>
 	<entry xml:lang="ru">
 		<title>Обозначения для линейной алгебры</title>

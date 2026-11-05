@@ -13,6 +13,89 @@
 	<icon>https://optozorax.github.io/favicon/android-chrome-192x192.png</icon>
 	<id>https://optozorax.github.io/en/atom.xml</id>
 	<entry xml:lang="en">
+		<title>What would a wormhole look like in the real life?</title>
+		<published>2026-10-23T12:16:59+00:00</published>
+		<updated>2026-10-23T12:16:59+00:00</updated>
+		<link href="https://www.youtube.com/watch?v=zA85gINcW1g" type="text/html"/>
+		<id>https://optozorax.github.io/en/v/za85gincw1g/</id>
+		<summary type="html">I wrote my own wormhole renderer to visualize wormholes in 3D environments (forest + mars) and explained how it works. Prepare your mind to comprehend 4D geometry.</summary>
+	</entry>
+	<entry xml:lang="en">
+		<title>Spherical portals explain dark energy?</title>
+		<published>2026-07-20T17:53:11+00:00</published>
+		<updated>2026-07-20T17:53:11+00:00</updated>
+		<link href="https://www.youtube.com/watch?v=F1W6zVJ7Yow" type="text/html"/>
+		<id>https://optozorax.github.io/en/v/f1w6zvj7yow/</id>
+		<summary type="html">What happens if a portal is shaped like a sphere? Spoiler: nothing... until you put one inside the other. Then space repeats infinitely, physics gets weird, and gravity starts acting like dark energy.</summary>
+	</entry>
+	<entry xml:lang="en">
+		<title>Portals can simulate a Klein bottle, so I calculated gravity on it</title>
+		<published>2026-02-28T15:01:03+00:00</published>
+		<updated>2026-02-28T15:01:03+00:00</updated>
+		<link href="https://www.youtube.com/watch?v=Q36ULjrK6Po" type="text/html"/>
+		<id>https://optozorax.github.io/en/v/q36uljrk6po/</id>
+		<summary type="html">Continuing to explore how portals affect gravity - this time looking at closed spaces (torus, Klein bottle, etc.) and pocket dimension (partially closed). In the process, I discovered an unexpected phenomenon called self-force, which makes me genuinely afraid of a portal into…</summary>
+	</entry>
+	<entry xml:lang="en">
+		<title>Portals must bend gravity, actually</title>
+		<published>2025-12-10T18:49:02+00:00</published>
+		<updated>2025-12-10T18:49:02+00:00</updated>
+		<link href="https://www.youtube.com/watch?v=DydIhwLrbMk" type="text/html"/>
+		<id>https://optozorax.github.io/en/v/dydihwlrbmk/</id>
+		<summary type="html">Portals don&#39;t conserve energy? Actually, no. We just need to allow gravity to flow through portals. And once we do that, portals start to conserve energy and make sense physically. But how can we do that? How does this change the portal&#39;s behavior? And how does this affect…</summary>
+	</entry>
+	<entry xml:lang="en">
+		<title>Antiportal - what is it and how does it explain pocket dimension?</title>
+		<published>2025-07-16T12:11:59+00:00</published>
+		<updated>2025-07-16T12:11:59+00:00</updated>
+		<link href="https://www.youtube.com/watch?v=1UsAqvooYj4" type="text/html"/>
+		<id>https://optozorax.github.io/en/v/1usaqvooyj4/</id>
+		<summary type="html">In the previous video, we learned how to create pocket dimension when one portal is smaller than the other. But is it possible when both portals are the same size? In this video, we will explore this problem from all sides and create a powerful approach for simulating portal…</summary>
+	</entry>
+	<entry xml:lang="en">
+		<title>Why do portals create pocket dimension when you put a small portal into a bigger portal?</title>
+		<published>2025-04-09T18:33:14+00:00</published>
+		<updated>2025-04-09T18:33:14+00:00</updated>
+		<link href="https://www.youtube.com/watch?v=IhEaw3Kuhf0" type="text/html"/>
+		<id>https://optozorax.github.io/en/v/iheaw3kuhf0/</id>
+		<summary type="html">What will happen if you take two portals, shrink one of them and place it inside the other? Finally, this solution has been found, and according to it, a pocket dimension should be created! And at the end, we discuss portal physics, because there has been a paradigm shift…</summary>
+	</entry>
+	<entry xml:lang="en">
+		<title>Portals with an impossible shape (cylinder, Mobius strip, knot)</title>
+		<published>2025-01-19T01:20:31+00:00</published>
+		<updated>2025-01-19T01:20:31+00:00</updated>
+		<link href="https://www.youtube.com/watch?v=3z3aC-1MGoE" type="text/html"/>
+		<id>https://optozorax.github.io/en/v/3z3ac-1mgoe/</id>
+		<summary type="html">I visualized other very strange portals, most of which was discovered by a professional mathematicians.</summary>
+	</entry>
+	<entry xml:lang="en">
+		<title>Portal with 3 parts: is this possible?</title>
+		<published>2025-01-03T13:05:10+00:00</published>
+		<updated>2025-01-03T13:05:10+00:00</updated>
+		<link href="https://www.youtube.com/watch?v=DTcfaHfDCEc" type="text/html"/>
+		<id>https://optozorax.github.io/en/v/dtcfahfdcec/</id>
+		<summary type="html">This video shows portal with three parts, with one part, and similiar portals. I discovered all of this myself.</summary>
+	</entry>
+	<entry xml:lang="en">
+		<title>What happens if you put a portal in a portal? Simulation and explanation</title>
+		<published>2024-12-19T11:50:02+00:00</published>
+		<updated>2024-12-19T11:50:02+00:00</updated>
+		<link href="https://www.youtube.com/watch?v=1zgBwQVr-wI" type="text/html"/>
+		<id>https://optozorax.github.io/en/v/1zgbwqvr-wi/</id>
+		<summary type="html">This video shows the solution to the most complex portal riddle: &quot;What will happen if we put one portal into another?&quot;. I explained how this works and how I programmed this.</summary>
+	</entry>
+	<entry xml:lang="en">
+		<title>unasanu — universe as a number</title>
+		<published>2023-08-28T00:00:00+00:00</published>
+		<updated>2023-08-28T00:00:00+00:00</updated>
+		<link href="https://unasanu.xyz/en/" type="text/html"/>
+		<id>https://optozorax.github.io/en/p/unasanu/</id>
+		<summary type="html">What if we live in a simulation? A philosophical article exploring parallel universes, consciousness and immortality through mathematics, programming and the Game of Life.</summary>
+		<category term="philosophy"/>
+		<category term="cellular-automata"/>
+		<category term="reasoning"/>
+	</entry>
+	<entry xml:lang="en">
 		<title>Approximating a data distribution with a polynomial</title>
 		<published>2023-06-07T00:00:00+00:00</published>
 		<updated>2023-06-07T00:00:00+00:00</updated>
