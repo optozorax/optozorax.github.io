@@ -307,6 +307,7 @@
 <h1 id="table-of-automata"><a class="anchor" href="#table-of-automata">#</a>Table of automata</h1>
 <p>In this article, much like in the ones above, I want to look at one-dimensional cellular automata, but reversible ones, and figure out their properties.</p>
 <p>There are many ways to get reversible cellular automata, but I'll pick the one Critters is built with, namely the Margolus neighborhood. In the one-dimensional case it is 2 bits in size, so the number of possible states is 2² = 4, and the number of possible rules is 2²! = 24.</p>
+<p>I describe how Critters works and explore its behavior in <a href="https://optozorax.github.io/en/p/critters/">my article on reversible cellular automata</a>.</p>
 <p>You can see all these automata in the table below. Each one starts with a random row of zeros and ones whose end wraps around to its beginning. Then the rules of the automaton are applied to it, and each resulting row is appended to the bottom of the picture. So in the pictures time runs downward, while space runs left and right. The number of the automaton (from 0 to 23) is written above, and its rule, that is, a permutation of the numbers <code>[0, 1, 2, 3]</code>, is written below.</p>
 <center>
 <div class="container">

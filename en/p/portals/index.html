@@ -643,7 +643,7 @@
 </video>
 <p>Below I'll describe how and why I made it.</p>
 <p>In the previous post, in the monoportal demo, you could see an interface for viewing the scene and rotating the triangle.</p>
-<p>That interface is built on megaui, the standard GUI of the library I use (macroquad). It's a so-called Immediate Mode GUI (from here on I'll call it imgui, not to be confused with the Dear ImGui library), which, in short, means it's used like this:</p>
+<p>That interface is built on megaui, the standard GUI of the library I use (macroquad). It's a so-called Immediate Mode GUI (from here on I'll call it imgui, not to be confused with the Dear ImGui library). I later described this approach in detail in <a href="https://optozorax.github.io/en/p/imgui/">my article on ImGui</a>. In short, it's used like this:</p>
 <pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>if ui.button(&quot;Add&quot;).clicked() {  </span></span>
 <span class="giallo-l"><span>    array.push(...);  </span></span>
 <span class="giallo-l"><span>}</span></span></code></pre>

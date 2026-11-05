@@ -244,6 +244,7 @@
 <p>I made a small library to calculate all these things: <a href="https://github.com/optozorax/permutation_string/blob/master/src/lib.rs">permutation_string</a>.</p>
 <p>In my program, you'll be able to specify rules in all three of these ways.</p>
 <p>I also want to make a GUI where you can drag the rules around with the mouse, with all these representations shown next to them. Luckily, with <a href="https://twitter.com/fedor_games/status/1313119249146281986">megaui</a> in <a href="https://twitter.com/fedor_games/status/1313219605981204482">macroquad</a> this is pretty easy to do. By the way, I didn't know Immediate Mode GUI was this simple o_O. It feels like a kind of dissonance after you've built GUIs with all those callbacks. Try reading the code and poking around.</p>
+<p>I later explored why this approach makes GUI development so much simpler in <a href="https://optozorax.github.io/en/p/imgui/">my article on ImGui</a>.</p>
 <p>And now I'll explain exactly how you can turn a permutation into a single number.</p>
 <p>Let's say we have a permutation <code>A</code> of five elements: <code>[4,1,2,3,0]</code>. The main property of any permutation is that all the numbers in it are unique. So we can transform this array into a slightly different one.</p>
 <p>Suppose we also have this array <code>B</code>: <code>[0,1,2,3,4]</code>.</p>

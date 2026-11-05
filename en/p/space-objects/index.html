@@ -1083,6 +1083,7 @@ slide_count[1] = 15;
 <span class="giallo-l"><span>}</span></span></code></pre>
 <p>Actually, I could have written an article about that solution, but it's not that pretty, and back then I hadn't yet grasped the whole point.</p>
 <p>Somewhere around this time I remembered linear algebra, and the idea got stuck in my head that coordinate systems are pretty handy in lots of problems.</p>
+<p>And I explained notation for bases and changes of basis in <a href="https://optozorax.github.io/en/p/linear-algebra/">my article on linear algebra</a>.</p>
 <p>Then, in a secret project, under the influence of this idea, the concept of a coordinate system was born; coordinate transformation was the very foundation of it there. At first this took the form of ugly functions <code>toCoordSystem()</code> and <code>fromCoordSystem()</code>, then, through many waves of refactoring, it evolved into what it is today. Because it was so convenient, I started using this code in all my other projects. And I had to drag the whole code of this secret project everywhere just for the coordinate transformations. That's when I realized that this part is so independent of the project itself that it should be extracted into a separate library.</p>
 <p>Well, and as I said at the beginning, when I started coming up with examples for this library, I realized how powerful it is, and how well it applies to my old projects.</p>
 <p>That's exactly why I've shown you this whole journey from nightmarish code to code that uses abstractions, using the simple example of a single fractal.</p>

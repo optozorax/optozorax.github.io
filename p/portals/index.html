@@ -632,7 +632,7 @@
 </video>
 <p>Далее будет написано как и почему я это сделал.</p>
 <p>В прошлом посте, в демке монопортала можно было наблюдать интерфейс, через который можно было смотреть сцену, крутить треугольник.</p>
-<p>Данный интерфейс сделан на основе megaui, стандартного гуя юзаемой мною библиотеки (macroquad). Данный интерфейс является так называемым Immediate Mode GUI (далее буду называть imgui, не путать с библиотекой dear imgui), то есть, кратко говоря, он используется следующим образом:</p>
+<p>Данный интерфейс сделан на основе megaui, стандартного гуя юзаемой мною библиотеки (macroquad). Данный интерфейс является так называемым Immediate Mode GUI (далее буду называть imgui, не путать с библиотекой dear imgui). Позже я подробно разобрал этот подход в <a href="https://optozorax.github.io/p/imgui/">своей статье об ImGui</a>. Кратко говоря, он используется следующим образом:</p>
 <pre class="giallo" style="color: #1F1F1F; background-color: #F5F5F5;" data-lang="plain"><code data-lang="plain"><span class="giallo-l"><span>if ui.button(&quot;Add&quot;).clicked() {  </span></span>
 <span class="giallo-l"><span>    array.push(...);  </span></span>
 <span class="giallo-l"><span>}</span></span></code></pre>
